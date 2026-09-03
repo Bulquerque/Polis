@@ -1,0 +1,22 @@
+bindings:
+  temporally_safe_candidate_bundle:
+    envelope: artifact_envelope.schema.json
+    record: candidate_bundle_record.schema.json
+  eligible_strategy_candidate_panel:
+    envelope: artifact_envelope.schema.json
+    record: eligibility_candidate_record.schema.json
+  eligibility_blocked_candidate_panel:
+    envelope: artifact_envelope.schema.json
+    record: eligibility_candidate_record.schema.json
+  eligibility_decision_panel:
+    envelope: artifact_envelope.schema.json
+    record: eligibility_decision_record.schema.json
+  candidate_comparison_group_panel:
+    envelope: artifact_envelope.schema.json
+    record: comparison_group_record.schema.json
+  candidate_metric_route_panel:
+    envelope: artifact_envelope.schema.json
+    record: metric_route_record.schema.json
+  runtime_foundation_handoff_manifest:
+    envelope: artifact_envelope.schema.json
+    record: foundation_handoff_record.schema.json

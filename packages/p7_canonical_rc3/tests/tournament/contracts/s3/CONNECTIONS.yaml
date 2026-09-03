@@ -1,0 +1,12 @@
+allowed:
+  - FOUNDATION -> P7.S3
+  - P7.S3.M01 -> P7.S3.M02
+  - P7.S3.M02 -> P7.S3.M03
+  - P7.S3.M03 -> P7.S3.M04
+  - P7.S3 -> P7.S4
+forbidden:
+  - P7.S3 -> P8 direct
+  - P7.S3 -> current-cycle P9
+  - P7.S3 -> P6 private implementation
+  - P7.S3 -> FOUNDATION private implementation
+  - module wrapper -> another module wrapper

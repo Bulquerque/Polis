@@ -1,0 +1,33 @@
+{
+  "apis": [
+    {
+      "api_id": "P9_S3_TO_S4_QUALIFIED_BACKTEST_V1",
+      "consumer": "P9.S4.M01",
+      "input_type": "QualifiedBacktestInput",
+      "producer": "P9.S3.M04"
+    },
+    {
+      "api_id": "P9_S4_ANALYTICS_REQUEST_V1",
+      "consumer": "S4AnalyticsService",
+      "input_type": "S4AnalyticsRequest"
+    },
+    {
+      "api_id": "P9_S4_ANALYTICS_RESULT_V1",
+      "output_type": "S4AnalyticsResult",
+      "producer": "S4AnalyticsService"
+    },
+    {
+      "api_id": "BACKTEST_METRICS_BACKTEST_METRICS_BUNDLE_V1",
+      "consumers": [
+        "P9.S5",
+        "P9.S6",
+        "P9.S8",
+        "P9.S9"
+      ],
+      "output_type": "BacktestMetricsBundle",
+      "producer": "P9.S4.M08"
+    }
+  ],
+  "registry_id": "P9_S4_APIS",
+  "registry_version": "1.0.0"
+}

@@ -1,0 +1,11 @@
+max_tokens_per_person_cycle: 24000
+priority_order:
+- current_stimulus
+- prior_beliefs
+- retrieved_evidence
+- person_identity
+- social_context
+- tool_entitlements
+- historical_context
+truncation: observable_section_aware
+min_evidence_items: 2

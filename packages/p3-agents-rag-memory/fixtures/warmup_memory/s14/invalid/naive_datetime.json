@@ -1,0 +1,98 @@
+{
+  "schema_id": "current_memory_state.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "current-memory-populated",
+  "module_id": "P3.S11.M03",
+  "run_id": "run-s14-001",
+  "snapshot_id": "snapshot-s14-001",
+  "cycle_id": "live-cycle-0001",
+  "cycle_number": 1,
+  "as_of_time": "2026-01-01T00:00:00",
+  "source_state_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "records": [
+    {
+      "memory_id": "mem-episodic-self",
+      "person_id": "person-001",
+      "memory_type": "EPISODIC",
+      "visibility_scope": "SELF",
+      "created_at": "2025-12-01T10:00:00Z",
+      "available_at": "2025-12-01T10:00:00Z",
+      "content_ref": {
+        "artifact_id": "content-1",
+        "artifact_type": "memory-content",
+        "content_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+        "schema_id": "memory_content.v1",
+        "schema_version": "1.0.0"
+      },
+      "importance": 0.8,
+      "repetition": 0.2,
+      "significance": 0.7
+    },
+    {
+      "memory_id": "mem-semantic-public",
+      "person_id": "person-001",
+      "memory_type": "SEMANTIC",
+      "visibility_scope": "PUBLIC",
+      "created_at": "2025-12-02T10:00:00Z",
+      "available_at": "2025-12-02T10:00:00Z",
+      "content_ref": {
+        "artifact_id": "content-2",
+        "artifact_type": "memory-content",
+        "content_hash": "2222222222222222222222222222222222222222222222222222222222222222"
+      },
+      "importance": 0.6,
+      "repetition": 0.5,
+      "significance": 0.5
+    },
+    {
+      "memory_id": "mem-social-visible",
+      "person_id": "person-002",
+      "memory_type": "SOCIAL",
+      "visibility_scope": "SOCIAL_VISIBLE",
+      "created_at": "2025-12-03T10:00:00Z",
+      "available_at": "2025-12-03T10:00:00Z",
+      "content_ref": {
+        "artifact_id": "content-3",
+        "artifact_type": "memory-content",
+        "content_hash": "3333333333333333333333333333333333333333333333333333333333333333"
+      },
+      "importance": 0.7,
+      "repetition": 0.3,
+      "significance": 0.6
+    },
+    {
+      "memory_id": "mem-audit",
+      "person_id": "person-002",
+      "memory_type": "PROCEDURAL",
+      "visibility_scope": "AUDIT_ONLY",
+      "created_at": "2025-12-04T10:00:00Z",
+      "available_at": "2025-12-04T10:00:00Z",
+      "content_ref": {
+        "artifact_id": "content-4",
+        "artifact_type": "memory-content",
+        "content_hash": "4444444444444444444444444444444444444444444444444444444444444444"
+      },
+      "importance": 0.9,
+      "repetition": 0.9,
+      "significance": 0.9
+    },
+    {
+      "memory_id": "mem-future",
+      "person_id": "person-001",
+      "memory_type": "EPISODIC",
+      "visibility_scope": "SELF",
+      "created_at": "2025-12-20T10:00:00Z",
+      "available_at": "2026-01-02T00:00:00Z",
+      "content_ref": {
+        "artifact_id": "content-5",
+        "artifact_type": "memory-content",
+        "content_hash": "5555555555555555555555555555555555555555555555555555555555555555"
+      },
+      "importance": 0.5,
+      "repetition": 0.1,
+      "significance": 0.4
+    }
+  ],
+  "content_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "lineage_id": "lineage-current-memory-populated"
+}

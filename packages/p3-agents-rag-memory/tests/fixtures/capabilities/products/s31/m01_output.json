@@ -1,0 +1,168 @@
+{
+  "module_id": "P3.S31.M01",
+  "module_name": "p9_evaluation_evidence_bundle_builder",
+  "phase": "phase_03_agents_rag_memory",
+  "subphase": "P3.S31",
+  "implementation_status": "IMPLEMENTED_QUALIFIED_INTERNAL",
+  "outputs": {
+    "p9_evaluation_evidence_bundle": {
+      "artifact_id": "p9-evaluation-evidence-bundle-952f3d4eb3511c0912c6",
+      "created_at": "2024-01-31T20:05:00Z",
+      "run_id": "run-s30-fixture",
+      "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:05:00Z",
+      "pipeline_version": "V14.1-RC4.1",
+      "schema_id": "p3.s31.p9_evaluation_evidence_bundle.semantic",
+      "schema_version": "1.0.0",
+      "items": [
+        {
+          "artifact_name": "belief_outcome_commitment_log",
+          "artifact_id": "commitment-log-s30-fixture",
+          "schema_id": "p3.s30.belief_outcome_commitment_log.input",
+          "schema_version": "1.0.0",
+          "content_hash": "b20f498443fb41b1c79970fd686374031385ef039ad593bf14be137a9c3e6b6c",
+          "row_count": 1,
+          "grain": [
+            "commitment_id"
+          ],
+          "producer_module_id": "P3.S22.M03",
+          "lineage_id": "lineage-commitment-log-s30",
+          "available_at": "2024-01-31T20:05:00Z",
+          "quality_status": "PASS"
+        },
+        {
+          "artifact_name": "model_knowledge_cutoff_report",
+          "artifact_id": "model-knowledge-cutoff-report-d2adbe0f29360d314cda",
+          "schema_id": "p3.s31.model_knowledge_cutoff_report.input",
+          "schema_version": "1.0.0",
+          "content_hash": "d2adbe0f29360d314cda6817a5958355adce94864c23475e9fbcba6a9b3e8329",
+          "row_count": 1,
+          "grain": [
+            "provider_id",
+            "model_id",
+            "model_version"
+          ],
+          "producer_module_id": "P3.S2.M03",
+          "lineage_id": "lineage-model-cutoff-s31-fixture",
+          "available_at": "2024-01-31T20:05:00Z",
+          "quality_status": "PASS"
+        },
+        {
+          "artifact_name": "phase3_run_snapshot",
+          "artifact_id": "snapshot-s30-fixture",
+          "schema_id": "p3.s30.phase3_run_snapshot.input",
+          "schema_version": "1.0.0",
+          "content_hash": "cfc221e9c07eb70eb6137e02dde275916faace562cf71e923607a3b33bae0492",
+          "row_count": 1,
+          "grain": [
+            "snapshot_id"
+          ],
+          "producer_module_id": "P3.S2.M02",
+          "lineage_id": "lineage-snapshot-s30",
+          "available_at": "2024-01-31T20:05:00Z",
+          "quality_status": "PASS"
+        },
+        {
+          "artifact_name": "phase4_social_handoff_manifest",
+          "artifact_id": "phase4-social-handoff-manifest-1f6e6ebc33d58b732feb",
+          "schema_id": "p3.s30.phase4_social_handoff_manifest.semantic",
+          "schema_version": "1.0.0",
+          "content_hash": "3e9f352898094730aa5ba60d0c10332ffbb35eda293e470a92c18198ef943fca",
+          "row_count": 5,
+          "grain": [
+            "artifact_name"
+          ],
+          "producer_module_id": "P3.S30.M04",
+          "lineage_id": "lineage-phase4-social-handoff-manifest-ad4b283e8cde3b59b1f02d12",
+          "available_at": "2024-01-31T20:05:00Z",
+          "quality_status": "PASS"
+        },
+        {
+          "artifact_name": "validated_society_state_panel",
+          "artifact_id": "society-state-s30-fixture",
+          "schema_id": "p3.s30.validated_society_state_panel.input",
+          "schema_version": "1.0.0",
+          "content_hash": "14bbe2283a60e21b22278deb739131e95a01d98ae8027a211f0d9ece7aaf6976",
+          "row_count": 1,
+          "grain": [
+            "underlying_id",
+            "proposition_id",
+            "horizon",
+            "as_of_time"
+          ],
+          "producer_module_id": "P3.S28.M03",
+          "lineage_id": "lineage-society-s30",
+          "available_at": "2024-01-31T20:05:00Z",
+          "quality_status": "PASS"
+        },
+        {
+          "artifact_name": "variable_evolution_input_manifest",
+          "artifact_id": "variable-evolution-input-manifest-aa3a2fde02a1d7602e94",
+          "schema_id": "p3.s30.variable_evolution_input_manifest.semantic",
+          "schema_version": "1.0.0",
+          "content_hash": "66c15bc1918352e03304a33c2fd2ad79a2de59150eca86aea7e13c5f752da995",
+          "row_count": 1,
+          "grain": [
+            "manifest_id"
+          ],
+          "producer_module_id": "P3.S30.M05",
+          "lineage_id": "lineage-variable-evolution-input-manifest-aa3a2fde02a1d7602e9438fe",
+          "available_at": "2024-01-31T20:05:00Z",
+          "quality_status": "PASS"
+        }
+      ],
+      "commitments": [
+        {
+          "commitment_id": "commitment-001",
+          "commitment_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "underlying_id": "PETR4",
+          "proposition_id": "directional_outlook",
+          "horizon": "21d",
+          "committed_at": "2024-01-31T19:55:00Z",
+          "matures_at": "2024-02-21T20:00:00Z",
+          "readiness": "PENDING_MATURITY",
+          "lineage_id": "lineage-commitment-001"
+        }
+      ],
+      "cutoff_risk_class": "LOWER_RISK",
+      "cutoff_report_ref": "model-knowledge-cutoff-report-d2adbe0f29360d314cda",
+      "reproducibility": {
+        "snapshot_id": "snapshot-s30-fixture",
+        "configuration_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "model_registry_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+        "input_set_hash": "06eb30c786707ed956d52c4e8a6d6e225eaf5eb056440ee7eb0370b3130f749e",
+        "bundle_build_type": "p3.s31.evaluation-evidence-export/v1",
+        "builder_id": "quant_pipeline.phase_03_agents_rag_memory.P3.S31.M01"
+      },
+      "blind_holdout_policy": {
+        "policy_id": "p9.blind_holdout.v1",
+        "policy_version": "1.0.0",
+        "evaluation_authority": "P9",
+        "producer_can_read_outcomes": false,
+        "contains_outcome_labels": false,
+        "contains_evaluation_results": false,
+        "same_cycle_feedback_allowed": false,
+        "feedback_return_artifact": "phase3_retro_handoff_manifest"
+      },
+      "evaluation_authority": "P9",
+      "contains_evaluation_results": false,
+      "contains_outcome_labels": false,
+      "contains_promotion_decision": false,
+      "quality_status": "PASS",
+      "quality_reasons": [],
+      "complete": true,
+      "lineage_id": "lineage-p9-evaluation-evidence-bundle-952f3d4eb3511c0912c6ffcf"
+    }
+  },
+  "observability": {
+    "events": [
+      "module_started",
+      "input_contract_validated",
+      "module_succeeded"
+    ],
+    "duration_ms": 1.712442,
+    "output_record_count": 6,
+    "warning_count": 0,
+    "error_count": 0
+  }
+}

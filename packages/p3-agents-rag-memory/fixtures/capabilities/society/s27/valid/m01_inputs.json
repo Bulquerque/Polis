@@ -1,0 +1,190 @@
+{
+  "next_belief_state_panel": {
+    "schema_version": "fixture.v1",
+    "run_id": "run-s27-001",
+    "cycle_id": 7,
+    "as_of_time": "2026-06-10T00:00:00Z",
+    "lineage_id": "lin-beliefs",
+    "records": [
+      {
+        "person_id": "p1",
+        "underlying_id": "PETR4",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "prior_value": -0.4,
+        "new_value": 0.6,
+        "delta": 1.0,
+        "confidence": 0.8,
+        "uncertainty": 0.2,
+        "prior_updated_at": "2026-06-08T00:00:00Z",
+        "changed_at": "2026-06-09T00:00:00Z",
+        "commitment_id": "c1",
+        "evidence_refs": [
+          "e1"
+        ],
+        "lineage_id": "lin-1"
+      },
+      {
+        "person_id": "p2",
+        "underlying_id": "PETR4",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "prior_value": 0.5,
+        "new_value": -0.5,
+        "delta": -1.0,
+        "confidence": 0.5,
+        "uncertainty": 0.5,
+        "prior_updated_at": "2026-06-07T00:00:00Z",
+        "changed_at": "2026-06-09T00:00:00Z",
+        "commitment_id": "c2",
+        "evidence_refs": [
+          "e2"
+        ],
+        "lineage_id": "lin-2"
+      },
+      {
+        "person_id": "p3",
+        "underlying_id": "PETR4",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "prior_value": 0.0,
+        "new_value": 0.0,
+        "delta": 0.0,
+        "confidence": 1.0,
+        "uncertainty": 0.1,
+        "prior_updated_at": null,
+        "changed_at": "2026-06-09T00:00:00Z",
+        "commitment_id": "c3",
+        "evidence_refs": [
+          "e3"
+        ],
+        "lineage_id": "lin-3"
+      }
+    ]
+  },
+  "validated_population_manifest": {
+    "schema_version": "fixture.v1",
+    "run_id": "run-s27-001",
+    "cycle_id": 7,
+    "as_of_time": "2026-06-10T00:00:00Z",
+    "lineage_id": "lin-population",
+    "records": [
+      {
+        "person_id": "p1",
+        "representation_weight": 1.0,
+        "role": "expert",
+        "institution_type": "bank",
+        "lineage_id": "lin-p1"
+      },
+      {
+        "person_id": "p2",
+        "representation_weight": 2.0,
+        "role": "retail",
+        "institution_type": "individual",
+        "lineage_id": "lin-p2"
+      },
+      {
+        "person_id": "p3",
+        "representation_weight": 1.0,
+        "role": "analyst",
+        "institution_type": "research",
+        "lineage_id": "lin-p3"
+      }
+    ]
+  },
+  "stimulus_panel": {
+    "schema_version": "fixture.v1",
+    "run_id": "run-s27-001",
+    "cycle_id": 7,
+    "as_of_time": "2026-06-10T00:00:00Z",
+    "lineage_id": "lin-stimuli",
+    "records": [
+      {
+        "stimulus_id": "s1",
+        "origin": "EXTERNAL",
+        "source_event_id": "ev1",
+        "causal_parent_id": null,
+        "target_person_id": null,
+        "underlying_id": "PETR4",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "created_cycle": 7,
+        "target_cycle": 7,
+        "event_time": "2026-06-09T00:00:00Z",
+        "available_at": "2026-06-09T00:00:00Z",
+        "evidence_refs": [
+          "e1"
+        ],
+        "lineage_id": "lin-s1"
+      },
+      {
+        "stimulus_id": "s2",
+        "origin": "EXTERNAL",
+        "source_event_id": "ev2",
+        "causal_parent_id": null,
+        "target_person_id": null,
+        "underlying_id": "VALE3",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "created_cycle": 7,
+        "target_cycle": 7,
+        "event_time": "2026-06-09T00:30:00Z",
+        "available_at": "2026-06-09T00:30:00Z",
+        "evidence_refs": [
+          "e4"
+        ],
+        "lineage_id": "lin-s2"
+      }
+    ]
+  },
+  "proposition_registry_config": {
+    "version": "v1",
+    "propositions": [
+      {
+        "proposition_id": "directional_outlook",
+        "description": "direction",
+        "allowed_horizons": [
+          "5d",
+          "21d"
+        ]
+      },
+      {
+        "proposition_id": "volatility_outlook",
+        "description": "volatility",
+        "allowed_horizons": [
+          "5d"
+        ]
+      }
+    ]
+  },
+  "aggregation_semantics_config": {
+    "version": "v1",
+    "formula_version": "p3.s27.formulas.v1",
+    "bearish_threshold": -0.1,
+    "bullish_threshold": 0.1,
+    "reversal_epsilon": 0.05,
+    "velocity_min_elapsed_seconds": 60.0,
+    "attention_formula": "weighted_mean_and_one_minus_normalized_entropy",
+    "information_formula": "weighted_population_standard_deviation",
+    "information_access_weight": 0.4,
+    "research_depth_weight": 0.3,
+    "validated_tool_weight": 0.3,
+    "validated_tool_gain_cap": 1.0,
+    "causal_delivery_statuses": [
+      "SEEN",
+      "INTERPRETED",
+      "USED"
+    ],
+    "validated_tool_statuses": [
+      "SUCCEEDED",
+      "VALIDATED"
+    ],
+    "secondary_activation_reasons": [
+      "SOCIAL_MESSAGE",
+      "SOCIAL_TOOL"
+    ],
+    "influence_concentration_formula": "HHI",
+    "zero_coverage_policy": "MATERIAL_RECORD",
+    "reject_causal_cycles": true
+  }
+}

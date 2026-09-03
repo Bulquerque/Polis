@@ -1,0 +1,43 @@
+module_id: P0.S7.M03
+module_name: agent_execution_policy_builder
+function: Construir policies efetivas por skill/template aplicando least privilege
+  e vinculando prompts validados aos standards canônicos de código, testes e governança.
+inputs: &id001
+- validated_agent_prompt_templates
+- code_standards
+- testing_standards
+outputs: &id002
+- agent_execution_policy
+validations:
+- definition_of_done_present
+- required_tests_declared
+- least_privilege_applied
+- standards_bound_by_hash
+- package_rules_declared
+fail_fast_conditions:
+- agent_execution_policy_builder_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S7.M02
+    artifacts: *id001
+    phase_inputs:
+    - code_standards
+    - testing_standards
+  emits_to:
+    modules:
+    - P0.S7.M04
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S7
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

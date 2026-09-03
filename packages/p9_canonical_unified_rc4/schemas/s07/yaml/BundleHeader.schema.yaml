@@ -1,0 +1,31 @@
+additionalProperties: false
+properties:
+  contract_name:
+    const: P9_S7_PROSPECTIVE_MONITORING_BUNDLE_V1
+    default: P9_S7_PROSPECTIVE_MONITORING_BUNDLE_V1
+    title: Contract Name
+    type: string
+  contract_version:
+    const: 1.0.0
+    default: 1.0.0
+    title: Contract Version
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  cycle_id:
+    minLength: 1
+    title: Cycle Id
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+required:
+- run_id
+- cycle_id
+- created_at
+title: BundleHeader
+type: object
+$id: urn:inferencia:p9:s7:BundleHeader:1.0.0

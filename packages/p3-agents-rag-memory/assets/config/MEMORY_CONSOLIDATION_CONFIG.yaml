@@ -1,0 +1,5 @@
+episodic_to_semantic_min_repetitions: 3
+feedback_requires_commit_hash: true
+audit_memory_append_only: true
+retro_experiment_memory_forbidden: true
+memory_trigger_threshold: 0.75

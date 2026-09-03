@@ -1,0 +1,252 @@
+$defs:
+  AppliedPenalty:
+    additionalProperties: false
+    properties:
+      penalty_id:
+        title: Penalty Id
+        type: string
+      head_id:
+        title: Head Id
+        type: string
+      threshold:
+        maximum: 1
+        minimum: 0
+        title: Threshold
+        type: number
+      coefficient:
+        minimum: 0
+        title: Coefficient
+        type: number
+      head_score:
+        maximum: 1
+        minimum: 0
+        title: Head Score
+        type: number
+      penalty_value:
+        minimum: 0
+        title: Penalty Value
+        type: number
+    required:
+    - penalty_id
+    - head_id
+    - threshold
+    - coefficient
+    - head_score
+    - penalty_value
+    title: AppliedPenalty
+    type: object
+  HeadScoreContribution:
+    additionalProperties: false
+    properties:
+      head_id:
+        title: Head Id
+        type: string
+      head_score:
+        maximum: 1
+        minimum: 0
+        title: Head Score
+        type: number
+      head_weight:
+        exclusiveMinimum: 0
+        minimum: 0
+        title: Head Weight
+        type: number
+      weighted_contribution:
+        minimum: 0
+        title: Weighted Contribution
+        type: number
+      source_status:
+        $ref: '#/$defs/HeadStatus'
+    required:
+    - head_id
+    - head_score
+    - head_weight
+    - weighted_contribution
+    - source_status
+    title: HeadScoreContribution
+    type: object
+  HeadStatus:
+    enum:
+    - AVAILABLE
+    - PENALIZED
+    - RENORMALIZED
+    - UNAVAILABLE
+    - BLOCKED
+    title: HeadStatus
+    type: string
+  InterpretableScoreRecord:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        title: Candidate Id
+        type: string
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      policy_id:
+        title: Policy Id
+        type: string
+      policy_version:
+        title: Policy Version
+        type: string
+      rule_id:
+        title: Rule Id
+        type: string
+      score_status:
+        $ref: '#/$defs/ScoreStatus'
+      base_score:
+        anyOf:
+        - maximum: 1
+          minimum: 0
+          type: number
+        - type: 'null'
+        title: Base Score
+      effective_head_weight:
+        minimum: 0
+        title: Effective Head Weight
+        type: number
+      head_contributions:
+        items:
+          $ref: '#/$defs/HeadScoreContribution'
+        title: Head Contributions
+        type: array
+      applied_penalties:
+        items:
+          $ref: '#/$defs/AppliedPenalty'
+        title: Applied Penalties
+        type: array
+      penalty_total:
+        minimum: 0
+        title: Penalty Total
+        type: number
+      confidence_head_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        title: Confidence Head Id
+      confidence_score:
+        anyOf:
+        - maximum: 1
+          minimum: 0
+          type: number
+        - type: 'null'
+        title: Confidence Score
+      confidence_adjustment:
+        title: Confidence Adjustment
+        type: number
+      boundary_adjustment:
+        title: Boundary Adjustment
+        type: number
+      final_interpretable_score:
+        anyOf:
+        - maximum: 1
+          minimum: 0
+          type: number
+        - type: 'null'
+        title: Final Interpretable Score
+      reason_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        title: Reason Code
+      lineage_id:
+        title: Lineage Id
+        type: string
+    required:
+    - candidate_id
+    - comparison_group_id
+    - policy_id
+    - policy_version
+    - rule_id
+    - score_status
+    - base_score
+    - effective_head_weight
+    - head_contributions
+    - applied_penalties
+    - penalty_total
+    - confidence_head_id
+    - confidence_score
+    - confidence_adjustment
+    - boundary_adjustment
+    - final_interpretable_score
+    - reason_code
+    - lineage_id
+    title: InterpretableScoreRecord
+    type: object
+  ScoreStatus:
+    enum:
+    - AVAILABLE
+    - BLOCKED
+    - UNAVAILABLE
+    title: ScoreStatus
+    type: string
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/InterpretableScoreRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: interpretable_score_panel envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s4/interpretable_score_panel/1.0.0

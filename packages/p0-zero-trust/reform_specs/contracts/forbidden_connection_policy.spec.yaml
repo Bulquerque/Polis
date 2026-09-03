@@ -1,0 +1,31 @@
+schema_id: forbidden_connection_policy.v1
+artifact_name: forbidden_connection_policy
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: true
+required_fields:
+- forbidden_connections
+properties:
+  forbidden_connections:
+    type: array
+    minItems: 1
+  policy_rules:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - rule_id
+      - source
+      - target
+      - severity
+      - release_blocking
+      - message
+      properties:
+        rule_id: {type: string, minLength: 1}
+        source: {type: object}
+        target: {type: object}
+        severity: {type: string, const: CRITICAL}
+        release_blocking: {type: boolean, const: true}
+        message: {type: string, minLength: 1}

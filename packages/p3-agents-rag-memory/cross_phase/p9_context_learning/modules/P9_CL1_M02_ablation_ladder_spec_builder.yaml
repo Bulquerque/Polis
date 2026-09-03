@@ -1,0 +1,19 @@
+module_id: P9.CL1.M02
+module_name: ablation_ladder_spec_builder
+authority_phase: P9
+status: planned_cross_phase_blueprint
+inputs:
+- p9_evaluation_evidence_bundle
+- standard_search_rag_baseline_spec
+outputs:
+- ablation_evaluation_spec
+forbidden_actions:
+- mutate_current_cycle
+- change_person_genome_directly
+- promote_without_statistical_evidence
+tests_required:
+- schema
+- lineage
+- blind_holdout
+- one_change
+- result_finalization

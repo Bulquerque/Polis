@@ -1,0 +1,165 @@
+{
+  "$defs": {
+    "ConsumerCompatibilityStatus": {
+      "enum": [
+        "PRODUCER_READY_CONSUMER_NOT_YET_WIRED",
+        "DEFERRED_BY_GOVERNANCE",
+        "CONSUMER_COMPATIBLE",
+        "INCOMPATIBLE"
+      ],
+      "title": "ConsumerCompatibilityStatus",
+      "type": "string"
+    },
+    "ReleaseGateStatus": {
+      "enum": [
+        "PASS",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM",
+        "FAIL"
+      ],
+      "title": "ReleaseGateStatus",
+      "type": "string"
+    },
+    "S40Lineage": {
+      "additionalProperties": false,
+      "properties": {
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "pattern": "^P3\\.S40\\.M\\d{2}$",
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "source_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Artifact Ids",
+          "type": "array"
+        },
+        "source_hashes": {
+          "additionalProperties": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Source Hashes",
+          "type": "object"
+        },
+        "transformation_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Transformation Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "lineage_id",
+        "producer_module_id"
+      ],
+      "title": "S40Lineage",
+      "type": "object"
+    }
+  },
+  "$id": "https://quant-pipeline.local/p3/research-tools/runtime/release_gate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocked_operations": {
+      "minimum": 0,
+      "title": "Blocked Operations",
+      "type": "integer"
+    },
+    "blocking_issue_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Blocking Issue Ids",
+      "type": "array"
+    },
+    "degraded_operations": {
+      "minimum": 0,
+      "title": "Degraded Operations",
+      "type": "integer"
+    },
+    "failed_operations": {
+      "minimum": 0,
+      "title": "Failed Operations",
+      "type": "integer"
+    },
+    "gate_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Gate Hash",
+      "type": "string"
+    },
+    "lineage": {
+      "$ref": "#/$defs/S40Lineage"
+    },
+    "p0_only_promotion_authority": {
+      "const": true,
+      "default": true,
+      "title": "P0 Only Promotion Authority",
+      "type": "boolean"
+    },
+    "p4_compatibility": {
+      "$ref": "#/$defs/ConsumerCompatibilityStatus"
+    },
+    "p5_direct_connection_absent": {
+      "const": true,
+      "default": true,
+      "title": "P5 Direct Connection Absent",
+      "type": "boolean"
+    },
+    "p9_compatibility": {
+      "$ref": "#/$defs/ConsumerCompatibilityStatus"
+    },
+    "qualified_operations": {
+      "minimum": 0,
+      "title": "Qualified Operations",
+      "type": "integer"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "p3.s40.v1",
+      "default": "p3.s40.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/ReleaseGateStatus"
+    }
+  },
+  "required": [
+    "status",
+    "qualified_operations",
+    "degraded_operations",
+    "blocked_operations",
+    "failed_operations",
+    "p4_compatibility",
+    "p9_compatibility",
+    "lineage",
+    "gate_hash"
+  ],
+  "title": "ReleaseGate",
+  "type": "object"
+}

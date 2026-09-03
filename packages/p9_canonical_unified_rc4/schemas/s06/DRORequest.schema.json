@@ -1,0 +1,208 @@
+{
+  "$defs": {
+    "AmbiguityFamily": {
+      "enum": [
+        "DISCRETE_SUPPORT_WASSERSTEIN_1"
+      ],
+      "title": "AmbiguityFamily",
+      "type": "string"
+    },
+    "AmbiguitySetPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "cvar_confidence_level": {
+          "default": 0.95,
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.5,
+          "title": "Cvar Confidence Level",
+          "type": "number"
+        },
+        "family": {
+          "$ref": "#/$defs/AmbiguityFamily",
+          "default": "DISCRETE_SUPPORT_WASSERSTEIN_1"
+        },
+        "maximum_scenarios": {
+          "default": 80,
+          "minimum": 1,
+          "title": "Maximum Scenarios",
+          "type": "integer"
+        },
+        "radius_calibration_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": ".*\\S.*",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Radius Calibration Id"
+        },
+        "radius_grid": {
+          "items": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "title": "Radius Grid",
+          "type": "array"
+        },
+        "solver_method": {
+          "default": "highs",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Solver Method",
+          "type": "string"
+        }
+      },
+      "required": [
+        "radius_grid"
+      ],
+      "title": "AmbiguitySetPolicy",
+      "type": "object"
+    },
+    "EmpiricalScenarioDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "distribution_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Distribution Id",
+          "type": "string"
+        },
+        "losses": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Losses",
+          "type": "array"
+        },
+        "scenario_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Scenario Ids",
+          "type": "array"
+        },
+        "scores": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scores"
+        },
+        "state_vectors": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "State Vectors",
+          "type": "array"
+        }
+      },
+      "required": [
+        "distribution_id",
+        "scenario_ids",
+        "state_vectors",
+        "losses"
+      ],
+      "title": "EmpiricalScenarioDistribution",
+      "type": "object"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "distribution": {
+      "$ref": "#/$defs/EmpiricalScenarioDistribution"
+    },
+    "policy": {
+      "$ref": "#/$defs/AmbiguitySetPolicy"
+    }
+  },
+  "required": [
+    "context",
+    "distribution",
+    "policy"
+  ],
+  "title": "DRORequest",
+  "type": "object"
+}

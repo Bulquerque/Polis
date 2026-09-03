@@ -1,0 +1,28 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+title: Data Vault Access Record
+properties:
+  access_id: &id001
+    type: string
+  vault:
+    type: string
+    enum:
+    - DISCOVERY
+    - VALIDATION
+    - SHADOW
+    - FINAL_HOLDOUT
+  experiment_id: *id001
+  reason: *id001
+  authorized:
+    type: boolean
+  accessed_at: *id001
+  lineage_id: *id001
+required:
+- access_id
+- vault
+- experiment_id
+- reason
+- authorized
+- accessed_at
+- lineage_id

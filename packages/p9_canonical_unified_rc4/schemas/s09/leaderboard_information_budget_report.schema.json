@@ -1,0 +1,117 @@
+{
+  "$defs": {
+    "ContaminationState": {
+      "enum": [
+        "CLEAN",
+        "LIMITED_USE",
+        "CONTAMINATED",
+        "UNKNOWN"
+      ],
+      "title": "ContaminationState",
+      "type": "string"
+    },
+    "LeaderboardState": {
+      "enum": [
+        "LEADERBOARD_CLEAN",
+        "LEADERBOARD_LIMITED_USE",
+        "LEADERBOARD_CONTAMINATED",
+        "SUBMISSION_BUDGET_EXHAUSTED",
+        "SUBMISSION_HISTORY_INCOMPLETE"
+      ],
+      "title": "LeaderboardState",
+      "type": "string"
+    },
+    "SubmissionAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "contamination_state": {
+          "$ref": "#/$defs/ContaminationState"
+        },
+        "cumulative_information_cost": {
+          "minimum": 0.0,
+          "title": "Cumulative Information Cost",
+          "type": "number"
+        },
+        "information_cost": {
+          "minimum": 0.0,
+          "title": "Information Cost",
+          "type": "number"
+        },
+        "reasons": {
+          "default": [],
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        },
+        "submission_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Submission Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "submission_id",
+        "information_cost",
+        "cumulative_information_cost",
+        "contamination_state"
+      ],
+      "title": "SubmissionAssessment",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessments": {
+      "items": {
+        "$ref": "#/$defs/SubmissionAssessment"
+      },
+      "title": "Assessments",
+      "type": "array"
+    },
+    "full_promotion_eligible": {
+      "title": "Full Promotion Eligible",
+      "type": "boolean"
+    },
+    "policy_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "remaining_information_budget": {
+      "minimum": 0.0,
+      "title": "Remaining Information Budget",
+      "type": "number"
+    },
+    "state": {
+      "$ref": "#/$defs/LeaderboardState"
+    },
+    "submission_count": {
+      "minimum": 0,
+      "title": "Submission Count",
+      "type": "integer"
+    },
+    "total_information_cost": {
+      "minimum": 0.0,
+      "title": "Total Information Cost",
+      "type": "number"
+    }
+  },
+  "required": [
+    "state",
+    "policy_id",
+    "submission_count",
+    "total_information_cost",
+    "remaining_information_budget",
+    "assessments",
+    "full_promotion_eligible"
+  ],
+  "title": "LeaderboardInformationBudgetReport",
+  "type": "object"
+}

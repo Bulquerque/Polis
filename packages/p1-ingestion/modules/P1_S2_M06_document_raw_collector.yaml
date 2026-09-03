@@ -1,0 +1,42 @@
+module_id: P1.S2.M06
+module_name: document_raw_collector
+phase: phase_01_ingestion
+subphase: P1.S2
+rc: RC4.1
+function: Capturar documentos/textos brutos mantendo referência de fonte e disponibilidade.
+inputs: &id001
+- capture_task_manifest
+outputs: &id002
+- document_raw_capture_inventory
+validations:
+- raw_text_or_file_preserved
+- source_available_at_declared
+fail_fast_conditions:
+- document_raw_collector_schema_violation
+- document_raw_collector_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P1.S2.M01
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P1.S2.M07
+    artifacts: *id002
+    phase_outputs: []
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

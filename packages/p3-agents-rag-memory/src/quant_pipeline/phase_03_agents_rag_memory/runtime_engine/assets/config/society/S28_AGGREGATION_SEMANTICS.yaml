@@ -1,0 +1,20 @@
+version: p3.s28.aggregation.v1
+formula_version: p3.s28.formulas.v1
+tag_projection_min_effective_n: 3.0
+tag_projection_min_raw_person_count: 3
+tag_weight_formula: representation_x_belief_confidence_x_tag_intensity_x_tag_confidence
+population_weight_formula: representation_x_belief_confidence
+suppression_policy: MATERIAL_SUPPRESSED_RECORD
+complement_policy: PEOPLE_WITHOUT_TAG
+divergence_formula: ABSOLUTE_WEIGHTED_MEAN_DIFFERENCE
+institutional_disagreement_formula: WEIGHTED_STD_OF_INSTITUTION_MEANS
+expert_tag_ids:
+  - research_skilled
+  - financially_literate
+  - statistically_literate
+  - institutional_data_access
+  - primary_source_oriented
+expert_min_assignment_value: 0.5
+institutional_min_effective_n: 2.0
+max_active_tag_projections_per_grain: 64
+zero_coverage_policy: MATERIAL_RECORD

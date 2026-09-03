@@ -1,0 +1,59 @@
+$defs:
+  Availability:
+    enum:
+    - AVAILABLE
+    - LIMITED
+    - UNAVAILABLE
+    - RESEARCH_ONLY
+    title: Availability
+    type: string
+additionalProperties: false
+properties:
+  availability:
+    $ref: '#/$defs/Availability'
+    default: AVAILABLE
+  target_coverage:
+    exclusiveMaximum: 1.0
+    exclusiveMinimum: 0.0
+    title: Target Coverage
+    type: number
+  learning_rate:
+    exclusiveMinimum: 0.0
+    maximum: 1.0
+    title: Learning Rate
+    type: number
+  minimum_miscoverage:
+    default: 0.001
+    exclusiveMaximum: 0.5
+    exclusiveMinimum: 0.0
+    title: Minimum Miscoverage
+    type: number
+  maximum_miscoverage:
+    default: 0.5
+    exclusiveMaximum: 1.0
+    exclusiveMinimum: 0.0
+    title: Maximum Miscoverage
+    type: number
+  calibration_window:
+    default: 200
+    minimum: 10
+    title: Calibration Window
+    type: integer
+  minimum_group_count:
+    default: 20
+    minimum: 2
+    title: Minimum Group Count
+    type: integer
+  maximum_qualified_width:
+    anyOf:
+    - exclusiveMinimum: 0.0
+      type: number
+    - type: 'null'
+    default: null
+    title: Maximum Qualified Width
+required:
+- target_coverage
+- learning_rate
+title: ConformalPolicy
+type: object
+$id: urn:inferencia:p9:s7:ConformalPolicy:1.0.0

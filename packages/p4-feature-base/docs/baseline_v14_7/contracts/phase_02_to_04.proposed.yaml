@@ -1,0 +1,28 @@
+contract_version: v14.9-rc1
+source_phase: phase_02_quality_pit
+target_phase: phase_04_feature_base
+required_shared_artifacts:
+- clean_underlying_panel
+- clean_macro_br_panel
+- clean_macro_us_panel
+- clean_benchmark_panel
+- clean_calendar_panel
+- clean_corporate_actions_panel
+- quality_report_phase_2
+- phase4_handoff_manifest
+extension_shared_artifacts:
+- clean_underlying_trade_panel
+- clean_option_contract_panel
+- clean_option_quotes_panel
+- clean_event_reference_panel
+- clean_context_source_panel
+- clean_document_panel
+- source_quality_panel
+- clean_liquidity_reference_panel
+rules:
+- required_bundle_fail_closed
+- extension_absence_degrades_only_dependent_families
+- lineage_hash_schema_required
+proposed_extension_artifacts:
+- clean_fundamental_panel
+- clean_curve_term_structure_panel

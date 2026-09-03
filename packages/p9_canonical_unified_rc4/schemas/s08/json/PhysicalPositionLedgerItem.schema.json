@@ -1,0 +1,26 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "net_quantity": {
+      "title": "Net Quantity",
+      "type": "number"
+    },
+    "realized_physical_pnl": {
+      "title": "Realized Physical Pnl",
+      "type": "number"
+    }
+  },
+  "required": [
+    "instrument_id",
+    "net_quantity",
+    "realized_physical_pnl"
+  ],
+  "title": "PhysicalPositionLedgerItem",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:PhysicalPositionLedgerItem:1.0.0"
+}

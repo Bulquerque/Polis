@@ -1,0 +1,92 @@
+{
+  "$defs": {
+    "MacroMode": {
+      "enum": [
+        "LOOKUP",
+        "CONTEXT",
+        "VINTAGE_ANALYSIS"
+      ],
+      "title": "MacroMode",
+      "type": "string"
+    },
+    "Transformation": {
+      "enum": [
+        "LEVEL",
+        "DIFFERENCE",
+        "PERCENT_CHANGE",
+        "LOG_DIFFERENCE",
+        "YEAR_OVER_YEAR",
+        "ANNUALIZED"
+      ],
+      "title": "Transformation",
+      "type": "string"
+    },
+    "VintagePolicy": {
+      "enum": [
+        "KNOWN_AT_DECISION_TIME",
+        "ORIGINAL_RELEASE",
+        "LATEST_KNOWN_AT_DECISION_TIME"
+      ],
+      "title": "VintagePolicy",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "end_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End Date"
+    },
+    "max_records": {
+      "default": 500,
+      "maximum": 10000,
+      "minimum": 1,
+      "title": "Max Records",
+      "type": "integer"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/MacroMode",
+      "default": "LOOKUP"
+    },
+    "series_id": {
+      "minLength": 1,
+      "title": "Series Id",
+      "type": "string"
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Start Date"
+    },
+    "transformation": {
+      "$ref": "#/$defs/Transformation",
+      "default": "LEVEL"
+    },
+    "vintage_policy": {
+      "$ref": "#/$defs/VintagePolicy",
+      "default": "KNOWN_AT_DECISION_TIME"
+    }
+  },
+  "required": [
+    "series_id"
+  ],
+  "title": "GetObservationsRequest",
+  "type": "object"
+}

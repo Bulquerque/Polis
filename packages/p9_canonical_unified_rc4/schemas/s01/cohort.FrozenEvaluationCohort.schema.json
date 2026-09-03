@@ -1,0 +1,107 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "FrozenCohortRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "lineage_complete": {
+          "title": "Lineage Complete",
+          "type": "boolean"
+        },
+        "outcome_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Outcome Record Sha256",
+          "type": "string"
+        },
+        "subject_id": {
+          "minLength": 1,
+          "title": "Subject Id",
+          "type": "string"
+        },
+        "target_type": {
+          "minLength": 1,
+          "title": "Target Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "subject_id",
+        "target_type",
+        "evidence_class",
+        "outcome_record_sha256",
+        "lineage_complete"
+      ],
+      "title": "FrozenCohortRecord",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cohort_id": {
+      "minLength": 1,
+      "title": "Cohort Id",
+      "type": "string"
+    },
+    "cohort_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Cohort Sha256",
+      "type": "string"
+    },
+    "commitment_id": {
+      "minLength": 1,
+      "title": "Commitment Id",
+      "type": "string"
+    },
+    "excluded_subject_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Excluded Subject Ids",
+      "type": "array"
+    },
+    "frozen_at": {
+      "format": "date-time",
+      "title": "Frozen At",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/FrozenCohortRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "required": [
+    "cohort_id",
+    "commitment_id",
+    "policy_id",
+    "frozen_at",
+    "records",
+    "excluded_subject_ids",
+    "cohort_sha256"
+  ],
+  "title": "FrozenEvaluationCohort",
+  "type": "object"
+}

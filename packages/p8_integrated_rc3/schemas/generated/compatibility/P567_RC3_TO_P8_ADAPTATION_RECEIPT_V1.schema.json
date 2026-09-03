@@ -1,0 +1,291 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "relationship_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relationship Type"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_version",
+        "contract_version",
+        "content_sha256",
+        "available_at"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "SourceArtifactAuditRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "source_artifact_id": {
+          "minLength": 1,
+          "title": "Source Artifact Id",
+          "type": "string"
+        },
+        "source_artifact_type": {
+          "minLength": 1,
+          "title": "Source Artifact Type",
+          "type": "string"
+        },
+        "source_hash_field": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Hash Field"
+        },
+        "source_phase": {
+          "enum": [
+            "P5",
+            "P6",
+            "P7"
+          ],
+          "title": "Source Phase",
+          "type": "string"
+        },
+        "source_release": {
+          "minLength": 1,
+          "title": "Source Release",
+          "type": "string"
+        },
+        "source_reported_hash": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Reported Hash"
+        },
+        "source_schema_version": {
+          "minLength": 1,
+          "title": "Source Schema Version",
+          "type": "string"
+        },
+        "wrapped_reference": {
+          "$ref": "#/$defs/ArtifactReference"
+        }
+      },
+      "required": [
+        "source_phase",
+        "source_release",
+        "source_artifact_id",
+        "source_artifact_type",
+        "source_schema_version",
+        "wrapped_reference"
+      ],
+      "title": "SourceArtifactAuditRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "abstained_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Abstained Candidate Ids",
+      "type": "array"
+    },
+    "adapter_id": {
+      "const": "P8.P567_RC3.BRIDGE",
+      "title": "Adapter Id",
+      "type": "string"
+    },
+    "adapter_release": {
+      "minLength": 1,
+      "title": "Adapter Release",
+      "type": "string"
+    },
+    "computed_at": {
+      "format": "date-time",
+      "title": "Computed At",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "P567_RC3_TO_P8_ADAPTATION_RECEIPT_V1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "eligibility_blocked_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Eligibility Blocked Candidate Ids",
+      "type": "array"
+    },
+    "ranked_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Ranked Candidate Ids",
+      "type": "array"
+    },
+    "receipt_id": {
+      "minLength": 1,
+      "title": "Receipt Id",
+      "type": "string"
+    },
+    "received_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Received Candidate Ids",
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "safety_blocked_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Safety Blocked Candidate Ids",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_artifacts": {
+      "items": {
+        "$ref": "#/$defs/SourceArtifactAuditRecord"
+      },
+      "title": "Source Artifacts",
+      "type": "array"
+    },
+    "source_p5_release": {
+      "minLength": 1,
+      "title": "Source P5 Release",
+      "type": "string"
+    },
+    "source_p6_release": {
+      "minLength": 1,
+      "title": "Source P6 Release",
+      "type": "string"
+    },
+    "source_p7_release": {
+      "minLength": 1,
+      "title": "Source P7 Release",
+      "type": "string"
+    },
+    "transformations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Transformations",
+      "type": "array"
+    },
+    "warnings": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "receipt_id",
+    "contract_version",
+    "schema_version",
+    "adapter_id",
+    "adapter_release",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "computed_at",
+    "source_p5_release",
+    "source_p6_release",
+    "source_p7_release",
+    "source_artifacts",
+    "received_candidate_ids",
+    "ranked_candidate_ids",
+    "eligibility_blocked_candidate_ids",
+    "safety_blocked_candidate_ids",
+    "abstained_candidate_ids",
+    "transformations",
+    "content_sha256"
+  ],
+  "title": "P567RC3AdaptationReceiptV1",
+  "type": "object"
+}

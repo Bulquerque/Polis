@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cognition_transaction_id": {
+      "minLength": 1,
+      "title": "Cognition Transaction Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "deterministic_seed": {
+      "minimum": 0,
+      "title": "Deterministic Seed",
+      "type": "integer"
+    },
+    "person_id": {
+      "minLength": 1,
+      "title": "Person Id",
+      "type": "string"
+    },
+    "request_id": {
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "cycle_id",
+    "snapshot_id",
+    "request_id",
+    "cognition_transaction_id",
+    "person_id",
+    "decision_time",
+    "deterministic_seed"
+  ],
+  "title": "MacroToolCallContext",
+  "type": "object"
+}

@@ -1,0 +1,19 @@
+comparisons:
+  A: standard_search_rag_baseline
+  B: synthetic_society_baseline
+  C: synthetic_society_plus_single_retro_change_candidate
+gates:
+  society_value: B must outperform A on OOS Sharpe under matched downstream conditions
+  retro_value: C must outperform B on OOS Sharpe under matched downstream conditions
+primary_economic_metric: Sharpe_OOS
+guardrails:
+- max_drawdown
+- PIT_integrity
+- forbidden_authority_integrity
+same_downstream_seeds: true
+development_social_replications: 1
+promotion_social_replications: small_configurable_sample_if_candidate_promising
+llm_temperature: low
+final_holdout_blind: true
+one_retro_change_per_experiment: true
+rule: evaluation is external/downstream; P3 defines matched artifacts/manifests but does not own portfolio or execution

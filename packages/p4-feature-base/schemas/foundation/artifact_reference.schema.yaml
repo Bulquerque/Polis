@@ -1,0 +1,48 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:p4:s1:artifact-reference:v1
+title: P4 S1 artifact reference
+type: object
+additionalProperties: false
+properties:
+  artifact_name:
+    type: string
+  artifact_id:
+    type: string
+  schema_id:
+    type:
+    - string
+    - 'null'
+  schema_version:
+    type:
+    - string
+    - 'null'
+  content_hash:
+    type: string
+    pattern: ^[a-f0-9]{64}$
+  legacy_content_hash:
+    type:
+    - string
+    - 'null'
+    pattern: ^[a-f0-9]{64}$
+  lineage_id:
+    type: string
+  row_count:
+    type: integer
+    minimum: 0
+  quality_status:
+    type: string
+  compatibility_status:
+    type: string
+  warnings:
+    type: array
+    items:
+      type: string
+required:
+- artifact_name
+- artifact_id
+- content_hash
+- lineage_id
+- row_count
+- quality_status
+- compatibility_status
+- warnings

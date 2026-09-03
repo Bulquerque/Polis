@@ -1,0 +1,18 @@
+format: P4_S{SUBPHASE}_M{MODULE}_{CATEGORY}
+categories:
+- INPUT_INVALID
+- SCHEMA_INVALID
+- HASH_MISMATCH
+- TEMPORAL_VIOLATION
+- FORBIDDEN_FIELD
+- UNDECLARED_DEPENDENCY
+- NUMERIC_DOMAIN_ERROR
+- FIT_STATE_INVALID
+- OUTPUT_INVALID
+- NONDETERMINISTIC_REPLAY
+- UPSTREAM_UNAVAILABLE
+- INTERNAL_ERROR
+rules:
+- every raised domain error_has_code
+- error_codes_are_stable_across_refactors
+- raw_credentials_and_full_payloads_never_logged

@@ -1,0 +1,21 @@
+{
+  "version": "social_graph.test.v1",
+  "min_degree": 0,
+  "max_degree": 4,
+  "max_connected_components": 4,
+  "min_bridge_edges_between_role_families": 0,
+  "max_hub_share": 1.0,
+  "domain_trust_range": [
+    0.0,
+    1.0
+  ],
+  "allowed_relationship_types": [
+    "peer",
+    "advisor",
+    "information_source",
+    "institutional_contact"
+  ],
+  "degree_mode": "total_unique_neighbors",
+  "enforce_minimums": true,
+  "allow_parallel_relationship_types": true
+}

@@ -1,0 +1,53 @@
+{
+  "models": [
+    {
+      "description": "Market excess return factor model",
+      "factor_ids": [
+        "MKT_RF"
+      ],
+      "factor_model_id": "CAPM",
+      "factor_model_version": "1.0.0",
+      "include_intercept": true
+    },
+    {
+      "description": "Fama-French three-factor model",
+      "factor_ids": [
+        "MKT_RF",
+        "SMB",
+        "HML"
+      ],
+      "factor_model_id": "FF3",
+      "factor_model_version": "1.0.0",
+      "include_intercept": true
+    },
+    {
+      "description": "Fama-French five-factor model",
+      "factor_ids": [
+        "MKT_RF",
+        "SMB",
+        "HML",
+        "RMW",
+        "CMA"
+      ],
+      "factor_model_id": "FF5",
+      "factor_model_version": "1.0.0",
+      "include_intercept": true
+    },
+    {
+      "description": "Fama-French five factors plus momentum",
+      "factor_ids": [
+        "MKT_RF",
+        "SMB",
+        "HML",
+        "RMW",
+        "CMA",
+        "MOM"
+      ],
+      "factor_model_id": "FF5_MOM",
+      "factor_model_version": "1.0.0",
+      "include_intercept": true
+    }
+  ],
+  "registry_id": "P9_S4_FACTOR_MODELS",
+  "registry_version": "1.0.0"
+}

@@ -1,0 +1,38 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/compare_versions/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "document_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 20,
+      "minItems": 2,
+      "title": "Document Ids",
+      "type": "array"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "section_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Section Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "research_mode",
+    "document_ids"
+  ],
+  "title": "CompareVersionsRequest",
+  "type": "object"
+}

@@ -1,0 +1,17 @@
+schema_id: p3.s37.macro_transformation_policy.v1
+schema_version: 1.0.0
+transformations:
+  LEVEL:
+    minimum_observations: 1
+  DIFFERENCE:
+    minimum_observations: 2
+  PERCENT_CHANGE:
+    minimum_observations: 2
+    zero_denominator: BLOCK
+  LOG_DIFFERENCE:
+    minimum_observations: 2
+    non_positive_values: BLOCK
+  YEAR_OVER_YEAR:
+    supported_frequencies: [MONTHLY, QUARTERLY, ANNUAL, WEEKLY, DAILY]
+  ANNUALIZED:
+    supported_frequencies: [MONTHLY, QUARTERLY, ANNUAL, WEEKLY, DAILY]

@@ -1,0 +1,474 @@
+{
+  "$defs": {
+    "CandidateValuation": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "market_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Market Value"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "signed_cost_basis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Cost Basis"
+        },
+        "unrealized_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Unrealized Pnl"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "instrument_id",
+        "as_of_time",
+        "currency",
+        "quantity",
+        "market_value",
+        "signed_cost_basis",
+        "unrealized_pnl"
+      ],
+      "title": "CandidateValuation",
+      "type": "object"
+    },
+    "DrawdownRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "current_nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Current Nav"
+        },
+        "drawdown_amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Drawdown Amount"
+        },
+        "drawdown_fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Drawdown Fraction"
+        },
+        "peak_nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Peak Nav"
+        }
+      },
+      "required": [
+        "as_of_time",
+        "peak_nav",
+        "current_nav",
+        "drawdown_amount",
+        "drawdown_fraction"
+      ],
+      "title": "DrawdownRecord",
+      "type": "object"
+    },
+    "EquityPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Nav"
+        }
+      },
+      "required": [
+        "as_of_time",
+        "nav"
+      ],
+      "title": "EquityPoint",
+      "type": "object"
+    },
+    "MarkType": {
+      "enum": [
+        "BID",
+        "ASK",
+        "MID",
+        "LAST",
+        "SETTLEMENT",
+        "MODEL",
+        "STALE",
+        "UNAVAILABLE"
+      ],
+      "title": "MarkType",
+      "type": "string"
+    },
+    "NAVRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "functional_currency": {
+          "minLength": 1,
+          "title": "Functional Currency",
+          "type": "string"
+        },
+        "known_nav_component": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Known Nav Component"
+        },
+        "net_external_flow": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Net External Flow"
+        },
+        "period_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Period Pnl"
+        },
+        "status": {
+          "$ref": "#/$defs/ValuationStatus"
+        },
+        "total_nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Total Nav"
+        },
+        "unpriced_instruments": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Unpriced Instruments",
+          "type": "array"
+        }
+      },
+      "required": [
+        "as_of_time",
+        "functional_currency",
+        "status",
+        "total_nav",
+        "known_nav_component",
+        "unpriced_instruments",
+        "net_external_flow",
+        "period_pnl"
+      ],
+      "title": "NAVRecord",
+      "type": "object"
+    },
+    "PositionValuation": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "mark_age_seconds": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mark Age Seconds"
+        },
+        "mark_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mark Price"
+        },
+        "mark_type": {
+          "$ref": "#/$defs/MarkType"
+        },
+        "market_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Market Value"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "signed_cost_basis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Cost Basis"
+        },
+        "unrealized_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Unrealized Pnl"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "as_of_time",
+        "currency",
+        "quantity",
+        "mark_type",
+        "mark_price",
+        "market_value",
+        "signed_cost_basis",
+        "unrealized_pnl",
+        "mark_age_seconds"
+      ],
+      "title": "PositionValuation",
+      "type": "object"
+    },
+    "ValuationStatus": {
+      "enum": [
+        "COMPLETE",
+        "INCOMPLETE",
+        "DEGRADED"
+      ],
+      "title": "ValuationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "items": {
+        "$ref": "#/$defs/CandidateValuation"
+      },
+      "title": "Candidates",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "drawdown": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DrawdownRecord"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "equity_curve": {
+      "items": {
+        "$ref": "#/$defs/EquityPoint"
+      },
+      "title": "Equity Curve",
+      "type": "array"
+    },
+    "nav": {
+      "$ref": "#/$defs/NAVRecord"
+    },
+    "positions": {
+      "items": {
+        "$ref": "#/$defs/PositionValuation"
+      },
+      "title": "Positions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "positions",
+    "candidates",
+    "nav",
+    "equity_curve",
+    "drawdown",
+    "content_sha256"
+  ],
+  "title": "ValuationBundle",
+  "type": "object"
+}

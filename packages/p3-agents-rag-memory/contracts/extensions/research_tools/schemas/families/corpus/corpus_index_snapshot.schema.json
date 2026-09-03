@@ -1,0 +1,316 @@
+{
+  "$defs": {
+    "CapabilityReadiness": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_id": {
+          "minLength": 1,
+          "title": "Capability Id",
+          "type": "string"
+        },
+        "model_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Id"
+        },
+        "model_revision": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Revision"
+        },
+        "provider_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Id"
+        },
+        "qualification_status": {
+          "minLength": 1,
+          "title": "Qualification Status",
+          "type": "string"
+        },
+        "reason_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason Code"
+        },
+        "snapshot_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Snapshot Id"
+        },
+        "status": {
+          "$ref": "#/$defs/CapabilityStatus"
+        },
+        "supported_filters": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Supported Filters",
+          "type": "array"
+        }
+      },
+      "required": [
+        "capability_id",
+        "status",
+        "qualification_status"
+      ],
+      "title": "CapabilityReadiness",
+      "type": "object"
+    },
+    "CapabilityStatus": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "DISABLED",
+        "BLOCKED"
+      ],
+      "title": "CapabilityStatus",
+      "type": "string"
+    },
+    "CorpusArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "format_version": {
+          "minLength": 1,
+          "title": "Format Version",
+          "type": "string"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "record_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Record Count"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        },
+        "uri": {
+          "minLength": 1,
+          "title": "Uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_type",
+        "uri",
+        "content_hash",
+        "media_type",
+        "size_bytes",
+        "format_version"
+      ],
+      "title": "CorpusArtifactRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "capabilities": {
+      "items": {
+        "$ref": "#/$defs/CapabilityReadiness"
+      },
+      "title": "Capabilities",
+      "type": "array"
+    },
+    "chunk_catalog": {
+      "$ref": "#/$defs/CorpusArtifactRef"
+    },
+    "chunk_count": {
+      "minimum": 0,
+      "title": "Chunk Count",
+      "type": "integer"
+    },
+    "chunk_schema_id": {
+      "minLength": 1,
+      "title": "Chunk Schema Id",
+      "type": "string"
+    },
+    "configuration_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Configuration Hash",
+      "type": "string"
+    },
+    "content_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "fallback_strategy": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fallback Strategy"
+    },
+    "issues": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Issues",
+      "type": "array"
+    },
+    "keyword_index": {
+      "$ref": "#/$defs/CorpusArtifactRef"
+    },
+    "provider_fingerprints": {
+      "additionalProperties": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Provider Fingerprints",
+      "type": "object"
+    },
+    "rag_index_artifact_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Rag Index Artifact Hash",
+      "type": "string"
+    },
+    "required_metadata_filters": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Required Metadata Filters",
+      "type": "array"
+    },
+    "retrieval_manifest_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Retrieval Manifest Hash",
+      "type": "string"
+    },
+    "retrieval_manifest_id": {
+      "minLength": 1,
+      "title": "Retrieval Manifest Id",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "corpus_index_snapshot.s35.v1",
+      "default": "corpus_index_snapshot.s35.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "vector_index": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CorpusArtifactRef"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "artifact_id",
+    "run_id",
+    "snapshot_id",
+    "as_of_time",
+    "retrieval_manifest_id",
+    "retrieval_manifest_hash",
+    "rag_index_artifact_hash",
+    "chunk_schema_id",
+    "chunk_count",
+    "chunk_catalog",
+    "keyword_index",
+    "capabilities",
+    "required_metadata_filters",
+    "configuration_hash",
+    "provider_fingerprints",
+    "content_hash"
+  ],
+  "title": "CorpusIndexSnapshot",
+  "type": "object"
+}

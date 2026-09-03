@@ -1,0 +1,17 @@
+connections:
+  - producer: FOUNDATION
+    consumer: P7.S3.M01
+    contract: runtime_foundation_handoff_manifest
+  - producer: P7.S3.M04
+    consumer: P7.S4.M01
+    artifacts: [pareto_frontier_panel, pareto_frontier_audit_report]
+  - producer: P7.S2.M04
+    consumer: P7.S4.M01
+    artifacts: [candidate_comparison_group_panel, scoring_policy_context]
+  - producer: P7.S4.M04
+    consumer: LEARNING
+    contract: interpretable_tournament_handoff_manifest
+forbidden:
+  - P7.S3 imports P7.S4 private implementation
+  - P7.S4 recalculates dominance or Pareto
+  - TOURNAMENT produces final rank or portfolio decisions

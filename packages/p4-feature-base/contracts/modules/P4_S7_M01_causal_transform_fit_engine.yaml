@@ -1,0 +1,53 @@
+module_id: P4.S7.M01
+module_name: causal_transform_fit_engine
+function: Fit and apply causal feature transformations with explicit versioned states.
+inputs:
+- horizon_feature_panel
+- transform_policy_registry
+outputs:
+- causally_transformed_feature_panel
+- causal_transform_fit_state_manifest
+validations:
+- past_only_fit
+- policy_for_every_feature
+- missingness_preserved
+- deterministic_refit
+phase: P4
+subphase: P4.S7
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- execution_fill
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- single_responsibility
+- no_hidden_global_state
+fail_fast_conditions:
+- P4_S7_M01_INPUT_INVALID
+- P4_S7_M01_TEMPORAL_VIOLATION
+- P4_S7_M01_FORBIDDEN_FIELD
+- P4_S7_M01_OUTPUT_INVALID
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- forbidden_field_negative
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S7_M01_causal_transform_fit_engine.py
+production_promotion_allowed: false

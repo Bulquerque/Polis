@@ -1,0 +1,134 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: person_schema_policy.v2
+title: person_schema_policy
+schema_version: v14.1-rc4.1
+type: object
+required:
+- schema_id
+- schema_version
+- contract_version
+- policy_id
+- policy_version
+- person_profile_schema
+- tag_registry_ref
+- role_taxonomy
+- objective_registry
+- representation_policy
+- immutable_field_paths
+- structural_slow_field_paths
+- dynamic_state_classes
+- state_class_locations
+- consistency_rules
+- policy_hash
+- lineage_id
+- status
+- issues
+properties:
+  schema_id:
+    const: person_schema_policy.v2
+  schema_version:
+    const: 2.0.0
+  contract_version:
+    const: p3.s4.person-policy.v2
+  policy_id:
+    type: string
+    minLength: 1
+  policy_version:
+    type: string
+    pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+  person_profile_schema:
+    type: object
+    required:
+    - schema_id
+    - schema_version
+    - content_hash
+    properties:
+      schema_id:
+        const: person_profile.v1
+      schema_version:
+        const: 1.0.0
+      content_hash:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+    additionalProperties: false
+  tag_registry_ref:
+    type: object
+    required:
+    - registry_id
+    - registry_version
+    - registry_hash
+    properties:
+      registry_id:
+        type: string
+        minLength: 1
+      registry_version:
+        type: string
+        pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+      registry_hash:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+    additionalProperties: false
+  role_taxonomy:
+    type: object
+  objective_registry:
+    type: object
+  representation_policy:
+    type: object
+  immutable_field_paths:
+    type: array
+    minItems: 1
+    uniqueItems: true
+    items:
+      type: string
+  structural_slow_field_paths:
+    type: array
+    minItems: 1
+    uniqueItems: true
+    items:
+      type: string
+  dynamic_state_classes:
+    type: object
+    required:
+    - medium
+    - fast
+    properties:
+      medium:
+        type: array
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+      fast:
+        type: array
+        minItems: 1
+        uniqueItems: true
+        items:
+          type: string
+    additionalProperties: false
+  state_class_locations:
+    const:
+      immutable: person_profile
+      slow: person_profile
+      medium: runtime_state
+      fast: runtime_state
+  consistency_rules:
+    type: array
+    minItems: 1
+    uniqueItems: true
+    items:
+      type: string
+  policy_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  lineage_id:
+    type: string
+    minLength: 1
+  status:
+    const: READY
+  issues:
+    type: array
+    maxItems: 0
+additionalProperties: false
+artifact_name: person_schema_policy
+schema_id: person_schema_policy.v2
+artifact_schema_version: 2.0.0

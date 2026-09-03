@@ -1,0 +1,80 @@
+{
+  "$defs": {
+    "CandidateConsumptionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/ReceiptStatus"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "status"
+      ],
+      "title": "CandidateConsumptionRecord",
+      "type": "object"
+    },
+    "ReceiptStatus": {
+      "enum": [
+        "ACCEPTED",
+        "REJECTED",
+        "ADAPTED_LOSSLESS",
+        "REFERENCE_DECLARED",
+        "INTEGRITY_VALIDATED",
+        "SEMANTICALLY_CONSUMED",
+        "PRESERVED_TERMINAL",
+        "RESERVED",
+        "NOT_APPLICABLE",
+        "UNAVAILABLE",
+        "APPLIED",
+        "ALREADY_APPLIED",
+        "NOT_EFFECTIVE_YET",
+        "EXPIRED"
+      ],
+      "title": "ReceiptStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "handoff_id": {
+      "minLength": 1,
+      "title": "Handoff Id",
+      "type": "string"
+    },
+    "candidate_receipts": {
+      "items": {
+        "$ref": "#/$defs/CandidateConsumptionRecord"
+      },
+      "title": "Candidate Receipts",
+      "type": "array"
+    },
+    "handoff_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Handoff Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "candidate_receipts",
+    "handoff_hash"
+  ],
+  "title": "Phase7ConsumptionReceipt",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "PHASE7_CONSUMPTION_RECEIPT_V1.schema.json"
+}

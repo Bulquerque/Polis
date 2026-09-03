@@ -1,0 +1,335 @@
+$defs:
+  ArtifactRef:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_type:
+        minLength: 1
+        title: Artifact Type
+        type: string
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+      schema_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Id
+      schema_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Version
+    required:
+    - artifact_id
+    - artifact_type
+    - content_hash
+    title: ArtifactRef
+    type: object
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    title: ArtifactStatus
+    type: string
+  EventReference:
+    additionalProperties: false
+    properties:
+      history_record_id:
+        minLength: 1
+        title: History Record Id
+        type: string
+      event_id:
+        minLength: 1
+        title: Event Id
+        type: string
+      source_id:
+        minLength: 1
+        title: Source Id
+        type: string
+      payload_ref:
+        $ref: '#/$defs/ArtifactRef'
+      underlyings:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Underlyings
+        type: array
+      propositions:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Propositions
+        type: array
+    required:
+    - history_record_id
+    - event_id
+    - source_id
+    - payload_ref
+    title: EventReference
+    type: object
+  ScheduleItemKind:
+    enum:
+    - EVENT_RELEASE
+    - HEARTBEAT_OBLIGATION
+    title: ScheduleItemKind
+    type: string
+  ScheduleLineage:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      history_artifact_id:
+        minLength: 1
+        title: History Artifact Id
+        type: string
+      history_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: History Hash
+        type: string
+      population_artifact_id:
+        minLength: 1
+        title: Population Artifact Id
+        type: string
+      population_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Population Hash
+        type: string
+      social_graph_artifact_id:
+        minLength: 1
+        title: Social Graph Artifact Id
+        type: string
+      graph_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Graph Hash
+        type: string
+      source_lineage_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Source Lineage Ids
+        type: array
+    required:
+    - lineage_id
+    - history_artifact_id
+    - history_hash
+    - population_artifact_id
+    - population_hash
+    - social_graph_artifact_id
+    - graph_hash
+    - source_lineage_ids
+    title: ScheduleLineage
+    type: object
+  ScheduleSummary:
+    additionalProperties: false
+    properties:
+      event_item_count:
+        minimum: 0
+        title: Event Item Count
+        type: integer
+      heartbeat_item_count:
+        minimum: 0
+        title: Heartbeat Item Count
+        type: integer
+      person_count:
+        exclusiveMinimum: 0
+        title: Person Count
+        type: integer
+      month_count:
+        minimum: 0
+        title: Month Count
+        type: integer
+      total_item_count:
+        minimum: 0
+        title: Total Item Count
+        type: integer
+    required:
+    - event_item_count
+    - heartbeat_item_count
+    - person_count
+    - month_count
+    - total_item_count
+    title: ScheduleSummary
+    type: object
+  WarmupMode:
+    enum:
+    - HISTORICAL_REPLAY
+    - GENESIS_ONLY
+    title: WarmupMode
+    type: string
+  WarmupScheduleItem:
+    additionalProperties: false
+    properties:
+      schedule_item_id:
+        minLength: 1
+        title: Schedule Item Id
+        type: string
+      sequence_number:
+        exclusiveMinimum: 0
+        title: Sequence Number
+        type: integer
+      logical_time:
+        format: date-time
+        title: Logical Time
+        type: string
+      kind:
+        $ref: '#/$defs/ScheduleItemKind'
+      priority:
+        minimum: 0
+        title: Priority
+        type: integer
+      deduplication_key:
+        minLength: 1
+        title: Deduplication Key
+        type: string
+      event_ref:
+        anyOf:
+        - $ref: '#/$defs/EventReference'
+        - type: 'null'
+        default: null
+      person_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Person Id
+      heartbeat_period:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Heartbeat Period
+      source_lineage_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Source Lineage Ids
+        type: array
+    required:
+    - schedule_item_id
+    - sequence_number
+    - logical_time
+    - kind
+    - priority
+    - deduplication_key
+    - source_lineage_ids
+    title: WarmupScheduleItem
+    type: object
+additionalProperties: false
+properties:
+  schema_id:
+    const: warmup_event_schedule.v2
+    default: warmup_event_schedule.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    default: 2.0.0
+    title: Schema Version
+    type: string
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  module_id:
+    const: P3.S10.M01
+    default: P3.S10.M01
+    title: Module Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  snapshot_id:
+    minLength: 1
+    title: Snapshot Id
+    type: string
+  as_of:
+    format: date-time
+    title: As Of
+    type: string
+  evaluation_start:
+    format: date-time
+    title: Evaluation Start
+    type: string
+  mode:
+    $ref: '#/$defs/WarmupMode'
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+  schedule_start:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    title: Schedule Start
+  schedule_end:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    title: Schedule End
+  items:
+    items:
+      $ref: '#/$defs/WarmupScheduleItem'
+    title: Items
+    type: array
+  schedule_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Schedule Hash
+    type: string
+  activation_config_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Activation Config Hash
+    type: string
+  heartbeat_config_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Heartbeat Config Hash
+    type: string
+  lineage:
+    $ref: '#/$defs/ScheduleLineage'
+  summary:
+    $ref: '#/$defs/ScheduleSummary'
+  issues:
+    default: []
+    items:
+      additionalProperties: true
+      type: object
+    title: Issues
+    type: array
+required:
+- artifact_id
+- run_id
+- snapshot_id
+- as_of
+- evaluation_start
+- mode
+- status
+- schedule_start
+- schedule_end
+- items
+- schedule_hash
+- activation_config_hash
+- heartbeat_config_hash
+- lineage
+- summary
+title: WarmupEventSchedule
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: warmup_event_schedule
+schema_id: warmup_event_schedule.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

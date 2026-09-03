@@ -1,0 +1,13 @@
+phase: phase_02_quality_pit
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+default_rule: anything not explicitly allowed by contracts is forbidden

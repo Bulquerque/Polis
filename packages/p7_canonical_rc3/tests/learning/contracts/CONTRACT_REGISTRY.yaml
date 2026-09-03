@@ -1,0 +1,49 @@
+registry_id: p7_learning_s5_s6_contract_registry_v1
+offline_inputs:
+- ranking_target_policy_source
+- metric_semantics_registry
+- historical_tournament_snapshots
+- historical_candidate_counterfactual_outcome_panel
+- trading_calendar_reference
+- model_family_registry
+offline_outputs:
+- ranking_target_policy_registry
+- ltr_training_dataset_manifest
+- ltr_query_group_panel
+- label_coverage_report
+- ltr_temporal_fold_plan
+- ltr_model_artifact
+- ltr_oof_score_panel
+- ltr_calibration_evidence_panel
+- training_execution_receipt
+- ltr_model_qualification_report
+- ltr_model_qualification_registry
+runtime_inputs:
+- comparison_group_registry
+- pareto_candidate_panel
+- factor_adjusted_candidate_panel
+- interpretable_score_panel
+- interpretable_score_decomposition_panel
+- metric_semantics_registry
+- candidate_lineage_panel
+- tournament_audit_report
+- interpretable_tournament_handoff_manifest
+- ltr_model_artifact
+- ltr_model_qualification_registry
+- ltr_model_qualification_report
+- governed_model_registry
+runtime_outputs:
+- runtime_model_compatibility_report
+- resolved_runtime_model_reference
+- ltr_model_score_panel
+- model_runtime_receipt
+- ltr_score_calibration_panel
+- ltr_score_confidence_panel
+- hybrid_candidate_score_panel
+- hybrid_score_decomposition_panel
+- learning_candidate_conservation_report
+- hybrid_scoring_handoff_manifest
+s5_to_s6_internal_handoff:
+- ltr_model_artifact
+- ltr_model_qualification_registry
+- ltr_model_qualification_report

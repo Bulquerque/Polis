@@ -1,0 +1,18 @@
+module_id: P5.S4.M03
+name: realized_implied_volatility_blend_resolvers
+subphase_id: P5.S4
+required_inputs:
+- authorized_consumer_view_registry
+- qualified_resolver_registry
+- oof_validation_observation_panel
+optional_inputs:
+- p4_degraded_mode_report
+outputs:
+- volatility_member_forecast_panel_rough_implied
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: OPTIONAL

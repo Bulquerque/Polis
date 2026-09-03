@@ -1,0 +1,125 @@
+{
+  "$defs": {
+    "AlignmentPolicy": {
+      "enum": [
+        "INNER",
+        "OUTER"
+      ],
+      "title": "AlignmentPolicy",
+      "type": "string"
+    },
+    "ComparisonKind": {
+      "enum": [
+        "RAW_ALIGNED",
+        "DIFFERENCE_FROM_FIRST",
+        "RATIO_TO_FIRST",
+        "SPREAD_TO_FIRST",
+        "INDEX_BASE_100"
+      ],
+      "title": "ComparisonKind",
+      "type": "string"
+    },
+    "MacroMode": {
+      "enum": [
+        "LOOKUP",
+        "CONTEXT",
+        "VINTAGE_ANALYSIS"
+      ],
+      "title": "MacroMode",
+      "type": "string"
+    },
+    "Transformation": {
+      "enum": [
+        "LEVEL",
+        "DIFFERENCE",
+        "PERCENT_CHANGE",
+        "LOG_DIFFERENCE",
+        "YEAR_OVER_YEAR",
+        "ANNUALIZED"
+      ],
+      "title": "Transformation",
+      "type": "string"
+    },
+    "VintagePolicy": {
+      "enum": [
+        "KNOWN_AT_DECISION_TIME",
+        "ORIGINAL_RELEASE",
+        "LATEST_KNOWN_AT_DECISION_TIME"
+      ],
+      "title": "VintagePolicy",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "alignment": {
+      "$ref": "#/$defs/AlignmentPolicy",
+      "default": "INNER"
+    },
+    "comparison_kind": {
+      "$ref": "#/$defs/ComparisonKind",
+      "default": "RAW_ALIGNED"
+    },
+    "end_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End Date"
+    },
+    "max_records_per_series": {
+      "default": 500,
+      "maximum": 10000,
+      "minimum": 2,
+      "title": "Max Records Per Series",
+      "type": "integer"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/MacroMode",
+      "default": "CONTEXT"
+    },
+    "series_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Series Ids",
+      "type": "array"
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Start Date"
+    },
+    "transformations": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Transformation"
+      },
+      "title": "Transformations",
+      "type": "object"
+    },
+    "vintage_policy": {
+      "$ref": "#/$defs/VintagePolicy",
+      "default": "KNOWN_AT_DECISION_TIME"
+    }
+  },
+  "required": [
+    "series_ids"
+  ],
+  "title": "CompareSeriesRequest",
+  "type": "object"
+}

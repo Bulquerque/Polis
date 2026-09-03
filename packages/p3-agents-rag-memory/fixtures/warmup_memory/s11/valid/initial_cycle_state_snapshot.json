@@ -1,0 +1,154 @@
+{
+  "schema_id": "initial_cycle_state_snapshot.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "initial-state-123283dee49785e74cfb",
+  "module_id": "P3.S11.M01",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "evaluation_start": "2026-01-01T00:00:00Z",
+  "available_from_cycle": 1,
+  "terminal_checkpoint_id": "s10-checkpoint-c31fb6e0db81597350b2",
+  "terminal_checkpoint_ref": {
+    "artifact_id": "s10-checkpoint-c31fb6e0db81597350b2",
+    "artifact_type": "cycle_state_checkpoint",
+    "content_hash": "0387b4ccd5b3f91aa936caa1a463621ce0d8f0326e31bbe760bededad0c0cefa",
+    "schema_id": "replay_state.v2",
+    "schema_version": "2.0.0"
+  },
+  "state": {
+    "run_id": "run-s9-001",
+    "snapshot_id": "snapshot-s9-001",
+    "replay_cycle_number": 20,
+    "as_of_time": "2025-06-01T13:00:00Z",
+    "population_hash": "f1a7212ba343f7fd15ab02f53d27347d6674a6c70fb2c544b287ab862fb11e43",
+    "source": "WARMUP_CHECKPOINT",
+    "person_state": {
+      "schema_id": "person_state_panel.v2",
+      "schema_version": "2.0.0",
+      "records": [
+        {
+          "person_id": "person-001",
+          "structural_profile_hash": "a1fc3c4d8913e093f8f88df4242eae272f62a93d3c4645af2ceda313b36c29b3",
+          "representation_weight": 0.4,
+          "status": "ACTIVE",
+          "attention": 0.7000000000000002,
+          "fatigue": 0.0,
+          "last_updated_at": "2025-06-01T13:00:00Z"
+        },
+        {
+          "person_id": "person-002",
+          "structural_profile_hash": "0d3eb7dd3ccd3e4bfdae741b6bb8ef68b752cb426aa77dc161ebc0837f077a31",
+          "representation_weight": 0.35,
+          "status": "ACTIVE",
+          "attention": 0.7000000000000002,
+          "fatigue": 0.0,
+          "last_updated_at": "2025-06-01T13:00:00Z"
+        },
+        {
+          "person_id": "person-003",
+          "structural_profile_hash": "cf88f4bb3d96dd036f9953491a5cf1827d919ee5290bc0c6ba5c1dbeb4d34f59",
+          "representation_weight": 0.25,
+          "status": "ACTIVE",
+          "attention": 0.7000000000000002,
+          "fatigue": 0.0,
+          "last_updated_at": "2025-06-01T13:00:00Z"
+        }
+      ],
+      "content_hash": "fb64d44aee3efe4a7fd5698fe8d13dde49d544d08d02509fed48cca00ba8bbef"
+    },
+    "belief_state": {
+      "schema_id": "belief_state_panel.v2",
+      "schema_version": "2.0.0",
+      "records": [],
+      "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "memory_state": {
+      "schema_id": "memory_state.v2",
+      "schema_version": "2.0.0",
+      "records": [],
+      "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "social_graph": {
+      "schema_id": "social_graph_state.v2",
+      "schema_version": "2.0.0",
+      "records": [
+        {
+          "edge_id": "edge-001",
+          "source_person_id": "person-001",
+          "target_person_id": "person-002",
+          "relationship_type": "COLLEAGUE",
+          "trust": 0.5,
+          "strength": 0.5,
+          "valid_from": "2025-01-31T23:59:59Z",
+          "available_at": "2025-01-31T23:59:59Z"
+        },
+        {
+          "edge_id": "edge-002",
+          "source_person_id": "person-002",
+          "target_person_id": "person-003",
+          "relationship_type": "INFORMATION",
+          "trust": 0.5,
+          "strength": 0.5,
+          "valid_from": "2025-01-31T23:59:59Z",
+          "available_at": "2025-01-31T23:59:59Z"
+        }
+      ],
+      "content_hash": "d3a5ddb501c2ebedeb2354cfeaa87df3c30356c8e0e1a570ffe26755a3f57e07"
+    },
+    "pending_stimuli": [],
+    "belief_commitments": [],
+    "replay_cursor": {
+      "last_completed_schedule_sequence": 20,
+      "last_checkpoint_id": "s10-checkpoint-c31fb6e0db81597350b2",
+      "schedule_hash": "ef8748c7c7fb7ccfc8c7ee7808aef97e91a3a16a0d06e0d473f7263947042c7d",
+      "checkpoint_plan_hash": "65ae59c4b2e7f63e38bd2a6f2497d83bf991b593042df014a8bb37658d41b904"
+    },
+    "resource_manifest_ref": {
+      "artifact_id": "foundation-resources-fixture",
+      "artifact_type": "p3_foundation_resource_manifest",
+      "content_hash": "9999999999999999999999999999999999999999999999999999999999999999",
+      "schema_id": "p3_foundation_resource_manifest.v1",
+      "schema_version": "1.0.0"
+    },
+    "policy_refs": [],
+    "audit_refs": [],
+    "state_hash": "0387b4ccd5b3f91aa936caa1a463621ce0d8f0326e31bbe760bededad0c0cefa",
+    "lineage": {
+      "lineage_id": "lineage-genesis-886fd50bd7536820e441",
+      "source_artifact_ids": [
+        "p3-s10-schedule-run-s9-001-ef8748c7c7fb7ccf",
+        "p3-s10-checkpoint-plan-run-s9-001-65ae59c4b2e7f63e",
+        "person-seed-panel-001",
+        "social-graph-001",
+        "foundation-resources-fixture",
+        "retro-patch-none-001"
+      ],
+      "source_lineage_ids": [
+        "lineage-person-seeds-001",
+        "lineage-graph-001",
+        "lineage-retro-none-001"
+      ],
+      "parent_state_hash": "73ae419075bb469c91c60ef4b751448ae56f9746212b5818669e4c3197f64a8a",
+      "holdout_refs": []
+    }
+  },
+  "content_hash": "f757a9f2ea2cf4f3c842af1bc6f75e35a68004045f97f987b918fad75b366b2e",
+  "lineage": {
+    "lineage_id": "lineage-genesis-886fd50bd7536820e441",
+    "source_artifact_ids": [
+      "p3-s10-schedule-run-s9-001-ef8748c7c7fb7ccf",
+      "p3-s10-checkpoint-plan-run-s9-001-65ae59c4b2e7f63e",
+      "person-seed-panel-001",
+      "social-graph-001",
+      "foundation-resources-fixture",
+      "retro-patch-none-001"
+    ],
+    "source_lineage_ids": [
+      "lineage-person-seeds-001",
+      "lineage-graph-001",
+      "lineage-retro-none-001"
+    ],
+    "parent_state_hash": "73ae419075bb469c91c60ef4b751448ae56f9746212b5818669e4c3197f64a8a",
+    "holdout_refs": []
+  }
+}

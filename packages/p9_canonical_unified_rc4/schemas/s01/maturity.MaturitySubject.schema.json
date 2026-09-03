@@ -1,0 +1,188 @@
+{
+  "$defs": {
+    "LifecycleStatus": {
+      "enum": [
+        "OPEN",
+        "CLOSED",
+        "EXPIRED",
+        "SETTLED",
+        "DELISTED",
+        "UNKNOWN"
+      ],
+      "title": "LifecycleStatus",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "censoring_reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Censoring Reason"
+    },
+    "close_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Close Time"
+    },
+    "contract_key": {
+      "minLength": 1,
+      "title": "Contract Key",
+      "type": "string"
+    },
+    "contract_multiplier": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Contract Multiplier"
+    },
+    "data_available_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Data Available At"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "expiration_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expiration Time"
+    },
+    "horizon_end": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Horizon End"
+    },
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "$ref": "#/$defs/LifecycleStatus"
+    },
+    "observation_end": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observation End"
+    },
+    "quantity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Quantity"
+    },
+    "reference_price": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Reference Price"
+    },
+    "settlement_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Settlement Time"
+    },
+    "subject_id": {
+      "minLength": 1,
+      "title": "Subject Id",
+      "type": "string"
+    },
+    "target_type": {
+      "minLength": 1,
+      "title": "Target Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "subject_id",
+    "target_type",
+    "instrument_id",
+    "contract_key",
+    "decision_time",
+    "lifecycle_status",
+    "reference_price",
+    "quantity",
+    "contract_multiplier"
+  ],
+  "title": "MaturitySubject",
+  "type": "object"
+}

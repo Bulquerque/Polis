@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "minimum_live_pairs": {
+      "default": 20,
+      "minimum": 1,
+      "title": "Minimum Live Pairs",
+      "type": "integer"
+    },
+    "maximum_mean_abs_fill_rate_gap": {
+      "default": 0.15,
+      "minimum": 0.0,
+      "title": "Maximum Mean Abs Fill Rate Gap",
+      "type": "number"
+    },
+    "maximum_mean_abs_slippage_gap_bps": {
+      "default": 10.0,
+      "minimum": 0.0,
+      "title": "Maximum Mean Abs Slippage Gap Bps",
+      "type": "number"
+    },
+    "maximum_mean_abs_pnl_gap": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maximum Mean Abs Pnl Gap"
+    }
+  },
+  "title": "RealityGapPolicy",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:RealityGapPolicy:1.0.0"
+}

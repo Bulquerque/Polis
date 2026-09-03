@@ -1,0 +1,187 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_schema_name": {
+          "title": "Artifact Schema Name",
+          "type": "string"
+        },
+        "artifact_schema_version": {
+          "title": "Artifact Schema Version",
+          "type": "string"
+        },
+        "artifact_type": {
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "availability": {
+          "$ref": "#/$defs/Availability",
+          "default": "AVAILABLE"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "record_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Record Count"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "artifact_schema_name",
+        "artifact_schema_version",
+        "content_sha256",
+        "producer_module_id",
+        "run_id",
+        "cycle_id",
+        "available_at",
+        "location"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "Availability": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "UNAVAILABLE",
+        "LEGACY_RESEARCH_ONLY"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "DiagnosticRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "observed": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed"
+        },
+        "severity": {
+          "pattern": "^(INFO|WARNING|ERROR|BLOCKER)$",
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "severity"
+      ],
+      "title": "DiagnosticRecord",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/EvidenceRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_refs": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "Artifact Refs",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "diagnostics": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/DiagnosticRecord"
+      },
+      "title": "Diagnostics",
+      "type": "array"
+    },
+    "evidence_id": {
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "evidence_type": {
+      "title": "Evidence Type",
+      "type": "string"
+    },
+    "producer_module_id": {
+      "title": "Producer Module Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "evidence_type",
+    "producer_module_id",
+    "content_sha256"
+  ],
+  "title": "EvidenceRecord",
+  "type": "object"
+}

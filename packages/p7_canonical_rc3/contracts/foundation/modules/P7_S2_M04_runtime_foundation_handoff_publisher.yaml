@@ -1,0 +1,23 @@
+module_id: P7.S2.M04
+module_name: runtime_foundation_handoff_publisher
+owner: FOUNDATION
+purpose: Publish the content-addressed Foundation handoff for Tournament and Learning.
+inputs:
+  - eligible_strategy_candidate_panel
+  - eligibility_blocked_candidate_panel
+  - eligibility_decision_panel
+  - candidate_comparison_group_panel
+  - candidate_metric_route_panel
+  - ranking_feedback_context
+outputs: [runtime_foundation_handoff_manifest]
+failure_scope: MODULE_FATAL
+reason_codes:
+  - P7_STAGE1_HANDOFF_INCOMPLETE
+  - P7_STAGE1_HANDOFF_HASH_MISMATCH
+  - P7_STAGE1_HANDOFF_GRAIN_MISMATCH
+  - P7_STAGE1_HANDOFF_NONDETERMINISTIC
+invariants:
+  - all_references_are_content_addressed
+  - all_artifacts_share_run_cycle_decision_and_pipeline_version
+  - candidate_partition_is_conserved
+  - groups_and_routes_cover_the_eligible_set

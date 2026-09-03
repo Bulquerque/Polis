@@ -1,0 +1,15 @@
+formula_id: s29.disagreement.composite
+formula_version: 1.0.0
+variance_cap: 1.0
+min_effective_sample_size: 3.0
+min_coverage_ratio: 0.6
+min_source_quality_score: 0.5
+weights:
+  direction_entropy: 0.30
+  belief_variance: 0.20
+  polarization: 0.20
+  confidence_dispersion: 0.15
+  evidence_diversity: 0.15
+blocked_quality_statuses:
+  - BLOCKED
+output_precision: 12

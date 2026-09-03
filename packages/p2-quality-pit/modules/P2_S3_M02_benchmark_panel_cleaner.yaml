@@ -1,0 +1,47 @@
+module_id: P2.S3.M02
+module_name: benchmark_panel_cleaner
+phase: phase_02_quality_pit
+subphase: P2.S3
+rc: RC4.1
+function: Limpar benchmarks/mercado em painel PIT.
+inputs: &id001
+- identifier_harmonized_bundle
+- source_quality_panel
+outputs: &id002
+- clean_benchmark_panel
+validations:
+- benchmark_key_unique
+- no_prediction
+fail_fast_conditions:
+- benchmark_panel_cleaner_schema_violation
+- benchmark_panel_cleaner_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P2.S2.M02
+    - P2.S1.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P2.S6.M01
+    - P2.S6.M02
+    artifacts: *id002
+    phase_outputs:
+    - clean_benchmark_panel
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

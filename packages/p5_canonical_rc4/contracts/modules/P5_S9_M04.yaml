@@ -1,0 +1,18 @@
+module_id: P5.S9.M04
+name: underlying_forecast_panel_builder
+subphase_id: P5.S9
+required_inputs:
+- ensemble_forecast_panel
+optional_inputs:
+- forecast_confidence_panel
+- published_covariance_registry
+- published_regime_ood_surprise_panel
+outputs:
+- underlying_forecast_panel
+allowed_actions:
+- PUBLISH
+allowed_modes:
+- PUBLICATION
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

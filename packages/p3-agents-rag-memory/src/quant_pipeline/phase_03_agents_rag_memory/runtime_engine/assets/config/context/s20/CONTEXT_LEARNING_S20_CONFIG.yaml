@@ -1,0 +1,4 @@
+schema_version: context_learning_config.s20.v1
+include_matured_success: true
+include_matured_failure: true
+include_immature: false

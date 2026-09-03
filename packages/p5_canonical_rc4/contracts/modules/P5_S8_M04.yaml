@@ -1,0 +1,20 @@
+module_id: P5.S8.M04
+name: resolver_diversity_redundancy_pruning_engine
+subphase_id: P5.S8
+required_inputs:
+- calibrated_forecast_member_panel
+- forecast_scoring_panel
+optional_inputs:
+- resolver_context_router_panel
+- perspective_model_disagreement_panel
+- oof_validation_observation_panel
+outputs:
+- resolver_diversity_panel
+- ensemble_candidate_panel
+allowed_actions:
+- RUN
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

@@ -1,0 +1,62 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/LiquidityObservation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "average_daily_volume": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Average Daily Volume"
+    },
+    "daily_volatility": {
+      "exclusiveMinimum": 0,
+      "title": "Daily Volatility",
+      "type": "number"
+    },
+    "instrument_id": {
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "mid_price": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Mid Price"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+    }
+  },
+  "required": [
+    "instrument_id",
+    "timestamp",
+    "available_at",
+    "average_daily_volume",
+    "daily_volatility",
+    "mid_price"
+  ],
+  "title": "LiquidityObservation",
+  "type": "object"
+}

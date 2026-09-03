@@ -1,0 +1,102 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "ask": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ask"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "bid": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Bid"
+    },
+    "currency": {
+      "title": "Currency",
+      "type": "string"
+    },
+    "exchange": {
+      "title": "Exchange",
+      "type": "string"
+    },
+    "last": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Last"
+    },
+    "quote_time": {
+      "format": "date-time",
+      "title": "Quote Time",
+      "type": "string"
+    },
+    "source_artifact_id": {
+      "title": "Source Artifact Id",
+      "type": "string"
+    },
+    "source_record_id": {
+      "title": "Source Record Id",
+      "type": "string"
+    },
+    "trading_status": {
+      "default": "OPEN",
+      "title": "Trading Status",
+      "type": "string"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "underlying_id",
+    "quote_time",
+    "available_at",
+    "currency",
+    "exchange",
+    "source_artifact_id",
+    "source_record_id"
+  ],
+  "title": "UnderlyingObservation",
+  "type": "object"
+}

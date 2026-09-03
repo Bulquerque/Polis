@@ -1,0 +1,31 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Feature Library Registry
+type: object
+additionalProperties: false
+properties:
+  registry_version: &id001
+    type: string
+  core:
+    type: array
+    items: *id001
+  promoted:
+    type: array
+    items: *id001
+  experimental:
+    type: array
+    items: *id001
+  retired:
+    type: array
+    items: *id001
+  graveyard:
+    type: array
+    items: *id001
+  lineage_id: *id001
+required:
+- registry_version
+- core
+- promoted
+- experimental
+- retired
+- graveyard
+- lineage_id

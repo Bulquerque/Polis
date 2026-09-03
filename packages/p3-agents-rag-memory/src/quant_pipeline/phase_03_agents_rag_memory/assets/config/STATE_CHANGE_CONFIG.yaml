@@ -1,0 +1,8 @@
+slow_max_delta_per_month: 0.01
+medium_max_delta_per_month: 0.05
+fast_max_delta_per_cycle: 0.25
+immutable_fields:
+- person_id
+- identity.life_stage_at_creation
+- creator_provenance
+tool_proficiency_requires_executed_call: true

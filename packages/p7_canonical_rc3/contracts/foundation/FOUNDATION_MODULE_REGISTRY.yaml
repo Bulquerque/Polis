@@ -1,0 +1,134 @@
+registry_id: p7_foundation_module_registry_2_2
+phase_id: P7
+scope: FOUNDATION
+version: 2.3.1rc3
+subphases:
+- P7.S1
+- P7.S2
+module_count: 8
+modules:
+- module_id: P7.S1.M01
+  subphase: P7.S1
+  subphase_name: Boundary and Temporal Integrity
+  module_name: phase6_handoff_contract_validator
+  purpose: Validate the complete P6 manifest and referenced artifact envelopes before
+    record consumption.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/foundation/modules/P7_S1_M01_phase6_handoff_contract_validator.py
+  inputs:
+  - phase7_strategy_handoff_manifest
+  - declared_p6_artifacts
+  outputs:
+  - verified_p6_artifact_index
+  - p6_handoff_validation_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S1.M02
+  subphase: P7.S1
+  subphase_name: Boundary and Temporal Integrity
+  module_name: candidate_artifact_reconciliation_engine
+  purpose: Reconcile candidate, leg, payoff, scenario, risk, cost and lineage records
+    into one validated candidate bundle.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/foundation/modules/P7_S1_M02_candidate_artifact_reconciliation_engine.py
+  inputs:
+  - verified_p6_artifact_index
+  outputs:
+  - validated_strategy_candidate_bundle
+  - candidate_reconciliation_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S1.M03
+  subphase: P7.S1
+  subphase_name: Boundary and Temporal Integrity
+  module_name: temporal_integrity_and_forbidden_field_firewall
+  purpose: Reject future-dated evidence and recursively scan candidate records for
+    forbidden outcome fields.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/foundation/modules/P7_S1_M03_temporal_integrity_and_forbidden_field_firewall.py
+  inputs:
+  - validated_strategy_candidate_bundle
+  outputs:
+  - temporally_safe_candidate_bundle
+  - temporal_integrity_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S1.M04
+  subphase: P7.S1
+  subphase_name: Boundary and Temporal Integrity
+  module_name: promoted_ranking_feedback_loader
+  purpose: Load only promoted, previous-cycle ranking feedback and preserve absence
+    explicitly.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/foundation/modules/P7_S1_M04_promoted_ranking_feedback_loader.py
+  inputs:
+  - ranking_feedback_report
+  - ranking_feedback_manifest
+  outputs:
+  - ranking_feedback_context
+  - feedback_validation_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S2.M01
+  subphase: P7.S2
+  subphase_name: Eligibility and Comparability
+  module_name: eligibility_policy_engine
+  purpose: Evaluate candidate eligibility from versioned policies without inventing
+    economic values.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/foundation/modules/P7_S2_M01_eligibility_policy_engine.py
+  inputs:
+  - temporally_safe_candidate_bundle
+  - ranking_feedback_context
+  - eligibility_policy_registry
+  outputs:
+  - eligible_strategy_candidate_panel
+  - eligibility_blocked_candidate_panel
+  - eligibility_decision_panel
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S2.M02
+  subphase: P7.S2
+  subphase_name: Eligibility and Comparability
+  module_name: comparison_group_builder
+  purpose: Create deterministic groups of economically comparable candidates and verify
+    group coverage.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/foundation/modules/P7_S2_M02_comparison_group_builder.py
+  inputs:
+  - eligible_strategy_candidate_panel
+  - comparison_group_policy
+  outputs:
+  - candidate_comparison_group_panel
+  - comparison_group_audit_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S2.M03
+  subphase: P7.S2
+  subphase_name: Eligibility and Comparability
+  module_name: metric_semantics_router
+  purpose: Route candidate metrics with explicit unit, direction, transformation,
+    availability and missingness semantics.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/foundation/modules/P7_S2_M03_metric_semantics_router.py
+  inputs:
+  - eligible_strategy_candidate_panel
+  - candidate_comparison_group_panel
+  - metric_semantics_registry
+  - objective_family_registry
+  outputs:
+  - candidate_metric_route_panel
+  - metric_semantics_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S2.M04
+  subphase: P7.S2
+  subphase_name: Eligibility and Comparability
+  module_name: runtime_foundation_handoff_publisher
+  purpose: Publish a content-addressed handoff covering eligible, blocked, grouped
+    and routed candidates.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/foundation/modules/P7_S2_M04_runtime_foundation_handoff_publisher.py
+  inputs:
+  - eligible_strategy_candidate_panel
+  - eligibility_blocked_candidate_panel
+  - eligibility_decision_panel
+  - candidate_comparison_group_panel
+  - candidate_metric_route_panel
+  - ranking_feedback_context
+  outputs:
+  - runtime_foundation_handoff_manifest
+  status: IMPLEMENTED
+  production_promotion_allowed: false

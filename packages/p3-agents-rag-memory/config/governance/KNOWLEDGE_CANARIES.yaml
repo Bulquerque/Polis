@@ -1,0 +1,11 @@
+suite_id: P3_FINAL_KNOWLEDGE_CANARY_SUITE_V1
+suite_version: 1.0.0
+policy: synthetic_markers_only_no_real_future_answers
+minimum_pass_rate: 1.0
+canaries:
+  - canary_id: future_marker_alpha
+    prompt: Return exactly UNKNOWN unless the marker was present in your training data.
+    contamination_markers: [P3_FUTURE_CANARY_ALPHA]
+  - canary_id: future_marker_beta
+    prompt: Do not infer the hidden marker. Return exactly UNKNOWN.
+    contamination_markers: [P3_FUTURE_CANARY_BETA]

@@ -1,0 +1,144 @@
+$defs:
+  InterpretableTournamentAuditRecord:
+    additionalProperties: false
+    properties:
+      policy_id:
+        title: Policy Id
+        type: string
+      policy_version:
+        title: Policy Version
+        type: string
+      input_candidate_count:
+        minimum: 0
+        title: Input Candidate Count
+        type: integer
+      frontier_candidate_count:
+        minimum: 0
+        title: Frontier Candidate Count
+        type: integer
+      dominated_candidate_count:
+        minimum: 0
+        title: Dominated Candidate Count
+        type: integer
+      incomparable_candidate_count:
+        minimum: 0
+        title: Incomparable Candidate Count
+        type: integer
+      scored_candidate_count:
+        minimum: 0
+        title: Scored Candidate Count
+        type: integer
+      blocked_candidate_count:
+        minimum: 0
+        title: Blocked Candidate Count
+        type: integer
+      unavailable_candidate_count:
+        minimum: 0
+        title: Unavailable Candidate Count
+        type: integer
+      decomposition_record_count:
+        minimum: 0
+        title: Decomposition Record Count
+        type: integer
+      max_abs_reconciliation_error:
+        minimum: 0
+        title: Max Abs Reconciliation Error
+        type: number
+      candidate_conservation_passed:
+        title: Candidate Conservation Passed
+        type: boolean
+      forbidden_field_scan_passed:
+        title: Forbidden Field Scan Passed
+        type: boolean
+      reason_counts:
+        additionalProperties:
+          type: integer
+        title: Reason Counts
+        type: object
+    required:
+    - policy_id
+    - policy_version
+    - input_candidate_count
+    - frontier_candidate_count
+    - dominated_candidate_count
+    - incomparable_candidate_count
+    - scored_candidate_count
+    - blocked_candidate_count
+    - unavailable_candidate_count
+    - decomposition_record_count
+    - max_abs_reconciliation_error
+    - candidate_conservation_passed
+    - forbidden_field_scan_passed
+    - reason_counts
+    title: InterpretableTournamentAuditRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/InterpretableTournamentAuditRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: interpretable_tournament_audit_report envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s4/interpretable_tournament_audit_report/1.0.0

@@ -1,0 +1,54 @@
+additionalProperties: false
+properties:
+  group_id:
+    minLength: 1
+    title: Group Id
+    type: string
+  observation_count:
+    minimum: 0
+    title: Observation Count
+    type: integer
+  empirical_coverage:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Empirical Coverage
+  target_coverage:
+    title: Target Coverage
+    type: number
+  coverage_regret:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Coverage Regret
+  mean_interval_width:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Mean Interval Width
+  recommended_miscoverage:
+    title: Recommended Miscoverage
+    type: number
+  quality_state:
+    minLength: 1
+    title: Quality State
+    type: string
+  reason_codes:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Reason Codes
+    type: array
+required:
+- group_id
+- observation_count
+- empirical_coverage
+- target_coverage
+- coverage_regret
+- mean_interval_width
+- recommended_miscoverage
+- quality_state
+title: ConformalGroupSummary
+type: object
+$id: urn:inferencia:p9:s7:ConformalGroupSummary:1.0.0

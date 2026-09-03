@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "CommitmentMatchState": {
+      "enum": [
+        "COHORT_FROZEN",
+        "COHORT_LIMITED",
+        "COMMITMENT_MISMATCH",
+        "HOLDOUT_CONTAMINATED",
+        "INSUFFICIENT_ELIGIBLE_SAMPLE"
+      ],
+      "title": "CommitmentMatchState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "commitment_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Commitment Id"
+    },
+    "eligible_count": {
+      "minimum": 0,
+      "title": "Eligible Count",
+      "type": "integer"
+    },
+    "excluded_count": {
+      "minimum": 0,
+      "title": "Excluded Count",
+      "type": "integer"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "policy_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Policy Id"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/CommitmentMatchState"
+    }
+  },
+  "required": [
+    "state",
+    "commitment_id",
+    "policy_id",
+    "eligible_count",
+    "excluded_count"
+  ],
+  "title": "CommitmentMatchReport",
+  "type": "object"
+}

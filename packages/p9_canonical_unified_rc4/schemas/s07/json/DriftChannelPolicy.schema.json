@@ -1,0 +1,105 @@
+{
+  "$defs": {
+    "DriftChannelKind": {
+      "enum": [
+        "INPUT",
+        "MISSINGNESS",
+        "FORECAST_RESIDUAL",
+        "CALIBRATION",
+        "PNL",
+        "COST",
+        "LIQUIDITY",
+        "FACTOR_EXPOSURE",
+        "POLICY_ACTION"
+      ],
+      "title": "DriftChannelKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channel_id": {
+      "minLength": 1,
+      "title": "Channel Id",
+      "type": "string"
+    },
+    "channel_kind": {
+      "$ref": "#/$defs/DriftChannelKind"
+    },
+    "reference_window": {
+      "default": 50,
+      "minimum": 10,
+      "title": "Reference Window",
+      "type": "integer"
+    },
+    "test_window": {
+      "default": 20,
+      "minimum": 5,
+      "title": "Test Window",
+      "type": "integer"
+    },
+    "mean_shift_z_threshold": {
+      "default": 3.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Mean Shift Z Threshold",
+      "type": "number"
+    },
+    "variance_ratio_threshold": {
+      "default": 2.0,
+      "exclusiveMinimum": 1.0,
+      "title": "Variance Ratio Threshold",
+      "type": "number"
+    },
+    "cusum_threshold": {
+      "default": 5.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Cusum Threshold",
+      "type": "number"
+    },
+    "cusum_allowance": {
+      "default": 0.5,
+      "minimum": 0.0,
+      "title": "Cusum Allowance",
+      "type": "number"
+    },
+    "bocpd_hazard": {
+      "default": 0.02,
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Bocpd Hazard",
+      "type": "number"
+    },
+    "bocpd_alert_probability": {
+      "default": 0.5,
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Bocpd Alert Probability",
+      "type": "number"
+    },
+    "bocpd_max_run_length": {
+      "default": 256,
+      "minimum": 20,
+      "title": "Bocpd Max Run Length",
+      "type": "integer"
+    },
+    "missingness_delta_threshold": {
+      "default": 0.2,
+      "exclusiveMinimum": 0.0,
+      "maximum": 1.0,
+      "title": "Missingness Delta Threshold",
+      "type": "number"
+    },
+    "hard_breach": {
+      "default": false,
+      "title": "Hard Breach",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "channel_id",
+    "channel_kind"
+  ],
+  "title": "DriftChannelPolicy",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:DriftChannelPolicy:1.0.0"
+}

@@ -1,0 +1,137 @@
+{
+  "$defs": {
+    "Quote": {
+      "additionalProperties": false,
+      "properties": {
+        "ask_price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Ask Price"
+        },
+        "ask_size": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Ask Size"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "bid_price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Bid Price"
+        },
+        "bid_size": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Bid Size"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "venue": {
+          "minLength": 1,
+          "title": "Venue",
+          "type": "string"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "event_time",
+        "available_at",
+        "bid_price",
+        "ask_price",
+        "bid_size",
+        "ask_size",
+        "venue"
+      ],
+      "title": "Quote",
+      "type": "object"
+    },
+    "VenueState": {
+      "enum": [
+        "OPEN",
+        "CLOSED",
+        "HALTED"
+      ],
+      "title": "VenueState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "quotes": {
+      "items": {
+        "$ref": "#/$defs/Quote"
+      },
+      "title": "Quotes",
+      "type": "array"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "venue_states": {
+      "additionalProperties": {
+        "$ref": "#/$defs/VenueState"
+      },
+      "title": "Venue States",
+      "type": "object"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "as_of_time",
+    "quotes",
+    "venue_states"
+  ],
+  "title": "MarketStateSnapshot",
+  "type": "object"
+}

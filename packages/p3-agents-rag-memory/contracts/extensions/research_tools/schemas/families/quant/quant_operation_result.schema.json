@@ -1,0 +1,254 @@
+{
+  "$defs": {
+    "EvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "p2_artifact_id": {
+          "minLength": 1,
+          "title": "P2 Artifact Id",
+          "type": "string"
+        },
+        "p2_record_id": {
+          "minLength": 1,
+          "title": "P2 Record Id",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "source_quality": {
+          "default": 1.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Source Quality",
+          "type": "number"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "source_id",
+        "p2_artifact_id",
+        "p2_record_id",
+        "available_at",
+        "content_hash"
+      ],
+      "title": "EvidenceReference",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "OperationCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "missing_requirements": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Missing Requirements",
+          "type": "array"
+        },
+        "observations_rejected_future": {
+          "minimum": 0,
+          "title": "Observations Rejected Future",
+          "type": "integer"
+        },
+        "observations_rejected_quality": {
+          "minimum": 0,
+          "title": "Observations Rejected Quality",
+          "type": "integer"
+        },
+        "observations_requested": {
+          "minimum": 0,
+          "title": "Observations Requested",
+          "type": "integer"
+        },
+        "observations_used": {
+          "minimum": 0,
+          "title": "Observations Used",
+          "type": "integer"
+        },
+        "score": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Score",
+          "type": "number"
+        }
+      },
+      "required": [
+        "score",
+        "observations_requested",
+        "observations_used",
+        "observations_rejected_future",
+        "observations_rejected_quality"
+      ],
+      "title": "OperationCoverage",
+      "type": "object"
+    },
+    "OutcomeStatus": {
+      "enum": [
+        "PASS",
+        "EMPTY_VALID",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM"
+      ],
+      "title": "OutcomeStatus",
+      "type": "string"
+    },
+    "QuantMode": {
+      "enum": [
+        "BASIC",
+        "ROBUST",
+        "STABILITY"
+      ],
+      "title": "QuantMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "coverage": {
+      "$ref": "#/$defs/OperationCoverage"
+    },
+    "diagnostics": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Diagnostics",
+      "type": "array"
+    },
+    "downgrade_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Downgrade Reason"
+    },
+    "evidence_refs": {
+      "items": {
+        "$ref": "#/$defs/EvidenceReference"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "executed_mode": {
+      "$ref": "#/$defs/QuantMode"
+    },
+    "latest_available_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latest Available At"
+    },
+    "method_id": {
+      "minLength": 1,
+      "title": "Method Id",
+      "type": "string"
+    },
+    "method_version": {
+      "default": "1.0.0",
+      "minLength": 1,
+      "title": "Method Version",
+      "type": "string"
+    },
+    "metrics": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Metrics",
+      "type": "object"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "outcome_status": {
+      "$ref": "#/$defs/OutcomeStatus"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "requested_mode": {
+      "$ref": "#/$defs/QuantMode"
+    },
+    "result_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Result Hash",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "p3.s39.v1",
+      "default": "p3.s39.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "series": {
+      "default": [],
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Series",
+      "type": "array"
+    },
+    "tool_id": {
+      "const": "quant.diagnostics.v1",
+      "default": "quant.diagnostics.v1",
+      "title": "Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "operation_id",
+    "requested_mode",
+    "executed_mode",
+    "outcome_status",
+    "method_id",
+    "metrics",
+    "evidence_refs",
+    "coverage",
+    "result_hash"
+  ],
+  "title": "QuantOperationResult",
+  "type": "object"
+}

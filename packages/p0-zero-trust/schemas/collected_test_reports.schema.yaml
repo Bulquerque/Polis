@@ -1,0 +1,92 @@
+schema_id: collected_test_reports.v1
+artifact_name: collected_test_reports
+schema_version: v14.1-rc4.1
+type: object
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- phase_count
+- report_family_count
+- expected_report_count
+- report_count
+- reports
+- phase_evidence
+- failed_report_count
+- partial_report_count
+- missing_expected_report_count
+- every_phase_emits_test_report
+- every_expected_phase_emits_test_report
+- test_run_id_unique
+- status
+- release_blocking
+properties:
+  created_at:
+    type: string
+  failed_report_count:
+    type: integer
+    minimum: 0
+  status:
+    type: string
+    enum:
+    - PASS
+    - PARTIAL
+    - FAIL
+  release_blocking:
+    type: boolean
+  artifact_id:
+    type: string
+    pattern: ^collected-test-reports-[0-9a-f]{12}$
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  phase_count:
+    type: integer
+    minimum: 10
+  report_family_count:
+    type: integer
+    minimum: 4
+  report_count:
+    type: integer
+    minimum: 0
+  reports:
+    type: array
+  every_phase_emits_test_report:
+    type: boolean
+  test_run_id_unique:
+    type: boolean
+    const: true
+  expected_report_count:
+    type: integer
+    minimum: 0
+  phase_evidence:
+    type: array
+    minItems: 10
+  partial_report_count:
+    type: integer
+    minimum: 0
+  missing_expected_report_count:
+    type: integer
+    minimum: 0
+  unexpected_report_count:
+    type: integer
+    minimum: 0
+  not_expected_phase_count:
+    type: integer
+    minimum: 0
+  every_expected_phase_emits_test_report:
+    type: boolean
+  evidence_identity_rule:
+    type: string
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

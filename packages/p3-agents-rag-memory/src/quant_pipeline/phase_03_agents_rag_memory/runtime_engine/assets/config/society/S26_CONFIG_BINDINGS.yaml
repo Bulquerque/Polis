@@ -1,0 +1,4 @@
+version: p3.s26.config_bindings.v1
+bindings:
+  memory_consolidation_config: MEMORY_CONSOLIDATION_CONFIG.yaml
+  stimulus_bus_config: STIMULUS_EVENT_BUS_CONFIG.yaml

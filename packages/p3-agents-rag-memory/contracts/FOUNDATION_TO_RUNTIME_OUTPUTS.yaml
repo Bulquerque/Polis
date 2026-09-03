@@ -1,0 +1,49 @@
+registry_id: p3_foundation_to_runtime_outputs.v1
+revision: P3-FINAL
+contract_pack_id: P3_INTEGRATION_CONTRACT_PACK_V2
+contract_pack_version: 1.0.0
+outputs:
+  FoundationGovernanceView:
+    producer_subphases: [P3.S1, P3.S2, P3.S3, P3.S4]
+    terminal_producer: P3.S4.M02
+    consumers: [P3.S17, P3.S20, P3.S22]
+    schema_id: foundation_governance_view.v1
+  PopulationRuntimeView:
+    producer_subphases: [P3.S5, P3.S6, P3.S7]
+    terminal_producer: P3.S7.M02
+    consumers: [P3.S19, P3.S20, P3.S27, P3.S28]
+    schema_id: population_runtime_view.v1
+    prohibited_fields: [activation_profile]
+  SocialGraphRuntimeView:
+    producer_subphases: [P3.S8]
+    terminal_producer: P3.S8.M02
+    consumers: [P3.S20, P3.S24, P3.S25]
+    schema_id: social_graph_runtime_view.v1
+    preserved_semantics: [strength, global_trust, domain_trust, influence, interaction_frequency]
+  StateRuntimeView:
+    producer_subphases: [P3.S9, P3.S10, P3.S11]
+    terminal_producer: P3.S11.M03
+    consumers: [P3.S19, P3.S20, P3.S22, P3.S23]
+    schema_id: state_runtime_view.v1
+  KnowledgeRuntimeView:
+    producer_subphases: [P3.S12, P3.S13]
+    terminal_producer: P3.S13.M02
+    consumers: [P3.S17, P3.S20, P3.S22, P3.S29]
+    schema_id: knowledge_runtime_view.v1
+  MemoryRuntimeView:
+    producer_subphases: [P3.S14]
+    terminal_producer: P3.S14.M02
+    consumers: [P3.S20, P3.S26]
+    schema_id: memory_runtime_view.v1
+  ToolRuntimeView:
+    producer_subphases: [P3.S15, P3.S16]
+    terminal_producer: P3.S16.M02
+    consumers: [P3.S20, P3.S21]
+    schema_id: tool_runtime_view.v1
+handoff:
+  manifest: p3_foundation_runtime_manifest.v2
+  resolver_port: FoundationManifestResolverPort
+return_boundary:
+  closure_manifest: p3_cycle_closure_manifest.v1
+  resolver_port: CheckpointResolverPort
+  materialized_model: ReplayState

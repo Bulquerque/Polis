@@ -1,0 +1,16 @@
+policy_id: p3.s40.qualification.v1
+grain: [tool_id, operation_id, mode_id]
+statuses: [QUALIFIED_LOCAL, DEGRADED, BLOCKED_UPSTREAM, FAILED]
+required_evidence:
+  - contract_tests
+  - integration_tests
+  - point_in_time_leakage_tests
+  - deterministic_replay_tests
+  - schema_validation
+  - handler_completeness
+release_failures:
+  - qualified_operation_without_handler
+  - operation_without_schema
+  - future_evidence_visible
+  - consumer_contract_incompatible
+  - network_enabled_in_backtest

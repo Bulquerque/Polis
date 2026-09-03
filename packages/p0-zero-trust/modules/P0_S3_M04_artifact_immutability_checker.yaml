@@ -1,0 +1,40 @@
+module_id: P0.S3.M04
+module_name: artifact_immutability_checker
+function: Validate artifact immutability across snapshots/releases, including mutability classes, genesis baselines, removals,
+  version bumps and optional append-only history chains.
+inputs: &id001
+- artifact_manifest_all_phases
+- hash_history
+- release_manifest_previous
+outputs: &id002
+- immutability_report
+validations:
+- no_raw_overwrite
+- schema_change_requires_version_bump
+fail_fast_conditions:
+- artifact_immutability_checker_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - artifact_manifest_all_phases
+    - hash_history
+    - release_manifest_previous
+  emits_to:
+    modules: []
+    artifacts: *id002
+    phase_outputs:
+    - immutability_report
+phase: P0
+subphase: P0.S3
+rc: RC4.1
+notes: Canonical P0.S3 module contract; public IDs, IO names and cross-subphase connections remain backward compatible.

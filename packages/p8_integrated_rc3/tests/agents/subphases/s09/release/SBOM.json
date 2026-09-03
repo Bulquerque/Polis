@@ -1,0 +1,20 @@
+{
+  "bomFormat": "CycloneDX-inspired-project-internal",
+  "specVersion": "1.0-lite",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "name": "quant-pipeline-p8-s9-runtime-assurance",
+      "version": "0.1.0",
+      "type": "library"
+    }
+  },
+  "components": [
+    {
+      "name": "pydantic",
+      "version": "2.13.4",
+      "scope": "required",
+      "type": "library"
+    }
+  ]
+}

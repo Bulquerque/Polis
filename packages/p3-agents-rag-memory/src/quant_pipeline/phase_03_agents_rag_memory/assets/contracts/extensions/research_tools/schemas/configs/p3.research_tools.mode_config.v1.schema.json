@@ -1,0 +1,194 @@
+{
+  "$defs": {
+    "CounterevidencePolicy": {
+      "enum": [
+        "NONE",
+        "OPTIONAL",
+        "REQUIRED"
+      ],
+      "title": "CounterevidencePolicy",
+      "type": "string"
+    },
+    "JsonValue": {},
+    "ModeTemplateConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "band": {
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "title": "Band",
+          "type": "integer"
+        },
+        "counterevidence_policy": {
+          "$ref": "#/$defs/CounterevidencePolicy",
+          "default": "NONE"
+        },
+        "coverage_floor": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Coverage Floor",
+          "type": "number"
+        },
+        "internal_subquery_limit": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Internal Subquery Limit",
+          "type": "integer"
+        },
+        "internal_work_units": {
+          "maximum": 10000,
+          "minimum": 1,
+          "title": "Internal Work Units",
+          "type": "integer"
+        },
+        "max_records": {
+          "maximum": 100000,
+          "minimum": 1,
+          "title": "Max Records",
+          "type": "integer"
+        },
+        "mode_id": {
+          "minLength": 1,
+          "title": "Mode Id",
+          "type": "string"
+        },
+        "required_capabilities": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required Capabilities",
+          "type": "array"
+        },
+        "required_methods": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required Methods",
+          "type": "array"
+        },
+        "required_source_families": {
+          "default": 0,
+          "maximum": 32,
+          "minimum": 0,
+          "title": "Required Source Families",
+          "type": "integer"
+        },
+        "required_view_classes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required View Classes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "mode_id",
+        "band",
+        "max_records",
+        "internal_subquery_limit",
+        "internal_work_units",
+        "coverage_floor"
+      ],
+      "title": "ModeTemplateConfig",
+      "type": "object"
+    },
+    "OperationModeAssignment": {
+      "additionalProperties": false,
+      "properties": {
+        "downgrade_targets": {
+          "additionalProperties": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Downgrade Targets",
+          "type": "object"
+        },
+        "mode_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Mode Ids",
+          "type": "array"
+        },
+        "operation_id": {
+          "minLength": 1,
+          "title": "Operation Id",
+          "type": "string"
+        },
+        "overrides": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "type": "object"
+          },
+          "title": "Overrides",
+          "type": "object"
+        },
+        "tool_id": {
+          "minLength": 1,
+          "title": "Tool Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tool_id",
+        "operation_id",
+        "mode_ids"
+      ],
+      "title": "OperationModeAssignment",
+      "type": "object"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.mode_config.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignments": {
+      "items": {
+        "$ref": "#/$defs/OperationModeAssignment"
+      },
+      "title": "Assignments",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "p3.research_tools.mode_config.v1",
+      "default": "p3.research_tools.mode_config.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "templates": {
+      "items": {
+        "$ref": "#/$defs/ModeTemplateConfig"
+      },
+      "title": "Templates",
+      "type": "array"
+    }
+  },
+  "required": [
+    "templates",
+    "assignments"
+  ],
+  "title": "OperationModeRegistryConfig",
+  "type": "object"
+}

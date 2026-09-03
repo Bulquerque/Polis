@@ -1,0 +1,22 @@
+schema_id: p3.s36.surface_policy.v1
+schema_version: 1.0.0
+observed_iv_required: true
+solve_implied_volatility: false
+interpolate_surface: false
+minimum_strikes_per_expiry: 3
+minimum_expiries_for_calendar_test: 2
+allowed_diagnostics:
+  - strike_coverage
+  - expiry_coverage
+  - executable_quote_fraction
+  - two_sided_quote_fraction
+  - observed_iv_fraction
+  - observed_skew_slope
+  - price_monotonicity
+  - price_convexity
+  - calendar_total_variance
+forbidden_outputs:
+  - recommended_trade
+  - option_candidate
+  - target_volatility
+  - calibrated_pricing_model

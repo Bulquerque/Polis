@@ -1,0 +1,19 @@
+additionalProperties: false
+properties:
+  minimum_scenarios:
+    default: 3
+    minimum: 1
+    title: Minimum Scenarios
+    type: integer
+  fidelity_tolerance:
+    default: 0.25
+    minimum: 0.0
+    title: Fidelity Tolerance
+    type: number
+  require_observable_regret:
+    default: true
+    title: Require Observable Regret
+    type: boolean
+title: PayoffAttributionPolicy
+type: object
+$id: urn:inferencia:p9:s8:PayoffAttributionPolicy:1.0.0

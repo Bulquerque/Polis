@@ -1,0 +1,15 @@
+policy_id: p7_s4_code_style_v1
+limits:
+  max_python_file_lines: 350
+  max_function_lines: 60
+  max_class_lines: 180
+  max_module_wrapper_lines: 80
+forbidden_file_names: [utils.py, helpers.py, misc.py, common.py]
+required:
+  - explicit module registry
+  - immutable Pydantic boundary records
+  - deterministic canonical serialization
+  - structured reason codes
+  - no dynamic imports
+  - no hidden configuration mutation
+  - no direct imports from P6, P8, or P9

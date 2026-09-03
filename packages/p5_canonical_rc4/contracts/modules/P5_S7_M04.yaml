@@ -1,0 +1,31 @@
+module_id: P5.S7.M04
+name: input_perspective_model_disagreement_analyzer
+subphase_id: P5.S7
+required_inputs: []
+optional_inputs:
+- p4_perspective_context
+- return_member_forecast_panel_linear
+- return_member_forecast_panel_state_space
+- return_member_forecast_panel_tabular
+- return_member_forecast_panel_temporal
+- return_member_forecast_panel_foundation
+- volatility_member_forecast_panel_har
+- volatility_member_forecast_panel_conditional
+- volatility_member_forecast_panel_rough_implied
+- volatility_member_forecast_panel_ml_neural
+- path_risk_member_forecast_panel
+- tail_member_forecast_panel_quantile
+- tail_member_forecast_panel_evt
+- tail_member_forecast_panel_distributional
+- scenario_member_panel_multiple_future
+- scenario_member_panel_joint_generative
+- oof_validation_observation_panel
+outputs:
+- perspective_model_disagreement_panel
+allowed_actions:
+- RUN
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

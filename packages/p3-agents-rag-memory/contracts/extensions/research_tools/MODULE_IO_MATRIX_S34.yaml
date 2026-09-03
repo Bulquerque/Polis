@@ -1,0 +1,68 @@
+schema_id: p3.research_tools.s34.module_io_matrix.v1
+schema_version: 1.0.0
+records:
+- module_id: P3.S34.M01
+  inputs:
+  - research_capability_taxonomy_config
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - person_schema_policy
+  outputs:
+  - research_capability_taxonomy
+  - capability_operation_requirement_matrix
+- module_id: P3.S34.M02
+  inputs:
+  - person_seed_panel
+  - validated_population_manifest
+  - person_schema_policy
+  - research_capability_taxonomy
+  - capability_profile_policy_config
+  - phase3_run_snapshot
+  outputs:
+  - person_research_capability_panel
+  - person_research_resource_panel
+  - capability_profile_coverage_report
+- module_id: P3.S34.M03
+  inputs:
+  - research_plan_registry_config
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - research_capability_taxonomy
+  - phase2_research_view_readiness_report
+  outputs:
+  - research_plan_registry
+  - research_plan_dependency_matrix
+  - research_plan_readiness_report
+- module_id: P3.S34.M04
+  inputs:
+  - person_tool_entitlement_panel
+  - person_research_capability_panel
+  - person_research_resource_panel
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - research_plan_registry
+  - phase2_research_view_readiness_report
+  - provider_transport_overlay
+  - research_entitlement_policy_config
+  - mcp_gateway_policy
+  - phase3_run_snapshot
+  outputs:
+  - extended_person_tool_entitlement_panel
+  - entitlement_resolution_audit
+- module_id: P3.S34.M05
+  inputs:
+  - validated_person_context_bundle
+  - extended_person_tool_entitlement_panel
+  - person_research_capability_panel
+  - research_plan_registry
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - person_seed_panel
+  - phase3_run_snapshot
+  - cognition_config
+  - context_tool_descriptor_policy_config
+  outputs:
+  - extended_validated_person_context_bundle
+  - context_projection_audit

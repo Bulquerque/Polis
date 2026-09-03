@@ -1,0 +1,31 @@
+records:
+- interaction_id: I01
+  parent_hypothesis_ids:
+  - H01
+  - H13
+  name: momentum_x_liquidity
+  status: ACTIVE
+- interaction_id: I02
+  parent_hypothesis_ids:
+  - H30
+  - H14
+  name: novelty_x_attention
+  status: ACTIVE
+- interaction_id: I03
+  parent_hypothesis_ids:
+  - H18
+  - H28
+  name: option_risk_x_event
+  status: ACTIVE
+- interaction_id: I04
+  parent_hypothesis_ids:
+  - H16
+  - H31
+  name: downside_x_disagreement
+  status: ACTIVE
+- interaction_id: I05
+  parent_hypothesis_ids:
+  - H23
+  - H25
+  name: carry_x_macro_state
+  status: ACTIVE

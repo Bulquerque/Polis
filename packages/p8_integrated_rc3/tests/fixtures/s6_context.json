@@ -1,0 +1,87 @@
+{
+  "envelope": {
+    "artifact_id": "S6CTX",
+    "artifact_type": "P8_RISK_LIFECYCLE_CONTEXT_V1",
+    "schema_version": "1.0.0",
+    "contract_version": "1.0.0",
+    "producer_phase": "P8",
+    "producer_module": "P8.ORCHESTRATOR",
+    "producer_release": "0.1.0",
+    "pipeline_version": "v14.1-rc4.1",
+    "run_id": "RUN1",
+    "cycle_id": 1,
+    "decision_time": "2026-08-03T18:00:00Z",
+    "market_cutoff_at": "2026-08-03T18:00:00Z",
+    "computed_at": "2026-08-03T18:00:00Z",
+    "recorded_at": "2026-08-03T18:00:00Z",
+    "available_at": "2026-08-03T18:00:00Z",
+    "content_sha256": "ade90d5c44bf626e79a0c51e3f557e09e2287c101b7fa1746120deac04bccf10",
+    "lineage_id": "L1"
+  },
+  "payload": {
+    "decision_snapshot_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "lifecycle_candidates": [
+      {
+        "candidate_id": "C1",
+        "candidate_type": "LINEAR",
+        "legs": []
+      }
+    ],
+    "emergency_state": {
+      "required_margin_relief": 0.0,
+      "required_capital_relief": 0.0,
+      "required_maximum_loss_relief": 0.0,
+      "forced_liquidation_required": false,
+      "trigger_reason_codes": []
+    },
+    "policy_context": {
+      "policy_id": "S6_TEST",
+      "policy_version": "1.0.0",
+      "authorized_by": "P0_TEST",
+      "effective_from_cycle": 0,
+      "expires_after_cycle": null,
+      "content_sha256": "ee61a4ecf268b244bfdb6960d144837015822f05f49903fda2ab720bca54dfa3",
+      "created_at": "2026-08-03T18:00:00Z",
+      "risk_gate": {
+        "numerical_tolerance": 1e-08,
+        "require_all_horizons": true,
+        "block_on_future_plan_violation": true,
+        "maximum_optimizer_risk_discrepancy": 0.0
+      },
+      "hedge": {
+        "enabled": true,
+        "approved_hedge_candidate_ids": [],
+        "risk_weight": 1.0,
+        "transaction_cost_weight": 1.0,
+        "minimum_cvar_reduction": 0.0,
+        "maximum_total_absolute_hedge_units": 10.0,
+        "maximum_cost": 1000.0,
+        "time_limit_seconds": 10.0,
+        "mip_relative_gap": 0.0
+      },
+      "lifecycle": {
+        "require_complete_context": true,
+        "close_before_expiry_seconds": 3600,
+        "roll_before_expiry_seconds": 604800,
+        "minimum_early_exercise_benefit": 0.01,
+        "minimum_assignment_risk_intrinsic": 0.01,
+        "maximum_time_value_for_assignment_risk": 0.01,
+        "allow_american_early_exercise": true,
+        "prevent_short_assignment_if_possible": true
+      },
+      "emergency": {
+        "enabled": true,
+        "protected_candidate_ids": [],
+        "protection_penalty_per_unit": 1000.0,
+        "economic_preservation_weight": 1.0,
+        "time_limit_seconds": 10.0,
+        "mip_relative_gap": 0.0
+      },
+      "authorization": {
+        "validity_seconds": 1800,
+        "allow_partial_authorization": false,
+        "emergency_overrides_normal_target": true
+      }
+    }
+  }
+}

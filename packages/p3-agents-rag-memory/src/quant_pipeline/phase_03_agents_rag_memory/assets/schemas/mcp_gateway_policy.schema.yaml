@@ -1,0 +1,126 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: mcp_gateway_policy.v2
+title: MCP gateway policy
+description: Canonical P3.S16 MCPGatewayPolicy artifact.
+type: object
+additionalProperties: false
+properties:
+  artifact_name:
+    const: mcp_gateway_policy
+  schema_id:
+    const: mcp_gateway_policy.v2
+  schema_version:
+    const: '2.0.0'
+  artifact_id:
+    type: string
+    minLength: 1
+  run_id:
+    type: string
+    minLength: 1
+  cycle_id:
+    type: string
+    minLength: 1
+  snapshot_id:
+    type: string
+    minLength: 1
+  as_of_time:
+    type: string
+    format: date-time
+  lineage_id:
+    type: string
+    minLength: 1
+  content_hash:
+    type: string
+    pattern: '^[0-9a-f]{64}$'
+  status:
+    type: string
+    enum: [READY, DEGRADED, EMPTY, BLOCKED]
+  grain:
+    type: array
+    items: {type: string}
+  primary_key:
+    type: array
+    items: {type: string}
+  tool_registry_hash:
+    type: string
+    pattern: '^[0-9a-f]{64}$'
+  entitlement_panel_hash:
+    type: string
+    pattern: '^[0-9a-f]{64}$'
+  gateway_config_hash:
+    type: string
+    pattern: '^[0-9a-f]{64}$'
+  provider_registry_hash:
+    type: string
+    pattern: '^[0-9a-f]{64}$'
+  policy_version:
+    const: '2.0.0'
+  controls:
+    type: array
+    items:
+      type: object
+      additionalProperties: true
+  coverage:
+    type: object
+    additionalProperties: false
+    properties:
+      evaluated_pair_count: {type: integer, minimum: 0}
+      allowed_pair_count: {type: integer, minimum: 0}
+      denied_pair_count: {type: integer, minimum: 0}
+      blocked_pair_count: {type: integer, minimum: 0}
+      state_changing_pair_count: {type: integer, minimum: 0}
+      cache_required_pair_count: {type: integer, minimum: 0}
+    required:
+      - evaluated_pair_count
+      - allowed_pair_count
+      - denied_pair_count
+      - blocked_pair_count
+      - state_changing_pair_count
+      - cache_required_pair_count
+  global_controls:
+    type: object
+  issues:
+    type: array
+    items: {type: string}
+required:
+  - artifact_name
+  - schema_id
+  - schema_version
+  - artifact_id
+  - run_id
+  - cycle_id
+  - snapshot_id
+  - as_of_time
+  - lineage_id
+  - content_hash
+  - status
+  - tool_registry_hash
+  - entitlement_panel_hash
+  - gateway_config_hash
+  - provider_registry_hash
+  - controls
+  - coverage
+  - global_controls
+artifact_name: mcp_gateway_policy
+schema_id: mcp_gateway_policy.v2
+schema_version: '2.0.0'
+status: implemented_qualified_internal
+required_fields:
+  - artifact_name
+  - schema_id
+  - schema_version
+  - artifact_id
+  - run_id
+  - cycle_id
+  - snapshot_id
+  - as_of_time
+  - lineage_id
+  - content_hash
+  - status
+  - tool_registry_hash
+  - entitlement_panel_hash
+  - gateway_config_hash
+  - provider_registry_hash
+  - controls
+  - coverage
+  - global_controls

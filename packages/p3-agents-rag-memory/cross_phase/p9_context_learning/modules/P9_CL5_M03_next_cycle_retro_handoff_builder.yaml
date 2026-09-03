@@ -1,0 +1,20 @@
+module_id: P9.CL5.M03
+module_name: next_cycle_retro_handoff_builder
+authority_phase: P9
+status: planned_cross_phase_blueprint
+inputs:
+- retro_promotion_decision
+- updated_retro_experiment_memory
+outputs:
+- next_cycle_retro_update_package
+- next_cycle_retro_handoff_manifest
+forbidden_actions:
+- mutate_current_cycle
+- change_person_genome_directly
+- promote_without_statistical_evidence
+tests_required:
+- schema
+- lineage
+- blind_holdout
+- one_change
+- result_finalization

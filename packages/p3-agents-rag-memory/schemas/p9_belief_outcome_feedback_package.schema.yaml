@@ -1,0 +1,117 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p9:p3-belief-outcome-feedback:v1
+title: p9_belief_outcome_feedback_package
+schema_id: p9_belief_outcome_feedback_package.v1
+type: object
+additionalProperties: false
+required:
+- schema_version
+- contract_version
+- artifact_id
+- created_at
+- lineage_id
+- status
+- feedback_items
+properties:
+  schema_version:
+    const: v14.1-rc4.1
+  contract_version:
+    const: p9.p3.belief_outcome_feedback.v1
+  artifact_id:
+    type: string
+    minLength: 1
+  created_at:
+    type: string
+    format: date-time
+  lineage_id:
+    type: string
+    minLength: 1
+  handoff_lineage_id:
+    type: string
+  status:
+    enum:
+    - NO_MATURED_FEEDBACK
+    - ACTIVE
+  feedback_items:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required:
+      - feedback_id
+      - commitment_id
+      - commit_hash
+      - expected_commit_hash
+      - person_id
+      - proposition_id
+      - horizon
+      - source_cycle_id
+      - matures_at
+      - outcome_available_at
+      - experience_available_from_cycle
+      - original_belief_ref
+      - outcome_ref
+      - evaluation_summary
+      - lineage_id
+      properties:
+        feedback_id:
+          type: string
+          minLength: 1
+        commitment_id:
+          type: string
+          minLength: 1
+        commit_hash:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+        person_id:
+          type: string
+          minLength: 1
+        proposition_id:
+          type: string
+          minLength: 1
+        horizon:
+          type: string
+          minLength: 1
+        source_cycle_id:
+          type: integer
+          minimum: 0
+        matures_at:
+          type: string
+          format: date-time
+        outcome_available_at:
+          type: string
+          format: date-time
+        experience_available_from_cycle:
+          type: integer
+          minimum: 0
+        original_belief_ref:
+          type: object
+        outcome_ref:
+          type: object
+        evaluation_summary:
+          type: object
+        lineage_id:
+          type: string
+          minLength: 1
+        expected_commit_hash:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+allOf:
+- if:
+    properties:
+      status:
+        const: NO_MATURED_FEEDBACK
+  then:
+    properties:
+      feedback_items:
+        maxItems: 0
+- if:
+    properties:
+      status:
+        const: ACTIVE
+  then:
+    properties:
+      feedback_items:
+        minItems: 1
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

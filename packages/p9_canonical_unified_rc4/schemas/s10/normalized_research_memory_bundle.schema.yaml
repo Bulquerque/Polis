@@ -1,0 +1,370 @@
+$defs:
+  ArtifactReference:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        maxLength: 160
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_role:
+        maxLength: 256
+        minLength: 1
+        title: Artifact Role
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      cycle:
+        $ref: '#/$defs/CycleRef'
+      location:
+        maxLength: 256
+        minLength: 1
+        title: Location
+        type: string
+      payload_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Payload Sha256
+        type: string
+      producer_module_id:
+        maxLength: 256
+        minLength: 1
+        title: Producer Module Id
+        type: string
+      run_id:
+        maxLength: 256
+        minLength: 1
+        title: Run Id
+        type: string
+      schema_name:
+        maxLength: 256
+        minLength: 1
+        title: Schema Name
+        type: string
+      schema_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Schema Sha256
+        type: string
+      schema_version:
+        maxLength: 256
+        minLength: 1
+        title: Schema Version
+        type: string
+    required:
+    - artifact_id
+    - artifact_role
+    - schema_name
+    - schema_version
+    - schema_sha256
+    - payload_sha256
+    - producer_module_id
+    - run_id
+    - cycle
+    - available_at
+    - location
+    title: ArtifactReference
+    type: object
+  CausalStatus:
+    enum:
+    - ASSOCIATION
+    - ATTRIBUTED
+    - CAUSAL
+    - UNKNOWN
+    title: CausalStatus
+    type: string
+  CycleRef:
+    additionalProperties: false
+    properties:
+      cycle_id:
+        maxLength: 256
+        minLength: 1
+        title: Cycle Id
+        type: string
+      ordinal:
+        minimum: 0
+        title: Ordinal
+        type: integer
+    required:
+    - cycle_id
+    - ordinal
+    title: CycleRef
+    type: object
+  EvidenceQuality:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceQuality
+    type: string
+  EvidenceReference:
+    additionalProperties: false
+    properties:
+      artifact_ref:
+        $ref: '#/$defs/ArtifactReference'
+      evidence_id:
+        maxLength: 256
+        minLength: 1
+        title: Evidence Id
+        type: string
+      quality:
+        $ref: '#/$defs/EvidenceQuality'
+      summary:
+        maxLength: 4000
+        minLength: 1
+        title: Summary
+        type: string
+    required:
+    - evidence_id
+    - artifact_ref
+    - quality
+    - summary
+    title: EvidenceReference
+    type: object
+  MaturedLessonPanel:
+    additionalProperties: false
+    properties:
+      items:
+        items:
+          $ref: '#/$defs/ResearchMemoryItem'
+        title: Items
+        type: array
+    required:
+    - items
+    title: MaturedLessonPanel
+    type: object
+  NegativeResearchMemoryPanel:
+    additionalProperties: false
+    properties:
+      items:
+        items:
+          $ref: '#/$defs/ResearchMemoryItem'
+        title: Items
+        type: array
+    required:
+    - items
+    title: NegativeResearchMemoryPanel
+    type: object
+  ResearchHypothesisPanel:
+    additionalProperties: false
+    properties:
+      items:
+        items:
+          $ref: '#/$defs/ResearchMemoryItem'
+        title: Items
+        type: array
+    required:
+    - items
+    title: ResearchHypothesisPanel
+    type: object
+  ResearchItemState:
+    enum:
+    - ACTIVE
+    - SUPERSEDED
+    - CONTRADICTED
+    - EXPIRED
+    - REJECTED
+    title: ResearchItemState
+    type: string
+  ResearchItemType:
+    enum:
+    - SUPPORTED_LESSON
+    - CONDITIONAL_LESSON
+    - PLAUSIBLE_HYPOTHESIS
+    - REJECTED_HYPOTHESIS
+    - UNRESOLVED_QUESTION
+    - NEGATIVE_MEMORY
+    - BREAKPOINT_MEMORY
+    title: ResearchItemType
+    type: string
+  ResearchMemoryItem:
+    additionalProperties: false
+    properties:
+      abstract_claim:
+        maxLength: 4000
+        minLength: 1
+        title: Abstract Claim
+        type: string
+      causal_status:
+        $ref: '#/$defs/CausalStatus'
+      claim:
+        maxLength: 4000
+        minLength: 1
+        title: Claim
+        type: string
+      confidence:
+        maximum: 1.0
+        minimum: 0.0
+        title: Confidence
+        type: number
+      contradicts_item_ids:
+        default: []
+        items:
+          maxLength: 192
+          minLength: 1
+          type: string
+        title: Contradicts Item Ids
+        type: array
+      evidence_against:
+        default: []
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence Against
+        type: array
+      evidence_for:
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence For
+        type: array
+      expires_after_cycle:
+        anyOf:
+        - $ref: '#/$defs/CycleRef'
+        - type: 'null'
+        default: null
+      export_block_reasons:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Export Block Reasons
+        type: array
+      export_blocked:
+        default: false
+        title: Export Blocked
+        type: boolean
+      item_id:
+        maxLength: 192
+        minLength: 1
+        title: Item Id
+        type: string
+      item_type:
+        $ref: '#/$defs/ResearchItemType'
+      materiality:
+        minimum: 0.0
+        title: Materiality
+        type: number
+      scope:
+        $ref: '#/$defs/ResearchScope'
+      semantic_key:
+        maxLength: 256
+        minLength: 1
+        title: Semantic Key
+        type: string
+      source_cycles:
+        items:
+          $ref: '#/$defs/CycleRef'
+        title: Source Cycles
+        type: array
+      state:
+        $ref: '#/$defs/ResearchItemState'
+      supersedes_item_ids:
+        default: []
+        items:
+          maxLength: 192
+          minLength: 1
+          type: string
+        title: Supersedes Item Ids
+        type: array
+      validity_start:
+        $ref: '#/$defs/CycleRef'
+    required:
+    - item_id
+    - semantic_key
+    - item_type
+    - state
+    - claim
+    - abstract_claim
+    - scope
+    - causal_status
+    - evidence_for
+    - confidence
+    - materiality
+    - validity_start
+    - source_cycles
+    title: ResearchMemoryItem
+    type: object
+  ResearchScope:
+    additionalProperties: false
+    properties:
+      asset_families:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Asset Families
+        type: array
+      phases:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Phases
+        type: array
+      policy_ids:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Policy Ids
+        type: array
+      regimes:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Regimes
+        type: array
+    title: ResearchScope
+    type: object
+additionalProperties: false
+properties:
+  matured_lessons:
+    $ref: '#/$defs/MaturedLessonPanel'
+  merged_candidate_ids:
+    default: []
+    items:
+      maxLength: 256
+      minLength: 1
+      type: string
+    title: Merged Candidate Ids
+    type: array
+  negative_memory:
+    $ref: '#/$defs/NegativeResearchMemoryPanel'
+  policy_id:
+    maxLength: 256
+    minLength: 1
+    title: Policy Id
+    type: string
+  research_hypotheses:
+    $ref: '#/$defs/ResearchHypothesisPanel'
+  skipped_candidate_ids:
+    default: []
+    items:
+      maxLength: 256
+      minLength: 1
+      type: string
+    title: Skipped Candidate Ids
+    type: array
+  warnings:
+    default: []
+    items:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    title: Warnings
+    type: array
+required:
+- policy_id
+- matured_lessons
+- research_hypotheses
+- negative_memory
+title: NormalizedResearchMemoryBundle
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

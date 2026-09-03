@@ -1,0 +1,52 @@
+registry_id: P3_FINAL_INTEGRATION_ARTIFACT_REGISTRY
+architecture_revision: P3-FINAL
+artifact_count: 16
+artifacts:
+- artifact: integration_entry_evidence
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: evaluation_dataset_manifest
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: evaluation_split_manifest
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: experiment_registry
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: commitment_coverage_report
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: population_calibration_bundle
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: social_graph_calibration_report
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: activation_trust_sensitivity_report
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: variant_execution_manifest
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: evaluation_observation_panel
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: runtime_cost_latency_panel
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: cross_phase_receipt_bundle
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: qualification_summary
+  producer: P3.INTEGRATION
+  official_output: false
+- artifact: p0_promotion_decision
+  producer: P0
+  official_output: false
+- artifact: promotion_candidate_bundle
+  producer: P3.INTEGRATION
+  official_output: true
+- artifact: integration_gate_report
+  producer: P3.INTEGRATION
+  official_output: true

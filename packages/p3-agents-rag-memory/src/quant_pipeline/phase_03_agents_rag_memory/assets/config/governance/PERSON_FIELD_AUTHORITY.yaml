@@ -1,0 +1,11 @@
+authority_id: P3_FINAL_PERSON_FIELD_AUTHORITY_V1
+authority_version: 1.0.0
+canonical_schema: schemas/person_profile.schema.yaml
+canonical_names:
+  capabilities: cognitive_capabilities
+  decision: decision_profile
+  personality: structural_profile
+forbidden_active_aliases:
+- cognitive_capacity
+- core_personality
+legacy_aliases_migration_only: true

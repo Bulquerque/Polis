@@ -1,0 +1,16 @@
+flowchart TD
+  P2[P2 PIT context] --> S1[S1-S3 Intake, PIT, N+1 feedback]
+  S1 --> POP[S4-S8 Population and initial graph]
+  POP --> W[S9-S11 Warm-up canonical replay]
+  W --> K[S12-S16 RAG, GraphRAG, memory/tool policies]
+  K --> EVT[S17-S19 Stimuli and deterministic activation]
+  EVT --> RET[S20 Post-activation retrieval and context]
+  RET --> COG[S21 LLM planning -> MCP execution -> LLM continuation]
+  COG --> BEL[S22-S23 Belief validation and person state]
+  BEL --> SOC[S24-S26 Social, trust, memory, checkpoint]
+  SOC --> EM[S27-S29 Emergence, tags, evidence]
+  EM --> P4[S30 P4 official handoff]
+  EM --> P9E[S31 P9 evidence export]
+  P9E --> P9[P9 external evaluation, statistics, Retro and promotion]
+  P9 -. promoted patch and matured feedback N+1 .-> S1
+  SOC -. state and endogenous queue N+1 .-> EVT

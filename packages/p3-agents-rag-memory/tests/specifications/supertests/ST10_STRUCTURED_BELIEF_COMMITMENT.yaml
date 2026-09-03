@@ -1,0 +1,15 @@
+spec_id: ST10_STRUCTURED_BELIEF_COMMITMENT
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Beliefs are structured, evidence-bound and committed before outcomes mature
+required_cases:
+- schema_bounds
+- commit_hash
+- horizon_maturity
+- no_trade_authority
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

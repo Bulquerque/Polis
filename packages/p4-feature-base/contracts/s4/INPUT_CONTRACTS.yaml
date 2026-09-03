@@ -1,0 +1,8 @@
+version: V14.9-RC1
+inputs:
+  canonical_observation_panel:
+    required: true
+    producer: P4.S2.M04
+  approved_observer_execution_registry:
+    required: true
+    producer: P4.S3.M05

@@ -1,0 +1,153 @@
+{
+  "$defs": {
+    "BootstrapIndexManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "block_length": {
+          "minimum": 1,
+          "title": "Block Length",
+          "type": "integer"
+        },
+        "indices": {
+          "items": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "title": "Indices",
+          "type": "array"
+        },
+        "manifest_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Manifest Id",
+          "type": "string"
+        },
+        "manifest_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Manifest Sha256",
+          "type": "string"
+        },
+        "method": {
+          "$ref": "#/$defs/BootstrapMethod"
+        },
+        "observation_count": {
+          "minimum": 1,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "replicate_count": {
+          "minimum": 1,
+          "title": "Replicate Count",
+          "type": "integer"
+        },
+        "replicate_sha256": {
+          "items": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "title": "Replicate Sha256",
+          "type": "array"
+        },
+        "seed_lineage": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Seed Lineage",
+          "type": "string"
+        }
+      },
+      "required": [
+        "manifest_id",
+        "method",
+        "observation_count",
+        "replicate_count",
+        "block_length",
+        "seed_lineage",
+        "indices",
+        "replicate_sha256",
+        "manifest_sha256"
+      ],
+      "title": "BootstrapIndexManifest",
+      "type": "object"
+    },
+    "BootstrapMethod": {
+      "enum": [
+        "MOVING",
+        "CIRCULAR",
+        "STATIONARY"
+      ],
+      "title": "BootstrapMethod",
+      "type": "string"
+    },
+    "S5State": {
+      "enum": [
+        "SUCCESS",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "PARTIAL_METRIC_COVERAGE",
+        "INSUFFICIENT_EVIDENCE",
+        "INSUFFICIENT_HISTORY",
+        "INSUFFICIENT_TRADES",
+        "INSUFFICIENT_VALID_REPLICATES",
+        "IRREGULAR_TIME_UNSUPPORTED",
+        "TRIAL_FAMILY_INCOMPLETE",
+        "EFFECTIVE_TRIAL_COUNT_UNRESOLVED",
+        "METRIC_VERSION_MISMATCH",
+        "ROBUST",
+        "PROVISIONALLY_ROBUST",
+        "FRAGILE",
+        "BACKTEST_OVERFIT_RISK",
+        "REGIME_DEPENDENT",
+        "SELECTION_BIAS_UNRESOLVED",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S5State",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "manifest": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/BootstrapIndexManifest"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S5State"
+    }
+  },
+  "required": [
+    "status",
+    "manifest"
+  ],
+  "title": "BlockBootstrapResult",
+  "type": "object"
+}

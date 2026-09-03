@@ -1,0 +1,10 @@
+policy_id: p7_s3_factor_adjustment_v1
+modes: [BYPASS, STATIC_PREMIA, QUALIFIED_RESIDUAL]
+formula: adjusted_target = raw_target - intercept - sum(exposure_i * coefficient_i)
+requirements:
+  - trained factor model cutoff must be no later than decision_time
+  - model qualification status must be QUALIFIED
+  - factor schema and target metric must match runtime policy
+  - runtime fitting is forbidden
+  - raw target remains published
+  - missing exposure follows explicit BYPASS_TARGET, UNAVAILABLE or BLOCK policy

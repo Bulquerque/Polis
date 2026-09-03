@@ -1,0 +1,90 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "OBSERVED_LIVE",
+        "OBSERVED_HISTORICAL",
+        "SIMULATED_ORDERBOOK",
+        "PARAMETRIC_IMPACT",
+        "STRESS_EXTRAPOLATED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "ImpactPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "eta": {
+          "default": 0.1,
+          "minimum": 0,
+          "title": "Eta",
+          "type": "number"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass",
+          "default": "PARAMETRIC_IMPACT"
+        },
+        "maximum_participation": {
+          "default": 0.2,
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Maximum Participation",
+          "type": "number"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version"
+      ],
+      "title": "ImpactPolicy",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/CapacityPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aum_multipliers": {
+      "default": [
+        0.5,
+        1.0,
+        2.0,
+        5.0
+      ],
+      "items": {
+        "type": "number"
+      },
+      "title": "Aum Multipliers",
+      "type": "array"
+    },
+    "impact": {
+      "$ref": "#/$defs/ImpactPolicy"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Policy Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version",
+    "impact"
+  ],
+  "title": "CapacityPolicy",
+  "type": "object"
+}

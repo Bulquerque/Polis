@@ -1,0 +1,14 @@
+{
+  "schema_id": "warmup_replay_config.v2",
+  "schema_version": "2.0.0",
+  "direct_state_synthesis_forbidden": true,
+  "genesis_factory_allowed": true,
+  "record_module_trace": true,
+  "record_seeds": true,
+  "fail_on_noncanonical_module": true,
+  "checkpoint_write_mode": "ATOMIC_JSON",
+  "stop_on_kernel_degraded": false,
+  "max_replay_items": 10000,
+  "resume_checkpoint_id": null,
+  "base_seed": 20260728
+}

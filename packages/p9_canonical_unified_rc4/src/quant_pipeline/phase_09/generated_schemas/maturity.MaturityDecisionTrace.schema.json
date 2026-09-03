@@ -1,0 +1,30 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "decision_count": {
+      "minimum": 0,
+      "title": "Decision Count",
+      "type": "integer"
+    },
+    "evaluation_as_of": {
+      "format": "date-time",
+      "title": "Evaluation As Of",
+      "type": "string"
+    },
+    "policy_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Policy Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "evaluation_as_of",
+    "policy_ids",
+    "decision_count"
+  ],
+  "title": "MaturityDecisionTrace",
+  "type": "object"
+}

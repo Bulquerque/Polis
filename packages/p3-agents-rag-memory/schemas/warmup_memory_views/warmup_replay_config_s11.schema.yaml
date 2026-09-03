@@ -1,0 +1,72 @@
+additionalProperties: false
+properties:
+  schema_id:
+    const: warmup_replay_config.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    title: Schema Version
+    type: string
+  direct_state_synthesis_forbidden:
+    const: true
+    title: Direct State Synthesis Forbidden
+    type: boolean
+  genesis_factory_allowed:
+    const: true
+    title: Genesis Factory Allowed
+    type: boolean
+  record_module_trace:
+    const: true
+    title: Record Module Trace
+    type: boolean
+  record_seeds:
+    const: true
+    title: Record Seeds
+    type: boolean
+  fail_on_noncanonical_module:
+    const: true
+    title: Fail On Noncanonical Module
+    type: boolean
+  checkpoint_write_mode:
+    const: ATOMIC_JSON
+    title: Checkpoint Write Mode
+    type: string
+  stop_on_kernel_degraded:
+    default: false
+    title: Stop On Kernel Degraded
+    type: boolean
+  max_replay_items:
+    default: 10000
+    exclusiveMinimum: 0
+    maximum: 100000
+    title: Max Replay Items
+    type: integer
+  resume_checkpoint_id:
+    anyOf:
+    - minLength: 1
+      type: string
+    - type: 'null'
+    default: null
+    title: Resume Checkpoint Id
+  base_seed:
+    default: 0
+    minimum: 0
+    title: Base Seed
+    type: integer
+required:
+- schema_id
+- schema_version
+- direct_state_synthesis_forbidden
+- genesis_factory_allowed
+- record_module_trace
+- record_seeds
+- fail_on_noncanonical_module
+- checkpoint_write_mode
+title: WarmupReplayConfig
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: warmup_replay_config_s11
+schema_id: warmup_replay_config.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

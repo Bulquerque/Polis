@@ -1,0 +1,30 @@
+registry_id: p3.s30.proposition_registry
+registry_version: 1.0.0
+propositions:
+  - proposition_id: directional_outlook
+    title: directional outlook
+    statement_template: "For {underlying} over {horizon}, the society has a falsifiable directional-outlook hypothesis supported by the recorded evidence."
+    falsification_template: "The hypothesis is weakened if {observable} fails the pre-registered directional criterion for {underlying} over {horizon}."
+    required_observable: realized_direction_bucket
+    allowed_horizons: [1d, 5d, 21d, 63d, 252d]
+    maturity_days: 21
+    minimum_evidence_count: 1
+    allow_context_only: false
+  - proposition_id: volatility_outlook
+    title: volatility outlook
+    statement_template: "For {underlying} over {horizon}, the society has a falsifiable volatility-outlook hypothesis supported by the recorded evidence."
+    falsification_template: "The hypothesis is weakened if {observable} fails the pre-registered volatility criterion for {underlying} over {horizon}."
+    required_observable: realized_volatility_bucket
+    allowed_horizons: [1d, 5d, 21d, 63d]
+    maturity_days: 21
+    minimum_evidence_count: 1
+    allow_context_only: false
+  - proposition_id: regime_outlook
+    title: regime outlook
+    statement_template: "For {underlying} over {horizon}, the society has a falsifiable regime-outlook hypothesis supported by the recorded evidence."
+    falsification_template: "The hypothesis is weakened if {observable} fails the pre-registered regime criterion for {underlying} over {horizon}."
+    required_observable: realized_regime_state
+    allowed_horizons: [5d, 21d, 63d]
+    maturity_days: 21
+    minimum_evidence_count: 1
+    allow_context_only: false

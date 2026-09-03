@@ -1,0 +1,44 @@
+schema_id: dashboard_phase_payload.v2
+artifact_name: dashboard_phase_payload
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: true
+required_fields:
+- phase_id
+- phase_name
+- run_id
+- status
+- inputs_received
+- outputs_emitted
+- tests_passed
+- tests_failed
+- artifact_hash_coverage
+- schema_validation_status
+- forbidden_connection_status
+properties:
+  phase_id: {type: string, pattern: '^P[0-9]+$'}
+  phase_name: {type: string}
+  run_id: {type: string}
+  status: {type: string}
+  inputs_received: {type: integer}
+  outputs_emitted: {type: integer}
+  tests_passed: {type: integer}
+  tests_failed: {type: integer}
+  artifact_hash_coverage: {type: string}
+  schema_validation_status: {type: string}
+  forbidden_connection_status: {type: string}
+  artifact_id: {type: string}
+  lineage_id: {type: string}
+  release_blocking: {type: boolean}
+  documentation_status: {type: string}
+  development_status: {type: string}
+  test_status: {type: string}
+  health_status: {type: string}
+  qualification_status: {type: string}
+  readiness: {type: string}
+forbidden_fields:
+- future_return
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

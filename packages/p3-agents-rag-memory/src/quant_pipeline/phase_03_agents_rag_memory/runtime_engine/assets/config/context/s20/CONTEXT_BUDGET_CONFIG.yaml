@@ -1,0 +1,11 @@
+schema_version: context_budget_config.s20.v1
+max_input_tokens: 24000
+reserved_output_tokens: 4000
+safety_margin_tokens: 1000
+minimum_evidence_items: 2
+tokenizer_mode: DETERMINISTIC_REGEX
+removable_section_order:
+  - ACTIVE_POLICY_PATCH
+  - SOCIAL_CONTEXT
+  - RETRIEVED_EVIDENCE
+  - PRIOR_BELIEFS

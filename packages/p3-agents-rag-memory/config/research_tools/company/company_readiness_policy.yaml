@@ -1,0 +1,4 @@
+version: 1.0.0
+fail_closed: true
+forensic_requires_version_history: true
+runtime_network_allowed: false

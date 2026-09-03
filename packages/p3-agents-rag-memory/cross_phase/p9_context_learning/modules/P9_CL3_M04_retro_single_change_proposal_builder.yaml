@@ -1,0 +1,21 @@
+module_id: P9.CL3.M04
+module_name: retro_single_change_proposal_builder
+authority_phase: P9
+status: planned_cross_phase_blueprint
+inputs:
+- retro_diagnosis
+- textual_gradient_report
+- targeted_mutation_class
+- prior_retro_experiment_memory
+outputs:
+- retro_change_proposal
+forbidden_actions:
+- mutate_current_cycle
+- change_person_genome_directly
+- promote_without_statistical_evidence
+tests_required:
+- schema
+- lineage
+- blind_holdout
+- one_change
+- result_finalization

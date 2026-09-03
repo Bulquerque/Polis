@@ -1,0 +1,185 @@
+$defs:
+  AgentReadingRecord:
+    additionalProperties: false
+    properties:
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      stage:
+        $ref: '#/$defs/CognitionStage'
+      summary:
+        minLength: 1
+        title: Summary
+        type: string
+      claims:
+        items:
+          $ref: '#/$defs/ClaimRecord'
+        title: Claims
+        type: array
+      confidence:
+        maximum: 1.0
+        minimum: 0.0
+        title: Confidence
+        type: number
+      uncertainty:
+        maximum: 1.0
+        minimum: 0.0
+        title: Uncertainty
+        type: number
+      as_of:
+        format: date-time
+        title: As Of
+        type: string
+      provider_id:
+        minLength: 1
+        title: Provider Id
+        type: string
+      model_id:
+        minLength: 1
+        title: Model Id
+        type: string
+      prompt_id:
+        minLength: 1
+        title: Prompt Id
+        type: string
+      prompt_version:
+        minLength: 1
+        title: Prompt Version
+        type: string
+      response_hash:
+        minLength: 1
+        title: Response Hash
+        type: string
+    required:
+    - cognition_transaction_id
+    - person_id
+    - stage
+    - summary
+    - claims
+    - confidence
+    - uncertainty
+    - as_of
+    - provider_id
+    - model_id
+    - prompt_id
+    - prompt_version
+    - response_hash
+    title: AgentReadingRecord
+    type: object
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  ClaimRecord:
+    additionalProperties: false
+    properties:
+      claim_id:
+        minLength: 1
+        title: Claim Id
+        type: string
+      summary:
+        minLength: 1
+        title: Summary
+        type: string
+      evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Evidence Refs
+        type: array
+      tool_result_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Tool Result Refs
+        type: array
+    required:
+    - claim_id
+    - summary
+    title: ClaimRecord
+    type: object
+  CognitionStage:
+    enum:
+    - INITIAL
+    - CONTINUATION
+    title: CognitionStage
+    type: string
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s21.v1
+    default: p3.s21.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/AgentReadingRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: initial_agent_reading_panel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s21:outputs:initial_agent_reading_panel:v1
+artifact_name: initial_agent_reading_panel
+x-artifact-name: initial_agent_reading_panel
+x-contract-version: p3.s21.v1
+x-authority: P3.S21
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

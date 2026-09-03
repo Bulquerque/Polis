@@ -1,0 +1,17 @@
+schema: schemas/person_profile.schema.yaml
+immutable_fields:
+- person_id
+- creator_provenance.creator_run_id
+state_speed_classes:
+  slow:
+  - core_personality
+  - cognitive_capacity
+  medium:
+  - knowledge
+  - trust
+  - tool_proficiency
+  fast:
+  - beliefs
+  - attention
+  - confidence
+  - functional_affect

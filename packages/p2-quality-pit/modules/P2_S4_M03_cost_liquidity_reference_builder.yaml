@@ -1,0 +1,54 @@
+module_id: P2.S4.M03
+module_name: cost_liquidity_reference_builder
+phase: phase_02_quality_pit
+subphase: P2.S4
+rc: RC4.1
+function: Construir referências de custo e liquidez para underlying/opções, sem execução.
+inputs: &id001
+- clean_option_quotes_panel
+- clean_underlying_panel
+- clean_underlying_trade_panel
+- source_quality_panel
+outputs: &id002
+- clean_cost_reference_panel
+- clean_liquidity_reference_panel
+validations:
+- cost_reference_present
+- liquidity_reference_present
+- no_trade_decision
+fail_fast_conditions:
+- cost_liquidity_reference_builder_schema_violation
+- cost_liquidity_reference_builder_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P2.S4.M02
+    - P2.S3.M05
+    - P2.S3.M06
+    - P2.S1.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P2.S6.M01
+    - P2.S6.M02
+    artifacts: *id002
+    phase_outputs:
+    - clean_cost_reference_panel
+    - clean_liquidity_reference_panel
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

@@ -1,0 +1,58 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_financial_statements/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "basis": {
+      "default": "AS_REPORTED",
+      "enum": [
+        "AS_REPORTED",
+        "LATEST_KNOWN_AT_DECISION_TIME"
+      ],
+      "title": "Basis",
+      "type": "string"
+    },
+    "entity_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "title": "Entity Ids",
+      "type": "array"
+    },
+    "period_count": {
+      "default": 8,
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Period Count",
+      "type": "integer"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "statement_types": {
+      "default": [],
+      "items": {
+        "enum": [
+          "BALANCE_SHEET",
+          "INCOME_STATEMENT",
+          "CASH_FLOW"
+        ],
+        "type": "string"
+      },
+      "title": "Statement Types",
+      "type": "array"
+    }
+  },
+  "required": [
+    "research_mode",
+    "entity_ids"
+  ],
+  "title": "GetFinancialStatementsRequest",
+  "type": "object"
+}

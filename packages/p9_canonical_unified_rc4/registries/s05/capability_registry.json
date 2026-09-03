@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "dependent_time_series_bootstrap",
+      "status": "AVAILABLE",
+      "modules": [
+        "P9.S5.M01",
+        "P9.S5.M02",
+        "P9.S5.M03",
+        "P9.S5.M04"
+      ]
+    },
+    {
+      "capability_id": "trade_episode_resampling",
+      "status": "AVAILABLE_WITH_INPUT_REQUIREMENT",
+      "modules": [
+        "P9.S5.M05"
+      ],
+      "requirement": "TradeEpisodePanel"
+    },
+    {
+      "capability_id": "institutional_metric_bootstrap",
+      "status": "AVAILABLE",
+      "modules": [
+        "P9.S5.M06"
+      ],
+      "limitation": "COMPETITION_SCORE requires upstream-injected frozen calculator"
+    },
+    {
+      "capability_id": "psr_dsr_pbo_multiple_testing",
+      "status": "AVAILABLE",
+      "modules": [
+        "P9.S5.M07",
+        "P9.S5.M08"
+      ]
+    },
+    {
+      "capability_id": "white_reality_check_style",
+      "status": "RESEARCH_QUALIFICATION",
+      "modules": [
+        "P9.S5.M08"
+      ],
+      "limitation": "Current implementation is a transparent stationary-bootstrap Reality-Check-style gate; SPA/Romano-Wolf are not implemented in RC1"
+    }
+  ]
+}

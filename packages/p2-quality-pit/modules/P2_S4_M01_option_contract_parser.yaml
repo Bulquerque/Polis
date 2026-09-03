@@ -1,0 +1,52 @@
+module_id: P2.S4.M01
+module_name: option_contract_parser
+phase: phase_02_quality_pit
+subphase: P2.S4
+rc: RC4.1
+function: Extrair contratos reais de opções com option_id, expiration, strike e contract_key.
+inputs: &id001
+- identifier_harmonized_bundle
+- clean_calendar_panel
+- source_quality_panel
+outputs: &id002
+- clean_option_contract_panel
+validations:
+- option_id_present
+- expiration_date_present
+- strike_present
+- contract_key_present
+fail_fast_conditions:
+- option_contract_parser_schema_violation
+- option_contract_parser_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P2.S2.M02
+    - P2.S3.M03
+    - P2.S1.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P2.S4.M02
+    - P2.S6.M01
+    - P2.S6.M02
+    artifacts: *id002
+    phase_outputs:
+    - clean_option_contract_panel
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

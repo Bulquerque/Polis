@@ -1,0 +1,33 @@
+schema_id: p3.research_tools.s34.module_registry.v1
+schema_version: 1.0.0
+modules:
+- module_id: P3.S34.M01
+  module_name: research_capability_taxonomy_builder
+  subphase: P3.S34
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M01_research_capability_taxonomy_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S34_M01_research_capability_taxonomy_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S34.M02
+  module_name: person_research_capability_profiler
+  subphase: P3.S34
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M02_person_research_capability_profiler.py
+  contract: contracts/extensions/research_tools/modules/P3_S34_M02_person_research_capability_profiler.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S34.M03
+  module_name: research_plan_template_registry_builder
+  subphase: P3.S34
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M03_research_plan_template_registry_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S34_M03_research_plan_template_registry_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S34.M04
+  module_name: effective_entitlement_overlay_builder
+  subphase: P3.S34
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M04_effective_entitlement_overlay_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S34_M04_effective_entitlement_overlay_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S34.M05
+  module_name: person_context_tool_descriptor_overlay_builder
+  subphase: P3.S34
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M05_person_context_tool_descriptor_overlay_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S34_M05_person_context_tool_descriptor_overlay_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL

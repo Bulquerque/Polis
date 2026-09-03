@@ -1,0 +1,80 @@
+{
+  "coverage": {
+    "missing_dimensions": [],
+    "records_rejected_filter": 0,
+    "records_rejected_future": 0,
+    "records_rejected_missing_time": 0,
+    "records_returned": 1,
+    "records_scanned": 1,
+    "records_visible": 1,
+    "score": 1.0,
+    "truncated": false,
+    "unique_sources": 1
+  },
+  "downgrade_reason": null,
+  "envelope_version": "1.0.0",
+  "evidence_refs": [
+    {
+      "available_at": "2024-01-10T17:00:00Z",
+      "evidence_id": "evidence_66ca48a5e62bc563360182b7",
+      "lineage_id": "lineage_market_fixture",
+      "record_hash": "f0909858f4d79ad8c9caa381d060609235458074736ac1ca6fe2f11257ce5849",
+      "record_key": "ACME3|2024-01-10|B3",
+      "source_id": "B3",
+      "view_name": "clean_underlying_panel"
+    }
+  ],
+  "executed_mode": "OBSERVE",
+  "execution": {
+    "deterministic": true,
+    "executed_mode": "OBSERVE",
+    "handler_id": "p3.s36.market.get_snapshot",
+    "handler_version": "1.0.0",
+    "internal_work_units": 1,
+    "requested_mode": "OBSERVE",
+    "seed": 7,
+    "warnings": []
+  },
+  "operation_id": "get_snapshot",
+  "outcome_status": "PASS",
+  "pit_proof": {
+    "decision_time": "2024-01-10T18:00:00Z",
+    "earliest_available_at": "2024-01-10T17:00:00Z",
+    "input_hashes": [
+      "e0ba86e1216a319e76da4148540a4dddeaf8d8dca88c27c6558361566a34a9be"
+    ],
+    "latest_available_at": "2024-01-10T17:00:00Z",
+    "proof_hash": "a75e848a9d5b8cae13048a1ea76fd21f3a9f9c642871c05cf5a6fc752b1da62b",
+    "records_rejected_filter": 0,
+    "records_rejected_future": 0,
+    "records_rejected_missing_time": 0,
+    "records_scanned": 1,
+    "records_visible": 1,
+    "snapshot_id": "snapshot_20240110"
+  },
+  "records": [
+    {
+      "adjustment_factor": 1.0,
+      "adjustment_policy": "RAW",
+      "available_at": "2024-01-10T17:00:00Z",
+      "close": 104.0,
+      "financial_volume": 156000.0,
+      "high": 105.0,
+      "instrument_id": "ACME3",
+      "is_trading_day": null,
+      "lineage_id": "lineage_market_fixture",
+      "low": 101.0,
+      "observation_date": "2024-01-10",
+      "open": 102.0,
+      "quality_flag": "PASS",
+      "raw_close": 104.0,
+      "source_id": "B3",
+      "staleness_seconds": 3600.0,
+      "volume": 1500.0
+    }
+  ],
+  "request_id": "request_fixture",
+  "requested_mode": "OBSERVE",
+  "result_hash": "0dfe82592e5d75ed93340aec4fb845f7063632ff62897f72c6b7f5c00572d689",
+  "tool_id": "market.observation.v1"
+}

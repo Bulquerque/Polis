@@ -1,0 +1,26 @@
+authority_id: P3_FINAL_RAG_INDEX_AUTHORITY_V1
+authority_version: 1.0.0
+index_format_version: document-rag-index.2.0.0
+tokenizer:
+  tokenizer_id: unicode_whitespace_reference
+  tokenizer_version: 1.0.0
+chunking:
+  chunk_id_algorithm: sha256_document_span_v2
+  chunking_policy_version: 2.0.0
+embedding:
+  provider_id: REFERENCE_OR_CONFIGURED_PROVIDER
+  model_id: MUST_BE_PINNED_AT_SNAPSHOT
+  model_version: MUST_BE_PINNED_AT_SNAPSHOT
+  dimension_policy: EXACT_MATCH
+incremental_rebuild:
+  allowed: true
+  compatibility_fields:
+  - index_format_version
+  - tokenizer_id
+  - tokenizer_version
+  - chunk_id_algorithm
+  - embedding_provider_id
+  - embedding_model_id
+  - embedding_model_version
+  - embedding_dimension
+unknown_version_policy: FAIL_CLOSED

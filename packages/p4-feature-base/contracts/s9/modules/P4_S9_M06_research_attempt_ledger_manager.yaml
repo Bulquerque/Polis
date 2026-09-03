@@ -1,0 +1,48 @@
+module_id: P4.S9.M06
+module_name: research_attempt_ledger_manager
+phase: P4
+subphase: P4.S9
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: research attempt ledger manager
+inputs:
+- research_attempt_event_log
+- s9_policy_registry
+outputs:
+- research_attempt_ledger
+- rejected_feature_graveyard
+- research_budget_compliance_report
+validations:
+- append_only_hash_chain
+- all_attempts_counted
+- negative_results_preserved
+- budget_enforced
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- no_hidden_global_state
+- no_supervised_metrics
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+- sharpe
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- hash_negative
+- forbidden_field_negative
+- replay
+- metamorphic_or_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M06_research_attempt_ledger_manager.py
+qualification_policy: LOCAL_THEN_CROSS_PHASE_THEN_P0
+production_promotion_allowed: false

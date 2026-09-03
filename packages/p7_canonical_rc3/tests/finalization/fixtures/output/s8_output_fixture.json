@@ -1,0 +1,1129 @@
+{
+  "compatibility_projection_report": {
+    "artifact_id": "compatibility_projection_report:1a88443e57ca152f9de7",
+    "artifact_name": "compatibility_projection_report",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "1a88443e57ca152f9de7ab071f6730b67c7f3276f171319fcdc5189586d7284d",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S8.M03",
+    "producer_phase": "P7",
+    "record_count": 3,
+    "records": [
+      {
+        "candidate_id": "A",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-A",
+        "policy_version": "p7_p8_publication_policy_2_2",
+        "projection_status": "UNSUPPORTED_MULTI_LEG",
+        "reason_code": "P7_LEGACY_PROJECTION_UNSUPPORTED_MULTI_LEG",
+        "represented_leg_count": 2
+      },
+      {
+        "candidate_id": "B",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-B",
+        "policy_version": "p7_p8_publication_policy_2_2",
+        "projection_status": "UNSUPPORTED_MULTI_LEG",
+        "reason_code": "P7_LEGACY_PROJECTION_UNSUPPORTED_MULTI_LEG",
+        "represented_leg_count": 2
+      },
+      {
+        "candidate_id": "E",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-E",
+        "policy_version": "p7_p8_publication_policy_2_2",
+        "projection_status": "UNSUPPORTED_MULTI_LEG",
+        "reason_code": "P7_LEGACY_PROJECTION_UNSUPPORTED_MULTI_LEG",
+        "represented_leg_count": 2
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "module_execution_receipts": [
+    {
+      "counts": {
+        "rankable": 3,
+        "ranked": 3,
+        "ties": 0
+      },
+      "cycle_id": "cycle-2026-01-05",
+      "duration_ms": 3.104176000078951,
+      "input_artifact_ids": [
+        "abstained_candidate_panel:f7e64e4306b1e9450f25",
+        "candidate_diversity_cluster_panel:84c50217704146e4f3ed",
+        "comparison_group_panel:4b55e1cb2ab8462bd4cb",
+        "diversity_adjusted_score_panel:ab68666d365958c47bc8",
+        "final_blocked_candidate_panel:91fa897ba76715e1f9c6",
+        "rankability_group_report:b1bd824e539a0cc1748e",
+        "rankability_handoff_manifest:8e0e61c3088606a94c62",
+        "rankable_candidate_panel:2973b1946aea0db3ef6e",
+        "score_decomposition_panel:6708cd86c860d17c529e",
+        "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103"
+      ],
+      "module_id": "P7.S8.M01",
+      "output_artifact_ids": [
+        "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+        "ranking_group_summary_panel:9f101264b879291987ef",
+        "ranking_tie_report:12319a93d3d005ae027d"
+      ],
+      "policy_versions": {
+        "ranking": "p7_ranking_v1"
+      },
+      "reason_code_distribution": {},
+      "run_id": "run-finalization-fixture",
+      "status": "PASS",
+      "trace_id": "trace-finalization-fixture"
+    },
+    {
+      "counts": {
+        "ranked": 3,
+        "thesis_cards": 3,
+        "traces": 3
+      },
+      "cycle_id": "cycle-2026-01-05",
+      "duration_ms": 3.8030629998502263,
+      "input_artifact_ids": [
+        "abstained_candidate_panel:f7e64e4306b1e9450f25",
+        "candidate_diversity_cluster_panel:84c50217704146e4f3ed",
+        "comparison_group_panel:4b55e1cb2ab8462bd4cb",
+        "diversity_adjusted_score_panel:ab68666d365958c47bc8",
+        "final_blocked_candidate_panel:91fa897ba76715e1f9c6",
+        "rankability_group_report:b1bd824e539a0cc1748e",
+        "rankability_handoff_manifest:8e0e61c3088606a94c62",
+        "rankable_candidate_panel:2973b1946aea0db3ef6e",
+        "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+        "ranking_group_summary_panel:9f101264b879291987ef",
+        "ranking_tie_report:12319a93d3d005ae027d",
+        "score_decomposition_panel:6708cd86c860d17c529e",
+        "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103"
+      ],
+      "module_id": "P7.S8.M02",
+      "output_artifact_ids": [
+        "ranking_audit_report:f647b64b426ea8abb4ba",
+        "ranking_trace_panel:496b00cf5b6aecd74e6d",
+        "strategy_thesis_card_panel:a2bdf51c01bb7c3b695b"
+      ],
+      "policy_versions": {
+        "ranking": "p7_ranking_v1",
+        "thesis": "p7_thesis_v1"
+      },
+      "reason_code_distribution": {},
+      "run_id": "run-finalization-fixture",
+      "status": "PASS",
+      "trace_id": "trace-finalization-fixture"
+    },
+    {
+      "counts": {
+        "legacy_supported": 0,
+        "ranked": 3,
+        "snapshots": 3
+      },
+      "cycle_id": "cycle-2026-01-05",
+      "duration_ms": 4.208995999988474,
+      "input_artifact_ids": [
+        "rankability_handoff_manifest:8e0e61c3088606a94c62",
+        "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+        "ranking_audit_report:f647b64b426ea8abb4ba",
+        "ranking_group_summary_panel:9f101264b879291987ef",
+        "ranking_tie_report:12319a93d3d005ae027d",
+        "ranking_trace_panel:496b00cf5b6aecd74e6d",
+        "score_decomposition_panel:6708cd86c860d17c529e",
+        "strategy_thesis_card_panel:a2bdf51c01bb7c3b695b"
+      ],
+      "module_id": "P7.S8.M03",
+      "output_artifact_ids": [
+        "compatibility_projection_report:192994fcec0a202a429d",
+        "phase8_strategy_ranking_handoff_manifest:bc6c750fa70b0f1e2d1c",
+        "ranked_strategy_execution_context_snapshot:802b7f51de567be95f68"
+      ],
+      "policy_versions": {
+        "publication": "p7_p8_publication_policy_2_2"
+      },
+      "reason_code_distribution": {
+        "P7_LEGACY_PROJECTION_UNSUPPORTED_MULTI_LEG": 3
+      },
+      "run_id": "run-finalization-fixture",
+      "status": "PASS",
+      "trace_id": "trace-finalization-fixture"
+    }
+  ],
+  "phase8_strategy_ranking_handoff_manifest": {
+    "artifact_id": "phase8_strategy_ranking_handoff_manifest:96bad3d15e3b5624149a",
+    "artifact_name": "phase8_strategy_ranking_handoff_manifest",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "96bad3d15e3b5624149a955b0a7108becf23e66c4f53fba760e5d7ce74eb4185",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S8.M03",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "artifact_references": [
+          {
+            "artifact_id": "abstained_candidate_panel:f7e64e4306b1e9450f25",
+            "artifact_name": "abstained_candidate_panel",
+            "content_sha256": "f7e64e4306b1e9450f25787feab1e248e859a28767d6fe782f217d15dd761c6e",
+            "record_count": 2,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "compatibility_projection_report:1a88443e57ca152f9de7",
+            "artifact_name": "compatibility_projection_report",
+            "content_sha256": "1a88443e57ca152f9de7ab071f6730b67c7f3276f171319fcdc5189586d7284d",
+            "record_count": 3,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "final_blocked_candidate_panel:91fa897ba76715e1f9c6",
+            "artifact_name": "final_blocked_candidate_panel",
+            "content_sha256": "91fa897ba76715e1f9c693496c5ee4db22cdf018b1f00ff5788e2d1d03353d18",
+            "record_count": 1,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+            "artifact_name": "ranked_strategy_candidate_panel",
+            "content_sha256": "6ccd93d4d805e554ab68e73c92f9addfd2af399c3d0a24b96ae22b379fcd003c",
+            "record_count": 3,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "ranked_strategy_execution_context_snapshot:802b7f51de567be95f68",
+            "artifact_name": "ranked_strategy_execution_context_snapshot",
+            "content_sha256": "802b7f51de567be95f68a7f2980b1128713376a9f5e5c3f1488cd1f120343a8d",
+            "record_count": 3,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "ranking_audit_report:f647b64b426ea8abb4ba",
+            "artifact_name": "ranking_audit_report",
+            "content_sha256": "f647b64b426ea8abb4baaeb923b582a4ab547f4287a771ea390792f9e1019a37",
+            "record_count": 1,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "ranking_group_summary_panel:9f101264b879291987ef",
+            "artifact_name": "ranking_group_summary_panel",
+            "content_sha256": "9f101264b879291987efe8fc22f4226e319f2e8f08ea727504fb90c271e0793c",
+            "record_count": 2,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "ranking_tie_report:12319a93d3d005ae027d",
+            "artifact_name": "ranking_tie_report",
+            "content_sha256": "12319a93d3d005ae027dc8f9fb9150e768f09daf2e6543e3e2e84d36916fa232",
+            "record_count": 0,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "ranking_trace_panel:496b00cf5b6aecd74e6d",
+            "artifact_name": "ranking_trace_panel",
+            "content_sha256": "496b00cf5b6aecd74e6d6376af2381e21121613f378b2eb7f75c8671a0db1ac2",
+            "record_count": 3,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "score_decomposition_panel:6708cd86c860d17c529e",
+            "artifact_name": "score_decomposition_panel",
+            "content_sha256": "6708cd86c860d17c529ebf373e10c670fff2dd1c1411afd9cc42a9d2d27e7c27",
+            "record_count": 24,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "strategy_thesis_card_panel:a2bdf51c01bb7c3b695b",
+            "artifact_name": "strategy_thesis_card_panel",
+            "content_sha256": "a2bdf51c01bb7c3b695b034a271e89ab77b05a38f31535625dd7b6a4a42df170",
+            "record_count": 3,
+            "schema_version": "2.0.0"
+          }
+        ],
+        "candidate_conservation_sha256": "131bf706c0327bc44b67badf3b975398dcf5d3c575a70d27a1af61dfb5881ab2",
+        "candidate_count": 3,
+        "consumer_phase": "P8",
+        "contract_id": "p7_to_p8_strategy_ranking_handoff",
+        "contract_version": "2.0.0",
+        "created_at": "2026-01-05T15:00:00Z",
+        "lineage_id": "lineage-learning-fixture",
+        "producer_phase": "P7",
+        "semantic_version": "2.0.0"
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "ranked_strategy_candidate_panel": {
+    "artifact_id": "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+    "artifact_name": "ranked_strategy_candidate_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "6ccd93d4d805e554ab68e73c92f9addfd2af399c3d0a24b96ae22b379fcd003c",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S8.M01",
+    "producer_phase": "P7",
+    "record_count": 3,
+    "records": [
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.7236643898915607,
+        "diversity_cluster_id": "cluster:99a59ce505fc0bc4",
+        "diversity_penalty": 0.07633561010843934,
+        "economic_tie_id": null,
+        "execution_quality_stage": 0.8,
+        "horizon": "20S",
+        "hybrid_score": 0.8,
+        "leg_count": 2,
+        "lineage_id": "strategy-lineage-A",
+        "model_disagreement": 0.1,
+        "model_id": "ltr-champion-1",
+        "objective_family": "HYBRID",
+        "ood_severity": "NONE",
+        "pareto_tier": 0,
+        "rank_position": 1,
+        "ranking_policy_version": "p7_ranking_v1",
+        "risk_bucket": "DEFINED_RISK",
+        "robustness_stage": 0.75,
+        "score_confidence": 0.9,
+        "score_semantics_version": "hybrid-v1",
+        "underlying_id": "ASSET1"
+      },
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.7135886939676206,
+        "diversity_cluster_id": "cluster:99a59ce505fc0bc4",
+        "diversity_penalty": 0.07641130603237949,
+        "economic_tie_id": null,
+        "execution_quality_stage": 0.8,
+        "horizon": "20S",
+        "hybrid_score": 0.79,
+        "leg_count": 2,
+        "lineage_id": "strategy-lineage-B",
+        "model_disagreement": 0.1,
+        "model_id": "ltr-champion-1",
+        "objective_family": "HYBRID",
+        "ood_severity": "NONE",
+        "pareto_tier": 0,
+        "rank_position": 2,
+        "ranking_policy_version": "p7_ranking_v1",
+        "risk_bucket": "DEFINED_RISK",
+        "robustness_stage": 0.74,
+        "score_confidence": 0.88,
+        "score_semantics_version": "hybrid-v1",
+        "underlying_id": "ASSET1"
+      },
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.5,
+        "diversity_cluster_id": "cluster:9f0d7e374fff95dc",
+        "diversity_penalty": 0.0,
+        "economic_tie_id": null,
+        "execution_quality_stage": 0.8,
+        "horizon": "20S",
+        "hybrid_score": 0.5,
+        "leg_count": 2,
+        "lineage_id": "strategy-lineage-E",
+        "model_disagreement": 0.1,
+        "model_id": "ltr-champion-1",
+        "objective_family": "HYBRID",
+        "ood_severity": "NONE",
+        "pareto_tier": 0,
+        "rank_position": 1,
+        "ranking_policy_version": "p7_ranking_v1",
+        "risk_bucket": "DEFINED_RISK",
+        "robustness_stage": 0.45,
+        "score_confidence": 0.8,
+        "score_semantics_version": "hybrid-v1",
+        "underlying_id": "ASSET2"
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "ranked_strategy_execution_context_snapshot": {
+    "artifact_id": "ranked_strategy_execution_context_snapshot:802b7f51de567be95f68",
+    "artifact_name": "ranked_strategy_execution_context_snapshot",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "802b7f51de567be95f68a7f2980b1128713376a9f5e5c3f1488cd1f120343a8d",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S8.M03",
+    "producer_phase": "P7",
+    "record_count": 3,
+    "records": [
+      {
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cost_liquidity_reference": {
+          "artifact_id": "strategy_cost_liquidity_panel:A:e7d02bc990982b53c68a",
+          "artifact_name": "strategy_cost_liquidity_panel",
+          "content_sha256": "c6fcfeb3a9dbf65c3537f12d9453415b24113581c3ad8f887e4a2800ad0454d4",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "generation_trace_reference": {
+          "artifact_id": "strategy_generation_trace_panel:A:087bd251502dd3fd276f",
+          "artifact_name": "strategy_generation_trace_panel",
+          "content_sha256": "0d2988780a0fefd1e0a9be05c66e5002da62d6c34babc8008621b91b724e9ea7",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "greeks_reference": {
+          "artifact_id": "strategy_greek_panel:A:e190231fe03a83760e11",
+          "artifact_name": "strategy_greek_panel",
+          "content_sha256": "88d74ab12223f8dc6a6887082a753f58dcd6104bc386cb2324660c28b1b5411e",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "leg_ids": [
+          "C100",
+          "P90"
+        ],
+        "lineage_id": "strategy-lineage-A",
+        "payoff_evaluation_reference": {
+          "artifact_id": "strategy_payoff_panel:A:3da1e350bad8d5d8d8e0",
+          "artifact_name": "strategy_payoff_panel",
+          "content_sha256": "ccf4b2b051fc3dfa394fd0efe77c70272b92231dcd63358d4ee04490c504025a",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "rank_position": 1,
+        "risk_reference": {
+          "artifact_id": "strategy_risk_panel:A:fd7d594a251498d8d0e3",
+          "artifact_name": "strategy_risk_panel",
+          "content_sha256": "a87ee68cf4dca2fe6dab1bf1e8fe8e6a623f0560ceac85faa29e69315826a115",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "scenario_evaluation_reference": {
+          "artifact_id": "strategy_scenario_evaluation_panel:A:75f7cc9d1e665af2755c",
+          "artifact_name": "strategy_scenario_evaluation_panel",
+          "content_sha256": "f45e10ce5d882aea8ef4b45b3bb885f6496d209baaf5c611292c368d0a77d117",
+          "record_count": 16,
+          "schema_version": "2.0.0"
+        },
+        "score_decomposition_reference": {
+          "artifact_id": "score_decomposition_panel:6708cd86c860d17c529e",
+          "artifact_name": "score_decomposition_panel",
+          "content_sha256": "6708cd86c860d17c529ebf373e10c670fff2dd1c1411afd9cc42a9d2d27e7c27",
+          "record_count": 24,
+          "schema_version": "2.0.0"
+        },
+        "strategy_candidate_reference": {
+          "artifact_id": "strategy_candidate_panel:A:7288965b5fccdee0fa83",
+          "artifact_name": "strategy_candidate_panel",
+          "content_sha256": "eb64c19ec3f33e3f00c715731cdc8f4f9d9a9ba7623f3224bbade0bbc65a45a3",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_legs_reference": {
+          "artifact_id": "strategy_leg_panel:A:f29c62324a683791f774",
+          "artifact_name": "strategy_leg_panel",
+          "content_sha256": "9a54660e3174e2aea0019b8bbc8b7278e0afd36e907b7e9588d7ecd19951644e",
+          "record_count": 2,
+          "schema_version": "2.0.0"
+        },
+        "thesis_card_reference": {
+          "artifact_id": "strategy_thesis_card_panel:a2bdf51c01bb7c3b695b",
+          "artifact_name": "strategy_thesis_card_panel",
+          "content_sha256": "a2bdf51c01bb7c3b695b034a271e89ab77b05a38f31535625dd7b6a4a42df170",
+          "record_count": 3,
+          "schema_version": "2.0.0"
+        }
+      },
+      {
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cost_liquidity_reference": {
+          "artifact_id": "strategy_cost_liquidity_panel:B:6f07b570bc5dddf7c2f9",
+          "artifact_name": "strategy_cost_liquidity_panel",
+          "content_sha256": "88dbdc4c7b6d4f5fd942b9f52984fa85cc7736903b62173e559fee84ba8d4b5d",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "generation_trace_reference": {
+          "artifact_id": "strategy_generation_trace_panel:B:3a3ba60e16f19c9e4b78",
+          "artifact_name": "strategy_generation_trace_panel",
+          "content_sha256": "f32c4d61fee18435840d623d11508b2bcbfb5fbc53b4f30feec095a981f6d1a6",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "greeks_reference": {
+          "artifact_id": "strategy_greek_panel:B:0cb030b7e2fcce7c6d58",
+          "artifact_name": "strategy_greek_panel",
+          "content_sha256": "a501fdee36ddf3c607339af98c1fdcb89bb9783ef0f39160dd3bf3edd8b90d16",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "leg_ids": [
+          "C100",
+          "P90"
+        ],
+        "lineage_id": "strategy-lineage-B",
+        "payoff_evaluation_reference": {
+          "artifact_id": "strategy_payoff_panel:B:9a3711f5d3f4375ac8d2",
+          "artifact_name": "strategy_payoff_panel",
+          "content_sha256": "3b29b568a3bf5db3ec8307fef7722d2783e927f0467b4e100f3754fddee0304c",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "rank_position": 2,
+        "risk_reference": {
+          "artifact_id": "strategy_risk_panel:B:ca994566621902ad5aaa",
+          "artifact_name": "strategy_risk_panel",
+          "content_sha256": "729656f2ce7029a53d2a21ab942c05b6e0296e2dad174fb40dc5730124fe95ec",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "scenario_evaluation_reference": {
+          "artifact_id": "strategy_scenario_evaluation_panel:B:3b11460c4dc09f493d0e",
+          "artifact_name": "strategy_scenario_evaluation_panel",
+          "content_sha256": "63fc7a665b90050473bb6cfd011645a5ec9d647cb4388388dd6404aefde87b2d",
+          "record_count": 16,
+          "schema_version": "2.0.0"
+        },
+        "score_decomposition_reference": {
+          "artifact_id": "score_decomposition_panel:6708cd86c860d17c529e",
+          "artifact_name": "score_decomposition_panel",
+          "content_sha256": "6708cd86c860d17c529ebf373e10c670fff2dd1c1411afd9cc42a9d2d27e7c27",
+          "record_count": 24,
+          "schema_version": "2.0.0"
+        },
+        "strategy_candidate_reference": {
+          "artifact_id": "strategy_candidate_panel:B:5053230ebca5ca19458b",
+          "artifact_name": "strategy_candidate_panel",
+          "content_sha256": "b1486a56e14a6d3bf40d4f452418a3551623852da76a69010dc911e5b909fee2",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_legs_reference": {
+          "artifact_id": "strategy_leg_panel:B:50aab6c6f0a8c687ccda",
+          "artifact_name": "strategy_leg_panel",
+          "content_sha256": "ee8bb198be3013af751670511b3258cfaeb164bd8eb4e9ac6465289f889c29a4",
+          "record_count": 2,
+          "schema_version": "2.0.0"
+        },
+        "thesis_card_reference": {
+          "artifact_id": "strategy_thesis_card_panel:a2bdf51c01bb7c3b695b",
+          "artifact_name": "strategy_thesis_card_panel",
+          "content_sha256": "a2bdf51c01bb7c3b695b034a271e89ab77b05a38f31535625dd7b6a4a42df170",
+          "record_count": 3,
+          "schema_version": "2.0.0"
+        }
+      },
+      {
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cost_liquidity_reference": {
+          "artifact_id": "strategy_cost_liquidity_panel:E:2c012c67fe68e5017fd6",
+          "artifact_name": "strategy_cost_liquidity_panel",
+          "content_sha256": "424fb131d85c5c183c5f73f51e441d38131a957e8e1897e5a7a2adcc6f35425f",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "generation_trace_reference": {
+          "artifact_id": "strategy_generation_trace_panel:E:fa3f131cb03e0e4e8346",
+          "artifact_name": "strategy_generation_trace_panel",
+          "content_sha256": "1c5f744a57fdaf106ec4e193ed8b3bdb389ec3ebdc6e3553a0545fb44a05cbb5",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "greeks_reference": {
+          "artifact_id": "strategy_greek_panel:E:2eb87bb98feb53efb86c",
+          "artifact_name": "strategy_greek_panel",
+          "content_sha256": "9a9261391d8153a3980926e8b1826a984ee8f4b22f9add00f6a2b975367c60a2",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "leg_ids": [
+          "C100",
+          "C110"
+        ],
+        "lineage_id": "strategy-lineage-E",
+        "payoff_evaluation_reference": {
+          "artifact_id": "strategy_payoff_panel:E:d6264ba5f49f81a1df24",
+          "artifact_name": "strategy_payoff_panel",
+          "content_sha256": "894a3f03efaed857fb954293bd26838df8fa9cb72a98a6d32d8514a92f758e50",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "rank_position": 1,
+        "risk_reference": {
+          "artifact_id": "strategy_risk_panel:E:f5c44b8af364096e9e2a",
+          "artifact_name": "strategy_risk_panel",
+          "content_sha256": "29f5636ea61211b857e7724dcf165485e7e5b9ab5a7adac15e14a0da0583cf76",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "scenario_evaluation_reference": {
+          "artifact_id": "strategy_scenario_evaluation_panel:E:e56d23d50bab14aaf091",
+          "artifact_name": "strategy_scenario_evaluation_panel",
+          "content_sha256": "4cfe8e7d88656b2479910130627d1f2baddfc48a8f1239b85505b9efe2036686",
+          "record_count": 16,
+          "schema_version": "2.0.0"
+        },
+        "score_decomposition_reference": {
+          "artifact_id": "score_decomposition_panel:6708cd86c860d17c529e",
+          "artifact_name": "score_decomposition_panel",
+          "content_sha256": "6708cd86c860d17c529ebf373e10c670fff2dd1c1411afd9cc42a9d2d27e7c27",
+          "record_count": 24,
+          "schema_version": "2.0.0"
+        },
+        "strategy_candidate_reference": {
+          "artifact_id": "strategy_candidate_panel:E:8e1f1d1e9d564fa0a90d",
+          "artifact_name": "strategy_candidate_panel",
+          "content_sha256": "4663f970e0b57efefac59a405e5c8f0913a91c4d998828d49833d27f168bc46c",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_legs_reference": {
+          "artifact_id": "strategy_leg_panel:E:e818cc8efa81cc8f270b",
+          "artifact_name": "strategy_leg_panel",
+          "content_sha256": "0f566617668cfd29da045610a8e1d70e2ee0d050ee51fb2772d81e8909af6aaf",
+          "record_count": 2,
+          "schema_version": "2.0.0"
+        },
+        "thesis_card_reference": {
+          "artifact_id": "strategy_thesis_card_panel:a2bdf51c01bb7c3b695b",
+          "artifact_name": "strategy_thesis_card_panel",
+          "content_sha256": "a2bdf51c01bb7c3b695b034a271e89ab77b05a38f31535625dd7b6a4a42df170",
+          "record_count": 3,
+          "schema_version": "2.0.0"
+        }
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "ranking_audit_report": {
+    "artifact_id": "ranking_audit_report:f647b64b426ea8abb4ba",
+    "artifact_name": "ranking_audit_report",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "f647b64b426ea8abb4baaeb923b582a4ab547f4287a771ea390792f9e1019a37",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S8.M02",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "abstained_count": 2,
+        "blocked_count": 1,
+        "candidate_conservation_pass": true,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "group_count": 2,
+        "input_artifact_hashes": {
+          "abstained_candidate_panel": "f7e64e4306b1e9450f25787feab1e248e859a28767d6fe782f217d15dd761c6e",
+          "candidate_diversity_cluster_panel": "84c50217704146e4f3ed0e3cc067353af484efc4a1aee626915616b9a0fbd5b8",
+          "comparison_group_panel": "4b55e1cb2ab8462bd4cb2c032df5553612b45f404fdeecbebc3a777af3e0662f",
+          "diversity_adjusted_score_panel": "ab68666d365958c47bc8369e6fd3fd143a54a89f796e6a5d5c471bcc888e4a87",
+          "final_blocked_candidate_panel": "91fa897ba76715e1f9c693496c5ee4db22cdf018b1f00ff5788e2d1d03353d18",
+          "rankability_group_report": "b1bd824e539a0cc1748e3c454c0124897f4f88b4aea0e344236d9837ac52d396",
+          "rankability_handoff_manifest": "8e0e61c3088606a94c623d2160b8cc9aa343ed9db705cc086c6082e41f0503a8",
+          "rankable_candidate_panel": "2973b1946aea0db3ef6ef1f8c02e418879b47a57bfdb346808e34fbf0c1bb48c",
+          "ranked_strategy_candidate_panel": "6ccd93d4d805e554ab68e73c92f9addfd2af399c3d0a24b96ae22b379fcd003c",
+          "ranking_group_summary_panel": "9f101264b879291987efe8fc22f4226e319f2e8f08ea727504fb90c271e0793c",
+          "ranking_tie_report": "12319a93d3d005ae027dc8f9fb9150e768f09daf2e6543e3e2e84d36916fa232",
+          "score_decomposition_panel": "6708cd86c860d17c529ebf373e10c670fff2dd1c1411afd9cc42a9d2d27e7c27",
+          "validated_strategy_candidate_reference_panel": "8292669fadf2ed3b7103789d7e6bf8e665e9d606a1f16b869ddf8f6a9d7015a8"
+        },
+        "lineage_id": "lineage-learning-fixture",
+        "model_versions": [
+          "ltr-champion-1"
+        ],
+        "output_artifact_hashes": {
+          "ranked_strategy_candidate_panel": "6ccd93d4d805e554ab68e73c92f9addfd2af399c3d0a24b96ae22b379fcd003c",
+          "ranking_trace_panel": "496b00cf5b6aecd74e6d6376af2381e21121613f378b2eb7f75c8671a0db1ac2",
+          "strategy_thesis_card_panel": "a2bdf51c01bb7c3b695b034a271e89ab77b05a38f31535625dd7b6a4a42df170"
+        },
+        "policy_versions": {
+          "abstention": "p7_abstention_v1",
+          "diversity": "p7_diversity_v1",
+          "ranking": "p7_ranking_v1",
+          "safety": "p7_safety_v1",
+          "similarity": "p7_similarity_v1",
+          "thesis": "p7_thesis_v1"
+        },
+        "ranked_count": 3,
+        "received_count": 6,
+        "run_id": "run-finalization-fixture",
+        "tie_count": 0
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "ranking_group_summary_panel": {
+    "artifact_id": "ranking_group_summary_panel:9f101264b879291987ef",
+    "artifact_name": "ranking_group_summary_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "9f101264b879291987efe8fc22f4226e319f2e8f08ea727504fb90c271e0793c",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S8.M01",
+    "producer_phase": "P7",
+    "record_count": 2,
+    "records": [
+      {
+        "candidate_count": 1,
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-E",
+        "maximum_score": 0.5,
+        "minimum_score": 0.5,
+        "ranking_policy_version": "p7_ranking_v1",
+        "tie_count": 0,
+        "top_candidate_id": "E"
+      },
+      {
+        "candidate_count": 2,
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-A",
+        "maximum_score": 0.7236643898915607,
+        "minimum_score": 0.7135886939676206,
+        "ranking_policy_version": "p7_ranking_v1",
+        "tie_count": 0,
+        "top_candidate_id": "A"
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "ranking_tie_report": {
+    "artifact_id": "ranking_tie_report:12319a93d3d005ae027d",
+    "artifact_name": "ranking_tie_report",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "12319a93d3d005ae027dc8f9fb9150e768f09daf2e6543e3e2e84d36916fa232",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S8.M01",
+    "producer_phase": "P7",
+    "record_count": 0,
+    "records": [],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "ranking_trace_panel": {
+    "artifact_id": "ranking_trace_panel:496b00cf5b6aecd74e6d",
+    "artifact_name": "ranking_trace_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "496b00cf5b6aecd74e6d6376af2381e21121613f378b2eb7f75c8671a0db1ac2",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S8.M02",
+    "producer_phase": "P7",
+    "record_count": 3,
+    "records": [
+      {
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "economic_tie_id": null,
+        "evidence_artifact_ids": [
+          "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+          "score_decomposition_panel:6708cd86c860d17c529e",
+          "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103"
+        ],
+        "lineage_id": "strategy-lineage-A",
+        "model_id": "ltr-champion-1",
+        "policy_versions": {
+          "ranking": "p7_ranking_v1",
+          "thesis": "p7_thesis_v1"
+        },
+        "rank_position": 1,
+        "sort_stages": [
+          {
+            "direction": "ASC",
+            "name": "pareto_tier",
+            "value": 0
+          },
+          {
+            "direction": "DESC",
+            "name": "diversity_adjusted_score",
+            "value": 0.7236643898915607
+          },
+          {
+            "direction": "DESC",
+            "name": "score_confidence",
+            "value": 0.9
+          },
+          {
+            "direction": "DESC",
+            "name": "robustness_stage",
+            "value": 0.75
+          },
+          {
+            "direction": "DESC",
+            "name": "execution_quality_stage",
+            "value": 0.8
+          },
+          {
+            "direction": "ASC",
+            "name": "leg_count",
+            "value": 2
+          },
+          {
+            "direction": "ASC",
+            "name": "candidate_id",
+            "value": "A"
+          }
+        ]
+      },
+      {
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "economic_tie_id": null,
+        "evidence_artifact_ids": [
+          "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+          "score_decomposition_panel:6708cd86c860d17c529e",
+          "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103"
+        ],
+        "lineage_id": "strategy-lineage-B",
+        "model_id": "ltr-champion-1",
+        "policy_versions": {
+          "ranking": "p7_ranking_v1",
+          "thesis": "p7_thesis_v1"
+        },
+        "rank_position": 2,
+        "sort_stages": [
+          {
+            "direction": "ASC",
+            "name": "pareto_tier",
+            "value": 0
+          },
+          {
+            "direction": "DESC",
+            "name": "diversity_adjusted_score",
+            "value": 0.7135886939676206
+          },
+          {
+            "direction": "DESC",
+            "name": "score_confidence",
+            "value": 0.88
+          },
+          {
+            "direction": "DESC",
+            "name": "robustness_stage",
+            "value": 0.74
+          },
+          {
+            "direction": "DESC",
+            "name": "execution_quality_stage",
+            "value": 0.8
+          },
+          {
+            "direction": "ASC",
+            "name": "leg_count",
+            "value": 2
+          },
+          {
+            "direction": "ASC",
+            "name": "candidate_id",
+            "value": "B"
+          }
+        ]
+      },
+      {
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "economic_tie_id": null,
+        "evidence_artifact_ids": [
+          "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+          "score_decomposition_panel:6708cd86c860d17c529e",
+          "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103"
+        ],
+        "lineage_id": "strategy-lineage-E",
+        "model_id": "ltr-champion-1",
+        "policy_versions": {
+          "ranking": "p7_ranking_v1",
+          "thesis": "p7_thesis_v1"
+        },
+        "rank_position": 1,
+        "sort_stages": [
+          {
+            "direction": "ASC",
+            "name": "pareto_tier",
+            "value": 0
+          },
+          {
+            "direction": "DESC",
+            "name": "diversity_adjusted_score",
+            "value": 0.5
+          },
+          {
+            "direction": "DESC",
+            "name": "score_confidence",
+            "value": 0.8
+          },
+          {
+            "direction": "DESC",
+            "name": "robustness_stage",
+            "value": 0.45
+          },
+          {
+            "direction": "DESC",
+            "name": "execution_quality_stage",
+            "value": 0.8
+          },
+          {
+            "direction": "ASC",
+            "name": "leg_count",
+            "value": 2
+          },
+          {
+            "direction": "ASC",
+            "name": "candidate_id",
+            "value": "E"
+          }
+        ]
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "strategy_thesis_card_panel": {
+    "artifact_id": "strategy_thesis_card_panel:a2bdf51c01bb7c3b695b",
+    "artifact_name": "strategy_thesis_card_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "a2bdf51c01bb7c3b695b034a271e89ab77b05a38f31535625dd7b6a4a42df170",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S8.M02",
+    "producer_phase": "P7",
+    "record_count": 3,
+    "records": [
+      {
+        "belief_reference_ids": [
+          "belief:A:return",
+          "belief:A:volatility"
+        ],
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "confidence_state": {
+          "calibration_status": "CALIBRATED",
+          "calibration_version": "cal-v1",
+          "model_disagreement": 0.1,
+          "score_confidence": 0.9
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_artifact_ids": [
+          "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+          "score_decomposition_panel:6708cd86c860d17c529e",
+          "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103"
+        ],
+        "failure_regions": [
+          "scenario-region:A:tail-loss"
+        ],
+        "invalidation_conditions": [
+          "forecast_confidence_below_policy",
+          "execution_context_stale"
+        ],
+        "lineage_id": "strategy-lineage-A",
+        "mutation_trace": [
+          "origin:LONG_STRANGLE",
+          "legs:2"
+        ],
+        "nearest_alternative_ids": [
+          "B"
+        ],
+        "objective_family": "HYBRID",
+        "ood_state": "NONE",
+        "origin_template": "LONG_STRANGLE",
+        "payoff_shape_reference": "strategy-A#payoff_shape",
+        "policy_version": "p7_thesis_v1",
+        "profit_regions": [
+          "scenario-region:A:profit"
+        ],
+        "rank_position": 1,
+        "score_contributions": {
+          "complexity_penalty": -0.2,
+          "edge": 0.8,
+          "execution_quality": 0.8,
+          "robustness": 0.75
+        },
+        "section_availability": {
+          "belief_references": "AVAILABLE",
+          "failure_regions": "AVAILABLE",
+          "invalidation_conditions": "AVAILABLE",
+          "origin_and_mutations": "AVAILABLE",
+          "payoff_shape": "AVAILABLE",
+          "profit_regions": "AVAILABLE",
+          "score_contributions": "AVAILABLE"
+        }
+      },
+      {
+        "belief_reference_ids": [
+          "belief:B:return",
+          "belief:B:volatility"
+        ],
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "confidence_state": {
+          "calibration_status": "CALIBRATED",
+          "calibration_version": "cal-v1",
+          "model_disagreement": 0.1,
+          "score_confidence": 0.88
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_artifact_ids": [
+          "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+          "score_decomposition_panel:6708cd86c860d17c529e",
+          "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103"
+        ],
+        "failure_regions": [
+          "scenario-region:B:tail-loss"
+        ],
+        "invalidation_conditions": [
+          "forecast_confidence_below_policy",
+          "execution_context_stale"
+        ],
+        "lineage_id": "strategy-lineage-B",
+        "mutation_trace": [
+          "origin:LONG_STRANGLE",
+          "legs:2"
+        ],
+        "nearest_alternative_ids": [
+          "A"
+        ],
+        "objective_family": "HYBRID",
+        "ood_state": "NONE",
+        "origin_template": "LONG_STRANGLE",
+        "payoff_shape_reference": "strategy-B#payoff_shape",
+        "policy_version": "p7_thesis_v1",
+        "profit_regions": [
+          "scenario-region:B:profit"
+        ],
+        "rank_position": 2,
+        "score_contributions": {
+          "complexity_penalty": -0.2,
+          "edge": 0.79,
+          "execution_quality": 0.8,
+          "robustness": 0.74
+        },
+        "section_availability": {
+          "belief_references": "AVAILABLE",
+          "failure_regions": "AVAILABLE",
+          "invalidation_conditions": "AVAILABLE",
+          "origin_and_mutations": "AVAILABLE",
+          "payoff_shape": "AVAILABLE",
+          "profit_regions": "AVAILABLE",
+          "score_contributions": "AVAILABLE"
+        }
+      },
+      {
+        "belief_reference_ids": [
+          "belief:E:return",
+          "belief:E:volatility"
+        ],
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "confidence_state": {
+          "calibration_status": "CALIBRATED",
+          "calibration_version": "cal-v1",
+          "model_disagreement": 0.1,
+          "score_confidence": 0.8
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_artifact_ids": [
+          "ranked_strategy_candidate_panel:6ccd93d4d805e554ab68",
+          "score_decomposition_panel:6708cd86c860d17c529e",
+          "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103"
+        ],
+        "failure_regions": [
+          "scenario-region:E:tail-loss"
+        ],
+        "invalidation_conditions": [
+          "forecast_confidence_below_policy",
+          "execution_context_stale"
+        ],
+        "lineage_id": "strategy-lineage-E",
+        "mutation_trace": [
+          "origin:CALL_SPREAD",
+          "legs:2"
+        ],
+        "nearest_alternative_ids": [],
+        "objective_family": "HYBRID",
+        "ood_state": "NONE",
+        "origin_template": "CALL_SPREAD",
+        "payoff_shape_reference": "strategy-E#payoff_shape",
+        "policy_version": "p7_thesis_v1",
+        "profit_regions": [
+          "scenario-region:E:profit"
+        ],
+        "rank_position": 1,
+        "score_contributions": {
+          "complexity_penalty": -0.2,
+          "edge": 0.5,
+          "execution_quality": 0.8,
+          "robustness": 0.45
+        },
+        "section_availability": {
+          "belief_references": "AVAILABLE",
+          "failure_regions": "AVAILABLE",
+          "invalidation_conditions": "AVAILABLE",
+          "origin_and_mutations": "AVAILABLE",
+          "payoff_shape": "AVAILABLE",
+          "profit_regions": "AVAILABLE",
+          "score_contributions": "AVAILABLE"
+        }
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  }
+}

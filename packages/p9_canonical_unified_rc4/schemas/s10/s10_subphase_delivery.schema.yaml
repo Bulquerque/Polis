@@ -1,0 +1,1705 @@
+$defs:
+  ArtifactReference:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        maxLength: 160
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_role:
+        maxLength: 256
+        minLength: 1
+        title: Artifact Role
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      cycle:
+        $ref: '#/$defs/CycleRef'
+      location:
+        maxLength: 256
+        minLength: 1
+        title: Location
+        type: string
+      payload_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Payload Sha256
+        type: string
+      producer_module_id:
+        maxLength: 256
+        minLength: 1
+        title: Producer Module Id
+        type: string
+      run_id:
+        maxLength: 256
+        minLength: 1
+        title: Run Id
+        type: string
+      schema_name:
+        maxLength: 256
+        minLength: 1
+        title: Schema Name
+        type: string
+      schema_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Schema Sha256
+        type: string
+      schema_version:
+        maxLength: 256
+        minLength: 1
+        title: Schema Version
+        type: string
+    required:
+    - artifact_id
+    - artifact_role
+    - schema_name
+    - schema_version
+    - schema_sha256
+    - payload_sha256
+    - producer_module_id
+    - run_id
+    - cycle
+    - available_at
+    - location
+    title: ArtifactReference
+    type: object
+  BuildEnvironment:
+    additionalProperties: false
+    properties:
+      dependency_lock_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Dependency Lock Sha256
+        type: string
+      platform:
+        maxLength: 256
+        minLength: 1
+        title: Platform
+        type: string
+      pydantic_version:
+        maxLength: 256
+        minLength: 1
+        title: Pydantic Version
+        type: string
+      python_version:
+        maxLength: 256
+        minLength: 1
+        title: Python Version
+        type: string
+      s10_distribution_version:
+        maxLength: 256
+        minLength: 1
+        title: S10 Distribution Version
+        type: string
+      s9_distribution_version:
+        maxLength: 256
+        minLength: 1
+        title: S9 Distribution Version
+        type: string
+    required:
+    - python_version
+    - platform
+    - pydantic_version
+    - s9_distribution_version
+    - s10_distribution_version
+    - dependency_lock_sha256
+    title: BuildEnvironment
+    type: object
+  CausalStatus:
+    enum:
+    - ASSOCIATION
+    - ATTRIBUTED
+    - CAUSAL
+    - UNKNOWN
+    title: CausalStatus
+    type: string
+  ConsumerReceiptReference:
+    additionalProperties: false
+    properties:
+      accepted_count:
+        minimum: 0
+        title: Accepted Count
+        type: integer
+      consumer_id:
+        maxLength: 256
+        minLength: 1
+        title: Consumer Id
+        type: string
+      receipt_ref:
+        $ref: '#/$defs/ArtifactReference'
+      rejected_count:
+        minimum: 0
+        title: Rejected Count
+        type: integer
+      reserved_count:
+        minimum: 0
+        title: Reserved Count
+        type: integer
+      source_contract_name:
+        maxLength: 256
+        minLength: 1
+        title: Source Contract Name
+        type: string
+      source_contract_version:
+        maxLength: 256
+        minLength: 1
+        title: Source Contract Version
+        type: string
+    required:
+    - consumer_id
+    - source_contract_name
+    - source_contract_version
+    - receipt_ref
+    - accepted_count
+    - rejected_count
+    - reserved_count
+    title: ConsumerReceiptReference
+    type: object
+  CycleRef:
+    additionalProperties: false
+    properties:
+      cycle_id:
+        maxLength: 256
+        minLength: 1
+        title: Cycle Id
+        type: string
+      ordinal:
+        minimum: 0
+        title: Ordinal
+        type: integer
+    required:
+    - cycle_id
+    - ordinal
+    title: CycleRef
+    type: object
+  EvidenceQuality:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceQuality
+    type: string
+  EvidenceReference:
+    additionalProperties: false
+    properties:
+      artifact_ref:
+        $ref: '#/$defs/ArtifactReference'
+      evidence_id:
+        maxLength: 256
+        minLength: 1
+        title: Evidence Id
+        type: string
+      quality:
+        $ref: '#/$defs/EvidenceQuality'
+      summary:
+        maxLength: 4000
+        minLength: 1
+        title: Summary
+        type: string
+    required:
+    - evidence_id
+    - artifact_ref
+    - quality
+    - summary
+    title: EvidenceReference
+    type: object
+  FeedbackDistributionManifest:
+    additionalProperties: false
+    properties:
+      accepted_feedback_ids:
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Accepted Feedback Ids
+        type: array
+      activated_feedback_ids:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Activated Feedback Ids
+        type: array
+      rejected_feedback_ids:
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Rejected Feedback Ids
+        type: array
+      reserved_feedback_ids:
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Reserved Feedback Ids
+        type: array
+    required:
+    - accepted_feedback_ids
+    - rejected_feedback_ids
+    - reserved_feedback_ids
+    title: FeedbackDistributionManifest
+    type: object
+  FeedbackEffectivenessAssessment:
+    additionalProperties: false
+    properties:
+      confidence_lower:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Confidence Lower
+      confidence_upper:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Confidence Upper
+      confounded:
+        default: false
+        title: Confounded
+        type: boolean
+      evidence_refs:
+        default: []
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence Refs
+        type: array
+      feedback_id:
+        maxLength: 192
+        minLength: 1
+        title: Feedback Id
+        type: string
+      guardrail_regressions:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Guardrail Regressions
+        type: array
+      mean_effect:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Mean Effect
+      metric_id:
+        anyOf:
+        - maxLength: 256
+          minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Metric Id
+      policy_diff_sha256:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Policy Diff Sha256
+      reason_codes:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Reason Codes
+        type: array
+      sample_size:
+        minimum: 0
+        title: Sample Size
+        type: integer
+      standard_error:
+        anyOf:
+        - minimum: 0.0
+          type: number
+        - type: 'null'
+        default: null
+        title: Standard Error
+      state:
+        $ref: '#/$defs/FeedbackLifecycleState'
+    required:
+    - feedback_id
+    - state
+    - sample_size
+    title: FeedbackEffectivenessAssessment
+    type: object
+  FeedbackEffectivenessModuleOutput:
+    additionalProperties: false
+    properties:
+      lifecycle_ledger:
+        $ref: '#/$defs/FeedbackLifecycleLedger'
+      regression_panel:
+        $ref: '#/$defs/FeedbackRegressionPanel'
+      report:
+        $ref: '#/$defs/FeedbackEffectivenessReport'
+    required:
+    - report
+    - lifecycle_ledger
+    - regression_panel
+    title: FeedbackEffectivenessModuleOutput
+    type: object
+  FeedbackEffectivenessReport:
+    additionalProperties: false
+    properties:
+      assessments:
+        items:
+          $ref: '#/$defs/FeedbackEffectivenessAssessment'
+        title: Assessments
+        type: array
+      effective_count:
+        minimum: 0
+        title: Effective Count
+        type: integer
+      inconclusive_count:
+        minimum: 0
+        title: Inconclusive Count
+        type: integer
+      ineffective_count:
+        minimum: 0
+        title: Ineffective Count
+        type: integer
+      other_count:
+        minimum: 0
+        title: Other Count
+        type: integer
+      pending_count:
+        minimum: 0
+        title: Pending Count
+        type: integer
+      policy_id:
+        maxLength: 256
+        minLength: 1
+        title: Policy Id
+        type: string
+      regressive_count:
+        minimum: 0
+        title: Regressive Count
+        type: integer
+    required:
+    - policy_id
+    - assessments
+    - effective_count
+    - ineffective_count
+    - regressive_count
+    - inconclusive_count
+    - pending_count
+    - other_count
+    title: FeedbackEffectivenessReport
+    type: object
+  FeedbackLifecycleEvent:
+    additionalProperties: false
+    properties:
+      cycle:
+        $ref: '#/$defs/CycleRef'
+      event_id:
+        maxLength: 256
+        minLength: 1
+        title: Event Id
+        type: string
+      event_time:
+        format: date-time
+        title: Event Time
+        type: string
+      evidence_refs:
+        default: []
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence Refs
+        type: array
+      feedback_id:
+        maxLength: 192
+        minLength: 1
+        title: Feedback Id
+        type: string
+      reason_codes:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Reason Codes
+        type: array
+      state:
+        $ref: '#/$defs/FeedbackLifecycleState'
+    required:
+    - event_id
+    - feedback_id
+    - state
+    - cycle
+    - event_time
+    title: FeedbackLifecycleEvent
+    type: object
+  FeedbackLifecycleLedger:
+    additionalProperties: false
+    properties:
+      events:
+        items:
+          $ref: '#/$defs/FeedbackLifecycleEvent'
+        title: Events
+        type: array
+      ledger_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Ledger Sha256
+        type: string
+      previous_ledger_sha256:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Previous Ledger Sha256
+    required:
+    - events
+    - ledger_sha256
+    title: FeedbackLifecycleLedger
+    type: object
+  FeedbackLifecycleState:
+    enum:
+    - PROPOSED
+    - VALIDATED
+    - AUTHORIZED
+    - ACTIVATED
+    - OUTCOME_NOT_MATURED
+    - EVALUATED
+    - EFFECTIVE
+    - INEFFECTIVE
+    - REGRESSIVE
+    - INCONCLUSIVE
+    - EXPIRED
+    - REVERTED
+    - NOT_ACTIVATED
+    - INVALID
+    title: FeedbackLifecycleState
+    type: string
+  FeedbackRegressionPanel:
+    additionalProperties: false
+    properties:
+      records:
+        items:
+          $ref: '#/$defs/FeedbackRegressionRecord'
+        title: Records
+        type: array
+    required:
+    - records
+    title: FeedbackRegressionPanel
+    type: object
+  FeedbackRegressionRecord:
+    additionalProperties: false
+    properties:
+      adverse_change:
+        minimum: 0.0
+        title: Adverse Change
+        type: number
+      critical:
+        title: Critical
+        type: boolean
+      evidence_refs:
+        default: []
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence Refs
+        type: array
+      feedback_id:
+        maxLength: 192
+        minLength: 1
+        title: Feedback Id
+        type: string
+      guardrail_id:
+        maxLength: 256
+        minLength: 1
+        title: Guardrail Id
+        type: string
+    required:
+    - feedback_id
+    - guardrail_id
+    - adverse_change
+    - critical
+    title: FeedbackRegressionRecord
+    type: object
+  MaturedLessonPanel:
+    additionalProperties: false
+    properties:
+      items:
+        items:
+          $ref: '#/$defs/ResearchMemoryItem'
+        title: Items
+        type: array
+    required:
+    - items
+    title: MaturedLessonPanel
+    type: object
+  MemoryAndP3HandoffOutput:
+    additionalProperties: false
+    properties:
+      memory_update:
+        $ref: '#/$defs/SystemResearchMemoryUpdate'
+      p3_handoff:
+        $ref: '#/$defs/P3ResearchContextHandoff'
+      p3_manifest:
+        $ref: '#/$defs/P3ContextHandoffManifest'
+    required:
+    - memory_update
+    - p3_handoff
+    - p3_manifest
+    title: MemoryAndP3HandoffOutput
+    type: object
+  MemoryUpdateState:
+    enum:
+    - RESEARCH_MEMORY_UPDATED
+    - RESEARCH_MEMORY_UNCHANGED
+    - MEMORY_UPDATE_INVALID
+    title: MemoryUpdateState
+    type: string
+  MetricValue:
+    additionalProperties: false
+    properties:
+      metric_id:
+        maxLength: 256
+        minLength: 1
+        title: Metric Id
+        type: string
+      metric_version:
+        default: 1.0.0
+        maxLength: 256
+        minLength: 1
+        title: Metric Version
+        type: string
+      unit:
+        maxLength: 256
+        minLength: 1
+        title: Unit
+        type: string
+      value:
+        title: Value
+        type: number
+    required:
+    - metric_id
+    - value
+    - unit
+    title: MetricValue
+    type: object
+  ModuleDiagnostics:
+    additionalProperties: false
+    properties:
+      counters:
+        default: []
+        items:
+          maxItems: 2
+          minItems: 2
+          prefixItems:
+          - maxLength: 256
+            minLength: 1
+            type: string
+          - type: integer
+          type: array
+        title: Counters
+        type: array
+      scalars:
+        default: []
+        items:
+          $ref: '#/$defs/MetricValue'
+        title: Scalars
+        type: array
+      trace:
+        default: []
+        items:
+          maxLength: 4000
+          minLength: 1
+          type: string
+        title: Trace
+        type: array
+      warnings:
+        default: []
+        items:
+          maxLength: 4000
+          minLength: 1
+          type: string
+        title: Warnings
+        type: array
+    title: ModuleDiagnostics
+    type: object
+  ModuleResult_FeedbackEffectivenessModuleOutput_:
+    additionalProperties: false
+    properties:
+      diagnostics:
+        $ref: '#/$defs/ModuleDiagnostics'
+      evidence_refs:
+        default: []
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence Refs
+        type: array
+      module_id:
+        pattern: ^P9\.S10\.M0[1-4]$
+        title: Module Id
+        type: string
+      output:
+        anyOf:
+        - $ref: '#/$defs/FeedbackEffectivenessModuleOutput'
+        - type: 'null'
+      output_sha256:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Output Sha256
+      reason_codes:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Reason Codes
+        type: array
+      status:
+        $ref: '#/$defs/ModuleStatus'
+    required:
+    - module_id
+    - status
+    - output
+    - diagnostics
+    title: ModuleResult[FeedbackEffectivenessModuleOutput]
+    type: object
+  ModuleResult_MemoryAndP3HandoffOutput_:
+    additionalProperties: false
+    properties:
+      diagnostics:
+        $ref: '#/$defs/ModuleDiagnostics'
+      evidence_refs:
+        default: []
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence Refs
+        type: array
+      module_id:
+        pattern: ^P9\.S10\.M0[1-4]$
+        title: Module Id
+        type: string
+      output:
+        anyOf:
+        - $ref: '#/$defs/MemoryAndP3HandoffOutput'
+        - type: 'null'
+      output_sha256:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Output Sha256
+      reason_codes:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Reason Codes
+        type: array
+      status:
+        $ref: '#/$defs/ModuleStatus'
+    required:
+    - module_id
+    - status
+    - output
+    - diagnostics
+    title: ModuleResult[MemoryAndP3HandoffOutput]
+    type: object
+  ModuleResult_NormalizedResearchMemoryBundle_:
+    additionalProperties: false
+    properties:
+      diagnostics:
+        $ref: '#/$defs/ModuleDiagnostics'
+      evidence_refs:
+        default: []
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence Refs
+        type: array
+      module_id:
+        pattern: ^P9\.S10\.M0[1-4]$
+        title: Module Id
+        type: string
+      output:
+        anyOf:
+        - $ref: '#/$defs/NormalizedResearchMemoryBundle'
+        - type: 'null'
+      output_sha256:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Output Sha256
+      reason_codes:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Reason Codes
+        type: array
+      status:
+        $ref: '#/$defs/ModuleStatus'
+    required:
+    - module_id
+    - status
+    - output
+    - diagnostics
+    title: ModuleResult[NormalizedResearchMemoryBundle]
+    type: object
+  ModuleResult_ReleaseCandidateOutput_:
+    additionalProperties: false
+    properties:
+      diagnostics:
+        $ref: '#/$defs/ModuleDiagnostics'
+      evidence_refs:
+        default: []
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence Refs
+        type: array
+      module_id:
+        pattern: ^P9\.S10\.M0[1-4]$
+        title: Module Id
+        type: string
+      output:
+        anyOf:
+        - $ref: '#/$defs/ReleaseCandidateOutput'
+        - type: 'null'
+      output_sha256:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Output Sha256
+      reason_codes:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Reason Codes
+        type: array
+      status:
+        $ref: '#/$defs/ModuleStatus'
+    required:
+    - module_id
+    - status
+    - output
+    - diagnostics
+    title: ModuleResult[ReleaseCandidateOutput]
+    type: object
+  ModuleStatus:
+    enum:
+    - SUCCESS
+    - LIMITED
+    - INSUFFICIENT_EVIDENCE
+    - INVALID
+    - FAILED
+    title: ModuleStatus
+    type: string
+  NegativeResearchMemoryPanel:
+    additionalProperties: false
+    properties:
+      items:
+        items:
+          $ref: '#/$defs/ResearchMemoryItem'
+        title: Items
+        type: array
+    required:
+    - items
+    title: NegativeResearchMemoryPanel
+    type: object
+  NormalizedResearchMemoryBundle:
+    additionalProperties: false
+    properties:
+      matured_lessons:
+        $ref: '#/$defs/MaturedLessonPanel'
+      merged_candidate_ids:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Merged Candidate Ids
+        type: array
+      negative_memory:
+        $ref: '#/$defs/NegativeResearchMemoryPanel'
+      policy_id:
+        maxLength: 256
+        minLength: 1
+        title: Policy Id
+        type: string
+      research_hypotheses:
+        $ref: '#/$defs/ResearchHypothesisPanel'
+      skipped_candidate_ids:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Skipped Candidate Ids
+        type: array
+      warnings:
+        default: []
+        items:
+          maxLength: 4000
+          minLength: 1
+          type: string
+        title: Warnings
+        type: array
+    required:
+    - policy_id
+    - matured_lessons
+    - research_hypotheses
+    - negative_memory
+    title: NormalizedResearchMemoryBundle
+    type: object
+  P0AuthorizationRequestManifest:
+    additionalProperties: false
+    properties:
+      authorization_state:
+        $ref: '#/$defs/P0AuthorizationState'
+      recommendation_id:
+        maxLength: 256
+        minLength: 1
+        title: Recommendation Id
+        type: string
+      release_id:
+        maxLength: 256
+        minLength: 1
+        title: Release Id
+        type: string
+      request_id:
+        maxLength: 256
+        minLength: 1
+        title: Request Id
+        type: string
+      request_payload_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Request Payload Sha256
+        type: string
+    required:
+    - release_id
+    - request_id
+    - recommendation_id
+    - authorization_state
+    - request_payload_sha256
+    title: P0AuthorizationRequestManifest
+    type: object
+  P0AuthorizationState:
+    enum:
+    - PENDING_P0
+    title: P0AuthorizationState
+    type: string
+  P3ContextCategory:
+    enum:
+    - ABSTRACT_LESSON
+    - RESEARCH_HYPOTHESIS
+    - UNCERTAINTY
+    - FAILURE_PATTERN
+    - RESEARCH_QUESTION
+    title: P3ContextCategory
+    type: string
+  P3ContextHandoffManifest:
+    additionalProperties: false
+    properties:
+      blocked_memory_item_ids:
+        items:
+          maxLength: 192
+          minLength: 1
+          type: string
+        title: Blocked Memory Item Ids
+        type: array
+      context_item_ids:
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Context Item Ids
+        type: array
+      contract_name:
+        maxLength: 256
+        minLength: 1
+        title: Contract Name
+        type: string
+      contract_version:
+        maxLength: 256
+        minLength: 1
+        title: Contract Version
+        type: string
+      created_at:
+        format: date-time
+        title: Created At
+        type: string
+      handoff_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Handoff Sha256
+        type: string
+      manifest_id:
+        maxLength: 256
+        minLength: 1
+        title: Manifest Id
+        type: string
+      source_memory_snapshot_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Source Memory Snapshot Sha256
+        type: string
+    required:
+    - manifest_id
+    - source_memory_snapshot_sha256
+    - handoff_sha256
+    - contract_name
+    - contract_version
+    - context_item_ids
+    - blocked_memory_item_ids
+    - created_at
+    title: P3ContextHandoffManifest
+    type: object
+  P3ContextState:
+    enum:
+    - P3_CONTEXT_READY
+    - NO_EXPORTABLE_CONTEXT
+    - TEMPORAL_LEAKAGE_BLOCKED
+    - P3_SCHEMA_INCOMPATIBLE
+    title: P3ContextState
+    type: string
+  P3ResearchContextHandoff:
+    additionalProperties: false
+    properties:
+      blocked_memory_item_ids:
+        default: []
+        items:
+          maxLength: 192
+          minLength: 1
+          type: string
+        title: Blocked Memory Item Ids
+        type: array
+      context_items:
+        items:
+          $ref: '#/$defs/P3ResearchContextItem'
+        title: Context Items
+        type: array
+      contract_name:
+        default: P9_RESEARCH_CONTEXT_HANDOFF_V1
+        maxLength: 256
+        minLength: 1
+        title: Contract Name
+        type: string
+      contract_version:
+        default: 1.0.0
+        maxLength: 256
+        minLength: 1
+        title: Contract Version
+        type: string
+      destination:
+        default: P3_RESEARCH_CONTEXT_ONLY
+        maxLength: 256
+        minLength: 1
+        title: Destination
+        type: string
+      reason_codes:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Reason Codes
+        type: array
+      state:
+        $ref: '#/$defs/P3ContextState'
+      world_memory_write_allowed:
+        default: false
+        title: World Memory Write Allowed
+        type: boolean
+    required:
+    - state
+    - context_items
+    title: P3ResearchContextHandoff
+    type: object
+  P3ResearchContextItem:
+    additionalProperties: false
+    properties:
+      abstract_claim:
+        maxLength: 4000
+        minLength: 1
+        title: Abstract Claim
+        type: string
+      category:
+        $ref: '#/$defs/P3ContextCategory'
+      context_item_id:
+        maxLength: 256
+        minLength: 1
+        title: Context Item Id
+        type: string
+      evidence_quality:
+        $ref: '#/$defs/EvidenceQuality'
+      research_question:
+        maxLength: 4000
+        minLength: 1
+        title: Research Question
+        type: string
+      scope:
+        $ref: '#/$defs/ResearchScope'
+      source_memory_item_id:
+        maxLength: 192
+        minLength: 1
+        title: Source Memory Item Id
+        type: string
+      uncertainty:
+        maxLength: 4000
+        minLength: 1
+        title: Uncertainty
+        type: string
+      world_memory_write_allowed:
+        default: false
+        title: World Memory Write Allowed
+        type: boolean
+    required:
+    - context_item_id
+    - category
+    - abstract_claim
+    - uncertainty
+    - research_question
+    - scope
+    - source_memory_item_id
+    - evidence_quality
+    title: P3ResearchContextItem
+    type: object
+  P9ReleaseManifest:
+    additionalProperties: false
+    properties:
+      artifacts:
+        items:
+          $ref: '#/$defs/ReleaseArtifactEntry'
+        title: Artifacts
+        type: array
+      created_at:
+        format: date-time
+        title: Created At
+        type: string
+      manifest_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Manifest Sha256
+        type: string
+      material_limitations:
+        default: []
+        items:
+          maxLength: 4000
+          minLength: 1
+          type: string
+        title: Material Limitations
+        type: array
+      release_id:
+        maxLength: 256
+        minLength: 1
+        title: Release Id
+        type: string
+      release_state:
+        $ref: '#/$defs/ReleaseState'
+      source_cycle:
+        $ref: '#/$defs/CycleRef'
+      subphase_receipts:
+        items:
+          $ref: '#/$defs/SubphaseReceiptReference'
+        title: Subphase Receipts
+        type: array
+    required:
+    - release_id
+    - source_cycle
+    - release_state
+    - subphase_receipts
+    - artifacts
+    - created_at
+    - manifest_sha256
+    title: P9ReleaseManifest
+    type: object
+  P9ReleasePublicationManifest:
+    additionalProperties: false
+    properties:
+      all_subphase_receipts:
+        items:
+          $ref: '#/$defs/SubphaseReceiptReference'
+        title: All Subphase Receipts
+        type: array
+      candidate_release_manifest_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Candidate Release Manifest Sha256
+        type: string
+      publication_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Publication Sha256
+        type: string
+      release_id:
+        maxLength: 256
+        minLength: 1
+        title: Release Id
+        type: string
+      s10_execution_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: S10 Execution Sha256
+        type: string
+    required:
+    - release_id
+    - all_subphase_receipts
+    - s10_execution_sha256
+    - candidate_release_manifest_sha256
+    - publication_sha256
+    title: P9ReleasePublicationManifest
+    type: object
+  Phase09DeliveryManifest:
+    additionalProperties: false
+    properties:
+      build_environment:
+        $ref: '#/$defs/BuildEnvironment'
+      consumer_receipts:
+        items:
+          $ref: '#/$defs/ConsumerReceiptReference'
+        title: Consumer Receipts
+        type: array
+      module_ids:
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Module Ids
+        type: array
+      producer_id:
+        default: PHASE09_RELEASE
+        maxLength: 256
+        minLength: 1
+        title: Producer Id
+        type: string
+      s10_wheel_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: S10 Wheel Sha256
+        type: string
+      s9_wheel_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: S9 Wheel Sha256
+        type: string
+      source_tree_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Source Tree Sha256
+        type: string
+      test_summary:
+        $ref: '#/$defs/TestSummary'
+    required:
+    - module_ids
+    - source_tree_sha256
+    - s9_wheel_sha256
+    - s10_wheel_sha256
+    - consumer_receipts
+    - build_environment
+    - test_summary
+    title: Phase09DeliveryManifest
+    type: object
+  ReleaseArtifactEntry:
+    additionalProperties: false
+    properties:
+      artifact_role:
+        maxLength: 256
+        minLength: 1
+        title: Artifact Role
+        type: string
+      limitations:
+        default: []
+        items:
+          maxLength: 4000
+          minLength: 1
+          type: string
+        title: Limitations
+        type: array
+      payload_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Payload Sha256
+        type: string
+      producer_module_id:
+        maxLength: 256
+        minLength: 1
+        title: Producer Module Id
+        type: string
+      record_count:
+        minimum: 0
+        title: Record Count
+        type: integer
+      schema_name:
+        maxLength: 256
+        minLength: 1
+        title: Schema Name
+        type: string
+      schema_version:
+        maxLength: 256
+        minLength: 1
+        title: Schema Version
+        type: string
+    required:
+    - artifact_role
+    - schema_name
+    - schema_version
+    - payload_sha256
+    - producer_module_id
+    - record_count
+    title: ReleaseArtifactEntry
+    type: object
+  ReleaseCandidateOutput:
+    additionalProperties: false
+    properties:
+      feedback_distribution_manifest:
+        $ref: '#/$defs/FeedbackDistributionManifest'
+      limitations:
+        default: []
+        items:
+          maxLength: 4000
+          minLength: 1
+          type: string
+        title: Limitations
+        type: array
+      p0_authorization_manifest:
+        $ref: '#/$defs/P0AuthorizationRequestManifest'
+      p3_handoff_manifest_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: P3 Handoff Manifest Sha256
+        type: string
+      phase09_delivery_manifest:
+        $ref: '#/$defs/Phase09DeliveryManifest'
+      reason_codes:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Reason Codes
+        type: array
+      release_manifest_without_s10:
+        $ref: '#/$defs/P9ReleaseManifest'
+      release_state:
+        $ref: '#/$defs/ReleaseState'
+    required:
+    - release_state
+    - release_manifest_without_s10
+    - p0_authorization_manifest
+    - p3_handoff_manifest_sha256
+    - feedback_distribution_manifest
+    - phase09_delivery_manifest
+    title: ReleaseCandidateOutput
+    type: object
+  ReleaseState:
+    enum:
+    - RELEASE_READY_FOR_P0
+    - RELEASE_READY_NO_PROMOTION
+    - RELEASE_BLOCKED_INCOMPLETE_RECEIPTS
+    - RELEASE_BLOCKED_HASH_MISMATCH
+    - RELEASE_BLOCKED_CONTRACT_DRIFT
+    - RELEASE_BLOCKED_NONDETERMINISTIC
+    title: ReleaseState
+    type: string
+  ResearchHypothesisPanel:
+    additionalProperties: false
+    properties:
+      items:
+        items:
+          $ref: '#/$defs/ResearchMemoryItem'
+        title: Items
+        type: array
+    required:
+    - items
+    title: ResearchHypothesisPanel
+    type: object
+  ResearchItemState:
+    enum:
+    - ACTIVE
+    - SUPERSEDED
+    - CONTRADICTED
+    - EXPIRED
+    - REJECTED
+    title: ResearchItemState
+    type: string
+  ResearchItemType:
+    enum:
+    - SUPPORTED_LESSON
+    - CONDITIONAL_LESSON
+    - PLAUSIBLE_HYPOTHESIS
+    - REJECTED_HYPOTHESIS
+    - UNRESOLVED_QUESTION
+    - NEGATIVE_MEMORY
+    - BREAKPOINT_MEMORY
+    title: ResearchItemType
+    type: string
+  ResearchMemoryItem:
+    additionalProperties: false
+    properties:
+      abstract_claim:
+        maxLength: 4000
+        minLength: 1
+        title: Abstract Claim
+        type: string
+      causal_status:
+        $ref: '#/$defs/CausalStatus'
+      claim:
+        maxLength: 4000
+        minLength: 1
+        title: Claim
+        type: string
+      confidence:
+        maximum: 1.0
+        minimum: 0.0
+        title: Confidence
+        type: number
+      contradicts_item_ids:
+        default: []
+        items:
+          maxLength: 192
+          minLength: 1
+          type: string
+        title: Contradicts Item Ids
+        type: array
+      evidence_against:
+        default: []
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence Against
+        type: array
+      evidence_for:
+        items:
+          $ref: '#/$defs/EvidenceReference'
+        title: Evidence For
+        type: array
+      expires_after_cycle:
+        anyOf:
+        - $ref: '#/$defs/CycleRef'
+        - type: 'null'
+        default: null
+      export_block_reasons:
+        default: []
+        items:
+          pattern: ^P9_[A-Z0-9_]+$
+          type: string
+        title: Export Block Reasons
+        type: array
+      export_blocked:
+        default: false
+        title: Export Blocked
+        type: boolean
+      item_id:
+        maxLength: 192
+        minLength: 1
+        title: Item Id
+        type: string
+      item_type:
+        $ref: '#/$defs/ResearchItemType'
+      materiality:
+        minimum: 0.0
+        title: Materiality
+        type: number
+      scope:
+        $ref: '#/$defs/ResearchScope'
+      semantic_key:
+        maxLength: 256
+        minLength: 1
+        title: Semantic Key
+        type: string
+      source_cycles:
+        items:
+          $ref: '#/$defs/CycleRef'
+        title: Source Cycles
+        type: array
+      state:
+        $ref: '#/$defs/ResearchItemState'
+      supersedes_item_ids:
+        default: []
+        items:
+          maxLength: 192
+          minLength: 1
+          type: string
+        title: Supersedes Item Ids
+        type: array
+      validity_start:
+        $ref: '#/$defs/CycleRef'
+    required:
+    - item_id
+    - semantic_key
+    - item_type
+    - state
+    - claim
+    - abstract_claim
+    - scope
+    - causal_status
+    - evidence_for
+    - confidence
+    - materiality
+    - validity_start
+    - source_cycles
+    title: ResearchMemoryItem
+    type: object
+  ResearchMemorySnapshot:
+    additionalProperties: false
+    properties:
+      generation:
+        minimum: 0
+        title: Generation
+        type: integer
+      items:
+        default: []
+        items:
+          $ref: '#/$defs/ResearchMemoryItem'
+        title: Items
+        type: array
+      memory_id:
+        maxLength: 256
+        minLength: 1
+        title: Memory Id
+        type: string
+      previous_snapshot_sha256:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Previous Snapshot Sha256
+      snapshot_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Snapshot Sha256
+        type: string
+    required:
+    - memory_id
+    - generation
+    - snapshot_sha256
+    title: ResearchMemorySnapshot
+    type: object
+  ResearchScope:
+    additionalProperties: false
+    properties:
+      asset_families:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Asset Families
+        type: array
+      phases:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Phases
+        type: array
+      policy_ids:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Policy Ids
+        type: array
+      regimes:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Regimes
+        type: array
+    title: ResearchScope
+    type: object
+  S10ExecutionBundle:
+    additionalProperties: false
+    properties:
+      created_at:
+        format: date-time
+        title: Created At
+        type: string
+      effectiveness_result:
+        $ref: '#/$defs/ModuleResult_FeedbackEffectivenessModuleOutput_'
+      memory_handoff_result:
+        $ref: '#/$defs/ModuleResult_MemoryAndP3HandoffOutput_'
+      normalization_result:
+        $ref: '#/$defs/ModuleResult_NormalizedResearchMemoryBundle_'
+      release_candidate_result:
+        $ref: '#/$defs/ModuleResult_ReleaseCandidateOutput_'
+      schema_version:
+        default: 1.0.0
+        maxLength: 256
+        minLength: 1
+        title: Schema Version
+        type: string
+      subphase_id:
+        default: P9.S10
+        maxLength: 256
+        minLength: 1
+        title: Subphase Id
+        type: string
+      subphase_state:
+        $ref: '#/$defs/S10SubphaseState'
+    required:
+    - normalization_result
+    - memory_handoff_result
+    - effectiveness_result
+    - release_candidate_result
+    - subphase_state
+    - created_at
+    title: S10ExecutionBundle
+    type: object
+  S10ExecutionEnvelope:
+    additionalProperties: false
+    properties:
+      payload:
+        $ref: '#/$defs/S10ExecutionBundle'
+      payload_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Payload Sha256
+        type: string
+    required:
+    - payload
+    - payload_sha256
+    title: S10ExecutionEnvelope
+    type: object
+  S10SubphaseState:
+    enum:
+    - P9_RELEASE_READY
+    - P9_RELEASE_READY_NO_PROMOTION
+    - P9_RELEASE_PENDING_EVIDENCE
+    - P9_RELEASE_INVALID
+    title: S10SubphaseState
+    type: string
+  SubphaseReceiptReference:
+    additionalProperties: false
+    properties:
+      limitations:
+        default: []
+        items:
+          maxLength: 4000
+          minLength: 1
+          type: string
+        title: Limitations
+        type: array
+      output_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Output Sha256
+        type: string
+      receipt_ref:
+        $ref: '#/$defs/ArtifactReference'
+      status:
+        $ref: '#/$defs/ModuleStatus'
+      subphase_id:
+        pattern: ^P9\.S(?:[1-9]|10)$
+        title: Subphase Id
+        type: string
+    required:
+    - subphase_id
+    - status
+    - receipt_ref
+    - output_sha256
+    title: SubphaseReceiptReference
+    type: object
+  SystemResearchMemoryUpdate:
+    additionalProperties: false
+    properties:
+      added_item_ids:
+        default: []
+        items:
+          maxLength: 192
+          minLength: 1
+          type: string
+        title: Added Item Ids
+        type: array
+      memory_snapshot:
+        $ref: '#/$defs/ResearchMemorySnapshot'
+      previous_snapshot_sha256:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        title: Previous Snapshot Sha256
+      state:
+        $ref: '#/$defs/MemoryUpdateState'
+      superseded_item_ids:
+        default: []
+        items:
+          maxLength: 192
+          minLength: 1
+          type: string
+        title: Superseded Item Ids
+        type: array
+      unchanged_item_ids:
+        default: []
+        items:
+          maxLength: 192
+          minLength: 1
+          type: string
+        title: Unchanged Item Ids
+        type: array
+      warnings:
+        default: []
+        items:
+          maxLength: 4000
+          minLength: 1
+          type: string
+        title: Warnings
+        type: array
+    required:
+    - state
+    - previous_snapshot_sha256
+    - memory_snapshot
+    title: SystemResearchMemoryUpdate
+    type: object
+  TestSummary:
+    additionalProperties: false
+    properties:
+      branch_coverage_percent:
+        maximum: 100.0
+        minimum: 0.0
+        title: Branch Coverage Percent
+        type: number
+      failed:
+        minimum: 0
+        title: Failed
+        type: integer
+      line_coverage_percent:
+        maximum: 100.0
+        minimum: 0.0
+        title: Line Coverage Percent
+        type: number
+      passed:
+        minimum: 0
+        title: Passed
+        type: integer
+      report_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Report Sha256
+        type: string
+      total:
+        minimum: 0
+        title: Total
+        type: integer
+    required:
+    - total
+    - passed
+    - failed
+    - line_coverage_percent
+    - branch_coverage_percent
+    - report_sha256
+    title: TestSummary
+    type: object
+additionalProperties: false
+properties:
+  delivery_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Delivery Sha256
+    type: string
+  execution_envelope:
+    $ref: '#/$defs/S10ExecutionEnvelope'
+  publication_manifest:
+    anyOf:
+    - $ref: '#/$defs/P9ReleasePublicationManifest'
+    - type: 'null'
+    default: null
+required:
+- execution_envelope
+- delivery_sha256
+title: S10SubphaseDelivery
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

@@ -1,0 +1,14 @@
+{
+  "elapsed_seconds": 3.319,
+  "expected_passed": 14,
+  "expected_skipped": 7,
+  "log": "qualification/p9_external_compatibility_tests.log",
+  "passed_tests": 14,
+  "process_isolation": "HERMETIC_JOB",
+  "release": "P9_CANONICAL_UNIFIED_RC4",
+  "returncode": 0,
+  "schema_version": "1.0.0",
+  "skipped_tests": 7,
+  "status": "PASS",
+  "suite": "external_compatibility"
+}

@@ -1,0 +1,167 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "ExecutionStage": {
+      "enum": [
+        "BACKTEST",
+        "SHADOW",
+        "PAPER",
+        "LIVE"
+      ],
+      "title": "ExecutionStage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "decision_id": {
+      "minLength": 1,
+      "title": "Decision Id",
+      "type": "string"
+    },
+    "cohort_id": {
+      "minLength": 1,
+      "title": "Cohort Id",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "horizon_id": {
+      "minLength": 1,
+      "title": "Horizon Id",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/ExecutionStage"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "forecast_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Forecast Value"
+    },
+    "signal_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Signal Value"
+    },
+    "target_quantity": {
+      "title": "Target Quantity",
+      "type": "number"
+    },
+    "order_quantity": {
+      "title": "Order Quantity",
+      "type": "number"
+    },
+    "fill_quantity": {
+      "title": "Fill Quantity",
+      "type": "number"
+    },
+    "benchmark_price": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Benchmark Price"
+    },
+    "average_fill_price": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Average Fill Price"
+    },
+    "fees": {
+      "minimum": 0.0,
+      "title": "Fees",
+      "type": "number"
+    },
+    "margin_used": {
+      "minimum": 0.0,
+      "title": "Margin Used",
+      "type": "number"
+    },
+    "pnl": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Pnl"
+    },
+    "evidence_class": {
+      "$ref": "#/$defs/EvidenceClass"
+    }
+  },
+  "required": [
+    "decision_id",
+    "cohort_id",
+    "policy_id",
+    "instrument_id",
+    "horizon_id",
+    "stage",
+    "decision_time",
+    "target_quantity",
+    "order_quantity",
+    "fill_quantity",
+    "fees",
+    "margin_used",
+    "evidence_class"
+  ],
+  "title": "StageExecutionRecord",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:StageExecutionRecord:1.0.0"
+}

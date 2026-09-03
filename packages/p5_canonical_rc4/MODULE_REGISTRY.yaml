@@ -1,0 +1,899 @@
+registry_version: P5-RC34.1-CONTRACT-CLOSURE-RC4
+modules:
+- module_id: P5.S1.M01
+  name: p4_handoff_contract_compatibility_validator
+  subphase_id: P5.S1
+  required_inputs:
+  - phase5_feature_handoff_manifest
+  - model_consumer_view_manifest
+  - model_consumer_view_bundle
+  - p4_quality_gate_decision
+  - p4_artifact_catalog
+  optional_inputs: []
+  outputs:
+  - validated_p4_contract_bundle
+  - p4_contract_compatibility_report
+  - validated_p4_artifact_catalog
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S1.M02
+  name: p4_consumer_view_capability_router
+  subphase_id: P5.S1
+  required_inputs:
+  - validated_p4_contract_bundle
+  - validated_p4_artifact_catalog
+  optional_inputs: []
+  outputs:
+  - authorized_consumer_view_registry
+  - resolver_view_compatibility_matrix
+  - p4_degraded_mode_report
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S1.M03
+  name: p4_hypothesis_research_lineage_intake
+  subphase_id: P5.S1
+  required_inputs: []
+  optional_inputs:
+  - approved_hypothesis_passport_registry
+  - hypothesis_budget_report
+  - research_attempt_ledger
+  - rejected_feature_graveyard
+  - feature_observer_registry
+  - perspective_conflict_panel
+  outputs:
+  - p5_hypothesis_confirmation_registry
+  - cross_phase_research_lineage_map
+  - p4_perspective_context
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S1.M04
+  name: optional_prior_cycle_resolver_feedback_loader
+  subphase_id: P5.S1
+  required_inputs: []
+  optional_inputs:
+  - resolver_feedback_report
+  - signal_feedback_report
+  - resolver_promotion_decision_report
+  outputs:
+  - optional_resolver_feedback_context
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S1.M05
+  name: phase5_consumption_receipt_builder
+  subphase_id: P5.S1
+  required_inputs:
+  - validated_p4_contract_bundle
+  - validated_p4_artifact_catalog
+  - authorized_consumer_view_registry
+  - resolver_view_compatibility_matrix
+  - p4_degraded_mode_report
+  optional_inputs: []
+  outputs:
+  - phase5_consumption_receipt
+  - p5_p4_contract_acknowledgement
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S2.M01
+  name: offline_outcome_target_registry_builder
+  subphase_id: P5.S2
+  required_inputs:
+  - p5_offline_training_outcome_bundle
+  - authorized_consumer_view_registry
+  - p5_hypothesis_confirmation_registry
+  - cross_phase_research_lineage_map
+  optional_inputs: []
+  outputs:
+  - training_target_panel
+  - target_definition_registry
+  - training_dataset_manifest
+  - hypothesis_target_mapping
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S2.M02
+  name: temporal_split_purge_embargo_planner
+  subphase_id: P5.S2
+  required_inputs:
+  - training_dataset_manifest
+  - training_target_panel
+  - target_definition_registry
+  optional_inputs:
+  - representation_fold_plan
+  outputs:
+  - temporal_evaluation_plan
+  - sealed_holdout_exclusion_receipt
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S2.M03
+  name: resolver_spec_bias_view_registry_builder
+  subphase_id: P5.S2
+  required_inputs:
+  - authorized_consumer_view_registry
+  - resolver_view_compatibility_matrix
+  - temporal_evaluation_plan
+  - target_definition_registry
+  optional_inputs:
+  - hypothesis_target_mapping
+  - optional_resolver_feedback_context
+  outputs:
+  - resolver_spec_registry
+  - resolver_bias_registry
+  - resolver_view_binding_registry
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S2.M04
+  name: model_training_representation_ablation_orchestrator
+  subphase_id: P5.S2
+  required_inputs:
+  - resolver_spec_registry
+  - resolver_view_binding_registry
+  - training_target_panel
+  - authorized_consumer_view_registry
+  - temporal_evaluation_plan
+  optional_inputs:
+  - representation_quality_report
+  outputs:
+  - trained_resolver_registry
+  - resolver_training_run_report
+  - resolver_validation_result_panel
+  - representation_downstream_ablation_report
+  - oof_validation_observation_panel
+  allowed_actions:
+  - FIT
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S2.M05
+  name: model_artifact_qualification_gate
+  subphase_id: P5.S2
+  required_inputs:
+  - trained_resolver_registry
+  - resolver_validation_result_panel
+  - resolver_training_run_report
+  - resolver_bias_registry
+  - resolver_view_binding_registry
+  optional_inputs:
+  - p4_to_p5_integration_receipt
+  - hypothesis_budget_report
+  - optional_resolver_feedback_context
+  outputs:
+  - qualified_resolver_registry
+  - resolver_rejection_report
+  - resolver_promotion_candidate_report
+  - hypothesis_confirmation_development_report
+  allowed_actions:
+  - VALIDATE
+  allowed_modes:
+  - OFFLINE_TRAINING
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S3.M01
+  name: baseline_statistical_linear_return_resolvers
+  subphase_id: P5.S3
+  required_inputs:
+  - qualified_resolver_registry
+  - authorized_consumer_view_registry
+  optional_inputs:
+  - resolver_view_binding_registry
+  outputs:
+  - return_member_forecast_panel_linear
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S3.M02
+  name: kalman_dynamic_linear_return_resolvers
+  subphase_id: P5.S3
+  required_inputs:
+  - qualified_resolver_registry
+  - authorized_consumer_view_registry
+  optional_inputs:
+  - resolver_view_binding_registry
+  outputs:
+  - return_member_forecast_panel_state_space
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S3.M03
+  name: histogram_extra_trees_kernel_return_resolvers
+  subphase_id: P5.S3
+  required_inputs:
+  - qualified_resolver_registry
+  - authorized_consumer_view_registry
+  optional_inputs:
+  - resolver_view_binding_registry
+  outputs:
+  - return_member_forecast_panel_tabular
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S3.M04
+  name: temporal_neural_return_resolvers
+  subphase_id: P5.S3
+  required_inputs:
+  - qualified_resolver_registry
+  - authorized_consumer_view_registry
+  optional_inputs:
+  - resolver_view_binding_registry
+  outputs:
+  - return_member_forecast_panel_temporal
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: OPTIONAL
+- module_id: P5.S3.M05
+  name: foundation_prior_return_resolvers
+  subphase_id: P5.S3
+  required_inputs:
+  - qualified_resolver_registry
+  - authorized_consumer_view_registry
+  optional_inputs:
+  - resolver_view_binding_registry
+  outputs:
+  - return_member_forecast_panel_foundation
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: OPTIONAL
+- module_id: P5.S4.M01
+  name: realized_historical_har_volatility_resolvers
+  subphase_id: P5.S4
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs: []
+  outputs:
+  - volatility_member_forecast_panel_har
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S4.M02
+  name: estimated_gjr_conditional_volatility_resolvers
+  subphase_id: P5.S4
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs: []
+  outputs:
+  - volatility_member_forecast_panel_conditional
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S4.M03
+  name: realized_implied_volatility_blend_resolvers
+  subphase_id: P5.S4
+  required_inputs:
+  - authorized_consumer_view_registry
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs:
+  - p4_degraded_mode_report
+  outputs:
+  - volatility_member_forecast_panel_rough_implied
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: OPTIONAL
+- module_id: P5.S4.M04
+  name: ml_neural_volatility_resolvers
+  subphase_id: P5.S4
+  required_inputs:
+  - qualified_resolver_registry
+  optional_inputs: []
+  outputs:
+  - volatility_member_forecast_panel_ml_neural
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: OPTIONAL
+- module_id: P5.S4.M05
+  name: drawdown_jump_path_extrema_resolvers
+  subphase_id: P5.S4
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs:
+  - return_member_forecast_panel_linear
+  - return_member_forecast_panel_state_space
+  - return_member_forecast_panel_tabular
+  - return_member_forecast_panel_temporal
+  - return_member_forecast_panel_foundation
+  outputs:
+  - path_risk_member_forecast_panel
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S5.M01
+  name: caviar_regime_conditional_quantile_resolvers
+  subphase_id: P5.S5
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs:
+  - return_member_forecast_panel_linear
+  - return_member_forecast_panel_state_space
+  - return_member_forecast_panel_tabular
+  - return_member_forecast_panel_temporal
+  - return_member_forecast_panel_foundation
+  outputs:
+  - tail_member_forecast_panel_quantile
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S5.M02
+  name: evt_pot_expected_shortfall_resolvers
+  subphase_id: P5.S5
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs:
+  - return_member_forecast_panel_linear
+  - return_member_forecast_panel_state_space
+  - return_member_forecast_panel_tabular
+  - return_member_forecast_panel_temporal
+  - return_member_forecast_panel_foundation
+  outputs:
+  - tail_member_forecast_panel_evt
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S5.M03
+  name: student_t_ged_mixture_distribution_resolvers
+  subphase_id: P5.S5
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs:
+  - return_member_forecast_panel_linear
+  - return_member_forecast_panel_state_space
+  - return_member_forecast_panel_tabular
+  - return_member_forecast_panel_temporal
+  - return_member_forecast_panel_foundation
+  outputs:
+  - tail_member_forecast_panel_distributional
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S5.M04
+  name: stationary_block_bootstrap_scenario_resolvers
+  subphase_id: P5.S5
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs:
+  - return_member_forecast_panel_linear
+  - return_member_forecast_panel_state_space
+  - return_member_forecast_panel_tabular
+  - return_member_forecast_panel_temporal
+  - return_member_forecast_panel_foundation
+  outputs:
+  - scenario_member_panel_multiple_future
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S5.M05
+  name: empirical_copula_multistep_scenario_resolvers
+  subphase_id: P5.S5
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs:
+  - return_member_forecast_panel_linear
+  - return_member_forecast_panel_state_space
+  - return_member_forecast_panel_tabular
+  - return_member_forecast_panel_temporal
+  - return_member_forecast_panel_foundation
+  outputs:
+  - scenario_member_panel_joint_generative
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: OPTIONAL
+- module_id: P5.S5.M06
+  name: tail_scenario_validation_gate
+  subphase_id: P5.S5
+  required_inputs: []
+  optional_inputs:
+  - tail_member_forecast_panel_quantile
+  - tail_member_forecast_panel_evt
+  - tail_member_forecast_panel_distributional
+  - scenario_member_panel_multiple_future
+  - scenario_member_panel_joint_generative
+  outputs:
+  - validated_tail_scenario_registry
+  - tail_scenario_validation_report
+  allowed_actions:
+  - VALIDATE
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S6.M01
+  name: shrinkage_factor_covariance_resolvers
+  subphase_id: P5.S6
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs: []
+  outputs:
+  - covariance_member_registry_shrinkage_factor
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S6.M02
+  name: estimated_dcc_beta_resolvers
+  subphase_id: P5.S6
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs: []
+  outputs:
+  - covariance_member_registry_dynamic
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S6.M03
+  name: sparse_correlation_network_resolvers
+  subphase_id: P5.S6
+  required_inputs:
+  - qualified_resolver_registry
+  - oof_validation_observation_panel
+  optional_inputs: []
+  outputs:
+  - covariance_member_registry_network_geometric
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: OPTIONAL
+- module_id: P5.S6.M04
+  name: covariance_matrix_validation_registry
+  subphase_id: P5.S6
+  required_inputs:
+  - covariance_member_registry_shrinkage_factor
+  - covariance_member_registry_dynamic
+  optional_inputs:
+  - covariance_member_registry_network_geometric
+  outputs:
+  - covariance_forecast_registry
+  - covariance_validation_report
+  allowed_actions:
+  - VALIDATE
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S7.M01
+  name: rolling_volatility_regime_transition_baseline
+  subphase_id: P5.S7
+  required_inputs:
+  - authorized_consumer_view_registry
+  optional_inputs:
+  - p4_perspective_context
+  outputs:
+  - regime_probability_member_panel
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S7.M02
+  name: page_hinkley_cusum_changepoint_resolvers
+  subphase_id: P5.S7
+  required_inputs:
+  - authorized_consumer_view_registry
+  optional_inputs: []
+  outputs:
+  - structural_break_member_panel
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S7.M03
+  name: resolver_specific_ood_representation_shift_engine
+  subphase_id: P5.S7
+  required_inputs:
+  - authorized_consumer_view_registry
+  optional_inputs:
+  - drift_safety_report
+  - representation_quality_report
+  - feature_transform_state_manifest
+  - qualified_resolver_registry
+  - covariance_forecast_registry
+  outputs:
+  - ood_drift_diagnostics_panel
+  allowed_actions:
+  - PREDICT
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S7.M04
+  name: input_perspective_model_disagreement_analyzer
+  subphase_id: P5.S7
+  required_inputs: []
+  optional_inputs:
+  - p4_perspective_context
+  - return_member_forecast_panel_linear
+  - return_member_forecast_panel_state_space
+  - return_member_forecast_panel_tabular
+  - return_member_forecast_panel_temporal
+  - return_member_forecast_panel_foundation
+  - volatility_member_forecast_panel_har
+  - volatility_member_forecast_panel_conditional
+  - volatility_member_forecast_panel_rough_implied
+  - volatility_member_forecast_panel_ml_neural
+  - path_risk_member_forecast_panel
+  - tail_member_forecast_panel_quantile
+  - tail_member_forecast_panel_evt
+  - tail_member_forecast_panel_distributional
+  - scenario_member_panel_multiple_future
+  - scenario_member_panel_joint_generative
+  - oof_validation_observation_panel
+  outputs:
+  - perspective_model_disagreement_panel
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S7.M05
+  name: weighted_context_uncertainty_router
+  subphase_id: P5.S7
+  required_inputs:
+  - regime_probability_member_panel
+  - structural_break_member_panel
+  - ood_drift_diagnostics_panel
+  - perspective_model_disagreement_panel
+  optional_inputs:
+  - p4_perspective_context
+  outputs:
+  - regime_ood_surprise_panel
+  - resolver_context_router_panel
+  - regime_transition_evaluation_plan
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S8.M01
+  name: predictive_distribution_harmonizer
+  subphase_id: P5.S8
+  required_inputs: []
+  optional_inputs:
+  - return_member_forecast_panel_linear
+  - return_member_forecast_panel_state_space
+  - return_member_forecast_panel_tabular
+  - return_member_forecast_panel_temporal
+  - return_member_forecast_panel_foundation
+  - volatility_member_forecast_panel_har
+  - volatility_member_forecast_panel_conditional
+  - volatility_member_forecast_panel_rough_implied
+  - volatility_member_forecast_panel_ml_neural
+  - path_risk_member_forecast_panel
+  - validated_tail_scenario_registry
+  outputs:
+  - harmonized_forecast_member_panel
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S8.M02
+  name: probabilistic_scoring_calibration_diagnostics
+  subphase_id: P5.S8
+  required_inputs:
+  - harmonized_forecast_member_panel
+  - oof_validation_observation_panel
+  optional_inputs:
+  - regime_transition_evaluation_plan
+  - hypothesis_confirmation_development_report
+  outputs:
+  - forecast_scoring_panel
+  - forecast_calibration_diagnostics
+  allowed_actions:
+  - VALIDATE
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S8.M03
+  name: adaptive_regime_weighted_conformal_calibrator
+  subphase_id: P5.S8
+  required_inputs:
+  - harmonized_forecast_member_panel
+  - forecast_calibration_diagnostics
+  optional_inputs:
+  - optional_resolver_feedback_context
+  - resolver_context_router_panel
+  outputs:
+  - calibrated_forecast_member_panel
+  - forecast_conformal_report
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S8.M04
+  name: resolver_diversity_redundancy_pruning_engine
+  subphase_id: P5.S8
+  required_inputs:
+  - calibrated_forecast_member_panel
+  - forecast_scoring_panel
+  optional_inputs:
+  - resolver_context_router_panel
+  - perspective_model_disagreement_panel
+  - oof_validation_observation_panel
+  outputs:
+  - resolver_diversity_panel
+  - ensemble_candidate_panel
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S8.M05
+  name: sparse_ensemble_selection_uncertainty_confidence_engine
+  subphase_id: P5.S8
+  required_inputs:
+  - calibrated_forecast_member_panel
+  - ensemble_candidate_panel
+  - forecast_scoring_panel
+  optional_inputs:
+  - resolver_diversity_panel
+  - regime_ood_surprise_panel
+  - forecast_calibration_diagnostics
+  - forecast_conformal_report
+  - resolver_context_router_panel
+  - oof_validation_observation_panel
+  outputs:
+  - ensemble_forecast_panel
+  - forecast_confidence_panel
+  - ensemble_selection_report
+  allowed_actions:
+  - RUN
+  allowed_modes:
+  - RUNTIME_INFERENCE
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S9.M01
+  name: forecast_member_panel_builder
+  subphase_id: P5.S9
+  required_inputs:
+  - calibrated_forecast_member_panel
+  - resolver_diversity_panel
+  - resolver_bias_registry
+  - resolver_view_binding_registry
+  - cross_phase_research_lineage_map
+  optional_inputs: []
+  outputs:
+  - forecast_member_panel
+  allowed_actions:
+  - PUBLISH
+  allowed_modes:
+  - PUBLICATION
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S9.M02
+  name: forecast_distribution_scenario_builder
+  subphase_id: P5.S9
+  required_inputs:
+  - ensemble_forecast_panel
+  - validated_tail_scenario_registry
+  optional_inputs:
+  - forecast_confidence_panel
+  - covariance_forecast_registry
+  - resolver_context_router_panel
+  outputs:
+  - forecast_distribution_panel
+  - forecast_scenario_panel
+  - ambiguity_set
+  - market_belief_state
+  allowed_actions:
+  - PUBLISH
+  allowed_modes:
+  - PUBLICATION
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S9.M03
+  name: covariance_regime_surprise_publication_builder
+  subphase_id: P5.S9
+  required_inputs: []
+  optional_inputs:
+  - covariance_forecast_registry
+  - covariance_validation_report
+  - regime_probability_member_panel
+  - structural_break_member_panel
+  - ood_drift_diagnostics_panel
+  - regime_ood_surprise_panel
+  - resolver_context_router_panel
+  - perspective_model_disagreement_panel
+  outputs:
+  - published_covariance_registry
+  - published_regime_ood_surprise_panel
+  allowed_actions:
+  - PUBLISH
+  allowed_modes:
+  - PUBLICATION
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S9.M04
+  name: underlying_forecast_panel_builder
+  subphase_id: P5.S9
+  required_inputs:
+  - ensemble_forecast_panel
+  optional_inputs:
+  - forecast_confidence_panel
+  - published_covariance_registry
+  - published_regime_ood_surprise_panel
+  outputs:
+  - underlying_forecast_panel
+  allowed_actions:
+  - PUBLISH
+  allowed_modes:
+  - PUBLICATION
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE
+- module_id: P5.S9.M05
+  name: phase6_phase9_lineage_handoff_builder
+  subphase_id: P5.S9
+  required_inputs:
+  - forecast_member_panel
+  - forecast_distribution_panel
+  - forecast_scenario_panel
+  - resolver_diversity_panel
+  - underlying_forecast_panel
+  - ensemble_selection_report
+  - representation_downstream_ablation_report
+  optional_inputs:
+  - published_covariance_registry
+  - published_regime_ood_surprise_panel
+  - market_belief_state
+  - ambiguity_set
+  - forecast_confidence_panel
+  outputs:
+  - phase5_output_handoff_manifest
+  - resolver_evaluation_lineage_map
+  - representation_feedback_lineage_map
+  - phase6_strategy_scenario_manifest
+  allowed_actions:
+  - PUBLISH
+  allowed_modes:
+  - PUBLICATION
+  - VALIDATION
+  - INTEGRATION_REPLAY
+  capability: CORE

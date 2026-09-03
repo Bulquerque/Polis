@@ -1,0 +1,18 @@
+{
+  "schema_version": "next_cycle_endogenous_stimulus_queue.v2",
+  "contract_version": "p3.s26.v1",
+  "queue_id": "queue:empty-2026-07-27-001",
+  "source_run_id": "run:2026-07-27-001",
+  "source_cycle_id": "cycle:2026-07-26-001",
+  "target_cycle_id": "cycle:2026-07-27-001",
+  "created_at": "2026-07-26T23:00:00Z",
+  "items": [],
+  "lineage_id": "lineage:queue-empty-001",
+  "content_hash": "36d0880a097d00a4ec7100364b1f5e6bbc75a4da194567e2ad567c2c85d52dbb",
+  "status": "READY_EMPTY",
+  "warnings": [],
+  "metrics": {
+    "generated_count": 0,
+    "warning_count": 0
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "$defs": {
+    "TemporalFold": {
+      "additionalProperties": false,
+      "properties": {
+        "calendar_id": {
+          "minLength": 1,
+          "title": "Calendar Id",
+          "type": "string"
+        },
+        "embargo_sessions": {
+          "minimum": 0,
+          "title": "Embargo Sessions",
+          "type": "integer"
+        },
+        "fold_id": {
+          "minLength": 1,
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "partitions": {
+          "items": {
+            "$ref": "#/$defs/TemporalPartition"
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "title": "Partitions",
+          "type": "array"
+        },
+        "purge_count": {
+          "minimum": 0,
+          "title": "Purge Count",
+          "type": "integer"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "window_type": {
+          "enum": [
+            "EXPANDING",
+            "ROLLING",
+            "ANCHORED"
+          ],
+          "title": "Window Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fold_id",
+        "window_type",
+        "target_id",
+        "horizon",
+        "partitions",
+        "purge_count",
+        "embargo_sessions",
+        "calendar_id"
+      ],
+      "title": "TemporalFold",
+      "type": "object"
+    },
+    "TemporalPartition": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "enum": [
+            "TRAIN",
+            "VALIDATION",
+            "CALIBRATION",
+            "TEST"
+          ],
+          "title": "Name",
+          "type": "string"
+        },
+        "timestamps": {
+          "items": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Timestamps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "timestamps"
+      ],
+      "title": "TemporalPartition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "folds": {
+      "items": {
+        "$ref": "#/$defs/TemporalFold"
+      },
+      "minItems": 2,
+      "title": "Folds",
+      "type": "array"
+    },
+    "sealed_holdout": {
+      "const": "TEST",
+      "default": "TEST",
+      "title": "Sealed Holdout",
+      "type": "string"
+    },
+    "session_source": {
+      "minLength": 1,
+      "title": "Session Source",
+      "type": "string"
+    },
+    "target_specific": {
+      "default": true,
+      "title": "Target Specific",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "folds",
+    "session_source"
+  ],
+  "title": "TemporalEvaluationPlan",
+  "type": "object"
+}

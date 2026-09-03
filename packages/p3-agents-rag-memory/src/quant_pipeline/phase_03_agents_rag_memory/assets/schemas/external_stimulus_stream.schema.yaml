@@ -1,0 +1,24 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: artifact_queue
+status: planned_internal_schema
+type: object
+properties:
+  schema_version:
+    type: string
+  target_cycle_id:
+    type: string
+  items:
+    type: array
+    items:
+      type: object
+  lineage_id:
+    type: string
+additionalProperties: false
+artifact_name: external_stimulus_stream
+schema_id: external_stimulus_stream.v1
+schema_version: v14.1-rc4.1
+required_fields:
+- schema_version
+- target_cycle_id
+- items
+- lineage_id

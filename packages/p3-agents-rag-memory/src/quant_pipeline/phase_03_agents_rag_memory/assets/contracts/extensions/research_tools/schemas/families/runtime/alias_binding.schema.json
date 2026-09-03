@@ -1,0 +1,44 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alias_operation_id": {
+      "minLength": 1,
+      "title": "Alias Operation Id",
+      "type": "string"
+    },
+    "alias_tool_id": {
+      "minLength": 1,
+      "title": "Alias Tool Id",
+      "type": "string"
+    },
+    "fixed_arguments": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Fixed Arguments",
+      "type": "object"
+    },
+    "target_operation_id": {
+      "minLength": 1,
+      "title": "Target Operation Id",
+      "type": "string"
+    },
+    "target_tool_id": {
+      "minLength": 1,
+      "title": "Target Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "alias_tool_id",
+    "alias_operation_id",
+    "target_tool_id",
+    "target_operation_id"
+  ],
+  "title": "AliasBinding",
+  "type": "object"
+}

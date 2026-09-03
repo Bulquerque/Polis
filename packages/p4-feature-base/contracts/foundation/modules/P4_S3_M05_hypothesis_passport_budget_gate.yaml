@@ -1,0 +1,40 @@
+module_id: P4.S3.M05
+module_name: hypothesis_passport_budget_gate
+phase: P4
+subphase: P4.S3
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: hypothesis passport budget gate
+inputs:
+- validated_observer_spec_registry
+- foundational_hypothesis_core_registry
+- feature_parameter_policy_registry
+- observer_change_review_registry
+outputs:
+- approved_hypothesis_passport_registry
+- approved_observer_execution_registry
+- approved_interaction_registry
+- hypothesis_budget_report
+- rejected_hypothesis_registry
+- observer_change_decision_registry
+invariants:
+- point_in_time_integrity
+- only_approved_observers_executed
+- deterministic_replay
+- no_target_or_future_return
+forbidden_fields:
+- target
+- label
+- future_return
+- prediction
+- candidate_id
+- rank_score
+- realized_pnl
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- budget_negative
+- numeric_oracle
+- replay
+production_promotion_allowed: false

@@ -1,0 +1,139 @@
+{
+  "$defs": {
+    "BinningPolicy": {
+      "enum": [
+        "EQUAL_WIDTH",
+        "EQUAL_FREQUENCY",
+        "FIXED_EDGES"
+      ],
+      "title": "BinningPolicy",
+      "type": "string"
+    },
+    "EntropyMethod": {
+      "enum": [
+        "SHANNON",
+        "PERMUTATION"
+      ],
+      "title": "EntropyMethod",
+      "type": "string"
+    },
+    "QuantMode": {
+      "enum": [
+        "BASIC",
+        "ROBUST",
+        "STABILITY"
+      ],
+      "title": "QuantMode",
+      "type": "string"
+    },
+    "ReturnKind": {
+      "enum": [
+        "SIMPLE",
+        "LOG"
+      ],
+      "title": "ReturnKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "binning_policy": {
+      "$ref": "#/$defs/BinningPolicy",
+      "default": "EQUAL_WIDTH"
+    },
+    "bins": {
+      "default": 8,
+      "maximum": 64,
+      "minimum": 2,
+      "title": "Bins",
+      "type": "integer"
+    },
+    "block_length": {
+      "default": 5,
+      "exclusiveMinimum": 0,
+      "title": "Block Length",
+      "type": "integer"
+    },
+    "bootstrap_confidence": {
+      "default": 0.95,
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": 0.5,
+      "title": "Bootstrap Confidence",
+      "type": "number"
+    },
+    "bootstrap_samples": {
+      "default": 0,
+      "maximum": 1000,
+      "minimum": 0,
+      "title": "Bootstrap Samples",
+      "type": "integer"
+    },
+    "delay": {
+      "default": 1,
+      "maximum": 10,
+      "minimum": 1,
+      "title": "Delay",
+      "type": "integer"
+    },
+    "embedding_dimension": {
+      "default": 3,
+      "maximum": 7,
+      "minimum": 2,
+      "title": "Embedding Dimension",
+      "type": "integer"
+    },
+    "end_time": {
+      "format": "date-time",
+      "title": "End Time",
+      "type": "string"
+    },
+    "fixed_edges": {
+      "default": [],
+      "items": {
+        "type": "number"
+      },
+      "title": "Fixed Edges",
+      "type": "array"
+    },
+    "input_return_kind": {
+      "$ref": "#/$defs/ReturnKind",
+      "default": "SIMPLE"
+    },
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "method": {
+      "$ref": "#/$defs/EntropyMethod",
+      "default": "SHANNON"
+    },
+    "normalize": {
+      "default": true,
+      "title": "Normalize",
+      "type": "boolean"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/QuantMode",
+      "default": "BASIC"
+    },
+    "start_time": {
+      "format": "date-time",
+      "title": "Start Time",
+      "type": "string"
+    },
+    "view_id": {
+      "default": "market_prices",
+      "minLength": 1,
+      "title": "View Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "start_time",
+    "end_time",
+    "instrument_id"
+  ],
+  "title": "EntropyRequest",
+  "type": "object"
+}

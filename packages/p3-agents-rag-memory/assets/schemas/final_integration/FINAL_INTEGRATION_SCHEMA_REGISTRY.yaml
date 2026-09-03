@@ -1,0 +1,36 @@
+registry_id: P3_FINAL_INTEGRATION_SCHEMA_REGISTRY
+architecture_revision: P3-FINAL
+schema_count: 16
+schemas:
+- schema: activation_trust_sensitivity_report.schema.json
+  sha256: b756c4a7b1d900658fe607f29f598887d8623f0e9fc5f694a793af5474635cd1
+- schema: commitment_coverage_report.schema.json
+  sha256: 360916769256e49a8c8bc07d245b2e8fa5e83d12d7123752f9c78cc8afb98335
+- schema: cross_phase_receipt_bundle.schema.json
+  sha256: 68756f47dabda7abd326cf145fdfd45760c218435b81d50644b2147c68534204
+- schema: evaluation_dataset_manifest.schema.json
+  sha256: 769eef8683f5108d4f7fdcdf2620c712ef33ee471b78a0ffb5708bb46fbb78b3
+- schema: evaluation_observation_panel.schema.json
+  sha256: 821d7894ad7efccc03460f979b68b912dd2f51b9e8866e941690694aa80d4315
+- schema: evaluation_split_manifest.schema.json
+  sha256: 15a1f3377bf7a1a330924bf7b592d61eec584949725bab7dfdfc85cc256f135d
+- schema: experiment_registry.schema.json
+  sha256: 44c0d216a9ac8904649c0b63ea764df23254eccfc8aba64831f0d1c313d770e5
+- schema: integration_entry_evidence.schema.json
+  sha256: e22d1a37d3db6647ef887d59a67aa5fb30968387b2e3f09d85f8bd380e67f908
+- schema: integration_gate_report.schema.json
+  sha256: bee9c0b144a8084a4925dc4e5c8291bacb32037561364789a33ac39274c37cbf
+- schema: p0_promotion_decision.schema.json
+  sha256: 15ff2922411d26ba81cf9796fc1ec9b72261e448e9ac563ba6aa48d19e60876b
+- schema: population_calibration_bundle.schema.json
+  sha256: d87d8500139c3b25346cca1fa9b8c6e73b6da63820110716eb070f332718d537
+- schema: promotion_candidate_bundle.schema.json
+  sha256: 9fe2e6e6e995b2807f3f96242540388460e7b04296f0b2e60ba669c890dcbb3d
+- schema: qualification_summary.schema.json
+  sha256: b285c553cc91fb82dfc9f8109d78480af750210e584ffdb4d845d006e2046198
+- schema: runtime_cost_latency_panel.schema.json
+  sha256: d18858018734bde9adac766e2a145334d1623c27666d85e2c901184eedcbf9a4
+- schema: social_graph_calibration_report.schema.json
+  sha256: 4bf394d86d6a0074f1ea035101bcd5c709cf9377e1475495a4cb8331fa3fa4ee
+- schema: variant_execution_manifest.schema.json
+  sha256: 7440233ded2f9e8bc37ed39a931af0188137b7a75d98d949e7b79750bf1d62d7

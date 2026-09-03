@@ -1,0 +1,71 @@
+subphase: P3.S38
+modules:
+  P3.S38.M01:
+    name: company_operation_readiness_gate_builder
+    inputs:
+    - research_tool_extension_snapshot
+    - tool_operation_registry
+    - research_mode_registry
+    - research_data_boundary_bundle
+    - phase2_research_view_manifest
+    - company_readiness_policy_config
+    outputs:
+    - company_operation_readiness_panel
+    - company_data_gap_report
+  P3.S38.M02:
+    name: company_profile_filing_xbrl_handler_bundle_builder
+    inputs:
+    - company_operation_readiness_panel
+    - research_data_boundary_bundle
+    - temporal_entity_resolution_service
+    - company_profile_policy_config
+    outputs:
+    - company_profile_filing_handler_bundle
+    - company_profile_handler_qualification_report
+  P3.S38.M03:
+    name: as_reported_financial_statement_handler_bundle_builder
+    inputs:
+    - company_operation_readiness_panel
+    - research_data_boundary_bundle
+    - company_statement_policy_config
+    - statement_concept_mapping_registry
+    outputs:
+    - financial_statement_handler_bundle
+    - statement_semantics_manifest
+  P3.S38.M04:
+    name: earnings_quality_capital_allocation_handler_bundle_builder
+    inputs:
+    - financial_statement_handler_bundle
+    - research_data_boundary_bundle
+    - company_formula_registry
+    - company_operation_readiness_panel
+    outputs:
+    - earnings_quality_capital_allocation_handler_bundle
+    - company_formula_registry_manifest
+  P3.S38.M05:
+    name: guidance_peers_valuation_handler_bundle_builder
+    inputs:
+    - company_operation_readiness_panel
+    - research_data_boundary_bundle
+    - guidance_policy_config
+    - peer_authority_policy_config
+    - valuation_method_registry
+    - company_profile_filing_handler_bundle
+    - financial_statement_handler_bundle
+    outputs:
+    - guidance_peers_valuation_handler_bundle
+    - valuation_method_registry_manifest
+  P3.S38.M06:
+    name: company_tool_bundle_branch_qualification_builder
+    inputs:
+    - company_profile_filing_handler_bundle
+    - financial_statement_handler_bundle
+    - earnings_quality_capital_allocation_handler_bundle
+    - guidance_peers_valuation_handler_bundle
+    - company_operation_readiness_panel
+    - company_contract_test_report
+    - company_leakage_test_report
+    outputs:
+    - company_tool_handler_bundle
+    - company_operation_mode_qualification
+    - company_qualification_evidence_package

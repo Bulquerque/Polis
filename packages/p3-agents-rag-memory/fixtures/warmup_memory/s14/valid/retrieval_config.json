@@ -1,0 +1,16 @@
+{
+  "schema_id": "memory_retrieval_config_s14.v1",
+  "schema_version": "1.0.0",
+  "adapter_id": "local_atomic_jsonl",
+  "adapter_version": "1.0.0",
+  "index_version": "memory-index.1.0.0",
+  "storage_mode": "LOCAL_ATOMIC_JSONL",
+  "hash_algorithm": "sha256",
+  "partition_fields": [
+    "person_id",
+    "memory_type",
+    "visibility_scope"
+  ],
+  "max_records": 100000,
+  "allow_degraded_backend": false
+}

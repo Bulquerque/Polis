@@ -1,0 +1,114 @@
+{
+  "$defs": {
+    "LegacyFeedbackHeader": {
+      "additionalProperties": false,
+      "properties": {
+        "backtest_id": {
+          "minLength": 1,
+          "title": "Backtest Id",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "recommended_action": {
+          "minLength": 1,
+          "title": "Recommended Action",
+          "type": "string"
+        },
+        "severity": {
+          "minLength": 1,
+          "title": "Severity",
+          "type": "string"
+        },
+        "target_phase": {
+          "minLength": 1,
+          "title": "Target Phase",
+          "type": "string"
+        },
+        "valid_for_next_cycle_only": {
+          "default": true,
+          "title": "Valid For Next Cycle Only",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "experiment_id",
+        "backtest_id",
+        "created_at",
+        "target_phase",
+        "recommended_action",
+        "severity"
+      ],
+      "title": "LegacyFeedbackHeader",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bad_candidate_accepted_review": {
+      "additionalProperties": true,
+      "title": "Bad Candidate Accepted Review",
+      "type": "object"
+    },
+    "blocked_candidate_review": {
+      "additionalProperties": true,
+      "title": "Blocked Candidate Review",
+      "type": "object"
+    },
+    "header": {
+      "$ref": "#/$defs/LegacyFeedbackHeader"
+    },
+    "ndcg_at_k_summary": {
+      "additionalProperties": true,
+      "title": "Ndcg At K Summary",
+      "type": "object"
+    },
+    "rank_ic_summary": {
+      "additionalProperties": true,
+      "title": "Rank Ic Summary",
+      "type": "object"
+    },
+    "safety_gate_effectiveness": {
+      "additionalProperties": true,
+      "title": "Safety Gate Effectiveness",
+      "type": "object"
+    },
+    "score_head_ablation_summary": {
+      "additionalProperties": true,
+      "title": "Score Head Ablation Summary",
+      "type": "object"
+    },
+    "top_k_hit_rate": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Top K Hit Rate",
+      "type": "number"
+    }
+  },
+  "required": [
+    "header",
+    "rank_ic_summary",
+    "ndcg_at_k_summary",
+    "top_k_hit_rate",
+    "blocked_candidate_review",
+    "bad_candidate_accepted_review",
+    "score_head_ablation_summary",
+    "safety_gate_effectiveness"
+  ],
+  "title": "RankingFeedbackReport",
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+standard: P4_S7_ARTIFACT_ENVELOPE_V1
+required_fields:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- record_count
+- grain
+- lineage_id
+- execution_status
+- quality_status
+- records
+- metadata
+rules:
+- hash_covers_records_metadata_alias
+- record_count_matches_records
+- timestamps_timezone_aware

@@ -1,0 +1,17 @@
+release: P6-RC6.2-P5-V2-CLOSURE-RC4
+policies:
+  defined_risk_required: true
+  naked_short_options: false
+  maximum_legs: configurable_bounded
+  maximum_expirations: configurable_bounded
+  maximum_quantity: configurable_bounded
+  maximum_contracts_considered: configurable_bounded
+  maximum_candidates_before_dedup: configurable_bounded
+  maximum_candidates_published: configurable_bounded
+  repair_quotes: false
+  missing_is_zero: false
+  maximum_solver_seconds: configurable_bounded
+  maximum_solver_nodes: configurable_bounded
+  mutation_budget: configurable_bounded
+  target_payoff_regularization: true
+  ambiguity_requires_explicit_input: true

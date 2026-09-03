@@ -1,0 +1,31 @@
+additionalProperties: false
+properties:
+  candidate_id:
+    minLength: 1
+    title: Candidate Id
+    type: string
+  selection_effect:
+    title: Selection Effect
+    type: number
+  sizing_effect:
+    title: Sizing Effect
+    type: number
+  constraint_effect:
+    title: Constraint Effect
+    type: number
+  discretization_effect:
+    title: Discretization Effect
+    type: number
+  total_virtual_pnl:
+    title: Total Virtual Pnl
+    type: number
+required:
+- candidate_id
+- selection_effect
+- sizing_effect
+- constraint_effect
+- discretization_effect
+- total_virtual_pnl
+title: CandidateAllocationEffect
+type: object
+$id: urn:inferencia:p9:s8:CandidateAllocationEffect:1.0.0

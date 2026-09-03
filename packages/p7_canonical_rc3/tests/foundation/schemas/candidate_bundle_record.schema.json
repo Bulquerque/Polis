@@ -1,0 +1,183 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "$id": "https://quant-pipeline.local/schemas/p7/candidate_bundle_record/2.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguity_evaluations": {
+      "default": [],
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Ambiguity Evaluations",
+      "type": "array"
+    },
+    "candidate": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Candidate",
+      "type": "object"
+    },
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "cost_liquidity": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Cost Liquidity",
+      "type": "object"
+    },
+    "cycle_id": {
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "equivalence": {
+      "default": [],
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Equivalence",
+      "type": "array"
+    },
+    "generation_trace": {
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Generation Trace",
+      "type": "array"
+    },
+    "greeks": {
+      "default": [],
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Greeks",
+      "type": "array"
+    },
+    "horizon": {
+      "title": "Horizon",
+      "type": "string"
+    },
+    "legs": {
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Legs",
+      "type": "array"
+    },
+    "lineage": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Lineage",
+      "type": "object"
+    },
+    "lineage_id": {
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "market_snapshot": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Market Snapshot",
+      "type": "object"
+    },
+    "market_snapshot_id": {
+      "title": "Market Snapshot Id",
+      "type": "string"
+    },
+    "objective_family": {
+      "title": "Objective Family",
+      "type": "string"
+    },
+    "payoffs": {
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Payoffs",
+      "type": "array"
+    },
+    "quality_diversity": {
+      "default": [],
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Quality Diversity",
+      "type": "array"
+    },
+    "risk": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Risk",
+      "type": "object"
+    },
+    "scenario_evaluations": {
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Scenario Evaluations",
+      "type": "array"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "cycle_id",
+    "decision_time",
+    "underlying_id",
+    "horizon",
+    "objective_family",
+    "market_snapshot_id",
+    "lineage_id",
+    "candidate",
+    "legs",
+    "payoffs",
+    "scenario_evaluations",
+    "generation_trace",
+    "risk",
+    "cost_liquidity",
+    "lineage",
+    "market_snapshot"
+  ],
+  "title": "CandidateBundleRecord",
+  "type": "object"
+}

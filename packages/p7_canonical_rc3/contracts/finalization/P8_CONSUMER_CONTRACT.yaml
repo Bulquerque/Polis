@@ -1,0 +1,15 @@
+contract_id: p7_to_p8_strategy_ranking_handoff
+contract_version: 2.0.0
+consumer_obligations:
+  - validate_manifest_identity_and_hashes
+  - reconcile_candidate_ids_with_ranked_panel_and_execution_context_snapshot
+  - resolve_all_strategy_and_leg_references_before_portfolio_selection
+  - preserve_multi_leg_identity
+  - reject_missing_or_stale_context
+  - treat_legacy_projection_as_non_authoritative_compatibility_view
+producer_guarantees:
+  - no_portfolio_weights
+  - no_execution_prices
+  - no_fabricated_contracts_or_quotes
+  - rank_is_local_to_comparison_group
+  - candidate_id_is_only_final_technical_tiebreaker

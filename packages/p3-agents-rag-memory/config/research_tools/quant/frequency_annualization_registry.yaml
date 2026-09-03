@@ -1,0 +1,12 @@
+registry_id: p3.s39.annualization.v1
+status: FROZEN_LOCAL
+values:
+  DAILY_TRADING: 252.0
+  WEEKLY: 52.0
+  MONTHLY: 12.0
+  QUARTERLY: 4.0
+  ANNUAL: 1.0
+policy:
+  infer_frequency_silently: false
+  caller_must_supply_or_select_registry_value: true
+  irregular_series_must_be_explicitly_diagnosed: true

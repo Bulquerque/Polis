@@ -1,0 +1,15 @@
+additionalProperties: false
+properties:
+  kind:
+    const: POINT
+    default: POINT
+    title: Kind
+    type: string
+  value:
+    title: Value
+    type: number
+required:
+- value
+title: PointForecast
+type: object
+$id: urn:inferencia:p9:s7:PointForecast:1.0.0

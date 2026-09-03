@@ -1,0 +1,10 @@
+{
+  "bundle_id": "example-run:P9.S5S6:51572a2d126d7f75",
+  "bundle_sha256": "51572a2d126d7f75ed1e2954957426d5071f1415fd5e44410e563d604f94f512",
+  "manifest_id": "example-run:S5S6:9428ab9fd962c5c9",
+  "manifest_sha256": "9428ab9fd962c5c90baeeb9ed76953aea31deba59b13794fcaff8cb0675c9d71",
+  "reverse_stress_publication_quantization_decimals": 8,
+  "s5_bundle_sha256": "c98c17c80d226d7c6c7eaa9c2d30c8861957002f74520ab2127cc6392b4991fd",
+  "s6_bundle_sha256": "81e95c68f98b0f5007ccabc22ea21f1c9ffd1ef487657b347024748bf44ea2aa",
+  "s6_validation_status": "VALIDATED"
+}

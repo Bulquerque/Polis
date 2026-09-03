@@ -1,0 +1,163 @@
+{
+  "$defs": {
+    "Frequency": {
+      "enum": [
+        "DAILY",
+        "WEEKLY",
+        "MONTHLY",
+        "QUARTERLY",
+        "ANNUAL",
+        "IRREGULAR",
+        "UNKNOWN"
+      ],
+      "title": "Frequency",
+      "type": "string"
+    },
+    "Transformation": {
+      "enum": [
+        "LEVEL",
+        "DIFFERENCE",
+        "PERCENT_CHANGE",
+        "LOG_DIFFERENCE",
+        "YEAR_OVER_YEAR",
+        "ANNUALIZED"
+      ],
+      "title": "Transformation",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "frequency": {
+      "$ref": "#/$defs/Frequency",
+      "default": "UNKNOWN"
+    },
+    "is_original_release": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Is Original Release"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "observation_date": {
+      "format": "date",
+      "title": "Observation Date",
+      "type": "string"
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Published At"
+    },
+    "quality_flag": {
+      "default": "PASS",
+      "title": "Quality Flag",
+      "type": "string"
+    },
+    "raw_value": {
+      "title": "Raw Value",
+      "type": "number"
+    },
+    "release_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Release Id"
+    },
+    "revision_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Revision Id"
+    },
+    "series_id": {
+      "minLength": 1,
+      "title": "Series Id",
+      "type": "string"
+    },
+    "source_id": {
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "transformation": {
+      "$ref": "#/$defs/Transformation"
+    },
+    "unit": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Unit"
+    },
+    "value": {
+      "title": "Value",
+      "type": "number"
+    },
+    "vintage_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Vintage Date"
+    }
+  },
+  "required": [
+    "series_id",
+    "observation_date",
+    "raw_value",
+    "value",
+    "transformation",
+    "available_at",
+    "source_id",
+    "lineage_id"
+  ],
+  "title": "MacroObservation",
+  "type": "object"
+}

@@ -1,0 +1,182 @@
+{
+  "audit_id": "aud_8df12652f4fd78e4c832",
+  "context": {
+    "run_id": "run-1",
+    "cycle_id": "cycle-1",
+    "trace_id": "trace-1",
+    "decision_time": "2026-08-03T15:00:00Z",
+    "audit_time": "2026-08-03T16:00:00Z",
+    "contract_version": "1.0.0",
+    "schema_version": "1.0.0"
+  },
+  "overall_status": "PASS",
+  "checks": [
+    {
+      "check_id": "candidate_conservation",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "c1,c2",
+      "observed_value": "c1,c2",
+      "residual": null,
+      "evidence_ids": []
+    },
+    {
+      "check_id": "order_id_uniqueness",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": null,
+      "observed_value": "o1",
+      "residual": null,
+      "evidence_ids": []
+    },
+    {
+      "check_id": "fill_id_uniqueness",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": null,
+      "observed_value": "f1",
+      "residual": null,
+      "evidence_ids": []
+    },
+    {
+      "check_id": "fill_order_identity",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": null,
+      "observed_value": null,
+      "residual": null,
+      "evidence_ids": []
+    },
+    {
+      "check_id": "order_conservation:o1",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "2",
+      "observed_value": "2",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "fill_sum:o1",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "2",
+      "observed_value": "2",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "position_reconciliation",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "{'A': Decimal('2')}",
+      "observed_value": "{'A': Decimal('2')}",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "dual_book_reconciliation",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "{'A': Decimal('2')}",
+      "observed_value": "{'A': Decimal('2')}",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "cash_reconciliation",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "979",
+      "observed_value": "979",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "margin_reconciliation",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "5",
+      "observed_value": "5",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "collateral_reconciliation",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "0",
+      "observed_value": "0",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "liability_reconciliation",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "0",
+      "observed_value": "0",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "valuation_position_reconciliation",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "{'A': Decimal('2')}",
+      "observed_value": "{'A': Decimal('2')}",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "valuation:A",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "24",
+      "observed_value": "24",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "pnl_components",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "3",
+      "observed_value": "3",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "nav_to_pnl",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "3",
+      "observed_value": "3",
+      "residual": "0",
+      "evidence_ids": []
+    },
+    {
+      "check_id": "event_sequence",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": null,
+      "observed_value": null,
+      "residual": null,
+      "evidence_ids": []
+    },
+    {
+      "check_id": "replay_hash",
+      "status": "PASS",
+      "reason_codes": [],
+      "expected_value": "4ba948f5f1174289325034277d25f9b7d37a8dfb9f4d418c0b0593867d373a31",
+      "observed_value": "4ba948f5f1174289325034277d25f9b7d37a8dfb9f4d418c0b0593867d373a31",
+      "residual": null,
+      "evidence_ids": []
+    }
+  ],
+  "failure_count": 0,
+  "warning_count": 0,
+  "replayed_state_sha256": "4ba948f5f1174289325034277d25f9b7d37a8dfb9f4d418c0b0593867d373a31",
+  "independent_implementation": true,
+  "production_promotion_allowed": false
+}

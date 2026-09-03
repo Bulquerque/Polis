@@ -1,0 +1,152 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Available At"
+    },
+    "evidence_class": {
+      "$ref": "#/$defs/EvidenceClass"
+    },
+    "mark_price": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mark Price"
+    },
+    "observed_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Observed At"
+    },
+    "outcome_return": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Outcome Return"
+    },
+    "outcome_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Outcome Value"
+    },
+    "quality_flags": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Quality Flags",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "source_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Source Id"
+    },
+    "source_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Source Sha256"
+    },
+    "subject_id": {
+      "minLength": 1,
+      "title": "Subject Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "subject_id",
+    "evidence_class",
+    "outcome_value",
+    "outcome_return",
+    "mark_price",
+    "observed_at",
+    "available_at",
+    "source_id",
+    "source_sha256"
+  ],
+  "title": "RealizedOutcomeRecord",
+  "type": "object"
+}

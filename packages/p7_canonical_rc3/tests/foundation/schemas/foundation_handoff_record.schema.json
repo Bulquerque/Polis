@@ -1,0 +1,103 @@
+{
+  "$defs": {
+    "HandoffArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_name": {
+          "title": "Artifact Name",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "grain": {
+          "title": "Grain",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "record_count": {
+          "minimum": 0,
+          "title": "Record Count",
+          "type": "integer"
+        },
+        "schema_version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_name",
+        "artifact_id",
+        "content_sha256",
+        "schema_version",
+        "record_count",
+        "grain",
+        "producer_module_id"
+      ],
+      "title": "HandoffArtifactReference",
+      "type": "object"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schemas/p7/foundation_handoff_record/2.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/HandoffArtifactReference"
+      },
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "consumer_stages": {
+      "items": {
+        "enum": [
+          "TOURNAMENT",
+          "LEARNING"
+        ],
+        "type": "string"
+      },
+      "title": "Consumer stages",
+      "type": "array"
+    },
+    "contract_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "handoff_id": {
+      "title": "Handoff Id",
+      "type": "string"
+    },
+    "producer_stage": {
+      "const": "FOUNDATION",
+      "title": "Producer stages",
+      "type": "string"
+    },
+    "semantic_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "title": "Semantic Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "contract_version",
+    "semantic_version",
+    "producer_stage",
+    "consumer_stages",
+    "artifacts"
+  ],
+  "title": "FoundationHandoffRecord",
+  "type": "object"
+}

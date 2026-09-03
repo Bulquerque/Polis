@@ -1,0 +1,24 @@
+module_id: P7.S2.M01
+module_name: eligibility_policy_engine
+owner: FOUNDATION
+purpose: Apply a frozen, versioned policy and emit exactly one eligibility decision per candidate.
+inputs: [temporally_safe_candidate_bundle, ranking_feedback_context, eligibility_policy_registry]
+outputs: [eligible_strategy_candidate_panel, eligibility_blocked_candidate_panel, eligibility_decision_panel, eligibility_policy_audit]
+failure_scope:
+  invalid_policy_or_contract: MODULE_FATAL
+  candidate_ineligibility: CANDIDATE_LEVEL_DECISION
+reason_codes:
+  - P7_ELIGIBILITY_POLICY_INVALID
+  - P7_OBJECTIVE_FAMILY_UNSUPPORTED
+  - P7_DEFINED_RISK_REQUIRED
+  - P7_REQUIRED_METRIC_UNAVAILABLE
+  - P7_SCENARIO_COVERAGE_INSUFFICIENT
+  - P7_STRATEGY_CLASS_DISABLED
+  - P7_CURRENCY_UNSUPPORTED
+  - P7_CALENDAR_UNSUPPORTED
+  - P7_MARKET_SNAPSHOT_STALE
+  - P7_DUPLICATE_NON_REPRESENTATIVE
+invariants:
+  - exactly_one_terminal_decision_per_candidate
+  - no_candidate_is_silently_dropped
+  - empty_universe_produces_empty_panels_without_fixture_records

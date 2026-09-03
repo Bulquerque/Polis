@@ -1,0 +1,34 @@
+artifact: clean_option_quotes_panel
+grain:
+- date
+- contract_key
+required_fields:
+- date
+- as_of_date
+- available_at
+- underlying
+- option_id
+- expiration_date
+- contract_key
+- option_type
+- strike
+- last_price
+- bid
+- ask
+- volume
+- financial_volume
+- open_interest
+- indicative_proxy
+- proxy_method
+- execution_status
+- source_id
+- lineage_id
+- quality_flag
+- pipeline_version
+forbidden_fields:
+- candidate_score
+- rank_score
+- portfolio_weight
+- future_pnl
+- trade_decision
+schema_version: v14.1-rc4.1

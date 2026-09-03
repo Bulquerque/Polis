@@ -1,0 +1,25 @@
+schema_id: dashboard_phase_payload.v1
+artifact_name: dashboard_phase_payload
+schema_version: v14.1-rc4.1
+required_fields:
+- phase_id
+- phase_name
+- run_id
+- status
+- inputs_received
+- outputs_emitted
+- tests_passed
+- tests_failed
+- artifact_hash_coverage
+- schema_validation_status
+- forbidden_connection_status
+forbidden_fields:
+- future_return
+- target
+- signal_direction
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+

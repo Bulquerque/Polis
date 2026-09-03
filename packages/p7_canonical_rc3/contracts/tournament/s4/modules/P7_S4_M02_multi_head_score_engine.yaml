@@ -1,0 +1,16 @@
+module_id: P7.S4.M02
+owner: TOURNAMENT
+purpose: Calculate independent interpretable heads with explicit normalization and missingness handling.
+inputs:
+  - scoring_head_input_panel
+  - factor_adjusted_metric_panel
+  - comparable_candidate_metric_panel
+  - scoring_policy_receipt
+outputs:
+  - scoring_head_panel
+invariants:
+  - head scores are within [0,1] when available
+  - normalization never crosses comparison groups
+  - factor-adjusted metrics do not overwrite raw evidence
+  - missing metrics follow declared actions
+failure_scope: CANDIDATE_OR_HEAD_LEVEL

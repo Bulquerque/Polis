@@ -1,0 +1,127 @@
+$defs:
+  ArtifactRef:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_type:
+        minLength: 1
+        title: Artifact Type
+        type: string
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+      schema_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Id
+      schema_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Version
+    required:
+    - artifact_id
+    - artifact_type
+    - content_hash
+    title: ArtifactRef
+    type: object
+  IndexEntry:
+    additionalProperties: false
+    properties:
+      memory_id:
+        minLength: 1
+        title: Memory Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      memory_type:
+        $ref: '#/$defs/MemoryType'
+      visibility_scope:
+        $ref: '#/$defs/VisibilityScope'
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      content_ref:
+        $ref: '#/$defs/ArtifactRef'
+      importance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Importance
+        type: number
+      repetition:
+        maximum: 1.0
+        minimum: 0.0
+        title: Repetition
+        type: number
+      significance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Significance
+        type: number
+    required:
+    - memory_id
+    - person_id
+    - memory_type
+    - visibility_scope
+    - available_at
+    - content_ref
+    - importance
+    - repetition
+    - significance
+    title: IndexEntry
+    type: object
+  MemoryType:
+    enum:
+    - EPISODIC
+    - SEMANTIC
+    - PROCEDURAL
+    - SOCIAL
+    title: MemoryType
+    type: string
+  VisibilityScope:
+    enum:
+    - SELF
+    - SOCIAL_VISIBLE
+    - PUBLIC
+    - AUDIT_ONLY
+    title: VisibilityScope
+    type: string
+additionalProperties: false
+properties:
+  partition_key:
+    minLength: 1
+    title: Partition Key
+    type: string
+  entries:
+    items:
+      $ref: '#/$defs/IndexEntry'
+    title: Entries
+    type: array
+  partition_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Partition Hash
+    type: string
+required:
+- partition_key
+- entries
+- partition_hash
+title: IndexPartitionRequest
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+status: implemented_unqualified
+schema_owner: P3.S14
+artifact_name: memory_index_partition_request
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

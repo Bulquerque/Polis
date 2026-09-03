@@ -1,0 +1,21 @@
+contract_id: p7_s3_outputs_v1
+producer: TOURNAMENT_P7_S3
+consumer: TOURNAMENT_P7_S4
+outputs:
+  - comparable_candidate_metric_panel
+  - metric_semantics_audit_report
+  - factor_exposure_panel
+  - factor_adjusted_metric_panel
+  - factor_adjustment_audit_report
+  - dominance_relation_panel
+  - dominated_candidate_panel
+  - dominance_survivor_panel
+  - pareto_frontier_panel
+  - pareto_frontier_audit_report
+forbidden_outputs:
+  - rank
+  - top_k
+  - recommended_trade
+  - ltr_score
+  - portfolio_weight
+  - execution_order

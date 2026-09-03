@@ -1,0 +1,170 @@
+{
+  "$defs": {
+    "ActivationCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "operator": {
+          "$ref": "#/$defs/ConditionOperator"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "operator",
+        "values"
+      ],
+      "title": "ActivationCondition",
+      "type": "object"
+    },
+    "ConditionOperator": {
+      "enum": [
+        "EQUALS",
+        "NOT_EQUALS",
+        "IN",
+        "NOT_IN"
+      ],
+      "title": "ConditionOperator",
+      "type": "string"
+    },
+    "ParameterKind": {
+      "enum": [
+        "INTEGER",
+        "FLOAT",
+        "CATEGORICAL",
+        "BOOLEAN"
+      ],
+      "title": "ParameterKind",
+      "type": "string"
+    },
+    "ParameterScale": {
+      "enum": [
+        "LINEAR",
+        "LOG"
+      ],
+      "title": "ParameterScale",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "active_when": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ActivationCondition"
+      },
+      "title": "Active When",
+      "type": "array"
+    },
+    "discrete_values": {
+      "default": [],
+      "items": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Discrete Values",
+      "type": "array"
+    },
+    "grid_points": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Grid Points"
+    },
+    "kind": {
+      "$ref": "#/$defs/ParameterKind"
+    },
+    "lower": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Lower"
+    },
+    "parameter_id": {
+      "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+      "title": "Parameter Id",
+      "type": "string"
+    },
+    "scale": {
+      "$ref": "#/$defs/ParameterScale"
+    },
+    "topological_index": {
+      "minimum": 0,
+      "title": "Topological Index",
+      "type": "integer"
+    },
+    "upper": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Upper"
+    }
+  },
+  "required": [
+    "parameter_id",
+    "kind",
+    "scale",
+    "topological_index"
+  ],
+  "title": "CompiledParameterDomain",
+  "type": "object"
+}

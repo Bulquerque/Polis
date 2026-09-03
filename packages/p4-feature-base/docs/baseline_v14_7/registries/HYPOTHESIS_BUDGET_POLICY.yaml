@@ -1,0 +1,22 @@
+version: V14.6-RC1
+authority: P4.S3.M05
+confirmatory_hypotheses: 32
+families: 10
+rules:
+  maximum_parameterizations_per_hypothesis: 2
+  maximum_encoder_configurations: 2
+  unlogged_attempts_allowed: false
+  abandoned_attempts_count: true
+  manual_notebook_attempts_count: true
+  same_hypothesis_retest_requires_new_generation: true
+tiers:
+  FOUNDATIONAL: eligible_for_confirmatory_pipeline
+  EXTENSION: requires explicit budget amendment
+  EXPERIMENTAL: N_plus_1_only
+  RETIRED: cannot be silently reactivated
+promotion_sequence:
+- family_level_evidence
+- perspective_level_evidence
+- observer_level_evidence
+- parameter_robustness
+- sealed_holdout

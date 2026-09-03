@@ -1,0 +1,232 @@
+{
+  "$defs": {
+    "ParameterCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "operator": {
+          "title": "Operator",
+          "type": "string"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "operator",
+        "values"
+      ],
+      "title": "ParameterCondition",
+      "type": "object"
+    },
+    "ParameterKind": {
+      "enum": [
+        "INTEGER",
+        "FLOAT",
+        "CATEGORICAL",
+        "BOOLEAN"
+      ],
+      "title": "ParameterKind",
+      "type": "string"
+    },
+    "ParameterScale": {
+      "enum": [
+        "LINEAR",
+        "LOG"
+      ],
+      "title": "ParameterScale",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "active_when": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ParameterCondition"
+      },
+      "title": "Active When",
+      "type": "array"
+    },
+    "aliases": {
+      "default": [],
+      "items": {
+        "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+        "type": "string"
+      },
+      "title": "Aliases",
+      "type": "array"
+    },
+    "capability_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Capability Id"
+    },
+    "choices": {
+      "default": [],
+      "items": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Choices",
+      "type": "array"
+    },
+    "default": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Default"
+    },
+    "deprecated": {
+      "default": false,
+      "title": "Deprecated",
+      "type": "boolean"
+    },
+    "economic_description": {
+      "minLength": 1,
+      "title": "Economic Description",
+      "type": "string"
+    },
+    "kind": {
+      "$ref": "#/$defs/ParameterKind"
+    },
+    "lower": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Lower"
+    },
+    "owner_module_id": {
+      "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+      "title": "Owner Module Id",
+      "type": "string"
+    },
+    "parameter_id": {
+      "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+      "title": "Parameter Id",
+      "type": "string"
+    },
+    "replacement_parameter_id": {
+      "anyOf": [
+        {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Replacement Parameter Id"
+    },
+    "scale": {
+      "$ref": "#/$defs/ParameterScale",
+      "default": "LINEAR"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "unit": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Unit"
+    },
+    "upper": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Upper"
+    }
+  },
+  "required": [
+    "parameter_id",
+    "schema_version",
+    "owner_module_id",
+    "kind",
+    "default",
+    "economic_description"
+  ],
+  "title": "HyperparameterDefinition",
+  "type": "object"
+}

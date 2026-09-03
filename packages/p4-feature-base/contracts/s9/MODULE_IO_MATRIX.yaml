@@ -1,0 +1,95 @@
+phase: P4
+scope: P4.S9
+version: V14.9-RC1
+module_io_matrix:
+- module_id: P4.S9.M01
+  module_name: feature_lineage_temporal_safety_auditor
+  subphase: P4.S9
+  consumes_artifacts:
+  - underlying_feature_matrix_raw
+  - underlying_feature_matrix_selected
+  - underlying_feature_factors_pca
+  - underlying_feature_embeddings
+  - feature_selection_report
+  - feature_transform_state_manifest
+  - causal_transform_fit_state_manifest
+  - normalization_neutralization_fit_state_manifest
+  - feature_diversity_redundancy_report
+  - pca_fit_state_manifest
+  - encoder_fit_state_manifest
+  - representation_quality_report
+  - representation_fold_plan
+  - s9_policy_registry
+  - research_attempt_event_log
+  emits_artifacts:
+  - feature_lineage_report
+  - temporal_safety_report
+  module_contract: contracts/modules/P4_S9_M01_feature_lineage_temporal_safety_auditor.yaml
+  execution_stage: build
+- module_id: P4.S9.M02
+  module_name: drift_coverage_quality_gate
+  subphase: P4.S9
+  consumes_artifacts:
+  - underlying_feature_matrix_selected
+  - pca_fit_state_manifest
+  - representation_quality_report
+  - s9_policy_registry
+  emits_artifacts:
+  - drift_safety_report
+  - p4_quality_gate_decision
+  module_contract: contracts/modules/P4_S9_M02_drift_coverage_quality_gate.yaml
+  execution_stage: build
+- module_id: P4.S9.M03
+  module_name: model_consumer_view_packager
+  subphase: P4.S9
+  consumes_artifacts:
+  - underlying_feature_matrix_selected
+  - underlying_feature_factors_pca
+  - underlying_feature_embeddings
+  - representation_fold_plan
+  - p4_quality_gate_decision
+  - s9_policy_registry
+  emits_artifacts:
+  - model_consumer_view_manifest
+  - model_consumer_view_bundle
+  module_contract: contracts/modules/P4_S9_M03_model_consumer_view_packager.yaml
+  execution_stage: build
+- module_id: P4.S9.M04
+  module_name: phase5_feature_handoff_builder
+  subphase: P4.S9
+  consumes_artifacts:
+  - underlying_feature_matrix_raw
+  - underlying_feature_matrix_selected
+  - underlying_feature_factors_pca
+  - underlying_feature_embeddings
+  - feature_selection_report
+  - feature_lineage_report
+  - drift_safety_report
+  - p4_quality_gate_decision
+  - model_consumer_view_manifest
+  emits_artifacts:
+  - phase5_feature_handoff_manifest
+  module_contract: contracts/modules/P4_S9_M04_phase5_feature_handoff_builder.yaml
+  execution_stage: build
+- module_id: P4.S9.M05
+  module_name: phase5_consumer_receipt_validator
+  subphase: P4.S9
+  consumes_artifacts:
+  - phase5_feature_handoff_manifest
+  - phase5_consumption_receipt_optional
+  emits_artifacts:
+  - p4_to_p5_integration_receipt
+  module_contract: contracts/modules/P4_S9_M05_phase5_consumer_receipt_validator.yaml
+  execution_stage: build
+- module_id: P4.S9.M06
+  module_name: research_attempt_ledger_manager
+  subphase: P4.S9
+  consumes_artifacts:
+  - research_attempt_event_log
+  - s9_policy_registry
+  emits_artifacts:
+  - research_attempt_ledger
+  - rejected_feature_graveyard
+  - research_budget_compliance_report
+  module_contract: contracts/modules/P4_S9_M06_research_attempt_ledger_manager.yaml
+  execution_stage: build

@@ -1,0 +1,78 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: belief_state
+status: planned_internal_schema
+type: object
+required:
+- belief_id
+- person_id
+- underlying_id
+- proposition_id
+- proposition
+- direction
+- direction_score
+- strength
+- confidence
+- uncertainty
+- horizon
+- supporting_evidence_refs
+- opposing_evidence_refs
+- formed_at
+- updated_at
+- lineage_id
+properties:
+  belief_id:
+    type: string
+  person_id:
+    type: string
+  subject:
+    type: string
+  proposition:
+    type: string
+  direction:
+    type: string
+    enum:
+    - strong_negative
+    - negative
+    - neutral
+    - positive
+    - strong_positive
+    - uncertain
+  strength: &id001
+    type: number
+    minimum: 0
+    maximum: 1
+  confidence: *id001
+  uncertainty: *id001
+  horizon:
+    type: string
+  supporting_evidence_refs:
+    type: array
+    items:
+      type: string
+  opposing_evidence_refs:
+    type: array
+    items:
+      type: string
+  source_dependency_refs:
+    type: array
+    items:
+      type: string
+  formed_at:
+    type: string
+    format: date-time
+  updated_at:
+    type: string
+    format: date-time
+  lineage_id:
+    type: string
+  underlying_id:
+    type:
+    - string
+    - 'null'
+  proposition_id:
+    type: string
+  direction_score:
+    type: number
+    minimum: -1
+    maximum: 1
+additionalProperties: false

@@ -1,0 +1,12 @@
+policy_id: p3.s40.gateway.runtime.v1
+provider_id: internal_research
+default_timeout_seconds: 30
+maximum_timeout_seconds: 120
+visible_calls_per_person_cycle: 5
+enabled_transports:
+  BACKTEST: [LOCAL_FUNCTION, ARTIFACT_QUERY, COMPOSITE_INTERNAL]
+  REPLAY: [LOCAL_FUNCTION, ARTIFACT_QUERY, COMPOSITE_INTERNAL]
+  LIVE: [LOCAL_FUNCTION, ARTIFACT_QUERY, COMPOSITE_INTERNAL, MCP_OPTIONAL, HTTP_OPTIONAL]
+network_disabled_in_backtest: true
+request_correction_limit: 1
+fail_closed: true

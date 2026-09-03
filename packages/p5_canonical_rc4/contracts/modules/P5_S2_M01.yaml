@@ -1,0 +1,21 @@
+module_id: P5.S2.M01
+name: offline_outcome_target_registry_builder
+subphase_id: P5.S2
+required_inputs:
+- p5_offline_training_outcome_bundle
+- authorized_consumer_view_registry
+- p5_hypothesis_confirmation_registry
+- cross_phase_research_lineage_map
+optional_inputs: []
+outputs:
+- training_target_panel
+- target_definition_registry
+- training_dataset_manifest
+- hypothesis_target_mapping
+allowed_actions:
+- RUN
+allowed_modes:
+- OFFLINE_TRAINING
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

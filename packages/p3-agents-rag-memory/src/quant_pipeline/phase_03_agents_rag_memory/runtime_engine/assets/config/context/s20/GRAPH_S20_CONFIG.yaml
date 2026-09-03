@@ -1,0 +1,4 @@
+schema_version: graph_config.s20.v1
+max_query_hops: 3
+edge_requires_evidence: true
+orphan_edge_policy: FAIL

@@ -1,0 +1,182 @@
+{
+  "$defs": {
+    "ManagementAction": {
+      "additionalProperties": false,
+      "properties": {
+        "action_id": {
+          "minLength": 1,
+          "title": "Action Id",
+          "type": "string"
+        },
+        "action_type": {
+          "$ref": "#/$defs/ManagementActionType"
+        },
+        "affected_candidate_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Affected Candidate Ids",
+          "type": "array"
+        },
+        "affected_instrument_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Affected Instrument Ids",
+          "type": "array"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "reason_code": {
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "requires_new_authorization": {
+          "title": "Requires New Authorization",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "action_id",
+        "event_time",
+        "action_type",
+        "reason_code",
+        "requires_new_authorization"
+      ],
+      "title": "ManagementAction",
+      "type": "object"
+    },
+    "ManagementActionType": {
+      "enum": [
+        "HOLD",
+        "REQUEST_REOPTIMIZATION",
+        "CANCEL_OPEN_ORDERS",
+        "CLOSE_ONLY",
+        "RISK_REDUCTION_ONLY",
+        "HEDGE_ONLY",
+        "CONTROLLED_FLATTEN",
+        "HALT"
+      ],
+      "title": "ManagementActionType",
+      "type": "string"
+    },
+    "ReoptimizationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_candidate_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Affected Candidate Ids",
+          "type": "array"
+        },
+        "affected_instrument_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Affected Instrument Ids",
+          "type": "array"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "reason_code": {
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "request_id": {
+          "minLength": 1,
+          "title": "Request Id",
+          "type": "string"
+        },
+        "requested_next_cycle_id": {
+          "minLength": 1,
+          "title": "Requested Next Cycle Id",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "minLength": 1,
+          "title": "Source Cycle Id",
+          "type": "string"
+        },
+        "source_state_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Source State Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request_id",
+        "event_time",
+        "source_cycle_id",
+        "requested_next_cycle_id",
+        "reason_code",
+        "source_state_hash"
+      ],
+      "title": "ReoptimizationRequest",
+      "type": "object"
+    },
+    "RuntimeControlMode": {
+      "enum": [
+        "NORMAL",
+        "HOLD_NO_NEW_RISK",
+        "CANCEL_OPEN_ORDERS",
+        "CLOSE_ONLY",
+        "RISK_REDUCTION_ONLY",
+        "HEDGE_ONLY",
+        "CONTROLLED_FLATTEN",
+        "HALT"
+      ],
+      "title": "RuntimeControlMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "actions": {
+      "items": {
+        "$ref": "#/$defs/ManagementAction"
+      },
+      "title": "Actions",
+      "type": "array"
+    },
+    "active_runtime_mode": {
+      "$ref": "#/$defs/RuntimeControlMode"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "reoptimization_requests": {
+      "items": {
+        "$ref": "#/$defs/ReoptimizationRequest"
+      },
+      "title": "Reoptimization Requests",
+      "type": "array"
+    }
+  },
+  "required": [
+    "actions",
+    "reoptimization_requests",
+    "active_runtime_mode",
+    "content_sha256"
+  ],
+  "title": "ManagementDecisionBundle",
+  "type": "object"
+}

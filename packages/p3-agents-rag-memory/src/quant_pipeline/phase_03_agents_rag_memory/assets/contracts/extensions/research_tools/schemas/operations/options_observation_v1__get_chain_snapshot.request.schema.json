@@ -1,0 +1,46 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_chain_snapshot/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expiry_dates": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Expiry Dates",
+      "type": "array"
+    },
+    "include_greeks_if_observed": {
+      "default": false,
+      "title": "Include Greeks If Observed",
+      "type": "boolean"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "strikes": {
+      "default": [],
+      "items": {
+        "type": "number"
+      },
+      "title": "Strikes",
+      "type": "array"
+    },
+    "underlying_id": {
+      "minLength": 1,
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "underlying_id"
+  ],
+  "title": "GetOptionChainSnapshotRequest",
+  "type": "object"
+}

@@ -1,0 +1,20 @@
+schema_id: p3.s35.corpus_pit_policy.v1
+schema_version: 1.0.0
+runtime_time_authority: decision_time
+snapshot_time_authority: retrieval_index_manifest.as_of_time
+visibility_rule: available_at <= decision_time
+snapshot_rule: decision_time <= snapshot_as_of_time
+filter_order:
+  - snapshot_and_hash_validation
+  - available_at_filter
+  - metadata_filter
+  - content_deduplication
+  - lexical_scoring
+  - optional_dense_scoring
+  - rank_fusion
+  - optional_reranking
+backtest:
+  network_allowed: false
+  live_index_allowed: false
+  wall_clock_allowed_in_domain: false
+  request_supplied_path_allowed: false

@@ -1,0 +1,35 @@
+{
+  "evidence_id": "p3.research-tools.unified.test-evidence.rc1",
+  "execution_mode": "isolated_partition_matrix",
+  "status": "PASS",
+  "collected_test_count": 904,
+  "passed_test_count": 904,
+  "failed_test_count": 0,
+  "partitions": [
+    {"name": "contracts", "passed": 248},
+    {"name": "final_integration", "passed": 20},
+    {"name": "foundation_contracts", "passed": 19},
+    {"name": "integration_runtime", "passed": 8},
+    {"name": "phase_specific", "passed": 227},
+    {"name": "research_tools", "passed": 65},
+    {"name": "runtime_context", "passed": 33},
+    {"name": "runtime_engine", "passed": 2},
+    {"name": "runtime_hardening", "passed": 14},
+    {"name": "runtime_products", "passed": 149},
+    {"name": "runtime_society", "passed": 80},
+    {"name": "scientific_evaluation", "passed": 2},
+    {"name": "top_level", "passed": 37}
+  ],
+  "additional_checks": {
+    "python_compileall": "PASS",
+    "release_manifest_verify": "PASS",
+    "unified_cross_agent_runtime_tests": "7 PASS",
+    "canonical_operation_count": 34,
+    "canonical_extension_module_count": 47
+  },
+  "notes": [
+    "The complete collected set was executed in fresh pytest processes to prevent cross-suite process/thread state contamination.",
+    "The legacy multiprocessing hardening test was changed from fork-first to spawn-first for Python 3.13 portability.",
+    "A monolithic pytest process was not used as release evidence because cumulative third-party plugin/runtime state made it exceed the execution window; no failing test remained in the isolated matrix."
+  ]
+}

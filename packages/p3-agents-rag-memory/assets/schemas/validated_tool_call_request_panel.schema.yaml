@@ -1,0 +1,222 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  JsonValue: {}
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  RequestValidationStatus:
+    enum:
+    - ACCEPTED
+    - REJECTED_SCHEMA
+    - REJECTED_TOOL_UNKNOWN
+    - REJECTED_OPERATION
+    - REJECTED_ENTITLEMENT
+    - REJECTED_BUDGET
+    - REJECTED_TEMPORAL
+    - REJECTED_CREDENTIAL
+    - REJECTED_DUPLICATE
+    title: RequestValidationStatus
+    type: string
+  ToolCallRequestRecord:
+    additionalProperties: false
+    properties:
+      tool_call_request_id:
+        minLength: 1
+        title: Tool Call Request Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      tool_id:
+        minLength: 1
+        title: Tool Id
+        type: string
+      operation_id:
+        minLength: 1
+        title: Operation Id
+        type: string
+      arguments:
+        additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        title: Arguments
+        type: object
+      reason:
+        minLength: 1
+        title: Reason
+        type: string
+      expected_information_gain:
+        maximum: 1.0
+        minimum: 0.0
+        title: Expected Information Gain
+        type: number
+      requested_at:
+        format: date-time
+        title: Requested At
+        type: string
+      as_of:
+        format: date-time
+        title: As Of
+        type: string
+      credential_handle:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Credential Handle
+      idempotency_key:
+        minLength: 1
+        title: Idempotency Key
+        type: string
+    required:
+    - tool_call_request_id
+    - cognition_transaction_id
+    - person_id
+    - tool_id
+    - operation_id
+    - arguments
+    - reason
+    - expected_information_gain
+    - requested_at
+    - as_of
+    - idempotency_key
+    title: ToolCallRequestRecord
+    type: object
+  ValidatedToolCallRequestRecord:
+    additionalProperties: false
+    properties:
+      request:
+        $ref: '#/$defs/ToolCallRequestRecord'
+      validation_status:
+        $ref: '#/$defs/RequestValidationStatus'
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+      provider_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Provider Id
+      entitlement_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Entitlement Version
+      arguments_schema:
+        anyOf:
+        - additionalProperties:
+            $ref: '#/$defs/JsonValue'
+          type: object
+        - type: 'null'
+        default: null
+        title: Arguments Schema
+      result_schema:
+        anyOf:
+        - additionalProperties:
+            $ref: '#/$defs/JsonValue'
+          type: object
+        - type: 'null'
+        default: null
+        title: Result Schema
+      read_only:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        title: Read Only
+      point_in_time_safe:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        title: Point In Time Safe
+    required:
+    - request
+    - validation_status
+    title: ValidatedToolCallRequestRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s21.v1
+    default: p3.s21.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/ValidatedToolCallRequestRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: validated_tool_call_request_panel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s21:outputs:validated_tool_call_request_panel:v1
+artifact_name: validated_tool_call_request_panel
+x-artifact-name: validated_tool_call_request_panel
+x-contract-version: p3.s21.v1
+x-authority: P3.S21
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

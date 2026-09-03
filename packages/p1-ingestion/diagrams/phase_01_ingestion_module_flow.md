@@ -1,0 +1,61 @@
+# Module flow RC4.1
+
+```mermaid
+flowchart TD
+  P1.S1.M01["P1.S1.M01<br/>source_registry_loader"]
+  P1.S1.M02["P1.S1.M02<br/>ingestion_run_config_validator"]
+  P1.S1.M03["P1.S1.M03<br/>source_availability_planner"]
+  P1.S2.M01["P1.S2.M01<br/>source_capture_orchestrator"]
+  P1.S2.M02["P1.S2.M02<br/>b3_cotahist_raw_fetcher"]
+  P1.S2.M03["P1.S2.M03<br/>macro_raw_fetcher"]
+  P1.S2.M04["P1.S2.M04<br/>benchmark_raw_fetcher"]
+  P1.S2.M05["P1.S2.M05<br/>crypto_raw_fetcher"]
+  P1.S2.M06["P1.S2.M06<br/>document_raw_collector"]
+  P1.S2.M07["P1.S2.M07<br/>non_b3_capture_inventory_assembler"]
+  P1.S3.M01["P1.S3.M01<br/>raw_artifact_writer"]
+  P1.S3.M02["P1.S3.M02<br/>hash_version_manager"]
+  P1.S4.M01["P1.S4.M01<br/>raw_readability_checker"]
+  P1.S4.M02["P1.S4.M02<br/>raw_schema_hint_detector"]
+  P1.S5.M01["P1.S5.M01<br/>ingestion_manifest_builder"]
+  P1.S5.M02["P1.S5.M02<br/>source_snapshot_registry_builder"]
+  P1.S5.M03["P1.S5.M03<br/>ingestion_error_report_builder"]
+  P1.S5.M04["P1.S5.M04<br/>phase2_handoff_packager"]
+  P1.S1.M01 --> P1.S1.M02
+  P1.S1.M01 --> P1.S1.M03
+  P1.S1.M01 --> P1.S5.M01
+  P1.S1.M01 --> P1.S5.M02
+  P1.S1.M01 --> P1.S5.M04
+  P1.S1.M02 --> P1.S1.M03
+  P1.S1.M03 --> P1.S2.M01
+  P1.S2.M01 --> P1.S2.M02
+  P1.S2.M01 --> P1.S2.M03
+  P1.S2.M01 --> P1.S2.M04
+  P1.S2.M01 --> P1.S2.M05
+  P1.S2.M01 --> P1.S2.M06
+  P1.S2.M01 --> P1.S5.M01
+  P1.S2.M01 --> P1.S5.M03
+  P1.S2.M02 --> P1.S3.M01
+  P1.S2.M03 --> P1.S2.M07
+  P1.S2.M04 --> P1.S2.M07
+  P1.S2.M05 --> P1.S2.M07
+  P1.S2.M06 --> P1.S2.M07
+  P1.S2.M07 --> P1.S3.M01
+  P1.S3.M01 --> P1.S3.M02
+  P1.S3.M01 --> P1.S5.M04
+  P1.S3.M02 --> P1.S4.M01
+  P1.S3.M02 --> P1.S4.M02
+  P1.S3.M02 --> P1.S5.M01
+  P1.S3.M02 --> P1.S5.M02
+  P1.S3.M02 --> P1.S5.M04
+  P1.S4.M01 --> P1.S4.M02
+  P1.S4.M01 --> P1.S5.M01
+  P1.S4.M01 --> P1.S5.M03
+  P1.S4.M01 --> P1.S5.M04
+  P1.S4.M02 --> P1.S5.M01
+  P1.S4.M02 --> P1.S5.M04
+  P1.S5.M01 --> P1.S5.M02
+  P1.S5.M01 --> P1.S5.M03
+  P1.S5.M01 --> P1.S5.M04
+  P1.S5.M02 --> P1.S5.M04
+  P1.S5.M03 --> P1.S5.M04
+```

@@ -1,0 +1,161 @@
+{
+  "$defs": {
+    "MetricThreshold": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Alpha",
+          "type": "number"
+        },
+        "direction": {
+          "enum": [
+            "HIGHER",
+            "LOWER"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "guardrail": {
+          "default": false,
+          "title": "Guardrail",
+          "type": "boolean"
+        },
+        "metric": {
+          "enum": [
+            "brier_score",
+            "log_loss",
+            "net_return",
+            "max_drawdown",
+            "evidence_coverage",
+            "cost",
+            "latency_ms"
+          ],
+          "title": "Metric",
+          "type": "string"
+        },
+        "minimum_delta": {
+          "title": "Minimum Delta",
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric",
+        "direction",
+        "minimum_delta",
+        "alpha"
+      ],
+      "title": "MetricThreshold",
+      "type": "object"
+    }
+  },
+  "$id": "p3://schemas/final_integration/experiment_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cache_policy_hash": {
+      "title": "Cache Policy Hash",
+      "type": "string"
+    },
+    "configuration_hash": {
+      "title": "Configuration Hash",
+      "type": "string"
+    },
+    "dataset_hash": {
+      "title": "Dataset Hash",
+      "type": "string"
+    },
+    "experiment_id": {
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "frozen_at": {
+      "format": "date-time",
+      "title": "Frozen At",
+      "type": "string"
+    },
+    "holdout_access_policy": {
+      "const": "BLIND_UNTIL_FROZEN",
+      "title": "Holdout Access Policy",
+      "type": "string"
+    },
+    "model_fingerprint": {
+      "title": "Model Fingerprint",
+      "type": "string"
+    },
+    "primary_metrics": {
+      "items": {
+        "$ref": "#/$defs/MetricThreshold"
+      },
+      "minItems": 1,
+      "title": "Primary Metrics",
+      "type": "array"
+    },
+    "prompt_hash": {
+      "title": "Prompt Hash",
+      "type": "string"
+    },
+    "provider_fingerprint": {
+      "title": "Provider Fingerprint",
+      "type": "string"
+    },
+    "registry_hash": {
+      "title": "Registry Hash",
+      "type": "string"
+    },
+    "registry_version": {
+      "default": "p3.experiment-registry.v2",
+      "title": "Registry Version",
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    },
+    "seeds": {
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 3,
+      "title": "Seeds",
+      "type": "array"
+    },
+    "split_hash": {
+      "title": "Split Hash",
+      "type": "string"
+    },
+    "variants": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Variants",
+      "type": "array"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "experiment_id",
+    "dataset_hash",
+    "split_hash",
+    "variants",
+    "seeds",
+    "prompt_hash",
+    "model_fingerprint",
+    "provider_fingerprint",
+    "configuration_hash",
+    "cache_policy_hash",
+    "primary_metrics",
+    "frozen_at",
+    "holdout_access_policy",
+    "registry_hash"
+  ],
+  "title": "ExperimentRegistry",
+  "type": "object"
+}

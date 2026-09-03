@@ -1,0 +1,41 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/scenario_shock/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exposures": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Exposures",
+      "type": "object"
+    },
+    "relationships": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Relationships",
+      "type": "object"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "shocks": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Shocks",
+      "type": "object"
+    }
+  },
+  "required": [
+    "research_mode",
+    "exposures",
+    "shocks"
+  ],
+  "title": "ScenarioShockRequest",
+  "type": "object"
+}

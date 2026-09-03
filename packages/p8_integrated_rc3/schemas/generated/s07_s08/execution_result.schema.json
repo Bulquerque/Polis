@@ -1,0 +1,312 @@
+{
+  "$defs": {
+    "CandidateAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "allocated_target_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Allocated Target Quantity"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "allocated_target_quantity"
+      ],
+      "title": "CandidateAllocation",
+      "type": "object"
+    },
+    "FillEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "execution_group_id": {
+          "minLength": 1,
+          "title": "Execution Group Id",
+          "type": "string"
+        },
+        "fee": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Fee"
+        },
+        "fill_id": {
+          "minLength": 1,
+          "title": "Fill Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "market_event_id": {
+          "minLength": 1,
+          "title": "Market Event Id",
+          "type": "string"
+        },
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Price"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "side": {
+          "$ref": "#/$defs/Side"
+        },
+        "structure_id": {
+          "minLength": 1,
+          "title": "Structure Id",
+          "type": "string"
+        },
+        "virtual_allocations": {
+          "items": {
+            "$ref": "#/$defs/CandidateAllocation"
+          },
+          "title": "Virtual Allocations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "fill_id",
+        "order_id",
+        "structure_id",
+        "execution_group_id",
+        "instrument_id",
+        "event_time",
+        "side",
+        "quantity",
+        "price",
+        "contract_multiplier",
+        "fee",
+        "virtual_allocations",
+        "market_event_id"
+      ],
+      "title": "FillEvent",
+      "type": "object"
+    },
+    "OrderEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "cumulative_filled_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cumulative Filled Quantity"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_sequence": {
+          "minimum": 0,
+          "title": "Event Sequence",
+          "type": "integer"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "event_type": {
+          "$ref": "#/$defs/OrderEventType"
+        },
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "reason_code": {
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "remaining_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Remaining Quantity"
+        },
+        "status_after": {
+          "$ref": "#/$defs/OrderStatus"
+        },
+        "status_before": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OrderStatus"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "event_id",
+        "order_id",
+        "event_type",
+        "event_time",
+        "status_before",
+        "status_after",
+        "cumulative_filled_quantity",
+        "remaining_quantity",
+        "reason_code",
+        "event_sequence"
+      ],
+      "title": "OrderEvent",
+      "type": "object"
+    },
+    "OrderEventType": {
+      "enum": [
+        "CREATED",
+        "SUBMITTED",
+        "ACCEPTED",
+        "PARTIAL_FILL",
+        "FILL",
+        "CANCEL",
+        "REJECT",
+        "EXPIRE",
+        "REPLACE"
+      ],
+      "title": "OrderEventType",
+      "type": "string"
+    },
+    "OrderStatus": {
+      "enum": [
+        "CREATED",
+        "SUBMITTED",
+        "ACCEPTED",
+        "PARTIALLY_FILLED",
+        "FILLED",
+        "CANCELLED",
+        "REJECTED",
+        "EXPIRED",
+        "REPLACED"
+      ],
+      "title": "OrderStatus",
+      "type": "string"
+    },
+    "Side": {
+      "enum": [
+        "BUY",
+        "SELL"
+      ],
+      "title": "Side",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "fill_events": {
+      "items": {
+        "$ref": "#/$defs/FillEvent"
+      },
+      "title": "Fill Events",
+      "type": "array"
+    },
+    "final_status_by_order": {
+      "additionalProperties": {
+        "$ref": "#/$defs/OrderStatus"
+      },
+      "title": "Final Status By Order",
+      "type": "object"
+    },
+    "order_events": {
+      "items": {
+        "$ref": "#/$defs/OrderEvent"
+      },
+      "title": "Order Events",
+      "type": "array"
+    }
+  },
+  "required": [
+    "order_events",
+    "fill_events",
+    "final_status_by_order",
+    "content_sha256"
+  ],
+  "title": "ExecutionResult",
+  "type": "object"
+}

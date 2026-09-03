@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "top_k": {
+      "default": 3,
+      "minimum": 1,
+      "title": "Top K",
+      "type": "integer"
+    },
+    "utility_tie_tolerance": {
+      "default": 1e-12,
+      "minimum": 0.0,
+      "title": "Utility Tie Tolerance",
+      "type": "number"
+    },
+    "false_abstention_utility_threshold": {
+      "default": 0.0,
+      "title": "False Abstention Utility Threshold",
+      "type": "number"
+    },
+    "minimum_candidates": {
+      "default": 2,
+      "minimum": 2,
+      "title": "Minimum Candidates",
+      "type": "integer"
+    }
+  },
+  "title": "RankingAttributionPolicy",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:RankingAttributionPolicy:1.0.0"
+}

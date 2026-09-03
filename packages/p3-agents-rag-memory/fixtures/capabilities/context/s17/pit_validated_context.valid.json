@@ -1,0 +1,60 @@
+{
+  "schema_version": "pit_validated_context.s17.v1",
+  "lineage_id": "lineage:pit-context-001",
+  "records": [
+    {
+      "record_id": "ctx:apple-filing-001",
+      "record_type": "EVENT",
+      "source_event_id": "event:apple-10q-001",
+      "subject": "Apple Inc. quarterly filing became available",
+      "content_hash": "dc65ad9dc999cec0bcbe347e2fd46a7c3dc5f1bb970c5e1c91105b3a077567d5",
+      "event_time": "2026-07-27T13:00:00Z",
+      "available_at": "2026-07-27T13:05:00Z",
+      "evidence_refs": [
+        "evidence:apple-10q-001"
+      ],
+      "lineage_id": "lineage:apple-10q-001",
+      "stimulus_type": "FILING_EVENT",
+      "entity_ids": [
+        "entity:apple-inc"
+      ],
+      "identifier_hints": [
+        {
+          "id_type": "TICKER",
+          "id_value": "AAPL",
+          "mic": "XNAS",
+          "exchange_code": "US",
+          "currency": "USD"
+        }
+      ],
+      "proposition_id": "directional_outlook",
+      "horizon": "21d",
+      "salience_features": {
+        "source_quality": 0.95,
+        "novelty": 0.7,
+        "subject_relevance": 0.9,
+        "event_severity": 0.65,
+        "information_specificity": 0.95
+      }
+    },
+    {
+      "record_id": "ctx:macro-cpi-001",
+      "record_type": "EVENT",
+      "source_event_id": "event:macro-cpi-001",
+      "subject": "Inflation report released",
+      "content_hash": "f0221ba5c3ff268086acef1d886a26b465b3464502265b24d2e0e622dd20f1d0",
+      "event_time": "2026-07-27T12:30:00Z",
+      "available_at": "2026-07-27T12:31:00Z",
+      "evidence_refs": [
+        "evidence:macro-cpi-001"
+      ],
+      "lineage_id": "lineage:macro-cpi-001",
+      "stimulus_type": "MACRO_RELEASE",
+      "entity_ids": [],
+      "identifier_hints": [],
+      "proposition_id": "regime_outlook",
+      "horizon": "21d",
+      "salience_features": null
+    }
+  ]
+}

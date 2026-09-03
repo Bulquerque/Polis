@@ -1,0 +1,301 @@
+$defs:
+  ArtifactReference:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        maxLength: 160
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_role:
+        maxLength: 256
+        minLength: 1
+        title: Artifact Role
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      cycle:
+        $ref: '#/$defs/CycleRef'
+      location:
+        maxLength: 256
+        minLength: 1
+        title: Location
+        type: string
+      payload_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Payload Sha256
+        type: string
+      producer_module_id:
+        maxLength: 256
+        minLength: 1
+        title: Producer Module Id
+        type: string
+      run_id:
+        maxLength: 256
+        minLength: 1
+        title: Run Id
+        type: string
+      schema_name:
+        maxLength: 256
+        minLength: 1
+        title: Schema Name
+        type: string
+      schema_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Schema Sha256
+        type: string
+      schema_version:
+        maxLength: 256
+        minLength: 1
+        title: Schema Version
+        type: string
+    required:
+    - artifact_id
+    - artifact_role
+    - schema_name
+    - schema_version
+    - schema_sha256
+    - payload_sha256
+    - producer_module_id
+    - run_id
+    - cycle
+    - available_at
+    - location
+    title: ArtifactReference
+    type: object
+  CausalStatus:
+    enum:
+    - ASSOCIATION
+    - ATTRIBUTED
+    - CAUSAL
+    - UNKNOWN
+    title: CausalStatus
+    type: string
+  CycleRef:
+    additionalProperties: false
+    properties:
+      cycle_id:
+        maxLength: 256
+        minLength: 1
+        title: Cycle Id
+        type: string
+      ordinal:
+        minimum: 0
+        title: Ordinal
+        type: integer
+    required:
+    - cycle_id
+    - ordinal
+    title: CycleRef
+    type: object
+  EvidenceQuality:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceQuality
+    type: string
+  EvidenceReference:
+    additionalProperties: false
+    properties:
+      artifact_ref:
+        $ref: '#/$defs/ArtifactReference'
+      evidence_id:
+        maxLength: 256
+        minLength: 1
+        title: Evidence Id
+        type: string
+      quality:
+        $ref: '#/$defs/EvidenceQuality'
+      summary:
+        maxLength: 4000
+        minLength: 1
+        title: Summary
+        type: string
+    required:
+    - evidence_id
+    - artifact_ref
+    - quality
+    - summary
+    title: EvidenceReference
+    type: object
+  OutcomeMaturity:
+    enum:
+    - NOT_MATURED
+    - PARTIALLY_MATURED
+    - MATURED
+    - SETTLED
+    - CENSORED
+    - UNOBSERVABLE
+    title: OutcomeMaturity
+    type: string
+  ResearchItemType:
+    enum:
+    - SUPPORTED_LESSON
+    - CONDITIONAL_LESSON
+    - PLAUSIBLE_HYPOTHESIS
+    - REJECTED_HYPOTHESIS
+    - UNRESOLVED_QUESTION
+    - NEGATIVE_MEMORY
+    - BREAKPOINT_MEMORY
+    title: ResearchItemType
+    type: string
+  ResearchScope:
+    additionalProperties: false
+    properties:
+      asset_families:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Asset Families
+        type: array
+      phases:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Phases
+        type: array
+      policy_ids:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Policy Ids
+        type: array
+      regimes:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Regimes
+        type: array
+    title: ResearchScope
+    type: object
+additionalProperties: false
+properties:
+  abstract_claim:
+    maxLength: 4000
+    minLength: 1
+    title: Abstract Claim
+    type: string
+  candidate_id:
+    maxLength: 256
+    minLength: 1
+    title: Candidate Id
+    type: string
+  causal_status:
+    $ref: '#/$defs/CausalStatus'
+  claim:
+    maxLength: 4000
+    minLength: 1
+    title: Claim
+    type: string
+  confidence:
+    maximum: 1.0
+    minimum: 0.0
+    title: Confidence
+    type: number
+  contains_asset_specific_future_return:
+    default: false
+    title: Contains Asset Specific Future Return
+    type: boolean
+  contains_direct_patch_instruction:
+    default: false
+    title: Contains Direct Patch Instruction
+    type: boolean
+  contains_future_outcome_identifiers:
+    default: false
+    title: Contains Future Outcome Identifiers
+    type: boolean
+  contains_private_leaderboard_data:
+    default: false
+    title: Contains Private Leaderboard Data
+    type: boolean
+  contains_promoted_parameters:
+    default: false
+    title: Contains Promoted Parameters
+    type: boolean
+  contradicts_semantic_keys:
+    default: []
+    items:
+      maxLength: 256
+      minLength: 1
+      type: string
+    title: Contradicts Semantic Keys
+    type: array
+  evidence_against:
+    default: []
+    items:
+      $ref: '#/$defs/EvidenceReference'
+    title: Evidence Against
+    type: array
+  evidence_for:
+    items:
+      $ref: '#/$defs/EvidenceReference'
+    title: Evidence For
+    type: array
+  expires_after_cycle:
+    anyOf:
+    - $ref: '#/$defs/CycleRef'
+    - type: 'null'
+    default: null
+  item_type_hint:
+    anyOf:
+    - $ref: '#/$defs/ResearchItemType'
+    - type: 'null'
+    default: null
+  materiality:
+    minimum: 0.0
+    title: Materiality
+    type: number
+  outcome_maturity:
+    $ref: '#/$defs/OutcomeMaturity'
+  scope:
+    $ref: '#/$defs/ResearchScope'
+  semantic_key:
+    maxLength: 256
+    minLength: 1
+    title: Semantic Key
+    type: string
+  source_cycles:
+    items:
+      $ref: '#/$defs/CycleRef'
+    title: Source Cycles
+    type: array
+  supersedes_semantic_keys:
+    default: []
+    items:
+      maxLength: 256
+      minLength: 1
+      type: string
+    title: Supersedes Semantic Keys
+    type: array
+  validity_start:
+    $ref: '#/$defs/CycleRef'
+required:
+- candidate_id
+- semantic_key
+- claim
+- abstract_claim
+- scope
+- outcome_maturity
+- causal_status
+- evidence_for
+- confidence
+- materiality
+- validity_start
+- source_cycles
+title: ResearchClaimCandidate
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

@@ -1,0 +1,125 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  ToolDiscoveryEventRecord:
+    additionalProperties: false
+    properties:
+      event_id:
+        minLength: 1
+        title: Event Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      provider_id:
+        minLength: 1
+        title: Provider Id
+        type: string
+      tool_id:
+        minLength: 1
+        title: Tool Id
+        type: string
+      operation_id:
+        minLength: 1
+        title: Operation Id
+        type: string
+      discovered_at:
+        format: date-time
+        title: Discovered At
+        type: string
+      status:
+        enum:
+        - DISCOVERED
+        - UNCHANGED
+        title: Status
+        type: string
+    required:
+    - event_id
+    - cognition_transaction_id
+    - person_id
+    - provider_id
+    - tool_id
+    - operation_id
+    - discovered_at
+    - status
+    title: ToolDiscoveryEventRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s21.v1
+    default: p3.s21.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/ToolDiscoveryEventRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: tool_discovery_event_panel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s21:outputs:tool_discovery_event_panel:v1
+artifact_name: tool_discovery_event_panel
+x-artifact-name: tool_discovery_event_panel
+x-contract-version: p3.s21.v1
+x-authority: P3.S21
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

@@ -1,0 +1,71 @@
+$defs:
+  EvidenceClass:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED_NOT_EXECUTED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceClass
+    type: string
+  MaturityState:
+    enum:
+    - NOT_MATURED
+    - PARTIALLY_MATURED
+    - MATURED
+    - SETTLED
+    - CENSORED
+    - UNOBSERVABLE
+    title: MaturityState
+    type: string
+additionalProperties: false
+properties:
+  outcome_id:
+    minLength: 1
+    title: Outcome Id
+    type: string
+  prediction_event_id:
+    minLength: 1
+    title: Prediction Event Id
+    type: string
+  observed_at:
+    format: date-time
+    title: Observed At
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  maturity_state:
+    $ref: '#/$defs/MaturityState'
+  evidence_class:
+    $ref: '#/$defs/EvidenceClass'
+  value:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Value
+  vintage_id:
+    minLength: 1
+    title: Vintage Id
+    type: string
+  supersedes_outcome_id:
+    anyOf:
+    - minLength: 1
+      type: string
+    - type: 'null'
+    default: null
+    title: Supersedes Outcome Id
+required:
+- outcome_id
+- prediction_event_id
+- observed_at
+- available_at
+- maturity_state
+- evidence_class
+- value
+- vintage_id
+title: OutcomeEvent
+type: object
+$id: urn:inferencia:p9:s7:OutcomeEvent:1.0.0

@@ -1,0 +1,32 @@
+passport_version: p4.v14.9-rc1.hypothesis.v1
+hypothesis_id: H20
+family_id: F06
+name: common_market_concentration
+tier: FOUNDATIONAL
+economic_mechanism: market-mode concentration captures systemic synchronization
+primary_observer_ids:
+- F06.O07
+robustness_observer_ids:
+- F06.O08
+parameter_budget:
+  primary: 63D
+  robustness: 126D
+  maximum_total_parameterizations: 2
+expected_role: risk
+research_family: F06
+same_family_multiple_testing_required: true
+P4_acceptance:
+- point_in_time_inputs_available
+- formula_and_lineage_closed
+- numeric_or_metamorphic_oracle_defined
+- no_future_label_dependency
+P5_confirmation:
+- nested_temporal_validation
+- incremental_value_against_locked_baseline
+- family_level_multiplicity_adjustment
+- stability_across_folds
+P9_final_audit:
+- sealed_holdout_only_once
+- all_prior_attempts_counted
+- economic_costs_and_capacity_when_applicable
+status: DOCUMENTED_NOT_IMPLEMENTED

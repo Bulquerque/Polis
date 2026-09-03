@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "ComponentQuality": {
+      "enum": [
+        "FULLY_QUALIFIED",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQuality",
+      "type": "string"
+    },
+    "SizabilityState": {
+      "enum": [
+        "FULLY_SIZABLE",
+        "DEGRADED_SIZABLE",
+        "NOT_SIZABLE",
+        "RISK_STATE_INCOMPLETE"
+      ],
+      "title": "SizabilityState",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/CandidateSizability.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "capital_max_units": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Capital Max Units"
+    },
+    "component_quality": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ComponentQuality"
+      },
+      "title": "Component Quality",
+      "type": "object"
+    },
+    "liquidity_max_units": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Liquidity Max Units"
+    },
+    "max_units": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Units"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "risk_budget_cap": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Risk Budget Cap",
+      "type": "number"
+    },
+    "state": {
+      "$ref": "#/$defs/SizabilityState"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "state",
+    "risk_budget_cap",
+    "component_quality"
+  ],
+  "title": "CandidateSizability",
+  "type": "object"
+}

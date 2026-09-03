@@ -1,0 +1,39 @@
+additionalProperties: false
+properties:
+  policy_id:
+    title: Policy Id
+    type: string
+  max_execution_context_age_seconds:
+    minimum: 0
+    title: Max Execution Context Age Seconds
+    type: integer
+  accepted_defined_risk_statuses:
+    items:
+      type: string
+    title: Accepted Defined Risk Statuses
+    type: array
+  accepted_model_promotion_statuses:
+    items:
+      type: string
+    title: Accepted Model Promotion Statuses
+    type: array
+  accepted_model_compatibility_statuses:
+    items:
+      type: string
+    title: Accepted Model Compatibility Statuses
+    type: array
+  severe_ood_values:
+    items:
+      type: string
+    title: Severe Ood Values
+    type: array
+required:
+- policy_id
+- max_execution_context_age_seconds
+- accepted_defined_risk_statuses
+- accepted_model_promotion_statuses
+- accepted_model_compatibility_statuses
+- severe_ood_values
+title: SafetyPolicy
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

@@ -1,0 +1,33 @@
+{
+  "phase_id": "P8",
+  "subphase_id": "P8.S9",
+  "version": "0.1.0",
+  "status": "IMPLEMENTED",
+  "modules": [
+    {
+      "id": "P8.S9.M01",
+      "name": "runtime_distribution_shift_and_regime_monitor",
+      "entrypoint": "shift_monitor.run_shift_monitor"
+    },
+    {
+      "id": "P8.S9.M02",
+      "name": "live_constraint_and_state_invariant_monitor",
+      "entrypoint": "invariant_monitor.run_invariant_monitor"
+    },
+    {
+      "id": "P8.S9.M03",
+      "name": "safety_supervisor_and_fallback_controller",
+      "entrypoint": "safety_supervisor.run_safety_supervisor"
+    },
+    {
+      "id": "P8.S9.M04",
+      "name": "shadow_champion_challenger_disagreement_engine",
+      "entrypoint": "shadow_evaluator.run_shadow_evaluation"
+    },
+    {
+      "id": "P8.S9.M05",
+      "name": "bounded_runtime_adaptation_and_evidence_publisher",
+      "entrypoint": "bounded_adaptation.evaluate_adaptations"
+    }
+  ]
+}

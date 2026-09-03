@@ -1,0 +1,36 @@
+{
+  "registry_version": "1.0.0",
+  "registry_sha256": "f1913892ce712c1310e7e6ef16a4331b9a0a1e48c965dd2db9e7dbd2e5490f50",
+  "modules": [
+    {
+      "module_id": "P2.S1.M01",
+      "phase_id": "P2",
+      "subphase_id": "P2.S1"
+    },
+    {
+      "module_id": "P4.S1.M01",
+      "phase_id": "P4",
+      "subphase_id": "P4.S1"
+    },
+    {
+      "module_id": "P5.S1.M01",
+      "phase_id": "P5",
+      "subphase_id": "P5.S1"
+    },
+    {
+      "module_id": "P6.S1.M01",
+      "phase_id": "P6",
+      "subphase_id": "P6.S1"
+    },
+    {
+      "module_id": "P7.S1.M01",
+      "phase_id": "P7",
+      "subphase_id": "P7.S1"
+    },
+    {
+      "module_id": "P8.S5.M03",
+      "phase_id": "P8",
+      "subphase_id": "P8.S5"
+    }
+  ]
+}

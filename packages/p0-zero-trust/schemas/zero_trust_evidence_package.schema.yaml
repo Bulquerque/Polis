@@ -1,0 +1,72 @@
+schema_id: zero_trust_evidence_package.v1
+artifact_name: zero_trust_evidence_package
+schema_version: v14.1-rc4.1
+type: object
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- evidence_policy_version
+- required_evidence_count
+- evidence_count
+- evidence
+- categories
+- missing_evidence
+- duplicate_evidence
+- evidence_complete
+- release_evidence_traceable
+- all_evidence_passing
+- status
+- release_blocking
+properties:
+  created_at:
+    type: string
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  release_blocking:
+    type: boolean
+  artifact_id:
+    type: string
+    pattern: ^zero-trust-evidence-package-[0-9a-f]{12}$
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  evidence_count:
+    type: integer
+    minimum: 1
+  evidence:
+    type: array
+    minItems: 1
+  evidence_complete:
+    type: boolean
+  release_evidence_traceable:
+    type: boolean
+  all_evidence_passing:
+    type: boolean
+  evidence_policy_version:
+    type: string
+  required_evidence_count:
+    type: integer
+    minimum: 1
+  categories:
+    type: array
+    minItems: 1
+  missing_evidence:
+    type: array
+  duplicate_evidence:
+    type: array
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

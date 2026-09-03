@@ -1,0 +1,97 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "event_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Event Time"
+    },
+    "grain": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Grain",
+      "type": "array"
+    },
+    "maturity_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maturity At"
+    },
+    "payload": {
+      "title": "Payload"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "title": "Producer Module Id",
+      "type": "string"
+    },
+    "record_count": {
+      "default": 1,
+      "minimum": 0,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "role": {
+      "minLength": 1,
+      "title": "Role",
+      "type": "string"
+    },
+    "schema_document": {
+      "additionalProperties": true,
+      "title": "Schema Document",
+      "type": "object"
+    },
+    "schema_name": {
+      "minLength": 1,
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "1.0.0",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "settlement_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Settlement At"
+    }
+  },
+  "required": [
+    "role",
+    "payload",
+    "schema_name",
+    "schema_document",
+    "producer_module_id"
+  ],
+  "title": "SupplementalArtifact",
+  "type": "object"
+}

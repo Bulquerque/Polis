@@ -1,0 +1,104 @@
+{
+  "artifact_id": "knowledge-runtime-snapshot-s12-example",
+  "artifact_name": "knowledge_runtime_view",
+  "capabilities": [
+    "keyword_retrieval",
+    "semantic_retrieval",
+    "available_at_filtering"
+  ],
+  "content_hash": "07fe090dd4f98b0082da618b49d4ed898bd85b23c2f84d217e520bcd1c894f0d",
+  "graph_evidence_ref": {
+    "artifact_id": "graph_evidence_9b87336271549473f801971a",
+    "artifact_name": "graph_evidence_map",
+    "available_at": null,
+    "content_hash": "9b87336271549473f801971a5c50ae837fcb37815fbacc107224355f4b3a54ae",
+    "grain": [],
+    "lineage_id": "lin-pit-001",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S13.M02",
+    "row_count": null,
+    "schema_id": "graph_evidence_map.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://graph_evidence_9b87336271549473f801971a",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "graph_query_port_id": "graph_query_port.v1",
+  "graph_rag_ref": {
+    "artifact_id": "graph_aff295a6edb5c2a5411ff0a9",
+    "artifact_name": "graph_rag_artifact",
+    "available_at": null,
+    "content_hash": "aff295a6edb5c2a5411ff0a944b1ca332ca505d1f92e75df8185ac8ee4925ac2",
+    "grain": [],
+    "lineage_id": "lin-pit-001",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S13.M01",
+    "row_count": null,
+    "schema_id": "graph_rag_artifact.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://graph_aff295a6edb5c2a5411ff0a9",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "lineage": {
+    "lineage_id": "lineage-knowledge-runtime-snapshot-s12-example",
+    "parent_lineage_ids": [],
+    "source_artifact_ids": [
+      "rag_56dafe87d0f758e39bc90099",
+      "retrieval_manifest_2918b4073c0ed9964416",
+      "graph_aff295a6edb5c2a5411ff0a9",
+      "graph_evidence_9b87336271549473f801971a"
+    ],
+    "transformation_ids": [
+      "knowledge_runtime_projection.v1"
+    ]
+  },
+  "rag_index_ref": {
+    "artifact_id": "rag_56dafe87d0f758e39bc90099",
+    "artifact_name": "rag_index_artifact",
+    "available_at": null,
+    "content_hash": "56dafe87d0f758e39bc90099821f5785184b969e0286ece31e6b9f90b40eae4b",
+    "grain": [],
+    "lineage_id": "lin-pit-001",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S12.M01",
+    "row_count": null,
+    "schema_id": "rag_index_artifact.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://rag_56dafe87d0f758e39bc90099",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "retrieval_manifest_ref": {
+    "artifact_id": "retrieval_manifest_2918b4073c0ed9964416",
+    "artifact_name": "retrieval_index_manifest",
+    "available_at": null,
+    "content_hash": "2918b4073c0ed9964416bad1ac96a81d0b1e4db25102f034d563ea5524ed20ec",
+    "grain": [],
+    "lineage_id": "lin-pit-001",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S12.M02",
+    "row_count": null,
+    "schema_id": "retrieval_index_manifest.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://retrieval_manifest_2918b4073c0ed9964416",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "retrieval_port_id": "knowledge_retrieval_port.v1",
+  "schema_id": "knowledge_runtime_view.v1",
+  "schema_version": "1.0.0",
+  "status": "READY"
+}

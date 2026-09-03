@@ -1,0 +1,4 @@
+missing_required: REJECTED
+missing_optional: UNAVAILABLE_OR_DEGRADED
+challenger_unavailable: SKIPPED_CAPABILITY_UNAVAILABLE
+economic_default_for_missing_value: FORBIDDEN

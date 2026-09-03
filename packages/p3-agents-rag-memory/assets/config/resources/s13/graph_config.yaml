@@ -1,0 +1,24 @@
+schema_id: p3_s13_graph_config.v2
+schema_version: 2.0.0
+ontology_version: p3_graph_ontology.v1
+entity_resolution_version: typed_exact_alias_v1
+relation_rules_version: structured_cooccurrence_v1
+max_query_hops: 3
+edge_requires_evidence: true
+temporal_edges_required: true
+orphan_edge_policy: fail
+conflict_policy: preserve_disputed
+record_format: JSONL
+provider_proposals:
+  enabled: false
+  required: false
+  provider_id: null
+  min_confidence: 0.8
+  max_chunks_per_request: 8
+  max_proposals_per_chunk: 8
+publication:
+  enabled: false
+  required: false
+  adapter_id: null
+  database: null
+low_quality_threshold: 0.5

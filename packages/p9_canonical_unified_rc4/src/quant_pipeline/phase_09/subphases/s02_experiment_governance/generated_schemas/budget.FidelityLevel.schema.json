@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "fidelity_id": {
+      "minLength": 1,
+      "title": "Fidelity Id",
+      "type": "string"
+    },
+    "ordinal": {
+      "minimum": 0,
+      "title": "Ordinal",
+      "type": "integer"
+    },
+    "preserves_lifecycle": {
+      "title": "Preserves Lifecycle",
+      "type": "boolean"
+    },
+    "preserves_temporal_order": {
+      "title": "Preserves Temporal Order",
+      "type": "boolean"
+    },
+    "preserves_transaction_costs": {
+      "title": "Preserves Transaction Costs",
+      "type": "boolean"
+    },
+    "resource_fraction": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Resource Fraction"
+    }
+  },
+  "required": [
+    "fidelity_id",
+    "ordinal",
+    "resource_fraction",
+    "preserves_transaction_costs",
+    "preserves_lifecycle",
+    "preserves_temporal_order"
+  ],
+  "title": "FidelityLevel",
+  "type": "object"
+}

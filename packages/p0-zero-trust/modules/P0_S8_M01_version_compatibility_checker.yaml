@@ -1,0 +1,46 @@
+module_id: P0.S8.M01
+module_name: version_compatibility_checker
+function: Executar version compatibility checker da Fase 0, mantendo controle Zero
+  Trust técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- validated_phase_registry
+- contract_registry
+- schema_registry
+- release_manifest_previous
+outputs: &id002
+- version_compatibility_report
+validations:
+- schema_version_compatible
+- contract_version_compatible
+- pipeline_version_consistent
+- release_inventory_diff_classified
+- version_downgrade_rejected
+fail_fast_conditions:
+- version_compatibility_checker_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S1.M01
+    - P0.S2.M01
+    - P0.S2.M02
+    artifacts: *id001
+    phase_inputs:
+    - release_manifest_previous
+  emits_to:
+    modules:
+    - P0.S8.M02
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S8
+rc: RC4.1
+notes: Canonical P0.S8 module contract; external IDs and run_module interface preserved
+  by the S8 reform.

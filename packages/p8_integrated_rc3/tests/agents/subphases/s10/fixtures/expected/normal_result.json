@@ -1,0 +1,477 @@
+{
+  "audit_report": {
+    "audit_id": "aud_8df12652f4fd78e4c832",
+    "context": {
+      "run_id": "run-1",
+      "cycle_id": "cycle-1",
+      "trace_id": "trace-1",
+      "decision_time": "2026-08-03T15:00:00Z",
+      "audit_time": "2026-08-03T16:00:00Z",
+      "contract_version": "1.0.0",
+      "schema_version": "1.0.0"
+    },
+    "overall_status": "PASS",
+    "checks": [
+      {
+        "check_id": "candidate_conservation",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "c1,c2",
+        "observed_value": "c1,c2",
+        "residual": null,
+        "evidence_ids": []
+      },
+      {
+        "check_id": "order_id_uniqueness",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": null,
+        "observed_value": "o1",
+        "residual": null,
+        "evidence_ids": []
+      },
+      {
+        "check_id": "fill_id_uniqueness",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": null,
+        "observed_value": "f1",
+        "residual": null,
+        "evidence_ids": []
+      },
+      {
+        "check_id": "fill_order_identity",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": null,
+        "observed_value": null,
+        "residual": null,
+        "evidence_ids": []
+      },
+      {
+        "check_id": "order_conservation:o1",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "2",
+        "observed_value": "2",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "fill_sum:o1",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "2",
+        "observed_value": "2",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "position_reconciliation",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "{'A': Decimal('2')}",
+        "observed_value": "{'A': Decimal('2')}",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "dual_book_reconciliation",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "{'A': Decimal('2')}",
+        "observed_value": "{'A': Decimal('2')}",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "cash_reconciliation",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "979",
+        "observed_value": "979",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "margin_reconciliation",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "5",
+        "observed_value": "5",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "collateral_reconciliation",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "0",
+        "observed_value": "0",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "liability_reconciliation",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "0",
+        "observed_value": "0",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "valuation_position_reconciliation",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "{'A': Decimal('2')}",
+        "observed_value": "{'A': Decimal('2')}",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "valuation:A",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "24",
+        "observed_value": "24",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "pnl_components",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "3",
+        "observed_value": "3",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "nav_to_pnl",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "3",
+        "observed_value": "3",
+        "residual": "0",
+        "evidence_ids": []
+      },
+      {
+        "check_id": "event_sequence",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": null,
+        "observed_value": null,
+        "residual": null,
+        "evidence_ids": []
+      },
+      {
+        "check_id": "replay_hash",
+        "status": "PASS",
+        "reason_codes": [],
+        "expected_value": "4ba948f5f1174289325034277d25f9b7d37a8dfb9f4d418c0b0593867d373a31",
+        "observed_value": "4ba948f5f1174289325034277d25f9b7d37a8dfb9f4d418c0b0593867d373a31",
+        "residual": null,
+        "evidence_ids": []
+      }
+    ],
+    "failure_count": 0,
+    "warning_count": 0,
+    "replayed_state_sha256": "4ba948f5f1174289325034277d25f9b7d37a8dfb9f4d418c0b0593867d373a31",
+    "independent_implementation": true,
+    "production_promotion_allowed": false
+  },
+  "qualification": {
+    "qualification_id": "qua_319bcd87c0947db0eff8",
+    "context": {
+      "run_id": "run-1",
+      "cycle_id": "cycle-1",
+      "trace_id": "trace-1",
+      "decision_time": "2026-08-03T15:00:00Z",
+      "audit_time": "2026-08-03T16:00:00Z",
+      "contract_version": "1.0.0",
+      "schema_version": "1.0.0"
+    },
+    "terminal_state": "EXECUTED_VALID",
+    "technical_validity": "PASS",
+    "implementation_robustness": "PASS",
+    "statistical_qualification": "QUALIFIED",
+    "economic_qualification": "DEFERRED_TO_P9",
+    "diagnostics": {
+      "observation_count": 40,
+      "sharpe_ratio": "110.83771921146702",
+      "deflated_sharpe_ratio": "1.0",
+      "probability_backtest_overfitting": "0.0"
+    },
+    "reason_codes": [],
+    "eligible_for_p9_evaluation": true,
+    "production_promotion_allowed": false
+  },
+  "p9_handoff": {
+    "handoff_id": "p9h_0b713020619c5b23815a",
+    "context": {
+      "run_id": "run-1",
+      "cycle_id": "cycle-1",
+      "trace_id": "trace-1",
+      "decision_time": "2026-08-03T15:00:00Z",
+      "audit_time": "2026-08-03T16:00:00Z",
+      "contract_version": "1.0.0",
+      "schema_version": "1.0.0"
+    },
+    "qualification": {
+      "qualification_id": "qua_319bcd87c0947db0eff8",
+      "context": {
+        "run_id": "run-1",
+        "cycle_id": "cycle-1",
+        "trace_id": "trace-1",
+        "decision_time": "2026-08-03T15:00:00Z",
+        "audit_time": "2026-08-03T16:00:00Z",
+        "contract_version": "1.0.0",
+        "schema_version": "1.0.0"
+      },
+      "terminal_state": "EXECUTED_VALID",
+      "technical_validity": "PASS",
+      "implementation_robustness": "PASS",
+      "statistical_qualification": "QUALIFIED",
+      "economic_qualification": "DEFERRED_TO_P9",
+      "diagnostics": {
+        "observation_count": 40,
+        "sharpe_ratio": "110.83771921146702",
+        "deflated_sharpe_ratio": "1.0",
+        "probability_backtest_overfitting": "0.0"
+      },
+      "reason_codes": [],
+      "eligible_for_p9_evaluation": true,
+      "production_promotion_allowed": false
+    },
+    "evaluation_commitment": {
+      "commitment_id": "ec1",
+      "committed_at": "2026-08-03T14:59:00Z",
+      "outcome_definition": "portfolio net pnl after costs",
+      "evaluation_horizons": [
+        "1D",
+        "5D"
+      ],
+      "metrics": [
+        "NET_PNL",
+        "DRAWDOWN"
+      ],
+      "benchmarks": [
+        "CASH"
+      ],
+      "policy_hashes": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "holdout_constraints": [
+        "NO_REUSE"
+      ]
+    },
+    "all_candidate_ids": [
+      "c1",
+      "c2"
+    ],
+    "evidence_records": [
+      {
+        "evidence_id": "ev1",
+        "candidate_id": "c1",
+        "evidence_class": "FACTUAL_EXECUTED",
+        "maturity_hint": "EXPECTED_MATURED",
+        "expected_maturity_at": null,
+        "artifact_refs": [
+          {
+            "artifact_id": "fill-ref",
+            "content_sha256": "299566a7ed437e52c0a8b61a3301f9efe7b2a6c17ce34b171857809db0687a31",
+            "schema_version": "1.0.0",
+            "contract_version": "1.0.0",
+            "producer_phase": "P8",
+            "producer_module": "P8.S7.M06"
+          }
+        ],
+        "execution_ref": {
+          "artifact_id": "fill-ref",
+          "content_sha256": "299566a7ed437e52c0a8b61a3301f9efe7b2a6c17ce34b171857809db0687a31",
+          "schema_version": "1.0.0",
+          "contract_version": "1.0.0",
+          "producer_phase": "P8",
+          "producer_module": "P8.S7.M06"
+        },
+        "model_method_id": null
+      },
+      {
+        "evidence_id": "ev2",
+        "candidate_id": "c2",
+        "evidence_class": "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "maturity_hint": "EXPECTED_MATURED",
+        "expected_maturity_at": null,
+        "artifact_refs": [
+          {
+            "artifact_id": "obs",
+            "content_sha256": "d39ed8b3cea68e3fb9c0e34d3bfdb435c0e09892981141f90a0784b4e694455e",
+            "schema_version": "1.0.0",
+            "contract_version": "1.0.0",
+            "producer_phase": "P8",
+            "producer_module": "P8.S8.M07"
+          }
+        ],
+        "execution_ref": null,
+        "model_method_id": null
+      }
+    ],
+    "lineage_records": [
+      {
+        "candidate_id": "c1",
+        "p4_view_refs": [
+          {
+            "artifact_id": "p4",
+            "content_sha256": "ab71fc4c8a1c4d62b9202b36ee7c07dd398a0907a37037bd8c3959d6af573608",
+            "schema_version": "1.0.0",
+            "contract_version": "1.0.0",
+            "producer_phase": "P4",
+            "producer_module": "P4.S1.M01"
+          }
+        ],
+        "p5_belief_refs": [
+          {
+            "artifact_id": "p5",
+            "content_sha256": "536c351ae15e5f5e3dc37bcc5dea8ab641e70fc0431a088a1d684aef2ebf3e5b",
+            "schema_version": "1.0.0",
+            "contract_version": "1.0.0",
+            "producer_phase": "P5",
+            "producer_module": "P5.S1.M01"
+          }
+        ],
+        "p6_candidate_ref": {
+          "artifact_id": "p6",
+          "content_sha256": "7d087a2e212c110e851c7b6fdc2853a41e7db1690beef7a9c11b3a26ee77e853",
+          "schema_version": "1.0.0",
+          "contract_version": "1.0.0",
+          "producer_phase": "P6",
+          "producer_module": "P6.S1.M01"
+        },
+        "p7_decision_ref": {
+          "artifact_id": "p7",
+          "content_sha256": "03fbd36c05856bca596b0bcb4466f4f30f0119a41be2b9fcebfa71d68178b116",
+          "schema_version": "1.0.0",
+          "contract_version": "1.0.0",
+          "producer_phase": "P7",
+          "producer_module": "P7.S1.M01"
+        },
+        "p8_decision_ref": {
+          "artifact_id": "p8",
+          "content_sha256": "9b85c0828dcfbc883726fc200c987baa9826da6ba6a358643a69a52d8698d72e",
+          "schema_version": "1.0.0",
+          "contract_version": "1.0.0",
+          "producer_phase": "P8",
+          "producer_module": "P8.S5.M07"
+        },
+        "order_refs": [
+          {
+            "artifact_id": "o1",
+            "content_sha256": "2352da7280f1decc3acf1ba84eb945c9fc2b7b541094e1d0992dbffd1b6664cc",
+            "schema_version": "1.0.0",
+            "contract_version": "1.0.0",
+            "producer_phase": "P8",
+            "producer_module": "P8.S8.M07"
+          }
+        ],
+        "fill_refs": [
+          {
+            "artifact_id": "fill-ref",
+            "content_sha256": "299566a7ed437e52c0a8b61a3301f9efe7b2a6c17ce34b171857809db0687a31",
+            "schema_version": "1.0.0",
+            "contract_version": "1.0.0",
+            "producer_phase": "P8",
+            "producer_module": "P8.S7.M06"
+          }
+        ],
+        "position_refs": [
+          {
+            "artifact_id": "pos",
+            "content_sha256": "7160f8688035138fcbc9a6c8041949ebea0c0d21a1b1d063f839f38d5c2be8f9",
+            "schema_version": "1.0.0",
+            "contract_version": "1.0.0",
+            "producer_phase": "P8",
+            "producer_module": "P8.S8.M07"
+          }
+        ]
+      },
+      {
+        "candidate_id": "c2",
+        "p4_view_refs": [
+          {
+            "artifact_id": "p4",
+            "content_sha256": "ab71fc4c8a1c4d62b9202b36ee7c07dd398a0907a37037bd8c3959d6af573608",
+            "schema_version": "1.0.0",
+            "contract_version": "1.0.0",
+            "producer_phase": "P4",
+            "producer_module": "P4.S1.M01"
+          }
+        ],
+        "p5_belief_refs": [
+          {
+            "artifact_id": "p5",
+            "content_sha256": "536c351ae15e5f5e3dc37bcc5dea8ab641e70fc0431a088a1d684aef2ebf3e5b",
+            "schema_version": "1.0.0",
+            "contract_version": "1.0.0",
+            "producer_phase": "P5",
+            "producer_module": "P5.S1.M01"
+          }
+        ],
+        "p6_candidate_ref": {
+          "artifact_id": "p6",
+          "content_sha256": "7d087a2e212c110e851c7b6fdc2853a41e7db1690beef7a9c11b3a26ee77e853",
+          "schema_version": "1.0.0",
+          "contract_version": "1.0.0",
+          "producer_phase": "P6",
+          "producer_module": "P6.S1.M01"
+        },
+        "p7_decision_ref": {
+          "artifact_id": "p7",
+          "content_sha256": "03fbd36c05856bca596b0bcb4466f4f30f0119a41be2b9fcebfa71d68178b116",
+          "schema_version": "1.0.0",
+          "contract_version": "1.0.0",
+          "producer_phase": "P7",
+          "producer_module": "P7.S1.M01"
+        },
+        "p8_decision_ref": {
+          "artifact_id": "p8",
+          "content_sha256": "9b85c0828dcfbc883726fc200c987baa9826da6ba6a358643a69a52d8698d72e",
+          "schema_version": "1.0.0",
+          "contract_version": "1.0.0",
+          "producer_phase": "P8",
+          "producer_module": "P8.S5.M07"
+        },
+        "order_refs": [],
+        "fill_refs": [],
+        "position_refs": []
+      }
+    ],
+    "audit_report_ref": {
+      "artifact_id": "audit",
+      "content_sha256": "b81f37a043a6f767e7c94d105f4bd31282f3ecc20680bb9d09bd93461cf4c863",
+      "schema_version": "1.0.0",
+      "contract_version": "1.0.0",
+      "producer_phase": "P8",
+      "producer_module": "P8.S10.M01"
+    },
+    "runtime_evidence_ref": {
+      "artifact_id": "runtime",
+      "content_sha256": "d92c6a81b2ff50096bcda80885427d1f59a25b5f483f7055523504925d16ab23",
+      "schema_version": "1.0.0",
+      "contract_version": "1.0.0",
+      "producer_phase": "P8",
+      "producer_module": "P8.S9.M05"
+    },
+    "source_artifacts": [
+      {
+        "artifact_id": "source",
+        "content_sha256": "41cf6794ba4200b839c53531555f0f3998df4cbb01a4d5cb0b94e3ca5e23947d",
+        "schema_version": "1.0.0",
+        "contract_version": "1.0.0",
+        "producer_phase": "P8",
+        "producer_module": "P8.S8.M07"
+      }
+    ],
+    "production_promotion_allowed": false
+  }
+}

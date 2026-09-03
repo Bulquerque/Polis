@@ -1,0 +1,218 @@
+{
+  "$defs": {
+    "OperationConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "default_transport": {
+          "$ref": "#/$defs/TransportKind"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "deterministic_or_seeded": {
+          "title": "Deterministic Or Seeded",
+          "type": "boolean"
+        },
+        "forbidden_authorities": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Forbidden Authorities",
+          "type": "array"
+        },
+        "handler_id": {
+          "minLength": 1,
+          "title": "Handler Id",
+          "type": "string"
+        },
+        "max_result_records": {
+          "default": 1000,
+          "maximum": 100000,
+          "minimum": 1,
+          "title": "Max Result Records",
+          "type": "integer"
+        },
+        "operation_id": {
+          "minLength": 1,
+          "title": "Operation Id",
+          "type": "string"
+        },
+        "operation_version": {
+          "default": "1.0.0",
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+          "title": "Operation Version",
+          "type": "string"
+        },
+        "request_schema_ref": {
+          "minLength": 1,
+          "title": "Request Schema Ref",
+          "type": "string"
+        },
+        "required_view_classes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required View Classes",
+          "type": "array"
+        },
+        "result_schema_ref": {
+          "minLength": 1,
+          "title": "Result Schema Ref",
+          "type": "string"
+        },
+        "supported_mode_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Supported Mode Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation_id",
+        "description",
+        "request_schema_ref",
+        "result_schema_ref",
+        "supported_mode_ids",
+        "required_view_classes",
+        "handler_id",
+        "default_transport",
+        "deterministic_or_seeded"
+      ],
+      "title": "OperationConfig",
+      "type": "object"
+    },
+    "ToolFamilyConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_family": {
+          "minLength": 1,
+          "title": "Capability Family",
+          "type": "string"
+        },
+        "default_provider_id": {
+          "minLength": 1,
+          "title": "Default Provider Id",
+          "type": "string"
+        },
+        "default_transport": {
+          "$ref": "#/$defs/TransportKind"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "forbidden_authorities": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Forbidden Authorities",
+          "type": "array"
+        },
+        "operations": {
+          "items": {
+            "$ref": "#/$defs/OperationConfig"
+          },
+          "title": "Operations",
+          "type": "array"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "tool_id": {
+          "minLength": 1,
+          "title": "Tool Id",
+          "type": "string"
+        },
+        "tool_version": {
+          "default": "1.0.0",
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+          "title": "Tool Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tool_id",
+        "title",
+        "description",
+        "capability_family",
+        "default_provider_id",
+        "default_transport",
+        "forbidden_authorities",
+        "operations"
+      ],
+      "title": "ToolFamilyConfig",
+      "type": "object"
+    },
+    "TransportKind": {
+      "enum": [
+        "LOCAL_FUNCTION",
+        "ARTIFACT_QUERY",
+        "COMPOSITE_INTERNAL",
+        "MCP_OPTIONAL",
+        "HTTP_OPTIONAL"
+      ],
+      "title": "TransportKind",
+      "type": "string"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.catalog_config.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "expected_operation_count": {
+      "default": 34,
+      "maximum": 1024,
+      "minimum": 1,
+      "title": "Expected Operation Count",
+      "type": "integer"
+    },
+    "expected_tool_count": {
+      "default": 6,
+      "maximum": 128,
+      "minimum": 1,
+      "title": "Expected Tool Count",
+      "type": "integer"
+    },
+    "schema_id": {
+      "const": "p3.research_tools.catalog_config.v1",
+      "default": "p3.research_tools.catalog_config.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "tools": {
+      "items": {
+        "$ref": "#/$defs/ToolFamilyConfig"
+      },
+      "title": "Tools",
+      "type": "array"
+    }
+  },
+  "required": [
+    "contract_version",
+    "tools"
+  ],
+  "title": "ResearchToolCatalogConfig",
+  "type": "object"
+}

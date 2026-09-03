@@ -1,0 +1,56 @@
+module_id: P2.S1.M01
+module_name: phase1_handoff_validator
+phase: phase_02_quality_pit
+subphase: P2.S1
+rc: RC4.1
+function: Validar pacote completo da Fase 1 antes de qualquer leitura.
+inputs: &id001
+- handoff_manifest_to_phase_2
+- source_registry
+- raw_file_inventory
+- source_snapshot_registry
+- raw_readability_report
+- raw_schema_hint_report
+- ingestion_error_report
+outputs: &id002
+- validated_phase1_handoff_bundle
+validations:
+- all_phase1_outputs_present
+- hashes_match
+fail_fast_conditions:
+- phase1_handoff_validator_schema_violation
+- phase1_handoff_validator_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - handoff_manifest_to_phase_2
+    - source_registry
+    - raw_file_inventory
+    - source_snapshot_registry
+    - raw_readability_report
+    - raw_schema_hint_report
+    - ingestion_error_report
+  emits_to:
+    modules:
+    - P2.S1.M02
+    - P2.S1.M03
+    artifacts: *id002
+    phase_outputs: []
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

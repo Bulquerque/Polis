@@ -1,0 +1,47 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/QualifiedBacktestIdentity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "configuration_id": {
+      "title": "Configuration Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "fold_id": {
+      "title": "Fold Id",
+      "type": "string"
+    },
+    "handoff_id": {
+      "title": "Handoff Id",
+      "type": "string"
+    },
+    "handoff_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Handoff Sha256",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "trial_id": {
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "cycle_id",
+    "trial_id",
+    "fold_id",
+    "configuration_id",
+    "handoff_id",
+    "handoff_sha256"
+  ],
+  "title": "QualifiedBacktestIdentity",
+  "type": "object"
+}

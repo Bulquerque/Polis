@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "boundary_configuration_count": {
+      "minimum": 0,
+      "title": "Boundary Configuration Count",
+      "type": "integer"
+    },
+    "catalog_id": {
+      "minLength": 1,
+      "title": "Catalog Id",
+      "type": "string"
+    },
+    "duplicate_proposals_discarded": {
+      "minimum": 0,
+      "title": "Duplicate Proposals Discarded",
+      "type": "integer"
+    },
+    "generated_count": {
+      "minimum": 0,
+      "title": "Generated Count",
+      "type": "integer"
+    },
+    "receipt_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Receipt Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "catalog_id",
+    "generated_count",
+    "duplicate_proposals_discarded",
+    "boundary_configuration_count",
+    "receipt_sha256"
+  ],
+  "title": "ConfigurationIdentityReceipt",
+  "type": "object"
+}

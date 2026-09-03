@@ -1,0 +1,26 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "require_oof_for_qualified": {
+      "default": true,
+      "title": "Require Oof For Qualified",
+      "type": "boolean"
+    },
+    "collinearity_threshold": {
+      "default": 0.98,
+      "exclusiveMinimum": 0.0,
+      "maximum": 1.0,
+      "title": "Collinearity Threshold",
+      "type": "number"
+    },
+    "minimum_observations": {
+      "default": 3,
+      "minimum": 1,
+      "title": "Minimum Observations",
+      "type": "integer"
+    }
+  },
+  "title": "ForecastAttributionPolicy",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:ForecastAttributionPolicy:1.0.0"
+}

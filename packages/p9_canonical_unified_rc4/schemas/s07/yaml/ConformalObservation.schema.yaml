@@ -1,0 +1,28 @@
+additionalProperties: false
+properties:
+  event_id:
+    minLength: 1
+    title: Event Id
+    type: string
+  group_id:
+    minLength: 1
+    title: Group Id
+    type: string
+  lower:
+    title: Lower
+    type: number
+  upper:
+    title: Upper
+    type: number
+  outcome:
+    title: Outcome
+    type: number
+required:
+- event_id
+- group_id
+- lower
+- upper
+- outcome
+title: ConformalObservation
+type: object
+$id: urn:inferencia:p9:s7:ConformalObservation:1.0.0

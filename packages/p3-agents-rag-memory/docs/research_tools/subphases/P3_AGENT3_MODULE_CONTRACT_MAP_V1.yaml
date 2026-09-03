@@ -1,0 +1,114 @@
+agent:
+  id: agent_3
+  scope: [P3.S38, P3.S39, P3.S40]
+  version: 1.0.0
+  module_count: 18
+  existing_modules_frozen: P3.S1-P3.S31
+
+compatibility_constraints:
+  p1_access: raw_reference_only_via_p2_lineage
+  p2_access: pit_query_port_only
+  p3_s21_gateway: ToolGatewayPort
+  p3_s21_evidence_rule: evidence_refs_must_exist_in_retrieval_evidence_map
+  p4_status: PRODUCER_READY_CONSUMER_NOT_YET_WIRED
+  p5_direct_connection: FORBIDDEN
+  p9_status: PRODUCER_READY_CONSUMER_NOT_YET_WIRED
+  promotion_authority: P0_ONLY
+
+subphases:
+  P3.S38:
+    title: Company Fundamentals Tool Suite
+    modules:
+      P3.S38.M01:
+        name: company_operation_readiness_gate_builder
+        inputs: [research_tool_extension_snapshot, tool_operation_registry, research_mode_registry, research_data_boundary_bundle, phase2_research_view_manifest, company_readiness_policy_config]
+        outputs: [company_operation_readiness_panel, company_data_gap_report]
+      P3.S38.M02:
+        name: company_profile_filing_xbrl_handler_bundle_builder
+        inputs: [company_operation_readiness_panel, research_data_boundary_bundle, temporal_entity_resolution_service, company_profile_policy_config]
+        outputs: [company_profile_filing_handler_bundle, company_profile_handler_qualification_report]
+      P3.S38.M03:
+        name: as_reported_financial_statement_handler_bundle_builder
+        inputs: [company_operation_readiness_panel, research_data_boundary_bundle, company_statement_policy_config, statement_concept_mapping_registry]
+        outputs: [financial_statement_handler_bundle, statement_semantics_manifest]
+      P3.S38.M04:
+        name: earnings_quality_capital_allocation_handler_bundle_builder
+        inputs: [financial_statement_handler_bundle, research_data_boundary_bundle, company_formula_registry, company_operation_readiness_panel]
+        outputs: [earnings_quality_capital_allocation_handler_bundle, company_formula_registry_manifest]
+      P3.S38.M05:
+        name: guidance_peers_valuation_handler_bundle_builder
+        inputs: [company_operation_readiness_panel, research_data_boundary_bundle, guidance_policy_config, peer_authority_policy_config, valuation_method_registry, company_profile_filing_handler_bundle, financial_statement_handler_bundle]
+        outputs: [guidance_peers_valuation_handler_bundle, valuation_method_registry_manifest]
+      P3.S38.M06:
+        name: company_tool_bundle_branch_qualification_builder
+        inputs: [company_profile_filing_handler_bundle, financial_statement_handler_bundle, earnings_quality_capital_allocation_handler_bundle, guidance_peers_valuation_handler_bundle, company_operation_readiness_panel, company_contract_test_report, company_leakage_test_report]
+        outputs: [company_tool_handler_bundle, company_operation_mode_qualification, company_qualification_evidence_package]
+
+  P3.S39:
+    title: Quantitative Diagnostic Tool Suite
+    modules:
+      P3.S39.M01:
+        name: return_risk_volatility_handler_bundle_builder
+        inputs: [research_data_boundary_bundle, quant_method_policy_config, frequency_annualization_registry, tool_operation_registry, research_mode_registry]
+        outputs: [return_risk_volatility_handler_bundle, return_volatility_method_manifest]
+      P3.S39.M02:
+        name: dependence_entropy_handler_bundle_builder
+        inputs: [research_data_boundary_bundle, dependence_method_policy_config, entropy_discretization_registry, tool_operation_registry, research_mode_registry]
+        outputs: [dependence_entropy_handler_bundle, dependence_entropy_method_manifest]
+      P3.S39.M03:
+        name: event_window_scenario_handler_bundle_builder
+        inputs: [research_data_boundary_bundle, event_scenario_method_policy_config, tool_operation_registry, research_mode_registry]
+        outputs: [event_window_scenario_handler_bundle, event_scenario_method_manifest]
+      P3.S39.M04:
+        name: quant_tool_bundle_method_qualification_builder
+        inputs: [return_risk_volatility_handler_bundle, dependence_entropy_handler_bundle, event_window_scenario_handler_bundle, quant_contract_test_report, quant_property_test_report, quant_leakage_test_report]
+        outputs: [quant_tool_handler_bundle, quant_operation_mode_qualification, quant_qualification_evidence_package]
+
+  P3.S40:
+    title: Runtime Composition, Evidence, Qualification and Downstream
+    modules:
+      P3.S40.M01:
+        name: internal_handler_registry_assembler
+        inputs: [tool_operation_registry, compatibility_alias_registry, corpus_tool_handler_bundle, market_tool_handler_bundle, options_tool_handler_bundle, macro_tool_handler_bundle, company_tool_handler_bundle, quant_tool_handler_bundle]
+        outputs: [internal_handler_registry, handler_registry_completeness_report]
+      P3.S40.M02:
+        name: composite_tool_gateway_runtime_factory
+        inputs: [internal_handler_registry, research_data_boundary_bundle, provider_transport_overlay, mcp_gateway_policy_overlay, research_tool_extension_snapshot]
+        outputs: [composite_tool_gateway_binding_manifest, gateway_runtime_readiness_report]
+        process_local_output: CompositeResearchToolGateway
+      P3.S40.M03:
+        name: s21_runtime_binding_preflight_builder
+        inputs: [composite_tool_gateway_binding_manifest, provider_adapter_registry_projection, mcp_gateway_policy_projection, extended_person_tool_entitlement_panel, extended_validated_person_context_bundle, tool_operation_registry, research_tool_extension_snapshot]
+        outputs: [s21_research_tool_runtime_binding_manifest, s21_runtime_preflight_report]
+      P3.S40.M04:
+        name: tool_execution_evidence_envelope_builder
+        inputs: [raw_tool_result_panel, tool_call_audit_panel, retrieval_evidence_map, research_tool_extension_snapshot]
+        outputs: [research_tool_result_envelope_panel, research_tool_evidence_map, extended_retrieval_evidence_map, research_tool_execution_trace_panel]
+        dag_position: between_P3.S21.M03_and_P3.S21.M04
+      P3.S40.M05:
+        name: operation_mode_qualification_leakage_runner
+        inputs: [all_family_qualification_reports, s21_runtime_preflight_report, handler_registry_completeness_report, integration_test_receipts, leakage_test_receipts, replay_test_receipts]
+        outputs: [operation_mode_qualification_matrix, research_tool_leakage_report, qualification_evidence_manifest]
+      P3.S40.M06:
+        name: research_process_panel_p4_handoff_builder
+        inputs: [validated_tool_result_panel, tool_call_audit_panel, research_tool_result_envelope_panel, evidence_bound_belief_update_panel, phase3_run_snapshot, tool_operation_registry, research_mode_registry]
+        outputs: [research_process_panel, phase4_research_process_handoff_manifest, p4_research_handoff_compatibility_report]
+      P3.S40.M07:
+        name: p9_research_tool_learning_evidence_builder
+        inputs: [research_process_panel, belief_outcome_commitment_log, research_tool_execution_trace_panel, phase3_run_snapshot, model_knowledge_cutoff_report]
+        outputs: [p9_research_tool_learning_evidence, p9_research_tool_learning_handoff_manifest, p9_consumer_compatibility_report]
+      P3.S40.M08:
+        name: research_tool_extension_release_gate
+        inputs: [handler_registry_completeness_report, s21_runtime_preflight_report, operation_mode_qualification_matrix, research_tool_leakage_report, p4_research_handoff_compatibility_report, p9_consumer_compatibility_report, contract_test_report, schema_test_report, code_quality_report, hash_integrity_report, rollback_report]
+        outputs: [research_tool_extension_release_gate, research_tool_extension_evidence_package, research_tool_extension_blocking_issue_panel]
+
+release_invariants:
+  - no_modification_to_P3_S1_S31
+  - all_exposed_operations_have_one_handler
+  - blocked_operations_absent_from_person_context
+  - all_successful_external_evidence_refs_exist_in_extended_retrieval_map
+  - p3_to_p5_direct_connection_absent
+  - company_missing_data_never_synthesized
+  - quant_tools_do_not_backtest_or_select_models
+  - replay_hashes_deterministic
+  - p0_only_promotion_authority

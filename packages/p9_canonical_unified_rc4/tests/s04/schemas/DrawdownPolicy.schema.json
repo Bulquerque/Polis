@@ -1,0 +1,29 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/DrawdownPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conditional_tail_fraction": {
+      "default": 0.2,
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "title": "Conditional Tail Fraction",
+      "type": "number"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Policy Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version"
+  ],
+  "title": "DrawdownPolicy",
+  "type": "object"
+}

@@ -1,0 +1,47 @@
+{
+  "$id": "https://inferencia.local/p9/s3/MetricParityCheck.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "example_id": {
+      "title": "Example Id",
+      "type": "string"
+    },
+    "expected": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Expected"
+    },
+    "observed": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Observed"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "example_id",
+    "passed",
+    "observed",
+    "expected"
+  ],
+  "title": "MetricParityCheck",
+  "type": "object"
+}

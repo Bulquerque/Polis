@@ -1,0 +1,42 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "max_memory_mb_per_trial": {
+      "minimum": 128,
+      "title": "Max Memory Mb Per Trial",
+      "type": "integer"
+    },
+    "max_parallel_trials": {
+      "minimum": 1,
+      "title": "Max Parallel Trials",
+      "type": "integer"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "snapshot_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Snapshot Sha256",
+      "type": "string"
+    },
+    "worker_labels": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Worker Labels",
+      "type": "array"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "snapshot_sha256",
+    "worker_labels",
+    "max_parallel_trials",
+    "max_memory_mb_per_trial"
+  ],
+  "title": "WorkerCapabilitySnapshot",
+  "type": "object"
+}

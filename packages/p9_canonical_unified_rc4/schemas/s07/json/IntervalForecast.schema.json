@@ -1,0 +1,33 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "INTERVAL",
+      "default": "INTERVAL",
+      "title": "Kind",
+      "type": "string"
+    },
+    "lower": {
+      "title": "Lower",
+      "type": "number"
+    },
+    "upper": {
+      "title": "Upper",
+      "type": "number"
+    },
+    "nominal_coverage": {
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Nominal Coverage",
+      "type": "number"
+    }
+  },
+  "required": [
+    "lower",
+    "upper",
+    "nominal_coverage"
+  ],
+  "title": "IntervalForecast",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:IntervalForecast:1.0.0"
+}

@@ -1,0 +1,25 @@
+version: v1
+formula_version: p3.s27.formulas.v1
+bearish_threshold: -0.1
+bullish_threshold: 0.1
+reversal_epsilon: 0.05
+velocity_min_elapsed_seconds: 60.0
+attention_formula: weighted_mean_and_one_minus_normalized_entropy
+information_formula: weighted_population_standard_deviation
+information_access_weight: 0.4
+research_depth_weight: 0.3
+validated_tool_weight: 0.3
+validated_tool_gain_cap: 1.0
+causal_delivery_statuses:
+  - SEEN
+  - INTERPRETED
+  - USED
+validated_tool_statuses:
+  - SUCCEEDED
+  - VALIDATED
+secondary_activation_reasons:
+  - SOCIAL_MESSAGE
+  - SOCIAL_TOOL
+influence_concentration_formula: HHI
+zero_coverage_policy: MATERIAL_RECORD
+reject_causal_cycles: true

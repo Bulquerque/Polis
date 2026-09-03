@@ -1,0 +1,22 @@
+runtime_dependencies:
+  required_ports:
+  - artifact_resolver
+  - artifact_writer
+  - event_sink
+  - research_attempt_sink
+  - clock
+  optional_ports:
+  - encoder_backend
+  - parquet_backend
+rules:
+- dependencies_are_injected_explicitly
+- no_module_level_singletons
+- no_network_in_unit_tests
+- clock_is_fixed_in_replay_tests
+- encoder_backend_absence_is_nonblocking
+execution_stages:
+  build:
+    includes: all_modules_except_post_handoff_qualification
+  post_handoff_qualification:
+    includes:
+    - P4.S9.M05

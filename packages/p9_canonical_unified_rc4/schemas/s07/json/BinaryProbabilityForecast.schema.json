@@ -1,0 +1,23 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "BINARY_PROBABILITY",
+      "default": "BINARY_PROBABILITY",
+      "title": "Kind",
+      "type": "string"
+    },
+    "probability": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Probability",
+      "type": "number"
+    }
+  },
+  "required": [
+    "probability"
+  ],
+  "title": "BinaryProbabilityForecast",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:BinaryProbabilityForecast:1.0.0"
+}

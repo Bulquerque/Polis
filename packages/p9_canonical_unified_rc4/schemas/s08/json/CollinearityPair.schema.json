@@ -1,0 +1,29 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "first_component_id": {
+      "minLength": 1,
+      "title": "First Component Id",
+      "type": "string"
+    },
+    "second_component_id": {
+      "minLength": 1,
+      "title": "Second Component Id",
+      "type": "string"
+    },
+    "correlation": {
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Correlation",
+      "type": "number"
+    }
+  },
+  "required": [
+    "first_component_id",
+    "second_component_id",
+    "correlation"
+  ],
+  "title": "CollinearityPair",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:CollinearityPair:1.0.0"
+}

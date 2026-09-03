@@ -1,0 +1,57 @@
+schema_id: tool_entitlement_config.s15.v2
+schema_version: 2.0.0
+default_decision: DENY
+deny_overrides: true
+role_and_resource_based: true
+performance_based_entitlement_forbidden: true
+default_budget_calls_per_cycle: 3
+maximum_entitlement_calls_per_cycle: 5
+default_max_cost_per_cycle: 10.0
+default_max_latency_ms: 30000
+rules:
+  - rule_id: allow_fundamental_research
+    effect: ALLOW
+    priority: 100
+    actions: [DISCOVER, REQUEST, EXECUTE]
+    subject:
+      roles: [fundamental_analyst, portfolio_manager]
+      required_resources: [research_terminal, filings_access]
+      minimum_capabilities: {research: 0.6, tool_use: 0.5}
+    resource:
+      capability_families: [research]
+      execution_modes: [READ_ONLY]
+      required_data_classes: [public_filings]
+    budget: {max_calls_per_cycle: 3, max_cost_per_cycle: 5.0, max_latency_ms: 30000}
+    reason_code: ROLE_RESOURCE_RESEARCH_ALLOWED
+  - rule_id: allow_quant_tools
+    effect: ALLOW
+    priority: 100
+    actions: [DISCOVER, REQUEST, EXECUTE]
+    subject:
+      roles: [quant_researcher, portfolio_manager]
+      required_resources: [python_runtime]
+      minimum_capabilities: {quantitative: 0.7, tool_use: 0.5}
+    resource:
+      capability_families: [quantitative]
+      execution_modes: [READ_ONLY]
+      required_data_classes: [market_returns]
+    budget: {max_calls_per_cycle: 4, max_cost_per_cycle: 2.0, max_latency_ms: 10000}
+    reason_code: ROLE_RESOURCE_QUANT_ALLOWED
+  - rule_id: deny_external_when_constrained
+    effect: DENY
+    priority: 1000
+    actions: [DISCOVER, REQUEST, EXECUTE]
+    subject:
+      required_constraints: [no_external_data]
+      forbidden_constraints: []
+      roles: []
+      institutions: []
+      required_resources: []
+      minimum_capabilities: {}
+    resource:
+      capability_families: [research]
+      execution_modes: []
+      sensitivity_classes: []
+      required_data_classes: []
+    budget: {}
+    reason_code: EXTERNAL_DATA_CONSTRAINT_DENY

@@ -1,0 +1,118 @@
+{
+  "cascade_metrics_panel": {
+    "schema_version": "p3.s27.v1",
+    "run_id": "run-s27-001",
+    "cycle_id": 7,
+    "as_of_time": "2026-06-10T00:00:00Z",
+    "lineage_id": "lin_4678b58fea4d21c4ac825fce",
+    "formula_version": "p3.s27.formulas.v1",
+    "records": [
+      {
+        "underlying_id": "PETR4",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "as_of_time": "2026-06-10T00:00:00Z",
+        "formula_version": "p3.s27.formulas.v1",
+        "status": "READY",
+        "cascade_count": 1,
+        "mean_cascade_size": 7.0,
+        "max_cascade_size": 7,
+        "mean_cascade_depth": 6.0,
+        "max_cascade_depth": 6,
+        "mean_cascade_speed": 0.0003333333333333333,
+        "mean_cascade_duration_seconds": 18000.0,
+        "secondary_activation_rate": 1.0,
+        "social_contagion": 1.0,
+        "influence_concentration": 1.0,
+        "causal_coverage_ratio": 1.0,
+        "linked_event_count": 7,
+        "unlinked_event_count": 0,
+        "cascades": [
+          {
+            "cascade_id": "cascade_33dc4f4c72a90ec34314cdaf",
+            "root_stimulus_id": "s1",
+            "size": 7,
+            "depth": 6,
+            "duration_seconds": 18000.0,
+            "speed_events_per_second": 0.0003333333333333333,
+            "secondary_activation_count": 2,
+            "exposed_person_count": 2,
+            "social_contagion": 1.0,
+            "influence_concentration": 1.0,
+            "started_at": "2026-06-09T00:00:00Z",
+            "ended_at": "2026-06-09T05:00:00Z",
+            "node_ids": [
+              "a1",
+              "a2",
+              "a3",
+              "m1",
+              "m2",
+              "s1",
+              "sta1"
+            ]
+          }
+        ],
+        "input_lineage_ids": [
+          "lin-a1",
+          "lin-a2",
+          "lin-a3",
+          "lin-activations",
+          "lin-deliveries",
+          "lin-m1",
+          "lin-m2",
+          "lin-s1",
+          "lin-social-tools",
+          "lin-sta1",
+          "lin-stimuli"
+        ]
+      },
+      {
+        "underlying_id": "VALE3",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "as_of_time": "2026-06-10T00:00:00Z",
+        "formula_version": "p3.s27.formulas.v1",
+        "status": "READY",
+        "cascade_count": 1,
+        "mean_cascade_size": 1.0,
+        "max_cascade_size": 1,
+        "mean_cascade_depth": 0.0,
+        "max_cascade_depth": 0,
+        "mean_cascade_speed": 0.0,
+        "mean_cascade_duration_seconds": 0.0,
+        "secondary_activation_rate": 0.0,
+        "social_contagion": 0.0,
+        "influence_concentration": 0.0,
+        "causal_coverage_ratio": 1.0,
+        "linked_event_count": 1,
+        "unlinked_event_count": 0,
+        "cascades": [
+          {
+            "cascade_id": "cascade_a78220f04f40f7abe9be282c",
+            "root_stimulus_id": "s2",
+            "size": 1,
+            "depth": 0,
+            "duration_seconds": 0.0,
+            "speed_events_per_second": 0.0,
+            "secondary_activation_count": 0,
+            "exposed_person_count": 0,
+            "social_contagion": 0.0,
+            "influence_concentration": 0.0,
+            "started_at": "2026-06-09T00:30:00Z",
+            "ended_at": "2026-06-09T00:30:00Z",
+            "node_ids": [
+              "s2"
+            ]
+          }
+        ],
+        "input_lineage_ids": [
+          "lin-activations",
+          "lin-deliveries",
+          "lin-s2",
+          "lin-social-tools",
+          "lin-stimuli"
+        ]
+      }
+    ]
+  }
+}

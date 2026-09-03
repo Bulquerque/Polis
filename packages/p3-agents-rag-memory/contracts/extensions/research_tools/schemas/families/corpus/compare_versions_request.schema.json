@@ -1,0 +1,37 @@
+{
+  "$defs": {
+    "CorpusMode": {
+      "enum": [
+        "LOOKUP",
+        "STANDARD",
+        "TRIANGULATED",
+        "FORENSIC"
+      ],
+      "title": "CorpusMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "left_document_id": {
+      "minLength": 1,
+      "title": "Left Document Id",
+      "type": "string"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/CorpusMode",
+      "default": "STANDARD"
+    },
+    "right_document_id": {
+      "minLength": 1,
+      "title": "Right Document Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "left_document_id",
+    "right_document_id"
+  ],
+  "title": "CompareVersionsRequest",
+  "type": "object"
+}

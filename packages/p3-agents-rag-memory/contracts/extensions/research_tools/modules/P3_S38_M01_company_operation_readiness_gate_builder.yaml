@@ -1,0 +1,155 @@
+phase: phase_03_agents_rag_memory
+subphase: P3.S38
+status: qualified_local
+contract_version: p3.research.tools.module.v1
+rc: S38-UNIFIED-V1
+module_id: P3.S38.M01
+module_name: company_operation_readiness_gate_builder
+function: Determine readiness by operation and mode without reading company payloads.
+inputs:
+- research_tool_extension_snapshot
+- tool_operation_registry
+- research_mode_registry
+- research_data_boundary_bundle
+- phase2_research_view_manifest
+- company_readiness_policy_config
+outputs:
+- company_operation_readiness_panel
+- company_data_gap_report
+implementation_status_policy:
+  current: IMPLEMENTED_LOCAL_QUALIFICATION_REQUIRED
+  production_promotion_allowed: false
+  runtime_fail_closed: true
+invariants:
+- point_in_time_integrity
+- as_reported_preservation
+- lineage_traceability
+- deterministic_or_seeded_execution
+- no_live_network_in_backtest
+- no_direct_P3_to_P5
+forbidden_fields:
+- buy_sell_signal
+- recommendation
+- target_price
+- portfolio_weight
+- model_selection_result
+- feature_selection_result
+- future_return
+- target
+- label
+- prediction
+- rank_score
+- trade_decision
+- realized_pnl
+- performance
+- pnl
+fail_fast_conditions:
+- P3_S38_INPUT_INVALID
+- P3_S38_TEMPORAL_VIOLATION
+- P3_S38_OUTPUT_INVALID
+- P3_S38_FORBIDDEN_AUTHORITY
+validations:
+- input_contracts_strict
+- output_contracts_strict
+- point_in_time_policy_enforced
+- lineage_and_hashes_present
+- missing_data_explicit
+authority_note: S38 provides read-only company evidence and scenario calculations; it never recommends investments.
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S38_M01_company_operation_readiness_gate_builder.py
+unit_test_target: tests/research_tools/company
+integration_test_target: tests/research_tools/company/test_s40_company_vertical.py
+documentation_target: docs/research_tools/P3.S38.md
+owner_prompt: extensions/research_tools/subphases/P3_S38_company_fundamentals_tool_suite.md
+non_responsibilities:
+- investment_recommendation
+- portfolio_construction
+- trade_execution
+- future_outcome_access
+- downstream_model_selection
+allowed_connections:
+  consumes_from:
+    artifacts:
+    - research_tool_extension_snapshot
+    - tool_operation_registry
+    - research_mode_registry
+    - research_data_boundary_bundle
+    - phase2_research_view_manifest
+    - company_readiness_policy_config
+  emits_to:
+    artifacts:
+    - company_operation_readiness_panel
+    - company_data_gap_report
+tests_required:
+- happy_path
+- negative_contract
+- determinism
+- point_in_time_integrity
+- lineage_and_hash_integrity
+- consumer_compatibility
+definition_of_done:
+- required_tests_implemented_and_passing
+- outputs_match_schemas
+- no_undeclared_side_effects
+- contracts_docs_tests_updated_together
+- existing_p3_tests_remain_green
+observability_requirements:
+  events:
+  - module_started
+  - input_contract_validated
+  - module_succeeded
+  - module_failed
+  dimensions:
+  - run_id
+  - cycle_id
+  - module_id
+  - decision_time
+  - contract_version
+  - lineage_id
+  - content_hash
+  metrics:
+  - duration_ms
+  - input_record_count
+  - output_record_count
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - provider_secrets
+  - storage_paths
+  - raw_bytes
+  - private_payloads
+debugging_contract:
+  triage_order:
+  - validate_required_and_optional_inputs
+  - validate_schema_and_version
+  - validate_point_in_time_and_snapshot_identity
+  - validate_lineage_and_hashes
+  - validate_output_schema_and_reason_codes
+  error_codes:
+  - P3RT-CONTRACT-SCHEMA-INVALID
+  - P3RT-PIT-SNAPSHOT-MISMATCH
+  - P3RT-DATA-UPSTREAM-INCOMPLETE
+  - P3RT-OUTPUT-CONTRACT-INVALID
+  fallback_policy: fail_closed_no_silent_fallback
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - documentation
+  - test_fixture
+  contract_change_requires:
+  - schema_update
+  - fixtures_update
+  - consumer_tests_update
+  - documentation_update
+  - version_review
+  major_breaking_change_during_parallel_production: false
+review_checklist:
+- single_responsibility
+- input_output_match
+- no_forbidden_authority
+- temporal_semantics_explicit
+- deterministic_or_seeded
+- strict_models
+- negative_tests_present
+- consumer_compatibility_verified

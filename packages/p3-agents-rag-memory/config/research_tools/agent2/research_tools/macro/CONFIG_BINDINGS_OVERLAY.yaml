@@ -1,0 +1,7 @@
+schema_id: p3.s37.config_bindings.v1
+schema_version: 1.0.0
+bindings:
+  macro_tool_catalog: config/research_tools/macro/MACRO_TOOL_CATALOG.yaml
+  macro_vintage_policy: config/research_tools/macro/MACRO_VINTAGE_POLICY.yaml
+  macro_transformation_policy: config/research_tools/macro/MACRO_TRANSFORMATION_POLICY.yaml
+  macro_asset_context_registry_example: config/research_tools/macro/MACRO_ASSET_CONTEXT_REGISTRY.example.yaml

@@ -1,0 +1,49 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/find_counterevidence/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "document_types": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Document Types",
+      "type": "array"
+    },
+    "entity_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Entity Ids",
+      "type": "array"
+    },
+    "max_results": {
+      "default": 20,
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Max Results",
+      "type": "integer"
+    },
+    "proposition": {
+      "minLength": 1,
+      "title": "Proposition",
+      "type": "string"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "proposition"
+  ],
+  "title": "FindCounterevidenceRequest",
+  "type": "object"
+}

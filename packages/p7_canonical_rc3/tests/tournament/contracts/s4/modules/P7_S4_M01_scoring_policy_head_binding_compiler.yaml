@@ -1,0 +1,20 @@
+module_id: P7.S4.M01
+owner: TOURNAMENT
+purpose: Resolve one unambiguous scoring policy per selected candidate and compile metric-to-head bindings.
+inputs:
+  - pareto_frontier_panel
+  - factor_adjusted_metric_panel
+  - comparable_candidate_metric_panel
+  - candidate_comparison_group_panel
+  - scoring_policy_context
+outputs:
+  - scoring_head_input_panel
+  - scoring_policy_receipt
+preconditions:
+  - comparison group metadata is present for every Pareto candidate
+  - policy is available by decision_time
+  - no forbidden fields exist recursively
+postconditions:
+  - each selected candidate has exactly one policy resolution
+  - bindings preserve policy and lineage versions
+failure_scope: MODULE_FATAL

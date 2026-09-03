@@ -1,0 +1,9 @@
+schema_id: p3.s35.corpus_aliases.v1
+schema_version: 1.0.0
+aliases:
+  research.search_filings.v1:
+    target_tool_id: research.corpus.v1
+    target_operation_id: search
+    fixed_arguments:
+      document_types: [FILING]
+    status: DEPRECATED_COMPATIBILITY_ALIAS

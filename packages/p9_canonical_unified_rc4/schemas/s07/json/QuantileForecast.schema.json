@@ -1,0 +1,47 @@
+{
+  "$defs": {
+    "QuantilePoint": {
+      "additionalProperties": false,
+      "properties": {
+        "quantile": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Quantile",
+          "type": "number"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "quantile",
+        "value"
+      ],
+      "title": "QuantilePoint",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "QUANTILES",
+      "default": "QUANTILES",
+      "title": "Kind",
+      "type": "string"
+    },
+    "points": {
+      "items": {
+        "$ref": "#/$defs/QuantilePoint"
+      },
+      "title": "Points",
+      "type": "array"
+    }
+  },
+  "required": [
+    "points"
+  ],
+  "title": "QuantileForecast",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:QuantileForecast:1.0.0"
+}

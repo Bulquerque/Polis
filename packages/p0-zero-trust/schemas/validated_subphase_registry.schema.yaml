@@ -1,0 +1,78 @@
+schema_id: validated_subphase_registry.v1
+artifact_name: validated_subphase_registry
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- source_path
+- registry_id
+- source_schema_version
+- phase_registry_lineage_id
+- phase_count
+- subphase_count
+- subphases
+- provenance
+- subphase_id_unique
+- subphase_belongs_to_existing_phase
+- exact_subphase_set
+- provenance_valid
+- registry_version_compatible
+- validation_evidence_status
+- promotion_blocked
+properties:
+  artifact_id: {type: string, pattern: '^validated-subphase-registry-[0-9a-f]{12}$'}
+  created_at: {type: string, pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'}
+  pipeline_version: {type: string, const: V14.1-RC4.1}
+  lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  source_path: {type: string, minLength: 1}
+  registry_id: {type: string, const: subphase_registry_v14_1_rc4_1}
+  source_schema_version: {type: string, const: v14.1-rc4.1}
+  phase_registry_lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  phase_count: {type: integer, const: 10}
+  subphase_count: {type: integer, const: 84}
+  subphases:
+    type: array
+    minItems: 84
+    items:
+      type: object
+      additionalProperties: false
+      required_fields: [subphase_id, phase_id]
+      properties:
+        subphase_id: {type: string, pattern: '^P[0-9]+\.S[0-9]+$'}
+        phase_id: {type: string, pattern: '^P[0-9]+$'}
+  provenance:
+    type: object
+    additionalProperties: false
+    required_fields: [authority, derived_from]
+    properties:
+      authority: {type: string, const: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth}
+      derived_from:
+        type: array
+        minItems: 10
+        items:
+          type: object
+          additionalProperties: false
+          required_fields: [phase_id, source_path, sha256]
+          properties:
+            phase_id: {type: string, pattern: '^P[0-9]+$'}
+            source_path: {type: string, minLength: 1}
+            sha256: {type: string, pattern: '^[0-9a-f]{64}$'}
+  subphase_id_unique: {type: boolean, const: true}
+  subphase_belongs_to_existing_phase: {type: boolean, const: true}
+  exact_subphase_set: {type: boolean, const: true}
+  provenance_valid: {type: boolean, const: true}
+  registry_version_compatible: {type: boolean, const: true}
+  validation_evidence_status: {type: string, const: domain_oracle_pass_pending_independent_judge}
+  promotion_blocked: {type: boolean, const: true}
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

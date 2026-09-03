@@ -1,0 +1,1120 @@
+{
+  "$defs": {
+    "AccountSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "collateral_value": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Collateral Value"
+        },
+        "currency_accounts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CurrencyAccountSnapshot"
+          },
+          "title": "Currency Accounts",
+          "type": "array"
+        },
+        "external_cashflows": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "External Cashflows"
+        },
+        "final_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Final Cash"
+        },
+        "functional_currency": {
+          "default": "USD",
+          "minLength": 1,
+          "title": "Functional Currency",
+          "type": "string"
+        },
+        "initial_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Initial Cash"
+        },
+        "initial_nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Initial Nav"
+        },
+        "liabilities": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Liabilities"
+        },
+        "margin_used": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Used"
+        }
+      },
+      "required": [
+        "initial_cash",
+        "final_cash",
+        "margin_used",
+        "collateral_value",
+        "liabilities",
+        "initial_nav"
+      ],
+      "title": "AccountSnapshot",
+      "type": "object"
+    },
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "producer_module": {
+          "minLength": 1,
+          "title": "Producer Module",
+          "type": "string"
+        },
+        "producer_phase": {
+          "minLength": 1,
+          "title": "Producer Phase",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "content_sha256",
+        "schema_version",
+        "contract_version",
+        "producer_phase",
+        "producer_module"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "AuditContext": {
+      "additionalProperties": false,
+      "properties": {
+        "audit_time": {
+          "format": "date-time",
+          "title": "Audit Time",
+          "type": "string"
+        },
+        "contract_version": {
+          "default": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "trace_id": {
+          "minLength": 1,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trace_id",
+        "decision_time",
+        "audit_time"
+      ],
+      "title": "AuditContext",
+      "type": "object"
+    },
+    "CandidateStateRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "terminal_state": {
+          "$ref": "#/$defs/CandidateTerminalState"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "terminal_state"
+      ],
+      "title": "CandidateStateRecord",
+      "type": "object"
+    },
+    "CandidateTerminalState": {
+      "enum": [
+        "RANKED",
+        "BLOCKED",
+        "ABSTAINED",
+        "ADMITTED",
+        "REDUNDANT",
+        "NOT_SIZABLE",
+        "NOT_EXECUTABLE",
+        "EXECUTED",
+        "PARTIALLY_EXECUTED",
+        "RISK_BLOCKED",
+        "NO_ACTION_VALID"
+      ],
+      "title": "CandidateTerminalState",
+      "type": "string"
+    },
+    "CurrencyAccountSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "collateral_value": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Collateral Value"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "final_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Final Cash"
+        },
+        "functional_fx_rate": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "1",
+          "title": "Functional Fx Rate"
+        },
+        "initial_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Initial Cash"
+        },
+        "liabilities": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Liabilities"
+        },
+        "margin_used": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Used"
+        }
+      },
+      "required": [
+        "currency",
+        "initial_cash",
+        "final_cash",
+        "margin_used",
+        "collateral_value",
+        "liabilities"
+      ],
+      "title": "CurrencyAccountSnapshot",
+      "type": "object"
+    },
+    "DecimalTolerance": {
+      "additionalProperties": false,
+      "properties": {
+        "absolute": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.000001",
+          "title": "Absolute"
+        }
+      },
+      "title": "DecimalTolerance",
+      "type": "object"
+    },
+    "FillRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "fees": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Fees"
+        },
+        "fill_id": {
+          "minLength": 1,
+          "title": "Fill Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Price"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "side": {
+          "$ref": "#/$defs/OrderSide"
+        },
+        "source_fill_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Fill Id"
+        },
+        "source_order_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Order Id"
+        }
+      },
+      "required": [
+        "fill_id",
+        "order_id",
+        "instrument_id",
+        "side",
+        "quantity",
+        "price",
+        "fees"
+      ],
+      "title": "FillRecord",
+      "type": "object"
+    },
+    "LedgerCategory": {
+      "enum": [
+        "CASH_FLOW",
+        "PREMIUM",
+        "COST",
+        "MARGIN",
+        "COLLATERAL",
+        "LIABILITY"
+      ],
+      "title": "LedgerCategory",
+      "type": "string"
+    },
+    "LedgerEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Amount"
+        },
+        "category": {
+          "$ref": "#/$defs/LedgerCategory"
+        },
+        "currency": {
+          "default": "FUNCTIONAL",
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "entry_id": {
+          "minLength": 1,
+          "title": "Entry Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entry_id",
+        "category",
+        "amount",
+        "event_time"
+      ],
+      "title": "LedgerEntry",
+      "type": "object"
+    },
+    "MarkQuality": {
+      "enum": [
+        "BID",
+        "ASK",
+        "MID",
+        "LAST",
+        "SETTLEMENT",
+        "MODEL",
+        "STALE",
+        "UNAVAILABLE"
+      ],
+      "title": "MarkQuality",
+      "type": "string"
+    },
+    "OrderRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "cancelled_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cancelled Quantity"
+        },
+        "filled_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Filled Quantity"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "open_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Open Quantity"
+        },
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "rejected_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Rejected Quantity"
+        },
+        "side": {
+          "$ref": "#/$defs/OrderSide"
+        },
+        "source_order_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Order Id"
+        },
+        "total_quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Total Quantity"
+        }
+      },
+      "required": [
+        "order_id",
+        "instrument_id",
+        "side",
+        "total_quantity",
+        "filled_quantity",
+        "cancelled_quantity",
+        "rejected_quantity",
+        "open_quantity"
+      ],
+      "title": "OrderRecord",
+      "type": "object"
+    },
+    "OrderSide": {
+      "enum": [
+        "BUY",
+        "SELL"
+      ],
+      "title": "OrderSide",
+      "type": "string"
+    },
+    "PnLQuality": {
+      "enum": [
+        "COMPLETE",
+        "UNAVAILABLE"
+      ],
+      "title": "PnLQuality",
+      "type": "string"
+    },
+    "PnLSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "costs": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Costs"
+        },
+        "quality": {
+          "$ref": "#/$defs/PnLQuality",
+          "default": "COMPLETE"
+        },
+        "realized_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Realized Pnl"
+        },
+        "total_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Total Pnl"
+        },
+        "unrealized_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Unrealized Pnl"
+        }
+      },
+      "required": [
+        "realized_pnl",
+        "unrealized_pnl",
+        "costs",
+        "total_pnl"
+      ],
+      "title": "PnLSnapshot",
+      "type": "object"
+    },
+    "PositionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "quantity"
+      ],
+      "title": "PositionRecord",
+      "type": "object"
+    },
+    "ReplayCheckpoint": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_state_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Expected State Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "expected_state_sha256"
+      ],
+      "title": "ReplayCheckpoint",
+      "type": "object"
+    },
+    "ReplayEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Candidate Id"
+        },
+        "cash_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Cash Delta"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_type": {
+          "minLength": 1,
+          "title": "Event Type",
+          "type": "string"
+        },
+        "instrument_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instrument Id"
+        },
+        "quantity_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Quantity Delta"
+        },
+        "sequence": {
+          "minimum": 0,
+          "title": "Sequence",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sequence",
+        "event_id",
+        "event_type"
+      ],
+      "title": "ReplayEvent",
+      "type": "object"
+    },
+    "ValuationRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "default": "FUNCTIONAL",
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "functional_fx_rate": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "1",
+          "title": "Functional Fx Rate"
+        },
+        "functional_market_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Functional Market Value"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "mark_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mark Price"
+        },
+        "mark_quality": {
+          "$ref": "#/$defs/MarkQuality"
+        },
+        "market_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Market Value"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "quantity",
+        "mark_price",
+        "market_value",
+        "mark_quality"
+      ],
+      "title": "ValuationRecord",
+      "type": "object"
+    },
+    "VirtualAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "instrument_id",
+        "quantity"
+      ],
+      "title": "VirtualAllocation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "account_snapshot": {
+      "$ref": "#/$defs/AccountSnapshot"
+    },
+    "bundle_id": {
+      "minLength": 1,
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "candidate_states": {
+      "items": {
+        "$ref": "#/$defs/CandidateStateRecord"
+      },
+      "title": "Candidate States",
+      "type": "array"
+    },
+    "context": {
+      "$ref": "#/$defs/AuditContext"
+    },
+    "expected_candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Expected Candidate Ids",
+      "type": "array"
+    },
+    "fills": {
+      "items": {
+        "$ref": "#/$defs/FillRecord"
+      },
+      "title": "Fills",
+      "type": "array"
+    },
+    "final_positions": {
+      "items": {
+        "$ref": "#/$defs/PositionRecord"
+      },
+      "title": "Final Positions",
+      "type": "array"
+    },
+    "initial_positions": {
+      "items": {
+        "$ref": "#/$defs/PositionRecord"
+      },
+      "title": "Initial Positions",
+      "type": "array"
+    },
+    "ledger_entries": {
+      "items": {
+        "$ref": "#/$defs/LedgerEntry"
+      },
+      "title": "Ledger Entries",
+      "type": "array"
+    },
+    "orders": {
+      "items": {
+        "$ref": "#/$defs/OrderRecord"
+      },
+      "title": "Orders",
+      "type": "array"
+    },
+    "pnl_snapshot": {
+      "$ref": "#/$defs/PnLSnapshot"
+    },
+    "replay_checkpoint": {
+      "$ref": "#/$defs/ReplayCheckpoint"
+    },
+    "replay_events": {
+      "items": {
+        "$ref": "#/$defs/ReplayEvent"
+      },
+      "title": "Replay Events",
+      "type": "array"
+    },
+    "source_artifacts": {
+      "items": {
+        "$ref": "#/$defs/ArtifactRef"
+      },
+      "title": "Source Artifacts",
+      "type": "array"
+    },
+    "tolerance": {
+      "$ref": "#/$defs/DecimalTolerance",
+      "default": {
+        "absolute": "0.000001"
+      }
+    },
+    "valuations": {
+      "items": {
+        "$ref": "#/$defs/ValuationRecord"
+      },
+      "title": "Valuations",
+      "type": "array"
+    },
+    "virtual_allocations": {
+      "items": {
+        "$ref": "#/$defs/VirtualAllocation"
+      },
+      "title": "Virtual Allocations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "context",
+    "expected_candidate_ids",
+    "candidate_states",
+    "initial_positions",
+    "orders",
+    "fills",
+    "final_positions",
+    "virtual_allocations",
+    "ledger_entries",
+    "account_snapshot",
+    "valuations",
+    "pnl_snapshot",
+    "replay_events",
+    "replay_checkpoint",
+    "source_artifacts"
+  ],
+  "title": "StatefulEvidenceBundle",
+  "type": "object",
+  "x-authority": "external-source-snapshot-not-p9-authority",
+  "x-boundary-contract": "P8_NATIVE_STATEFUL_EVIDENCE_BUNDLE_0_3",
+  "x-qualified-source-fingerprint": "3bbec0ba2eba2fd5d7951a303df36a8dbf143964ed36b378f3826a8f70bf2fbb",
+  "x-qualified-source-phase": "P8"
+}

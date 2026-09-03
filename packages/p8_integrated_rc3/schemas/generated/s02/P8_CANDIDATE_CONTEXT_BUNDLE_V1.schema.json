@@ -1,0 +1,1639 @@
+{
+  "$defs": {
+    "CandidateInstrumentCoefficient": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "signed_contracts_per_candidate_unit": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Contracts Per Candidate Unit"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "instrument_id",
+        "signed_contracts_per_candidate_unit",
+        "contract_multiplier",
+        "currency"
+      ],
+      "title": "CandidateInstrumentCoefficient",
+      "type": "object"
+    },
+    "ComponentQualificationStatus": {
+      "enum": [
+        "QUALIFIED",
+        "DEGRADED",
+        "RESERVED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQualificationStatus",
+      "type": "string"
+    },
+    "ConfidenceEvidenceHint": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/ConfidenceEvidenceState"
+        },
+        "calibration_artifact_hash": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Calibration Artifact Hash"
+        },
+        "numerical_cap_status": {
+          "const": "NOT_DERIVED_BY_S2",
+          "default": "NOT_DERIVED_BY_S2",
+          "title": "Numerical Cap Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "state"
+      ],
+      "title": "ConfidenceEvidenceHint",
+      "type": "object"
+    },
+    "ConfidenceEvidenceState": {
+      "enum": [
+        "CALIBRATED_REFERENCE_AVAILABLE",
+        "UNCALIBRATED",
+        "UNAVAILABLE"
+      ],
+      "title": "ConfidenceEvidenceState",
+      "type": "string"
+    },
+    "CurrentPhysicalPositionBaseline": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "current_contract_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Current Contract Quantity"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "virtual_attribution_status": {
+          "enum": [
+            "UNAVAILABLE_IN_S1_STATE",
+            "NOT_REQUIRED_ZERO_POSITION"
+          ],
+          "title": "Virtual Attribution Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "current_contract_quantity",
+        "contract_multiplier",
+        "currency",
+        "virtual_attribution_status"
+      ],
+      "title": "CurrentPhysicalPositionBaseline",
+      "type": "object"
+    },
+    "EquivalenceGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "equivalence_group_id": {
+          "minLength": 1,
+          "title": "Equivalence Group Id",
+          "type": "string"
+        },
+        "equivalence_type": {
+          "$ref": "#/$defs/EquivalenceType"
+        },
+        "representative_candidate_id": {
+          "minLength": 1,
+          "title": "Representative Candidate Id",
+          "type": "string"
+        },
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "members": {
+          "items": {
+            "$ref": "#/$defs/EquivalenceMember"
+          },
+          "minItems": 2,
+          "title": "Members",
+          "type": "array"
+        },
+        "physical_signature_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Physical Signature Hash",
+          "type": "string"
+        },
+        "hard_redundant_eligible": {
+          "title": "Hard Redundant Eligible",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "equivalence_group_id",
+        "equivalence_type",
+        "representative_candidate_id",
+        "comparison_group_id",
+        "members",
+        "physical_signature_hash",
+        "hard_redundant_eligible"
+      ],
+      "title": "EquivalenceGroup",
+      "type": "object"
+    },
+    "EquivalenceMember": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "scale_factor_from_representative": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Scale Factor From Representative"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "scale_factor_from_representative"
+      ],
+      "title": "EquivalenceMember",
+      "type": "object"
+    },
+    "EquivalenceType": {
+      "enum": [
+        "EXACT_PHYSICAL",
+        "SCALE_EQUIVALENT"
+      ],
+      "title": "EquivalenceType",
+      "type": "string"
+    },
+    "ExactEquivalenceGroupPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "P8_EXACT_EQUIVALENCE_GROUP_PANEL_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "groups": {
+          "items": {
+            "$ref": "#/$defs/EquivalenceGroup"
+          },
+          "title": "Groups",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_version",
+        "schema_version",
+        "snapshot_id",
+        "groups",
+        "content_sha256"
+      ],
+      "title": "ExactEquivalenceGroupPanel",
+      "type": "object"
+    },
+    "ExerciseStyle": {
+      "enum": [
+        "NONE",
+        "EUROPEAN",
+        "AMERICAN",
+        "OTHER"
+      ],
+      "title": "ExerciseStyle",
+      "type": "string"
+    },
+    "ExposureEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "edge_id": {
+          "minLength": 1,
+          "title": "Edge Id",
+          "type": "string"
+        },
+        "source_node_id": {
+          "minLength": 1,
+          "title": "Source Node Id",
+          "type": "string"
+        },
+        "target_node_id": {
+          "minLength": 1,
+          "title": "Target Node Id",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/ExposureRelationType"
+        },
+        "instrument_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instrument Id"
+        },
+        "signed_contract_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Signed Contract Quantity"
+        },
+        "expiration": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expiration"
+        }
+      },
+      "required": [
+        "edge_id",
+        "source_node_id",
+        "target_node_id",
+        "relation"
+      ],
+      "title": "ExposureEdge",
+      "type": "object"
+    },
+    "ExposureNode": {
+      "additionalProperties": false,
+      "properties": {
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "node_type": {
+          "$ref": "#/$defs/ExposureNodeType"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "node_type",
+        "label"
+      ],
+      "title": "ExposureNode",
+      "type": "object"
+    },
+    "ExposureNodeType": {
+      "enum": [
+        "CANDIDATE",
+        "INSTRUMENT",
+        "COMPARISON_GROUP",
+        "OBJECTIVE_FAMILY",
+        "CANDIDATE_FAMILY",
+        "CURRENCY",
+        "UNDERLYING_SCOPE",
+        "EXPIRATION"
+      ],
+      "title": "ExposureNodeType",
+      "type": "string"
+    },
+    "ExposureRelationType": {
+      "enum": [
+        "CANDIDATE_HAS_LEG",
+        "CANDIDATE_IN_GROUP",
+        "CANDIDATE_OBJECTIVE_FAMILY",
+        "CANDIDATE_FAMILY",
+        "CANDIDATE_CURRENCY",
+        "CANDIDATE_UNDERLYING_SCOPE",
+        "INSTRUMENT_EXPIRATION",
+        "SAME_INSTRUMENT",
+        "OPPOSITE_LEG",
+        "SAME_EXPIRATION",
+        "SAME_UNDERLYING_SCOPE",
+        "SAME_OBJECTIVE_FAMILY"
+      ],
+      "title": "ExposureRelationType",
+      "type": "string"
+    },
+    "GraphComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "component_id": {
+          "minLength": 1,
+          "title": "Component Id",
+          "type": "string"
+        },
+        "node_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Node Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "component_id",
+        "node_ids"
+      ],
+      "title": "GraphComponent",
+      "type": "object"
+    },
+    "LexicographicTier": {
+      "additionalProperties": false,
+      "properties": {
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "rank": {
+          "minimum": 1,
+          "title": "Rank",
+          "type": "integer"
+        },
+        "candidate_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Candidate Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "comparison_group_id",
+        "rank",
+        "candidate_ids"
+      ],
+      "title": "LexicographicTier",
+      "type": "object"
+    },
+    "NettingTransform": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "P8_NETTING_TRANSFORM_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "virtual_intents": {
+          "items": {
+            "$ref": "#/$defs/VirtualCandidateIntentRecord"
+          },
+          "title": "Virtual Intents",
+          "type": "array"
+        },
+        "coefficients": {
+          "items": {
+            "$ref": "#/$defs/CandidateInstrumentCoefficient"
+          },
+          "title": "Coefficients",
+          "type": "array"
+        },
+        "current_positions": {
+          "items": {
+            "$ref": "#/$defs/CurrentPhysicalPositionBaseline"
+          },
+          "title": "Current Positions",
+          "type": "array"
+        },
+        "proof": {
+          "$ref": "#/$defs/NettingTransformProof"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_version",
+        "schema_version",
+        "snapshot_id",
+        "virtual_intents",
+        "coefficients",
+        "current_positions",
+        "proof",
+        "content_sha256"
+      ],
+      "title": "NettingTransform",
+      "type": "object"
+    },
+    "NettingTransformProof": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_count": {
+          "minimum": 0,
+          "title": "Candidate Count",
+          "type": "integer"
+        },
+        "instrument_count": {
+          "minimum": 0,
+          "title": "Instrument Count",
+          "type": "integer"
+        },
+        "coefficient_count": {
+          "minimum": 0,
+          "title": "Coefficient Count",
+          "type": "integer"
+        },
+        "all_active_candidates_mapped": {
+          "title": "All Active Candidates Mapped",
+          "type": "boolean"
+        },
+        "contains_final_target_quantities": {
+          "const": false,
+          "default": false,
+          "title": "Contains Final Target Quantities",
+          "type": "boolean"
+        },
+        "equation_semantics": {
+          "const": "target_physical_quantity = current_physical_quantity + sum(coefficient * virtual_candidate_quantity)",
+          "title": "Equation Semantics",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_count",
+        "instrument_count",
+        "coefficient_count",
+        "all_active_candidates_mapped",
+        "equation_semantics"
+      ],
+      "title": "NettingTransformProof",
+      "type": "object"
+    },
+    "NormalizedCandidateIntent": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "canonical_candidate_id": {
+          "minLength": 1,
+          "title": "Canonical Candidate Id",
+          "type": "string"
+        },
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "candidate_family": {
+          "minLength": 1,
+          "title": "Candidate Family",
+          "type": "string"
+        },
+        "objective_family": {
+          "minLength": 1,
+          "title": "Objective Family",
+          "type": "string"
+        },
+        "unit_definition": {
+          "minLength": 1,
+          "title": "Unit Definition",
+          "type": "string"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "lot_size": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Lot Size"
+        },
+        "quantity_increment": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity Increment"
+        },
+        "legs": {
+          "items": {
+            "$ref": "#/$defs/NormalizedLeg"
+          },
+          "minItems": 1,
+          "title": "Legs",
+          "type": "array"
+        },
+        "unit_economics": {
+          "$ref": "#/$defs/NormalizedUnitEconomics"
+        },
+        "p6_package_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "P6 Package Hash",
+          "type": "string"
+        },
+        "p5_belief_bundle_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "P5 Belief Bundle Hash",
+          "type": "string"
+        },
+        "p5_evidence_signature_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "P5 Evidence Signature Hash",
+          "type": "string"
+        },
+        "source_score_semantics": {
+          "minLength": 1,
+          "title": "Source Score Semantics",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "canonical_candidate_id",
+        "comparison_group_id",
+        "candidate_family",
+        "objective_family",
+        "unit_definition",
+        "currency",
+        "lot_size",
+        "quantity_increment",
+        "legs",
+        "unit_economics",
+        "p6_package_hash",
+        "p5_belief_bundle_hash",
+        "p5_evidence_signature_hash",
+        "source_score_semantics"
+      ],
+      "title": "NormalizedCandidateIntent",
+      "type": "object"
+    },
+    "NormalizedCandidateIntentPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "P8_NORMALIZED_CANDIDATE_INTENT_PANEL_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "candidates": {
+          "items": {
+            "$ref": "#/$defs/NormalizedCandidateIntent"
+          },
+          "title": "Candidates",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_version",
+        "schema_version",
+        "snapshot_id",
+        "candidates",
+        "content_sha256"
+      ],
+      "title": "NormalizedCandidateIntentPanel",
+      "type": "object"
+    },
+    "NormalizedLeg": {
+      "additionalProperties": false,
+      "properties": {
+        "leg_id": {
+          "minLength": 1,
+          "title": "Leg Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "instrument_type": {
+          "minLength": 1,
+          "title": "Instrument Type",
+          "type": "string"
+        },
+        "side": {
+          "$ref": "#/$defs/PositionSide"
+        },
+        "contract_quantity_per_candidate_unit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Quantity Per Candidate Unit"
+        },
+        "signed_contract_quantity_per_candidate_unit": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Contract Quantity Per Candidate Unit"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "strike": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Strike"
+        },
+        "expiration": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expiration"
+        },
+        "exercise_style": {
+          "$ref": "#/$defs/ExerciseStyle"
+        },
+        "settlement_type": {
+          "$ref": "#/$defs/SettlementType"
+        },
+        "instrument_master_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Instrument Master Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "leg_id",
+        "instrument_id",
+        "instrument_type",
+        "side",
+        "contract_quantity_per_candidate_unit",
+        "signed_contract_quantity_per_candidate_unit",
+        "contract_multiplier",
+        "exercise_style",
+        "settlement_type",
+        "instrument_master_hash"
+      ],
+      "title": "NormalizedLeg",
+      "type": "object"
+    },
+    "NormalizedUnitEconomics": {
+      "additionalProperties": false,
+      "properties": {
+        "entry_cost_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "payoff_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "maximum_loss_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "liquidity_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "lifecycle_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "unit_entry_cost": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit Entry Cost"
+        },
+        "unit_maximum_loss": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit Maximum Loss"
+        },
+        "margin_per_unit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Margin Per Unit"
+        },
+        "liquidity_capacity_units": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Liquidity Capacity Units"
+        }
+      },
+      "required": [
+        "entry_cost_status",
+        "payoff_status",
+        "maximum_loss_status",
+        "liquidity_status",
+        "lifecycle_status"
+      ],
+      "title": "NormalizedUnitEconomics",
+      "type": "object"
+    },
+    "OrdinalConstraintType": {
+      "enum": [
+        "PREFERRED_OVER"
+      ],
+      "title": "OrdinalConstraintType",
+      "type": "string"
+    },
+    "OrdinalPenaltyTemplate": {
+      "additionalProperties": false,
+      "properties": {
+        "constraint_id": {
+          "minLength": 1,
+          "title": "Constraint Id",
+          "type": "string"
+        },
+        "inversion_unit_penalty": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "1",
+          "title": "Inversion Unit Penalty"
+        },
+        "economic_weight_status": {
+          "const": "UNASSIGNED_BY_S2",
+          "default": "UNASSIGNED_BY_S2",
+          "title": "Economic Weight Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "constraint_id"
+      ],
+      "title": "OrdinalPenaltyTemplate",
+      "type": "object"
+    },
+    "OrdinalPreferenceConstraintSet": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "P8_ORDINAL_PREFERENCE_CONSTRAINT_SET_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "pairwise_constraints": {
+          "items": {
+            "$ref": "#/$defs/PairwiseOrdinalConstraint"
+          },
+          "title": "Pairwise Constraints",
+          "type": "array"
+        },
+        "lexicographic_tiers": {
+          "items": {
+            "$ref": "#/$defs/LexicographicTier"
+          },
+          "title": "Lexicographic Tiers",
+          "type": "array"
+        },
+        "penalty_templates": {
+          "items": {
+            "$ref": "#/$defs/OrdinalPenaltyTemplate"
+          },
+          "title": "Penalty Templates",
+          "type": "array"
+        },
+        "confidence_hints": {
+          "items": {
+            "$ref": "#/$defs/ConfidenceEvidenceHint"
+          },
+          "title": "Confidence Hints",
+          "type": "array"
+        },
+        "proof": {
+          "$ref": "#/$defs/OrdinalSemanticsProof"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_version",
+        "schema_version",
+        "snapshot_id",
+        "pairwise_constraints",
+        "lexicographic_tiers",
+        "penalty_templates",
+        "confidence_hints",
+        "proof",
+        "content_sha256"
+      ],
+      "title": "OrdinalPreferenceConstraintSet",
+      "type": "object"
+    },
+    "OrdinalSemanticsProof": {
+      "additionalProperties": false,
+      "properties": {
+        "pairwise_mode": {
+          "$ref": "#/$defs/PairwiseMode"
+        },
+        "score_values_ignored": {
+          "const": true,
+          "default": true,
+          "title": "Score Values Ignored",
+          "type": "boolean"
+        },
+        "cardinal_financial_outputs_absent": {
+          "const": true,
+          "default": true,
+          "title": "Cardinal Financial Outputs Absent",
+          "type": "boolean"
+        },
+        "scenario_distribution_unchanged": {
+          "const": true,
+          "default": true,
+          "title": "Scenario Distribution Unchanged",
+          "type": "boolean"
+        },
+        "cross_group_constraints_absent": {
+          "const": true,
+          "default": true,
+          "title": "Cross Group Constraints Absent",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "pairwise_mode"
+      ],
+      "title": "OrdinalSemanticsProof",
+      "type": "object"
+    },
+    "PairwiseMode": {
+      "enum": [
+        "ADJACENT_TIERS",
+        "ALL_ORDERED_TIERS"
+      ],
+      "title": "PairwiseMode",
+      "type": "string"
+    },
+    "PairwiseOrdinalConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "constraint_id": {
+          "minLength": 1,
+          "title": "Constraint Id",
+          "type": "string"
+        },
+        "constraint_type": {
+          "$ref": "#/$defs/OrdinalConstraintType"
+        },
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "preferred_candidate_id": {
+          "minLength": 1,
+          "title": "Preferred Candidate Id",
+          "type": "string"
+        },
+        "less_preferred_candidate_id": {
+          "minLength": 1,
+          "title": "Less Preferred Candidate Id",
+          "type": "string"
+        },
+        "preferred_rank": {
+          "minimum": 1,
+          "title": "Preferred Rank",
+          "type": "integer"
+        },
+        "less_preferred_rank": {
+          "minimum": 1,
+          "title": "Less Preferred Rank",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "constraint_id",
+        "constraint_type",
+        "comparison_group_id",
+        "preferred_candidate_id",
+        "less_preferred_candidate_id",
+        "preferred_rank",
+        "less_preferred_rank"
+      ],
+      "title": "PairwiseOrdinalConstraint",
+      "type": "object"
+    },
+    "PositionSide": {
+      "enum": [
+        "LONG",
+        "SHORT"
+      ],
+      "title": "PositionSide",
+      "type": "string"
+    },
+    "SettlementType": {
+      "enum": [
+        "CASH",
+        "PHYSICAL",
+        "NONE"
+      ],
+      "title": "SettlementType",
+      "type": "string"
+    },
+    "SoftSimilarityRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "request_id": {
+          "minLength": 1,
+          "title": "Request Id",
+          "type": "string"
+        },
+        "left_candidate_id": {
+          "minLength": 1,
+          "title": "Left Candidate Id",
+          "type": "string"
+        },
+        "right_candidate_id": {
+          "minLength": 1,
+          "title": "Right Candidate Id",
+          "type": "string"
+        },
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "shared_instrument_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Shared Instrument Ids",
+          "type": "array"
+        },
+        "shared_underlying_scope": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Shared Underlying Scope",
+          "type": "array"
+        },
+        "requested_dimensions": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Requested Dimensions",
+          "type": "array"
+        },
+        "exclusion_authority": {
+          "const": false,
+          "default": false,
+          "title": "Exclusion Authority",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "request_id",
+        "left_candidate_id",
+        "right_candidate_id",
+        "comparison_group_id",
+        "requested_dimensions"
+      ],
+      "title": "SoftSimilarityRequest",
+      "type": "object"
+    },
+    "SoftSimilarityRequestPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "P8_SOFT_SIMILARITY_REQUEST_PANEL_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "requests": {
+          "items": {
+            "$ref": "#/$defs/SoftSimilarityRequest"
+          },
+          "title": "Requests",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_version",
+        "schema_version",
+        "snapshot_id",
+        "requests",
+        "content_sha256"
+      ],
+      "title": "SoftSimilarityRequestPanel",
+      "type": "object"
+    },
+    "StaticActionDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/StaticActionState"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "representative_candidate_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Representative Candidate Id"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "state"
+      ],
+      "title": "StaticActionDecision",
+      "type": "object"
+    },
+    "StaticActionState": {
+      "enum": [
+        "FORWARD_TO_RISK",
+        "EXACT_REDUNDANT",
+        "P7_TERMINAL_PRESERVED",
+        "INVALID_STATIC_CONTRACT",
+        "STATIC_CAPABILITY_UNSUPPORTED",
+        "REFERENCE_UNRESOLVED"
+      ],
+      "title": "StaticActionState",
+      "type": "string"
+    },
+    "StaticAdmissibleActionUniverse": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "P8_STATIC_ADMISSIBLE_ACTION_UNIVERSE_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "forwarded_candidate_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Forwarded Candidate Ids",
+          "type": "array"
+        },
+        "decisions": {
+          "items": {
+            "$ref": "#/$defs/StaticActionDecision"
+          },
+          "title": "Decisions",
+          "type": "array"
+        },
+        "proof": {
+          "$ref": "#/$defs/StaticUniverseConservationProof"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_version",
+        "schema_version",
+        "snapshot_id",
+        "forwarded_candidate_ids",
+        "decisions",
+        "proof",
+        "content_sha256"
+      ],
+      "title": "StaticAdmissibleActionUniverse",
+      "type": "object"
+    },
+    "StaticUniverseConservationProof": {
+      "additionalProperties": false,
+      "properties": {
+        "input_candidate_count": {
+          "minimum": 0,
+          "title": "Input Candidate Count",
+          "type": "integer"
+        },
+        "decision_count": {
+          "minimum": 0,
+          "title": "Decision Count",
+          "type": "integer"
+        },
+        "forwarded_count": {
+          "minimum": 0,
+          "title": "Forwarded Count",
+          "type": "integer"
+        },
+        "terminal_preserved_count": {
+          "minimum": 0,
+          "title": "Terminal Preserved Count",
+          "type": "integer"
+        },
+        "excluded_count": {
+          "minimum": 0,
+          "title": "Excluded Count",
+          "type": "integer"
+        },
+        "input_ids_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Ids Hash",
+          "type": "string"
+        },
+        "decision_ids_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Decision Ids Hash",
+          "type": "string"
+        },
+        "equation_valid": {
+          "title": "Equation Valid",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "input_candidate_count",
+        "decision_count",
+        "forwarded_count",
+        "terminal_preserved_count",
+        "excluded_count",
+        "input_ids_hash",
+        "decision_ids_hash",
+        "equation_valid"
+      ],
+      "title": "StaticUniverseConservationProof",
+      "type": "object"
+    },
+    "StructuralExposureGraph": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "P8_STRUCTURAL_EXPOSURE_GRAPH_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "nodes": {
+          "items": {
+            "$ref": "#/$defs/ExposureNode"
+          },
+          "title": "Nodes",
+          "type": "array"
+        },
+        "edges": {
+          "items": {
+            "$ref": "#/$defs/ExposureEdge"
+          },
+          "title": "Edges",
+          "type": "array"
+        },
+        "connected_components": {
+          "items": {
+            "$ref": "#/$defs/GraphComponent"
+          },
+          "title": "Connected Components",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_version",
+        "schema_version",
+        "snapshot_id",
+        "nodes",
+        "edges",
+        "connected_components",
+        "content_sha256"
+      ],
+      "title": "StructuralExposureGraph",
+      "type": "object"
+    },
+    "VirtualCandidateIntentRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "canonical_candidate_id": {
+          "minLength": 1,
+          "title": "Canonical Candidate Id",
+          "type": "string"
+        },
+        "unit_definition": {
+          "minLength": 1,
+          "title": "Unit Definition",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/VirtualIntentState"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "canonical_candidate_id",
+        "unit_definition",
+        "state"
+      ],
+      "title": "VirtualCandidateIntentRecord",
+      "type": "object"
+    },
+    "VirtualIntentState": {
+      "enum": [
+        "ACTIVE_FOR_SIZING",
+        "P7_TERMINAL_PRESERVED"
+      ],
+      "title": "VirtualIntentState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "P8_CANDIDATE_CONTEXT_BUNDLE_V1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "snapshot_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Snapshot Hash",
+      "type": "string"
+    },
+    "normalized_intents": {
+      "$ref": "#/$defs/NormalizedCandidateIntentPanel"
+    },
+    "exposure_graph": {
+      "$ref": "#/$defs/StructuralExposureGraph"
+    },
+    "equivalence_groups": {
+      "$ref": "#/$defs/ExactEquivalenceGroupPanel"
+    },
+    "soft_similarity_requests": {
+      "$ref": "#/$defs/SoftSimilarityRequestPanel"
+    },
+    "netting_transform": {
+      "$ref": "#/$defs/NettingTransform"
+    },
+    "static_action_universe": {
+      "$ref": "#/$defs/StaticAdmissibleActionUniverse"
+    },
+    "ordinal_preferences": {
+      "$ref": "#/$defs/OrdinalPreferenceConstraintSet"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "schema_version",
+    "snapshot_id",
+    "snapshot_hash",
+    "normalized_intents",
+    "exposure_graph",
+    "equivalence_groups",
+    "soft_similarity_requests",
+    "netting_transform",
+    "static_action_universe",
+    "ordinal_preferences",
+    "content_sha256"
+  ],
+  "title": "P8CandidateContextBundleV1",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P8_CANDIDATE_CONTEXT_BUNDLE_V1.schema.json"
+}

@@ -1,0 +1,26 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/MetricLimitation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "limitation": {
+      "title": "Limitation",
+      "type": "string"
+    },
+    "metric_id": {
+      "title": "Metric Id",
+      "type": "string"
+    },
+    "severity": {
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "required": [
+    "metric_id",
+    "limitation",
+    "severity"
+  ],
+  "title": "MetricLimitation",
+  "type": "object"
+}

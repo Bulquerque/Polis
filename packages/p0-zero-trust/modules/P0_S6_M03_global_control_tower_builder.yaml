@@ -1,0 +1,48 @@
+module_id: P0.S6.M03
+module_name: global_control_tower_builder
+function: Executar global control tower builder da Fase 0, mantendo controle Zero
+  Trust técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- phase_health_panel
+- forbidden_connection_report
+- io_compatibility_report
+- zero_trust_evidence_package
+outputs: &id002
+- global_control_tower_payload
+- pipeline_health_report
+- zero_trust_health_report
+validations:
+- global_status_computed
+- release_readiness_visible
+fail_fast_conditions:
+- global_control_tower_builder_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S1.M05
+    - P0.S2.M03
+    - P0.S4.M05
+    - P0.S6.M02
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S6.M04
+    - P0.S8.M02
+    artifacts: *id002
+    phase_outputs:
+    - global_control_tower_payload
+    - pipeline_health_report
+    - zero_trust_health_report
+phase: P0
+subphase: P0.S6
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

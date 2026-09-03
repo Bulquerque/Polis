@@ -1,0 +1,5 @@
+{
+  "instrument_id": "ACME3",
+  "max_staleness_seconds": null,
+  "research_mode": "OBSERVE"
+}

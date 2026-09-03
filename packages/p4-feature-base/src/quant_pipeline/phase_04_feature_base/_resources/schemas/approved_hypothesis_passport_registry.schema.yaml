@@ -1,0 +1,66 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: approved_hypothesis_passport_registry
+type: object
+additionalProperties: true
+properties:
+  artifact_id:
+    type: string
+    minLength: 1
+  artifact_name:
+    const: approved_hypothesis_passport_registry
+  schema_id:
+    type: string
+    minLength: 1
+  schema_version:
+    type: string
+    minLength: 1
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  decision_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+  lineage_id:
+    type: string
+  producer_module_id:
+    const: P4.S3.M05
+  content_hash:
+    type: string
+    pattern: ^[a-f0-9]{64}$
+  status:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: true
+      properties: {}
+      required:
+      - hypothesis_id
+      - family_id
+      - status
+required:
+- artifact_id
+- artifact_name
+- schema_id
+- schema_version
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- decision_time
+- pipeline_version
+- lineage_id
+- producer_module_id
+- content_hash
+- status
+- records

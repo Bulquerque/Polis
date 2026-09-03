@@ -1,0 +1,227 @@
+registry_version: P5-RC34-TARGETS-V2
+targets:
+- target_id: RETURN
+  target_family: RETURN
+  economic_definition: future simple return
+  transformation: SIMPLE_RETURN
+  units: decimal_return
+  sign_convention: positive_is_gain
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 24
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: DIRECTION
+  target_family: DIRECTION
+  economic_definition: indicator of positive future return
+  transformation: BINARY_SIGN
+  units: probability
+  sign_convention: one_is_positive
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 24
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: REALIZED_VOLATILITY
+  target_family: VOLATILITY
+  economic_definition: future realized volatility
+  transformation: SQRT_REALIZED_VARIANCE
+  units: annualized_volatility
+  sign_convention: nonnegative
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: CONDITIONAL_VOLATILITY
+  target_family: VOLATILITY
+  economic_definition: future conditional volatility
+  transformation: CONDITIONAL_SCALE
+  units: annualized_volatility
+  sign_convention: nonnegative
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: JUMP
+  target_family: PATH_RISK
+  economic_definition: future jump event
+  transformation: THRESHOLD_EVENT
+  units: probability
+  sign_convention: one_is_jump
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: DRAWDOWN
+  target_family: PATH_RISK
+  economic_definition: future maximum drawdown
+  transformation: POSITIVE_LOSS
+  units: positive_loss
+  sign_convention: positive_is_loss
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: PATH_MINIMUM
+  target_family: PATH_RISK
+  economic_definition: minimum cumulative path return
+  transformation: PATH_EXTREMUM
+  units: decimal_return
+  sign_convention: negative_is_loss
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: PATH_MAXIMUM
+  target_family: PATH_RISK
+  economic_definition: maximum cumulative path return
+  transformation: PATH_EXTREMUM
+  units: decimal_return
+  sign_convention: positive_is_gain
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: TAIL_LOSS
+  target_family: TAIL
+  economic_definition: future tail loss
+  transformation: POSITIVE_LOSS
+  units: positive_loss
+  sign_convention: positive_is_loss
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 60
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: VALUE_AT_RISK
+  target_family: TAIL
+  economic_definition: future value at risk
+  transformation: LOSS_QUANTILE
+  units: positive_loss
+  sign_convention: positive_is_loss
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 60
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: EXPECTED_SHORTFALL
+  target_family: TAIL
+  economic_definition: future expected shortfall
+  transformation: TAIL_MEAN
+  units: positive_loss
+  sign_convention: positive_is_loss
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 60
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: IMPLIED_VOLATILITY_CHANGE
+  target_family: OPTIONS_STATE
+  economic_definition: future change in implied volatility
+  transformation: FIRST_DIFFERENCE
+  units: volatility_points
+  sign_convention: positive_is_increase
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements:
+  - OPTIONS
+  availability_status: UNAVAILABLE
+- target_id: SKEW_CHANGE
+  target_family: OPTIONS_STATE
+  economic_definition: future change in volatility skew
+  transformation: FIRST_DIFFERENCE
+  units: skew_points
+  sign_convention: positive_is_steepening
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements:
+  - OPTIONS
+  availability_status: UNAVAILABLE
+- target_id: TERM_STRUCTURE_CHANGE
+  target_family: OPTIONS_STATE
+  economic_definition: future change in volatility term structure
+  transformation: FIRST_DIFFERENCE
+  units: term_structure_points
+  sign_convention: positive_is_steepening
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements:
+  - OPTIONS
+  availability_status: UNAVAILABLE
+- target_id: LIQUIDITY_STRESS
+  target_family: LIQUIDITY
+  economic_definition: future liquidity stress event
+  transformation: THRESHOLD_EVENT
+  units: probability
+  sign_convention: one_is_stress
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 40
+  capability_requirements:
+  - LIQUIDITY
+  availability_status: UNAVAILABLE
+- target_id: REGIME_TRANSITION
+  target_family: REGIME
+  economic_definition: future regime transition
+  transformation: CATEGORICAL_TRANSITION
+  units: probability
+  sign_convention: category_probability
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 60
+  capability_requirements: []
+  availability_status: UNAVAILABLE
+- target_id: DEPENDENCE_CHANGE
+  target_family: DEPENDENCE
+  economic_definition: future dependence-state change
+  transformation: MATRIX_DISTANCE
+  units: distance
+  sign_convention: positive_is_change
+  event_time_definition: prediction_timestamp to label_end_time on trading calendar
+  available_time_definition: outcome_available_at <= training_cutoff
+  horizon: 1D
+  trading_calendar_id: P5_DEFAULT_TRADING_CALENDAR
+  minimum_history: 60
+  capability_requirements: []
+  availability_status: UNAVAILABLE

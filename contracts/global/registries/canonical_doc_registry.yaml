@@ -1,0 +1,59 @@
+registry_id: canonical_doc_registry_v14_1_rc4_1
+path_base: workspace_root
+authority: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth
+canonical_source: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth
+generated: false
+do_not_edit_locally: false
+authority_rule: O master global é a única fonte normativa para standards, políticas e registros globais.
+derived_mirror:
+  path: phase_00_zero_trust/phase_00_zero_trust_guardian_agent_package_RC4_1/source_of_truth
+  canonical_source: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth
+  generated: true
+  do_not_edit_locally: true
+  verification: byte_for_byte_except_registered_exceptions
+  exceptions:
+  - path: README.md
+    reason: Identifica localmente a árvore como derived_mirror e aponta para o master.
+canonical_documents:
+- doc: README.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/README.md
+- doc: ARTIFACT_FORMAT_POLICY.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/ARTIFACT_FORMAT_POLICY.yaml
+- doc: ARTIFACT_STYLE_GUIDE.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/ARTIFACT_STYLE_GUIDE.md
+- doc: CODE_QUALITY_POLICY.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/CODE_QUALITY_POLICY.yaml
+- doc: CODE_STANDARDS.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/CODE_STANDARDS.md
+- doc: DOCUMENTATION_HIERARCHY.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/DOCUMENTATION_HIERARCHY.md
+- doc: MINIMAL_CODE_POLICY.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/MINIMAL_CODE_POLICY.md
+- doc: PACKAGE_STRUCTURE_STANDARD.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/PACKAGE_STRUCTURE_STANDARD.md
+- doc: POINT_IN_TIME_AI_POLICY.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/POINT_IN_TIME_AI_POLICY.md
+- doc: SEARCH_FIRST_PATCH_ONLY_POLICY.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/SEARCH_FIRST_PATCH_ONLY_POLICY.md
+- doc: TESTING_STANDARDS.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/TESTING_STANDARDS.md
+- doc: TEST_OWNERSHIP_POLICY.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/TEST_OWNERSHIP_POLICY.yaml
+- doc: ZERO_TRUST_RULES.md
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/standards/ZERO_TRUST_RULES.md
+- doc: canonical_doc_registry.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/registries/canonical_doc_registry.yaml
+- doc: common_utility_registry.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/registries/common_utility_registry.yaml
+- doc: external_data_source_registry.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/registries/external_data_source_registry.yaml
+- doc: llm_model_registry.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/registries/llm_model_registry.yaml
+- doc: offline_training_pipeline_registry.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/registries/offline_training_pipeline_registry.yaml
+- doc: phase_registry.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/registries/phase_registry.yaml
+- doc: state_sync_canonical_outputs.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/registries/state_sync_canonical_outputs.yaml
+- doc: test_ownership_registry.yaml
+  canonical_path: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/registries/test_ownership_registry.yaml

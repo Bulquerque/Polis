@@ -1,0 +1,141 @@
+catalog_id: p3.s30.feature_projection_catalog
+catalog_version: 1.0.0
+output_precision: 12
+min_memory_population_coverage: 0.25
+definitions:
+  - feature_id: society.confidence_dispersion
+    feature_name: Society confidence dispersion
+    source: society
+    source_field: confidence_dispersion
+    feature_type: SCORE
+    formula_id: p3.s30.identity_projection
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: society.evidence_diversity
+    feature_name: Society evidence diversity
+    source: society
+    source_field: evidence_diversity
+    feature_type: SCORE
+    formula_id: p3.s30.identity_projection
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: society.attention_concentration
+    feature_name: Society attention concentration
+    source: society
+    source_field: attention_concentration
+    feature_type: SCORE
+    formula_id: p3.s30.identity_projection
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: society.information_asymmetry
+    feature_name: Society information asymmetry
+    source: society
+    source_field: information_asymmetry
+    feature_type: SCORE
+    formula_id: p3.s30.identity_projection
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: society.coverage_ratio
+    feature_name: Society coverage ratio
+    source: society
+    source_field: coverage_ratio
+    feature_type: RATIO
+    formula_id: p3.s30.identity_projection
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: disagreement.composite
+    feature_name: Composite agent disagreement
+    source: disagreement
+    source_field: disagreement_score
+    feature_type: SCORE
+    formula_id: p3.s29.disagreement.composite
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: disagreement.agreement
+    feature_name: Composite agent agreement
+    source: disagreement
+    source_field: agent_agreement_score
+    feature_type: SCORE
+    formula_id: p3.s29.disagreement.complement
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: disagreement.polarization
+    feature_name: Belief polarization
+    source: disagreement
+    source_field: polarization_score
+    feature_type: SCORE
+    formula_id: p3.s29.polarization
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: evidence.count
+    feature_name: Evidence record count
+    source: evidence
+    source_field: evidence_count
+    feature_type: COUNT
+    formula_id: p3.s30.evidence_count
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: evidence.mean_source_quality
+    feature_name: Mean evidence source quality
+    source: evidence
+    source_field: mean_source_quality
+    feature_type: SCORE
+    formula_id: p3.s30.evidence_quality_mean
+    formula_version: 1.0.0
+    privacy_class: PUBLIC_AGGREGATE
+  - feature_id: memory.item_count
+    feature_name: Memory item count
+    source: memory
+    source_field: item_count
+    feature_type: COUNT
+    formula_id: p3.s30.memory_item_count
+    formula_version: 1.0.0
+    privacy_class: INTERNAL_AGGREGATE
+  - feature_id: memory.mean_confidence
+    feature_name: Mean memory confidence
+    source: memory
+    source_field: mean_confidence
+    feature_type: SCORE
+    formula_id: p3.s30.memory_confidence_mean
+    formula_version: 1.0.0
+    privacy_class: INTERNAL_AGGREGATE
+  - feature_id: memory.mean_importance
+    feature_name: Mean memory importance
+    source: memory
+    source_field: mean_importance
+    feature_type: SCORE
+    formula_id: p3.s30.memory_importance_mean
+    formula_version: 1.0.0
+    privacy_class: INTERNAL_AGGREGATE
+  - feature_id: memory.mean_retrievability
+    feature_name: Mean memory retrievability
+    source: memory
+    source_field: mean_retrievability
+    feature_type: SCORE
+    formula_id: p3.s30.memory_retrievability_mean
+    formula_version: 1.0.0
+    privacy_class: INTERNAL_AGGREGATE
+  - feature_id: memory.population_coverage_ratio
+    feature_name: Memory population coverage ratio
+    source: memory
+    source_field: population_coverage_ratio
+    feature_type: RATIO
+    formula_id: p3.s30.memory_population_coverage
+    formula_version: 1.0.0
+    privacy_class: INTERNAL_AGGREGATE
+  - feature_id: context.evidence_count
+    feature_name: Context evidence count
+    source: evidence
+    source_field: evidence_count
+    feature_type: COUNT
+    formula_id: p3.s30.context_evidence_count
+    formula_version: 1.0.0
+    privacy_class: INTERNAL_AGGREGATE
+  - feature_id: context.mean_source_quality
+    feature_name: Context mean source quality
+    source: evidence
+    source_field: mean_source_quality
+    feature_type: SCORE
+    formula_id: p3.s30.context_evidence_quality_mean
+    formula_version: 1.0.0
+    privacy_class: INTERNAL_AGGREGATE

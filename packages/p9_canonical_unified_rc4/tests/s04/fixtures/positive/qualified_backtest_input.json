@@ -1,0 +1,1417 @@
+{
+  "configuration_id": "cfg-1",
+  "handoff": {
+    "handoff_id": "handoff:trial-1:outer-000",
+    "schema_version": "1.0.0",
+    "run_id": "run-1",
+    "cycle_id": "cycle-1",
+    "trial_id": "trial-1",
+    "fold_id": "outer-000",
+    "capability": "PRODUCTION",
+    "start_cash": "1000",
+    "end_cash": "899",
+    "p6_candidate_ids": [
+      "candidate-1"
+    ],
+    "p7_terminal_records": [
+      {
+        "candidate_id": "candidate-1",
+        "state": "RANKED",
+        "reason_codes": []
+      }
+    ],
+    "p8_terminal_records": [
+      {
+        "candidate_id": "candidate-1",
+        "state": "EXECUTED",
+        "reason_codes": []
+      }
+    ],
+    "orders": [
+      {
+        "order_id": "order-1",
+        "candidate_id": "candidate-1",
+        "instrument_id": "ABC",
+        "side": "BUY",
+        "quantity": "10",
+        "decision_time": "2024-01-01T00:00:00Z",
+        "available_at": "2024-01-01T00:00:00Z",
+        "status": "FILLED"
+      }
+    ],
+    "fills": [
+      {
+        "fill_id": "fill-1",
+        "order_id": "order-1",
+        "instrument_id": "ABC",
+        "side": "BUY",
+        "quantity": "10",
+        "price": "10",
+        "fee": "1",
+        "fill_time": "2024-01-01T00:00:00Z",
+        "available_at": "2024-01-01T00:00:00Z"
+      }
+    ],
+    "cash_entries": [
+      {
+        "entry_id": "cash-fill",
+        "event_time": "2024-01-01T00:00:00Z",
+        "amount": "-101",
+        "category": "FILL",
+        "related_fill_id": "fill-1",
+        "related_lifecycle_id": null
+      }
+    ],
+    "lifecycle_events": [],
+    "final_positions": [
+      {
+        "instrument_id": "ABC",
+        "quantity": "10",
+        "market_value": "126.07340880"
+      }
+    ],
+    "valuations": [
+      {
+        "valuation_time": "2024-01-02T00:00:00Z",
+        "cash": "899",
+        "market_value": "100.0",
+        "gross_pnl": "0.0",
+        "costs": "1",
+        "net_pnl": "-1.0",
+        "nav": "999.0"
+      },
+      {
+        "valuation_time": "2024-01-03T00:00:00Z",
+        "cash": "899",
+        "market_value": "100.67667330",
+        "gross_pnl": "0.67667330",
+        "costs": "1",
+        "net_pnl": "-0.32332670",
+        "nav": "999.67667330"
+      },
+      {
+        "valuation_time": "2024-01-04T00:00:00Z",
+        "cash": "899",
+        "market_value": "101.33354590",
+        "gross_pnl": "1.33354590",
+        "costs": "1",
+        "net_pnl": "0.33354590",
+        "nav": "1000.33354590"
+      },
+      {
+        "valuation_time": "2024-01-05T00:00:00Z",
+        "cash": "899",
+        "market_value": "101.95160620",
+        "gross_pnl": "1.95160620",
+        "costs": "1",
+        "net_pnl": "0.95160620",
+        "nav": "1000.95160620"
+      },
+      {
+        "valuation_time": "2024-01-06T00:00:00Z",
+        "cash": "899",
+        "market_value": "102.51339020",
+        "gross_pnl": "2.51339020",
+        "costs": "1",
+        "net_pnl": "1.51339020",
+        "nav": "1001.51339020"
+      },
+      {
+        "valuation_time": "2024-01-07T00:00:00Z",
+        "cash": "899",
+        "market_value": "103.00367750",
+        "gross_pnl": "3.00367750",
+        "costs": "1",
+        "net_pnl": "2.00367750",
+        "nav": "1002.00367750"
+      },
+      {
+        "valuation_time": "2024-01-08T00:00:00Z",
+        "cash": "899",
+        "market_value": "103.41009770",
+        "gross_pnl": "3.41009770",
+        "costs": "1",
+        "net_pnl": "2.41009770",
+        "nav": "1002.41009770"
+      },
+      {
+        "valuation_time": "2024-01-09T00:00:00Z",
+        "cash": "899",
+        "market_value": "103.72362430",
+        "gross_pnl": "3.72362430",
+        "costs": "1",
+        "net_pnl": "2.72362430",
+        "nav": "1002.72362430"
+      },
+      {
+        "valuation_time": "2024-01-10T00:00:00Z",
+        "cash": "899",
+        "market_value": "103.9389340",
+        "gross_pnl": "3.9389340",
+        "costs": "1",
+        "net_pnl": "2.9389340",
+        "nav": "1002.9389340"
+      },
+      {
+        "valuation_time": "2024-01-11T00:00:00Z",
+        "cash": "899",
+        "market_value": "104.05461910",
+        "gross_pnl": "4.05461910",
+        "costs": "1",
+        "net_pnl": "3.05461910",
+        "nav": "1003.05461910"
+      },
+      {
+        "valuation_time": "2024-01-12T00:00:00Z",
+        "cash": "899",
+        "market_value": "104.07324360",
+        "gross_pnl": "4.07324360",
+        "costs": "1",
+        "net_pnl": "3.07324360",
+        "nav": "1003.07324360"
+      },
+      {
+        "valuation_time": "2024-01-13T00:00:00Z",
+        "cash": "899",
+        "market_value": "104.0012410",
+        "gross_pnl": "4.0012410",
+        "costs": "1",
+        "net_pnl": "3.0012410",
+        "nav": "1003.0012410"
+      },
+      {
+        "valuation_time": "2024-01-14T00:00:00Z",
+        "cash": "899",
+        "market_value": "103.8486580",
+        "gross_pnl": "3.8486580",
+        "costs": "1",
+        "net_pnl": "2.8486580",
+        "nav": "1002.8486580"
+      },
+      {
+        "valuation_time": "2024-01-15T00:00:00Z",
+        "cash": "899",
+        "market_value": "103.62875340",
+        "gross_pnl": "3.62875340",
+        "costs": "1",
+        "net_pnl": "2.62875340",
+        "nav": "1002.62875340"
+      },
+      {
+        "valuation_time": "2024-01-16T00:00:00Z",
+        "cash": "899",
+        "market_value": "103.35747040",
+        "gross_pnl": "3.35747040",
+        "costs": "1",
+        "net_pnl": "2.35747040",
+        "nav": "1002.35747040"
+      },
+      {
+        "valuation_time": "2024-01-17T00:00:00Z",
+        "cash": "899",
+        "market_value": "103.05280",
+        "gross_pnl": "3.05280",
+        "costs": "1",
+        "net_pnl": "2.05280",
+        "nav": "1002.05280"
+      },
+      {
+        "valuation_time": "2024-01-18T00:00:00Z",
+        "cash": "899",
+        "market_value": "102.73406460",
+        "gross_pnl": "2.73406460",
+        "costs": "1",
+        "net_pnl": "1.73406460",
+        "nav": "1001.73406460"
+      },
+      {
+        "valuation_time": "2024-01-19T00:00:00Z",
+        "cash": "899",
+        "market_value": "102.42114720",
+        "gross_pnl": "2.42114720",
+        "costs": "1",
+        "net_pnl": "1.42114720",
+        "nav": "1001.42114720"
+      },
+      {
+        "valuation_time": "2024-01-20T00:00:00Z",
+        "cash": "899",
+        "market_value": "102.13369890",
+        "gross_pnl": "2.13369890",
+        "costs": "1",
+        "net_pnl": "1.13369890",
+        "nav": "1001.13369890"
+      },
+      {
+        "valuation_time": "2024-01-21T00:00:00Z",
+        "cash": "899",
+        "market_value": "101.89035530",
+        "gross_pnl": "1.89035530",
+        "costs": "1",
+        "net_pnl": "0.89035530",
+        "nav": "1000.89035530"
+      },
+      {
+        "valuation_time": "2024-01-22T00:00:00Z",
+        "cash": "899",
+        "market_value": "101.70799380",
+        "gross_pnl": "1.70799380",
+        "costs": "1",
+        "net_pnl": "0.70799380",
+        "nav": "1000.70799380"
+      },
+      {
+        "valuation_time": "2024-01-23T00:00:00Z",
+        "cash": "899",
+        "market_value": "101.60106060",
+        "gross_pnl": "1.60106060",
+        "costs": "1",
+        "net_pnl": "0.60106060",
+        "nav": "1000.60106060"
+      },
+      {
+        "valuation_time": "2024-01-24T00:00:00Z",
+        "cash": "899",
+        "market_value": "101.58099480",
+        "gross_pnl": "1.58099480",
+        "costs": "1",
+        "net_pnl": "0.58099480",
+        "nav": "1000.58099480"
+      },
+      {
+        "valuation_time": "2024-01-25T00:00:00Z",
+        "cash": "899",
+        "market_value": "101.65577250",
+        "gross_pnl": "1.65577250",
+        "costs": "1",
+        "net_pnl": "0.65577250",
+        "nav": "1000.65577250"
+      },
+      {
+        "valuation_time": "2024-01-26T00:00:00Z",
+        "cash": "899",
+        "market_value": "101.82958850",
+        "gross_pnl": "1.82958850",
+        "costs": "1",
+        "net_pnl": "0.82958850",
+        "nav": "1000.82958850"
+      },
+      {
+        "valuation_time": "2024-01-27T00:00:00Z",
+        "cash": "899",
+        "market_value": "102.10268930",
+        "gross_pnl": "2.10268930",
+        "costs": "1",
+        "net_pnl": "1.10268930",
+        "nav": "1001.10268930"
+      },
+      {
+        "valuation_time": "2024-01-28T00:00:00Z",
+        "cash": "899",
+        "market_value": "102.47136340",
+        "gross_pnl": "2.47136340",
+        "costs": "1",
+        "net_pnl": "1.47136340",
+        "nav": "1001.47136340"
+      },
+      {
+        "valuation_time": "2024-01-29T00:00:00Z",
+        "cash": "899",
+        "market_value": "102.92808880",
+        "gross_pnl": "2.92808880",
+        "costs": "1",
+        "net_pnl": "1.92808880",
+        "nav": "1001.92808880"
+      },
+      {
+        "valuation_time": "2024-01-30T00:00:00Z",
+        "cash": "899",
+        "market_value": "103.46183340",
+        "gross_pnl": "3.46183340",
+        "costs": "1",
+        "net_pnl": "2.46183340",
+        "nav": "1002.46183340"
+      },
+      {
+        "valuation_time": "2024-01-31T00:00:00Z",
+        "cash": "899",
+        "market_value": "104.05849460",
+        "gross_pnl": "4.05849460",
+        "costs": "1",
+        "net_pnl": "3.05849460",
+        "nav": "1003.05849460"
+      },
+      {
+        "valuation_time": "2024-02-01T00:00:00Z",
+        "cash": "899",
+        "market_value": "104.70146130",
+        "gross_pnl": "4.70146130",
+        "costs": "1",
+        "net_pnl": "3.70146130",
+        "nav": "1003.70146130"
+      },
+      {
+        "valuation_time": "2024-02-02T00:00:00Z",
+        "cash": "899",
+        "market_value": "105.37227650",
+        "gross_pnl": "5.37227650",
+        "costs": "1",
+        "net_pnl": "4.37227650",
+        "nav": "1004.37227650"
+      },
+      {
+        "valuation_time": "2024-02-03T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.0513730",
+        "gross_pnl": "6.0513730",
+        "costs": "1",
+        "net_pnl": "5.0513730",
+        "nav": "1005.0513730"
+      },
+      {
+        "valuation_time": "2024-02-04T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.71885340",
+        "gross_pnl": "6.71885340",
+        "costs": "1",
+        "net_pnl": "5.71885340",
+        "nav": "1005.71885340"
+      },
+      {
+        "valuation_time": "2024-02-05T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.35528340",
+        "gross_pnl": "7.35528340",
+        "costs": "1",
+        "net_pnl": "6.35528340",
+        "nav": "1006.35528340"
+      },
+      {
+        "valuation_time": "2024-02-06T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.94246650",
+        "gross_pnl": "7.94246650",
+        "costs": "1",
+        "net_pnl": "6.94246650",
+        "nav": "1006.94246650"
+      },
+      {
+        "valuation_time": "2024-02-07T00:00:00Z",
+        "cash": "899",
+        "market_value": "108.46416970",
+        "gross_pnl": "8.46416970",
+        "costs": "1",
+        "net_pnl": "7.46416970",
+        "nav": "1007.46416970"
+      },
+      {
+        "valuation_time": "2024-02-08T00:00:00Z",
+        "cash": "899",
+        "market_value": "108.90677020",
+        "gross_pnl": "8.90677020",
+        "costs": "1",
+        "net_pnl": "7.90677020",
+        "nav": "1007.90677020"
+      },
+      {
+        "valuation_time": "2024-02-09T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.25979920",
+        "gross_pnl": "9.25979920",
+        "costs": "1",
+        "net_pnl": "8.25979920",
+        "nav": "1008.25979920"
+      },
+      {
+        "valuation_time": "2024-02-10T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.51635840",
+        "gross_pnl": "9.51635840",
+        "costs": "1",
+        "net_pnl": "8.51635840",
+        "nav": "1008.51635840"
+      },
+      {
+        "valuation_time": "2024-02-11T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.67339560",
+        "gross_pnl": "9.67339560",
+        "costs": "1",
+        "net_pnl": "8.67339560",
+        "nav": "1008.67339560"
+      },
+      {
+        "valuation_time": "2024-02-12T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.73182640",
+        "gross_pnl": "9.73182640",
+        "costs": "1",
+        "net_pnl": "8.73182640",
+        "nav": "1008.73182640"
+      },
+      {
+        "valuation_time": "2024-02-13T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.69649730",
+        "gross_pnl": "9.69649730",
+        "costs": "1",
+        "net_pnl": "8.69649730",
+        "nav": "1008.69649730"
+      },
+      {
+        "valuation_time": "2024-02-14T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.57599270",
+        "gross_pnl": "9.57599270",
+        "costs": "1",
+        "net_pnl": "8.57599270",
+        "nav": "1008.57599270"
+      },
+      {
+        "valuation_time": "2024-02-15T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.3822930",
+        "gross_pnl": "9.3822930",
+        "costs": "1",
+        "net_pnl": "8.3822930",
+        "nav": "1008.3822930"
+      },
+      {
+        "valuation_time": "2024-02-16T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.13029620",
+        "gross_pnl": "9.13029620",
+        "costs": "1",
+        "net_pnl": "8.13029620",
+        "nav": "1008.13029620"
+      },
+      {
+        "valuation_time": "2024-02-17T00:00:00Z",
+        "cash": "899",
+        "market_value": "108.83722480",
+        "gross_pnl": "8.83722480",
+        "costs": "1",
+        "net_pnl": "7.83722480",
+        "nav": "1007.83722480"
+      },
+      {
+        "valuation_time": "2024-02-18T00:00:00Z",
+        "cash": "899",
+        "market_value": "108.52193860",
+        "gross_pnl": "8.52193860",
+        "costs": "1",
+        "net_pnl": "7.52193860",
+        "nav": "1007.52193860"
+      },
+      {
+        "valuation_time": "2024-02-19T00:00:00Z",
+        "cash": "899",
+        "market_value": "108.2041830",
+        "gross_pnl": "8.2041830",
+        "costs": "1",
+        "net_pnl": "7.2041830",
+        "nav": "1007.2041830"
+      },
+      {
+        "valuation_time": "2024-02-20T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.90380220",
+        "gross_pnl": "7.90380220",
+        "costs": "1",
+        "net_pnl": "6.90380220",
+        "nav": "1006.90380220"
+      },
+      {
+        "valuation_time": "2024-02-21T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.63994720",
+        "gross_pnl": "7.63994720",
+        "costs": "1",
+        "net_pnl": "6.63994720",
+        "nav": "1006.63994720"
+      },
+      {
+        "valuation_time": "2024-02-22T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.43031330",
+        "gross_pnl": "7.43031330",
+        "costs": "1",
+        "net_pnl": "6.43031330",
+        "nav": "1006.43031330"
+      },
+      {
+        "valuation_time": "2024-02-23T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.29043380",
+        "gross_pnl": "7.29043380",
+        "costs": "1",
+        "net_pnl": "6.29043380",
+        "nav": "1006.29043380"
+      },
+      {
+        "valuation_time": "2024-02-24T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.23306140",
+        "gross_pnl": "7.23306140",
+        "costs": "1",
+        "net_pnl": "6.23306140",
+        "nav": "1006.23306140"
+      },
+      {
+        "valuation_time": "2024-02-25T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.26765940",
+        "gross_pnl": "7.26765940",
+        "costs": "1",
+        "net_pnl": "6.26765940",
+        "nav": "1006.26765940"
+      },
+      {
+        "valuation_time": "2024-02-26T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.85002450",
+        "gross_pnl": "6.85002450",
+        "costs": "1",
+        "net_pnl": "5.85002450",
+        "nav": "1005.85002450"
+      },
+      {
+        "valuation_time": "2024-02-27T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.53205570",
+        "gross_pnl": "6.53205570",
+        "costs": "1",
+        "net_pnl": "5.53205570",
+        "nav": "1005.53205570"
+      },
+      {
+        "valuation_time": "2024-02-28T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.31167870",
+        "gross_pnl": "6.31167870",
+        "costs": "1",
+        "net_pnl": "5.31167870",
+        "nav": "1005.31167870"
+      },
+      {
+        "valuation_time": "2024-02-29T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.18292850",
+        "gross_pnl": "6.18292850",
+        "costs": "1",
+        "net_pnl": "5.18292850",
+        "nav": "1005.18292850"
+      },
+      {
+        "valuation_time": "2024-03-01T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.13618730",
+        "gross_pnl": "6.13618730",
+        "costs": "1",
+        "net_pnl": "5.13618730",
+        "nav": "1005.13618730"
+      },
+      {
+        "valuation_time": "2024-03-02T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.15856770",
+        "gross_pnl": "6.15856770",
+        "costs": "1",
+        "net_pnl": "5.15856770",
+        "nav": "1005.15856770"
+      },
+      {
+        "valuation_time": "2024-03-03T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.23442680",
+        "gross_pnl": "6.23442680",
+        "costs": "1",
+        "net_pnl": "5.23442680",
+        "nav": "1005.23442680"
+      },
+      {
+        "valuation_time": "2024-03-04T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.34598960",
+        "gross_pnl": "6.34598960",
+        "costs": "1",
+        "net_pnl": "5.34598960",
+        "nav": "1005.34598960"
+      },
+      {
+        "valuation_time": "2024-03-05T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.47405760",
+        "gross_pnl": "6.47405760",
+        "costs": "1",
+        "net_pnl": "5.47405760",
+        "nav": "1005.47405760"
+      },
+      {
+        "valuation_time": "2024-03-06T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.59877460",
+        "gross_pnl": "6.59877460",
+        "costs": "1",
+        "net_pnl": "5.59877460",
+        "nav": "1005.59877460"
+      },
+      {
+        "valuation_time": "2024-03-07T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.70041760",
+        "gross_pnl": "6.70041760",
+        "costs": "1",
+        "net_pnl": "5.70041760",
+        "nav": "1005.70041760"
+      },
+      {
+        "valuation_time": "2024-03-08T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.76018380",
+        "gross_pnl": "6.76018380",
+        "costs": "1",
+        "net_pnl": "5.76018380",
+        "nav": "1005.76018380"
+      },
+      {
+        "valuation_time": "2024-03-09T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.76093970",
+        "gross_pnl": "6.76093970",
+        "costs": "1",
+        "net_pnl": "5.76093970",
+        "nav": "1005.76093970"
+      },
+      {
+        "valuation_time": "2024-03-10T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.68790450",
+        "gross_pnl": "6.68790450",
+        "costs": "1",
+        "net_pnl": "5.68790450",
+        "nav": "1005.68790450"
+      },
+      {
+        "valuation_time": "2024-03-11T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.52923920",
+        "gross_pnl": "6.52923920",
+        "costs": "1",
+        "net_pnl": "5.52923920",
+        "nav": "1005.52923920"
+      },
+      {
+        "valuation_time": "2024-03-12T00:00:00Z",
+        "cash": "899",
+        "market_value": "106.27651840",
+        "gross_pnl": "6.27651840",
+        "costs": "1",
+        "net_pnl": "5.27651840",
+        "nav": "1005.27651840"
+      },
+      {
+        "valuation_time": "2024-03-13T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.04260520",
+        "gross_pnl": "7.04260520",
+        "costs": "1",
+        "net_pnl": "6.04260520",
+        "nav": "1006.04260520"
+      },
+      {
+        "valuation_time": "2024-03-14T00:00:00Z",
+        "cash": "899",
+        "market_value": "107.67261920",
+        "gross_pnl": "7.67261920",
+        "costs": "1",
+        "net_pnl": "6.67261920",
+        "nav": "1006.67261920"
+      },
+      {
+        "valuation_time": "2024-03-15T00:00:00Z",
+        "cash": "899",
+        "market_value": "108.17214730",
+        "gross_pnl": "8.17214730",
+        "costs": "1",
+        "net_pnl": "7.17214730",
+        "nav": "1007.17214730"
+      },
+      {
+        "valuation_time": "2024-03-16T00:00:00Z",
+        "cash": "899",
+        "market_value": "108.55046080",
+        "gross_pnl": "8.55046080",
+        "costs": "1",
+        "net_pnl": "7.55046080",
+        "nav": "1007.55046080"
+      },
+      {
+        "valuation_time": "2024-03-17T00:00:00Z",
+        "cash": "899",
+        "market_value": "108.82024410",
+        "gross_pnl": "8.82024410",
+        "costs": "1",
+        "net_pnl": "7.82024410",
+        "nav": "1007.82024410"
+      },
+      {
+        "valuation_time": "2024-03-18T00:00:00Z",
+        "cash": "899",
+        "market_value": "108.99718030",
+        "gross_pnl": "8.99718030",
+        "costs": "1",
+        "net_pnl": "7.99718030",
+        "nav": "1007.99718030"
+      },
+      {
+        "valuation_time": "2024-03-19T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.09941190",
+        "gross_pnl": "9.09941190",
+        "costs": "1",
+        "net_pnl": "8.09941190",
+        "nav": "1008.09941190"
+      },
+      {
+        "valuation_time": "2024-03-20T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.14689740",
+        "gross_pnl": "9.14689740",
+        "costs": "1",
+        "net_pnl": "8.14689740",
+        "nav": "1008.14689740"
+      },
+      {
+        "valuation_time": "2024-03-21T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.16069050",
+        "gross_pnl": "9.16069050",
+        "costs": "1",
+        "net_pnl": "8.16069050",
+        "nav": "1008.16069050"
+      },
+      {
+        "valuation_time": "2024-03-22T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.16217110",
+        "gross_pnl": "9.16217110",
+        "costs": "1",
+        "net_pnl": "8.16217110",
+        "nav": "1008.16217110"
+      },
+      {
+        "valuation_time": "2024-03-23T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.17225840",
+        "gross_pnl": "9.17225840",
+        "costs": "1",
+        "net_pnl": "8.17225840",
+        "nav": "1008.17225840"
+      },
+      {
+        "valuation_time": "2024-03-24T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.21063840",
+        "gross_pnl": "9.21063840",
+        "costs": "1",
+        "net_pnl": "8.21063840",
+        "nav": "1008.21063840"
+      },
+      {
+        "valuation_time": "2024-03-25T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.29503640",
+        "gross_pnl": "9.29503640",
+        "costs": "1",
+        "net_pnl": "8.29503640",
+        "nav": "1008.29503640"
+      },
+      {
+        "valuation_time": "2024-03-26T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.44056410",
+        "gross_pnl": "9.44056410",
+        "costs": "1",
+        "net_pnl": "8.44056410",
+        "nav": "1008.44056410"
+      },
+      {
+        "valuation_time": "2024-03-27T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.65916720",
+        "gross_pnl": "9.65916720",
+        "costs": "1",
+        "net_pnl": "8.65916720",
+        "nav": "1008.65916720"
+      },
+      {
+        "valuation_time": "2024-03-28T00:00:00Z",
+        "cash": "899",
+        "market_value": "109.95919650",
+        "gross_pnl": "9.95919650",
+        "costs": "1",
+        "net_pnl": "8.95919650",
+        "nav": "1008.95919650"
+      },
+      {
+        "valuation_time": "2024-03-29T00:00:00Z",
+        "cash": "899",
+        "market_value": "110.34511880",
+        "gross_pnl": "10.34511880",
+        "costs": "1",
+        "net_pnl": "9.34511880",
+        "nav": "1009.34511880"
+      },
+      {
+        "valuation_time": "2024-03-30T00:00:00Z",
+        "cash": "899",
+        "market_value": "110.81737970",
+        "gross_pnl": "10.81737970",
+        "costs": "1",
+        "net_pnl": "9.81737970",
+        "nav": "1009.81737970"
+      },
+      {
+        "valuation_time": "2024-03-31T00:00:00Z",
+        "cash": "899",
+        "market_value": "111.37242480",
+        "gross_pnl": "11.37242480",
+        "costs": "1",
+        "net_pnl": "10.37242480",
+        "nav": "1010.37242480"
+      },
+      {
+        "valuation_time": "2024-04-01T00:00:00Z",
+        "cash": "899",
+        "market_value": "112.00287710",
+        "gross_pnl": "12.00287710",
+        "costs": "1",
+        "net_pnl": "11.00287710",
+        "nav": "1011.00287710"
+      },
+      {
+        "valuation_time": "2024-04-02T00:00:00Z",
+        "cash": "899",
+        "market_value": "112.69786470",
+        "gross_pnl": "12.69786470",
+        "costs": "1",
+        "net_pnl": "11.69786470",
+        "nav": "1011.69786470"
+      },
+      {
+        "valuation_time": "2024-04-03T00:00:00Z",
+        "cash": "899",
+        "market_value": "113.44348590",
+        "gross_pnl": "13.44348590",
+        "costs": "1",
+        "net_pnl": "12.44348590",
+        "nav": "1012.44348590"
+      },
+      {
+        "valuation_time": "2024-04-04T00:00:00Z",
+        "cash": "899",
+        "market_value": "114.22339310",
+        "gross_pnl": "14.22339310",
+        "costs": "1",
+        "net_pnl": "13.22339310",
+        "nav": "1013.22339310"
+      },
+      {
+        "valuation_time": "2024-04-05T00:00:00Z",
+        "cash": "899",
+        "market_value": "115.01947150",
+        "gross_pnl": "15.01947150",
+        "costs": "1",
+        "net_pnl": "14.01947150",
+        "nav": "1014.01947150"
+      },
+      {
+        "valuation_time": "2024-04-06T00:00:00Z",
+        "cash": "899",
+        "market_value": "115.81258770",
+        "gross_pnl": "15.81258770",
+        "costs": "1",
+        "net_pnl": "14.81258770",
+        "nav": "1014.81258770"
+      },
+      {
+        "valuation_time": "2024-04-07T00:00:00Z",
+        "cash": "899",
+        "market_value": "116.58337620",
+        "gross_pnl": "16.58337620",
+        "costs": "1",
+        "net_pnl": "15.58337620",
+        "nav": "1015.58337620"
+      },
+      {
+        "valuation_time": "2024-04-08T00:00:00Z",
+        "cash": "899",
+        "market_value": "117.31303420",
+        "gross_pnl": "17.31303420",
+        "costs": "1",
+        "net_pnl": "16.31303420",
+        "nav": "1016.31303420"
+      },
+      {
+        "valuation_time": "2024-04-09T00:00:00Z",
+        "cash": "899",
+        "market_value": "117.98409230",
+        "gross_pnl": "17.98409230",
+        "costs": "1",
+        "net_pnl": "16.98409230",
+        "nav": "1016.98409230"
+      },
+      {
+        "valuation_time": "2024-04-10T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.58113080",
+        "gross_pnl": "18.58113080",
+        "costs": "1",
+        "net_pnl": "17.58113080",
+        "nav": "1017.58113080"
+      },
+      {
+        "valuation_time": "2024-04-11T00:00:00Z",
+        "cash": "899",
+        "market_value": "119.09141260",
+        "gross_pnl": "19.09141260",
+        "costs": "1",
+        "net_pnl": "18.09141260",
+        "nav": "1018.09141260"
+      },
+      {
+        "valuation_time": "2024-04-12T00:00:00Z",
+        "cash": "899",
+        "market_value": "119.50540880",
+        "gross_pnl": "19.50540880",
+        "costs": "1",
+        "net_pnl": "18.50540880",
+        "nav": "1018.50540880"
+      },
+      {
+        "valuation_time": "2024-04-13T00:00:00Z",
+        "cash": "899",
+        "market_value": "119.81719420",
+        "gross_pnl": "19.81719420",
+        "costs": "1",
+        "net_pnl": "18.81719420",
+        "nav": "1018.81719420"
+      },
+      {
+        "valuation_time": "2024-04-14T00:00:00Z",
+        "cash": "899",
+        "market_value": "120.02469890",
+        "gross_pnl": "20.02469890",
+        "costs": "1",
+        "net_pnl": "19.02469890",
+        "nav": "1019.02469890"
+      },
+      {
+        "valuation_time": "2024-04-15T00:00:00Z",
+        "cash": "899",
+        "market_value": "120.12980540",
+        "gross_pnl": "20.12980540",
+        "costs": "1",
+        "net_pnl": "19.12980540",
+        "nav": "1019.12980540"
+      },
+      {
+        "valuation_time": "2024-04-16T00:00:00Z",
+        "cash": "899",
+        "market_value": "120.13828580",
+        "gross_pnl": "20.13828580",
+        "costs": "1",
+        "net_pnl": "19.13828580",
+        "nav": "1019.13828580"
+      },
+      {
+        "valuation_time": "2024-04-17T00:00:00Z",
+        "cash": "899",
+        "market_value": "120.05958510",
+        "gross_pnl": "20.05958510",
+        "costs": "1",
+        "net_pnl": "19.05958510",
+        "nav": "1019.05958510"
+      },
+      {
+        "valuation_time": "2024-04-18T00:00:00Z",
+        "cash": "899",
+        "market_value": "119.90645560",
+        "gross_pnl": "19.90645560",
+        "costs": "1",
+        "net_pnl": "18.90645560",
+        "nav": "1018.90645560"
+      },
+      {
+        "valuation_time": "2024-04-19T00:00:00Z",
+        "cash": "899",
+        "market_value": "119.69445960",
+        "gross_pnl": "19.69445960",
+        "costs": "1",
+        "net_pnl": "18.69445960",
+        "nav": "1018.69445960"
+      },
+      {
+        "valuation_time": "2024-04-20T00:00:00Z",
+        "cash": "899",
+        "market_value": "119.44135920",
+        "gross_pnl": "19.44135920",
+        "costs": "1",
+        "net_pnl": "18.44135920",
+        "nav": "1018.44135920"
+      },
+      {
+        "valuation_time": "2024-04-21T00:00:00Z",
+        "cash": "899",
+        "market_value": "119.16641740",
+        "gross_pnl": "19.16641740",
+        "costs": "1",
+        "net_pnl": "18.16641740",
+        "nav": "1018.16641740"
+      },
+      {
+        "valuation_time": "2024-04-22T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.88963910",
+        "gross_pnl": "18.88963910",
+        "costs": "1",
+        "net_pnl": "17.88963910",
+        "nav": "1017.88963910"
+      },
+      {
+        "valuation_time": "2024-04-23T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.63098220",
+        "gross_pnl": "18.63098220",
+        "costs": "1",
+        "net_pnl": "17.63098220",
+        "nav": "1017.63098220"
+      },
+      {
+        "valuation_time": "2024-04-24T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.40956940",
+        "gross_pnl": "18.40956940",
+        "costs": "1",
+        "net_pnl": "17.40956940",
+        "nav": "1017.40956940"
+      },
+      {
+        "valuation_time": "2024-04-25T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.24293290",
+        "gross_pnl": "18.24293290",
+        "costs": "1",
+        "net_pnl": "17.24293290",
+        "nav": "1017.24293290"
+      },
+      {
+        "valuation_time": "2024-04-26T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.14632280",
+        "gross_pnl": "18.14632280",
+        "costs": "1",
+        "net_pnl": "17.14632280",
+        "nav": "1017.14632280"
+      },
+      {
+        "valuation_time": "2024-04-27T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.13210510",
+        "gross_pnl": "18.13210510",
+        "costs": "1",
+        "net_pnl": "17.13210510",
+        "nav": "1017.13210510"
+      },
+      {
+        "valuation_time": "2024-04-28T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.20927470",
+        "gross_pnl": "18.20927470",
+        "costs": "1",
+        "net_pnl": "17.20927470",
+        "nav": "1017.20927470"
+      },
+      {
+        "valuation_time": "2024-04-29T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.38310260",
+        "gross_pnl": "18.38310260",
+        "costs": "1",
+        "net_pnl": "17.38310260",
+        "nav": "1017.38310260"
+      },
+      {
+        "valuation_time": "2024-04-30T00:00:00Z",
+        "cash": "899",
+        "market_value": "118.65493060",
+        "gross_pnl": "18.65493060",
+        "costs": "1",
+        "net_pnl": "17.65493060",
+        "nav": "1017.65493060"
+      },
+      {
+        "valuation_time": "2024-05-01T00:00:00Z",
+        "cash": "899",
+        "market_value": "119.0221230",
+        "gross_pnl": "19.0221230",
+        "costs": "1",
+        "net_pnl": "18.0221230",
+        "nav": "1018.0221230"
+      },
+      {
+        "valuation_time": "2024-05-02T00:00:00Z",
+        "cash": "899",
+        "market_value": "119.47817590",
+        "gross_pnl": "19.47817590",
+        "costs": "1",
+        "net_pnl": "18.47817590",
+        "nav": "1018.47817590"
+      },
+      {
+        "valuation_time": "2024-05-03T00:00:00Z",
+        "cash": "899",
+        "market_value": "120.01298130",
+        "gross_pnl": "20.01298130",
+        "costs": "1",
+        "net_pnl": "19.01298130",
+        "nav": "1019.01298130"
+      },
+      {
+        "valuation_time": "2024-05-04T00:00:00Z",
+        "cash": "899",
+        "market_value": "120.61323340",
+        "gross_pnl": "20.61323340",
+        "costs": "1",
+        "net_pnl": "19.61323340",
+        "nav": "1019.61323340"
+      },
+      {
+        "valuation_time": "2024-05-05T00:00:00Z",
+        "cash": "899",
+        "market_value": "121.26296340",
+        "gross_pnl": "21.26296340",
+        "costs": "1",
+        "net_pnl": "20.26296340",
+        "nav": "1020.26296340"
+      },
+      {
+        "valuation_time": "2024-05-06T00:00:00Z",
+        "cash": "899",
+        "market_value": "121.94417910",
+        "gross_pnl": "21.94417910",
+        "costs": "1",
+        "net_pnl": "20.94417910",
+        "nav": "1020.94417910"
+      },
+      {
+        "valuation_time": "2024-05-07T00:00:00Z",
+        "cash": "899",
+        "market_value": "122.63758580",
+        "gross_pnl": "22.63758580",
+        "costs": "1",
+        "net_pnl": "21.63758580",
+        "nav": "1021.63758580"
+      },
+      {
+        "valuation_time": "2024-05-08T00:00:00Z",
+        "cash": "899",
+        "market_value": "123.32335850",
+        "gross_pnl": "23.32335850",
+        "costs": "1",
+        "net_pnl": "22.32335850",
+        "nav": "1022.32335850"
+      },
+      {
+        "valuation_time": "2024-05-09T00:00:00Z",
+        "cash": "899",
+        "market_value": "123.9819350",
+        "gross_pnl": "23.9819350",
+        "costs": "1",
+        "net_pnl": "22.9819350",
+        "nav": "1022.9819350"
+      },
+      {
+        "valuation_time": "2024-05-10T00:00:00Z",
+        "cash": "899",
+        "market_value": "124.59479850",
+        "gross_pnl": "24.59479850",
+        "costs": "1",
+        "net_pnl": "23.59479850",
+        "nav": "1023.59479850"
+      },
+      {
+        "valuation_time": "2024-05-11T00:00:00Z",
+        "cash": "899",
+        "market_value": "125.14521850",
+        "gross_pnl": "25.14521850",
+        "costs": "1",
+        "net_pnl": "24.14521850",
+        "nav": "1024.14521850"
+      },
+      {
+        "valuation_time": "2024-05-12T00:00:00Z",
+        "cash": "899",
+        "market_value": "125.61891990",
+        "gross_pnl": "25.61891990",
+        "costs": "1",
+        "net_pnl": "24.61891990",
+        "nav": "1024.61891990"
+      },
+      {
+        "valuation_time": "2024-05-13T00:00:00Z",
+        "cash": "899",
+        "market_value": "126.00465440",
+        "gross_pnl": "26.00465440",
+        "costs": "1",
+        "net_pnl": "25.00465440",
+        "nav": "1025.00465440"
+      },
+      {
+        "valuation_time": "2024-05-14T00:00:00Z",
+        "cash": "899",
+        "market_value": "126.29465090",
+        "gross_pnl": "26.29465090",
+        "costs": "1",
+        "net_pnl": "25.29465090",
+        "nav": "1025.29465090"
+      },
+      {
+        "valuation_time": "2024-05-15T00:00:00Z",
+        "cash": "899",
+        "market_value": "126.48492730",
+        "gross_pnl": "26.48492730",
+        "costs": "1",
+        "net_pnl": "25.48492730",
+        "nav": "1025.48492730"
+      },
+      {
+        "valuation_time": "2024-05-16T00:00:00Z",
+        "cash": "899",
+        "market_value": "126.5754510",
+        "gross_pnl": "26.5754510",
+        "costs": "1",
+        "net_pnl": "25.5754510",
+        "nav": "1025.5754510"
+      },
+      {
+        "valuation_time": "2024-05-17T00:00:00Z",
+        "cash": "899",
+        "market_value": "126.57014210",
+        "gross_pnl": "26.57014210",
+        "costs": "1",
+        "net_pnl": "25.57014210",
+        "nav": "1025.57014210"
+      },
+      {
+        "valuation_time": "2024-05-18T00:00:00Z",
+        "cash": "899",
+        "market_value": "126.47671820",
+        "gross_pnl": "26.47671820",
+        "costs": "1",
+        "net_pnl": "25.47671820",
+        "nav": "1025.47671820"
+      },
+      {
+        "valuation_time": "2024-05-19T00:00:00Z",
+        "cash": "899",
+        "market_value": "126.30638860",
+        "gross_pnl": "26.30638860",
+        "costs": "1",
+        "net_pnl": "25.30638860",
+        "nav": "1025.30638860"
+      },
+      {
+        "valuation_time": "2024-05-20T00:00:00Z",
+        "cash": "899",
+        "market_value": "126.07340880",
+        "gross_pnl": "26.07340880",
+        "costs": "1",
+        "net_pnl": "25.07340880",
+        "nav": "1025.07340880"
+      }
+    ],
+    "required_lifecycle_supported": true,
+    "replay_sha256": "7e1ed6b5dbff98bf2bc75c76a454435fd5e982322607a6e20fcaedd92933333d"
+  },
+  "qualification": {
+    "handoff_id": "handoff:trial-1:outer-000",
+    "state": "QUALIFIED",
+    "checks": [
+      {
+        "check_id": "candidate_conservation_p6_to_p7",
+        "passed": true,
+        "observed": "['candidate-1']",
+        "expected": "['candidate-1']",
+        "reason_code": null
+      },
+      {
+        "check_id": "candidate_conservation_p8_subset",
+        "passed": true,
+        "observed": "['candidate-1']",
+        "expected": "subset of ['candidate-1']",
+        "reason_code": null
+      },
+      {
+        "check_id": "blocked_or_abstained_not_executed",
+        "passed": true,
+        "observed": "[]",
+        "expected": "empty",
+        "reason_code": null
+      },
+      {
+        "check_id": "order_fill_reconciliation",
+        "passed": true,
+        "observed": "{'order-1': Decimal('10')}",
+        "expected": "fills reference matching orders and do not exceed quantity",
+        "reason_code": null
+      },
+      {
+        "check_id": "fill_cash_reconciliation",
+        "passed": true,
+        "observed": "{'fill-1': Decimal('-101')}",
+        "expected": "{'fill-1': Decimal('-101')}",
+        "reason_code": null
+      },
+      {
+        "check_id": "cash_ledger_identity",
+        "passed": true,
+        "observed": "899",
+        "expected": "899",
+        "reason_code": null
+      },
+      {
+        "check_id": "position_reconciliation",
+        "passed": true,
+        "observed": "{'ABC': Decimal('10')}",
+        "expected": "{'ABC': Decimal('10')}",
+        "reason_code": null
+      },
+      {
+        "check_id": "valuation_identities",
+        "passed": true,
+        "observed": "valuation_time=datetime.datetime(2024, 5, 20, 0, 0, tzinfo=datetime.timezone.utc) cash=Decimal('899') market_value=Decimal('126.07340880') gross_pnl=Decimal('26.07340880') costs=Decimal('1') net_pnl=Decimal('25.07340880') nav=Decimal('1025.07340880')",
+        "expected": "nav=cash+market_value and net_pnl=gross_pnl-costs",
+        "reason_code": null
+      },
+      {
+        "check_id": "required_lifecycle_supported",
+        "passed": true,
+        "observed": "True",
+        "expected": "True",
+        "reason_code": null
+      },
+      {
+        "check_id": "replay_hash",
+        "passed": true,
+        "observed": "7e1ed6b5dbff98bf2bc75c76a454435fd5e982322607a6e20fcaedd92933333d",
+        "expected": "7e1ed6b5dbff98bf2bc75c76a454435fd5e982322607a6e20fcaedd92933333d",
+        "reason_code": null
+      }
+    ],
+    "reason_codes": [],
+    "qualified_handoff_sha256": "7e1ed6b5dbff98bf2bc75c76a454435fd5e982322607a6e20fcaedd92933333d",
+    "content_sha256": "d334eb3a9a3901bfc5ed6d0cba1fc406e58b7df01237fadadd8991e34e4e176c"
+  }
+}

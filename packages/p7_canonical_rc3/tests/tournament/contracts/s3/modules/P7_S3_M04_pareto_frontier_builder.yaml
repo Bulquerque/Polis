@@ -1,0 +1,7 @@
+module_id: P7.S3.M04
+owner: TOURNAMENT
+purpose: Build exact nondominated fronts and audit layers without ranking candidates.
+inputs: [dominance_relation_panel, dominated_candidate_panel, dominance_survivor_panel, factor_adjusted_metric_panel, ranking_policy_context]
+outputs: [pareto_frontier_panel, pareto_frontier_audit_report]
+failure_scope: PHASE_FATAL
+invariants: [frontier layer zero is nondominated set, layers partition comparable candidates, serialization is deterministic, no top_k]

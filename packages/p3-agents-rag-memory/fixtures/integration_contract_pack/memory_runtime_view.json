@@ -1,0 +1,58 @@
+{
+  "access_policy_ref": {
+    "artifact_id": "memory-policy-integration",
+    "artifact_name": "memory_access_policy",
+    "available_at": null,
+    "content_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "grain": [],
+    "lineage_id": "lineage-memory-policy-integration",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S14.M01",
+    "row_count": null,
+    "schema_id": "memory_access_policy.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://memory-policy-integration",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "artifact_id": "memory-runtime-memory-index-integration",
+  "artifact_name": "memory_runtime_view",
+  "content_hash": "4648c35abf533f11260732aba8d9746f0912acb2263319bd71afec578754dfe4",
+  "lineage": {
+    "lineage_id": "lineage-memory-runtime-memory-index-integration",
+    "parent_lineage_ids": [],
+    "source_artifact_ids": [
+      "memory-policy-integration",
+      "memory-index-integration"
+    ],
+    "transformation_ids": [
+      "memory_runtime_projection.v1"
+    ]
+  },
+  "memory_index_ref": {
+    "artifact_id": "memory-index-integration",
+    "artifact_name": "memory_index_manifest",
+    "available_at": null,
+    "content_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "grain": [],
+    "lineage_id": "lineage-memory-index-integration",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S14.M02",
+    "row_count": null,
+    "schema_id": "memory_index_manifest.v2",
+    "schema_version": "2.0.0",
+    "status": "EMPTY_VALID",
+    "storage_ref": {
+      "location": "memory://memory-index-integration",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "memory_read_port_id": "memory_read_port.v1",
+  "schema_id": "memory_runtime_view.v1",
+  "schema_version": "1.0.0",
+  "status": "EMPTY_VALID"
+}

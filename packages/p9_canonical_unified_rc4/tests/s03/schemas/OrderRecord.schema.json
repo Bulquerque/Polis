@@ -1,0 +1,88 @@
+{
+  "$defs": {
+    "OrderStatus": {
+      "enum": [
+        "NEW",
+        "PARTIALLY_FILLED",
+        "FILLED",
+        "CANCELLED",
+        "REJECTED"
+      ],
+      "title": "OrderStatus",
+      "type": "string"
+    },
+    "Side": {
+      "enum": [
+        "BUY",
+        "SELL"
+      ],
+      "title": "Side",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/OrderRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "candidate_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Candidate Id"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "instrument_id": {
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "order_id": {
+      "title": "Order Id",
+      "type": "string"
+    },
+    "quantity": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Quantity"
+    },
+    "side": {
+      "$ref": "#/$defs/Side"
+    },
+    "status": {
+      "$ref": "#/$defs/OrderStatus"
+    }
+  },
+  "required": [
+    "order_id",
+    "instrument_id",
+    "side",
+    "quantity",
+    "decision_time",
+    "available_at",
+    "status"
+  ],
+  "title": "OrderRecord",
+  "type": "object"
+}

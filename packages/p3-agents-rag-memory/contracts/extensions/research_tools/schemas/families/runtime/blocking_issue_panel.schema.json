@@ -1,0 +1,138 @@
+{
+  "$defs": {
+    "BlockingIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_operations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Affected Operations",
+          "type": "array"
+        },
+        "issue_id": {
+          "minLength": 1,
+          "title": "Issue Id",
+          "type": "string"
+        },
+        "owner": {
+          "minLength": 1,
+          "title": "Owner",
+          "type": "string"
+        },
+        "reason_code": {
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "BLOCKER",
+            "MAJOR",
+            "MINOR"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "summary": {
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue_id",
+        "severity",
+        "owner",
+        "reason_code",
+        "summary"
+      ],
+      "title": "BlockingIssue",
+      "type": "object"
+    },
+    "S40Lineage": {
+      "additionalProperties": false,
+      "properties": {
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "pattern": "^P3\\.S40\\.M\\d{2}$",
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "source_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Artifact Ids",
+          "type": "array"
+        },
+        "source_hashes": {
+          "additionalProperties": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Source Hashes",
+          "type": "object"
+        },
+        "transformation_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Transformation Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "lineage_id",
+        "producer_module_id"
+      ],
+      "title": "S40Lineage",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "lineage": {
+      "$ref": "#/$defs/S40Lineage"
+    },
+    "panel_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Panel Hash",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/BlockingIssue"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "p3.s40.v1",
+      "default": "p3.s40.v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "records",
+    "lineage",
+    "panel_hash"
+  ],
+  "title": "BlockingIssuePanel",
+  "type": "object"
+}

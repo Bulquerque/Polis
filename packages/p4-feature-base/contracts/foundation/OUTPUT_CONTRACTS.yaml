@@ -1,0 +1,48 @@
+phase: phase_04_feature_base
+scope: P4.S1-S2 foundation
+contract_version: v14.5-rc2
+S1_outputs_preserved:
+- validated_phase2_bundle
+- phase2_capability_matrix
+- validated_phase3_bundle
+- phase3_capability_matrix
+- validated_p4_boundary_bundle
+- boundary_consistency_report
+- observer_change_proposal_registry
+S2_outputs:
+- temporally_resolved_observation_bundle
+- temporal_resolution_report
+- entity_aligned_observation_bundle
+- entity_alignment_report
+- quality_enriched_observation_bundle
+- availability_missingness_panel
+- revision_selection_report
+- canonical_observation_panel
+- canonical_store_manifest
+canonical_grain:
+- decision_time
+- entity_id
+- variable_id
+- source_record_id
+rules:
+- single authorized producer
+- Draft 2020-12 schema valid
+- lineage and hashes required
+- deterministic ordering
+- canonical long format
+- no target or prediction fields
+s3_outputs:
+- feature_observer_registry
+- feature_parameter_policy_registry
+- foundational_hypothesis_core_registry
+- validated_observer_spec_registry
+- observer_spec_validation_report
+- approved_hypothesis_passport_registry
+- approved_observer_execution_registry
+- approved_interaction_registry
+- hypothesis_budget_report
+- rejected_hypothesis_registry
+- causal_operator_result_panel
+- operator_fit_state_registry
+- relational_operator_result_panel
+- relational_fit_state_registry

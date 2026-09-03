@@ -1,0 +1,15 @@
+{
+  "blocked_count": 0,
+  "comparison_group_count": 1,
+  "eligible_count": 1,
+  "handoff_id": "foundation-a3b6d697574bc13c0703cebc5ae95f0286a92ee9bf6919831bc4d424764b562b",
+  "metric_route_count": 9,
+  "output_hashes": {
+    "runtime_foundation_handoff_manifest": "9c8c90e011c1247e17f6208b8eed37d3f7a243ca0292be0fc04b30a4313789b0",
+    "candidate_comparison_group_panel": "6bf3ce3a8c52f0048db503a8e7e10a78d7ec2040967f0ada076518147570af58",
+    "candidate_metric_route_panel": "2dee714acdcfa07075f384ef6839f76c3712f7f920f5904f24eaedfa4bef3016",
+    "eligibility_blocked_candidate_panel": "c76aa8df89ddfb625eb7aa544de0d20d49ae1732fd864af9f0fab7f842ecb617",
+    "eligibility_decision_panel": "bc32484bdac4236e78d7c61c34ff4c05703044fe5442f2e1cf635bf6db73ae35",
+    "eligible_strategy_candidate_panel": "cd8bef40d82e1b0f9fbe7dc2b4bc25b9aceda1c4170821f53409c07b603e01cc"
+  }
+}

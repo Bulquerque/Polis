@@ -1,0 +1,60 @@
+registry_id: p7_objective_family_registry
+registry_version: 2.3.0
+families:
+- objective_family: RANGE
+  required_metric_ids: &id001
+  - expected_net_payoff
+  - expected_shortfall
+  - maximum_loss
+  - probability_of_profit
+  - entry_cost
+  - liquidity_score
+  optional_metric_ids: &id002
+  - return_on_max_loss
+  - payoff_fit_error
+  - worst_ambiguity_utility
+- objective_family: DIRECTIONAL_UP
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: DIRECTIONAL_DOWN
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: LONG_VOLATILITY
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: SHORT_VOLATILITY_DEFINED_RISK
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: TAIL_HEDGE
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: INCOME_DEFINED_RISK
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: SKEW_RELATIVE_VALUE
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: TERM_STRUCTURE
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: EVENT
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: PORTFOLIO_HEDGE
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: HYBRID
+  required_metric_ids: *id001
+  optional_metric_ids: *id002
+- objective_family: POSITIVE_CONVEXITY
+  optional_metric_ids:
+  - return_on_max_loss
+  - payoff_fit_error
+  - worst_ambiguity_utility
+  required_metric_ids:
+  - expected_net_payoff
+  - expected_shortfall
+  - maximum_loss
+  - probability_of_profit
+  - entry_cost
+  - liquidity_score

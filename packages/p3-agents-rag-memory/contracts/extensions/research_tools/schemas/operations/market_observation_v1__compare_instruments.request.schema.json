@@ -1,0 +1,63 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/compare_instruments/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "end_time": {
+      "format": "date-time",
+      "title": "End Time",
+      "type": "string"
+    },
+    "instrument_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 50,
+      "minItems": 2,
+      "title": "Instrument Ids",
+      "type": "array"
+    },
+    "metrics": {
+      "default": [
+        "return",
+        "volatility"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Metrics",
+      "type": "array"
+    },
+    "normalization": {
+      "default": "BASE_100",
+      "enum": [
+        "NONE",
+        "BASE_100",
+        "ZSCORE_HISTORY_ONLY"
+      ],
+      "title": "Normalization",
+      "type": "string"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "start_time": {
+      "format": "date-time",
+      "title": "Start Time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "instrument_ids",
+    "start_time",
+    "end_time"
+  ],
+  "title": "CompareInstrumentsRequest",
+  "type": "object"
+}

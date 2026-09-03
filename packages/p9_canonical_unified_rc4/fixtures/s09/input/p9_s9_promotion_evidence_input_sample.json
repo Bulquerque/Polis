@@ -1,0 +1,807 @@
+{
+  "challenger_configuration_ids": [
+    "challenger-a",
+    "challenger-b",
+    "challenger-c"
+  ],
+  "champion_configuration_id": "champion",
+  "configurations": [
+    {
+      "capacity_feasible": true,
+      "cohort_id": "cohort-a",
+      "complexity_score": 0.2,
+      "configuration_id": "champion",
+      "contamination_state": "CLEAN",
+      "critical_regime_failures": [],
+      "dsr": 0.9,
+      "gates": [
+        {
+          "gate_id": "integrity",
+          "state": "PASS"
+        },
+        {
+          "gate_id": "statistical",
+          "state": "PASS"
+        }
+      ],
+      "live_degradation_detected": false,
+      "live_evidence_available": true,
+      "metrics": [
+        {
+          "metric_id": "competition_score",
+          "metric_version": "1.0.0",
+          "unit": "score",
+          "value": 1.0
+        },
+        {
+          "metric_id": "competition_score_lower_bound",
+          "metric_version": "1.0.0",
+          "unit": "score",
+          "value": 0.8
+        },
+        {
+          "metric_id": "max_drawdown",
+          "metric_version": "1.0.0",
+          "unit": "decimal",
+          "value": 0.15
+        },
+        {
+          "metric_id": "cost_drag",
+          "metric_version": "1.0.0",
+          "unit": "decimal",
+          "value": 0.1
+        }
+      ],
+      "model_confidence_set_member": true,
+      "parameters": [
+        {
+          "name": "lookback",
+          "value": 5
+        },
+        {
+          "name": "model_family",
+          "value": "ridge"
+        }
+      ],
+      "pbo": 0.1,
+      "stress_resilient": true
+    },
+    {
+      "capacity_feasible": true,
+      "cohort_id": "cohort-a",
+      "complexity_score": 0.25,
+      "configuration_id": "challenger-a",
+      "contamination_state": "CLEAN",
+      "critical_regime_failures": [],
+      "dsr": 0.9,
+      "gates": [
+        {
+          "gate_id": "integrity",
+          "state": "PASS"
+        },
+        {
+          "gate_id": "statistical",
+          "state": "PASS"
+        }
+      ],
+      "live_degradation_detected": false,
+      "live_evidence_available": true,
+      "metrics": [
+        {
+          "metric_id": "competition_score",
+          "metric_version": "1.0.0",
+          "unit": "score",
+          "value": 1.2
+        },
+        {
+          "metric_id": "competition_score_lower_bound",
+          "metric_version": "1.0.0",
+          "unit": "score",
+          "value": 1.02
+        },
+        {
+          "metric_id": "max_drawdown",
+          "metric_version": "1.0.0",
+          "unit": "decimal",
+          "value": 0.12
+        },
+        {
+          "metric_id": "cost_drag",
+          "metric_version": "1.0.0",
+          "unit": "decimal",
+          "value": 0.08
+        }
+      ],
+      "model_confidence_set_member": true,
+      "parameters": [
+        {
+          "name": "lookback",
+          "value": 10
+        },
+        {
+          "name": "model_family",
+          "value": "ridge"
+        }
+      ],
+      "pbo": 0.1,
+      "stress_resilient": true
+    },
+    {
+      "capacity_feasible": true,
+      "cohort_id": "cohort-a",
+      "complexity_score": 0.24,
+      "configuration_id": "challenger-b",
+      "contamination_state": "CLEAN",
+      "critical_regime_failures": [],
+      "dsr": 0.9,
+      "gates": [
+        {
+          "gate_id": "integrity",
+          "state": "PASS"
+        },
+        {
+          "gate_id": "statistical",
+          "state": "PASS"
+        }
+      ],
+      "live_degradation_detected": false,
+      "live_evidence_available": true,
+      "metrics": [
+        {
+          "metric_id": "competition_score",
+          "metric_version": "1.0.0",
+          "unit": "score",
+          "value": 1.18
+        },
+        {
+          "metric_id": "competition_score_lower_bound",
+          "metric_version": "1.0.0",
+          "unit": "score",
+          "value": 1.0
+        },
+        {
+          "metric_id": "max_drawdown",
+          "metric_version": "1.0.0",
+          "unit": "decimal",
+          "value": 0.11
+        },
+        {
+          "metric_id": "cost_drag",
+          "metric_version": "1.0.0",
+          "unit": "decimal",
+          "value": 0.08
+        }
+      ],
+      "model_confidence_set_member": true,
+      "parameters": [
+        {
+          "name": "lookback",
+          "value": 11
+        },
+        {
+          "name": "model_family",
+          "value": "ridge"
+        }
+      ],
+      "pbo": 0.1,
+      "stress_resilient": true
+    },
+    {
+      "capacity_feasible": true,
+      "cohort_id": "cohort-a",
+      "complexity_score": 0.23,
+      "configuration_id": "challenger-c",
+      "contamination_state": "CLEAN",
+      "critical_regime_failures": [],
+      "dsr": 0.9,
+      "gates": [
+        {
+          "gate_id": "integrity",
+          "state": "PASS"
+        },
+        {
+          "gate_id": "statistical",
+          "state": "PASS"
+        }
+      ],
+      "live_degradation_detected": false,
+      "live_evidence_available": true,
+      "metrics": [
+        {
+          "metric_id": "competition_score",
+          "metric_version": "1.0.0",
+          "unit": "score",
+          "value": 1.16
+        },
+        {
+          "metric_id": "competition_score_lower_bound",
+          "metric_version": "1.0.0",
+          "unit": "score",
+          "value": 0.98
+        },
+        {
+          "metric_id": "max_drawdown",
+          "metric_version": "1.0.0",
+          "unit": "decimal",
+          "value": 0.1
+        },
+        {
+          "metric_id": "cost_drag",
+          "metric_version": "1.0.0",
+          "unit": "decimal",
+          "value": 0.07
+        }
+      ],
+      "model_confidence_set_member": true,
+      "parameters": [
+        {
+          "name": "lookback",
+          "value": 12
+        },
+        {
+          "name": "model_family",
+          "value": "ridge"
+        }
+      ],
+      "pbo": 0.1,
+      "stress_resilient": true
+    }
+  ],
+  "feedback_policy_registry": {
+    "registry_version": "1.0.0",
+    "targets": [
+      {
+        "allowed_feedback_types": [
+          "calibration"
+        ],
+        "categorical_bounds": [],
+        "numeric_bounds": [
+          {
+            "maximum": 0.99,
+            "maximum_absolute_delta": 0.1,
+            "minimum": 0.5,
+            "parameter_name": "confidence_floor"
+          }
+        ],
+        "requires_p0_authorization_for": [
+          "POLICY_BOUND_CHANGE"
+        ],
+        "target_phase": "P5",
+        "target_policy_id": "p5-calibration",
+        "target_policy_version": "1.0.0"
+      },
+      {
+        "allowed_feedback_types": [
+          "pricing_review"
+        ],
+        "categorical_bounds": [],
+        "numeric_bounds": [
+          {
+            "maximum": 0.5,
+            "maximum_absolute_delta": 0.05,
+            "minimum": 0.0,
+            "parameter_name": "cost_buffer"
+          }
+        ],
+        "requires_p0_authorization_for": [
+          "POLICY_BOUND_CHANGE"
+        ],
+        "target_phase": "P6",
+        "target_policy_id": "p6-pricing",
+        "target_policy_version": "1.0.0"
+      },
+      {
+        "allowed_feedback_types": [
+          "abstention_review"
+        ],
+        "categorical_bounds": [
+          {
+            "allowed_values": [
+              "strict",
+              "balanced"
+            ],
+            "parameter_name": "mode"
+          }
+        ],
+        "numeric_bounds": [],
+        "requires_p0_authorization_for": [],
+        "target_phase": "P7",
+        "target_policy_id": "p7-abstention",
+        "target_policy_version": "1.0.0"
+      },
+      {
+        "allowed_feedback_types": [
+          "capacity_review"
+        ],
+        "categorical_bounds": [],
+        "numeric_bounds": [
+          {
+            "maximum": 0.2,
+            "maximum_absolute_delta": 0.02,
+            "minimum": 0.0,
+            "parameter_name": "participation_limit"
+          }
+        ],
+        "requires_p0_authorization_for": [
+          "POLICY_BOUND_CHANGE"
+        ],
+        "target_phase": "P8",
+        "target_policy_id": "p8-capacity",
+        "target_policy_version": "1.0.0"
+      }
+    ]
+  },
+  "leaderboard_policy": {
+    "base_submission_cost": 1.0,
+    "change_magnitude_weight": 1.0,
+    "contamination_threshold": 7.0,
+    "information_budget": 10.0,
+    "limited_use_threshold": 4.0,
+    "maximum_submissions": 10,
+    "policy_id": "leaderboard-policy",
+    "public_reaction_penalty": 3.0,
+    "uncommitted_penalty": 2.0
+  },
+  "model_confidence_set_ids": [
+    "champion",
+    "challenger-a",
+    "challenger-b",
+    "challenger-c"
+  ],
+  "objective_spec": {
+    "allowed_deployment_stages": [
+      "SHADOW_ONLY",
+      "LIMITED_CAPITAL",
+      "FULL_PRODUCTION"
+    ],
+    "committed_at": "2026-08-01T18:00:00Z",
+    "evaluation_started_at": "2026-08-02T18:00:00Z",
+    "frontier_axes": [
+      {
+        "direction": "MAXIMIZE",
+        "epsilon": 0.0,
+        "metric_id": "competition_score"
+      },
+      {
+        "direction": "MINIMIZE",
+        "epsilon": 0.0,
+        "metric_id": "max_drawdown"
+      }
+    ],
+    "hard_gates": [
+      {
+        "accepted_states": [
+          "PASS",
+          "PASS_WITH_LIMITATIONS"
+        ],
+        "gate_id": "integrity",
+        "missing_is_failure": true
+      },
+      {
+        "accepted_states": [
+          "PASS",
+          "PASS_WITH_LIMITATIONS"
+        ],
+        "gate_id": "statistical",
+        "missing_is_failure": true
+      }
+    ],
+    "maximum_complexity_increase_without_material_gain": 0.25,
+    "maximum_pbo": 0.4,
+    "minimum_dsr": 0.6,
+    "minimum_effect_size": 0.05,
+    "minimum_probability_of_superiority": 0.9,
+    "policy_id": "competition-policy",
+    "policy_version": "1.0.0",
+    "primary_direction": "MAXIMIZE",
+    "primary_score_id": "competition_score",
+    "primary_score_version": "1.0.0",
+    "soft_penalties": [
+      {
+        "cap": 1.0,
+        "direction": "MINIMIZE",
+        "metric_id": "max_drawdown",
+        "reference_value": 0.1,
+        "scale": 0.1,
+        "weight": 0.2
+      },
+      {
+        "cap": 1.0,
+        "direction": "MINIMIZE",
+        "metric_id": "cost_drag",
+        "reference_value": 0.05,
+        "scale": 0.1,
+        "weight": 0.1
+      }
+    ],
+    "supported_metric_versions": [
+      "1.0.0"
+    ],
+    "tie_breakers": [
+      {
+        "direction": "MAXIMIZE",
+        "metric_id": "competition_score_lower_bound",
+        "priority": 1
+      }
+    ]
+  },
+  "pairwise_evidence": [
+    {
+      "anytime_valid_state": "CHALLENGER_SUPERIOR",
+      "challenger_configuration_id": "challenger-a",
+      "champion_configuration_id": "champion",
+      "cohort_id": "cohort-a",
+      "effect_lower_bound": 0.15000000000000002,
+      "effect_size": 0.2,
+      "effect_upper_bound": 0.25,
+      "evidence_refs": [
+        {
+          "artifact_ref": {
+            "artifact_id": "attribution-reconciliation-bundle",
+            "artifact_role": "ATTRIBUTION_RECONCILIATION_BUNDLE_V1",
+            "available_at": "2026-08-03T17:00:00Z",
+            "cycle": {
+              "cycle_id": "cycle-5",
+              "ordinal": 5
+            },
+            "location": "artifact://run-1/attribution-reconciliation-bundle",
+            "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "producer_module_id": "P9.S8.M08",
+            "run_id": "run-1",
+            "schema_name": "p9_attribution_reconciliation_bundle",
+            "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "schema_version": "1.0.0"
+          },
+          "evidence_id": "ev-challenger-a",
+          "quality": "FACTUAL_OBSERVED",
+          "summary": "independently produced upstream evidence"
+        }
+      ],
+      "live_comparison_available": true,
+      "live_degradation_detected": false,
+      "live_effect_size": 0.18000000000000002,
+      "paired_bootstrap_available": true,
+      "probability_of_superiority": 0.96
+    },
+    {
+      "anytime_valid_state": "CHALLENGER_SUPERIOR",
+      "challenger_configuration_id": "challenger-b",
+      "champion_configuration_id": "champion",
+      "cohort_id": "cohort-a",
+      "effect_lower_bound": 0.13,
+      "effect_size": 0.18,
+      "effect_upper_bound": 0.22999999999999998,
+      "evidence_refs": [
+        {
+          "artifact_ref": {
+            "artifact_id": "attribution-reconciliation-bundle",
+            "artifact_role": "ATTRIBUTION_RECONCILIATION_BUNDLE_V1",
+            "available_at": "2026-08-03T17:00:00Z",
+            "cycle": {
+              "cycle_id": "cycle-5",
+              "ordinal": 5
+            },
+            "location": "artifact://run-1/attribution-reconciliation-bundle",
+            "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "producer_module_id": "P9.S8.M08",
+            "run_id": "run-1",
+            "schema_name": "p9_attribution_reconciliation_bundle",
+            "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "schema_version": "1.0.0"
+          },
+          "evidence_id": "ev-challenger-b",
+          "quality": "FACTUAL_OBSERVED",
+          "summary": "independently produced upstream evidence"
+        }
+      ],
+      "live_comparison_available": true,
+      "live_degradation_detected": false,
+      "live_effect_size": 0.16,
+      "paired_bootstrap_available": true,
+      "probability_of_superiority": 0.96
+    },
+    {
+      "anytime_valid_state": "CHALLENGER_SUPERIOR",
+      "challenger_configuration_id": "challenger-c",
+      "champion_configuration_id": "champion",
+      "cohort_id": "cohort-a",
+      "effect_lower_bound": 0.11,
+      "effect_size": 0.16,
+      "effect_upper_bound": 0.21000000000000002,
+      "evidence_refs": [
+        {
+          "artifact_ref": {
+            "artifact_id": "attribution-reconciliation-bundle",
+            "artifact_role": "ATTRIBUTION_RECONCILIATION_BUNDLE_V1",
+            "available_at": "2026-08-03T17:00:00Z",
+            "cycle": {
+              "cycle_id": "cycle-5",
+              "ordinal": 5
+            },
+            "location": "artifact://run-1/attribution-reconciliation-bundle",
+            "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "producer_module_id": "P9.S8.M08",
+            "run_id": "run-1",
+            "schema_name": "p9_attribution_reconciliation_bundle",
+            "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "schema_version": "1.0.0"
+          },
+          "evidence_id": "ev-challenger-c",
+          "quality": "FACTUAL_OBSERVED",
+          "summary": "independently produced upstream evidence"
+        }
+      ],
+      "live_comparison_available": true,
+      "live_degradation_detected": false,
+      "live_effect_size": 0.14,
+      "paired_bootstrap_available": true,
+      "probability_of_superiority": 0.96
+    }
+  ],
+  "parameter_space": {
+    "dimensions": [
+      {
+        "allowed_categories": [],
+        "name": "lookback",
+        "numeric_maximum": 100.0,
+        "numeric_minimum": 1.0
+      },
+      {
+        "allowed_categories": [
+          "ridge",
+          "tree"
+        ],
+        "name": "model_family",
+        "numeric_maximum": null,
+        "numeric_minimum": null
+      }
+    ],
+    "schema_version": "1.0.0"
+  },
+  "previous_activation_ledger": [],
+  "previous_feedback_effectiveness": [],
+  "promotion_gate_receipts": [
+    {
+      "cycle": {
+        "cycle_id": "cycle-5",
+        "ordinal": 5
+      },
+      "evidence_refs": [
+        {
+          "artifact_ref": {
+            "artifact_id": "attribution-reconciliation-bundle",
+            "artifact_role": "ATTRIBUTION_RECONCILIATION_BUNDLE_V1",
+            "available_at": "2026-08-03T17:00:00Z",
+            "cycle": {
+              "cycle_id": "cycle-5",
+              "ordinal": 5
+            },
+            "location": "artifact://run-1/attribution-reconciliation-bundle",
+            "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "producer_module_id": "P9.S8.M08",
+            "run_id": "run-1",
+            "schema_name": "p9_attribution_reconciliation_bundle",
+            "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "schema_version": "1.0.0"
+          },
+          "evidence_id": "ev-integrity",
+          "quality": "FACTUAL_OBSERVED",
+          "summary": "independently produced upstream evidence"
+        }
+      ],
+      "gate_id": "integrity",
+      "limitations": [],
+      "producer_module_id": "P9.S9.GATE.INTEGRITY",
+      "reason_codes": [],
+      "receipt_sha256": "97f50113a864501586448525401ab20aa7f29ad458d0645d279e1d8ff3433aa5",
+      "run_id": "run-1",
+      "severity": "CRITICAL",
+      "source_bundle_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "state": "PASS",
+      "subject_configuration_ids": [
+        "challenger-a",
+        "challenger-b",
+        "challenger-c"
+      ]
+    },
+    {
+      "cycle": {
+        "cycle_id": "cycle-5",
+        "ordinal": 5
+      },
+      "evidence_refs": [
+        {
+          "artifact_ref": {
+            "artifact_id": "attribution-reconciliation-bundle",
+            "artifact_role": "ATTRIBUTION_RECONCILIATION_BUNDLE_V1",
+            "available_at": "2026-08-03T17:00:00Z",
+            "cycle": {
+              "cycle_id": "cycle-5",
+              "ordinal": 5
+            },
+            "location": "artifact://run-1/attribution-reconciliation-bundle",
+            "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "producer_module_id": "P9.S8.M08",
+            "run_id": "run-1",
+            "schema_name": "p9_attribution_reconciliation_bundle",
+            "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "schema_version": "1.0.0"
+          },
+          "evidence_id": "ev-statistical",
+          "quality": "FACTUAL_OBSERVED",
+          "summary": "independently produced upstream evidence"
+        }
+      ],
+      "gate_id": "statistical",
+      "limitations": [],
+      "producer_module_id": "P9.S9.GATE.STATISTICAL",
+      "reason_codes": [],
+      "receipt_sha256": "e2215ec1417330499caf01e4242ac175a97e2cfb2694594406032ad4c125d2ea",
+      "run_id": "run-1",
+      "severity": "BLOCKING",
+      "source_bundle_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "state": "PASS",
+      "subject_configuration_ids": [
+        "challenger-a",
+        "challenger-b",
+        "challenger-c"
+      ]
+    }
+  ],
+  "root_causes": [
+    {
+      "atomic_group_id": "pricing-capacity",
+      "categorical_change_bounds": [],
+      "confidence": 0.93,
+      "economic_materiality": 0.12,
+      "effect_type": "POLICY_BOUND_CHANGE",
+      "evidence_quality": "FACTUAL_EXECUTED",
+      "evidence_refs": [
+        {
+          "artifact_ref": {
+            "artifact_id": "attribution-reconciliation-bundle",
+            "artifact_role": "ATTRIBUTION_RECONCILIATION_BUNDLE_V1",
+            "available_at": "2026-08-03T17:00:00Z",
+            "cycle": {
+              "cycle_id": "cycle-5",
+              "ordinal": 5
+            },
+            "location": "artifact://run-1/attribution-reconciliation-bundle",
+            "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "producer_module_id": "P9.S8.M08",
+            "run_id": "run-1",
+            "schema_name": "p9_attribution_reconciliation_bundle",
+            "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "schema_version": "1.0.0"
+          },
+          "evidence_id": "ev-root-p6",
+          "quality": "FACTUAL_OBSERVED",
+          "summary": "independently produced upstream evidence"
+        }
+      ],
+      "feedback_type": "pricing_review",
+      "numeric_change_bounds": [
+        {
+          "maximum": 0.15,
+          "maximum_absolute_delta": 0.03,
+          "minimum": 0.05,
+          "parameter_name": "cost_buffer"
+        }
+      ],
+      "root_cause_id": "cause-p6",
+      "summary": "execution attribution indicates under-estimated costs in P6 pricing",
+      "target_phase": "P6",
+      "target_policy_id": "p6-pricing"
+    },
+    {
+      "atomic_group_id": "pricing-capacity",
+      "categorical_change_bounds": [],
+      "confidence": 0.91,
+      "economic_materiality": 0.1,
+      "effect_type": "POLICY_BOUND_CHANGE",
+      "evidence_quality": "FACTUAL_EXECUTED",
+      "evidence_refs": [
+        {
+          "artifact_ref": {
+            "artifact_id": "attribution-reconciliation-bundle",
+            "artifact_role": "ATTRIBUTION_RECONCILIATION_BUNDLE_V1",
+            "available_at": "2026-08-03T17:00:00Z",
+            "cycle": {
+              "cycle_id": "cycle-5",
+              "ordinal": 5
+            },
+            "location": "artifact://run-1/attribution-reconciliation-bundle",
+            "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "producer_module_id": "P9.S8.M08",
+            "run_id": "run-1",
+            "schema_name": "p9_attribution_reconciliation_bundle",
+            "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "schema_version": "1.0.0"
+          },
+          "evidence_id": "ev-root-p8",
+          "quality": "FACTUAL_OBSERVED",
+          "summary": "independently produced upstream evidence"
+        }
+      ],
+      "feedback_type": "capacity_review",
+      "numeric_change_bounds": [
+        {
+          "maximum": 0.12,
+          "maximum_absolute_delta": 0.01,
+          "minimum": 0.01,
+          "parameter_name": "participation_limit"
+        }
+      ],
+      "root_cause_id": "cause-p8",
+      "summary": "capacity attribution indicates an overly permissive participation bound",
+      "target_phase": "P8",
+      "target_policy_id": "p8-capacity"
+    }
+  ],
+  "source_context": {
+    "attribution_bundle_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "configuration_ids": [
+      "champion",
+      "challenger-a",
+      "challenger-b",
+      "challenger-c"
+    ],
+    "context_sha256": "2d3f0ce6d20d9ebc18486c8a81f2d36f2c616907792101ee1e3c0bc1cdbc3e25",
+    "contract_name": "CONTRACT_P9_S8_TO_S9_PROMOTION_EVIDENCE_V2",
+    "contract_version": "2.0.0",
+    "cycle": {
+      "cycle_id": "cycle-5",
+      "ordinal": 5
+    },
+    "run_id": "run-1"
+  },
+  "submission_ledger": [],
+  "target_capabilities": [
+    {
+      "accepted_contract_major": 1,
+      "available": true,
+      "target_phase": "P5",
+      "target_policy_id": "p5-calibration",
+      "target_policy_version": "1.0.0"
+    },
+    {
+      "accepted_contract_major": 1,
+      "available": true,
+      "target_phase": "P6",
+      "target_policy_id": "p6-pricing",
+      "target_policy_version": "1.0.0"
+    },
+    {
+      "accepted_contract_major": 1,
+      "available": true,
+      "target_phase": "P7",
+      "target_policy_id": "p7-abstention",
+      "target_policy_version": "1.0.0"
+    },
+    {
+      "accepted_contract_major": 1,
+      "available": true,
+      "target_phase": "P8",
+      "target_policy_id": "p8-capacity",
+      "target_policy_version": "1.0.0"
+    }
+  ],
+  "upstream_bundle_refs": [
+    {
+      "artifact_id": "attribution-reconciliation-bundle",
+      "artifact_role": "ATTRIBUTION_RECONCILIATION_BUNDLE_V1",
+      "available_at": "2026-08-03T17:00:00Z",
+      "cycle": {
+        "cycle_id": "cycle-5",
+        "ordinal": 5
+      },
+      "location": "artifact://run-1/attribution-reconciliation-bundle",
+      "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "producer_module_id": "P9.S8.M08",
+      "run_id": "run-1",
+      "schema_name": "p9_attribution_reconciliation_bundle",
+      "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "schema_version": "1.0.0"
+    }
+  ]
+}

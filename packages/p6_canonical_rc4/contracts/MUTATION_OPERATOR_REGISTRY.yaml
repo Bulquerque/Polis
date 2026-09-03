@@ -1,0 +1,25 @@
+release: P6-RC6.2-P5-V2-CLOSURE-RC4
+capability_status: AVAILABLE
+operators:
+- operator: MOVE_STRIKE
+  implemented: true
+  risk_effect: REQUIRES_REQUALIFICATION
+  maximum_applications: CONFIGURED
+- operator: CHANGE_QUANTITY
+  implemented: true
+  risk_effect: SCALES_OR_DEFORMS_PAYOFF
+  maximum_applications: CONFIGURED
+- operator: ADD_UNDERLYING
+  implemented: true
+  risk_effect: ADDS_STATIC_OVERLAY
+  maximum_applications: CONFIGURED
+- operator: REMOVE_REDUNDANT_LEG
+  implemented: true
+  risk_effect: SIMPLIFIES_STRUCTURE
+  maximum_applications: CONFIGURED
+- operator: CHANGE_EXPIRATION
+  implemented: false
+  planned_release: FUTURE
+- operator: ADD_PROTECTION
+  implemented: false
+  planned_release: FUTURE

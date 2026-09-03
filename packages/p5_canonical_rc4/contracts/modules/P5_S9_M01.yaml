@@ -1,0 +1,19 @@
+module_id: P5.S9.M01
+name: forecast_member_panel_builder
+subphase_id: P5.S9
+required_inputs:
+- calibrated_forecast_member_panel
+- resolver_diversity_panel
+- resolver_bias_registry
+- resolver_view_binding_registry
+- cross_phase_research_lineage_map
+optional_inputs: []
+outputs:
+- forecast_member_panel
+allowed_actions:
+- PUBLISH
+allowed_modes:
+- PUBLICATION
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

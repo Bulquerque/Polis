@@ -1,0 +1,39 @@
+module_id: P0.S6.M04
+module_name: dashboard_exporter
+function: Executar dashboard exporter da Fase 0, mantendo controle Zero Trust técnico
+  e sem tocar no fluxo econômico.
+inputs: &id001
+- global_control_tower_payload
+- phase_health_panel
+outputs: &id002
+- dashboard_export_manifest
+- dashboard_static_site
+- dashboard_json_payloads
+validations:
+- dashboard_payload_valid
+- export_manifest_written
+fail_fast_conditions:
+- dashboard_exporter_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S6.M02
+    - P0.S6.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules: []
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S6
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

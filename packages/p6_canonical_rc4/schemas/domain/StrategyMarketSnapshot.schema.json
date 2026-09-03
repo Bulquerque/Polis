@@ -1,0 +1,120 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "belief_artifact_id": {
+      "title": "Belief Artifact Id",
+      "type": "string"
+    },
+    "contract_artifact_id": {
+      "title": "Contract Artifact Id",
+      "type": "string"
+    },
+    "contract_count": {
+      "minimum": 0,
+      "title": "Contract Count",
+      "type": "integer"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "p5_compatibility_report_artifact_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "P5 Compatibility Report Artifact Id"
+    },
+    "p5_manifest_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "P5 Manifest Id"
+    },
+    "p5_manifest_sha256": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "P5 Manifest Sha256"
+    },
+    "p5_source_artifact_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "P5 Source Artifact Ids",
+      "type": "array"
+    },
+    "p5_source_hashes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "P5 Source Hashes",
+      "type": "array"
+    },
+    "quote_artifact_id": {
+      "title": "Quote Artifact Id",
+      "type": "string"
+    },
+    "quote_count": {
+      "minimum": 0,
+      "title": "Quote Count",
+      "type": "integer"
+    },
+    "rejection_report_artifact_id": {
+      "title": "Rejection Report Artifact Id",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "snapshot_sha256": {
+      "title": "Snapshot Sha256",
+      "type": "string"
+    },
+    "underlying_artifact_id": {
+      "title": "Underlying Artifact Id",
+      "type": "string"
+    },
+    "underlying_count": {
+      "minimum": 0,
+      "title": "Underlying Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "decision_time",
+    "belief_artifact_id",
+    "contract_artifact_id",
+    "quote_artifact_id",
+    "underlying_artifact_id",
+    "rejection_report_artifact_id",
+    "snapshot_sha256",
+    "contract_count",
+    "quote_count",
+    "underlying_count"
+  ],
+  "title": "StrategyMarketSnapshot",
+  "type": "object"
+}

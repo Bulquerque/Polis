@@ -1,0 +1,16 @@
+phase: phase_05_underlying_forecasts
+required_inputs:
+- underlying_feature_matrix_raw
+- underlying_feature_matrix_selected
+- underlying_feature_factors_pca
+- underlying_feature_embeddings
+- feature_selection_report
+- feature_lineage_report
+- drift_safety_report
+- phase5_feature_handoff_manifest
+optional_feedback_inputs:
+- signal_feedback_report
+rules:
+- required_inputs_must_exist_for_first_cycle
+- optional_feedback_only_when_previous_cycle_validated
+- optional_feedback_absence_must_not_block_first_cycle

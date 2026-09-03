@@ -1,0 +1,71 @@
+release: P6-RC6.2-P5-V2-CLOSURE-RC4
+contracts:
+- contract_id: P5_RC34_FULL_V2_TO_P6
+  producer: P5-RC34
+  consumer: P6.S1.M01
+  schemas:
+  - phase6_strategy_scenario_manifest
+  - market_belief_state
+  - return_distributions
+  - volatility_distributions
+  - path_risk_forecasts
+  - scenario_paths
+  - ambiguity_sets
+  - dependence_states
+  - regime_ood_states
+  - forecast_confidence
+  - availability_report
+  - lineage_report
+  integrity_requirements:
+  - artifact_id
+  - content_hash
+  - schema_version
+  - row_count
+  - run_id
+  - cycle_id
+  - decision_time
+  - available_at
+  status: OPERATIONAL_REAL_RC34_FIXTURE_QUALIFIED
+- contract_id: P5_FORECAST_V1_TO_P6_ADAPTER
+  producer: P5
+  consumer: boundaries.p5
+  schema: underlying_forecast_panel
+  status: DEPRECATED_LIMITED_FAIL_CLOSED
+- contract_id: P2_MARKET_TO_P6
+  producer: P2
+  consumer: P6.S1
+  schemas:
+  - option_contract_reference
+  - executable_quote
+  - underlying_observation
+  status: OPERATIONAL
+- contract_id: P6_INTERNAL_MUTATION_TRACE
+  producer: P6.S4
+  consumer: P6.S6
+  schemas:
+  - mutation_application
+  - candidate_generation_trace
+  status: OPERATIONAL
+- contract_id: P6_INTERNAL_TARGET_PAYOFF
+  producer: P6.S5
+  consumer: P6.S6
+  schemas:
+  - target_payoff_record
+  - target_payoff_qualification
+  status: OPERATIONAL
+- contract_id: P6_INTERNAL_SOLVER_RESULT
+  producer: P6.S6
+  consumer: P6.S7
+  schemas:
+  - strategy_synthesis_problem
+  - solver_result
+  status: OPERATIONAL
+- contract_id: P6_STRATEGY_V2_TO_P7
+  producer: P6.S10
+  consumer: P7
+  schema: phase7_strategy_handoff_manifest
+  status: OPERATIONAL_FIXTURE_QUALIFIED
+- contract_id: P6_CANDIDATE_V1_PROJECTION
+  producer: P6.S10
+  consumer: P7_V1
+  status: TEMPORARY_LIMITED_PROJECTION

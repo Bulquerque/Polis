@@ -1,0 +1,186 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Canonical observation panel
+type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    type: string
+    minLength: 1
+  artifact_name:
+    type: string
+    minLength: 1
+  schema_id:
+    type: string
+    minLength: 1
+  schema_version:
+    type: string
+    minLength: 1
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+    minLength: 1
+  cycle_id:
+    type: string
+    minLength: 1
+  as_of_time:
+    type: string
+    format: date-time
+  decision_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+    minLength: 1
+  lineage_id:
+    type: string
+    minLength: 1
+  producer_module_id:
+    type: string
+    pattern: ^P4\.S2\.M0[1-4]$
+  content_hash:
+    type: string
+    pattern: ^[a-f0-9]{64}$
+  status:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        observation_id:
+          type: string
+        decision_time:
+          type: string
+          format: date-time
+        entity_id:
+          type: string
+        entity_type:
+          type: string
+        variable_id:
+          type: string
+        value_type:
+          type: string
+          enum:
+          - 'NULL'
+          - BOOLEAN
+          - INTEGER
+          - NUMBER
+          - STRING
+          - JSON
+        value_number:
+          type:
+          - number
+          - 'null'
+        value_integer:
+          type:
+          - integer
+          - 'null'
+        value_boolean:
+          type:
+          - boolean
+          - 'null'
+        value_string:
+          type:
+          - string
+          - 'null'
+        value_json:
+          type:
+          - string
+          - 'null'
+        source_modality:
+          type: string
+        source_artifact_name:
+          type: string
+        source_artifact_id:
+          type: string
+        source_record_id:
+          type: string
+        event_time: &id001
+          type:
+          - string
+          - 'null'
+          format: date-time
+        reference_time: *id001
+        published_at: *id001
+        available_at:
+          type: string
+          format: date-time
+        ingested_at: *id001
+        calendar_id:
+          type:
+          - string
+          - 'null'
+        session_date:
+          type:
+          - string
+          - 'null'
+        quality_state:
+          type: string
+        missingness_state:
+          type: string
+        freshness_seconds:
+          type: number
+          minimum: 0
+        vintage_id:
+          type:
+          - string
+          - 'null'
+        dimensions:
+          type: object
+        source_lineage_id:
+          type: string
+      required:
+      - observation_id
+      - decision_time
+      - entity_id
+      - entity_type
+      - variable_id
+      - value_type
+      - value_number
+      - value_integer
+      - value_boolean
+      - value_string
+      - value_json
+      - source_modality
+      - source_artifact_name
+      - source_artifact_id
+      - source_record_id
+      - event_time
+      - reference_time
+      - published_at
+      - available_at
+      - ingested_at
+      - calendar_id
+      - session_date
+      - quality_state
+      - missingness_state
+      - freshness_seconds
+      - vintage_id
+      - dimensions
+      - source_lineage_id
+  grain:
+    type: array
+    items:
+      type: string
+    minItems: 4
+  semantic_fingerprint:
+    type: string
+required:
+- artifact_id
+- artifact_name
+- schema_id
+- schema_version
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- decision_time
+- pipeline_version
+- lineage_id
+- producer_module_id
+- content_hash
+- status
+- records

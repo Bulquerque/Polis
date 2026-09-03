@@ -1,0 +1,68 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "MarkQualityCount": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "minimum": 0,
+          "title": "Count",
+          "type": "integer"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        }
+      },
+      "required": [
+        "evidence_class",
+        "count"
+      ],
+      "title": "MarkQualityCount",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "counts": {
+      "items": {
+        "$ref": "#/$defs/MarkQualityCount"
+      },
+      "title": "Counts",
+      "type": "array"
+    },
+    "model_based_count": {
+      "minimum": 0,
+      "title": "Model Based Count",
+      "type": "integer"
+    },
+    "stale_count": {
+      "minimum": 0,
+      "title": "Stale Count",
+      "type": "integer"
+    },
+    "unavailable_count": {
+      "minimum": 0,
+      "title": "Unavailable Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "counts",
+    "stale_count",
+    "unavailable_count",
+    "model_based_count"
+  ],
+  "title": "MarkQualityReport",
+  "type": "object"
+}

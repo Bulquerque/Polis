@@ -1,0 +1,266 @@
+spec_id: P3.S20.TEST_SPEC
+subphase: P3.S20
+title: Activated-Person Retrieval & Context Assembly
+status: PLANNED_NOT_EXECUTABLE_UNTIL_RUNTIME_EXISTS
+canonical_module_order:
+- P3.S20.M01
+- P3.S20.M02
+- P3.S20.M03
+- P3.S20.M04
+- P3.S20.M05
+- P3.S20.M06
+- P3.S20.M07
+modules:
+- module_id: P3.S20.M01
+  module_name: activated_person_query_builder
+  cases:
+  - id: stimulus_present
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: inactive_person_excluded
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: query_pit
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - person_retrieval_query_panel
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: &id001
+    - future_return
+    - candidate_score
+    - rank_score
+    - portfolio_weight
+    - trade_decision
+    - buy_sell_signal
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S20.M02
+  module_name: hybrid_memory_rag_retriever
+  cases:
+  - id: retro_memory_not_consumed
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: future_item_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: adapter_failure_no_fake_results
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - raw_retrieved_knowledge_bundle
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S20.M03
+  module_name: graph_rag_query_executor
+  cases:
+  - id: hop_limit_enforced
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: orphan_result_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - graph_retrieval_bundle
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S20.M04
+  module_name: person_experience_retriever
+  cases:
+  - id: cross_person_memory_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: retro_memory_forbidden
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: holdout_excluded
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - person_learning_trajectory_bundle
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S20.M05
+  module_name: retrieval_reranker_evidence_bundle_builder
+  cases:
+  - id: reranker_fallback_material
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: evidence_map_complete
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - retrieved_knowledge_bundle
+    - retrieval_evidence_map
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S20.M06
+  module_name: person_context_assembler
+  cases:
+  - id: stimulus_required
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: activation_required
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: future_context_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - person_context_bundle
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S20.M07
+  module_name: context_budget_validator
+  cases:
+  - id: budget_overflow_policy
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: cutoff_report_attached
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - validated_person_context_bundle
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+integration_handoff:
+  upstream_contracts_validated: true
+  downstream_outputs_materialized: true
+  no_undeclared_dependencies: true
+fixture_requirements:
+- minimal_valid
+- missing_input
+- schema_invalid
+- forbidden_field
+- lineage_broken
+- boundary_case
+pass_criteria:
+- all_module_cases_pass
+- no_partial_output_on_failure
+- no_forbidden_authority
+- pit_and_lineage_preserved
+- observability_evidence_present

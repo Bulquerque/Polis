@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "additionalProperties": false,
+  "properties": {
+    "ambiguity_method": {
+      "minLength": 1,
+      "title": "Ambiguity Method",
+      "type": "string"
+    },
+    "calibration_sample_size": {
+      "minimum": 0,
+      "title": "Calibration Sample Size",
+      "type": "integer"
+    },
+    "coverage_target": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Coverage Target"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "nominal_distribution_id": {
+      "minLength": 1,
+      "title": "Nominal Distribution Id",
+      "type": "string"
+    },
+    "plausible_distribution_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Plausible Distribution Ids",
+      "type": "array"
+    },
+    "radius_or_band": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Radius Or Band"
+    },
+    "scope": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Scope",
+      "type": "object"
+    },
+    "stress_distribution_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Stress Distribution Ids",
+      "type": "array"
+    },
+    "validity_status": {
+      "minLength": 1,
+      "title": "Validity Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "nominal_distribution_id",
+    "ambiguity_method",
+    "radius_or_band",
+    "calibration_sample_size",
+    "coverage_target",
+    "scope",
+    "validity_status",
+    "lineage_id"
+  ],
+  "title": "P5AmbiguitySetRecord",
+  "type": "object"
+}

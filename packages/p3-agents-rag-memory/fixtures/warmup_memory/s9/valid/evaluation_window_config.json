@@ -1,0 +1,28 @@
+{
+  "schema_id": "evaluation_window_config.s9.v1",
+  "schema_version": "1.0.0",
+  "warmup_start": "2025-01-01T00:00:00Z",
+  "evaluation_start": "2026-01-01T00:00:00Z",
+  "evaluation_end": "2026-02-01T00:00:00Z",
+  "holdout_start": "2026-02-01T00:00:00Z",
+  "holdout_end": "2026-03-01T00:00:00Z",
+  "holdout_artifact_ids": [
+    "holdout-artifact-001"
+  ],
+  "allowed_partitions": [
+    "WARMUP",
+    "TRAIN"
+  ],
+  "forbidden_partitions": [
+    "VALIDATION",
+    "EVALUATION",
+    "HOLDOUT",
+    "TEST"
+  ],
+  "warmup_end_strictly_before_evaluation": true,
+  "final_holdout_blind": true,
+  "timezone": "UTC",
+  "boundary_rule": "available_at_equal_as_of_allowed",
+  "allow_degraded_history": false,
+  "max_records": 1000
+}

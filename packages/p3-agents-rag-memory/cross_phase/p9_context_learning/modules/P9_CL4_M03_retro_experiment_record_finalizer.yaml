@@ -1,0 +1,20 @@
+module_id: P9.CL4.M03
+module_name: retro_experiment_record_finalizer
+authority_phase: P9
+status: planned_cross_phase_blueprint
+inputs:
+- pending_retro_experiment_record
+- p9_candidate_evaluation_result
+- statistical_evaluation_report
+outputs:
+- updated_retro_experiment_memory
+forbidden_actions:
+- mutate_current_cycle
+- change_person_genome_directly
+- promote_without_statistical_evidence
+tests_required:
+- schema
+- lineage
+- blind_holdout
+- one_change
+- result_finalization

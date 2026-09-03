@@ -1,0 +1,12 @@
+version: v1
+module_ranges:
+- P3.S12-P3.S26
+warmup_mode_overrides:
+- disable_official_handoffs
+- keep_pit_and_authority_rules
+required_trace_fields:
+- cycle_id
+- module_id
+- input_hashes
+- output_hashes
+- as_of_time

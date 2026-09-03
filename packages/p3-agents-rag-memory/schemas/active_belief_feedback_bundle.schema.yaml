@@ -1,0 +1,193 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s3:active-belief-feedback-bundle:v2
+title: active_belief_feedback_bundle
+artifact_name: active_belief_feedback_bundle
+schema_id: active_belief_feedback_bundle.v2
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required:
+- schema_version
+- contract_version
+- status
+- run_id
+- snapshot_id
+- current_cycle_id
+- source_package
+- source_manifest
+- feedback_items
+- issues
+- created_at
+- lineage_id
+- content_hash
+properties:
+  schema_version:
+    const: v14.1-rc4.1
+  contract_version:
+    const: p3.s3.active_belief_feedback_bundle.v2
+  status:
+    enum:
+    - NO_MATURED_FEEDBACK
+    - ACTIVE
+  run_id:
+    type: string
+    minLength: 1
+  snapshot_id:
+    type: string
+    minLength: 1
+  current_cycle_id:
+    type: integer
+    minimum: 0
+  source_package: &id001
+    type: object
+    additionalProperties: false
+    required:
+    - artifact_id
+    - lineage_id
+    properties:
+      artifact_id:
+        type: string
+        minLength: 1
+      lineage_id:
+        type: string
+        minLength: 1
+  source_manifest: *id001
+  feedback_items:
+    type: array
+    items:
+      $ref: '#/$defs/feedback_item'
+  issues:
+    type: array
+    items:
+      $ref: '#/$defs/issue'
+  created_at:
+    type: string
+    format: date-time
+  lineage_id:
+    type: string
+    minLength: 1
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+$defs:
+  issue:
+    type: object
+    additionalProperties: false
+    required:
+    - code
+    - severity
+    - message
+    - artifact_name
+    - record_id
+    - field
+    properties:
+      code:
+        type: string
+        minLength: 1
+      severity:
+        enum:
+        - INFO
+        - WARNING
+        - ERROR
+        - BLOCKING
+      message:
+        type: string
+        minLength: 1
+      artifact_name:
+        type:
+        - string
+        - 'null'
+      record_id:
+        type:
+        - string
+        - 'null'
+      field:
+        type:
+        - string
+        - 'null'
+  feedback_item:
+    type: object
+    additionalProperties: false
+    required:
+    - feedback_id
+    - commitment_id
+    - commit_hash
+    - person_id
+    - proposition_id
+    - horizon
+    - source_cycle_id
+    - matures_at
+    - outcome_available_at
+    - experience_available_from_cycle
+    - original_belief_ref
+    - outcome_ref
+    - evaluation_summary
+    - lineage_id
+    - commitment_match_status
+    - commitment_source_hash
+    properties:
+      feedback_id:
+        type: string
+        minLength: 1
+      commitment_id:
+        type: string
+        minLength: 1
+      commit_hash:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+      person_id:
+        type: string
+        minLength: 1
+      proposition_id:
+        type: string
+        minLength: 1
+      horizon:
+        type: string
+        minLength: 1
+      source_cycle_id:
+        type: integer
+        minimum: 0
+      matures_at:
+        type: string
+        format: date-time
+      outcome_available_at:
+        type: string
+        format: date-time
+      experience_available_from_cycle:
+        type: integer
+        minimum: 0
+      original_belief_ref:
+        type: object
+      outcome_ref:
+        type: object
+      evaluation_summary:
+        type: object
+      lineage_id:
+        type: string
+        minLength: 1
+      commitment_match_status:
+        enum:
+        - VERIFIED
+        - PACKAGE_ASSERTED
+      commitment_source_hash:
+        type:
+        - string
+        - 'null'
+        pattern: ^[0-9a-f]{64}$
+allOf:
+- if:
+    properties:
+      status:
+        const: NO_MATURED_FEEDBACK
+  then:
+    properties:
+      feedback_items:
+        maxItems: 0
+- if:
+    properties:
+      status:
+        const: ACTIVE
+  then:
+    properties:
+      feedback_items:
+        minItems: 1

@@ -1,0 +1,9 @@
+provider_id: OPENFIGI_V3
+base_url: https://api.openfigi.com
+api_version: v3
+api_key_env: OPENFIGI_API_KEY
+timeout_seconds: 15.0
+max_retries: 3
+anonymous_batch_size: 5
+authenticated_batch_size: 100
+follow_redirects: false

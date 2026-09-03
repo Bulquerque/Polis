@@ -1,0 +1,61 @@
+module_id: P2.S1.M03
+module_name: source_quality_panel_builder
+phase: phase_02_quality_pit
+subphase: P2.S1
+rc: RC4.1
+function: Consolidar qualidade por fonte a partir de readability, erros e status de
+  ingestão.
+inputs: &id001
+- validated_phase1_handoff_bundle
+- raw_readability_report
+- ingestion_error_report
+outputs: &id002
+- source_quality_panel
+validations:
+- source_quality_score_present
+- critical_source_flags_present
+fail_fast_conditions:
+- source_quality_panel_builder_schema_violation
+- source_quality_panel_builder_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P2.S1.M01
+    artifacts: *id001
+    phase_inputs:
+    - raw_readability_report
+    - ingestion_error_report
+  emits_to:
+    modules:
+    - P2.S2.M01
+    - P2.S3.M01
+    - P2.S3.M02
+    - P2.S3.M03
+    - P2.S3.M04
+    - P2.S3.M05
+    - P2.S3.M06
+    - P2.S4.M01
+    - P2.S4.M02
+    - P2.S4.M03
+    - P2.S5.M01
+    - P2.S6.M01
+    - P2.S6.M02
+    artifacts: *id002
+    phase_outputs:
+    - source_quality_panel
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

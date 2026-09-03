@@ -1,0 +1,377 @@
+{
+  "$defs": {
+    "DependencePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "cross_sectional_high_correlation": {
+          "default": 0.75,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Cross Sectional High Correlation",
+          "type": "number"
+        },
+        "irregularity_tolerance_seconds": {
+          "default": 0.0,
+          "minimum": 0,
+          "title": "Irregularity Tolerance Seconds",
+          "type": "number"
+        },
+        "maximum_lag": {
+          "default": 20,
+          "minimum": 1,
+          "title": "Maximum Lag",
+          "type": "integer"
+        },
+        "minimum_observations": {
+          "default": 40,
+          "minimum": 1,
+          "title": "Minimum Observations",
+          "type": "integer"
+        },
+        "portmanteau_lags": {
+          "default": [
+            5,
+            10,
+            20
+          ],
+          "items": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "title": "Portmanteau Lags",
+          "type": "array"
+        },
+        "significance_level": {
+          "default": 0.05,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Significance Level",
+          "type": "number"
+        }
+      },
+      "title": "DependencePolicy",
+      "type": "object"
+    },
+    "GrossNet": {
+      "enum": [
+        "GROSS",
+        "NET"
+      ],
+      "title": "GrossNet",
+      "type": "string"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    },
+    "TimeSeriesPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "benchmark_series_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": ".*\\S.*",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Benchmark Series Id"
+        },
+        "fold_ids": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "pattern": ".*\\S.*",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fold Ids"
+        },
+        "gross_or_net": {
+          "$ref": "#/$defs/GrossNet"
+        },
+        "metric_registry_version": {
+          "default": "1.0.0",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Metric Registry Version",
+          "type": "string"
+        },
+        "panel_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "periods_per_year": {
+          "exclusiveMinimum": 0,
+          "title": "Periods Per Year",
+          "type": "number"
+        },
+        "regime_ids": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "pattern": ".*\\S.*",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Regime Ids"
+        },
+        "risk_free_series_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": ".*\\S.*",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Risk Free Series Id"
+        },
+        "series_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Series Ids",
+          "type": "array"
+        },
+        "timestamps": {
+          "items": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "title": "Timestamps",
+          "type": "array"
+        },
+        "values": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "timestamps",
+        "series_ids",
+        "values",
+        "periods_per_year",
+        "gross_or_net"
+      ],
+      "title": "TimeSeriesPanel",
+      "type": "object"
+    },
+    "TradeEpisode": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "closed_at": {
+          "format": "date-time",
+          "title": "Closed At",
+          "type": "string"
+        },
+        "gross_pnl": {
+          "title": "Gross Pnl",
+          "type": "number"
+        },
+        "instrument_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Instrument Ids",
+          "type": "array"
+        },
+        "net_pnl": {
+          "title": "Net Pnl",
+          "type": "number"
+        },
+        "opened_at": {
+          "format": "date-time",
+          "title": "Opened At",
+          "type": "string"
+        },
+        "total_cost": {
+          "minimum": 0,
+          "title": "Total Cost",
+          "type": "number"
+        },
+        "trade_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Trade Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trade_id",
+        "candidate_id",
+        "opened_at",
+        "closed_at",
+        "instrument_ids",
+        "gross_pnl",
+        "net_pnl",
+        "total_cost"
+      ],
+      "title": "TradeEpisode",
+      "type": "object"
+    },
+    "TradeEpisodePanel": {
+      "additionalProperties": false,
+      "properties": {
+        "episodes": {
+          "items": {
+            "$ref": "#/$defs/TradeEpisode"
+          },
+          "title": "Episodes",
+          "type": "array"
+        },
+        "panel_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Panel Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "episodes"
+      ],
+      "title": "TradeEpisodePanel",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "policy": {
+      "$ref": "#/$defs/DependencePolicy",
+      "default": {
+        "cross_sectional_high_correlation": 0.75,
+        "irregularity_tolerance_seconds": 0.0,
+        "maximum_lag": 20,
+        "minimum_observations": 40,
+        "portmanteau_lags": [
+          5,
+          10,
+          20
+        ],
+        "significance_level": 0.05
+      }
+    },
+    "series": {
+      "$ref": "#/$defs/TimeSeriesPanel"
+    },
+    "trades": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TradeEpisodePanel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "context",
+    "series"
+  ],
+  "title": "DependenceDiagnosticsRequest",
+  "type": "object"
+}

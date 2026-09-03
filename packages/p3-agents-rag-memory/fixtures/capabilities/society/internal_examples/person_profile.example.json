@@ -1,0 +1,89 @@
+{
+  "person_id": "PERSON_001",
+  "identity": {
+    "life_stage": "young_adult",
+    "education_level": "undergraduate",
+    "occupation": "data_analyst",
+    "economic_role": "quant_researcher",
+    "economic_role_family": "market_participants",
+    "economic_sector": "financial_services",
+    "institution_id": "INST_01",
+    "geography_region": "BR-SE",
+    "experience_band": "early_career"
+  },
+  "resources": {
+    "income_band": "mid",
+    "wealth_band": "low_mid",
+    "available_capital_band": "low",
+    "liquidity_need": 0.45,
+    "research_time_budget": 0.72,
+    "information_access_level": 0.68,
+    "research_budget_level": 0.35,
+    "computational_access_level": 0.7,
+    "network_access_level": 0.55
+  },
+  "cognitive_capabilities": {
+    "attention_capacity": 0.72,
+    "working_memory_capacity": 0.68,
+    "numerical_reasoning": 0.86,
+    "verbal_reasoning": 0.7,
+    "financial_literacy": 0.75,
+    "statistical_literacy": 0.82,
+    "research_skill": 0.78,
+    "source_evaluation_skill": 0.72,
+    "learning_rate": 0.8,
+    "uncertainty_reasoning": 0.74,
+    "planning_depth": 0.66
+  },
+  "decision_profile": {
+    "risk_tolerance": 0.62,
+    "loss_sensitivity": 0.58,
+    "patience": 0.55,
+    "impulsivity": 0.3,
+    "baseline_confidence": 0.64,
+    "curiosity": 0.88,
+    "cognitive_flexibility": 0.76,
+    "social_susceptibility": 0.42,
+    "need_for_certainty": 0.4,
+    "persistence": 0.72,
+    "novelty_seeking": 0.79
+  },
+  "tags": [
+    {
+      "tag_id": "young",
+      "intensity": 0.9,
+      "confidence": 0.95
+    },
+    {
+      "tag_id": "technology_enthusiast",
+      "intensity": 0.84,
+      "confidence": 0.9
+    },
+    {
+      "tag_id": "quantitative_background",
+      "intensity": 0.86,
+      "confidence": 0.94
+    }
+  ],
+  "creator_provenance": {
+    "creator_run_id": "PCRUN_001",
+    "generation_round": 4,
+    "mode": "coverage",
+    "prompt_version": "personality_creator.v1",
+    "seed": 42
+  },
+  "lineage_id": "LIN_PERSON_001",
+  "representation_weight": 0.02,
+  "objective_weights": {
+    "wealth_growth": 0.76,
+    "capital_preservation": 0.48,
+    "income_generation": 0.32,
+    "benchmark_pressure": 0.5,
+    "career_risk": 0.62,
+    "social_status": 0.3,
+    "liquidity_priority": 0.4,
+    "institutional_mandate_pressure": 0.55,
+    "forecast_accuracy": 0.75,
+    "information_accuracy": 0.72
+  }
+}

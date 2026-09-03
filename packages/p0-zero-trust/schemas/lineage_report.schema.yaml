@@ -1,0 +1,14 @@
+schema_id: lineage_report.v1
+artifact_name: lineage_report
+schema_version: v14.1-rc4.1
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+forbidden_fields:
+- future_return
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

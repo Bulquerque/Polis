@@ -1,0 +1,212 @@
+{
+  "schema_version": "p3.s26.next_memory_state.v2",
+  "run_id": "run_s26",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "lineage_id": "lin_989a512e4ff49b8c7323c9df",
+  "memory_state_id": "memstate_811e4f7cc8fe3c1ef1eb16d3",
+  "source_memory_state_id": "memstate_4",
+  "items": [
+    {
+      "memory_id": "mem_audit_1",
+      "person_id": "p1",
+      "memory_type": "AUDIT",
+      "source_event_ids": [
+        "audit_evt"
+      ],
+      "created_at": "2026-01-01T00:00:00Z",
+      "available_at": "2026-01-01T00:00:00Z",
+      "valid_from_cycle": 1,
+      "importance": 1.0,
+      "confidence": 1.0,
+      "retrievability": 1.0,
+      "content_ref": "audit:run",
+      "content_fingerprint": "fp_audit",
+      "evidence_refs": [
+        "ev_audit"
+      ],
+      "status": "ACTIVE",
+      "supersedes_memory_id": null,
+      "reinforcement_count": 1,
+      "last_reinforced_at": "2026-01-01T00:00:00Z",
+      "protected_audit": true,
+      "lineage_ids": [
+        "lin_audit"
+      ]
+    },
+    {
+      "memory_id": "mem_3dee2af27c347650bbaf3f63",
+      "person_id": "p1",
+      "memory_type": "BELIEF_FEEDBACK",
+      "source_event_ids": [
+        "fb_1",
+        "commit_prior"
+      ],
+      "created_at": "2026-01-15T11:00:00Z",
+      "available_at": "2026-01-15T11:00:00Z",
+      "valid_from_cycle": 5,
+      "importance": 0.8,
+      "confidence": 0.9,
+      "retrievability": 0.65,
+      "content_ref": "belief_feedback:fb_1",
+      "content_fingerprint": "bc0e7de716762400b945ca362902393aee36d812ee7ffbf83301225ba4c83fd4",
+      "evidence_refs": [
+        "ev_fb"
+      ],
+      "status": "ACTIVE",
+      "supersedes_memory_id": null,
+      "reinforcement_count": 1,
+      "last_reinforced_at": "2026-01-15T11:00:00Z",
+      "protected_audit": false,
+      "lineage_ids": [
+        "lin_fb"
+      ]
+    },
+    {
+      "memory_id": "mem_2f6f72e787565c65934525f4",
+      "person_id": "p1",
+      "memory_type": "EPISODIC",
+      "source_event_ids": [
+        "evt_attention"
+      ],
+      "created_at": "2026-01-15T10:30:00Z",
+      "available_at": "2026-01-15T10:30:00Z",
+      "valid_from_cycle": 5,
+      "importance": 0.5,
+      "confidence": 0.8,
+      "retrievability": 0.65,
+      "content_ref": "state:attention_increase",
+      "content_fingerprint": "6883761e3f8e6eee5f8c134519f368511ef98aa17dcfe209fe792970936164d2",
+      "evidence_refs": [
+        "ev_attention"
+      ],
+      "status": "ACTIVE",
+      "supersedes_memory_id": null,
+      "reinforcement_count": 1,
+      "last_reinforced_at": "2026-01-15T10:30:00Z",
+      "protected_audit": false,
+      "lineage_ids": [
+        "lin_chg_1"
+      ]
+    },
+    {
+      "memory_id": "mem_94bfa7e6a269bb6d1c4c4890",
+      "person_id": "p1",
+      "memory_type": "EPISODIC",
+      "source_event_ids": [
+        "evt_new",
+        "evt_old"
+      ],
+      "created_at": "2026-01-10T10:00:00Z",
+      "available_at": "2026-01-10T10:00:00Z",
+      "valid_from_cycle": 3,
+      "importance": 0.8,
+      "confidence": 0.75,
+      "retrievability": 0.63,
+      "content_ref": "experience:shared_fact",
+      "content_fingerprint": "fp_experience_1",
+      "evidence_refs": [
+        "ev_new",
+        "ev_old"
+      ],
+      "status": "SUPERSEDED",
+      "supersedes_memory_id": null,
+      "reinforcement_count": 3,
+      "last_reinforced_at": "2026-01-15T09:00:00Z",
+      "protected_audit": false,
+      "lineage_ids": [
+        "lin_exp_1",
+        "lin_old"
+      ]
+    },
+    {
+      "memory_id": "mem_705c13fd2b3228b9f3a83a4f",
+      "person_id": "p1",
+      "memory_type": "SEMANTIC",
+      "source_event_ids": [
+        "evt_new",
+        "evt_old"
+      ],
+      "created_at": "2026-01-10T10:00:00Z",
+      "available_at": "2026-01-10T10:00:00Z",
+      "valid_from_cycle": 5,
+      "importance": 0.8,
+      "confidence": 0.75,
+      "retrievability": 0.63,
+      "content_ref": "experience:shared_fact",
+      "content_fingerprint": "fp_experience_1",
+      "evidence_refs": [
+        "ev_new",
+        "ev_old"
+      ],
+      "status": "ACTIVE",
+      "supersedes_memory_id": "mem_94bfa7e6a269bb6d1c4c4890",
+      "reinforcement_count": 3,
+      "last_reinforced_at": "2026-01-15T09:00:00Z",
+      "protected_audit": false,
+      "lineage_ids": [
+        "lin_exp_1",
+        "lin_old"
+      ]
+    },
+    {
+      "memory_id": "mem_894836ddf9361d4506861996",
+      "person_id": "p1",
+      "memory_type": "SEMANTIC",
+      "source_event_ids": [
+        "commit_1"
+      ],
+      "created_at": "2026-01-15T10:00:00Z",
+      "available_at": "2026-01-15T10:00:00Z",
+      "valid_from_cycle": 5,
+      "importance": 0.3,
+      "confidence": 0.8,
+      "retrievability": 0.65,
+      "content_ref": "belief:PETR4:prop_oil_up:1w",
+      "content_fingerprint": "c8a7fd67901960f9111c024ce4f003ca79f5a7d0c8befd7c01658fcfb6cf31c3",
+      "evidence_refs": [
+        "ev_belief"
+      ],
+      "status": "ACTIVE",
+      "supersedes_memory_id": null,
+      "reinforcement_count": 1,
+      "last_reinforced_at": "2026-01-15T10:00:00Z",
+      "protected_audit": false,
+      "lineage_ids": [
+        "lin_belief_1"
+      ]
+    },
+    {
+      "memory_id": "mem_29308c1cc78848a99723534e",
+      "person_id": "p1",
+      "memory_type": "SOCIAL",
+      "source_event_ids": [
+        "msg_1"
+      ],
+      "created_at": "2026-01-15T10:45:00Z",
+      "available_at": "2026-01-15T10:45:00Z",
+      "valid_from_cycle": 5,
+      "importance": 0.6,
+      "confidence": 0.8,
+      "retrievability": 0.65,
+      "content_ref": "social_message:msg_1",
+      "content_fingerprint": "7b853f616795a4d9ce4986b8ef7385e96d028f0b303f3003263739fadb560dbd",
+      "evidence_refs": [
+        "ev_msg"
+      ],
+      "status": "ACTIVE",
+      "supersedes_memory_id": null,
+      "reinforcement_count": 1,
+      "last_reinforced_at": "2026-01-15T10:45:00Z",
+      "protected_audit": false,
+      "lineage_ids": [
+        "lin_msg"
+      ]
+    }
+  ],
+  "created_count": 4,
+  "reinforced_count": 1,
+  "promoted_count": 1,
+  "expired_count": 0,
+  "content_hash": "b79e9165229a2689c8f2e782c274a7369ecd9aae5d62472f427daad838b8a006"
+}

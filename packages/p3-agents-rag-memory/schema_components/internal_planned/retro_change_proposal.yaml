@@ -1,0 +1,20 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: retro_change_proposal
+status: planned_internal_schema
+type: object
+required:
+- proposal_id
+- change_type
+- change_target
+- hypothesis
+properties:
+  proposal_id:
+    type: string
+  change_type:
+    enum:
+    - prompt_update
+    - tool_update
+  change_target:
+    type: string
+  hypothesis:
+    type: string

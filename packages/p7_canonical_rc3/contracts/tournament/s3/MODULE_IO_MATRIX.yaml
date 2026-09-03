@@ -1,0 +1,43 @@
+subphase: P7.S3
+module_io_matrix:
+  - module_id: P7.S3.M01
+    inputs:
+      - runtime_foundation_handoff_manifest
+      - eligible_strategy_candidate_panel
+      - candidate_comparison_group_panel
+      - candidate_metric_source_panel
+      - ranking_policy_context
+      - runtime_foundation_audit_report
+    outputs:
+      - comparable_candidate_metric_panel
+      - metric_semantics_audit_report
+  - module_id: P7.S3.M02
+    inputs:
+      - comparable_candidate_metric_panel
+      - eligible_strategy_candidate_panel
+      - ranking_policy_context
+    optional_inputs: [option_factor_model_artifact]
+    outputs:
+      - factor_exposure_panel
+      - factor_adjusted_metric_panel
+      - factor_adjustment_audit_report
+  - module_id: P7.S3.M03
+    inputs:
+      - factor_adjusted_metric_panel
+      - comparable_candidate_metric_panel
+      - candidate_comparison_group_panel
+      - ranking_policy_context
+    outputs:
+      - dominance_relation_panel
+      - dominated_candidate_panel
+      - dominance_survivor_panel
+  - module_id: P7.S3.M04
+    inputs:
+      - dominance_relation_panel
+      - dominated_candidate_panel
+      - dominance_survivor_panel
+      - factor_adjusted_metric_panel
+      - ranking_policy_context
+    outputs:
+      - pareto_frontier_panel
+      - pareto_frontier_audit_report

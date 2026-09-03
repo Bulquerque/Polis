@@ -1,0 +1,35 @@
+version: entity_underlying_map.v2
+unresolved_policy: PRESERVE_UNRESOLVED_NEVER_USE_CHUNK_ID
+canonical_id_field: underlying_id
+allow_exact_subject_alias_match: false
+one_to_many_policy: PRESERVE_WEIGHTED
+external_resolution:
+  enabled: false
+  provider_id: OPENFIGI_V3
+  only_identifier_hints: true
+  ambiguous_result_policy: PRESERVE_AMBIGUOUS
+mappings:
+  - mapping_id: map.apple.equity.xnas.v1
+    entity_id: entity:apple-inc
+    aliases:
+      - Apple Inc.
+      - Apple
+    identifiers:
+      - id_type: TICKER
+        id_value: AAPL
+        mic: XNAS
+        exchange_code: US
+        currency: USD
+    valid_from: '1980-12-12T00:00:00Z'
+    valid_to: null
+    resolutions:
+      - underlying_id: figi:BBG000B9XRY4
+        weight: 1.0
+        mic: XNAS
+        security_type: Common Stock
+        identifiers:
+          - id_type: TICKER
+            id_value: AAPL
+            mic: XNAS
+            exchange_code: US
+            currency: USD

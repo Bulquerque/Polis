@@ -1,0 +1,86 @@
+{
+  "$defs": {
+    "FactorObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "$ref": "#/$defs/FactorValue"
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "timestamp",
+        "available_at",
+        "values"
+      ],
+      "title": "FactorObservation",
+      "type": "object"
+    },
+    "FactorValue": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id": {
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "value"
+      ],
+      "title": "FactorValue",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/BenchmarkAndFactorPanel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "observations": {
+      "items": {
+        "$ref": "#/$defs/FactorObservation"
+      },
+      "title": "Observations",
+      "type": "array"
+    },
+    "panel_id": {
+      "title": "Panel Id",
+      "type": "string"
+    },
+    "panel_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Panel Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "panel_id",
+    "panel_version",
+    "observations",
+    "content_sha256"
+  ],
+  "title": "BenchmarkAndFactorPanel",
+  "type": "object"
+}

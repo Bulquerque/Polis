@@ -1,0 +1,14 @@
+policy_id: p7_p8_publication_policy_2_2
+contract_version: 2.0.0
+semantic_version: 2.0.0
+consumer_phase: P8
+legacy_projection_mode: EXPLICIT_CAPABILITY_ONLY
+required_reference_fields:
+  - strategy_candidate_reference
+  - strategy_legs_reference
+  - payoff_evaluation_reference
+  - scenario_evaluation_reference
+  - risk_reference
+  - cost_liquidity_reference
+  - greeks_reference
+  - generation_trace_reference

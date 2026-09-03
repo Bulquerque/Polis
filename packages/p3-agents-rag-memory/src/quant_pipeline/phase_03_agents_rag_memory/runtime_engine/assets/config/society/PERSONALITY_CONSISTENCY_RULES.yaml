@@ -1,0 +1,8 @@
+rules:
+- life_stage_experience
+- occupation_role
+- role_resources
+- institution_tool_access
+- role_objectives
+- education_literacy
+violation_policy: reject_candidate_no_silent_repair

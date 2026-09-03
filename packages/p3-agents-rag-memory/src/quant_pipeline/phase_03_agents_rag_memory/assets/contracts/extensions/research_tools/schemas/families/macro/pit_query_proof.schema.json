@@ -1,0 +1,104 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "earliest_available_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Earliest Available At"
+    },
+    "input_hashes": {
+      "items": {
+        "pattern": "^[a-f0-9]{64}$",
+        "type": "string"
+      },
+      "title": "Input Hashes",
+      "type": "array"
+    },
+    "latest_available_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latest Available At"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "proof_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Proof Hash",
+      "type": "string"
+    },
+    "records_rejected_filter": {
+      "minimum": 0,
+      "title": "Records Rejected Filter",
+      "type": "integer"
+    },
+    "records_rejected_future": {
+      "minimum": 0,
+      "title": "Records Rejected Future",
+      "type": "integer"
+    },
+    "records_rejected_missing_time": {
+      "minimum": 0,
+      "title": "Records Rejected Missing Time",
+      "type": "integer"
+    },
+    "records_scanned": {
+      "minimum": 0,
+      "title": "Records Scanned",
+      "type": "integer"
+    },
+    "records_visible": {
+      "minimum": 0,
+      "title": "Records Visible",
+      "type": "integer"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "vintage_policy": {
+      "minLength": 1,
+      "title": "Vintage Policy",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_version",
+    "decision_time",
+    "vintage_policy",
+    "records_scanned",
+    "records_visible",
+    "records_rejected_future",
+    "records_rejected_missing_time",
+    "records_rejected_filter",
+    "snapshot_id",
+    "input_hashes",
+    "proof_hash"
+  ],
+  "title": "PitQueryProof",
+  "type": "object"
+}

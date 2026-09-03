@@ -1,0 +1,196 @@
+{
+  "phase4_social_handoff_manifest": {
+    "artifact_id": "phase4-social-handoff-manifest-1f6e6ebc33d58b732feb",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-phase4-social-handoff-manifest-ad4b283e8cde3b59b1f02d12",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s30-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:05:00Z",
+    "schema_id": "p3.s30.phase4_social_handoff_manifest.semantic",
+    "schema_version": "1.0.0",
+    "quality_status": "PASS",
+    "quality_reasons": [],
+    "expected_output_count": 6,
+    "entries": [
+      {
+        "artifact_name": "social_feature_panel",
+        "artifact_id": "social-feature-panel-6cf495ea2bcbfe73cded",
+        "schema_id": "p3.s30.social_feature_panel.semantic",
+        "schema_version": "1.0.0",
+        "content_hash": "f70c11d98f28db9bcff41b77c4ef0047ecf3da3097797ed3e1b4a93a8da6b51e",
+        "row_count": 12,
+        "grain": [
+          "date",
+          "underlying",
+          "social_feature_id"
+        ],
+        "producer_module_id": "P3.S30.M01",
+        "lineage_id": "lineage-social-feature-panel-45dd950dee8ed9c6757ad747",
+        "available_at": "2024-01-31T20:05:00Z",
+        "quality_status": "PASS"
+      },
+      {
+        "artifact_name": "evidence_tag_panel",
+        "artifact_id": "evidence-tag-s30-fixture",
+        "schema_id": "p3.s29.evidence_tag_panel.semantic",
+        "schema_version": "1.0.0",
+        "content_hash": "3f6d146578ca3c0df7cc2ef8bd6c626bfa590475a140660f4bd7970eb670b27a",
+        "row_count": 2,
+        "grain": [
+          "underlying",
+          "proposition_id",
+          "horizon",
+          "claim_id",
+          "evidence_id"
+        ],
+        "producer_module_id": "P3.S29.M02",
+        "lineage_id": "lineage-evidence-s30",
+        "available_at": "2024-01-31T20:05:00Z",
+        "quality_status": "PASS"
+      },
+      {
+        "artifact_name": "agent_disagreement_panel",
+        "artifact_id": "agent-disagreement-s30-fixture",
+        "schema_id": "p3.s29.agent_disagreement_panel.semantic",
+        "schema_version": "1.0.0",
+        "content_hash": "80a08d78658e91563241b8c5540cd53a753a44ad65f4871f9a402ec5e7ddf600",
+        "row_count": 1,
+        "grain": [
+          "underlying",
+          "proposition_id",
+          "horizon",
+          "as_of_date"
+        ],
+        "producer_module_id": "P3.S29.M01",
+        "lineage_id": "lineage-disagreement-s30",
+        "available_at": "2024-01-31T20:05:00Z",
+        "quality_status": "PASS"
+      },
+      {
+        "artifact_name": "context_memory_feature_panel",
+        "artifact_id": "context-memory-feature-panel-08fe88fbecdf83d7a734",
+        "schema_id": "p3.s30.context_memory_feature_panel.semantic",
+        "schema_version": "1.0.0",
+        "content_hash": "b3dbebbccd2203bd6fbce1dd3e987701fb04b717792b9e2dea558378c455f65d",
+        "row_count": 9,
+        "grain": [
+          "underlying",
+          "proposition_id",
+          "horizon",
+          "context_memory_feature_id"
+        ],
+        "producer_module_id": "P3.S30.M02",
+        "lineage_id": "lineage-context-memory-feature-panel-1f446e45049b660324ac5d65",
+        "available_at": "2024-01-31T20:05:00Z",
+        "quality_status": "PASS"
+      },
+      {
+        "artifact_name": "hypothesis_registry",
+        "artifact_id": "hypothesis-registry-d09a3c5de9e296dee0d6",
+        "schema_id": "p3.s30.hypothesis_registry.semantic",
+        "schema_version": "1.0.0",
+        "content_hash": "178f11d7a19c50a00ed5732b2e1486d7c39fb972099afc45b4d840525d4f6bd0",
+        "row_count": 1,
+        "grain": [
+          "hypothesis_id",
+          "created_at"
+        ],
+        "producer_module_id": "P3.S30.M03",
+        "lineage_id": "lineage-hypothesis-registry-136fdc2d730e570537dd0e8a",
+        "available_at": "2024-01-31T20:05:00Z",
+        "quality_status": "PASS"
+      }
+    ],
+    "complete": true
+  },
+  "variable_evolution_input_manifest": {
+    "manifest_id": "variable-evolution-input-manifest-aa3a2fde02a1d7602e94",
+    "canonical_society_state_ref": "society-state-s30-fixture",
+    "social_feature_ref": "social-feature-panel-6cf495ea2bcbfe73cded",
+    "context_memory_feature_ref": "context-memory-feature-panel-08fe88fbecdf83d7a734",
+    "hypothesis_registry_ref": "hypothesis-registry-d09a3c5de9e296dee0d6",
+    "belief_commitment_ref": "commitment-log-s30-fixture",
+    "as_of_time": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-variable-evolution-input-manifest-aa3a2fde02a1d7602e9438fe"
+  },
+  "belief_outcome_commitment_log": {
+    "artifact_id": "commitment-log-s30-fixture",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-commitment-log-s30",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s30-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:05:00Z",
+    "records": [
+      {
+        "commitment_id": "commitment-001",
+        "person_id": "person-001",
+        "run_id": "run-s30-fixture",
+        "cycle_id": "cycle-2024-01",
+        "underlying_id": "PETR4",
+        "proposition_id": "directional_outlook",
+        "horizon": "21d",
+        "committed_at": "2024-01-31T19:55:00Z",
+        "matures_at": "2024-02-21T20:00:00Z",
+        "belief_value": 0.35,
+        "confidence": 0.72,
+        "evidence_refs": [
+          "evidence-001"
+        ],
+        "commitment_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "lineage_id": "lineage-commitment-001"
+      }
+    ]
+  },
+  "model_knowledge_cutoff_report": {
+    "provider_id": "provider-fixture",
+    "model_id": "model-fixture",
+    "model_version": "2024-01-qualified",
+    "release_date": "2023-08-01",
+    "known_training_cutoff": "2023-04-01",
+    "evaluation_start": "2024-01-01T00:00:00Z",
+    "evaluation_end": "2024-01-31T20:00:00Z",
+    "risk_class": "LOWER_RISK",
+    "rationale": "Model release and declared training cutoff precede the evaluation window; export remains outcome-blind.",
+    "lineage_id": "lineage-model-cutoff-s31-fixture"
+  },
+  "phase3_run_snapshot": {
+    "snapshot_id": "snapshot-s30-fixture",
+    "run_id": "run-s30-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:05:00Z",
+    "pipeline_version": "V14.1-RC4.1",
+    "configuration_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "model_registry_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "lineage_id": "lineage-snapshot-s30"
+  },
+  "validated_society_state_panel": {
+    "artifact_id": "society-state-s30-fixture",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-society-s30",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s30-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:05:00Z",
+    "records": [
+      {
+        "run_id": "run-s30-fixture",
+        "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:05:00Z",
+        "underlying_id": "PETR4",
+        "proposition_id": "directional_outlook",
+        "horizon": "21d",
+        "confidence_dispersion": 0.35,
+        "evidence_diversity": 0.72,
+        "attention_concentration": 0.55,
+        "information_asymmetry": 0.42,
+        "coverage_ratio": 0.9,
+        "source_quality_score": 0.82,
+        "quality_status": "PASS",
+        "quality_reasons": [],
+        "lineage_id": "lineage-society-petr4-21d"
+      }
+    ]
+  }
+}

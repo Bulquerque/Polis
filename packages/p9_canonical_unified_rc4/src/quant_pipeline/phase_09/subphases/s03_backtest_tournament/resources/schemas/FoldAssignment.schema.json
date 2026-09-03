@@ -1,0 +1,50 @@
+{
+  "$defs": {
+    "SampleRole": {
+      "enum": [
+        "TRAIN",
+        "TUNING",
+        "TEST",
+        "EXCLUDED"
+      ],
+      "title": "SampleRole",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/FoldAssignment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entity_id": {
+      "title": "Entity Id",
+      "type": "string"
+    },
+    "fold_id": {
+      "title": "Fold Id",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "record_id": {
+      "title": "Record Id",
+      "type": "string"
+    },
+    "role": {
+      "$ref": "#/$defs/SampleRole"
+    }
+  },
+  "required": [
+    "fold_id",
+    "record_id",
+    "entity_id",
+    "role"
+  ],
+  "title": "FoldAssignment",
+  "type": "object"
+}

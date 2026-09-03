@@ -1,0 +1,53 @@
+module_id: P4.S1.M02
+module_name: phase3_handoff_validator
+inputs: &id001
+- social_feature_panel
+- evidence_tag_panel
+- agent_disagreement_panel
+- context_memory_feature_panel
+- hypothesis_registry
+- phase4_social_handoff_manifest
+required_inputs: *id001
+optional_inputs: []
+outputs:
+- validated_phase3_bundle
+- phase3_capability_matrix
+function: Validate the P3 social handoff without flattening evidence, disagreement,
+  memory or hypotheses.
+phase: P4
+subphase: P4.S1
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+invariants:
+- fail_fast
+- deterministic_replay
+- lineage_traceability
+- no_hidden_state
+- no_future_phase_input
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- signal_direction
+- buy_sell_signal
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- execution_fill
+- position_size
+- feature_genome
+- mutation_candidate
+- promotion_decision
+tests_required:
+- happy_path
+- missing_input
+- schema_negative
+- hash_negative
+- forbidden_field
+- deterministic_replay
+implementation: src/quant_pipeline/phase_04_feature_base/modules/P4_S1_M02_phase3_handoff_validator.py
+production_promotion_allowed: false

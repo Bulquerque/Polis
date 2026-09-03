@@ -1,0 +1,26 @@
+policy_id: p0-s7-agent-governance
+policy_version: agent-governance.v1
+maximum_permissions:
+  read: true
+  write: false
+  execute: true
+  network: false
+  delegate: false
+required_definition_of_done:
+  - contract_valid
+  - tests_pass
+  - evidence_recorded
+  - manifest_current
+required_tests:
+  - operational
+  - contract
+  - adversarial
+required_package_files:
+  - SKILL.md
+  - tests/test_skill.py
+require_agent_manifest: true
+package_limits:
+  max_entries: 5000
+  max_uncompressed_size: 262144000
+  max_single_file_size: 52428800
+  max_compression_ratio: 200.0

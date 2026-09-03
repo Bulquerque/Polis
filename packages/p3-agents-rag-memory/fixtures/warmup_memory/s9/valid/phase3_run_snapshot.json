@@ -1,0 +1,11 @@
+{
+  "schema_id": "phase3_run_snapshot.v1",
+  "schema_version": "v14.1-rc4.1",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "as_of": "2026-01-01T00:00:00Z",
+  "evaluation_start": "2026-01-01T00:00:00Z",
+  "evaluation_end": "2026-02-01T00:00:00Z",
+  "lineage_id": "lineage-snapshot-001",
+  "snapshot_hash": "73349e3f1da0910545d7856e6ced8c46e965116c9870a0a4c88d83e7ea04dc88"
+}

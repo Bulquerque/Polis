@@ -1,0 +1,21 @@
+schema_id: p3.research_tools.s34.config_schema_bindings.v1
+schema_version: 1.0.0
+bindings:
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.capability_profile_policy.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/configs/p3.research_tools.capability_profile_policy.v1.schema.json
+  sha256: c9bab5871f5309ee5b117ab8b856b49e4b28f98e7c0194a502def952a17a2bf6
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.context_descriptor_policy.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/configs/p3.research_tools.context_descriptor_policy.v1.schema.json
+  sha256: 978d2734438f7be6e6dd32d28711571cc86b59b62720644b534c71a71b84723b
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.entitlement_policy.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/configs/p3.research_tools.entitlement_policy.v1.schema.json
+  sha256: a65c5c47e4bd8472e4e1d9779bfbe7c2992b3ce9cdcb078995d76db6429e7801
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.plan_registry_config.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/configs/p3.research_tools.plan_registry_config.v1.schema.json
+  sha256: 3927efd86dc7e9f1fd39f1db654b387c18fabe70c072cece09fd4abb7a57b4f6
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.s34_config_manifest.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/configs/p3.research_tools.s34_config_manifest.v1.schema.json
+  sha256: 94c589840730ffa0de60b4623ec4c6a2e2e316717781558227b4549455ff718d
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.s34_schema_bundle_manifest.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/configs/p3.research_tools.s34_schema_bundle_manifest.v1.schema.json
+  sha256: dcf9e3f030e3d76c77e237e8aa04a1e4041da2313d743203a1568dfcd720981b

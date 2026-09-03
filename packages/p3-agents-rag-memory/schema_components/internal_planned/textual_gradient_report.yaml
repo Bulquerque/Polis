@@ -1,0 +1,29 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Textual Gradient Report
+type: object
+additionalProperties: false
+properties:
+  gradient_id: &id001
+    type: string
+  failure_mode: *id001
+  evidence:
+    type: array
+    items: *id001
+  metrics:
+    type: object
+  uncertainty:
+    type: number
+  recommended_search_direction: *id001
+  forbidden_shortcuts:
+    type: array
+    items: *id001
+  lineage_id: *id001
+required:
+- gradient_id
+- failure_mode
+- evidence
+- metrics
+- uncertainty
+- recommended_search_direction
+- forbidden_shortcuts
+- lineage_id

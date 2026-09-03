@@ -1,0 +1,1130 @@
+{
+  "$defs": {
+    "AdaptationBound": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/AdaptationKind"
+        },
+        "maximum_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Maximum Value"
+        },
+        "minimum_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Minimum Value"
+        }
+      },
+      "required": [
+        "kind",
+        "minimum_value",
+        "maximum_value"
+      ],
+      "title": "AdaptationBound",
+      "type": "object"
+    },
+    "AdaptationKind": {
+      "enum": [
+        "INCREASE_LIQUIDITY_HAIRCUT",
+        "INCREASE_MARGIN_BUFFER",
+        "DECREASE_RISK_CAP",
+        "DECREASE_PARTICIPATION_RATE",
+        "WIDEN_NO_TRADE_REGION",
+        "ENTER_RESTRICTED_MODE"
+      ],
+      "title": "AdaptationKind",
+      "type": "string"
+    },
+    "AdaptationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "adaptation_id": {
+          "minLength": 1,
+          "title": "Adaptation Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/AdaptationKind"
+        },
+        "previous_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Previous Value"
+        },
+        "proposed_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Proposed Value"
+        },
+        "source_policy_id": {
+          "minLength": 1,
+          "title": "Source Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "adaptation_id",
+        "kind",
+        "previous_value",
+        "proposed_value",
+        "source_policy_id"
+      ],
+      "title": "AdaptationRequest",
+      "type": "object"
+    },
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "content_sha256",
+        "schema_version",
+        "contract_version"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "ChallengerDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "minLength": 1,
+          "title": "Action",
+          "type": "string"
+        },
+        "constraint_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Constraint Hash",
+          "type": "string"
+        },
+        "execution_authority": {
+          "const": false,
+          "default": false,
+          "title": "Execution Authority",
+          "type": "boolean"
+        },
+        "input_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Hash",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "predicted_risk": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Predicted Risk"
+        },
+        "risk_limit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Risk Limit"
+        },
+        "scenario_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Scenario Hash",
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/TargetQuantity"
+          },
+          "title": "Targets",
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "input_hash",
+        "scenario_hash",
+        "constraint_hash",
+        "action",
+        "targets",
+        "predicted_risk",
+        "risk_limit"
+      ],
+      "title": "ChallengerDecision",
+      "type": "object"
+    },
+    "ChampionDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "minLength": 1,
+          "title": "Action",
+          "type": "string"
+        },
+        "constraint_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Constraint Hash",
+          "type": "string"
+        },
+        "execution_authority": {
+          "const": true,
+          "default": true,
+          "title": "Execution Authority",
+          "type": "boolean"
+        },
+        "input_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Hash",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "predicted_risk": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Predicted Risk"
+        },
+        "risk_limit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Risk Limit"
+        },
+        "scenario_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Scenario Hash",
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/TargetQuantity"
+          },
+          "title": "Targets",
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "input_hash",
+        "scenario_hash",
+        "constraint_hash",
+        "action",
+        "targets",
+        "predicted_risk",
+        "risk_limit"
+      ],
+      "title": "ChampionDecision",
+      "type": "object"
+    },
+    "ExecutionExposureState": {
+      "additionalProperties": false,
+      "properties": {
+        "has_unhedged_partial_fill": {
+          "title": "Has Unhedged Partial Fill",
+          "type": "boolean"
+        },
+        "margin_headroom_ratio": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Headroom Ratio"
+        },
+        "market_access_available": {
+          "title": "Market Access Available",
+          "type": "boolean"
+        },
+        "safe_cancel_available": {
+          "title": "Safe Cancel Available",
+          "type": "boolean"
+        },
+        "safe_flatten_available": {
+          "title": "Safe Flatten Available",
+          "type": "boolean"
+        },
+        "safe_hedge_available": {
+          "title": "Safe Hedge Available",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "has_unhedged_partial_fill",
+        "margin_headroom_ratio",
+        "safe_cancel_available",
+        "safe_hedge_available",
+        "safe_flatten_available",
+        "market_access_available"
+      ],
+      "title": "ExecutionExposureState",
+      "type": "object"
+    },
+    "InvariantMonitorRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "$ref": "#/$defs/RuntimeContext"
+        },
+        "policy": {
+          "$ref": "#/$defs/InvariantPolicy"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/RuntimeInvariantSnapshot"
+        }
+      },
+      "required": [
+        "context",
+        "snapshot",
+        "policy"
+      ],
+      "title": "InvariantMonitorRequest",
+      "type": "object"
+    },
+    "InvariantPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "exposure_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Exposure Tolerance"
+        },
+        "minimum_margin_headroom_ratio": {
+          "anyOf": [
+            {
+              "exclusiveMaximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Minimum Margin Headroom Ratio"
+        },
+        "money_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Money Tolerance"
+        },
+        "quantity_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity Tolerance"
+        }
+      },
+      "required": [
+        "quantity_tolerance",
+        "money_tolerance",
+        "exposure_tolerance",
+        "minimum_margin_headroom_ratio"
+      ],
+      "title": "InvariantPolicy",
+      "type": "object"
+    },
+    "MetricFamily": {
+      "enum": [
+        "MARKET",
+        "MODEL",
+        "RISK",
+        "LIQUIDITY",
+        "EXECUTION"
+      ],
+      "title": "MetricFamily",
+      "type": "string"
+    },
+    "MetricMonitorState": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "minimum": 0,
+          "title": "Count",
+          "type": "integer"
+        },
+        "cusum_negative": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Cusum Negative",
+          "type": "number"
+        },
+        "cusum_positive": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Cusum Positive",
+          "type": "number"
+        },
+        "ewma_z": {
+          "default": 0.0,
+          "title": "Ewma Z",
+          "type": "number"
+        },
+        "last_observed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Observed At"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_name",
+        "count"
+      ],
+      "title": "MetricMonitorState",
+      "type": "object"
+    },
+    "MetricObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_mean": {
+          "title": "Baseline Mean",
+          "type": "number"
+        },
+        "baseline_std": {
+          "exclusiveMinimum": 0.0,
+          "title": "Baseline Std",
+          "type": "number"
+        },
+        "family": {
+          "$ref": "#/$defs/MetricFamily"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric_name",
+        "family",
+        "value",
+        "baseline_mean",
+        "baseline_std",
+        "observed_at"
+      ],
+      "title": "MetricObservation",
+      "type": "object"
+    },
+    "RuntimeContext": {
+      "additionalProperties": false,
+      "properties": {
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "minLength": 1,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trace_id",
+        "decision_time",
+        "observed_at",
+        "policy_version"
+      ],
+      "title": "RuntimeContext",
+      "type": "object"
+    },
+    "RuntimeInvariantSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_state_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Actual State Hash",
+          "type": "string"
+        },
+        "cancelled_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cancelled Quantity"
+        },
+        "closing_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Closing Cash"
+        },
+        "expected_state_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Expected State Hash",
+          "type": "string"
+        },
+        "filled_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Filled Quantity"
+        },
+        "lifecycle_consistent": {
+          "title": "Lifecycle Consistent",
+          "type": "boolean"
+        },
+        "margin_limit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Limit"
+        },
+        "margin_used": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Used"
+        },
+        "maximum_loss": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Maximum Loss"
+        },
+        "maximum_loss_limit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Maximum Loss Limit"
+        },
+        "maximum_quote_age_seconds": {
+          "exclusiveMinimum": 0,
+          "title": "Maximum Quote Age Seconds",
+          "type": "integer"
+        },
+        "net_cash_flows": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Net Cash Flows"
+        },
+        "open_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Open Quantity"
+        },
+        "opening_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Opening Cash"
+        },
+        "order_total_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Order Total Quantity"
+        },
+        "physical_allocated_total": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Physical Allocated Total"
+        },
+        "quote_age_seconds": {
+          "minimum": 0,
+          "title": "Quote Age Seconds",
+          "type": "integer"
+        },
+        "received_candidate_count": {
+          "minimum": 0,
+          "title": "Received Candidate Count",
+          "type": "integer"
+        },
+        "rejected_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Rejected Quantity"
+        },
+        "settlement_consistent": {
+          "title": "Settlement Consistent",
+          "type": "boolean"
+        },
+        "terminal_candidate_count": {
+          "minimum": 0,
+          "title": "Terminal Candidate Count",
+          "type": "integer"
+        },
+        "virtual_exposure_total": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Virtual Exposure Total"
+        }
+      },
+      "required": [
+        "received_candidate_count",
+        "terminal_candidate_count",
+        "order_total_quantity",
+        "filled_quantity",
+        "cancelled_quantity",
+        "rejected_quantity",
+        "open_quantity",
+        "virtual_exposure_total",
+        "physical_allocated_total",
+        "opening_cash",
+        "net_cash_flows",
+        "closing_cash",
+        "margin_used",
+        "margin_limit",
+        "maximum_loss",
+        "maximum_loss_limit",
+        "quote_age_seconds",
+        "maximum_quote_age_seconds",
+        "lifecycle_consistent",
+        "settlement_consistent",
+        "expected_state_hash",
+        "actual_state_hash"
+      ],
+      "title": "RuntimeInvariantSnapshot",
+      "type": "object"
+    },
+    "RuntimeMode": {
+      "enum": [
+        "NORMAL",
+        "HOLD_NO_NEW_RISK",
+        "CANCEL_OPEN_ORDERS",
+        "CLOSE_ONLY",
+        "RISK_REDUCTION_ONLY",
+        "HEDGE_ONLY",
+        "CONTROLLED_FLATTEN",
+        "HALT"
+      ],
+      "title": "RuntimeMode",
+      "type": "string"
+    },
+    "ShadowEvaluationPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "benign_quantity_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Benign Quantity Tolerance"
+        },
+        "material_quantity_tolerance": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Material Quantity Tolerance"
+        },
+        "risk_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Risk Tolerance"
+        }
+      },
+      "required": [
+        "benign_quantity_tolerance",
+        "material_quantity_tolerance",
+        "risk_tolerance"
+      ],
+      "title": "ShadowEvaluationPolicy",
+      "type": "object"
+    },
+    "ShadowEvaluationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "challenger": {
+          "$ref": "#/$defs/ChallengerDecision"
+        },
+        "champion": {
+          "$ref": "#/$defs/ChampionDecision"
+        },
+        "context": {
+          "$ref": "#/$defs/RuntimeContext"
+        },
+        "policy": {
+          "$ref": "#/$defs/ShadowEvaluationPolicy"
+        }
+      },
+      "required": [
+        "context",
+        "champion",
+        "challenger",
+        "policy"
+      ],
+      "title": "ShadowEvaluationRequest",
+      "type": "object"
+    },
+    "ShiftMonitorPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Alpha",
+          "type": "number"
+        },
+        "critical_threshold": {
+          "exclusiveMinimum": 0.0,
+          "title": "Critical Threshold",
+          "type": "number"
+        },
+        "drift_allowance": {
+          "minimum": 0.0,
+          "title": "Drift Allowance",
+          "type": "number"
+        },
+        "material_threshold": {
+          "exclusiveMinimum": 0.0,
+          "title": "Material Threshold",
+          "type": "number"
+        },
+        "maximum_observation_age_seconds": {
+          "exclusiveMinimum": 0,
+          "title": "Maximum Observation Age Seconds",
+          "type": "integer"
+        },
+        "mild_threshold": {
+          "exclusiveMinimum": 0.0,
+          "title": "Mild Threshold",
+          "type": "number"
+        },
+        "minimum_observations": {
+          "minimum": 1,
+          "title": "Minimum Observations",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "alpha",
+        "drift_allowance",
+        "mild_threshold",
+        "material_threshold",
+        "critical_threshold",
+        "minimum_observations",
+        "maximum_observation_age_seconds"
+      ],
+      "title": "ShiftMonitorPolicy",
+      "type": "object"
+    },
+    "ShiftMonitorRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "$ref": "#/$defs/RuntimeContext"
+        },
+        "observations": {
+          "items": {
+            "$ref": "#/$defs/MetricObservation"
+          },
+          "minItems": 1,
+          "title": "Observations",
+          "type": "array"
+        },
+        "policy": {
+          "$ref": "#/$defs/ShiftMonitorPolicy"
+        },
+        "prior_states": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricMonitorState"
+          },
+          "title": "Prior States",
+          "type": "array"
+        }
+      },
+      "required": [
+        "context",
+        "observations",
+        "policy"
+      ],
+      "title": "ShiftMonitorRequest",
+      "type": "object"
+    },
+    "SupervisorPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "critical_margin_mode": {
+          "$ref": "#/$defs/RuntimeMode",
+          "default": "CONTROLLED_FLATTEN"
+        },
+        "material_shift_mode": {
+          "$ref": "#/$defs/RuntimeMode",
+          "default": "HOLD_NO_NEW_RISK"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "state_inconsistent_mode": {
+          "$ref": "#/$defs/RuntimeMode",
+          "default": "HOLD_NO_NEW_RISK"
+        },
+        "valid_until": {
+          "format": "date-time",
+          "title": "Valid Until",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "valid_until"
+      ],
+      "title": "SupervisorPolicy",
+      "type": "object"
+    },
+    "TargetQuantity": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "quantity"
+      ],
+      "title": "TargetQuantity",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/schemas/p8/s9/runtime_assurance_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adaptation_bounds": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/AdaptationBound"
+      },
+      "title": "Adaptation Bounds",
+      "type": "array"
+    },
+    "adaptation_requests": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/AdaptationRequest"
+      },
+      "title": "Adaptation Requests",
+      "type": "array"
+    },
+    "context": {
+      "$ref": "#/$defs/RuntimeContext"
+    },
+    "exposure_state": {
+      "$ref": "#/$defs/ExecutionExposureState"
+    },
+    "invariant_request": {
+      "$ref": "#/$defs/InvariantMonitorRequest"
+    },
+    "shadow_request": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ShadowEvaluationRequest"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "shift_request": {
+      "$ref": "#/$defs/ShiftMonitorRequest"
+    },
+    "source_artifacts": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ArtifactRef"
+      },
+      "title": "Source Artifacts",
+      "type": "array"
+    },
+    "supervisor_policy": {
+      "$ref": "#/$defs/SupervisorPolicy"
+    }
+  },
+  "required": [
+    "context",
+    "shift_request",
+    "invariant_request",
+    "exposure_state",
+    "supervisor_policy"
+  ],
+  "title": "RuntimeAssuranceRequest",
+  "type": "object"
+}

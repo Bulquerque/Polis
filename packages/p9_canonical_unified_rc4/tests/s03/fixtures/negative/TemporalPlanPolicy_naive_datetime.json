@@ -1,0 +1,29 @@
+{
+  "allow_overlapping_test_windows": false,
+  "dataset_window": {
+    "end": "2020-05-20T00:00:00Z",
+    "start": "2020-01-01T00:00:00"
+  },
+  "embargo": {
+    "seconds": 172800
+  },
+  "holdout": {
+    "seconds": 1728000
+  },
+  "initial_train": {
+    "seconds": 2592000
+  },
+  "max_train": null,
+  "minimum_outer_folds": 2,
+  "policy_id": "fixture-temporal-v1",
+  "step": {
+    "seconds": 864000
+  },
+  "test": {
+    "seconds": 864000
+  },
+  "tuning": {
+    "seconds": 864000
+  },
+  "window_mode": "EXPANDING"
+}

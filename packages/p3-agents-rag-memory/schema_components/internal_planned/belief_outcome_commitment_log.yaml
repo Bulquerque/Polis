@@ -1,0 +1,32 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Belief Outcome Commitment Log
+type: object
+additionalProperties: false
+properties:
+  commitment_id: &id001
+    type: string
+  person_id: *id001
+  subject: *id001
+  proposition: *id001
+  direction: *id001
+  strength: &id002
+    type: number
+  confidence: *id002
+  horizon: *id001
+  committed_at: *id001
+  matures_at: *id001
+  commit_hash: *id001
+  lineage_id: *id001
+required:
+- commitment_id
+- person_id
+- subject
+- proposition
+- direction
+- strength
+- confidence
+- horizon
+- committed_at
+- matures_at
+- commit_hash
+- lineage_id

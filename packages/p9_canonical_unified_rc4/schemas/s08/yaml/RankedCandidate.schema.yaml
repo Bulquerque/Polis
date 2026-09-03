@@ -1,0 +1,68 @@
+$defs:
+  EvidenceClass:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED_NOT_EXECUTED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceClass
+    type: string
+additionalProperties: false
+properties:
+  group_id:
+    minLength: 1
+    title: Group Id
+    type: string
+  candidate_id:
+    minLength: 1
+    title: Candidate Id
+    type: string
+  predicted_rank:
+    minimum: 1
+    title: Predicted Rank
+    type: integer
+  predicted_score:
+    title: Predicted Score
+    type: number
+  realized_utility:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Realized Utility
+  evidence_class:
+    $ref: '#/$defs/EvidenceClass'
+  eligible:
+    default: true
+    title: Eligible
+    type: boolean
+  pre_blocked:
+    default: false
+    title: Pre Blocked
+    type: boolean
+  confidence:
+    anyOf:
+    - maximum: 1.0
+      minimum: 0.0
+      type: number
+    - type: 'null'
+    default: null
+    title: Confidence
+  dominates_candidate_ids:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Dominates Candidate Ids
+    type: array
+required:
+- group_id
+- candidate_id
+- predicted_rank
+- predicted_score
+- evidence_class
+title: RankedCandidate
+type: object
+$id: urn:inferencia:p9:s8:RankedCandidate:1.0.0

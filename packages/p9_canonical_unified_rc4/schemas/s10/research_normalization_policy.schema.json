@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conditional_lesson_confidence": {
+      "default": 0.75,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Conditional Lesson Confidence",
+      "type": "number"
+    },
+    "minimum_materiality": {
+      "default": 0.0,
+      "minimum": 0.0,
+      "title": "Minimum Materiality",
+      "type": "number"
+    },
+    "plausible_hypothesis_confidence": {
+      "default": 0.55,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Plausible Hypothesis Confidence",
+      "type": "number"
+    },
+    "policy_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "rejected_hypothesis_confidence": {
+      "default": 0.75,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Rejected Hypothesis Confidence",
+      "type": "number"
+    },
+    "supported_lesson_confidence": {
+      "default": 0.9,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Supported Lesson Confidence",
+      "type": "number"
+    }
+  },
+  "required": [
+    "policy_id"
+  ],
+  "title": "ResearchNormalizationPolicy",
+  "type": "object"
+}

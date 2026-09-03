@@ -1,0 +1,60 @@
+schema_id: p3.research_tools.capability_taxonomy_config.v1
+schema_version: 1.0.0
+capabilities:
+- capability_id: document_search
+  category: DOMAIN
+  description: Document search
+- capability_id: source_evaluation
+  category: DOMAIN
+  description: Source evaluation
+- capability_id: counterevidence_search
+  category: METHOD
+  description: Counterevidence search
+- capability_id: cross_source_validation
+  category: METHOD
+  description: Cross source validation
+- capability_id: version_comparison
+  category: METHOD
+  description: Version comparison
+- capability_id: forensic_review
+  category: METHOD
+  description: Forensic review
+- capability_id: market_analysis
+  category: DOMAIN
+  description: Market analysis
+- capability_id: liquidity_analysis
+  category: DOMAIN
+  description: Liquidity analysis
+- capability_id: options_analysis
+  category: DOMAIN
+  description: Options analysis
+- capability_id: macro_analysis
+  category: DOMAIN
+  description: Macro analysis
+- capability_id: qualitative_company_analysis
+  category: DOMAIN
+  description: Qualitative company analysis
+- capability_id: financial_statement_analysis
+  category: DOMAIN
+  description: Financial statement analysis
+- capability_id: accounting_quality_analysis
+  category: DOMAIN
+  description: Accounting quality analysis
+- capability_id: valuation
+  category: DOMAIN
+  description: Valuation
+- capability_id: quantitative_statistics
+  category: DOMAIN
+  description: Quantitative statistics
+- capability_id: public_data_access
+  category: ACCESS
+  description: Public data access
+- capability_id: professional_data_access
+  category: ACCESS
+  description: Professional data access
+- capability_id: research_time
+  category: RESOURCE
+  description: Research time
+- capability_id: computational_access
+  category: RESOURCE
+  description: Computational access

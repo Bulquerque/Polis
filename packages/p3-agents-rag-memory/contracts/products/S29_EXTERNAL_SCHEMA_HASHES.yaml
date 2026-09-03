@@ -1,0 +1,8 @@
+compatibility_id: p3.s29.external_schema_hashes
+schemas:
+- file: agent_disagreement_panel.schema.yaml
+  sha256: df3cb86f13cbe2cc662ec99e6848b1d76e2601c9003e295986f0bb21b312c19d
+  authority: New Version.sanitized/global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/schemas
+- file: evidence_tag_panel.schema.yaml
+  sha256: 3dffe2b8ef8487ea90ce3ecb6e6b2f0000fd3bcb0bd7fa29cc816af43039fd65
+  authority: New Version.sanitized/global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/schemas

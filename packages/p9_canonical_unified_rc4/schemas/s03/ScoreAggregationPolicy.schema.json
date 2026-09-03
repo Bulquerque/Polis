@@ -1,0 +1,50 @@
+{
+  "$defs": {
+    "FoldWeightPolicy": {
+      "enum": [
+        "EQUAL_FOLD",
+        "OBSERVATION_COUNT"
+      ],
+      "title": "FoldWeightPolicy",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/ScoreAggregationPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "loss_definition": {
+      "default": "NEGATIVE_SCORE",
+      "title": "Loss Definition",
+      "type": "string"
+    },
+    "minimum_fold_coverage": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "1",
+      "title": "Minimum Fold Coverage"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "weight_policy": {
+      "$ref": "#/$defs/FoldWeightPolicy",
+      "default": "EQUAL_FOLD"
+    }
+  },
+  "required": [
+    "policy_id"
+  ],
+  "title": "ScoreAggregationPolicy",
+  "type": "object"
+}

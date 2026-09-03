@@ -1,0 +1,600 @@
+{
+  "$defs": {
+    "DiagnosticRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "observed": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed"
+        },
+        "severity": {
+          "pattern": "^(INFO|WARNING|ERROR|BLOCKER)$",
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "severity"
+      ],
+      "title": "DiagnosticRecord",
+      "type": "object"
+    },
+    "DistributionDiagnosticPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "rolling": {
+          "items": {
+            "$ref": "#/$defs/RollingDistributionRecord"
+          },
+          "title": "Rolling",
+          "type": "array"
+        },
+        "serial_correlations": {
+          "items": {
+            "$ref": "#/$defs/SerialCorrelationRecord"
+          },
+          "title": "Serial Correlations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "serial_correlations",
+        "rolling"
+      ],
+      "title": "DistributionDiagnosticPanel",
+      "type": "object"
+    },
+    "GrossNet": {
+      "enum": [
+        "GROSS",
+        "NET",
+        "ACTIVE",
+        "EXCESS",
+        "NOT_APPLICABLE"
+      ],
+      "title": "GrossNet",
+      "type": "string"
+    },
+    "MetricRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "annualization_periods": {
+          "anyOf": [
+            {
+              "gt": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annualization Periods"
+        },
+        "gross_net": {
+          "$ref": "#/$defs/GrossNet",
+          "default": "NOT_APPLICABLE"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "sample_count": {
+          "minimum": 0,
+          "title": "Sample Count",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "unit": {
+          "$ref": "#/$defs/Unit"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_version",
+        "producer_module_id",
+        "value",
+        "unit",
+        "status",
+        "sample_count",
+        "method"
+      ],
+      "title": "MetricRecord",
+      "type": "object"
+    },
+    "MetricStatus": {
+      "enum": [
+        "QUALIFIED",
+        "LIMITED",
+        "UNAVAILABLE",
+        "INSUFFICIENT_SAMPLE",
+        "UNDEFINED",
+        "INVALID"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "QualifiedBacktestIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "handoff_id": {
+          "title": "Handoff Id",
+          "type": "string"
+        },
+        "handoff_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Handoff Sha256",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trial_id": {
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trial_id",
+        "fold_id",
+        "configuration_id",
+        "handoff_id",
+        "handoff_sha256"
+      ],
+      "title": "QualifiedBacktestIdentity",
+      "type": "object"
+    },
+    "RollingDistributionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "ending_index": {
+          "minimum": 0,
+          "title": "Ending Index",
+          "type": "integer"
+        },
+        "gross_volatility_annualized": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Gross Volatility Annualized"
+        },
+        "net_excess_kurtosis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Net Excess Kurtosis"
+        },
+        "net_skewness": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Net Skewness"
+        },
+        "net_volatility_annualized": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Net Volatility Annualized"
+        },
+        "window": {
+          "minimum": 2,
+          "title": "Window",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "window",
+        "ending_index",
+        "net_volatility_annualized",
+        "gross_volatility_annualized",
+        "net_skewness",
+        "net_excess_kurtosis"
+      ],
+      "title": "RollingDistributionRecord",
+      "type": "object"
+    },
+    "SerialCorrelationRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "gross_autocorrelation": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Gross Autocorrelation"
+        },
+        "lag": {
+          "minimum": 1,
+          "title": "Lag",
+          "type": "integer"
+        },
+        "net_autocorrelation": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Net Autocorrelation"
+        }
+      },
+      "required": [
+        "lag",
+        "gross_autocorrelation",
+        "net_autocorrelation"
+      ],
+      "title": "SerialCorrelationRecord",
+      "type": "object"
+    },
+    "SerialDependenceReport": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "gross_ljung_box_pvalue": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gross Ljung Box Pvalue"
+        },
+        "gross_ljung_box_statistic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gross Ljung Box Statistic"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "ljung_box_lag": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ljung Box Lag"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "net_ljung_box_pvalue": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Net Ljung Box Pvalue"
+        },
+        "net_ljung_box_statistic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Net Ljung Box Statistic"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256"
+      ],
+      "title": "SerialDependenceReport",
+      "type": "object"
+    },
+    "Unit": {
+      "enum": [
+        "DECIMAL_RETURN",
+        "ANNUALIZED_DECIMAL",
+        "RATIO",
+        "PROBABILITY",
+        "MONEY",
+        "BPS",
+        "COUNT",
+        "SECONDS",
+        "FRACTION",
+        "COEFFICIENT"
+      ],
+      "title": "Unit",
+      "type": "string"
+    },
+    "VolatilityMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "downside_threshold_per_period": {
+          "title": "Downside Threshold Per Period",
+          "type": "number"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "periods_per_year": {
+          "title": "Periods Per Year",
+          "type": "number"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "periods_per_year",
+        "downside_threshold_per_period"
+      ],
+      "title": "VolatilityMetricPanel",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/DistributionEngineResult.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "diagnostics": {
+      "$ref": "#/$defs/DistributionDiagnosticPanel"
+    },
+    "serial_dependence": {
+      "$ref": "#/$defs/SerialDependenceReport"
+    },
+    "volatility": {
+      "$ref": "#/$defs/VolatilityMetricPanel"
+    }
+  },
+  "required": [
+    "volatility",
+    "diagnostics",
+    "serial_dependence"
+  ],
+  "title": "DistributionEngineResult",
+  "type": "object"
+}

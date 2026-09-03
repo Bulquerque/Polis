@@ -1,0 +1,46 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "adaptive_search_depth": {
+      "minimum": 0,
+      "title": "Adaptive Search Depth",
+      "type": "integer"
+    },
+    "effective_dimension_count": {
+      "minimum": 0,
+      "title": "Effective Dimension Count",
+      "type": "integer"
+    },
+    "nominal_configuration_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Nominal Configuration Count"
+    },
+    "penalty_metadata_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Penalty Metadata Sha256",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "effective_dimension_count",
+    "adaptive_search_depth",
+    "penalty_metadata_sha256"
+  ],
+  "title": "ComplexityPenaltyPolicy",
+  "type": "object"
+}

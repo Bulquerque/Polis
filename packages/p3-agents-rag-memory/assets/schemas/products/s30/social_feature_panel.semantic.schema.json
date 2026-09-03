@@ -1,0 +1,255 @@
+{
+  "$defs": {
+    "FeatureType": {
+      "enum": [
+        "FLOAT",
+        "COUNT",
+        "RATIO",
+        "SCORE"
+      ],
+      "title": "FeatureType",
+      "type": "string"
+    },
+    "QualityStatus": {
+      "enum": [
+        "PASS",
+        "DEGRADED",
+        "BLOCKED"
+      ],
+      "title": "QualityStatus",
+      "type": "string"
+    },
+    "SocialFeatureRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_agreement_score": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Agent Agreement Score"
+        },
+        "agent_disagreement_score": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Agent Disagreement Score"
+        },
+        "as_of_date": {
+          "format": "date",
+          "title": "As Of Date",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "evidence_count": {
+          "minimum": 0,
+          "title": "Evidence Count",
+          "type": "integer"
+        },
+        "feature_name": {
+          "minLength": 1,
+          "title": "Feature Name",
+          "type": "string"
+        },
+        "feature_type": {
+          "$ref": "#/$defs/FeatureType"
+        },
+        "feature_value": {
+          "title": "Feature Value",
+          "type": "number"
+        },
+        "formula_id": {
+          "minLength": 1,
+          "title": "Formula Id",
+          "type": "string"
+        },
+        "formula_version": {
+          "minLength": 1,
+          "title": "Formula Version",
+          "type": "string"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "pipeline_version": {
+          "minLength": 1,
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "proposition_id": {
+          "minLength": 1,
+          "title": "Proposition Id",
+          "type": "string"
+        },
+        "quality_reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Quality Reasons",
+          "type": "array"
+        },
+        "quality_status": {
+          "$ref": "#/$defs/QualityStatus"
+        },
+        "reference_date": {
+          "format": "date",
+          "title": "Reference Date",
+          "type": "string"
+        },
+        "social_feature_id": {
+          "minLength": 1,
+          "title": "Social Feature Id",
+          "type": "string"
+        },
+        "source_quality_score": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Source Quality Score",
+          "type": "number"
+        },
+        "underlying": {
+          "minLength": 1,
+          "title": "Underlying",
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "as_of_date",
+        "available_at",
+        "underlying",
+        "proposition_id",
+        "horizon",
+        "social_feature_id",
+        "feature_name",
+        "feature_value",
+        "feature_type",
+        "source_quality_score",
+        "evidence_count",
+        "agent_agreement_score",
+        "agent_disagreement_score",
+        "reference_date",
+        "formula_id",
+        "formula_version",
+        "quality_status",
+        "quality_reasons",
+        "lineage_id",
+        "pipeline_version"
+      ],
+      "title": "SocialFeatureRecord",
+      "type": "object"
+    }
+  },
+  "$id": "https://example.invalid/p3/s30/social_feature_panel.semantic.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "quality_reasons": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Quality Reasons",
+      "type": "array"
+    },
+    "quality_status": {
+      "$ref": "#/$defs/QualityStatus"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/SocialFeatureRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_id": {
+      "minLength": 1,
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "created_at",
+    "lineage_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "schema_id",
+    "schema_version",
+    "quality_status",
+    "records"
+  ],
+  "title": "SocialFeaturePanel",
+  "type": "object"
+}

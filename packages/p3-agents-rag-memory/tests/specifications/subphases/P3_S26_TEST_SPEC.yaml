@@ -1,0 +1,129 @@
+spec_id: P3.S26.TEST_SPEC
+subphase: P3.S26
+title: Memory Consolidation & Cycle Checkpoint
+status: PLANNED_NOT_EXECUTABLE_UNTIL_RUNTIME_EXISTS
+canonical_module_order:
+- P3.S26.M01
+- P3.S26.M02
+- P3.S26.M03
+modules:
+- module_id: P3.S26.M01
+  module_name: memory_consolidation_manager
+  cases:
+  - id: belief_feedback_consolidated
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: retro_memory_forbidden
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: audit_history_preserved
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - next_memory_state
+    - memory_trigger_event_panel
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: &id001
+    - future_return
+    - candidate_score
+    - rank_score
+    - portfolio_weight
+    - trade_decision
+    - buy_sell_signal
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S26.M02
+  module_name: endogenous_stimulus_queue_checkpoint_writer
+  cases:
+  - id: same_cycle_target_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: dedup_exact
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - next_cycle_endogenous_stimulus_queue
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S26.M03
+  module_name: cycle_state_checkpoint_writer
+  cases:
+  - id: snapshot_complete
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: cycle_id_exact
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - cycle_state_snapshot_out
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+integration_handoff:
+  upstream_contracts_validated: true
+  downstream_outputs_materialized: true
+  no_undeclared_dependencies: true
+fixture_requirements:
+- minimal_valid
+- missing_input
+- schema_invalid
+- forbidden_field
+- lineage_broken
+- boundary_case
+pass_criteria:
+- all_module_cases_pass
+- no_partial_output_on_failure
+- no_forbidden_authority
+- pit_and_lineage_preserved
+- observability_evidence_present

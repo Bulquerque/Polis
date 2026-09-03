@@ -1,0 +1,4639 @@
+{
+  "payload": {
+    "header": {
+      "contract_name": "P9_S7_PROSPECTIVE_MONITORING_BUNDLE_V1",
+      "contract_version": "1.0.0",
+      "run_id": "run-1",
+      "cycle_id": "cycle-1",
+      "created_at": "2026-01-02T12:00:00Z"
+    },
+    "upstream_bundle_sha256s": [
+      "1ef0ae7bbe4ce6c99ab744fe8c27582178d69c660538ef6a4b201cf5a944e17a",
+      "3460ebae1c45bfd069074b365281354cfdf41b82ffb05c7eedd6775446fcd3a4",
+      "971212bd7810de3b6630bf22a40a0e85d0360ee99f74e58e6b1ed8668b157501"
+    ],
+    "prequential_stream": {
+      "records": [
+        {
+          "prediction": {
+            "event_id": "p0",
+            "cohort_id": "cohort-p0",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-21T12:00:00Z",
+            "information_set_hash": "9854efbeb68062fa6136bc40f0d27ee7b773e0d0389ac9ddd808810ac7fe8c30",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p0",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p0-v1",
+              "prediction_event_id": "p0",
+              "observed_at": "2025-11-22T12:00:00Z",
+              "available_at": "2025-11-22T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 1.5,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p0-v1",
+          "record_sha256": "d29a0e9d60cd105f663a2071d681dc24c2811a9186d4907403e497c362d9c0c9"
+        },
+        {
+          "prediction": {
+            "event_id": "p1",
+            "cohort_id": "cohort-p1",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-22T12:00:00Z",
+            "information_set_hash": "a8d662aaaf8b606435e40b8bf9b7134f1a9f9f19d387b6520033f60e32f2df96",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p1",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p1-v1",
+              "prediction_event_id": "p1",
+              "observed_at": "2025-11-23T12:00:00Z",
+              "available_at": "2025-11-23T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p1-v1",
+          "record_sha256": "cc126e82a0ea300b6fa453c37d2851beab1357ef80262aedc3f3ae0f3da20cd6"
+        },
+        {
+          "prediction": {
+            "event_id": "p2",
+            "cohort_id": "cohort-p2",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-23T12:00:00Z",
+            "information_set_hash": "c991de926e18ecfbca2f865016fd301ebd5dd2c7828a9b52e62c413034a613b7",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p2",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p2-v1",
+              "prediction_event_id": "p2",
+              "observed_at": "2025-11-24T12:00:00Z",
+              "available_at": "2025-11-24T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p2-v1",
+          "record_sha256": "2f7836dddcd865051af97e2657f86dd669701e75899d4341a6645a9cd1b085fd"
+        },
+        {
+          "prediction": {
+            "event_id": "p3",
+            "cohort_id": "cohort-p3",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-24T12:00:00Z",
+            "information_set_hash": "624371eb6c2a1267df6bf9e36cf731523065539a13696f43edfda7a549c883f4",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p3",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p3-v1",
+              "prediction_event_id": "p3",
+              "observed_at": "2025-11-25T12:00:00Z",
+              "available_at": "2025-11-25T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p3-v1",
+          "record_sha256": "0eaeedb4bf1243a74de2f620d4c1e6aee5f38dc6147112552b2c915e79e6337e"
+        },
+        {
+          "prediction": {
+            "event_id": "p4",
+            "cohort_id": "cohort-p4",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-25T12:00:00Z",
+            "information_set_hash": "f1caa42119d85585824f65dcc3e640255eb59ae5cc23c9c2da70098a14149886",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p4",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p4-v1",
+              "prediction_event_id": "p4",
+              "observed_at": "2025-11-26T12:00:00Z",
+              "available_at": "2025-11-26T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p4-v1",
+          "record_sha256": "c4dc7a1f50ed015d0ddaf195102511a9a5f200ca35556fc8c8446764b774dcf4"
+        },
+        {
+          "prediction": {
+            "event_id": "p5",
+            "cohort_id": "cohort-p5",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-26T12:00:00Z",
+            "information_set_hash": "31975e1a7a6b737df2d931ceb3cfff628d2b21b4003aaa61aba563409bf54ba6",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p5",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p5-v1",
+              "prediction_event_id": "p5",
+              "observed_at": "2025-11-27T12:00:00Z",
+              "available_at": "2025-11-27T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p5-v1",
+          "record_sha256": "4d50b8f7d541f3bbcd36ea408d469648e662f2c16a09d51ccfaefb6de5e6c8b3"
+        },
+        {
+          "prediction": {
+            "event_id": "p6",
+            "cohort_id": "cohort-p6",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-27T12:00:00Z",
+            "information_set_hash": "3f08f0b07f042192b7dd222fc2ffd69a6a82fcf8b4de8ed93ac1b25119c676a6",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p6",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p6-v1",
+              "prediction_event_id": "p6",
+              "observed_at": "2025-11-28T12:00:00Z",
+              "available_at": "2025-11-28T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p6-v1",
+          "record_sha256": "aab7478ba79cefd63c1adf4f407eabd0e85960ec7bb768df305e0b000a90d465"
+        },
+        {
+          "prediction": {
+            "event_id": "p7",
+            "cohort_id": "cohort-p7",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-28T12:00:00Z",
+            "information_set_hash": "6aed6d506960cc1ad4197661d515a43bc7b1abe3b4133bf234a0672ab1eb634f",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p7",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p7-v1",
+              "prediction_event_id": "p7",
+              "observed_at": "2025-11-29T12:00:00Z",
+              "available_at": "2025-11-29T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p7-v1",
+          "record_sha256": "12aae27770021b38ef2790832924f4a3579201a6c8b9cdeaf457ad18b480f160"
+        },
+        {
+          "prediction": {
+            "event_id": "p8",
+            "cohort_id": "cohort-p8",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-29T12:00:00Z",
+            "information_set_hash": "623b6d54acf0553fc40f5bff9532f65d54db8dd80b3b259aa43e48a29316078c",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p8",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p8-v1",
+              "prediction_event_id": "p8",
+              "observed_at": "2025-11-30T12:00:00Z",
+              "available_at": "2025-11-30T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p8-v1",
+          "record_sha256": "1e597ddb0189bb8ae760a0b64643704e9b90c3bded745516ec84396d40c404cf"
+        },
+        {
+          "prediction": {
+            "event_id": "p9",
+            "cohort_id": "cohort-p9",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-11-30T12:00:00Z",
+            "information_set_hash": "d47798899ec835292463d4de3d4d8d75b19ca81bfd80dcd2f767aa1eb5436b0d",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p9",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p9-v1",
+              "prediction_event_id": "p9",
+              "observed_at": "2025-12-01T12:00:00Z",
+              "available_at": "2025-12-01T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p9-v1",
+          "record_sha256": "19513bc55df02204d9c37adeb4107df1ddf25bf64ef5d9bb0eeb9730b6d26986"
+        },
+        {
+          "prediction": {
+            "event_id": "p10",
+            "cohort_id": "cohort-p10",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-01T12:00:00Z",
+            "information_set_hash": "7fb1aecbdc33eb2fbd333db93bbc83d7153108673c0e489cf791415dd1d22b1f",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p10",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p10-v1",
+              "prediction_event_id": "p10",
+              "observed_at": "2025-12-02T12:00:00Z",
+              "available_at": "2025-12-02T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 1.5,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p10-v1",
+          "record_sha256": "0df133cf6faae39d0e29c5696821043a9c5a5a45427fd129a2c2dd44a0920d00"
+        },
+        {
+          "prediction": {
+            "event_id": "p11",
+            "cohort_id": "cohort-p11",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-02T12:00:00Z",
+            "information_set_hash": "1f002307610c153ee59339887f9e1ac7c15507553b18c5c61a3b125c6ab521e6",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p11",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p11-v1",
+              "prediction_event_id": "p11",
+              "observed_at": "2025-12-03T12:00:00Z",
+              "available_at": "2025-12-03T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p11-v1",
+          "record_sha256": "661e95327b681374d56718ea399e98ffdfa9d5439745e6ccbf67439ccfd534fe"
+        },
+        {
+          "prediction": {
+            "event_id": "p12",
+            "cohort_id": "cohort-p12",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-03T12:00:00Z",
+            "information_set_hash": "6af0b3a6bec5d8bbc92ba996646ff10c6ffe8fefc9206fae7041dac55beb8369",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p12",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p12-v1",
+              "prediction_event_id": "p12",
+              "observed_at": "2025-12-04T12:00:00Z",
+              "available_at": "2025-12-04T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p12-v1",
+          "record_sha256": "49cd81ee642449cde734fcb6fa0dec953eff72d62f85d48c2f445f803b57ca37"
+        },
+        {
+          "prediction": {
+            "event_id": "p13",
+            "cohort_id": "cohort-p13",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-04T12:00:00Z",
+            "information_set_hash": "270fcfee2b088edaabb1cd5af2eaa432db27031c7560b182ddda6c35e34472f7",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p13",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p13-v1",
+              "prediction_event_id": "p13",
+              "observed_at": "2025-12-05T12:00:00Z",
+              "available_at": "2025-12-05T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p13-v1",
+          "record_sha256": "50e6e7a08ec6299001aa3129ed2af8ca9d7e5921eaaeeb5548190083deae32a2"
+        },
+        {
+          "prediction": {
+            "event_id": "p14",
+            "cohort_id": "cohort-p14",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-05T12:00:00Z",
+            "information_set_hash": "8ef519b0075d84f997d739331e150e55fc879b1475e221c9ff2a8290a81d37f0",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p14",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p14-v1",
+              "prediction_event_id": "p14",
+              "observed_at": "2025-12-06T12:00:00Z",
+              "available_at": "2025-12-06T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p14-v1",
+          "record_sha256": "41f99094de06a620e9ed3c19bd87c8812cfdfd49dcca009ca2c17062475cf8c4"
+        },
+        {
+          "prediction": {
+            "event_id": "p15",
+            "cohort_id": "cohort-p15",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-06T12:00:00Z",
+            "information_set_hash": "021ad69d1a9c18d81cf3e2d3e4ada87145ed8e6431e86c2b0a714c5d5ad1b16e",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p15",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p15-v1",
+              "prediction_event_id": "p15",
+              "observed_at": "2025-12-07T12:00:00Z",
+              "available_at": "2025-12-07T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p15-v1",
+          "record_sha256": "61c2fe06bc048512eaac7146eb5ebabef3a8fc32161e39db86299e598023d50f"
+        },
+        {
+          "prediction": {
+            "event_id": "p16",
+            "cohort_id": "cohort-p16",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-07T12:00:00Z",
+            "information_set_hash": "e64f85ed1bda4e2e1757e1b749fb25e0953c520654977c1b99b05b2c503ec234",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p16",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p16-v1",
+              "prediction_event_id": "p16",
+              "observed_at": "2025-12-08T12:00:00Z",
+              "available_at": "2025-12-08T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p16-v1",
+          "record_sha256": "f1962a48581fb38e2a8c9625242adf85ee06348466b1f6b45827631b9029904a"
+        },
+        {
+          "prediction": {
+            "event_id": "p17",
+            "cohort_id": "cohort-p17",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-08T12:00:00Z",
+            "information_set_hash": "1b05a94afadf3cd044b6a8a0177f250786e342b1e4fce1c07b85c3dc3e127667",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p17",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p17-v1",
+              "prediction_event_id": "p17",
+              "observed_at": "2025-12-09T12:00:00Z",
+              "available_at": "2025-12-09T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p17-v1",
+          "record_sha256": "653796f3788ab5ed9b38b761ec90d98e2abece7f5930d25bc3cd9999d1259133"
+        },
+        {
+          "prediction": {
+            "event_id": "p18",
+            "cohort_id": "cohort-p18",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-09T12:00:00Z",
+            "information_set_hash": "f4e704e37d1d5b458825435aee764906bd748f9f65d8330a2d29b817c97a0a50",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p18",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p18-v1",
+              "prediction_event_id": "p18",
+              "observed_at": "2025-12-10T12:00:00Z",
+              "available_at": "2025-12-10T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p18-v1",
+          "record_sha256": "0d9c5fb1edfde5df63ab101bc1231d89857d501d0c18ee47abda89dfa8fff0c9"
+        },
+        {
+          "prediction": {
+            "event_id": "p19",
+            "cohort_id": "cohort-p19",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-10T12:00:00Z",
+            "information_set_hash": "b66a8b69206ffed0684b2e8c28fad193a5e4ba502eb84d02bbf958b3f2bc941e",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p19",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p19-v1",
+              "prediction_event_id": "p19",
+              "observed_at": "2025-12-11T12:00:00Z",
+              "available_at": "2025-12-11T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p19-v1",
+          "record_sha256": "4c6748f1779a803e94772b6ab4190fab6bfce230294e1c99e22e306bd1188e8e"
+        },
+        {
+          "prediction": {
+            "event_id": "p20",
+            "cohort_id": "cohort-p20",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-11T12:00:00Z",
+            "information_set_hash": "db59e99ea451412c45d5b0307eba2dc73ad7123901a653366468d0689532a74d",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p20",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p20-v1",
+              "prediction_event_id": "p20",
+              "observed_at": "2025-12-12T12:00:00Z",
+              "available_at": "2025-12-12T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 1.5,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p20-v1",
+          "record_sha256": "9025e5306c46a9d61aa71a1d1198dd07b10bef37691785e1e50bfc12adaf7421"
+        },
+        {
+          "prediction": {
+            "event_id": "p21",
+            "cohort_id": "cohort-p21",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-12T12:00:00Z",
+            "information_set_hash": "07f2e52d3bf1e94424313b5ae9c9fb4307b37d4a6a308ab49a314a9ebdcbe66a",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p21",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p21-v1",
+              "prediction_event_id": "p21",
+              "observed_at": "2025-12-13T12:00:00Z",
+              "available_at": "2025-12-13T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p21-v1",
+          "record_sha256": "548863f9bb380b651d1dec66fcec5705f404d6f4fa4350fcff2a729edfd891b9"
+        },
+        {
+          "prediction": {
+            "event_id": "p22",
+            "cohort_id": "cohort-p22",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-13T12:00:00Z",
+            "information_set_hash": "3dc12b65587b4f186d543b9dae7534a2bb8b3258a3924cc4808e1bb70532e6b2",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p22",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p22-v1",
+              "prediction_event_id": "p22",
+              "observed_at": "2025-12-14T12:00:00Z",
+              "available_at": "2025-12-14T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p22-v1",
+          "record_sha256": "7fdd09c2e13f15b54cb0d172a04bfaafd65531c2c3ab2778b967ffc7c518455b"
+        },
+        {
+          "prediction": {
+            "event_id": "p23",
+            "cohort_id": "cohort-p23",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-14T12:00:00Z",
+            "information_set_hash": "8935b0e9a391914d5a65834958d6a7f772c880959d7b698af2bd83340442b779",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p23",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p23-v1",
+              "prediction_event_id": "p23",
+              "observed_at": "2025-12-15T12:00:00Z",
+              "available_at": "2025-12-15T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p23-v1",
+          "record_sha256": "ec7afe27edf7b24158dda171e5f7500536d0d3ec044fc9f148019f4dcbb040e3"
+        },
+        {
+          "prediction": {
+            "event_id": "p24",
+            "cohort_id": "cohort-p24",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-15T12:00:00Z",
+            "information_set_hash": "fa77f8e174b1f623ff4dbb791c59d2545dffd64edceea4c9dc89c6f9e5d4ad49",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p24",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p24-v1",
+              "prediction_event_id": "p24",
+              "observed_at": "2025-12-16T12:00:00Z",
+              "available_at": "2025-12-16T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p24-v1",
+          "record_sha256": "50f37eabde47553a5db6970c7fa91ec78ddcd983b5000680a44d8ea4bb374ad8"
+        },
+        {
+          "prediction": {
+            "event_id": "p25",
+            "cohort_id": "cohort-p25",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-16T12:00:00Z",
+            "information_set_hash": "56315bac762fd66823c670720c45f9df0bb9058497a483a1b87168373403c862",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p25",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p25-v1",
+              "prediction_event_id": "p25",
+              "observed_at": "2025-12-17T12:00:00Z",
+              "available_at": "2025-12-17T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p25-v1",
+          "record_sha256": "a6f729795ac2a58756b89cfa7835d573278cbc2aec97689e5e3db0e3d4cf579d"
+        },
+        {
+          "prediction": {
+            "event_id": "p26",
+            "cohort_id": "cohort-p26",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-17T12:00:00Z",
+            "information_set_hash": "1e5955aef0352109443fd659a01e54894ec8520bf8536974becbc24a61a2884e",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p26",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p26-v1",
+              "prediction_event_id": "p26",
+              "observed_at": "2025-12-18T12:00:00Z",
+              "available_at": "2025-12-18T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p26-v1",
+          "record_sha256": "21ce59c2ca3460e8b36f8d0fe9ebe1fa6811aef59ddc47376c4383018b8267fa"
+        },
+        {
+          "prediction": {
+            "event_id": "p27",
+            "cohort_id": "cohort-p27",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-18T12:00:00Z",
+            "information_set_hash": "584ab8d87fccbafafc0a6a032f31f21ceb245e483ca3344e9cd6a403fe671c18",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p27",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p27-v1",
+              "prediction_event_id": "p27",
+              "observed_at": "2025-12-19T12:00:00Z",
+              "available_at": "2025-12-19T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p27-v1",
+          "record_sha256": "d6265f1265ef08c922d55a3bae4fd1edac143b5df49f854dd3d825ea5eaba87b"
+        },
+        {
+          "prediction": {
+            "event_id": "p28",
+            "cohort_id": "cohort-p28",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-19T12:00:00Z",
+            "information_set_hash": "c3a8a930eb9c37d8be73c19d1b66115ec97854caa1e4f22fc601231f3b850798",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p28",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p28-v1",
+              "prediction_event_id": "p28",
+              "observed_at": "2025-12-20T12:00:00Z",
+              "available_at": "2025-12-20T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p28-v1",
+          "record_sha256": "ae6ef1b8cf1d50f15984c516c41b1b8f4592df756c46319ef6258c4661ac9040"
+        },
+        {
+          "prediction": {
+            "event_id": "p29",
+            "cohort_id": "cohort-p29",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-20T12:00:00Z",
+            "information_set_hash": "d56197591fb34df1e2fe85af0229a171ef5d507bc01f2b3fa82c362095aa1c2e",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p29",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p29-v1",
+              "prediction_event_id": "p29",
+              "observed_at": "2025-12-21T12:00:00Z",
+              "available_at": "2025-12-21T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p29-v1",
+          "record_sha256": "ef09a6187b24aed01a5e7d1b26190e3c00ed9a868f96b51491cc7930c6defc5d"
+        },
+        {
+          "prediction": {
+            "event_id": "p30",
+            "cohort_id": "cohort-p30",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-21T12:00:00Z",
+            "information_set_hash": "b498235e7bcfeaf534376dbfd73d67d767a037eff44e5151b6647820e02b3199",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p30",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p30-v1",
+              "prediction_event_id": "p30",
+              "observed_at": "2025-12-22T12:00:00Z",
+              "available_at": "2025-12-22T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 1.5,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p30-v1",
+          "record_sha256": "28ee0f0f7f30e0b9158f5b0fa94ad2919d7ae1651bfa318627c06032f0024c97"
+        },
+        {
+          "prediction": {
+            "event_id": "p31",
+            "cohort_id": "cohort-p31",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-22T12:00:00Z",
+            "information_set_hash": "4ac3ff0b178087a48e6a1199df769bbee9772f39c6d7ad493b7fa0faf0c98f31",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p31",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p31-v1",
+              "prediction_event_id": "p31",
+              "observed_at": "2025-12-23T12:00:00Z",
+              "available_at": "2025-12-23T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p31-v1",
+          "record_sha256": "d1aa35fe754087ce0c8a19f8126275bb6f871ecccf3d0368c727d274260e29fb"
+        },
+        {
+          "prediction": {
+            "event_id": "p32",
+            "cohort_id": "cohort-p32",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-23T12:00:00Z",
+            "information_set_hash": "5901113cda56a0a417c0b4c4011bd0df0554caeababc9b16899b7ff9fb0878c1",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p32",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p32-v1",
+              "prediction_event_id": "p32",
+              "observed_at": "2025-12-24T12:00:00Z",
+              "available_at": "2025-12-24T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p32-v1",
+          "record_sha256": "b92aa5276f964e7c1bc997686fa8857e828bac58c18855bece11825f14378071"
+        },
+        {
+          "prediction": {
+            "event_id": "p33",
+            "cohort_id": "cohort-p33",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-24T12:00:00Z",
+            "information_set_hash": "afc9ef839b1ccca1d4cfb872ebbeb9a21b56e8164ce2ee9b03aa4fb98fe81e22",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p33",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p33-v1",
+              "prediction_event_id": "p33",
+              "observed_at": "2025-12-25T12:00:00Z",
+              "available_at": "2025-12-25T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p33-v1",
+          "record_sha256": "f211484b94475b1b3bb57ddeadb6b877209ee8053e46f1f38f716d0f429ca24f"
+        },
+        {
+          "prediction": {
+            "event_id": "p34",
+            "cohort_id": "cohort-p34",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-25T12:00:00Z",
+            "information_set_hash": "ec3aabf55f3eaa17874beb833ac2230e9e663ea5625cfa2120bd392520cefc64",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p34",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p34-v1",
+              "prediction_event_id": "p34",
+              "observed_at": "2025-12-26T12:00:00Z",
+              "available_at": "2025-12-26T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p34-v1",
+          "record_sha256": "c8dc2ea9f3c498d313b80e31c0ac085f3634f0f3a3a996c7269e72ade16ac9c5"
+        },
+        {
+          "prediction": {
+            "event_id": "p35",
+            "cohort_id": "cohort-p35",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-26T12:00:00Z",
+            "information_set_hash": "0ecbcedda87aca7f2b66eb196a8cbfdd4ed38dfa7f4b529311a8249ed6713a6a",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p35",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p35-v1",
+              "prediction_event_id": "p35",
+              "observed_at": "2025-12-27T12:00:00Z",
+              "available_at": "2025-12-27T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p35-v1",
+          "record_sha256": "ce51cec5f0f35909f961988799b737b34b0241af8c2e017e911fa5d42ea73619"
+        },
+        {
+          "prediction": {
+            "event_id": "p36",
+            "cohort_id": "cohort-p36",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-27T12:00:00Z",
+            "information_set_hash": "d2e6cc101dbd3fea391eff838383eb322394c12fbadd27cd27ec02a4bfb4046a",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p36",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p36-v1",
+              "prediction_event_id": "p36",
+              "observed_at": "2025-12-28T12:00:00Z",
+              "available_at": "2025-12-28T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p36-v1",
+          "record_sha256": "84239d026f58212a86df74dd4bd6c4bdcdf6d1a56d141fb83634210fdcb22fee"
+        },
+        {
+          "prediction": {
+            "event_id": "p37",
+            "cohort_id": "cohort-p37",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-28T12:00:00Z",
+            "information_set_hash": "a210c916bb5abe1a41d2ded0aec208fdf59a2f8c826f6d1d783ae489497e8f29",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p37",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p37-v1",
+              "prediction_event_id": "p37",
+              "observed_at": "2025-12-29T12:00:00Z",
+              "available_at": "2025-12-29T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p37-v1",
+          "record_sha256": "01d9dd071b9df9426ca4e2c42830a15654aa44e219c40bfea7946e35be8f08b3"
+        },
+        {
+          "prediction": {
+            "event_id": "p38",
+            "cohort_id": "cohort-p38",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-29T12:00:00Z",
+            "information_set_hash": "13c909707f2364b65772c8c79475d164d169be6d51c55722e6067c67c2437b9e",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p38",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p38-v1",
+              "prediction_event_id": "p38",
+              "observed_at": "2025-12-30T12:00:00Z",
+              "available_at": "2025-12-30T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p38-v1",
+          "record_sha256": "6e7ffd837228f5304e30d4f7e89fd41fc2e2d7e77e5df9519df309e608d5eb9f"
+        },
+        {
+          "prediction": {
+            "event_id": "p39",
+            "cohort_id": "cohort-p39",
+            "policy_id": "champion",
+            "policy_version": "1.0.0",
+            "target_id": "return-1d",
+            "horizon_id": "1d",
+            "issued_at": "2025-12-30T12:00:00Z",
+            "information_set_hash": "4109cc9988de2d61f7ee27c6954b9b34c88b7ae3ee292e4ab143e2d3d3ae4c32",
+            "forecast": {
+              "kind": "INTERVAL",
+              "lower": -1.0,
+              "upper": 1.0,
+              "nominal_coverage": 0.9
+            },
+            "decision_kind": "ACTION",
+            "action_id": "action-p39",
+            "regime_id": "normal",
+            "ood_bucket": "in_distribution",
+            "confidence_bucket": "high"
+          },
+          "outcomes": [
+            {
+              "outcome_id": "outcome-p39-v1",
+              "prediction_event_id": "p39",
+              "observed_at": "2025-12-31T12:00:00Z",
+              "available_at": "2025-12-31T12:05:00Z",
+              "maturity_state": "MATURED",
+              "evidence_class": "FACTUAL_EXECUTED",
+              "value": 0.2,
+              "vintage_id": "v1",
+              "supersedes_outcome_id": null
+            }
+          ],
+          "active_outcome_id": "outcome-p39-v1",
+          "record_sha256": "1b58c4a9bfca22d17d52bbd474fe78d723b6c7ab0d66e7d4729650d40d061493"
+        }
+      ],
+      "maturity_queue": [
+        {
+          "prediction_event_id": "p0",
+          "issued_at": "2025-11-21T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-11-22T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p1",
+          "issued_at": "2025-11-22T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-11-23T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p2",
+          "issued_at": "2025-11-23T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-11-24T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p3",
+          "issued_at": "2025-11-24T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-11-25T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p4",
+          "issued_at": "2025-11-25T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-11-26T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p5",
+          "issued_at": "2025-11-26T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-11-27T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p6",
+          "issued_at": "2025-11-27T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-11-28T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p7",
+          "issued_at": "2025-11-28T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-11-29T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p8",
+          "issued_at": "2025-11-29T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-11-30T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p9",
+          "issued_at": "2025-11-30T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-01T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p10",
+          "issued_at": "2025-12-01T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-02T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p11",
+          "issued_at": "2025-12-02T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-03T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p12",
+          "issued_at": "2025-12-03T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-04T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p13",
+          "issued_at": "2025-12-04T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-05T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p14",
+          "issued_at": "2025-12-05T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-06T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p15",
+          "issued_at": "2025-12-06T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-07T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p16",
+          "issued_at": "2025-12-07T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-08T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p17",
+          "issued_at": "2025-12-08T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-09T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p18",
+          "issued_at": "2025-12-09T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-10T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p19",
+          "issued_at": "2025-12-10T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-11T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p20",
+          "issued_at": "2025-12-11T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-12T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p21",
+          "issued_at": "2025-12-12T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-13T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p22",
+          "issued_at": "2025-12-13T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-14T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p23",
+          "issued_at": "2025-12-14T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-15T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p24",
+          "issued_at": "2025-12-15T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-16T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p25",
+          "issued_at": "2025-12-16T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-17T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p26",
+          "issued_at": "2025-12-17T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-18T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p27",
+          "issued_at": "2025-12-18T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-19T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p28",
+          "issued_at": "2025-12-19T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-20T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p29",
+          "issued_at": "2025-12-20T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-21T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p30",
+          "issued_at": "2025-12-21T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-22T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p31",
+          "issued_at": "2025-12-22T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-23T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p32",
+          "issued_at": "2025-12-23T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-24T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p33",
+          "issued_at": "2025-12-24T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-25T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p34",
+          "issued_at": "2025-12-25T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-26T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p35",
+          "issued_at": "2025-12-26T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-27T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p36",
+          "issued_at": "2025-12-27T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-28T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p37",
+          "issued_at": "2025-12-28T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-29T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p38",
+          "issued_at": "2025-12-29T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-30T12:05:00Z"
+        },
+        {
+          "prediction_event_id": "p39",
+          "issued_at": "2025-12-30T12:00:00Z",
+          "maturity_state": "MATURED",
+          "latest_outcome_available_at": "2025-12-31T12:05:00Z"
+        }
+      ],
+      "receipt": {
+        "record_count": 40,
+        "pending_count": 0,
+        "matured_count": 40,
+        "no_action_count": 0,
+        "stream_sha256": "c93ca3a1ab8f811511465c584eefdb285d8befbdd2508d5cd77fa8e351f3a744",
+        "reason_codes": []
+      }
+    },
+    "shadow_plan": {
+      "entries": [
+        {
+          "cohort_id": "cohort-p0",
+          "prediction_event_id": "p0",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "9854efbeb68062fa6136bc40f0d27ee7b773e0d0389ac9ddd808810ac7fe8c30",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p0",
+          "prediction_event_id": "p0",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "9854efbeb68062fa6136bc40f0d27ee7b773e0d0389ac9ddd808810ac7fe8c30",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p1",
+          "prediction_event_id": "p1",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "a8d662aaaf8b606435e40b8bf9b7134f1a9f9f19d387b6520033f60e32f2df96",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p1",
+          "prediction_event_id": "p1",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "a8d662aaaf8b606435e40b8bf9b7134f1a9f9f19d387b6520033f60e32f2df96",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p2",
+          "prediction_event_id": "p2",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "c991de926e18ecfbca2f865016fd301ebd5dd2c7828a9b52e62c413034a613b7",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p2",
+          "prediction_event_id": "p2",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "c991de926e18ecfbca2f865016fd301ebd5dd2c7828a9b52e62c413034a613b7",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p3",
+          "prediction_event_id": "p3",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "624371eb6c2a1267df6bf9e36cf731523065539a13696f43edfda7a549c883f4",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p3",
+          "prediction_event_id": "p3",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "624371eb6c2a1267df6bf9e36cf731523065539a13696f43edfda7a549c883f4",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p4",
+          "prediction_event_id": "p4",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "f1caa42119d85585824f65dcc3e640255eb59ae5cc23c9c2da70098a14149886",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p4",
+          "prediction_event_id": "p4",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "f1caa42119d85585824f65dcc3e640255eb59ae5cc23c9c2da70098a14149886",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p5",
+          "prediction_event_id": "p5",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "31975e1a7a6b737df2d931ceb3cfff628d2b21b4003aaa61aba563409bf54ba6",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p5",
+          "prediction_event_id": "p5",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "31975e1a7a6b737df2d931ceb3cfff628d2b21b4003aaa61aba563409bf54ba6",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p6",
+          "prediction_event_id": "p6",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "3f08f0b07f042192b7dd222fc2ffd69a6a82fcf8b4de8ed93ac1b25119c676a6",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p6",
+          "prediction_event_id": "p6",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "3f08f0b07f042192b7dd222fc2ffd69a6a82fcf8b4de8ed93ac1b25119c676a6",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p7",
+          "prediction_event_id": "p7",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "6aed6d506960cc1ad4197661d515a43bc7b1abe3b4133bf234a0672ab1eb634f",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p7",
+          "prediction_event_id": "p7",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "6aed6d506960cc1ad4197661d515a43bc7b1abe3b4133bf234a0672ab1eb634f",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p8",
+          "prediction_event_id": "p8",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "623b6d54acf0553fc40f5bff9532f65d54db8dd80b3b259aa43e48a29316078c",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p8",
+          "prediction_event_id": "p8",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "623b6d54acf0553fc40f5bff9532f65d54db8dd80b3b259aa43e48a29316078c",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p9",
+          "prediction_event_id": "p9",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "d47798899ec835292463d4de3d4d8d75b19ca81bfd80dcd2f767aa1eb5436b0d",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p9",
+          "prediction_event_id": "p9",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "d47798899ec835292463d4de3d4d8d75b19ca81bfd80dcd2f767aa1eb5436b0d",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p10",
+          "prediction_event_id": "p10",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "7fb1aecbdc33eb2fbd333db93bbc83d7153108673c0e489cf791415dd1d22b1f",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p10",
+          "prediction_event_id": "p10",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "7fb1aecbdc33eb2fbd333db93bbc83d7153108673c0e489cf791415dd1d22b1f",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p11",
+          "prediction_event_id": "p11",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "1f002307610c153ee59339887f9e1ac7c15507553b18c5c61a3b125c6ab521e6",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p11",
+          "prediction_event_id": "p11",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "1f002307610c153ee59339887f9e1ac7c15507553b18c5c61a3b125c6ab521e6",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p12",
+          "prediction_event_id": "p12",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "6af0b3a6bec5d8bbc92ba996646ff10c6ffe8fefc9206fae7041dac55beb8369",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p12",
+          "prediction_event_id": "p12",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "6af0b3a6bec5d8bbc92ba996646ff10c6ffe8fefc9206fae7041dac55beb8369",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p13",
+          "prediction_event_id": "p13",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "270fcfee2b088edaabb1cd5af2eaa432db27031c7560b182ddda6c35e34472f7",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p13",
+          "prediction_event_id": "p13",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "270fcfee2b088edaabb1cd5af2eaa432db27031c7560b182ddda6c35e34472f7",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p14",
+          "prediction_event_id": "p14",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "8ef519b0075d84f997d739331e150e55fc879b1475e221c9ff2a8290a81d37f0",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p14",
+          "prediction_event_id": "p14",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "8ef519b0075d84f997d739331e150e55fc879b1475e221c9ff2a8290a81d37f0",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p15",
+          "prediction_event_id": "p15",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "021ad69d1a9c18d81cf3e2d3e4ada87145ed8e6431e86c2b0a714c5d5ad1b16e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p15",
+          "prediction_event_id": "p15",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "021ad69d1a9c18d81cf3e2d3e4ada87145ed8e6431e86c2b0a714c5d5ad1b16e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p16",
+          "prediction_event_id": "p16",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "e64f85ed1bda4e2e1757e1b749fb25e0953c520654977c1b99b05b2c503ec234",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p16",
+          "prediction_event_id": "p16",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "e64f85ed1bda4e2e1757e1b749fb25e0953c520654977c1b99b05b2c503ec234",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p17",
+          "prediction_event_id": "p17",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "1b05a94afadf3cd044b6a8a0177f250786e342b1e4fce1c07b85c3dc3e127667",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p17",
+          "prediction_event_id": "p17",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "1b05a94afadf3cd044b6a8a0177f250786e342b1e4fce1c07b85c3dc3e127667",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p18",
+          "prediction_event_id": "p18",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "f4e704e37d1d5b458825435aee764906bd748f9f65d8330a2d29b817c97a0a50",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p18",
+          "prediction_event_id": "p18",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "f4e704e37d1d5b458825435aee764906bd748f9f65d8330a2d29b817c97a0a50",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p19",
+          "prediction_event_id": "p19",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "b66a8b69206ffed0684b2e8c28fad193a5e4ba502eb84d02bbf958b3f2bc941e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p19",
+          "prediction_event_id": "p19",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "b66a8b69206ffed0684b2e8c28fad193a5e4ba502eb84d02bbf958b3f2bc941e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p20",
+          "prediction_event_id": "p20",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "db59e99ea451412c45d5b0307eba2dc73ad7123901a653366468d0689532a74d",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p20",
+          "prediction_event_id": "p20",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "db59e99ea451412c45d5b0307eba2dc73ad7123901a653366468d0689532a74d",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p21",
+          "prediction_event_id": "p21",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "07f2e52d3bf1e94424313b5ae9c9fb4307b37d4a6a308ab49a314a9ebdcbe66a",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p21",
+          "prediction_event_id": "p21",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "07f2e52d3bf1e94424313b5ae9c9fb4307b37d4a6a308ab49a314a9ebdcbe66a",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p22",
+          "prediction_event_id": "p22",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "3dc12b65587b4f186d543b9dae7534a2bb8b3258a3924cc4808e1bb70532e6b2",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p22",
+          "prediction_event_id": "p22",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "3dc12b65587b4f186d543b9dae7534a2bb8b3258a3924cc4808e1bb70532e6b2",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p23",
+          "prediction_event_id": "p23",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "8935b0e9a391914d5a65834958d6a7f772c880959d7b698af2bd83340442b779",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p23",
+          "prediction_event_id": "p23",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "8935b0e9a391914d5a65834958d6a7f772c880959d7b698af2bd83340442b779",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p24",
+          "prediction_event_id": "p24",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "fa77f8e174b1f623ff4dbb791c59d2545dffd64edceea4c9dc89c6f9e5d4ad49",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p24",
+          "prediction_event_id": "p24",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "fa77f8e174b1f623ff4dbb791c59d2545dffd64edceea4c9dc89c6f9e5d4ad49",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p25",
+          "prediction_event_id": "p25",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "56315bac762fd66823c670720c45f9df0bb9058497a483a1b87168373403c862",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p25",
+          "prediction_event_id": "p25",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "56315bac762fd66823c670720c45f9df0bb9058497a483a1b87168373403c862",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p26",
+          "prediction_event_id": "p26",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "1e5955aef0352109443fd659a01e54894ec8520bf8536974becbc24a61a2884e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p26",
+          "prediction_event_id": "p26",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "1e5955aef0352109443fd659a01e54894ec8520bf8536974becbc24a61a2884e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p27",
+          "prediction_event_id": "p27",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "584ab8d87fccbafafc0a6a032f31f21ceb245e483ca3344e9cd6a403fe671c18",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p27",
+          "prediction_event_id": "p27",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "584ab8d87fccbafafc0a6a032f31f21ceb245e483ca3344e9cd6a403fe671c18",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p28",
+          "prediction_event_id": "p28",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "c3a8a930eb9c37d8be73c19d1b66115ec97854caa1e4f22fc601231f3b850798",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p28",
+          "prediction_event_id": "p28",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "c3a8a930eb9c37d8be73c19d1b66115ec97854caa1e4f22fc601231f3b850798",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p29",
+          "prediction_event_id": "p29",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "d56197591fb34df1e2fe85af0229a171ef5d507bc01f2b3fa82c362095aa1c2e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p29",
+          "prediction_event_id": "p29",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "d56197591fb34df1e2fe85af0229a171ef5d507bc01f2b3fa82c362095aa1c2e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p30",
+          "prediction_event_id": "p30",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "b498235e7bcfeaf534376dbfd73d67d767a037eff44e5151b6647820e02b3199",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p30",
+          "prediction_event_id": "p30",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "b498235e7bcfeaf534376dbfd73d67d767a037eff44e5151b6647820e02b3199",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p31",
+          "prediction_event_id": "p31",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "4ac3ff0b178087a48e6a1199df769bbee9772f39c6d7ad493b7fa0faf0c98f31",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p31",
+          "prediction_event_id": "p31",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "4ac3ff0b178087a48e6a1199df769bbee9772f39c6d7ad493b7fa0faf0c98f31",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p32",
+          "prediction_event_id": "p32",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "5901113cda56a0a417c0b4c4011bd0df0554caeababc9b16899b7ff9fb0878c1",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p32",
+          "prediction_event_id": "p32",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "5901113cda56a0a417c0b4c4011bd0df0554caeababc9b16899b7ff9fb0878c1",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p33",
+          "prediction_event_id": "p33",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "afc9ef839b1ccca1d4cfb872ebbeb9a21b56e8164ce2ee9b03aa4fb98fe81e22",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p33",
+          "prediction_event_id": "p33",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "afc9ef839b1ccca1d4cfb872ebbeb9a21b56e8164ce2ee9b03aa4fb98fe81e22",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p34",
+          "prediction_event_id": "p34",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "ec3aabf55f3eaa17874beb833ac2230e9e663ea5625cfa2120bd392520cefc64",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p34",
+          "prediction_event_id": "p34",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "ec3aabf55f3eaa17874beb833ac2230e9e663ea5625cfa2120bd392520cefc64",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p35",
+          "prediction_event_id": "p35",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "0ecbcedda87aca7f2b66eb196a8cbfdd4ed38dfa7f4b529311a8249ed6713a6a",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p35",
+          "prediction_event_id": "p35",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "0ecbcedda87aca7f2b66eb196a8cbfdd4ed38dfa7f4b529311a8249ed6713a6a",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p36",
+          "prediction_event_id": "p36",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "d2e6cc101dbd3fea391eff838383eb322394c12fbadd27cd27ec02a4bfb4046a",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p36",
+          "prediction_event_id": "p36",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "d2e6cc101dbd3fea391eff838383eb322394c12fbadd27cd27ec02a4bfb4046a",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p37",
+          "prediction_event_id": "p37",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "a210c916bb5abe1a41d2ded0aec208fdf59a2f8c826f6d1d783ae489497e8f29",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p37",
+          "prediction_event_id": "p37",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "a210c916bb5abe1a41d2ded0aec208fdf59a2f8c826f6d1d783ae489497e8f29",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p38",
+          "prediction_event_id": "p38",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "13c909707f2364b65772c8c79475d164d169be6d51c55722e6067c67c2437b9e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p38",
+          "prediction_event_id": "p38",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "13c909707f2364b65772c8c79475d164d169be6d51c55722e6067c67c2437b9e",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        },
+        {
+          "cohort_id": "cohort-p39",
+          "prediction_event_id": "p39",
+          "policy_id": "champion",
+          "policy_version": "1.0.0",
+          "role": "CHAMPION",
+          "information_set_hash": "4109cc9988de2d61f7ee27c6954b9b34c88b7ae3ee292e4ab143e2d3d3ae4c32",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 1
+        },
+        {
+          "cohort_id": "cohort-p39",
+          "prediction_event_id": "p39",
+          "policy_id": "challenger",
+          "policy_version": "1.0.0",
+          "role": "CHALLENGER",
+          "information_set_hash": "4109cc9988de2d61f7ee27c6954b9b34c88b7ae3ee292e4ab143e2d3d3ae4c32",
+          "stage": "SHADOW_ONLY",
+          "resource_budget_units": 10,
+          "seed_entropy": 2
+        }
+      ],
+      "plan_sha256": "a3e6837aacac5c1319425038ecb68668bcc73f1a3cdc172fe21b6d4cd7f05130"
+    },
+    "shadow_comparability": {
+      "comparable_cohort_count": 40,
+      "incomplete_cohort_count": 0,
+      "policy_ids": [
+        "challenger",
+        "champion"
+      ],
+      "common_snapshot_verified": true,
+      "isolation_verified": true,
+      "reason_codes": [],
+      "receipt_sha256": "17826aa6248223114ac82bcd73470180d5912fafa930d2c0d62df5c75ca2aa04"
+    },
+    "online_scoring": {
+      "score_records": [
+        {
+          "prediction_event_id": "p0",
+          "cohort_id": "cohort-p0",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 12.000000000000002,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p1",
+          "cohort_id": "cohort-p1",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p2",
+          "cohort_id": "cohort-p2",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p3",
+          "cohort_id": "cohort-p3",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p4",
+          "cohort_id": "cohort-p4",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p5",
+          "cohort_id": "cohort-p5",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p6",
+          "cohort_id": "cohort-p6",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p7",
+          "cohort_id": "cohort-p7",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p8",
+          "cohort_id": "cohort-p8",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p9",
+          "cohort_id": "cohort-p9",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p10",
+          "cohort_id": "cohort-p10",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 12.000000000000002,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p11",
+          "cohort_id": "cohort-p11",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p12",
+          "cohort_id": "cohort-p12",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p13",
+          "cohort_id": "cohort-p13",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p14",
+          "cohort_id": "cohort-p14",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p15",
+          "cohort_id": "cohort-p15",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p16",
+          "cohort_id": "cohort-p16",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p17",
+          "cohort_id": "cohort-p17",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p18",
+          "cohort_id": "cohort-p18",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p19",
+          "cohort_id": "cohort-p19",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p20",
+          "cohort_id": "cohort-p20",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 12.000000000000002,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p21",
+          "cohort_id": "cohort-p21",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p22",
+          "cohort_id": "cohort-p22",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p23",
+          "cohort_id": "cohort-p23",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p24",
+          "cohort_id": "cohort-p24",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p25",
+          "cohort_id": "cohort-p25",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p26",
+          "cohort_id": "cohort-p26",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p27",
+          "cohort_id": "cohort-p27",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p28",
+          "cohort_id": "cohort-p28",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p29",
+          "cohort_id": "cohort-p29",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p30",
+          "cohort_id": "cohort-p30",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 12.000000000000002,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p31",
+          "cohort_id": "cohort-p31",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p32",
+          "cohort_id": "cohort-p32",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p33",
+          "cohort_id": "cohort-p33",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p34",
+          "cohort_id": "cohort-p34",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p35",
+          "cohort_id": "cohort-p35",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p36",
+          "cohort_id": "cohort-p36",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p37",
+          "cohort_id": "cohort-p37",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p38",
+          "cohort_id": "cohort-p38",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        },
+        {
+          "prediction_event_id": "p39",
+          "cohort_id": "cohort-p39",
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "score_name": "INTERVAL_SCORE",
+          "score_value": 2.0,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        }
+      ],
+      "calibration_bins": [],
+      "summaries": [
+        {
+          "policy_id": "champion",
+          "target_id": "return-1d",
+          "horizon_id": "1d",
+          "observation_count": 40,
+          "mean_score_by_name": [
+            [
+              "INTERVAL_SCORE",
+              3.0
+            ]
+          ],
+          "empirical_coverage": 0.9,
+          "mean_interval_width": 2.0,
+          "abstention_rate": 0.0,
+          "calibration_qualified": false
+        }
+      ],
+      "score_panel_sha256": "2a6dd35222a7da3660740dd1facbec6dea8660b320b8511bdfe7e3ef090ddeed",
+      "reason_codes": []
+    },
+    "conformal_monitoring": {
+      "availability": "AVAILABLE",
+      "steps": [
+        {
+          "event_id": "conf-0",
+          "group_id": "1d",
+          "alpha_before": 0.09999999999999998,
+          "error_indicator": 1,
+          "alpha_after": 0.08199999999999998,
+          "nonconformity_score": 0.5,
+          "calibration_quantile": null,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-1",
+          "group_id": "1d",
+          "alpha_before": 0.08199999999999998,
+          "error_indicator": 0,
+          "alpha_after": 0.08399999999999998,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-2",
+          "group_id": "1d",
+          "alpha_before": 0.08399999999999998,
+          "error_indicator": 0,
+          "alpha_after": 0.08599999999999998,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-3",
+          "group_id": "1d",
+          "alpha_before": 0.08599999999999998,
+          "error_indicator": 0,
+          "alpha_after": 0.08799999999999998,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-4",
+          "group_id": "1d",
+          "alpha_before": 0.08799999999999998,
+          "error_indicator": 0,
+          "alpha_after": 0.08999999999999998,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-5",
+          "group_id": "1d",
+          "alpha_before": 0.08999999999999998,
+          "error_indicator": 0,
+          "alpha_after": 0.09199999999999998,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-6",
+          "group_id": "1d",
+          "alpha_before": 0.09199999999999998,
+          "error_indicator": 0,
+          "alpha_after": 0.09399999999999999,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-7",
+          "group_id": "1d",
+          "alpha_before": 0.09399999999999999,
+          "error_indicator": 0,
+          "alpha_after": 0.09599999999999999,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-8",
+          "group_id": "1d",
+          "alpha_before": 0.09599999999999999,
+          "error_indicator": 0,
+          "alpha_after": 0.09799999999999999,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-9",
+          "group_id": "1d",
+          "alpha_before": 0.09799999999999999,
+          "error_indicator": 0,
+          "alpha_after": 0.09999999999999999,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-10",
+          "group_id": "1d",
+          "alpha_before": 0.09999999999999999,
+          "error_indicator": 1,
+          "alpha_after": 0.08199999999999999,
+          "nonconformity_score": 0.5,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-11",
+          "group_id": "1d",
+          "alpha_before": 0.08199999999999999,
+          "error_indicator": 0,
+          "alpha_after": 0.08399999999999999,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-12",
+          "group_id": "1d",
+          "alpha_before": 0.08399999999999999,
+          "error_indicator": 0,
+          "alpha_after": 0.086,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-13",
+          "group_id": "1d",
+          "alpha_before": 0.086,
+          "error_indicator": 0,
+          "alpha_after": 0.088,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-14",
+          "group_id": "1d",
+          "alpha_before": 0.088,
+          "error_indicator": 0,
+          "alpha_after": 0.09,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-15",
+          "group_id": "1d",
+          "alpha_before": 0.09,
+          "error_indicator": 0,
+          "alpha_after": 0.092,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-16",
+          "group_id": "1d",
+          "alpha_before": 0.092,
+          "error_indicator": 0,
+          "alpha_after": 0.094,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-17",
+          "group_id": "1d",
+          "alpha_before": 0.094,
+          "error_indicator": 0,
+          "alpha_after": 0.096,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-18",
+          "group_id": "1d",
+          "alpha_before": 0.096,
+          "error_indicator": 0,
+          "alpha_after": 0.098,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-19",
+          "group_id": "1d",
+          "alpha_before": 0.098,
+          "error_indicator": 0,
+          "alpha_after": 0.1,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-20",
+          "group_id": "1d",
+          "alpha_before": 0.1,
+          "error_indicator": 1,
+          "alpha_after": 0.082,
+          "nonconformity_score": 0.5,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-21",
+          "group_id": "1d",
+          "alpha_before": 0.082,
+          "error_indicator": 0,
+          "alpha_after": 0.084,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-22",
+          "group_id": "1d",
+          "alpha_before": 0.084,
+          "error_indicator": 0,
+          "alpha_after": 0.08600000000000001,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-23",
+          "group_id": "1d",
+          "alpha_before": 0.08600000000000001,
+          "error_indicator": 0,
+          "alpha_after": 0.08800000000000001,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-24",
+          "group_id": "1d",
+          "alpha_before": 0.08800000000000001,
+          "error_indicator": 0,
+          "alpha_after": 0.09000000000000001,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-25",
+          "group_id": "1d",
+          "alpha_before": 0.09000000000000001,
+          "error_indicator": 0,
+          "alpha_after": 0.09200000000000001,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-26",
+          "group_id": "1d",
+          "alpha_before": 0.09200000000000001,
+          "error_indicator": 0,
+          "alpha_after": 0.09400000000000001,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-27",
+          "group_id": "1d",
+          "alpha_before": 0.09400000000000001,
+          "error_indicator": 0,
+          "alpha_after": 0.09600000000000002,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-28",
+          "group_id": "1d",
+          "alpha_before": 0.09600000000000002,
+          "error_indicator": 0,
+          "alpha_after": 0.09800000000000002,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-29",
+          "group_id": "1d",
+          "alpha_before": 0.09800000000000002,
+          "error_indicator": 0,
+          "alpha_after": 0.10000000000000002,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-30",
+          "group_id": "1d",
+          "alpha_before": 0.10000000000000002,
+          "error_indicator": 1,
+          "alpha_after": 0.08200000000000002,
+          "nonconformity_score": 0.5,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-31",
+          "group_id": "1d",
+          "alpha_before": 0.08200000000000002,
+          "error_indicator": 0,
+          "alpha_after": 0.08400000000000002,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-32",
+          "group_id": "1d",
+          "alpha_before": 0.08400000000000002,
+          "error_indicator": 0,
+          "alpha_after": 0.08600000000000002,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-33",
+          "group_id": "1d",
+          "alpha_before": 0.08600000000000002,
+          "error_indicator": 0,
+          "alpha_after": 0.08800000000000002,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-34",
+          "group_id": "1d",
+          "alpha_before": 0.08800000000000002,
+          "error_indicator": 0,
+          "alpha_after": 0.09000000000000002,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-35",
+          "group_id": "1d",
+          "alpha_before": 0.09000000000000002,
+          "error_indicator": 0,
+          "alpha_after": 0.09200000000000003,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-36",
+          "group_id": "1d",
+          "alpha_before": 0.09200000000000003,
+          "error_indicator": 0,
+          "alpha_after": 0.09400000000000003,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-37",
+          "group_id": "1d",
+          "alpha_before": 0.09400000000000003,
+          "error_indicator": 0,
+          "alpha_after": 0.09600000000000003,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-38",
+          "group_id": "1d",
+          "alpha_before": 0.09600000000000003,
+          "error_indicator": 0,
+          "alpha_after": 0.09800000000000003,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        },
+        {
+          "event_id": "conf-39",
+          "group_id": "1d",
+          "alpha_before": 0.09800000000000003,
+          "error_indicator": 0,
+          "alpha_after": 0.10000000000000003,
+          "nonconformity_score": 0.0,
+          "calibration_quantile": 0.5,
+          "interval_width": 2.0
+        }
+      ],
+      "summaries": [
+        {
+          "group_id": "1d",
+          "observation_count": 40,
+          "empirical_coverage": 0.9,
+          "target_coverage": 0.9,
+          "coverage_regret": 0.0,
+          "mean_interval_width": 2.0,
+          "recommended_miscoverage": 0.10000000000000003,
+          "quality_state": "QUALIFIED",
+          "reason_codes": []
+        }
+      ],
+      "result_sha256": "602fbc5c168a6d04f5d85472d81f15eb63f7b97870ac073c9114db682afbdc1f",
+      "limitations": []
+    },
+    "drift_qualification": {
+      "channel_events": [
+        {
+          "channel_id": "cost",
+          "channel_kind": "COST",
+          "observation_count": 40,
+          "estimated_change_time": null,
+          "severity": 0.0,
+          "alerted": false,
+          "hard_breach": false,
+          "detector_evidence": [
+            {
+              "detector_name": "MISSINGNESS_DELTA",
+              "statistic": 0.0,
+              "threshold": 0.2,
+              "alerted": false,
+              "details": []
+            },
+            {
+              "detector_name": "WINDOW_MEAN_SHIFT",
+              "statistic": 0.0,
+              "threshold": 4.0,
+              "alerted": false,
+              "details": []
+            },
+            {
+              "detector_name": "WINDOW_VARIANCE_RATIO",
+              "statistic": 1.0,
+              "threshold": 2.0,
+              "alerted": false,
+              "details": []
+            },
+            {
+              "detector_name": "STANDARDIZED_CUSUM",
+              "statistic": 0.0,
+              "threshold": 10.0,
+              "alerted": false,
+              "details": []
+            },
+            {
+              "detector_name": "GAUSSIAN_BOCPD_SHORT_RUN_MASS",
+              "statistic": 0.04666031665372524,
+              "threshold": 0.9,
+              "alerted": false,
+              "details": []
+            }
+          ],
+          "reason_codes": []
+        },
+        {
+          "channel_id": "residual",
+          "channel_kind": "FORECAST_RESIDUAL",
+          "observation_count": 40,
+          "estimated_change_time": "2026-01-02T12:39:00Z",
+          "severity": 0.4,
+          "alerted": true,
+          "hard_breach": false,
+          "detector_evidence": [
+            {
+              "detector_name": "MISSINGNESS_DELTA",
+              "statistic": 0.0,
+              "threshold": 0.2,
+              "alerted": false,
+              "details": []
+            },
+            {
+              "detector_name": "WINDOW_MEAN_SHIFT",
+              "statistic": 100000000.0,
+              "threshold": 4.0,
+              "alerted": true,
+              "details": []
+            },
+            {
+              "detector_name": "WINDOW_VARIANCE_RATIO",
+              "statistic": 1.0,
+              "threshold": 2.0,
+              "alerted": false,
+              "details": []
+            },
+            {
+              "detector_name": "STANDARDIZED_CUSUM",
+              "statistic": 999999995.0,
+              "threshold": 10.0,
+              "alerted": true,
+              "details": []
+            },
+            {
+              "detector_name": "GAUSSIAN_BOCPD_SHORT_RUN_MASS",
+              "statistic": 0.020000000010460418,
+              "threshold": 0.9,
+              "alerted": false,
+              "details": []
+            }
+          ],
+          "reason_codes": []
+        }
+      ],
+      "agreement": {
+        "alerted_channel_ids": [
+          "residual"
+        ],
+        "confirmed": false,
+        "hard_breach_present": false,
+        "agreement_ratio": 0.5,
+        "reason_codes": [
+          "P9_LIVE_DRIFT_SINGLE_CHANNEL_UNCONFIRMED"
+        ]
+      },
+      "result_sha256": "8d96f4dfed4ba6abfe73ada13963c0cd0d5361a32b06c036d57086a042d9398b"
+    },
+    "sequential_model_set": {
+      "champion_policy_id": "champion",
+      "retained_policy_ids": [
+        "challenger",
+        "champion"
+      ],
+      "comparisons": [
+        {
+          "champion_policy_id": "champion",
+          "challenger_policy_id": "challenger",
+          "state": "STATISTICALLY_INDISTINGUISHABLE",
+          "sample_count": 40,
+          "mean_loss_difference": 0.0,
+          "lower_bound": -0.49868984672734207,
+          "upper_bound": 0.49868984672734207,
+          "path": [
+            {
+              "sample_count": 1,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -3.6563948713638483,
+              "upper_bound": 3.6563948713638483
+            },
+            {
+              "sample_count": 2,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -2.3059830066225704,
+              "upper_bound": 2.3059830066225704
+            },
+            {
+              "sample_count": 3,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -1.8108020209874927,
+              "upper_bound": 1.8108020209874927
+            },
+            {
+              "sample_count": 4,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -1.5411949969445464,
+              "upper_bound": 1.5411949969445464
+            },
+            {
+              "sample_count": 5,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -1.366738367033226,
+              "upper_bound": 1.366738367033226
+            },
+            {
+              "sample_count": 6,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -1.2423278203207329,
+              "upper_bound": 1.2423278203207329
+            },
+            {
+              "sample_count": 7,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -1.1479106904596195,
+              "upper_bound": 1.1479106904596195
+            },
+            {
+              "sample_count": 8,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -1.0730957124716163,
+              "upper_bound": 1.0730957124716163
+            },
+            {
+              "sample_count": 9,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -1.0119074788198814,
+              "upper_bound": 1.0119074788198814
+            },
+            {
+              "sample_count": 10,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.9606401928868575,
+              "upper_bound": 0.9606401928868575
+            },
+            {
+              "sample_count": 11,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.916859778939843,
+              "upper_bound": 0.916859778939843
+            },
+            {
+              "sample_count": 12,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.8788936414899217,
+              "upper_bound": 0.8788936414899217
+            },
+            {
+              "sample_count": 13,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.8455498063359866,
+              "upper_bound": 0.8455498063359866
+            },
+            {
+              "sample_count": 14,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.8159529336389724,
+              "upper_bound": 0.8159529336389724
+            },
+            {
+              "sample_count": 15,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.7894438332270924,
+              "upper_bound": 0.7894438332270924
+            },
+            {
+              "sample_count": 16,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.7655153598786392,
+              "upper_bound": 0.7655153598786392
+            },
+            {
+              "sample_count": 17,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.7437700966784434,
+              "upper_bound": 0.7437700966784434
+            },
+            {
+              "sample_count": 18,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.7238915899139812,
+              "upper_bound": 0.7238915899139812
+            },
+            {
+              "sample_count": 19,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.7056242916977166,
+              "upper_bound": 0.7056242916977166
+            },
+            {
+              "sample_count": 20,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.6887592588877836,
+              "upper_bound": 0.6887592588877836
+            },
+            {
+              "sample_count": 21,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.6731237533506371,
+              "upper_bound": 0.6731237533506371
+            },
+            {
+              "sample_count": 22,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.6585735454544357,
+              "upper_bound": 0.6585735454544357
+            },
+            {
+              "sample_count": 23,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.6449871279308512,
+              "upper_bound": 0.6449871279308512
+            },
+            {
+              "sample_count": 24,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.6322613039104776,
+              "upper_bound": 0.6322613039104776
+            },
+            {
+              "sample_count": 25,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.6203077793655225,
+              "upper_bound": 0.6203077793655225
+            },
+            {
+              "sample_count": 26,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.6090505004202674,
+              "upper_bound": 0.6090505004202674
+            },
+            {
+              "sample_count": 27,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5984235504092417,
+              "upper_bound": 0.5984235504092417
+            },
+            {
+              "sample_count": 28,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5883694726934994,
+              "upper_bound": 0.5883694726934994
+            },
+            {
+              "sample_count": 29,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.578837920941178,
+              "upper_bound": 0.578837920941178
+            },
+            {
+              "sample_count": 30,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5697845638673805,
+              "upper_bound": 0.5697845638673805
+            },
+            {
+              "sample_count": 31,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5611701895883912,
+              "upper_bound": 0.5611701895883912
+            },
+            {
+              "sample_count": 32,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5529599679499698,
+              "upper_bound": 0.5529599679499698
+            },
+            {
+              "sample_count": 33,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5451228389030156,
+              "upper_bound": 0.5451228389030156
+            },
+            {
+              "sample_count": 34,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5376310022226761,
+              "upper_bound": 0.5376310022226761
+            },
+            {
+              "sample_count": 35,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5304594892919182,
+              "upper_bound": 0.5304594892919182
+            },
+            {
+              "sample_count": 36,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5235858017835715,
+              "upper_bound": 0.5235858017835715
+            },
+            {
+              "sample_count": 37,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5169896052207301,
+              "upper_bound": 0.5169896052207301
+            },
+            {
+              "sample_count": 38,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5106524678214647,
+              "upper_bound": 0.5106524678214647
+            },
+            {
+              "sample_count": 39,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.5045576369193321,
+              "upper_bound": 0.5045576369193321
+            },
+            {
+              "sample_count": 40,
+              "mean_loss_difference": 0.0,
+              "lower_bound": -0.49868984672734207,
+              "upper_bound": 0.49868984672734207
+            }
+          ],
+          "reason_codes": []
+        }
+      ],
+      "result_sha256": "a40174072db640f96038a1e8a641cd714f328222233c14fd2135e7648661a5db",
+      "method": "BONFERRONI_NORMAL_MIXTURE_CS_V1",
+      "assumptions": [
+        "paired loss differences are conditionally bounded",
+        "comparison family is fixed before outcomes"
+      ]
+    },
+    "rollback_recommendation": {
+      "state": "HEALTHY",
+      "decision_trace": [
+        {
+          "rule_id": "ALPHA_DECAY",
+          "triggered": false,
+          "observed_value": 0.0,
+          "threshold_value": 0.0,
+          "reason_code": null
+        },
+        {
+          "rule_id": "COST_MODEL_ERROR",
+          "triggered": false,
+          "observed_value": 1.0,
+          "threshold_value": 5.0,
+          "reason_code": null
+        },
+        {
+          "rule_id": "CAPACITY_CONTRACTION",
+          "triggered": false,
+          "observed_value": 1.0,
+          "threshold_value": 0.8,
+          "reason_code": null
+        },
+        {
+          "rule_id": "CHALLENGER_SUPERIORITY",
+          "triggered": false,
+          "observed_value": null,
+          "threshold_value": null,
+          "reason_code": null
+        },
+        {
+          "rule_id": "CONFIRMED_DRIFT",
+          "triggered": false,
+          "observed_value": 0.5,
+          "threshold_value": null,
+          "reason_code": null
+        }
+      ],
+      "reason_codes": [],
+      "recommendation_only": true,
+      "p0_authorization_required": true,
+      "result_sha256": "c2fdd2288c53dce13b6ab7c54e8c2f772ba58bdbc2986f19810bf62e8ea7d287"
+    },
+    "reality_gap": {
+      "gaps": [
+        {
+          "decision_id": "d0",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "SHADOW",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d0",
+          "policy_id": "champion",
+          "earlier_stage": "SHADOW",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d0",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d1",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "SHADOW",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d1",
+          "policy_id": "champion",
+          "earlier_stage": "SHADOW",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d1",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d2",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "SHADOW",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d2",
+          "policy_id": "champion",
+          "earlier_stage": "SHADOW",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d2",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d3",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "SHADOW",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d3",
+          "policy_id": "champion",
+          "earlier_stage": "SHADOW",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d3",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d4",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "SHADOW",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d4",
+          "policy_id": "champion",
+          "earlier_stage": "SHADOW",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        },
+        {
+          "decision_id": "d4",
+          "policy_id": "champion",
+          "earlier_stage": "BACKTEST",
+          "later_stage": "LIVE",
+          "forecast_gap": 0.0,
+          "signal_gap": 0.0,
+          "order_quantity_gap": 0.0,
+          "fill_rate_earlier": 1.0,
+          "fill_rate_later": 1.0,
+          "fill_rate_gap": 0.0,
+          "slippage_bps_earlier": 9.999999999999432,
+          "slippage_bps_later": 9.999999999999432,
+          "slippage_gap_bps": 0.0,
+          "fee_gap": 0.0,
+          "margin_gap": 0.0,
+          "pnl_gap": 0.0
+        }
+      ],
+      "matched_live_pair_count": 10,
+      "mean_abs_fill_rate_gap": 0.0,
+      "mean_abs_slippage_gap_bps": 0.0,
+      "mean_abs_pnl_gap": 0.0,
+      "state": "TRANSPORTABLE",
+      "reason_codes": [],
+      "result_sha256": "8966f5530154961680c3c7be0d78224fa4597f87848011fa069c6dacba2b4cc1"
+    },
+    "module_receipts": [
+      {
+        "module_id": "P9.S7.M01",
+        "status": "SUCCESS",
+        "input_artifact_ids": [
+          "predictions",
+          "outcomes"
+        ],
+        "output_artifact_ids": [
+          "P9.S7.M01:ec3681b41237dea8"
+        ],
+        "reason_codes": [],
+        "limitations": [],
+        "started_at": "2026-08-06T16:14:48.174005Z",
+        "completed_at": "2026-08-06T16:14:48.177864Z",
+        "diagnostics_sha256": "379d701ab0e6cbe4e0448623d240049b6814853560792e24c3f5282f01196abc",
+        "integrity": {
+          "algorithm": "SHA-256",
+          "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+          "payload_sha256": "45e0b5faf102b609911300414d1b548d8d9bef88d4be8fb6f218b557df697629"
+        }
+      },
+      {
+        "module_id": "P9.S7.M02",
+        "status": "SUCCESS",
+        "input_artifact_ids": [
+          "c93ca3a1ab8f811511465c584eefdb285d8befbdd2508d5cd77fa8e351f3a744"
+        ],
+        "output_artifact_ids": [
+          "P9.S7.M02:shadow_comparability:17826aa624822311"
+        ],
+        "reason_codes": [],
+        "limitations": [],
+        "started_at": "2026-08-06T16:14:48.179352Z",
+        "completed_at": "2026-08-06T16:14:48.180301Z",
+        "diagnostics_sha256": "c94ab6c69c9374ebb38b36430410e45d5fbc5d99a7033709df8f07f5f42e05e4",
+        "integrity": {
+          "algorithm": "SHA-256",
+          "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+          "payload_sha256": "7c5e3fe43912d8d6151a1cb94f3e588ad57c9a223f2da270018d00fc78fb7afd"
+        }
+      },
+      {
+        "module_id": "P9.S7.M03",
+        "status": "SUCCESS",
+        "input_artifact_ids": [
+          "c93ca3a1ab8f811511465c584eefdb285d8befbdd2508d5cd77fa8e351f3a744"
+        ],
+        "output_artifact_ids": [
+          "P9.S7.M03:7169ad129586aed9"
+        ],
+        "reason_codes": [],
+        "limitations": [],
+        "started_at": "2026-08-06T16:14:48.181518Z",
+        "completed_at": "2026-08-06T16:14:48.182104Z",
+        "diagnostics_sha256": "e465db9a2ac4e403b638535c2e9a9b8389ac4c1514cae9674647f9c484484edd",
+        "integrity": {
+          "algorithm": "SHA-256",
+          "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+          "payload_sha256": "39d2f82dadca5bbe842a0b93c8624d484c28b83e5de2ec52b1985b542f4eecdf"
+        }
+      },
+      {
+        "module_id": "P9.S7.M04",
+        "status": "SUCCESS",
+        "input_artifact_ids": [
+          "2a6dd35222a7da3660740dd1facbec6dea8660b320b8511bdfe7e3ef090ddeed"
+        ],
+        "output_artifact_ids": [
+          "P9.S7.M04:8ff0159f546527f5"
+        ],
+        "reason_codes": [],
+        "limitations": [],
+        "started_at": "2026-08-06T16:14:48.182429Z",
+        "completed_at": "2026-08-06T16:14:48.184239Z",
+        "diagnostics_sha256": "a859daae5375902cffeab7c799bf5351ca0956f75b27a096798ceaf7b0ded240",
+        "integrity": {
+          "algorithm": "SHA-256",
+          "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+          "payload_sha256": "a2d561d43d72013e18e8be01b860dfa5251b5285f3ab3cf5f4affa6c6e8afa30"
+        }
+      },
+      {
+        "module_id": "P9.S7.M05",
+        "status": "SUCCESS",
+        "input_artifact_ids": [
+          "2a6dd35222a7da3660740dd1facbec6dea8660b320b8511bdfe7e3ef090ddeed"
+        ],
+        "output_artifact_ids": [
+          "P9.S7.M05:ef806a560e379e21"
+        ],
+        "reason_codes": [],
+        "limitations": [],
+        "started_at": "2026-08-06T16:14:48.184758Z",
+        "completed_at": "2026-08-06T16:14:48.201081Z",
+        "diagnostics_sha256": "1fb9e89df95a105c6975221a7d782a42ae54687d576ce90ff605abac3116f72b",
+        "integrity": {
+          "algorithm": "SHA-256",
+          "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+          "payload_sha256": "83b24362ec14197f6a0b7e2f5fd5cc56f2cad378ef1936930af4b12c04053a69"
+        }
+      },
+      {
+        "module_id": "P9.S7.M06",
+        "status": "SUCCESS",
+        "input_artifact_ids": [
+          "2a6dd35222a7da3660740dd1facbec6dea8660b320b8511bdfe7e3ef090ddeed"
+        ],
+        "output_artifact_ids": [
+          "P9.S7.M06:def4c096b810026a"
+        ],
+        "reason_codes": [],
+        "limitations": [],
+        "started_at": "2026-08-06T16:14:48.201260Z",
+        "completed_at": "2026-08-06T16:14:48.202130Z",
+        "diagnostics_sha256": "35fdbdc2b519095c6b0c3c040da1cc2c390ce67d6bec7f21a547276feb42c525",
+        "integrity": {
+          "algorithm": "SHA-256",
+          "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+          "payload_sha256": "c3bbdf2f5cc10e317777b01b3d46a1319752df35e2c3c8a9511324113c3a25f2"
+        }
+      },
+      {
+        "module_id": "P9.S7.M07",
+        "status": "SUCCESS",
+        "input_artifact_ids": [
+          "8d96f4dfed4ba6abfe73ada13963c0cd0d5361a32b06c036d57086a042d9398b",
+          "a40174072db640f96038a1e8a641cd714f328222233c14fd2135e7648661a5db"
+        ],
+        "output_artifact_ids": [
+          "P9.S7.M07:86779e171755ed64"
+        ],
+        "reason_codes": [],
+        "limitations": [],
+        "started_at": "2026-08-06T16:14:48.202409Z",
+        "completed_at": "2026-08-06T16:14:48.202519Z",
+        "diagnostics_sha256": "9304a4fd6ec747cc265dd96445db480c05d46e9d9eb4434a9028d8f3a38d68cb",
+        "integrity": {
+          "algorithm": "SHA-256",
+          "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+          "payload_sha256": "7670beb46e9f986ed0d09eeaba0daa88b8b3cace7b2ca24a4d23f2dbadb49758"
+        }
+      },
+      {
+        "module_id": "P9.S7.M08",
+        "status": "SUCCESS",
+        "input_artifact_ids": [
+          "17826aa6248223114ac82bcd73470180d5912fafa930d2c0d62df5c75ca2aa04",
+          "c2fdd2288c53dce13b6ab7c54e8c2f772ba58bdbc2986f19810bf62e8ea7d287"
+        ],
+        "output_artifact_ids": [
+          "P9.S7.M08:ffde42f2ca199233"
+        ],
+        "reason_codes": [],
+        "limitations": [],
+        "started_at": "2026-08-06T16:14:48.202612Z",
+        "completed_at": "2026-08-06T16:14:48.203001Z",
+        "diagnostics_sha256": "609aa95fc561ec6218809486320c1eb53eafc301dfef8dd274ebd4d99cad8b01",
+        "integrity": {
+          "algorithm": "SHA-256",
+          "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+          "payload_sha256": "b6812fb0717599982ba0e1301acf9d785c26d2f4b773cfcbb0305365f3a295ab"
+        }
+      }
+    ],
+    "subphase_receipt": {
+      "subphase_id": "P9.S7",
+      "expected_module_ids": [
+        "P9.S7.M01",
+        "P9.S7.M02",
+        "P9.S7.M03",
+        "P9.S7.M04",
+        "P9.S7.M05",
+        "P9.S7.M06",
+        "P9.S7.M07",
+        "P9.S7.M08"
+      ],
+      "module_receipts": [
+        {
+          "module_id": "P9.S7.M01",
+          "status": "SUCCESS",
+          "input_artifact_ids": [
+            "predictions",
+            "outcomes"
+          ],
+          "output_artifact_ids": [
+            "P9.S7.M01:ec3681b41237dea8"
+          ],
+          "reason_codes": [],
+          "limitations": [],
+          "started_at": "2026-08-06T16:14:48.174005Z",
+          "completed_at": "2026-08-06T16:14:48.177864Z",
+          "diagnostics_sha256": "379d701ab0e6cbe4e0448623d240049b6814853560792e24c3f5282f01196abc",
+          "integrity": {
+            "algorithm": "SHA-256",
+            "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+            "payload_sha256": "45e0b5faf102b609911300414d1b548d8d9bef88d4be8fb6f218b557df697629"
+          }
+        },
+        {
+          "module_id": "P9.S7.M02",
+          "status": "SUCCESS",
+          "input_artifact_ids": [
+            "c93ca3a1ab8f811511465c584eefdb285d8befbdd2508d5cd77fa8e351f3a744"
+          ],
+          "output_artifact_ids": [
+            "P9.S7.M02:shadow_comparability:17826aa624822311"
+          ],
+          "reason_codes": [],
+          "limitations": [],
+          "started_at": "2026-08-06T16:14:48.179352Z",
+          "completed_at": "2026-08-06T16:14:48.180301Z",
+          "diagnostics_sha256": "c94ab6c69c9374ebb38b36430410e45d5fbc5d99a7033709df8f07f5f42e05e4",
+          "integrity": {
+            "algorithm": "SHA-256",
+            "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+            "payload_sha256": "7c5e3fe43912d8d6151a1cb94f3e588ad57c9a223f2da270018d00fc78fb7afd"
+          }
+        },
+        {
+          "module_id": "P9.S7.M03",
+          "status": "SUCCESS",
+          "input_artifact_ids": [
+            "c93ca3a1ab8f811511465c584eefdb285d8befbdd2508d5cd77fa8e351f3a744"
+          ],
+          "output_artifact_ids": [
+            "P9.S7.M03:7169ad129586aed9"
+          ],
+          "reason_codes": [],
+          "limitations": [],
+          "started_at": "2026-08-06T16:14:48.181518Z",
+          "completed_at": "2026-08-06T16:14:48.182104Z",
+          "diagnostics_sha256": "e465db9a2ac4e403b638535c2e9a9b8389ac4c1514cae9674647f9c484484edd",
+          "integrity": {
+            "algorithm": "SHA-256",
+            "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+            "payload_sha256": "39d2f82dadca5bbe842a0b93c8624d484c28b83e5de2ec52b1985b542f4eecdf"
+          }
+        },
+        {
+          "module_id": "P9.S7.M04",
+          "status": "SUCCESS",
+          "input_artifact_ids": [
+            "2a6dd35222a7da3660740dd1facbec6dea8660b320b8511bdfe7e3ef090ddeed"
+          ],
+          "output_artifact_ids": [
+            "P9.S7.M04:8ff0159f546527f5"
+          ],
+          "reason_codes": [],
+          "limitations": [],
+          "started_at": "2026-08-06T16:14:48.182429Z",
+          "completed_at": "2026-08-06T16:14:48.184239Z",
+          "diagnostics_sha256": "a859daae5375902cffeab7c799bf5351ca0956f75b27a096798ceaf7b0ded240",
+          "integrity": {
+            "algorithm": "SHA-256",
+            "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+            "payload_sha256": "a2d561d43d72013e18e8be01b860dfa5251b5285f3ab3cf5f4affa6c6e8afa30"
+          }
+        },
+        {
+          "module_id": "P9.S7.M05",
+          "status": "SUCCESS",
+          "input_artifact_ids": [
+            "2a6dd35222a7da3660740dd1facbec6dea8660b320b8511bdfe7e3ef090ddeed"
+          ],
+          "output_artifact_ids": [
+            "P9.S7.M05:ef806a560e379e21"
+          ],
+          "reason_codes": [],
+          "limitations": [],
+          "started_at": "2026-08-06T16:14:48.184758Z",
+          "completed_at": "2026-08-06T16:14:48.201081Z",
+          "diagnostics_sha256": "1fb9e89df95a105c6975221a7d782a42ae54687d576ce90ff605abac3116f72b",
+          "integrity": {
+            "algorithm": "SHA-256",
+            "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+            "payload_sha256": "83b24362ec14197f6a0b7e2f5fd5cc56f2cad378ef1936930af4b12c04053a69"
+          }
+        },
+        {
+          "module_id": "P9.S7.M06",
+          "status": "SUCCESS",
+          "input_artifact_ids": [
+            "2a6dd35222a7da3660740dd1facbec6dea8660b320b8511bdfe7e3ef090ddeed"
+          ],
+          "output_artifact_ids": [
+            "P9.S7.M06:def4c096b810026a"
+          ],
+          "reason_codes": [],
+          "limitations": [],
+          "started_at": "2026-08-06T16:14:48.201260Z",
+          "completed_at": "2026-08-06T16:14:48.202130Z",
+          "diagnostics_sha256": "35fdbdc2b519095c6b0c3c040da1cc2c390ce67d6bec7f21a547276feb42c525",
+          "integrity": {
+            "algorithm": "SHA-256",
+            "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+            "payload_sha256": "c3bbdf2f5cc10e317777b01b3d46a1319752df35e2c3c8a9511324113c3a25f2"
+          }
+        },
+        {
+          "module_id": "P9.S7.M07",
+          "status": "SUCCESS",
+          "input_artifact_ids": [
+            "8d96f4dfed4ba6abfe73ada13963c0cd0d5361a32b06c036d57086a042d9398b",
+            "a40174072db640f96038a1e8a641cd714f328222233c14fd2135e7648661a5db"
+          ],
+          "output_artifact_ids": [
+            "P9.S7.M07:86779e171755ed64"
+          ],
+          "reason_codes": [],
+          "limitations": [],
+          "started_at": "2026-08-06T16:14:48.202409Z",
+          "completed_at": "2026-08-06T16:14:48.202519Z",
+          "diagnostics_sha256": "9304a4fd6ec747cc265dd96445db480c05d46e9d9eb4434a9028d8f3a38d68cb",
+          "integrity": {
+            "algorithm": "SHA-256",
+            "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+            "payload_sha256": "7670beb46e9f986ed0d09eeaba0daa88b8b3cace7b2ca24a4d23f2dbadb49758"
+          }
+        },
+        {
+          "module_id": "P9.S7.M08",
+          "status": "SUCCESS",
+          "input_artifact_ids": [
+            "17826aa6248223114ac82bcd73470180d5912fafa930d2c0d62df5c75ca2aa04",
+            "c2fdd2288c53dce13b6ab7c54e8c2f772ba58bdbc2986f19810bf62e8ea7d287"
+          ],
+          "output_artifact_ids": [
+            "P9.S7.M08:ffde42f2ca199233"
+          ],
+          "reason_codes": [],
+          "limitations": [],
+          "started_at": "2026-08-06T16:14:48.202612Z",
+          "completed_at": "2026-08-06T16:14:48.203001Z",
+          "diagnostics_sha256": "609aa95fc561ec6218809486320c1eb53eafc301dfef8dd274ebd4d99cad8b01",
+          "integrity": {
+            "algorithm": "SHA-256",
+            "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+            "payload_sha256": "b6812fb0717599982ba0e1301acf9d785c26d2f4b773cfcbb0305365f3a295ab"
+          }
+        }
+      ],
+      "status": "SUCCESS",
+      "output_artifact_ids": [
+        "P9.S7.M01:ec3681b41237dea8",
+        "P9.S7.M02:shadow_comparability:17826aa624822311",
+        "P9.S7.M03:7169ad129586aed9",
+        "P9.S7.M04:8ff0159f546527f5",
+        "P9.S7.M05:ef806a560e379e21",
+        "P9.S7.M06:def4c096b810026a",
+        "P9.S7.M07:86779e171755ed64",
+        "P9.S7.M08:ffde42f2ca199233"
+      ],
+      "integrity": {
+        "algorithm": "SHA-256",
+        "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+        "payload_sha256": "77ec649fceca341e9c75b3a904ddd768384a5c57c08f3634b4a1a8cbde0a899b"
+      }
+    },
+    "limitations": []
+  },
+  "integrity": {
+    "algorithm": "SHA-256",
+    "canonicalization_version": "JCS-LIKE-JSON-UTF8-V1",
+    "payload_sha256": "5d41fccc0ab27c6e34cf489dce9f76dd3da5b438b8a03a76c49f4f24e5679ca1"
+  }
+}

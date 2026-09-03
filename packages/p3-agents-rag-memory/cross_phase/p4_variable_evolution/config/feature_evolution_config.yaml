@@ -1,0 +1,12 @@
+version: feature-evolution.v1
+one_mutation_per_experiment: true
+llm_changes_logic: true
+numeric_optimizer_changes_parameters: true
+fast_screen_before_full_eval: true
+library_states:
+- CORE
+- PROMOTED
+- EXPERIMENTAL
+- RETIRED
+preserve_graveyard: true
+canonical_p3_states_immutable: true

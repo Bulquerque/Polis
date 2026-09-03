@@ -1,0 +1,30 @@
+{
+  "schema_version": "graph_rag_artifact.s17.v1",
+  "artifact_id": "artifact:graph-001",
+  "created_at": "2026-07-27T13:10:00Z",
+  "as_of": "2026-07-27T13:10:00Z",
+  "lineage_id": "lineage:graph-001",
+  "nodes": [
+    {
+      "entity_id": "entity:apple-inc",
+      "entity_type": "LEGAL_ENTITY",
+      "canonical_name": "Apple Inc.",
+      "aliases": [
+        "Apple"
+      ],
+      "available_at": "2026-07-27T13:00:00Z",
+      "evidence_refs": [
+        "evidence:entity-apple-001"
+      ],
+      "identifier_hints": [
+        {
+          "id_type": "TICKER",
+          "id_value": "AAPL",
+          "mic": "XNAS",
+          "exchange_code": "US",
+          "currency": "USD"
+        }
+      ]
+    }
+  ]
+}

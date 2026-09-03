@@ -1,0 +1,32 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "access_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Access Ids",
+      "type": "array"
+    },
+    "contaminated": {
+      "title": "Contaminated",
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "contaminated"
+  ],
+  "title": "HoldoutContaminationReport",
+  "type": "object"
+}

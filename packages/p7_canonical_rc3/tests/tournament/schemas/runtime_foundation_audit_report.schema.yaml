@@ -1,0 +1,106 @@
+$defs:
+  FoundationAuditRecord:
+    additionalProperties: false
+    properties:
+      status:
+        enum:
+        - PASS
+        - PASS_WITH_WARNINGS
+        title: Status
+        type: string
+      candidate_count:
+        minimum: 0
+        title: Candidate Count
+        type: integer
+      comparison_group_count:
+        minimum: 0
+        title: Comparison Group Count
+        type: integer
+      comparison_groups_frozen:
+        title: Comparison Groups Frozen
+        type: boolean
+      candidate_reconciliation_passed:
+        title: Candidate Reconciliation Passed
+        type: boolean
+      forbidden_field_scan_passed:
+        title: Forbidden Field Scan Passed
+        type: boolean
+    required:
+    - status
+    - candidate_count
+    - comparison_group_count
+    - comparison_groups_frozen
+    - candidate_reconciliation_passed
+    - forbidden_field_scan_passed
+    title: FoundationAuditRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/FoundationAuditRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: runtime_foundation_audit_report envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s3/runtime_foundation_audit_report/1.0.0

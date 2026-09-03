@@ -1,0 +1,382 @@
+{
+  "$defs": {
+    "InvariantPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "exposure_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Exposure Tolerance"
+        },
+        "minimum_margin_headroom_ratio": {
+          "anyOf": [
+            {
+              "exclusiveMaximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Minimum Margin Headroom Ratio"
+        },
+        "money_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Money Tolerance"
+        },
+        "quantity_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity Tolerance"
+        }
+      },
+      "required": [
+        "quantity_tolerance",
+        "money_tolerance",
+        "exposure_tolerance",
+        "minimum_margin_headroom_ratio"
+      ],
+      "title": "InvariantPolicy",
+      "type": "object"
+    },
+    "RuntimeContext": {
+      "additionalProperties": false,
+      "properties": {
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "minLength": 1,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trace_id",
+        "decision_time",
+        "observed_at",
+        "policy_version"
+      ],
+      "title": "RuntimeContext",
+      "type": "object"
+    },
+    "RuntimeInvariantSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_state_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Actual State Hash",
+          "type": "string"
+        },
+        "cancelled_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cancelled Quantity"
+        },
+        "closing_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Closing Cash"
+        },
+        "expected_state_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Expected State Hash",
+          "type": "string"
+        },
+        "filled_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Filled Quantity"
+        },
+        "lifecycle_consistent": {
+          "title": "Lifecycle Consistent",
+          "type": "boolean"
+        },
+        "margin_limit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Limit"
+        },
+        "margin_used": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Used"
+        },
+        "maximum_loss": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Maximum Loss"
+        },
+        "maximum_loss_limit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Maximum Loss Limit"
+        },
+        "maximum_quote_age_seconds": {
+          "exclusiveMinimum": 0,
+          "title": "Maximum Quote Age Seconds",
+          "type": "integer"
+        },
+        "net_cash_flows": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Net Cash Flows"
+        },
+        "open_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Open Quantity"
+        },
+        "opening_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Opening Cash"
+        },
+        "order_total_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Order Total Quantity"
+        },
+        "physical_allocated_total": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Physical Allocated Total"
+        },
+        "quote_age_seconds": {
+          "minimum": 0,
+          "title": "Quote Age Seconds",
+          "type": "integer"
+        },
+        "received_candidate_count": {
+          "minimum": 0,
+          "title": "Received Candidate Count",
+          "type": "integer"
+        },
+        "rejected_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Rejected Quantity"
+        },
+        "settlement_consistent": {
+          "title": "Settlement Consistent",
+          "type": "boolean"
+        },
+        "terminal_candidate_count": {
+          "minimum": 0,
+          "title": "Terminal Candidate Count",
+          "type": "integer"
+        },
+        "virtual_exposure_total": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Virtual Exposure Total"
+        }
+      },
+      "required": [
+        "received_candidate_count",
+        "terminal_candidate_count",
+        "order_total_quantity",
+        "filled_quantity",
+        "cancelled_quantity",
+        "rejected_quantity",
+        "open_quantity",
+        "virtual_exposure_total",
+        "physical_allocated_total",
+        "opening_cash",
+        "net_cash_flows",
+        "closing_cash",
+        "margin_used",
+        "margin_limit",
+        "maximum_loss",
+        "maximum_loss_limit",
+        "quote_age_seconds",
+        "maximum_quote_age_seconds",
+        "lifecycle_consistent",
+        "settlement_consistent",
+        "expected_state_hash",
+        "actual_state_hash"
+      ],
+      "title": "RuntimeInvariantSnapshot",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/schemas/p8/s9/invariant_monitor_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "$ref": "#/$defs/RuntimeContext"
+    },
+    "policy": {
+      "$ref": "#/$defs/InvariantPolicy"
+    },
+    "snapshot": {
+      "$ref": "#/$defs/RuntimeInvariantSnapshot"
+    }
+  },
+  "required": [
+    "context",
+    "snapshot",
+    "policy"
+  ],
+  "title": "InvariantMonitorRequest",
+  "type": "object"
+}

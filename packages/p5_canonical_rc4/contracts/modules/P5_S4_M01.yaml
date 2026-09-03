@@ -1,0 +1,16 @@
+module_id: P5.S4.M01
+name: realized_historical_har_volatility_resolvers
+subphase_id: P5.S4
+required_inputs:
+- qualified_resolver_registry
+- oof_validation_observation_panel
+optional_inputs: []
+outputs:
+- volatility_member_forecast_panel_har
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

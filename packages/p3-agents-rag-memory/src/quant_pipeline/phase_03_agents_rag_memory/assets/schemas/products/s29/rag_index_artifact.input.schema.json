@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.quant.local/p3/s29/input/rag-index-artifact/1.0.0",
+  "$defs": {
+    "RagIndexEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "minLength": 1,
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "document_id": {
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "document_id",
+        "source_id",
+        "content_hash",
+        "available_at",
+        "lineage_id"
+      ],
+      "title": "RagIndexEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/RagIndexEntry"
+      },
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "created_at",
+    "lineage_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "records"
+  ],
+  "title": "RagIndexArtifact",
+  "type": "object"
+}

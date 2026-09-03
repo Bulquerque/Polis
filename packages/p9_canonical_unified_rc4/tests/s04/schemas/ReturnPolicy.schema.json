@@ -1,0 +1,113 @@
+{
+  "$defs": {
+    "AnnualizationPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "$ref": "#/$defs/FrequencyMode"
+        },
+        "periods_per_year": {
+          "anyOf": [
+            {
+              "gt": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Periods Per Year"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "regularity_tolerance_fraction": {
+          "default": 0.1,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Regularity Tolerance Fraction",
+          "type": "number"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "mode"
+      ],
+      "title": "AnnualizationPolicy",
+      "type": "object"
+    },
+    "ExternalFlowTiming": {
+      "enum": [
+        "END_OF_PERIOD"
+      ],
+      "title": "ExternalFlowTiming",
+      "type": "string"
+    },
+    "FrequencyMode": {
+      "enum": [
+        "EXPLICIT",
+        "OBSERVED_REGULAR"
+      ],
+      "title": "FrequencyMode",
+      "type": "string"
+    },
+    "ReturnConvention": {
+      "enum": [
+        "SIMPLE",
+        "LOG"
+      ],
+      "title": "ReturnConvention",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/ReturnPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "annualization": {
+      "$ref": "#/$defs/AnnualizationPolicy"
+    },
+    "convention": {
+      "$ref": "#/$defs/ReturnConvention",
+      "default": "SIMPLE"
+    },
+    "external_flow_timing": {
+      "$ref": "#/$defs/ExternalFlowTiming",
+      "default": "END_OF_PERIOD"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "require_benchmark_alignment": {
+      "default": false,
+      "title": "Require Benchmark Alignment",
+      "type": "boolean"
+    },
+    "require_risk_free_alignment": {
+      "default": false,
+      "title": "Require Risk Free Alignment",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version",
+    "annualization"
+  ],
+  "title": "ReturnPolicy",
+  "type": "object"
+}

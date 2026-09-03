@@ -1,0 +1,912 @@
+dag_id: p3.research_tools.extension.s32_s40.v2
+description: Canonical artifact DAG for the 47-module research-tools extension. Non-serializable
+  registry and gateway objects are resolved through the explicit process-local runtime
+  store and never appear as DAG artifacts.
+nodes:
+- P3.S32.M01
+- P3.S32.M02
+- P3.S32.M03
+- P3.S32.M04
+- P3.S33.M01
+- P3.S33.M02
+- P3.S33.M03
+- P3.S33.M04
+- P3.S33.M05
+- P3.S34.M01
+- P3.S34.M02
+- P3.S34.M03
+- P3.S34.M04
+- P3.S34.M05
+- P3.S35.M01
+- P3.S35.M02
+- P3.S35.M03
+- P3.S35.M04
+- P3.S35.M05
+- P3.S36.M01
+- P3.S36.M02
+- P3.S36.M03
+- P3.S36.M04
+- P3.S36.M05
+- P3.S36.M06
+- P3.S37.M01
+- P3.S37.M02
+- P3.S37.M03
+- P3.S37.M04
+- P3.S38.M01
+- P3.S38.M02
+- P3.S38.M03
+- P3.S38.M04
+- P3.S38.M05
+- P3.S38.M06
+- P3.S39.M01
+- P3.S39.M02
+- P3.S39.M03
+- P3.S39.M04
+- P3.S40.M01
+- P3.S40.M02
+- P3.S40.M03
+- P3.S40.M04
+- P3.S40.M05
+- P3.S40.M06
+- P3.S40.M07
+- P3.S40.M08
+edges:
+- from: P3.S32.M01
+  to: P3.S32.M02
+  artifacts:
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S32.M03
+  artifacts:
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S32.M04
+  artifacts:
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S33.M01
+  artifacts:
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S34.M01
+  artifacts:
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S34.M03
+  artifacts:
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S34.M04
+  artifacts:
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S34.M05
+  artifacts:
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S40.M01
+  artifacts:
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S40.M03
+  artifacts:
+  - canonical_tool_operation_registry
+- from: P3.S32.M01
+  to: P3.S40.M06
+  artifacts:
+  - canonical_tool_operation_registry
+- from: P3.S32.M02
+  to: P3.S32.M04
+  artifacts:
+  - operation_mode_matrix
+  - research_mode_registry
+- from: P3.S32.M02
+  to: P3.S34.M01
+  artifacts:
+  - research_mode_registry
+- from: P3.S32.M02
+  to: P3.S34.M03
+  artifacts:
+  - research_mode_registry
+- from: P3.S32.M02
+  to: P3.S34.M04
+  artifacts:
+  - research_mode_registry
+- from: P3.S32.M02
+  to: P3.S34.M05
+  artifacts:
+  - research_mode_registry
+- from: P3.S32.M02
+  to: P3.S38.M01
+  artifacts:
+  - research_mode_registry
+- from: P3.S32.M02
+  to: P3.S39.M01
+  artifacts:
+  - research_mode_registry
+- from: P3.S32.M02
+  to: P3.S39.M02
+  artifacts:
+  - research_mode_registry
+- from: P3.S32.M02
+  to: P3.S39.M03
+  artifacts:
+  - research_mode_registry
+- from: P3.S32.M02
+  to: P3.S40.M06
+  artifacts:
+  - research_mode_registry
+- from: P3.S32.M03
+  to: P3.S32.M04
+  artifacts:
+  - compatibility_alias_registry
+  - provider_transport_overlay
+- from: P3.S32.M03
+  to: P3.S34.M04
+  artifacts:
+  - provider_transport_overlay
+- from: P3.S32.M03
+  to: P3.S40.M01
+  artifacts:
+  - compatibility_alias_registry
+- from: P3.S32.M04
+  to: P3.S33.M01
+  artifacts:
+  - research_tool_extension_snapshot
+- from: P3.S32.M04
+  to: P3.S33.M03
+  artifacts:
+  - research_tool_extension_snapshot
+- from: P3.S32.M04
+  to: P3.S33.M05
+  artifacts:
+  - research_tool_extension_snapshot
+- from: P3.S32.M04
+  to: P3.S38.M01
+  artifacts:
+  - research_tool_extension_snapshot
+- from: P3.S32.M04
+  to: P3.S40.M02
+  artifacts:
+  - research_tool_extension_snapshot
+- from: P3.S32.M04
+  to: P3.S40.M03
+  artifacts:
+  - research_tool_extension_snapshot
+- from: P3.S33.M01
+  to: P3.S33.M02
+  artifacts:
+  - phase2_research_view_manifest
+- from: P3.S33.M01
+  to: P3.S33.M03
+  artifacts:
+  - phase2_research_view_manifest
+- from: P3.S33.M01
+  to: P3.S33.M04
+  artifacts:
+  - phase2_research_view_manifest
+- from: P3.S33.M01
+  to: P3.S33.M05
+  artifacts:
+  - phase2_research_view_manifest
+  - phase2_research_view_readiness_report
+- from: P3.S33.M01
+  to: P3.S34.M03
+  artifacts:
+  - phase2_research_view_readiness_report
+- from: P3.S33.M01
+  to: P3.S34.M04
+  artifacts:
+  - phase2_research_view_readiness_report
+- from: P3.S33.M01
+  to: P3.S38.M01
+  artifacts:
+  - phase2_research_view_manifest
+- from: P3.S33.M02
+  to: P3.S33.M03
+  artifacts:
+  - phase1_raw_evidence_reference_index
+- from: P3.S33.M02
+  to: P3.S33.M05
+  artifacts:
+  - phase1_custody_qualification_report
+  - phase1_raw_evidence_reference_index
+- from: P3.S33.M03
+  to: P3.S33.M04
+  artifacts:
+  - pit_visibility_policy
+- from: P3.S33.M03
+  to: P3.S33.M05
+  artifacts:
+  - pit_boundary_qualification_report
+  - pit_visibility_policy
+  - vintage_policy_registry
+- from: P3.S33.M04
+  to: P3.S33.M05
+  artifacts:
+  - entity_resolution_policy
+  - temporal_entity_resolution_index
+- from: P3.S33.M05
+  to: P3.S36.M01
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S37.M01
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S38.M01
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S38.M02
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S38.M03
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S38.M04
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S38.M05
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S39.M01
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S39.M02
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S39.M03
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S33.M05
+  to: P3.S40.M01
+  artifacts:
+  - research_data_boundary_bundle
+- from: P3.S34.M01
+  to: P3.S34.M02
+  artifacts:
+  - research_capability_taxonomy
+- from: P3.S34.M01
+  to: P3.S34.M03
+  artifacts:
+  - research_capability_taxonomy
+- from: P3.S34.M02
+  to: P3.S34.M04
+  artifacts:
+  - person_research_capability_panel
+  - person_research_resource_panel
+- from: P3.S34.M02
+  to: P3.S34.M05
+  artifacts:
+  - person_research_capability_panel
+- from: P3.S34.M03
+  to: P3.S34.M04
+  artifacts:
+  - research_plan_registry
+- from: P3.S34.M03
+  to: P3.S34.M05
+  artifacts:
+  - research_plan_registry
+- from: P3.S34.M04
+  to: P3.S34.M05
+  artifacts:
+  - extended_person_tool_entitlement_panel
+- from: P3.S34.M04
+  to: P3.S40.M03
+  artifacts:
+  - extended_person_tool_entitlement_panel
+- from: P3.S34.M05
+  to: P3.S40.M03
+  artifacts:
+  - extended_validated_person_context_bundle
+- from: P3.S35.M01
+  to: P3.S35.M02
+  artifacts:
+  - corpus_index_readiness_report
+  - corpus_index_snapshot
+- from: P3.S35.M01
+  to: P3.S35.M03
+  artifacts:
+  - corpus_index_readiness_report
+  - corpus_index_snapshot
+- from: P3.S35.M01
+  to: P3.S35.M04
+  artifacts:
+  - corpus_index_readiness_report
+  - corpus_index_snapshot
+- from: P3.S35.M01
+  to: P3.S35.M05
+  artifacts:
+  - corpus_index_readiness_report
+  - corpus_index_snapshot
+- from: P3.S35.M01
+  to: P3.S40.M01
+  artifacts:
+  - corpus_index_snapshot
+- from: P3.S35.M02
+  to: P3.S35.M05
+  artifacts:
+  - corpus_internal_work_budget
+  - corpus_retrieval_policy
+- from: P3.S35.M02
+  to: P3.S40.M01
+  artifacts:
+  - corpus_internal_work_budget
+  - corpus_retrieval_policy
+- from: P3.S35.M03
+  to: P3.S35.M05
+  artifacts:
+  - corpus_document_handler_bundle
+  - corpus_document_operation_qualification
+- from: P3.S35.M04
+  to: P3.S35.M05
+  artifacts:
+  - corpus_reasoning_handler_bundle
+  - corpus_reasoning_operation_qualification
+- from: P3.S35.M05
+  to: P3.S40.M01
+  artifacts:
+  - corpus_operation_mode_qualification
+  - corpus_tool_handler_bundle
+  - corpus_tool_readiness_report
+- from: P3.S35.M05
+  to: P3.S40.M05
+  artifacts:
+  - corpus_operation_mode_qualification
+- from: P3.S36.M01
+  to: P3.S36.M02
+  artifacts:
+  - market_view_binding
+  - market_view_readiness_report
+- from: P3.S36.M01
+  to: P3.S36.M03
+  artifacts:
+  - market_view_binding
+  - market_view_readiness_report
+- from: P3.S36.M01
+  to: P3.S36.M04
+  artifacts:
+  - options_view_binding
+  - options_view_readiness_report
+- from: P3.S36.M01
+  to: P3.S36.M05
+  artifacts:
+  - options_view_binding
+  - options_view_readiness_report
+- from: P3.S36.M02
+  to: P3.S36.M06
+  artifacts:
+  - market_observation_handler_bundle
+  - market_observation_operation_qualification
+- from: P3.S36.M03
+  to: P3.S36.M06
+  artifacts:
+  - market_structural_handler_bundle
+  - market_structural_operation_qualification
+- from: P3.S36.M04
+  to: P3.S36.M06
+  artifacts:
+  - options_chain_handler_bundle
+  - options_chain_operation_qualification
+- from: P3.S36.M05
+  to: P3.S36.M06
+  artifacts:
+  - options_surface_handler_bundle
+  - options_surface_operation_qualification
+- from: P3.S36.M06
+  to: P3.S40.M01
+  artifacts:
+  - market_derivatives_operation_mode_qualification
+  - market_derivatives_tool_readiness_report
+  - market_tool_handler_bundle
+  - options_tool_handler_bundle
+- from: P3.S36.M06
+  to: P3.S40.M05
+  artifacts:
+  - market_derivatives_operation_mode_qualification
+- from: P3.S37.M01
+  to: P3.S37.M02
+  artifacts:
+  - macro_series_release_catalog
+  - macro_view_readiness_report
+- from: P3.S37.M01
+  to: P3.S37.M03
+  artifacts:
+  - macro_asset_context_config_snapshot
+  - macro_series_release_catalog
+  - macro_view_readiness_report
+- from: P3.S37.M01
+  to: P3.S40.M01
+  artifacts:
+  - macro_asset_context_config_snapshot
+  - macro_series_release_catalog
+- from: P3.S37.M02
+  to: P3.S37.M04
+  artifacts:
+  - macro_observation_handler_bundle
+  - macro_observation_operation_mode_qualification
+- from: P3.S37.M03
+  to: P3.S37.M04
+  artifacts:
+  - macro_context_handler_bundle
+  - macro_context_operation_mode_qualification
+- from: P3.S37.M04
+  to: P3.S40.M01
+  artifacts:
+  - macro_operation_mode_qualification
+  - macro_tool_handler_bundle
+  - macro_tool_readiness_report
+- from: P3.S37.M04
+  to: P3.S40.M05
+  artifacts:
+  - macro_operation_mode_qualification
+- from: P3.S38.M01
+  to: P3.S38.M02
+  artifacts:
+  - company_operation_readiness_panel
+- from: P3.S38.M01
+  to: P3.S38.M03
+  artifacts:
+  - company_operation_readiness_panel
+- from: P3.S38.M01
+  to: P3.S38.M04
+  artifacts:
+  - company_operation_readiness_panel
+- from: P3.S38.M01
+  to: P3.S38.M05
+  artifacts:
+  - company_operation_readiness_panel
+- from: P3.S38.M01
+  to: P3.S38.M06
+  artifacts:
+  - company_operation_readiness_panel
+- from: P3.S38.M01
+  to: P3.S40.M01
+  artifacts:
+  - company_operation_readiness_panel
+- from: P3.S38.M02
+  to: P3.S38.M05
+  artifacts:
+  - company_profile_filing_handler_bundle
+- from: P3.S38.M02
+  to: P3.S38.M06
+  artifacts:
+  - company_profile_filing_handler_bundle
+- from: P3.S38.M03
+  to: P3.S38.M04
+  artifacts:
+  - financial_statement_handler_bundle
+- from: P3.S38.M03
+  to: P3.S38.M05
+  artifacts:
+  - financial_statement_handler_bundle
+- from: P3.S38.M03
+  to: P3.S38.M06
+  artifacts:
+  - financial_statement_handler_bundle
+- from: P3.S38.M04
+  to: P3.S38.M06
+  artifacts:
+  - earnings_quality_capital_allocation_handler_bundle
+- from: P3.S38.M05
+  to: P3.S38.M06
+  artifacts:
+  - guidance_peers_valuation_handler_bundle
+- from: P3.S38.M06
+  to: P3.S40.M01
+  artifacts:
+  - company_operation_mode_qualification
+  - company_qualification_evidence_package
+  - company_tool_handler_bundle
+- from: P3.S38.M06
+  to: P3.S40.M05
+  artifacts:
+  - company_operation_mode_qualification
+- from: P3.S39.M01
+  to: P3.S39.M04
+  artifacts:
+  - return_risk_volatility_handler_bundle
+- from: P3.S39.M02
+  to: P3.S39.M04
+  artifacts:
+  - dependence_entropy_handler_bundle
+- from: P3.S39.M03
+  to: P3.S39.M04
+  artifacts:
+  - event_window_scenario_handler_bundle
+- from: P3.S39.M04
+  to: P3.S40.M01
+  artifacts:
+  - quant_operation_mode_qualification
+  - quant_qualification_evidence_package
+  - quant_tool_handler_bundle
+- from: P3.S39.M04
+  to: P3.S40.M05
+  artifacts:
+  - quant_operation_mode_qualification
+- from: P3.S40.M01
+  to: P3.S40.M02
+  artifacts:
+  - handler_registry_completeness_report
+  - internal_handler_registry
+- from: P3.S40.M01
+  to: P3.S40.M03
+  artifacts:
+  - handler_registry_completeness_report
+  - internal_handler_registry
+- from: P3.S40.M01
+  to: P3.S40.M05
+  artifacts:
+  - handler_registry_completeness_report
+- from: P3.S40.M01
+  to: P3.S40.M08
+  artifacts:
+  - handler_registry_completeness_report
+- from: P3.S40.M02
+  to: P3.S40.M03
+  artifacts:
+  - composite_tool_gateway_binding_manifest
+  - gateway_runtime_readiness_report
+- from: P3.S40.M03
+  to: P3.S40.M05
+  artifacts:
+  - s21_runtime_preflight_report
+- from: P3.S40.M03
+  to: P3.S40.M08
+  artifacts:
+  - s21_runtime_preflight_report
+- from: P3.S40.M04
+  to: P3.S40.M06
+  artifacts:
+  - research_tool_result_envelope_panel
+- from: P3.S40.M04
+  to: P3.S40.M07
+  artifacts:
+  - research_tool_execution_trace_panel
+- from: P3.S40.M05
+  to: P3.S40.M08
+  artifacts:
+  - operation_mode_qualification_matrix
+  - qualification_evidence_manifest
+  - research_tool_leakage_report
+- from: P3.S40.M06
+  to: P3.S40.M07
+  artifacts:
+  - research_process_panel
+- from: P3.S40.M06
+  to: P3.S40.M08
+  artifacts:
+  - p4_research_handoff_compatibility_report
+  - phase4_research_process_handoff_manifest
+- from: P3.S40.M07
+  to: P3.S40.M08
+  artifacts:
+  - p9_consumer_compatibility_report
+  - p9_research_tool_learning_handoff_manifest
+external_connections:
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S32.M01
+  artifacts:
+  - extension_contract_version
+  - provider_transport_bindings_config
+  - research_tool_catalog_config
+  - schema_bundle_manifest
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S32.M02
+  artifacts:
+  - operation_mode_registry_config
+  - research_capability_taxonomy_config
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S32.M03
+  artifacts:
+  - compatibility_alias_config
+  - provider_adapter_registry_config
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S32.M04
+  artifacts:
+  - extension_config_manifest
+  - prompt_descriptor_template_manifest
+  - schema_bundle_manifest
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S33.M01
+  artifacts:
+  - clean_benchmark_panel
+  - clean_calendar_panel
+  - clean_context_source_panel
+  - clean_corporate_actions_panel
+  - clean_cost_reference_panel
+  - clean_document_panel
+  - clean_event_reference_panel
+  - clean_liquidity_reference_panel
+  - clean_macro_br_panel
+  - clean_macro_us_panel
+  - clean_option_contract_panel
+  - clean_option_quotes_panel
+  - clean_underlying_panel
+  - clean_underlying_trade_panel
+  - phase3_handoff_manifest
+  - phase4_handoff_manifest
+  - phase6_handoff_manifest
+  - quality_report_phase_2
+  - source_quality_panel
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S33.M02
+  artifacts:
+  - handoff_manifest_to_phase_2
+  - ingestion_error_report
+  - quality_report_phase_2
+  - raw_file_inventory
+  - raw_readability_report
+  - raw_schema_hint_report
+  - source_registry
+  - source_snapshot_registry
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S33.M03
+  artifacts:
+  - calendar_timezone_policy_config
+  - evaluation_window_config
+  - pit_data_view_policy_config
+  - vintage_policy_config
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S33.M04
+  artifacts:
+  - clean_corporate_actions_panel
+  - clean_document_panel
+  - clean_event_reference_panel
+  - clean_option_contract_panel
+  - clean_underlying_panel
+  - entity_underlying_map_config
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S34.M01
+  artifacts:
+  - research_capability_taxonomy_config
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S34.M02
+  artifacts:
+  - capability_profile_policy_config
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S34.M03
+  artifacts:
+  - research_plan_registry_config
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S34.M04
+  artifacts:
+  - research_entitlement_policy_config
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S34.M05
+  artifacts:
+  - cognition_config
+  - context_tool_descriptor_policy_config
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S37.M01
+  artifacts:
+  - macro_asset_context_registry
+  - macro_series_metadata_registry
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S38.M01
+  artifacts:
+  - company_readiness_policy_config
+  - tool_operation_registry
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S38.M02
+  artifacts:
+  - company_profile_policy_config
+  - temporal_entity_resolution_service
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S38.M03
+  artifacts:
+  - company_statement_policy_config
+  - statement_concept_mapping_registry
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S38.M04
+  artifacts:
+  - company_formula_registry
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S38.M05
+  artifacts:
+  - guidance_policy_config
+  - peer_authority_policy_config
+  - valuation_method_registry
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S38.M06
+  artifacts:
+  - company_contract_test_report
+  - company_leakage_test_report
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S39.M01
+  artifacts:
+  - frequency_annualization_registry
+  - quant_method_policy_config
+  - tool_operation_registry
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S39.M02
+  artifacts:
+  - dependence_method_policy_config
+  - entropy_discretization_registry
+  - tool_operation_registry
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S39.M03
+  artifacts:
+  - event_scenario_method_policy_config
+  - tool_operation_registry
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S39.M04
+  artifacts:
+  - quant_contract_test_report
+  - quant_leakage_test_report
+  - quant_property_test_report
+- from: CONFIG_OR_UPSTREAM_AUTHORITY
+  to: P3.S40.M03
+  artifacts:
+  - provider_adapter_registry_config
+- from: P3.S12.M02
+  to: P3.S35.M01
+  artifacts:
+  - retrieval_index_manifest
+- from: P3.S15.M01
+  to: P3.S32.M03
+  artifacts:
+  - tool_registry
+- from: P3.S15.M02
+  to: P3.S34.M04
+  artifacts:
+  - person_tool_entitlement_panel
+- from: P3.S16.M01
+  to: P3.S32.M03
+  artifacts:
+  - mcp_gateway_policy
+- from: P3.S16.M01
+  to: P3.S34.M04
+  artifacts:
+  - mcp_gateway_policy
+- from: P3.S16.M01
+  to: P3.S40.M03
+  artifacts:
+  - mcp_gateway_policy
+- from: P3.S2.M02
+  to: P3.S33.M03
+  artifacts:
+  - phase3_run_snapshot
+- from: P3.S2.M02
+  to: P3.S34.M02
+  artifacts:
+  - phase3_run_snapshot
+- from: P3.S2.M02
+  to: P3.S34.M04
+  artifacts:
+  - phase3_run_snapshot
+- from: P3.S2.M02
+  to: P3.S34.M05
+  artifacts:
+  - phase3_run_snapshot
+- from: P3.S2.M02
+  to: P3.S35.M01
+  artifacts:
+  - phase3_run_snapshot
+- from: P3.S2.M02
+  to: P3.S40.M04
+  artifacts:
+  - phase3_run_snapshot
+- from: P3.S2.M02
+  to: P3.S40.M06
+  artifacts:
+  - phase3_run_snapshot
+- from: P3.S2.M02
+  to: P3.S40.M07
+  artifacts:
+  - phase3_run_snapshot
+- from: P3.S2.M03
+  to: P3.S40.M07
+  artifacts:
+  - model_knowledge_cutoff_report
+- from: P3.S20.M05
+  to: P3.S40.M04
+  artifacts:
+  - retrieval_evidence_map
+- from: P3.S20.M07
+  to: P3.S34.M05
+  artifacts:
+  - validated_person_context_bundle
+- from: P3.S21.M03
+  to: P3.S40.M04
+  artifacts:
+  - raw_tool_result_panel
+  - tool_call_audit_panel
+- from: P3.S21.M03
+  to: P3.S40.M06
+  artifacts:
+  - tool_call_audit_panel
+- from: P3.S21.M04
+  to: P3.S40.M06
+  artifacts:
+  - validated_tool_result_panel
+- from: P3.S22.M02
+  to: P3.S40.M06
+  artifacts:
+  - evidence_bound_belief_update_panel
+- from: P3.S22.M03
+  to: P3.S40.M07
+  artifacts:
+  - belief_outcome_commitment_log
+- from: P3.S4.M02
+  to: P3.S34.M01
+  artifacts:
+  - person_schema_policy
+- from: P3.S4.M02
+  to: P3.S34.M02
+  artifacts:
+  - person_schema_policy
+- from: P3.S40.M03
+  to: P3.S21.COMPOSITION_ROOT
+  artifacts:
+  - s21_research_tool_runtime_binding_manifest
+- from: P3.S7.M01
+  to: P3.S34.M02
+  artifacts:
+  - person_seed_panel
+- from: P3.S7.M01
+  to: P3.S34.M05
+  artifacts:
+  - person_seed_panel
+- from: P3.S7.M02
+  to: P3.S34.M02
+  artifacts:
+  - validated_population_manifest
+- from: RELEASE_HARNESS
+  to: P3.S40.M05
+  artifacts:
+  - integration_test_receipts
+  - leakage_test_receipts
+  - replay_test_receipts
+- from: RELEASE_HARNESS
+  to: P3.S40.M08
+  artifacts:
+  - code_quality_report
+  - contract_test_report
+  - hash_integrity_report
+  - rollback_report
+  - schema_test_report
+process_local_bindings:
+- producer: P3.S40.M01
+  consumer: P3.S40.M02
+  object: OperationRegistry
+  lookup_key: internal_handler_registry.registry_hash
+- producer: P3.S40.M02
+  consumer: P3.S21.COMPOSITION_ROOT
+  object: CompositeResearchToolGateway
+  lookup_key: s21_research_tool_runtime_binding_manifest.runtime_object_key
+forbidden_edges:
+- P3->P5_DIRECT
+- P3->P6_DIRECT
+- P3->P7_DIRECT
+- P3->P8_DIRECT
+- S40->S1_S31_MUTATION
+- SERIALIZED_CALLABLE_OR_PORT
+deferred_consumer_candidates:
+- from: P3.S40.M06
+  proposed_consumer: P4
+  artifacts:
+  - research_process_panel
+  - phase4_research_process_handoff_manifest
+  status: PRODUCER_READY_CONSUMER_NOT_YET_WIRED
+  governance_note: Global RC4.1 phase_03_to_04 does not yet authorize these supplemental
+    artifacts.
+- from: P3.S40.M07
+  proposed_consumer: P9
+  artifacts:
+  - p9_research_tool_learning_evidence
+  - p9_research_tool_learning_handoff_manifest
+  status: DEFERRED_BY_GOVERNANCE
+  governance_note: Global RC4.1 explicitly forbids a direct phase_03 to phase_09 connection.

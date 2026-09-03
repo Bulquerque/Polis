@@ -1,0 +1,125 @@
+spec_id: P3.S28.TEST_SPEC
+subphase: P3.S28
+title: Tag Projection & Underlying Society Vector
+status: PLANNED_NOT_EXECUTABLE_UNTIL_RUNTIME_EXISTS
+canonical_module_order:
+- P3.S28.M01
+- P3.S28.M02
+- P3.S28.M03
+modules:
+- module_id: P3.S28.M01
+  module_name: tag_conditioned_projection_engine
+  cases:
+  - id: person_level_join_fixture
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: small_cohort_suppressed
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - tag_projection_panel
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: &id001
+    - future_return
+    - candidate_score
+    - rank_score
+    - portfolio_weight
+    - trade_decision
+    - buy_sell_signal
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S28.M02
+  module_name: underlying_society_state_vector_builder
+  cases:
+  - id: vector_schema_exact
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: missing_required_metric_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - synthetic_society_state_panel
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S28.M03
+  module_name: society_vector_quality_guard
+  cases:
+  - id: low_coverage_flag_or_fail
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: source_quality_not_one_constant
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - validated_society_state_panel
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+integration_handoff:
+  upstream_contracts_validated: true
+  downstream_outputs_materialized: true
+  no_undeclared_dependencies: true
+fixture_requirements:
+- minimal_valid
+- missing_input
+- schema_invalid
+- forbidden_field
+- lineage_broken
+- boundary_case
+pass_criteria:
+- all_module_cases_pass
+- no_partial_output_on_failure
+- no_forbidden_authority
+- pit_and_lineage_preserved
+- observability_evidence_present

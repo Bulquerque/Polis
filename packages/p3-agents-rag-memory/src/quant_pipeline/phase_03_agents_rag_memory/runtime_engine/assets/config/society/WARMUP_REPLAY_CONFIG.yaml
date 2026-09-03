@@ -1,0 +1,5 @@
+mode: canonical_cycle_pipeline_replay
+direct_state_synthesis_forbidden: true
+record_module_trace: true
+record_seeds: true
+fail_on_noncanonical_module: true

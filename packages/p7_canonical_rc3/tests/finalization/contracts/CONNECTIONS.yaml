@@ -1,0 +1,16 @@
+allowed:
+  - from: LEARNING
+    to: P7.S7
+    via: hybrid_scoring_handoff_manifest
+  - from: P7.S7
+    to: P7.S8
+    via: rankability_handoff_manifest
+  - from: P7.S8
+    to: P8
+    via: phase8_strategy_ranking_handoff_manifest
+forbidden:
+  - P7.S8 imports private Learning source
+  - P7.S8 imports P8 source
+  - P7.S8 recalculates P6 payoff, Greeks, cost, liquidity, margin or maximum loss
+  - P7.S8 creates portfolio weights, position sizes or execution decisions
+  - P7.S8 invents missing economic context

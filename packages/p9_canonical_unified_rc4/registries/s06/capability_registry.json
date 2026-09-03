@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "capabilities": [
+    {
+      "capability_id": "S6_SCENARIO_GOVERNANCE",
+      "tier": "CORE",
+      "state": "AVAILABLE"
+    },
+    {
+      "capability_id": "S6_HISTORICAL_REPLAY",
+      "tier": "CORE",
+      "state": "AVAILABLE"
+    },
+    {
+      "capability_id": "S6_SENSITIVITY_SURFACES",
+      "tier": "CORE",
+      "state": "AVAILABLE"
+    },
+    {
+      "capability_id": "S6_CONDITIONAL_EVT",
+      "tier": "SPECIALIST",
+      "state": "AVAILABLE_WITH_DATA_GATES"
+    },
+    {
+      "capability_id": "S6_WASSERSTEIN_DRO",
+      "tier": "CHALLENGER",
+      "state": "RESEARCH_ONLY_FOR_PROMOTION"
+    },
+    {
+      "capability_id": "S6_CAPACITY_CURVES",
+      "tier": "CORE",
+      "state": "AVAILABLE"
+    },
+    {
+      "capability_id": "S6_NETWORK_FIRE_SALE",
+      "tier": "CHALLENGER",
+      "state": "RESEARCH_ONLY"
+    },
+    {
+      "capability_id": "S6_REVERSE_STRESS",
+      "tier": "CORE",
+      "state": "AVAILABLE"
+    },
+    {
+      "capability_id": "S6_INDEPENDENT_VALIDATION",
+      "tier": "INDEPENDENT_GATE",
+      "state": "AVAILABLE"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "prediction_event_id": {
+      "minLength": 1,
+      "title": "Prediction Event Id",
+      "type": "string"
+    },
+    "cohort_id": {
+      "minLength": 1,
+      "title": "Cohort Id",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "target_id": {
+      "minLength": 1,
+      "title": "Target Id",
+      "type": "string"
+    },
+    "horizon_id": {
+      "minLength": 1,
+      "title": "Horizon Id",
+      "type": "string"
+    },
+    "score_name": {
+      "minLength": 1,
+      "title": "Score Name",
+      "type": "string"
+    },
+    "score_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Score Value"
+    },
+    "quality_state": {
+      "minLength": 1,
+      "title": "Quality State",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "prediction_event_id",
+    "cohort_id",
+    "policy_id",
+    "target_id",
+    "horizon_id",
+    "score_name",
+    "score_value",
+    "quality_state"
+  ],
+  "title": "OnlineScoreRecord",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:OnlineScoreRecord:1.0.0"
+}

@@ -1,0 +1,24 @@
+registry_id: p3_foundation_boundary_port_registry.v1
+revision: P3-FINAL
+ports:
+  - port_id: ArtifactResolverPort
+    owner: SHARED_CONTRACT_PACK
+    direction: A_TO_B
+    purpose: Resolve and hash-verify an immutable ArtifactPointer.
+  - port_id: FoundationManifestResolverPort
+    owner: RUNTIME_CONSUMER
+    direction: A_TO_B
+    purpose: Materialize RuntimeFoundationContext from the foundation manifest.
+  - port_id: CycleKernelPort
+    owner: RUNTIME
+    direction: A_TO_B_AND_RESULT
+    purpose: Execute WARMUP_REPLAY, LIVE, REPLAY or DRY_RUN cycles.
+  - port_id: CheckpointResolverPort
+    owner: FOUNDATION
+    direction: B_TO_A
+    purpose: Materialize ReplayState from a P3CycleClosureManifest.
+rules:
+  - ports_are_not_artifacts
+  - provider_sdk_types_are_forbidden
+  - implementations_are_injected_at_composition
+  - consumer_contract_tests_are_required

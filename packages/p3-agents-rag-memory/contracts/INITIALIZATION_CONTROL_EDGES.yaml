@@ -1,0 +1,10 @@
+phase: P3
+rc: RC4.1
+contract: INITIALIZATION_CONTROL_EDGES
+format: initialization_control_v1
+initialization_control_edges:
+- from_module: P3.S6.M02
+  to_module: P3.S5.M01
+  from_artifact: next_population_generation_state
+  to_artifact: prior_population_generation_state
+  semantics: bounded by coverage_epsilon, patience and max_generation_rounds; exits only to FINALIZED

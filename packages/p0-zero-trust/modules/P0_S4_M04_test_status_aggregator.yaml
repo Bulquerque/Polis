@@ -1,0 +1,48 @@
+module_id: P0.S4.M04
+module_name: test_status_aggregator
+function: Resolver a saúde de testes por fase separando evidência reportada pelas
+  fases de controles independentes da P0 e distinguindo NOT_RUN, PARTIAL, PASS e FAIL.
+inputs: &id001
+- collected_test_reports
+- contract_test_report
+- schema_test_report
+outputs: &id002
+- global_test_report
+- phase_test_status_panel
+validations:
+- critical_tests_classified
+- phase_status_computed
+- not_started_not_failed
+fail_fast_conditions:
+- test_status_aggregator_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S4.M01
+    - P0.S4.M02
+    - P0.S4.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S4.M05
+    - P0.S6.M01
+    - P0.S6.M02
+    - P0.S8.M03
+    - P0.S9.M01
+    artifacts: *id002
+    phase_outputs:
+    - global_test_report
+phase: P0
+subphase: P0.S4
+rc: RC4.1
+notes: Test health is PASS/FAIL externally; per-phase states preserve NOT_RUN/PARTIAL/PASS/FAIL.
+  Readiness remains a separate concern.

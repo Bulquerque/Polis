@@ -1,0 +1,155 @@
+{
+  "$defs": {
+    "RegistryStatus": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED",
+        "FAILED"
+      ],
+      "title": "RegistryStatus",
+      "type": "string"
+    },
+    "S40Lineage": {
+      "additionalProperties": false,
+      "properties": {
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "pattern": "^P3\\.S40\\.M\\d{2}$",
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "source_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Artifact Ids",
+          "type": "array"
+        },
+        "source_hashes": {
+          "additionalProperties": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Source Hashes",
+          "type": "object"
+        },
+        "transformation_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Transformation Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "lineage_id",
+        "producer_module_id"
+      ],
+      "title": "S40Lineage",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alias_errors": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Alias Errors",
+      "type": "array"
+    },
+    "blocked_operations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Blocked Operations",
+      "type": "array"
+    },
+    "duplicate_operations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Duplicate Operations",
+      "type": "array"
+    },
+    "executable_operations": {
+      "minimum": 0,
+      "title": "Executable Operations",
+      "type": "integer"
+    },
+    "expected_operations": {
+      "minimum": 0,
+      "title": "Expected Operations",
+      "type": "integer"
+    },
+    "lineage": {
+      "$ref": "#/$defs/S40Lineage"
+    },
+    "missing_operations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Missing Operations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "registered_operations": {
+      "minimum": 0,
+      "title": "Registered Operations",
+      "type": "integer"
+    },
+    "report_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Report Hash",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "p3.s40.v1",
+      "default": "p3.s40.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/RegistryStatus"
+    }
+  },
+  "required": [
+    "status",
+    "expected_operations",
+    "registered_operations",
+    "executable_operations",
+    "lineage",
+    "report_hash"
+  ],
+  "title": "HandlerRegistryCompletenessReport",
+  "type": "object"
+}

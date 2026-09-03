@@ -1,0 +1,141 @@
+{
+  "$defs": {
+    "ReplicateCovarianceDiagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance_distance": {
+          "minimum": 0,
+          "title": "Covariance Distance",
+          "type": "number"
+        },
+        "regime_coverage": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Regime Coverage"
+        },
+        "replicate_id": {
+          "minimum": 1,
+          "title": "Replicate Id",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "replicate_id",
+        "covariance_distance"
+      ],
+      "title": "ReplicateCovarianceDiagnostic",
+      "type": "object"
+    },
+    "S5State": {
+      "enum": [
+        "SUCCESS",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "PARTIAL_METRIC_COVERAGE",
+        "INSUFFICIENT_EVIDENCE",
+        "INSUFFICIENT_HISTORY",
+        "INSUFFICIENT_TRADES",
+        "INSUFFICIENT_VALID_REPLICATES",
+        "IRREGULAR_TIME_UNSUPPORTED",
+        "TRIAL_FAMILY_INCOMPLETE",
+        "EFFECTIVE_TRIAL_COUNT_UNRESOLVED",
+        "METRIC_VERSION_MISMATCH",
+        "ROBUST",
+        "PROVISIONALLY_ROBUST",
+        "FRAGILE",
+        "BACKTEST_OVERFIT_RISK",
+        "REGIME_DEPENDENT",
+        "SELECTION_BIAS_UNRESOLVED",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S5State",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "average_covariance_distance": {
+      "minimum": 0,
+      "title": "Average Covariance Distance",
+      "type": "number"
+    },
+    "diagnostics": {
+      "items": {
+        "$ref": "#/$defs/ReplicateCovarianceDiagnostic"
+      },
+      "title": "Diagnostics",
+      "type": "array"
+    },
+    "joint_resampling_verified": {
+      "title": "Joint Resampling Verified",
+      "type": "boolean"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "minimum_regime_coverage": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Minimum Regime Coverage"
+    },
+    "original_covariance": {
+      "items": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "title": "Original Covariance",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S5State"
+    }
+  },
+  "required": [
+    "status",
+    "original_covariance",
+    "diagnostics",
+    "average_covariance_distance",
+    "joint_resampling_verified"
+  ],
+  "title": "HierarchicalBootstrapResult",
+  "type": "object"
+}

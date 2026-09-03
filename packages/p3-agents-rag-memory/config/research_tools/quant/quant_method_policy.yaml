@@ -1,0 +1,29 @@
+policy_id: p3.s39.quant_methods.v1
+status: FROZEN_LOCAL
+runtime_dependency_policy: PYTHON_STANDARD_LIBRARY_ONLY
+numerical_rules:
+  finite_outputs_required: true
+  silent_nan_allowed: false
+  automatic_window_search: false
+  automatic_estimator_selection: false
+  ddof_for_sample_standard_deviation: 1
+  return_conventions:
+    - SIMPLE
+    - LOG
+volatility:
+  BASIC: [CLOSE_TO_CLOSE]
+  ROBUST: [CLOSE_TO_CLOSE, PARKINSON, GARMAN_KLASS]
+  STABILITY:
+    estimators: [CLOSE_TO_CLOSE, PARKINSON, GARMAN_KLASS]
+    bootstrap: MOVING_BLOCK
+    deterministic_seed_required: true
+drawdown:
+  wealth_start_must_be_positive: true
+  recovery_requires_prior_peak_recovery: true
+forbidden_authorities:
+  - backtest
+  - feature_selection
+  - model_selection
+  - signal_generation
+  - portfolio_optimization
+  - direct_P5_consumption

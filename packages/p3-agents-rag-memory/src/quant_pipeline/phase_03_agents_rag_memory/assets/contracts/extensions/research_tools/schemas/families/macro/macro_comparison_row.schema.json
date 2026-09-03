@@ -1,0 +1,50 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "derived_values": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Derived Values",
+      "type": "object"
+    },
+    "observation_date": {
+      "format": "date",
+      "title": "Observation Date",
+      "type": "string"
+    },
+    "values": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Values",
+      "type": "object"
+    }
+  },
+  "required": [
+    "observation_date",
+    "values"
+  ],
+  "title": "MacroComparisonRow",
+  "type": "object"
+}

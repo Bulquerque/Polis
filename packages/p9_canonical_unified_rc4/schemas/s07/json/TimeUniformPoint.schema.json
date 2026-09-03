@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "sample_count": {
+      "minimum": 1,
+      "title": "Sample Count",
+      "type": "integer"
+    },
+    "mean_loss_difference": {
+      "title": "Mean Loss Difference",
+      "type": "number"
+    },
+    "lower_bound": {
+      "title": "Lower Bound",
+      "type": "number"
+    },
+    "upper_bound": {
+      "title": "Upper Bound",
+      "type": "number"
+    }
+  },
+  "required": [
+    "sample_count",
+    "mean_loss_difference",
+    "lower_bound",
+    "upper_bound"
+  ],
+  "title": "TimeUniformPoint",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:TimeUniformPoint:1.0.0"
+}

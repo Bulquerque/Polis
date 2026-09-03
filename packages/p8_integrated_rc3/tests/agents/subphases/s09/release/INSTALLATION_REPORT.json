@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "wheel_file": "quant_pipeline_p8_s9_runtime_assurance-0.1.0-py3-none-any.whl",
+  "installed_outside_source_tree": true,
+  "runtime_mode_fixture": "NORMAL",
+  "cli_validate_request": "PASS",
+  "pip_check": "PASS",
+  "namespace_coexistence": {
+    "other": "coexists",
+    "s9": "quant_pipeline.phase_08_portfolio_control.subphases.s09_runtime_assurance",
+    "status": "PASS"
+  },
+  "environment_note": "The isolated venv received exact local copies of Pydantic runtime packages because packages installed in the parent venv are not inherited by a child venv."
+}

@@ -1,0 +1,93 @@
+{
+  "$defs": {
+    "LineageGap": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_node_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Affected Node Ids",
+          "type": "array"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "gap_id": {
+          "minLength": 1,
+          "title": "Gap Id",
+          "type": "string"
+        },
+        "material": {
+          "title": "Material",
+          "type": "boolean"
+        },
+        "reason_code": {
+          "pattern": "^P9_[A-Z0-9_]+$",
+          "title": "Reason Code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "gap_id",
+        "description",
+        "material",
+        "reason_code"
+      ],
+      "title": "LineageGap",
+      "type": "object"
+    },
+    "LineageResolutionStatus": {
+      "enum": [
+        "RESOLVED_COMPLETE",
+        "RESOLVED_WITH_NONMATERIAL_GAPS",
+        "INCOMPLETE_MATERIAL",
+        "CORRUPT",
+        "UNAVAILABLE"
+      ],
+      "title": "LineageResolutionStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "gaps": {
+      "items": {
+        "$ref": "#/$defs/LineageGap"
+      },
+      "title": "Gaps",
+      "type": "array"
+    },
+    "observed_phase_ids": {
+      "items": {
+        "pattern": "^P[0-9]+$",
+        "type": "string"
+      },
+      "title": "Observed Phase Ids",
+      "type": "array"
+    },
+    "required_phase_ids": {
+      "items": {
+        "pattern": "^P[0-9]+$",
+        "type": "string"
+      },
+      "title": "Required Phase Ids",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/LineageResolutionStatus"
+    }
+  },
+  "required": [
+    "status",
+    "gaps",
+    "required_phase_ids",
+    "observed_phase_ids"
+  ],
+  "title": "LineageGapReport",
+  "type": "object"
+}

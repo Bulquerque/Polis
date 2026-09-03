@@ -1,0 +1,29 @@
+version: v1
+direction_mapping:
+  strong_negative: -1.0
+  negative: -0.5
+  neutral: 0.0
+  positive: 0.5
+  strong_positive: 1.0
+  uncertain: 0.0
+belief_value: direction_score * strength
+base_weight: representation_weight * confidence
+belief_mean: sum(base_weight*belief_value)/sum(base_weight)
+belief_variance: sum(base_weight*(belief_value-belief_mean)^2)/sum(base_weight)
+direction_bins:
+- bearish
+- neutral
+- bullish
+entropy: normalized_shannon_entropy(direction_bins, base_weight)
+polarization: weighted_between_mode_separation_times_mode_mass
+attention_intensity: weighted_mean(attention_state)
+attention_concentration: one_minus_normalized_entropy(attention_shares)
+information_asymmetry: weighted_dispersion(information_access_and_executed_research_depth)
+cascade_metrics:
+- size
+- depth
+- speed
+- duration
+- secondary_activation_rate
+tag_projection_min_effective_n: 3.0
+formula_version_required: true

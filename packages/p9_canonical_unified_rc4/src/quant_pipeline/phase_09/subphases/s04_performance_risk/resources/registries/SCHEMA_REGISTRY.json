@@ -1,0 +1,516 @@
+{
+  "registry_id": "P9_S4_SCHEMAS",
+  "registry_version": "1.0.0",
+  "schemas": [
+    {
+      "file": "BacktestMetricsBundle.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.bundle_models.BacktestMetricsBundle",
+      "schema_name": "BacktestMetricsBundle",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "AlignmentPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.base_models.AlignmentPolicy",
+      "schema_name": "AlignmentPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "AnnualizationPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.base_models.AnnualizationPolicy",
+      "schema_name": "AnnualizationPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "BenchmarkAndFactorPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.BenchmarkAndFactorPanel",
+      "schema_name": "BenchmarkAndFactorPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "CapacityCurvePanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.CapacityCurvePanel",
+      "schema_name": "CapacityCurvePanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "CapacityPoint.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.CapacityPoint",
+      "schema_name": "CapacityPoint",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "CapacityPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.CapacityPolicy",
+      "schema_name": "CapacityPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "CostDragPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.CostDragPanel",
+      "schema_name": "CostDragPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DiagnosticRecord.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.common.DiagnosticRecord",
+      "schema_name": "DiagnosticRecord",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DistributionDiagnosticPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.distribution_models.DistributionDiagnosticPanel",
+      "schema_name": "DistributionDiagnosticPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DistributionEngineRequest.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.distribution_models.DistributionEngineRequest",
+      "schema_name": "DistributionEngineRequest",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DistributionEngineResult.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.distribution_models.DistributionEngineResult",
+      "schema_name": "DistributionEngineResult",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DistributionPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.distribution_models.DistributionPolicy",
+      "schema_name": "DistributionPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DrawdownEpisode.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.drawdown_models.DrawdownEpisode",
+      "schema_name": "DrawdownEpisode",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DrawdownEpisodePanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.drawdown_models.DrawdownEpisodePanel",
+      "schema_name": "DrawdownEpisodePanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DrawdownMetricPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.drawdown_models.DrawdownMetricPanel",
+      "schema_name": "DrawdownMetricPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DrawdownPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.drawdown_models.DrawdownPolicy",
+      "schema_name": "DrawdownPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DrawdownRequest.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.drawdown_models.DrawdownRequest",
+      "schema_name": "DrawdownRequest",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "DrawdownResult.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.drawdown_models.DrawdownResult",
+      "schema_name": "DrawdownResult",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ExecutionCapacityRequest.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.ExecutionCapacityRequest",
+      "schema_name": "ExecutionCapacityRequest",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ExecutionCapacityResult.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.ExecutionCapacityResult",
+      "schema_name": "ExecutionCapacityResult",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ExecutionMetricPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.ExecutionMetricPanel",
+      "schema_name": "ExecutionMetricPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ExecutionMetricRecord.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.ExecutionMetricRecord",
+      "schema_name": "ExecutionMetricRecord",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ExposureSnapshot.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.ExposureSnapshot",
+      "schema_name": "ExposureSnapshot",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "FactorCoefficient.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.FactorCoefficient",
+      "schema_name": "FactorCoefficient",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "FactorExposurePanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.FactorExposurePanel",
+      "schema_name": "FactorExposurePanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "FactorModelRegistry.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.FactorModelRegistry",
+      "schema_name": "FactorModelRegistry",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "FactorModelSpec.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.FactorModelSpec",
+      "schema_name": "FactorModelSpec",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "FactorObservation.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.FactorObservation",
+      "schema_name": "FactorObservation",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "FactorRegressionRecord.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.FactorRegressionRecord",
+      "schema_name": "FactorRegressionRecord",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "FactorRegressionRequest.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.FactorRegressionRequest",
+      "schema_name": "FactorRegressionRequest",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "FactorRegressionResult.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.FactorRegressionResult",
+      "schema_name": "FactorRegressionResult",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "FactorValue.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.FactorValue",
+      "schema_name": "FactorValue",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ImpactPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.ImpactPolicy",
+      "schema_name": "ImpactPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "InstitutionalMetricPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.bundle_models.InstitutionalMetricPanel",
+      "schema_name": "InstitutionalMetricPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "LiquidityObservation.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.LiquidityObservation",
+      "schema_name": "LiquidityObservation",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MetricApplicability.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.base_models.MetricApplicability",
+      "schema_name": "MetricApplicability",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MetricLimitation.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.bundle_models.MetricLimitation",
+      "schema_name": "MetricLimitation",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MetricQualityPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.bundle_models.MetricQualityPolicy",
+      "schema_name": "MetricQualityPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MetricQualityReceipt.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.bundle_models.MetricQualityReceipt",
+      "schema_name": "MetricQualityReceipt",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MetricQualityRequest.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.bundle_models.MetricQualityRequest",
+      "schema_name": "MetricQualityRequest",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MetricQualityResult.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.bundle_models.MetricQualityResult",
+      "schema_name": "MetricQualityResult",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MetricRecord.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.common.MetricRecord",
+      "schema_name": "MetricRecord",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MetricRegistry.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.bundle_models.MetricRegistry",
+      "schema_name": "MetricRegistry",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MetricRegistryEntry.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.bundle_models.MetricRegistryEntry",
+      "schema_name": "MetricRegistryEntry",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "MinimumSamplePolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.base_models.MinimumSamplePolicy",
+      "schema_name": "MinimumSamplePolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "PointInTimeSeries.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.base_models.PointInTimeSeries",
+      "schema_name": "PointInTimeSeries",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "QualifiedBacktestIdentity.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.base_models.QualifiedBacktestIdentity",
+      "schema_name": "QualifiedBacktestIdentity",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "QualifiedBacktestInput.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.return_models.QualifiedBacktestInput",
+      "schema_name": "QualifiedBacktestInput",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "RegressionDiagnosticReport.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.RegressionDiagnosticReport",
+      "schema_name": "RegressionDiagnosticReport",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "RegressionPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.RegressionPolicy",
+      "schema_name": "RegressionPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ReturnEngineRequest.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.return_models.ReturnEngineRequest",
+      "schema_name": "ReturnEngineRequest",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ReturnEngineResult.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.return_models.ReturnEngineResult",
+      "schema_name": "ReturnEngineResult",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ReturnMetricPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.return_models.ReturnMetricPanel",
+      "schema_name": "ReturnMetricPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ReturnPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.return_models.ReturnPolicy",
+      "schema_name": "ReturnPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ReturnSeriesPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.return_models.ReturnSeriesPanel",
+      "schema_name": "ReturnSeriesPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "RiskAdjustedMetricPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.risk_adjusted_models.RiskAdjustedMetricPanel",
+      "schema_name": "RiskAdjustedMetricPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "RiskAdjustedMetricPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.risk_adjusted_models.RiskAdjustedMetricPolicy",
+      "schema_name": "RiskAdjustedMetricPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "RiskAdjustedRequest.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.risk_adjusted_models.RiskAdjustedRequest",
+      "schema_name": "RiskAdjustedRequest",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "RiskAdjustedResult.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.risk_adjusted_models.RiskAdjustedResult",
+      "schema_name": "RiskAdjustedResult",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "RollingDistributionRecord.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.distribution_models.RollingDistributionRecord",
+      "schema_name": "RollingDistributionRecord",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "RollingFactorPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.RollingFactorPanel",
+      "schema_name": "RollingFactorPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "RollingFactorRecord.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.factor_models.RollingFactorRecord",
+      "schema_name": "RollingFactorRecord",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "S4AnalyticsRequest.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.service.S4AnalyticsRequest",
+      "schema_name": "S4AnalyticsRequest",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "S4AnalyticsResult.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.service.S4AnalyticsResult",
+      "schema_name": "S4AnalyticsResult",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ScenarioPnlPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.ScenarioPnlPanel",
+      "schema_name": "ScenarioPnlPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "ScenarioPnlRecord.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.ScenarioPnlRecord",
+      "schema_name": "ScenarioPnlRecord",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "SerialCorrelationRecord.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.distribution_models.SerialCorrelationRecord",
+      "schema_name": "SerialCorrelationRecord",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "SerialDependenceReport.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.distribution_models.SerialDependenceReport",
+      "schema_name": "SerialDependenceReport",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "SeriesPoint.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.base_models.SeriesPoint",
+      "schema_name": "SeriesPoint",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "SharpeDiagnosticPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.risk_adjusted_models.SharpeDiagnosticPanel",
+      "schema_name": "SharpeDiagnosticPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "TailEstimate.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.TailEstimate",
+      "schema_name": "TailEstimate",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "TailMethodDiagnostics.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.TailMethodDiagnostics",
+      "schema_name": "TailMethodDiagnostics",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "TailRiskMetricPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.TailRiskMetricPanel",
+      "schema_name": "TailRiskMetricPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "TailRiskPolicy.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.TailRiskPolicy",
+      "schema_name": "TailRiskPolicy",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "TailRiskRequest.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.TailRiskRequest",
+      "schema_name": "TailRiskRequest",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "TailRiskResult.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.TailRiskResult",
+      "schema_name": "TailRiskResult",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "TargetOrderContext.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.execution_models.TargetOrderContext",
+      "schema_name": "TargetOrderContext",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "UnderwaterPoint.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.drawdown_models.UnderwaterPoint",
+      "schema_name": "UnderwaterPoint",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "UnderwaterSeries.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.drawdown_models.UnderwaterSeries",
+      "schema_name": "UnderwaterSeries",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "VaRBreachPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.VaRBreachPanel",
+      "schema_name": "VaRBreachPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "VaRBreachRecord.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.tail_models.VaRBreachRecord",
+      "schema_name": "VaRBreachRecord",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "VolatilityMetricPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.distribution_models.VolatilityMetricPanel",
+      "schema_name": "VolatilityMetricPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "WealthPathPanel.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.return_models.WealthPathPanel",
+      "schema_name": "WealthPathPanel",
+      "schema_version": "1.0.0"
+    },
+    {
+      "file": "WealthPoint.schema.json",
+      "python_type": "quant_pipeline.phase_09.subphases.s04_performance_risk.return_models.WealthPoint",
+      "schema_name": "WealthPoint",
+      "schema_version": "1.0.0"
+    }
+  ]
+}

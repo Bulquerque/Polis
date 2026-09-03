@@ -1,0 +1,151 @@
+{
+  "$id": "resolved_runtime_model_reference.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "resolved_runtime_model_reference"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "calibrator_status": {
+            "const": "CALIBRATED"
+          },
+          "feature_schema_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "governance_approval_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "implementation_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "model_family_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "model_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "model_record_digest": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "qualification_status": {
+            "enum": [
+              "CHAMPION",
+              "QUALIFIED_CHALLENGER"
+            ]
+          },
+          "runtime_priority": {
+            "type": "integer"
+          },
+          "target_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "target_policy_version": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "training_cutoff_at": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "model_family_id",
+          "implementation_id",
+          "model_hash",
+          "feature_schema_hash",
+          "target_id",
+          "target_policy_version",
+          "training_cutoff_at",
+          "calibrator_status",
+          "qualification_status",
+          "governance_approval_id",
+          "runtime_priority",
+          "model_record_digest"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

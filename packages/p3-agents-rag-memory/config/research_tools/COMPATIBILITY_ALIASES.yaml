@@ -1,0 +1,16 @@
+schema_id: p3.research_tools.alias_config.v1
+schema_version: 1.0.0
+aliases:
+- alias_tool_id: research.search_filings.v1
+  target_tool_id: research.corpus.v1
+  target_operation_id: search
+  fixed_arguments:
+    document_types:
+    - FILING
+  argument_renames: {}
+- alias_tool_id: quant.realized_volatility.v1
+  target_tool_id: quant.diagnostics.v1
+  target_operation_id: realized_volatility
+  fixed_arguments:
+    research_mode: BASIC
+  argument_renames: {}

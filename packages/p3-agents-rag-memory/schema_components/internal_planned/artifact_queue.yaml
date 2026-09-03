@@ -1,0 +1,21 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: artifact_queue
+status: planned_internal_schema
+type: object
+required:
+- schema_version
+- target_cycle_id
+- items
+- lineage_id
+properties:
+  schema_version:
+    type: string
+  target_cycle_id:
+    type: string
+  items:
+    type: array
+    items:
+      type: object
+  lineage_id:
+    type: string
+additionalProperties: false

@@ -1,0 +1,156 @@
+{
+  "schema_id": "warmup_checkpoint_plan.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "p3-s10-checkpoint-plan-run-s9-001-65ae59c4b2e7f63e",
+  "module_id": "P3.S10.M02",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "as_of": "2026-01-01T00:00:00Z",
+  "evaluation_start": "2026-01-01T00:00:00Z",
+  "mode": "HISTORICAL_REPLAY",
+  "status": "READY",
+  "schedule_hash": "ef8748c7c7fb7ccfc8c7ee7808aef97e91a3a16a0d06e0d473f7263947042c7d",
+  "checkpoint_config_hash": "43526ac62646a8d99f2b738251db775f5872335a7f020ff4763ceb8d9ccffcc7",
+  "checkpoints": [
+    {
+      "checkpoint_id": "s10-checkpoint-88b6e2e6a11c855997e8",
+      "sequence_number": 1,
+      "after_schedule_sequence_number": 3,
+      "logical_time": "2025-01-31T23:59:59Z",
+      "reason": "MONTHLY_BOUNDARY",
+      "previous_checkpoint_id": null,
+      "required_state_families": [
+        "person_state",
+        "belief_state",
+        "memory_state",
+        "social_graph",
+        "pending_stimuli",
+        "belief_commitments",
+        "replay_cursor",
+        "resource_refs",
+        "policy_refs",
+        "audit_refs"
+      ],
+      "final": false
+    },
+    {
+      "checkpoint_id": "s10-checkpoint-74a4b011b3f19c8dc41b",
+      "sequence_number": 2,
+      "after_schedule_sequence_number": 6,
+      "logical_time": "2025-02-28T23:59:59Z",
+      "reason": "MONTHLY_BOUNDARY",
+      "previous_checkpoint_id": "s10-checkpoint-88b6e2e6a11c855997e8",
+      "required_state_families": [
+        "person_state",
+        "belief_state",
+        "memory_state",
+        "social_graph",
+        "pending_stimuli",
+        "belief_commitments",
+        "replay_cursor",
+        "resource_refs",
+        "policy_refs",
+        "audit_refs"
+      ],
+      "final": false
+    },
+    {
+      "checkpoint_id": "s10-checkpoint-2e74d28f791a23aa8d81",
+      "sequence_number": 3,
+      "after_schedule_sequence_number": 9,
+      "logical_time": "2025-03-31T23:59:59Z",
+      "reason": "MONTHLY_BOUNDARY",
+      "previous_checkpoint_id": "s10-checkpoint-74a4b011b3f19c8dc41b",
+      "required_state_families": [
+        "person_state",
+        "belief_state",
+        "memory_state",
+        "social_graph",
+        "pending_stimuli",
+        "belief_commitments",
+        "replay_cursor",
+        "resource_refs",
+        "policy_refs",
+        "audit_refs"
+      ],
+      "final": false
+    },
+    {
+      "checkpoint_id": "s10-checkpoint-c15cd1a68a00998cedd6",
+      "sequence_number": 4,
+      "after_schedule_sequence_number": 12,
+      "logical_time": "2025-04-30T23:59:59Z",
+      "reason": "MONTHLY_BOUNDARY",
+      "previous_checkpoint_id": "s10-checkpoint-2e74d28f791a23aa8d81",
+      "required_state_families": [
+        "person_state",
+        "belief_state",
+        "memory_state",
+        "social_graph",
+        "pending_stimuli",
+        "belief_commitments",
+        "replay_cursor",
+        "resource_refs",
+        "policy_refs",
+        "audit_refs"
+      ],
+      "final": false
+    },
+    {
+      "checkpoint_id": "s10-checkpoint-776185f5e24b6fa6d724",
+      "sequence_number": 5,
+      "after_schedule_sequence_number": 16,
+      "logical_time": "2025-05-31T23:59:59Z",
+      "reason": "MONTHLY_BOUNDARY",
+      "previous_checkpoint_id": "s10-checkpoint-c15cd1a68a00998cedd6",
+      "required_state_families": [
+        "person_state",
+        "belief_state",
+        "memory_state",
+        "social_graph",
+        "pending_stimuli",
+        "belief_commitments",
+        "replay_cursor",
+        "resource_refs",
+        "policy_refs",
+        "audit_refs"
+      ],
+      "final": false
+    },
+    {
+      "checkpoint_id": "s10-checkpoint-c31fb6e0db81597350b2",
+      "sequence_number": 6,
+      "after_schedule_sequence_number": 20,
+      "logical_time": "2025-06-01T13:00:00Z",
+      "reason": "MONTHLY_BOUNDARY",
+      "previous_checkpoint_id": "s10-checkpoint-776185f5e24b6fa6d724",
+      "required_state_families": [
+        "person_state",
+        "belief_state",
+        "memory_state",
+        "social_graph",
+        "pending_stimuli",
+        "belief_commitments",
+        "replay_cursor",
+        "resource_refs",
+        "policy_refs",
+        "audit_refs"
+      ],
+      "final": true
+    }
+  ],
+  "final_checkpoint_id": "s10-checkpoint-c31fb6e0db81597350b2",
+  "final_checkpoint_time": "2025-06-01T13:00:00Z",
+  "resume_supported": true,
+  "plan_hash": "65ae59c4b2e7f63e38bd2a6f2497d83bf991b593042df014a8bb37658d41b904",
+  "lineage": {
+    "lineage_id": "s10-checkpoint-lineage-65ae59c4b2e7f63e",
+    "schedule_artifact_id": "p3-s10-schedule-run-s9-001-ef8748c7c7fb7ccf",
+    "schedule_hash": "ef8748c7c7fb7ccfc8c7ee7808aef97e91a3a16a0d06e0d473f7263947042c7d",
+    "checkpoint_config_hash": "43526ac62646a8d99f2b738251db775f5872335a7f020ff4763ceb8d9ccffcc7",
+    "source_lineage_ids": [
+      "s10-schedule-lineage-ef8748c7c7fb7ccf"
+    ]
+  },
+  "issues": []
+}

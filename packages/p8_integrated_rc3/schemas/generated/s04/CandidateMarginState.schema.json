@@ -1,0 +1,98 @@
+{
+  "$defs": {
+    "ComponentQuality": {
+      "enum": [
+        "FULLY_QUALIFIED",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQuality",
+      "type": "string"
+    },
+    "MarginFidelity": {
+      "enum": [
+        "EXACT_BROKER_MODEL",
+        "SPAN_LIKE_MODEL",
+        "CONSERVATIVE_RULE_BASED",
+        "UNAVAILABLE"
+      ],
+      "title": "MarginFidelity",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/CandidateMarginState.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "borrow_available": {
+      "title": "Borrow Available",
+      "type": "boolean"
+    },
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "capital_capacity_units": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Capital Capacity Units"
+    },
+    "capital_required_per_unit": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Capital Required Per Unit"
+    },
+    "fidelity": {
+      "$ref": "#/$defs/MarginFidelity"
+    },
+    "margin_per_unit": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Margin Per Unit"
+    },
+    "quality": {
+      "$ref": "#/$defs/ComponentQuality"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "borrow_available",
+    "fidelity",
+    "quality"
+  ],
+  "title": "CandidateMarginState",
+  "type": "object"
+}

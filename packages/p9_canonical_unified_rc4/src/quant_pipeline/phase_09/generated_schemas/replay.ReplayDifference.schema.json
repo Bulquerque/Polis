@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "absolute_difference": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Absolute Difference"
+    },
+    "expected": {
+      "minLength": 1,
+      "title": "Expected",
+      "type": "string"
+    },
+    "field": {
+      "minLength": 1,
+      "title": "Field",
+      "type": "string"
+    },
+    "observed": {
+      "minLength": 1,
+      "title": "Observed",
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^P9_[A-Z0-9_]+$",
+      "title": "Reason Code",
+      "type": "string"
+    }
+  },
+  "required": [
+    "field",
+    "expected",
+    "observed",
+    "reason_code"
+  ],
+  "title": "ReplayDifference",
+  "type": "object"
+}

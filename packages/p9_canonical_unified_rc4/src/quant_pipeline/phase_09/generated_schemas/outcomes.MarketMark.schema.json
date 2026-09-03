@@ -1,0 +1,152 @@
+{
+  "$defs": {
+    "MarkSource": {
+      "enum": [
+        "BID_ASK",
+        "LAST",
+        "OFFICIAL_SETTLEMENT",
+        "MODEL"
+      ],
+      "title": "MarkSource",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "ask": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ask"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "bid": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Bid"
+    },
+    "contract_key": {
+      "minLength": 1,
+      "title": "Contract Key",
+      "type": "string"
+    },
+    "corporate_action_adjusted": {
+      "default": false,
+      "title": "Corporate Action Adjusted",
+      "type": "boolean"
+    },
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "last": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Last"
+    },
+    "mark_id": {
+      "minLength": 1,
+      "title": "Mark Id",
+      "type": "string"
+    },
+    "model_price": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Model Price"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "settlement": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Settlement"
+    },
+    "source": {
+      "$ref": "#/$defs/MarkSource"
+    },
+    "source_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Sha256",
+      "type": "string"
+    },
+    "subject_id": {
+      "minLength": 1,
+      "title": "Subject Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "mark_id",
+    "subject_id",
+    "instrument_id",
+    "contract_key",
+    "observed_at",
+    "available_at",
+    "source",
+    "source_sha256"
+  ],
+  "title": "MarketMark",
+  "type": "object"
+}

@@ -1,0 +1,83 @@
+module_id: P4.S1.M01
+module_name: phase2_handoff_validator
+inputs:
+- clean_underlying_panel
+- clean_macro_br_panel
+- clean_macro_us_panel
+- clean_benchmark_panel
+- clean_calendar_panel
+- clean_corporate_actions_panel
+- quality_report_phase_2
+- phase4_handoff_manifest
+- clean_underlying_trade_panel
+- clean_option_contract_panel
+- clean_option_quotes_panel
+- clean_event_reference_panel
+- clean_context_source_panel
+- clean_document_panel
+- source_quality_panel
+- clean_liquidity_reference_panel
+- clean_fundamental_panel
+- clean_curve_term_structure_panel
+required_inputs:
+- clean_underlying_panel
+- clean_macro_br_panel
+- clean_macro_us_panel
+- clean_benchmark_panel
+- clean_calendar_panel
+- clean_corporate_actions_panel
+- quality_report_phase_2
+- phase4_handoff_manifest
+optional_inputs:
+- clean_underlying_trade_panel
+- clean_option_contract_panel
+- clean_option_quotes_panel
+- clean_event_reference_panel
+- clean_context_source_panel
+- clean_document_panel
+- source_quality_panel
+- clean_liquidity_reference_panel
+- clean_fundamental_panel
+- clean_curve_term_structure_panel
+outputs:
+- validated_phase2_bundle
+- phase2_capability_matrix
+function: Validate the P2 handoff, materialized artifacts, manifest references, hashes,
+  quality and extension capabilities.
+phase: P4
+subphase: P4.S1
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+invariants:
+- fail_fast
+- deterministic_replay
+- lineage_traceability
+- no_hidden_state
+- no_future_phase_input
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- signal_direction
+- buy_sell_signal
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- execution_fill
+- position_size
+- feature_genome
+- mutation_candidate
+- promotion_decision
+tests_required:
+- happy_path
+- missing_input
+- schema_negative
+- hash_negative
+- forbidden_field
+- deterministic_replay
+implementation: src/quant_pipeline/phase_04_feature_base/modules/P4_S1_M01_phase2_handoff_validator.py
+production_promotion_allowed: false

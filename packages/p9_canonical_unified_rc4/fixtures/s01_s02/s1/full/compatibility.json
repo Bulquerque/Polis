@@ -1,0 +1,14 @@
+{
+  "matrix_version": "1.0.0",
+  "matrix_sha256": "fa528d3adef61d199a8348ffb48ef0143603ea2e0ad007121c39edc6e3aeb567",
+  "entries": [
+    {
+      "contract_name": "P8_EVALUATION_HANDOFF_V1",
+      "contract_version": "1.0.0",
+      "accepted_modes": [
+        "FULL_V1",
+        "LEGACY_RC4_1_LIMITED"
+      ]
+    }
+  ]
+}

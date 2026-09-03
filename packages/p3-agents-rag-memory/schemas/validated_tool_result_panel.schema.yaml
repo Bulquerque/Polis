@@ -1,0 +1,263 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  JsonValue: {}
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  RawToolResultRecord:
+    additionalProperties: false
+    properties:
+      tool_call_request_id:
+        minLength: 1
+        title: Tool Call Request Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      execution_id:
+        minLength: 1
+        title: Execution Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      tool_id:
+        minLength: 1
+        title: Tool Id
+        type: string
+      operation_id:
+        minLength: 1
+        title: Operation Id
+        type: string
+      provider_id:
+        minLength: 1
+        title: Provider Id
+        type: string
+      status:
+        $ref: '#/$defs/ToolExecutionStatus'
+      started_at:
+        format: date-time
+        title: Started At
+        type: string
+      finished_at:
+        format: date-time
+        title: Finished At
+        type: string
+      available_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        title: Available At
+      latency_ms:
+        minimum: 0.0
+        title: Latency Ms
+        type: number
+      cost_units:
+        minimum: 0.0
+        title: Cost Units
+        type: number
+      canonical_payload:
+        anyOf:
+        - additionalProperties:
+            $ref: '#/$defs/JsonValue'
+          type: object
+        - type: 'null'
+        default: null
+        title: Canonical Payload
+      raw_payload_ref:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Raw Payload Ref
+      response_hash:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Response Hash
+      evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Evidence Refs
+        type: array
+      error:
+        anyOf:
+        - $ref: '#/$defs/ToolErrorRecord'
+        - type: 'null'
+        default: null
+      result_schema:
+        anyOf:
+        - additionalProperties:
+            $ref: '#/$defs/JsonValue'
+          type: object
+        - type: 'null'
+        default: null
+        title: Result Schema
+    required:
+    - tool_call_request_id
+    - cognition_transaction_id
+    - execution_id
+    - person_id
+    - tool_id
+    - operation_id
+    - provider_id
+    - status
+    - started_at
+    - finished_at
+    - latency_ms
+    - cost_units
+    title: RawToolResultRecord
+    type: object
+  ToolErrorRecord:
+    additionalProperties: false
+    properties:
+      code:
+        minLength: 1
+        title: Code
+        type: string
+      message:
+        minLength: 1
+        title: Message
+        type: string
+      retryable:
+        default: false
+        title: Retryable
+        type: boolean
+    required:
+    - code
+    - message
+    title: ToolErrorRecord
+    type: object
+  ToolExecutionStatus:
+    enum:
+    - SUCCEEDED
+    - FAILED_TIMEOUT
+    - FAILED_RATE_LIMIT
+    - FAILED_AUTHENTICATION
+    - FAILED_PROVIDER
+    - FAILED_SCHEMA
+    - REJECTED_TEMPORAL
+    - REJECTED_AUTHORIZATION
+    title: ToolExecutionStatus
+    type: string
+  ToolResultValidationStatus:
+    enum:
+    - VALID
+    - FAILURE_PRESERVED
+    - INVALID_LINKAGE
+    - INVALID_TEMPORAL
+    - INVALID_PROVENANCE
+    - INVALID_SCHEMA
+    - INVALID_EVIDENCE
+    title: ToolResultValidationStatus
+    type: string
+  ValidatedToolResultRecord:
+    additionalProperties: false
+    properties:
+      raw_result:
+        $ref: '#/$defs/RawToolResultRecord'
+      validation_status:
+        $ref: '#/$defs/ToolResultValidationStatus'
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+      validated_payload:
+        anyOf:
+        - additionalProperties:
+            $ref: '#/$defs/JsonValue'
+          type: object
+        - type: 'null'
+        default: null
+        title: Validated Payload
+      untrusted_content:
+        default: true
+        title: Untrusted Content
+        type: boolean
+    required:
+    - raw_result
+    - validation_status
+    title: ValidatedToolResultRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s21.v1
+    default: p3.s21.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/ValidatedToolResultRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: validated_tool_result_panel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s21:outputs:validated_tool_result_panel:v1
+artifact_name: validated_tool_result_panel
+x-artifact-name: validated_tool_result_panel
+x-contract-version: p3.s21.v1
+x-authority: P3.S21
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

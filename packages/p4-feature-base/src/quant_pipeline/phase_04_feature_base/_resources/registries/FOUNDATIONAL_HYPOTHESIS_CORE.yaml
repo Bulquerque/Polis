@@ -1,0 +1,289 @@
+records:
+- hypothesis_id: H01
+  family_id: F01
+  hypothesis_name: absolute_momentum
+  mechanism: absolute momentum
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H02
+  family_id: F01
+  hypothesis_name: cross_sectional_momentum
+  mechanism: cross sectional momentum
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H03
+  family_id: F01
+  hypothesis_name: residual_momentum
+  mechanism: residual momentum
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H04
+  family_id: F01
+  hypothesis_name: volume_confirmed_momentum
+  mechanism: volume confirmed momentum
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H05
+  family_id: F02
+  hypothesis_name: short_term_reversal
+  mechanism: short term reversal
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H06
+  family_id: F02
+  hypothesis_name: robust_state_deviation
+  mechanism: robust state deviation
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H07
+  family_id: F02
+  hypothesis_name: residual_reversal
+  mechanism: residual reversal
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H08
+  family_id: F03
+  hypothesis_name: value
+  mechanism: value
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H09
+  family_id: F03
+  hypothesis_name: profitability
+  mechanism: profitability
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H10
+  family_id: F03
+  hypothesis_name: investment
+  mechanism: investment
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H11
+  family_id: F03
+  hypothesis_name: accrual_quality
+  mechanism: accrual quality
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H12
+  family_id: F04
+  hypothesis_name: turnover_participation
+  mechanism: turnover participation
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H13
+  family_id: F04
+  hypothesis_name: price_impact_illiquidity
+  mechanism: price impact illiquidity
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H14
+  family_id: F04
+  hypothesis_name: attention_state
+  mechanism: attention state
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H15
+  family_id: F05
+  hypothesis_name: multiscale_volatility
+  mechanism: multiscale volatility
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H16
+  family_id: F05
+  hypothesis_name: downside_risk
+  mechanism: downside risk
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H17
+  family_id: F05
+  hypothesis_name: drawdown_state
+  mechanism: drawdown state
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H18
+  family_id: F05
+  hypothesis_name: option_implied_risk
+  mechanism: option implied risk
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H19
+  family_id: F06
+  hypothesis_name: downside_beta
+  mechanism: downside beta
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H20
+  family_id: F06
+  hypothesis_name: market_mode_concentration
+  mechanism: market mode concentration
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H21
+  family_id: F06
+  hypothesis_name: directional_connectedness
+  mechanism: directional connectedness
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H22
+  family_id: F07
+  hypothesis_name: curve_slope
+  mechanism: curve slope
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H23
+  family_id: F07
+  hypothesis_name: basis_carry
+  mechanism: basis carry
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H24
+  family_id: F07
+  hypothesis_name: cross_asset_carry_rank
+  mechanism: cross asset carry rank
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H25
+  family_id: F08
+  hypothesis_name: growth_inflation_state
+  mechanism: growth inflation state
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H26
+  family_id: F08
+  hypothesis_name: financial_conditions
+  mechanism: financial conditions
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H27
+  family_id: F08
+  hypothesis_name: macro_surprise
+  mechanism: macro surprise
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H28
+  family_id: F09
+  hypothesis_name: event_surprise
+  mechanism: event surprise
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H29
+  family_id: F09
+  hypothesis_name: post_event_state
+  mechanism: post event state
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H30
+  family_id: F10
+  hypothesis_name: information_novelty
+  mechanism: information novelty
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H31
+  family_id: F10
+  hypothesis_name: disagreement_polarization
+  mechanism: disagreement polarization
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2
+- hypothesis_id: H32
+  family_id: F10
+  hypothesis_name: narrative_shift
+  mechanism: narrative shift
+  expected_sign: CONTEXT_DEPENDENT
+  primary_horizon: MEDIUM
+  falsification_rule: must fail sealed out-of-sample gate
+  status: FOUNDATIONAL
+  max_parameterizations: 2

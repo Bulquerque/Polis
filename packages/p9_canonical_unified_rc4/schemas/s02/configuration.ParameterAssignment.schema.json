@@ -1,0 +1,33 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "parameter_id": {
+      "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+      "title": "Parameter Id",
+      "type": "string"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Value"
+    }
+  },
+  "required": [
+    "parameter_id",
+    "value"
+  ],
+  "title": "ParameterAssignment",
+  "type": "object"
+}

@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "ComponentQuality": {
+      "enum": [
+        "FULLY_QUALIFIED",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQuality",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/DependenceSummary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "covariance_method": {
+      "title": "Covariance Method",
+      "type": "string"
+    },
+    "effective_sample_size": {
+      "title": "Effective Sample Size",
+      "type": "number"
+    },
+    "minimum_eigenvalue_after": {
+      "title": "Minimum Eigenvalue After",
+      "type": "number"
+    },
+    "minimum_eigenvalue_before": {
+      "title": "Minimum Eigenvalue Before",
+      "type": "number"
+    },
+    "psd_repair_relative": {
+      "title": "Psd Repair Relative",
+      "type": "number"
+    },
+    "quality": {
+      "$ref": "#/$defs/ComponentQuality"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "shrinkage_alpha": {
+      "title": "Shrinkage Alpha",
+      "type": "number"
+    },
+    "storage_npz": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Storage Npz"
+    }
+  },
+  "required": [
+    "covariance_method",
+    "shrinkage_alpha",
+    "effective_sample_size",
+    "minimum_eigenvalue_before",
+    "minimum_eigenvalue_after",
+    "psd_repair_relative",
+    "quality",
+    "content_sha256"
+  ],
+  "title": "DependenceSummary",
+  "type": "object"
+}

@@ -1,0 +1,405 @@
+{
+  "$defs": {
+    "CandidateStatus": {
+      "enum": [
+        "GENERATED",
+        "QUALIFIED",
+        "REJECTED",
+        "REPRESENTATIVE"
+      ],
+      "title": "CandidateStatus",
+      "type": "string"
+    },
+    "ExerciseStyle": {
+      "enum": [
+        "EUROPEAN",
+        "AMERICAN"
+      ],
+      "title": "ExerciseStyle",
+      "type": "string"
+    },
+    "InstrumentType": {
+      "enum": [
+        "UNDERLYING",
+        "OPTION",
+        "CASH"
+      ],
+      "title": "InstrumentType",
+      "type": "string"
+    },
+    "LegRole": {
+      "enum": [
+        "CORE",
+        "FINANCING",
+        "PROTECTION",
+        "DIRECTIONAL_OVERLAY",
+        "VOLATILITY_OVERLAY",
+        "TAIL_HEDGE"
+      ],
+      "title": "LegRole",
+      "type": "string"
+    },
+    "ObjectiveFamily": {
+      "enum": [
+        "DIRECTIONAL_UP",
+        "DIRECTIONAL_DOWN",
+        "RANGE",
+        "LONG_VOLATILITY",
+        "SHORT_VOLATILITY_DEFINED_RISK",
+        "POSITIVE_CONVEXITY",
+        "TAIL_HEDGE",
+        "INCOME_DEFINED_RISK",
+        "SKEW_RELATIVE_VALUE",
+        "TERM_STRUCTURE",
+        "EVENT",
+        "PORTFOLIO_HEDGE",
+        "HYBRID"
+      ],
+      "title": "ObjectiveFamily",
+      "type": "string"
+    },
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    },
+    "OriginMode": {
+      "enum": [
+        "TEMPLATE",
+        "MUTATION",
+        "INVERSE_DESIGN"
+      ],
+      "title": "OriginMode",
+      "type": "string"
+    },
+    "QuoteQuality": {
+      "enum": [
+        "TWO_SIDED_EXECUTABLE",
+        "ONE_SIDED_BID",
+        "ONE_SIDED_ASK",
+        "TRADE_ONLY",
+        "STALE",
+        "CROSSED",
+        "UNAVAILABLE"
+      ],
+      "title": "QuoteQuality",
+      "type": "string"
+    },
+    "SettlementType": {
+      "enum": [
+        "CASH",
+        "PHYSICAL"
+      ],
+      "title": "SettlementType",
+      "type": "string"
+    },
+    "Side": {
+      "enum": [
+        "LONG",
+        "SHORT"
+      ],
+      "title": "Side",
+      "type": "string"
+    },
+    "StrategyLeg": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "title": "Currency",
+          "type": "string"
+        },
+        "entry_price_reference": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Entry Price Reference"
+        },
+        "exchange": {
+          "title": "Exchange",
+          "type": "string"
+        },
+        "exercise_style": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ExerciseStyle"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "expiration": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expiration"
+        },
+        "instrument_id": {
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "instrument_type": {
+          "$ref": "#/$defs/InstrumentType"
+        },
+        "leg_id": {
+          "title": "Leg Id",
+          "type": "string"
+        },
+        "leg_role": {
+          "$ref": "#/$defs/LegRole"
+        },
+        "multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Multiplier"
+        },
+        "option_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OptionType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "price_selection_method": {
+          "title": "Price Selection Method",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "quote_quality": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuoteQuality"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "settlement_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SettlementType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "side": {
+          "$ref": "#/$defs/Side"
+        },
+        "source_quote_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Quote Id"
+        },
+        "strike": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Strike"
+        }
+      },
+      "required": [
+        "leg_id",
+        "instrument_id",
+        "instrument_type",
+        "side",
+        "quantity",
+        "multiplier",
+        "currency",
+        "exchange",
+        "entry_price_reference",
+        "price_selection_method",
+        "leg_role"
+      ],
+      "title": "StrategyLeg",
+      "type": "object"
+    },
+    "TemplateId": {
+      "enum": [
+        "LONG_UNDERLYING",
+        "SHORT_UNDERLYING",
+        "LONG_CALL",
+        "LONG_PUT",
+        "BULL_CALL_DEBIT",
+        "BEAR_PUT_DEBIT",
+        "BULL_PUT_CREDIT",
+        "BEAR_CALL_CREDIT",
+        "LONG_STRADDLE",
+        "LONG_STRANGLE",
+        "LONG_CALL_BUTTERFLY",
+        "LONG_CALL_CONDOR",
+        "IRON_BUTTERFLY",
+        "IRON_CONDOR",
+        "COLLAR",
+        "RISK_REVERSAL_DEFINED_RISK",
+        "PROTECTED_RATIO_CALL",
+        "MUTATED_FREE_FORM",
+        "INVERSE_DESIGN_FREE_FORM"
+      ],
+      "title": "TemplateId",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "candidate_version": {
+      "title": "Candidate Version",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "generation_run_id": {
+      "title": "Generation Run Id",
+      "type": "string"
+    },
+    "horizon_days": {
+      "exclusiveMinimum": 0,
+      "title": "Horizon Days",
+      "type": "integer"
+    },
+    "legs": {
+      "items": {
+        "$ref": "#/$defs/StrategyLeg"
+      },
+      "minItems": 1,
+      "title": "Legs",
+      "type": "array"
+    },
+    "lineage_id": {
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "mutation_trace": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Mutation Trace",
+      "type": "array"
+    },
+    "objective_family": {
+      "$ref": "#/$defs/ObjectiveFamily"
+    },
+    "origin_mode": {
+      "$ref": "#/$defs/OriginMode"
+    },
+    "origin_template_id": {
+      "$ref": "#/$defs/TemplateId"
+    },
+    "parent_candidate_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Parent Candidate Ids",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/CandidateStatus",
+      "default": "GENERATED"
+    },
+    "strategy_scale": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Strategy Scale"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "candidate_version",
+    "underlying_id",
+    "decision_time",
+    "horizon_days",
+    "objective_family",
+    "origin_mode",
+    "origin_template_id",
+    "legs",
+    "strategy_scale",
+    "generation_run_id",
+    "lineage_id"
+  ],
+  "title": "StrategyCandidate",
+  "type": "object"
+}

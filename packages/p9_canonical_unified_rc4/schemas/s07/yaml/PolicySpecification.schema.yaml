@@ -1,0 +1,60 @@
+$defs:
+  DeploymentStage:
+    enum:
+    - SHADOW_ONLY
+    - PAPER_EXECUTION
+    - LIMITED_CAPITAL
+    - FULL_PRODUCTION
+    - QUARANTINED
+    title: DeploymentStage
+    type: string
+  PolicyRole:
+    enum:
+    - CHAMPION
+    - CHALLENGER
+    title: PolicyRole
+    type: string
+additionalProperties: false
+properties:
+  policy_id:
+    minLength: 1
+    title: Policy Id
+    type: string
+  policy_version:
+    minLength: 1
+    title: Policy Version
+    type: string
+  role:
+    $ref: '#/$defs/PolicyRole'
+  code_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Code Sha256
+    type: string
+  resource_budget_units:
+    exclusiveMinimum: 0
+    title: Resource Budget Units
+    type: integer
+  seed_entropy:
+    minimum: 0
+    title: Seed Entropy
+    type: integer
+  authorized_stage:
+    $ref: '#/$defs/DeploymentStage'
+  authorization_ref:
+    anyOf:
+    - minLength: 1
+      type: string
+    - type: 'null'
+    default: null
+    title: Authorization Ref
+required:
+- policy_id
+- policy_version
+- role
+- code_sha256
+- resource_budget_units
+- seed_entropy
+- authorized_stage
+title: PolicySpecification
+type: object
+$id: urn:inferencia:p9:s7:PolicySpecification:1.0.0

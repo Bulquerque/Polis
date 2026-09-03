@@ -1,0 +1,110 @@
+{
+  "$defs": {
+    "SoftSimilarityRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "request_id": {
+          "minLength": 1,
+          "title": "Request Id",
+          "type": "string"
+        },
+        "left_candidate_id": {
+          "minLength": 1,
+          "title": "Left Candidate Id",
+          "type": "string"
+        },
+        "right_candidate_id": {
+          "minLength": 1,
+          "title": "Right Candidate Id",
+          "type": "string"
+        },
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "shared_instrument_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Shared Instrument Ids",
+          "type": "array"
+        },
+        "shared_underlying_scope": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Shared Underlying Scope",
+          "type": "array"
+        },
+        "requested_dimensions": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Requested Dimensions",
+          "type": "array"
+        },
+        "exclusion_authority": {
+          "const": false,
+          "default": false,
+          "title": "Exclusion Authority",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "request_id",
+        "left_candidate_id",
+        "right_candidate_id",
+        "comparison_group_id",
+        "requested_dimensions"
+      ],
+      "title": "SoftSimilarityRequest",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "P8_SOFT_SIMILARITY_REQUEST_PANEL_V1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "requests": {
+      "items": {
+        "$ref": "#/$defs/SoftSimilarityRequest"
+      },
+      "title": "Requests",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "schema_version",
+    "snapshot_id",
+    "requests",
+    "content_sha256"
+  ],
+  "title": "SoftSimilarityRequestPanel",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P8_SOFT_SIMILARITY_REQUEST_PANEL_V1.schema.json"
+}

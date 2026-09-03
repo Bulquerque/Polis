@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "base_seed": {
+      "minimum": 0,
+      "title": "Base Seed",
+      "type": "integer"
+    },
+    "derivation_algorithm": {
+      "minLength": 1,
+      "title": "Derivation Algorithm",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Policy Sha256",
+      "type": "string"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version",
+    "base_seed",
+    "derivation_algorithm",
+    "policy_sha256"
+  ],
+  "title": "SeedPolicyReference",
+  "type": "object"
+}

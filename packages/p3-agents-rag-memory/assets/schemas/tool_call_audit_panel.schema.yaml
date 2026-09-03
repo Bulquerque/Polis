@@ -1,0 +1,195 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  ToolCallAuditRecord:
+    additionalProperties: false
+    properties:
+      audit_id:
+        minLength: 1
+        title: Audit Id
+        type: string
+      tool_call_request_id:
+        minLength: 1
+        title: Tool Call Request Id
+        type: string
+      execution_id:
+        minLength: 1
+        title: Execution Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      provider_id:
+        minLength: 1
+        title: Provider Id
+        type: string
+      tool_id:
+        minLength: 1
+        title: Tool Id
+        type: string
+      operation_id:
+        minLength: 1
+        title: Operation Id
+        type: string
+      status:
+        $ref: '#/$defs/ToolExecutionStatus'
+      started_at:
+        format: date-time
+        title: Started At
+        type: string
+      finished_at:
+        format: date-time
+        title: Finished At
+        type: string
+      latency_ms:
+        minimum: 0.0
+        title: Latency Ms
+        type: number
+      cost_units:
+        minimum: 0.0
+        title: Cost Units
+        type: number
+      retry_count:
+        minimum: 0
+        title: Retry Count
+        type: integer
+      request_hash:
+        minLength: 1
+        title: Request Hash
+        type: string
+      response_hash:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Response Hash
+      credential_handle_used:
+        title: Credential Handle Used
+        type: boolean
+      arguments_redacted:
+        const: true
+        default: true
+        title: Arguments Redacted
+        type: boolean
+      previous_audit_hash:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+      audit_hash:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+    required:
+    - audit_id
+    - tool_call_request_id
+    - execution_id
+    - cognition_transaction_id
+    - person_id
+    - provider_id
+    - tool_id
+    - operation_id
+    - status
+    - started_at
+    - finished_at
+    - latency_ms
+    - cost_units
+    - retry_count
+    - request_hash
+    - credential_handle_used
+    title: ToolCallAuditRecord
+    type: object
+  ToolExecutionStatus:
+    enum:
+    - SUCCEEDED
+    - FAILED_TIMEOUT
+    - FAILED_RATE_LIMIT
+    - FAILED_AUTHENTICATION
+    - FAILED_PROVIDER
+    - FAILED_SCHEMA
+    - REJECTED_TEMPORAL
+    - REJECTED_AUTHORIZATION
+    title: ToolExecutionStatus
+    type: string
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s21.v1
+    default: p3.s21.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/ToolCallAuditRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: tool_call_audit_panel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s21:outputs:tool_call_audit_panel:v1
+artifact_name: tool_call_audit_panel
+x-artifact-name: tool_call_audit_panel
+x-contract-version: p3.s21.v1
+x-authority: P3.S21
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

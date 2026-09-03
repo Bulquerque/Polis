@@ -1,0 +1,13 @@
+{
+  "policies": [
+    {
+      "policy_id": "maturity-primary-1",
+      "metric_family": "primary",
+      "target_type": "PRIMARY",
+      "basis": "HORIZON",
+      "allow_partial": false,
+      "requires_observable_data": true,
+      "grace_period_seconds": 0
+    }
+  ]
+}

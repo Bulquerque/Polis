@@ -1,0 +1,13 @@
+schema_id: pagination_report.v1
+schema_version: v14.1-rc4.1
+release_version: V14.1-RC4.1
+type: object
+required: [schema_id, schema_version, release_version, status, terminal_condition, duplicate_pages, missing_pages]
+properties:
+  schema_id: {const: pagination_report.v1}
+  schema_version: {const: v14.1-rc4.1}
+  release_version: {const: V14.1-RC4.1}
+  status: {enum: [PASS, FAIL]}
+  terminal_condition: {type: string}
+  duplicate_pages: {type: integer}
+  missing_pages: {type: integer}

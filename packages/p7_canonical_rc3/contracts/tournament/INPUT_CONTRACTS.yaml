@@ -1,0 +1,16 @@
+contract_id: p7_tournament_integrated_input_v1
+required:
+  - runtime_foundation_handoff_manifest
+  - eligible_strategy_candidate_panel
+  - candidate_comparison_group_panel
+  - candidate_metric_source_panel
+  - ranking_policy_context
+  - runtime_foundation_audit_report
+  - scoring_policy_context
+optional:
+  - option_factor_model_artifact
+invariants:
+  - common run_id, cycle_id and decision_time
+  - all mandatory artifacts available at or before decision_time
+  - manifest references match exact IDs, hashes, schemas and record counts
+  - no forbidden future or outcome fields

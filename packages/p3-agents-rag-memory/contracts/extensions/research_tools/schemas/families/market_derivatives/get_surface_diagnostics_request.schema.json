@@ -1,0 +1,68 @@
+{
+  "$defs": {
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT",
+        "UNKNOWN"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "executable_only": {
+      "default": true,
+      "title": "Executable Only",
+      "type": "boolean"
+    },
+    "expiration_dates": {
+      "default": [],
+      "items": {
+        "format": "date",
+        "type": "string"
+      },
+      "title": "Expiration Dates",
+      "type": "array"
+    },
+    "minimum_strikes_per_expiry": {
+      "default": 3,
+      "maximum": 100,
+      "minimum": 3,
+      "title": "Minimum Strikes Per Expiry",
+      "type": "integer"
+    },
+    "option_type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/OptionType"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "research_mode": {
+      "enum": [
+        "CHAIN_DIAGNOSTIC",
+        "STRUCTURE_HISTORY",
+        "SURFACE_ANALYSIS"
+      ],
+      "default": "SURFACE_ANALYSIS",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "underlying": {
+      "minLength": 1,
+      "title": "Underlying",
+      "type": "string"
+    }
+  },
+  "required": [
+    "underlying"
+  ],
+  "title": "GetSurfaceDiagnosticsRequest",
+  "type": "object"
+}

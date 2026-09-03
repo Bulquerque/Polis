@@ -1,0 +1,24 @@
+additionalProperties: false
+properties:
+  policy_id:
+    title: Policy Id
+    type: string
+  max_nearest_alternatives:
+    maximum: 20
+    minimum: 0
+    title: Max Nearest Alternatives
+    type: integer
+  structured_evidence_only:
+    title: Structured Evidence Only
+    type: boolean
+  llm_authoritative:
+    title: Llm Authoritative
+    type: boolean
+required:
+- policy_id
+- max_nearest_alternatives
+- structured_evidence_only
+- llm_authoritative
+title: ThesisPolicy
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

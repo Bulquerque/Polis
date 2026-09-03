@@ -1,0 +1,32 @@
+registry_id: state_sync_canonical_outputs_rc4_1
+schema_version: v14.1-rc4.1
+authority: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth/registries/phase_registry.yaml
+source_tables:
+  - GLOBAL_PHASE_TABLE.csv
+  - GLOBAL_SUBPHASE_TABLE.csv
+  - GLOBAL_MODULE_TABLE.csv
+  - GLOBAL_DECISIONS_NEEDED.csv
+canonical_outputs:
+  - artifact: PROJECT_STATE
+    canonical_path: PROJECT_STATE.json
+    validation: [json_parse, source_files_declared, phase_status_matches_phase_requirement_status, module_status_matches_module_requirement_status]
+  - artifact: phase_requirement_status
+    canonical_path: reports/requirements/phase_requirement_status.csv
+    validation: [csv_parse, one_row_per_global_phase, remaining_issues_reflect_global_decisions]
+  - artifact: module_requirement_status
+    canonical_path: reports/requirements/module_requirement_status.csv
+    validation: [csv_parse, one_row_per_global_module, status_reflects_global_contract_decisions]
+  - artifact: per_phase_requirement_and_gate_status
+    canonical_path_pattern: phases/<phase_id>/phase_requirement_status.json and phases/<phase_id>/phase_gate_result.json
+    validation: [json_parse, phase_id_matches_parent_package, status_matches_aggregated_requirement_status]
+governance_decision:
+  derived_outputs_are_canonical_when:
+    - generated_from_the_declared_source_tables
+    - validations_above_pass
+    - pending_decisions_are_faithfully_represented_in_their_own_decision_status
+    - each_pending_decision_blocks_only_the_gate_and_scope_it_governs
+    - no_pending_decision_is_silently_promoted_or_omitted
+  non_canonical_when:
+    - edited_without_source_table_traceability
+    - status_improves_without_contract_or_schema_proof
+    - pending_decisions_are_hidden_or_rewritten_as_resolved

@@ -1,0 +1,27 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "eligible_keys": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Eligible Keys",
+      "type": "array"
+    },
+    "ineligible_keys": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Ineligible Keys",
+      "type": "array"
+    }
+  },
+  "required": [
+    "eligible_keys",
+    "ineligible_keys"
+  ],
+  "title": "EvaluationEligibilityPanel",
+  "type": "object"
+}

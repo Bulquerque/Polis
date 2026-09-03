@@ -1,0 +1,23 @@
+module_id: P5.S1.M03
+name: p4_hypothesis_research_lineage_intake
+subphase_id: P5.S1
+required_inputs: []
+optional_inputs:
+- approved_hypothesis_passport_registry
+- hypothesis_budget_report
+- research_attempt_ledger
+- rejected_feature_graveyard
+- feature_observer_registry
+- perspective_conflict_panel
+outputs:
+- p5_hypothesis_confirmation_registry
+- cross_phase_research_lineage_map
+- p4_perspective_context
+allowed_actions:
+- RUN
+allowed_modes:
+- OFFLINE_TRAINING
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

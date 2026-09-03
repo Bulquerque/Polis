@@ -1,0 +1,342 @@
+{
+  "$defs": {
+    "FactorShock": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "unit": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "value",
+        "unit"
+      ],
+      "title": "FactorShock",
+      "type": "object"
+    },
+    "MaterialRiskDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Factor Ids",
+          "type": "array"
+        },
+        "materiality_weight": {
+          "exclusiveMinimum": 0,
+          "title": "Materiality Weight",
+          "type": "number"
+        },
+        "risk_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Risk Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "risk_id",
+        "factor_ids",
+        "materiality_weight"
+      ],
+      "title": "MaterialRiskDefinition",
+      "type": "object"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    },
+    "S5QualificationReference": {
+      "additionalProperties": false,
+      "properties": {
+        "bundle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Bundle Id",
+          "type": "string"
+        },
+        "bundle_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Bundle Sha256",
+          "type": "string"
+        },
+        "qualification_status": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Qualification Status",
+          "type": "string"
+        },
+        "source_version": {
+          "default": "0.1.0rc1",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Source Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "bundle_id",
+        "bundle_sha256",
+        "qualification_status"
+      ],
+      "title": "S5QualificationReference",
+      "type": "object"
+    },
+    "ScenarioClass": {
+      "enum": [
+        "HISTORICAL_REPLAY",
+        "HYPOTHETICAL_SCENARIO",
+        "UNIVARIATE_SENSITIVITY",
+        "MULTIVARIATE_STRESS",
+        "REVERSE_STRESS",
+        "LIQUIDITY_STRESS",
+        "MARGIN_STRESS",
+        "EXECUTION_STRESS",
+        "MODEL_STRESS",
+        "SYSTEMIC_STRESS"
+      ],
+      "title": "ScenarioClass",
+      "type": "string"
+    },
+    "ScenarioGovernancePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "duplicate_semantic_hash_rejected": {
+          "default": true,
+          "title": "Duplicate Semantic Hash Rejected",
+          "type": "boolean"
+        },
+        "minimum_material_risk_coverage": {
+          "default": 0.9,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Minimum Material Risk Coverage",
+          "type": "number"
+        },
+        "reject_post_outcome_commitment": {
+          "default": true,
+          "title": "Reject Post Outcome Commitment",
+          "type": "boolean"
+        }
+      },
+      "title": "ScenarioGovernancePolicy",
+      "type": "object"
+    },
+    "ScenarioProposal": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_uses": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Approved Uses",
+          "type": "array"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "horizon_days": {
+          "minimum": 1,
+          "title": "Horizon Days",
+          "type": "integer"
+        },
+        "name": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Name",
+          "type": "string"
+        },
+        "plausibility_label": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Plausibility Label",
+          "type": "string"
+        },
+        "prohibited_uses": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Prohibited Uses",
+          "type": "array"
+        },
+        "purpose": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "scenario_class": {
+          "$ref": "#/$defs/ScenarioClass"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "severity_label": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Severity Label",
+          "type": "string"
+        },
+        "shocks": {
+          "items": {
+            "$ref": "#/$defs/FactorShock"
+          },
+          "title": "Shocks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "name",
+        "scenario_class",
+        "created_at",
+        "purpose",
+        "approved_uses",
+        "shocks",
+        "horizon_days",
+        "severity_label",
+        "plausibility_label"
+      ],
+      "title": "ScenarioProposal",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "material_risks": {
+      "items": {
+        "$ref": "#/$defs/MaterialRiskDefinition"
+      },
+      "title": "Material Risks",
+      "type": "array"
+    },
+    "outcome_results_observed_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Outcome Results Observed At"
+    },
+    "policy": {
+      "$ref": "#/$defs/ScenarioGovernancePolicy",
+      "default": {
+        "duplicate_semantic_hash_rejected": true,
+        "minimum_material_risk_coverage": 0.9,
+        "reject_post_outcome_commitment": true
+      }
+    },
+    "proposals": {
+      "items": {
+        "$ref": "#/$defs/ScenarioProposal"
+      },
+      "title": "Proposals",
+      "type": "array"
+    },
+    "s5_qualification": {
+      "$ref": "#/$defs/S5QualificationReference"
+    }
+  },
+  "required": [
+    "context",
+    "s5_qualification",
+    "proposals",
+    "material_risks"
+  ],
+  "title": "ScenarioRegistryRequest",
+  "type": "object"
+}

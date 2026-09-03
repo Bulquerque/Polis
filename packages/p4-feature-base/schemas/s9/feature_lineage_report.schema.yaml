@@ -1,0 +1,128 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: feature_lineage_report
+type: object
+properties:
+  artifact_id:
+    type: string
+  artifact_name:
+    const: feature_lineage_report
+  schema_version:
+    type: string
+  producer_phase:
+    const: phase_04_feature_base
+  producer_module_id:
+    type: string
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  record_count:
+    type: integer
+    minimum: 0
+  grain:
+    type: array
+    items:
+      type: string
+  lineage_id:
+    type: string
+  execution_status:
+    enum:
+    - PRODUCED
+    - DEGRADED
+    - BLOCKED
+    - SKIPPED_NOT_AVAILABLE
+    - SKIPPED_NOT_AUTHORIZED
+    - UNAVAILABLE_UPSTREAM
+    - FAILED_NONBLOCKING
+    - NOT_RUN
+  quality_status:
+    enum:
+    - VALIDATED
+    - DEGRADED
+    - BLOCKED
+    - NOT_EVALUATED
+  records:
+    type: array
+    items:
+      type: object
+      properties:
+        node_id:
+          type: string
+        node_type:
+          enum:
+          - ARTIFACT
+          - FEATURE
+        artifact_name:
+          type: string
+        producer_module_id:
+          type: string
+        dependencies:
+          type: array
+          items:
+            type: string
+        lineage_status:
+          enum:
+          - COMPLETE
+          - INCOMPLETE
+        temporal_status:
+          enum:
+          - PASS
+          - BLOCK
+        content_hash:
+          type: string
+        record_count:
+          type: integer
+          minimum: 0
+        issues:
+          type: array
+          items:
+            type: string
+      required:
+      - node_id
+      - node_type
+      - artifact_name
+      - producer_module_id
+      - dependencies
+      - lineage_status
+      - temporal_status
+      - content_hash
+      - record_count
+      - issues
+      additionalProperties: false
+  metadata:
+    type: object
+    properties: {}
+    additionalProperties: true
+  alias_of:
+    type:
+    - string
+    - 'null'
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- record_count
+- grain
+- lineage_id
+- execution_status
+- quality_status
+- records
+- metadata
+- alias_of
+additionalProperties: false

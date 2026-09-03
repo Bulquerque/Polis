@@ -1,0 +1,21 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "child_parameter_id": {
+      "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+      "title": "Child Parameter Id",
+      "type": "string"
+    },
+    "parent_parameter_id": {
+      "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+      "title": "Parent Parameter Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parent_parameter_id",
+    "child_parameter_id"
+  ],
+  "title": "SearchSpaceConstraintEdge",
+  "type": "object"
+}

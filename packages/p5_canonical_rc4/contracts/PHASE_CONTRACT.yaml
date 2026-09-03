@@ -1,0 +1,31 @@
+generated_from: canonical Python domain and registry
+phase_id: P5
+package_id: P5_INTEGRATED_RC34_INTEGRATION_HARDENED
+package_version: 0.34.1rc4.post2
+pipeline_version: P5-RC34.1-CONTRACT-CLOSURE-RC4
+implemented_waves:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+pending_waves: []
+subphase_count: 9
+module_count: 45
+execution_modes:
+- OFFLINE_TRAINING
+- RUNTIME_INFERENCE
+- VALIDATION
+- PUBLICATION
+- INTEGRATION_REPLAY
+rules:
+- fail_closed
+- point_in_time
+- sealed_test
+- no_training_during_runtime_inference
+- no_silent_economic_defaults
+- single_schema_authority
+- cpu_first_baseline

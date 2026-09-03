@@ -1,0 +1,116 @@
+{
+  "$defs": {
+    "ConsumerReceiptPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Accepted Artifact Ids",
+          "type": "array"
+        },
+        "consumer_module_id": {
+          "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+          "title": "Consumer Module Id",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "rejected_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Rejected Artifact Ids",
+          "type": "array"
+        },
+        "reserved_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reserved Artifact Ids",
+          "type": "array"
+        },
+        "source_contract_name": {
+          "minLength": 1,
+          "title": "Source Contract Name",
+          "type": "string"
+        },
+        "source_contract_version": {
+          "minLength": 1,
+          "title": "Source Contract Version",
+          "type": "string"
+        },
+        "source_payload_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Payload Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "consumer_module_id",
+        "source_contract_name",
+        "source_contract_version",
+        "source_payload_sha256"
+      ],
+      "title": "ConsumerReceiptPayload",
+      "type": "object"
+    },
+    "IntegrityEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "canonicalization_version": {
+          "default": "P9-C14N-JSON-1",
+          "minLength": 1,
+          "title": "Canonicalization Version",
+          "type": "string"
+        },
+        "hash_algorithm": {
+          "default": "sha256",
+          "minLength": 1,
+          "title": "Hash Algorithm",
+          "type": "string"
+        },
+        "payload_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Payload Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "payload_sha256"
+      ],
+      "title": "IntegrityEnvelope",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "integrity": {
+      "$ref": "#/$defs/IntegrityEnvelope"
+    },
+    "payload": {
+      "$ref": "#/$defs/ConsumerReceiptPayload"
+    }
+  },
+  "required": [
+    "payload",
+    "integrity"
+  ],
+  "title": "ConsumerReceipt",
+  "type": "object"
+}

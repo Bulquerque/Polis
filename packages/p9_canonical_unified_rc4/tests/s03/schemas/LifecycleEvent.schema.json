@@ -1,0 +1,71 @@
+{
+  "$defs": {
+    "LifecycleType": {
+      "enum": [
+        "EXERCISE",
+        "ASSIGNMENT",
+        "EXPIRY",
+        "ROLL",
+        "CASH_SETTLEMENT",
+        "QUANTITY_ADJUSTMENT"
+      ],
+      "title": "LifecycleType",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/LifecycleEvent.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cash_amount": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Cash Amount"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "event_type": {
+      "$ref": "#/$defs/LifecycleType"
+    },
+    "instrument_id": {
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "quantity_delta": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Quantity Delta"
+    }
+  },
+  "required": [
+    "event_id",
+    "instrument_id",
+    "event_type",
+    "event_time"
+  ],
+  "title": "LifecycleEvent",
+  "type": "object"
+}

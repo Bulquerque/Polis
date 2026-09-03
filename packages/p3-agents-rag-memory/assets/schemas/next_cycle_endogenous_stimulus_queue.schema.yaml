@@ -1,0 +1,27 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: endogenous_stimulus_queue
+status: planned_internal_schema
+type: object
+properties:
+  queue_id:
+    type: string
+  source_cycle_id:
+    type: string
+  target_cycle_id:
+    type: string
+  stimuli:
+    type: array
+    items:
+      $ref: stimulus.schema.yaml
+  lineage_id:
+    type: string
+additionalProperties: false
+artifact_name: next_cycle_endogenous_stimulus_queue
+schema_id: next_cycle_endogenous_stimulus_queue.v1
+schema_version: v14.1-rc4.1
+required_fields:
+- queue_id
+- source_cycle_id
+- target_cycle_id
+- stimuli
+- lineage_id

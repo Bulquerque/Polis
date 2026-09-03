@@ -1,0 +1,44 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cohort_id": {
+      "minLength": 1,
+      "title": "Cohort Id",
+      "type": "string"
+    },
+    "prediction_event_id": {
+      "minLength": 1,
+      "title": "Prediction Event Id",
+      "type": "string"
+    },
+    "champion_policy_id": {
+      "minLength": 1,
+      "title": "Champion Policy Id",
+      "type": "string"
+    },
+    "challenger_policy_id": {
+      "minLength": 1,
+      "title": "Challenger Policy Id",
+      "type": "string"
+    },
+    "champion_loss": {
+      "title": "Champion Loss",
+      "type": "number"
+    },
+    "challenger_loss": {
+      "title": "Challenger Loss",
+      "type": "number"
+    }
+  },
+  "required": [
+    "cohort_id",
+    "prediction_event_id",
+    "champion_policy_id",
+    "challenger_policy_id",
+    "champion_loss",
+    "challenger_loss"
+  ],
+  "title": "PairedLossObservation",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:PairedLossObservation:1.0.0"
+}

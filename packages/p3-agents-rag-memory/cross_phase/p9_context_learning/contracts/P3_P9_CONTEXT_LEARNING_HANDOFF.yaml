@@ -1,0 +1,10 @@
+p3_outputs:
+- p9_evaluation_evidence_bundle
+- p9_context_learning_handoff_manifest
+- belief_outcome_commitment_log
+p9_outputs_to_next_cycle:
+- next_cycle_retro_update_package
+- next_cycle_retro_handoff_manifest
+- next_cycle_belief_feedback_package
+- next_cycle_learning_feedback_handoff_manifest
+authority: P9 evaluates and promotes; P3 only exports evidence and ingests promoted/matured feedback.

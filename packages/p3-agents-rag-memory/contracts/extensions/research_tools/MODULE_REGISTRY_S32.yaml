@@ -1,0 +1,27 @@
+schema_id: p3.research_tools.s32.module_registry.v1
+schema_version: 1.0.0
+modules:
+- module_id: P3.S32.M01
+  module_name: canonical_research_tool_catalog_builder
+  subphase: P3.S32
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M01_canonical_research_tool_catalog_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S32_M01_canonical_research_tool_catalog_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S32.M02
+  module_name: research_mode_contract_registry_builder
+  subphase: P3.S32
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M02_research_mode_contract_registry_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S32_M02_research_mode_contract_registry_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S32.M03
+  module_name: legacy_tool_plane_compatibility_overlay_builder
+  subphase: P3.S32
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M03_legacy_tool_plane_compatibility_overlay_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S32_M03_legacy_tool_plane_compatibility_overlay_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S32.M04
+  module_name: extension_snapshot_manifest_builder
+  subphase: P3.S32
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M04_extension_snapshot_manifest_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S32_M04_extension_snapshot_manifest_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL

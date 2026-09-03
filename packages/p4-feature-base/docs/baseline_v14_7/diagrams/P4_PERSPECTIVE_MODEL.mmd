@@ -1,0 +1,11 @@
+flowchart TD
+  D[Modalities] --> O[Atomic observations]
+  O --> V[Perspectives by phenomenon]
+  V --> C[Confirmation + conflict]
+  V --> I[Interpretable matrix]
+  C --> I
+  I --> PCA[PCA/Sparse PCA by family]
+  I --> AE[Shared/private denoising encoders]
+  PCA --> H[Handoff]
+  AE --> H
+  I --> H

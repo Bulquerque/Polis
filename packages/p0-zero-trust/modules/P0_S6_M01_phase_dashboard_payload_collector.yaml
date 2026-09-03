@@ -1,0 +1,40 @@
+module_id: P0.S6.M01
+module_name: phase_dashboard_payload_collector
+function: Executar phase dashboard payload collector da Fase 0, mantendo controle
+  Zero Trust técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- dashboard_phase_payload_all_phases
+- phase_test_status_panel
+- artifact_manifest_audit_report
+outputs: &id002
+- collected_phase_dashboard_payloads
+validations:
+- every_phase_dashboard_payload_present
+- phase_id_valid
+fail_fast_conditions:
+- phase_dashboard_payload_collector_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S3.M03
+    - P0.S4.M04
+    artifacts: *id001
+    phase_inputs:
+    - dashboard_phase_payload_all_phases
+  emits_to:
+    modules:
+    - P0.S6.M02
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S6
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

@@ -1,0 +1,103 @@
+{
+  "contracts": [
+    {
+      "canonicalization_profile": "P9-C14N-JSON-1",
+      "consumer": "P9.S9",
+      "contract_name": "CONTRACT_P9_S8_TO_S9_PROMOTION_EVIDENCE_V2",
+      "producer": "P9.S8",
+      "version": "2.0.0"
+    },
+    {
+      "canonicalization_profile": "P9-MODERN-FEEDBACK-C14N-1",
+      "consumer": "P9.COMPATIBILITY",
+      "contract_name": "P0_FEEDBACK_AUTHORIZATION_V1",
+      "producer": "P0",
+      "version": "1.0.0"
+    },
+    {
+      "canonicalization_profile": "P3-NATIVE-ISOLATED",
+      "consumer": "P9.COMPATIBILITY",
+      "contract_name": "P3_S31_P9_EVALUATION_BOUNDARY_V1",
+      "producer": "P3.S31",
+      "version": "1.0.0"
+    },
+    {
+      "canonicalization_profile": "P9-C14N-JSON-1",
+      "consumer": "P9.S1",
+      "contract_name": "P8_EVALUATION_HANDOFF_V1",
+      "producer": "P8.S10",
+      "version": "1.0.0"
+    },
+    {
+      "canonicalization_profile": "P9-C14N-JSON-1",
+      "consumer": "P9.S3",
+      "contract_name": "P9_FOUNDATION_EXPERIMENT_BUNDLE_V1",
+      "producer": "P9.S2",
+      "version": "1.0.0"
+    },
+    {
+      "canonicalization_profile": "S10-CANONICAL-JSON-1",
+      "consumer": "P3",
+      "contract_name": "P9_RESEARCH_CONTEXT_HANDOFF_V1",
+      "producer": "P9.S10",
+      "version": "1.0.0"
+    },
+    {
+      "canonicalization_profile": "P9-C14N-JSON-1",
+      "consumer": "P9.S5",
+      "contract_name": "P9_S4_TO_S5_EVIDENCE_V2",
+      "producer": "P9.S4",
+      "version": "2.0.0"
+    },
+    {
+      "canonicalization_profile": "P9-C14N-JSON-1",
+      "consumer": "P9.S7",
+      "contract_name": "P9_S6_TO_S7_STRESS_CAPACITY_V2",
+      "producer": "P9.S6",
+      "version": "2.0.0"
+    },
+    {
+      "canonicalization_profile": "P9-MODERN-FEEDBACK-C14N-1",
+      "consumer": "P5.S1",
+      "contract_name": "P9_TO_P5_MODERN_FEEDBACK_V1",
+      "producer": "P9/P0",
+      "version": "1.0.0"
+    },
+    {
+      "canonicalization_profile": "P9-MODERN-FEEDBACK-C14N-1",
+      "consumer": "P7.S1",
+      "contract_name": "P9_TO_P7_MODERN_FEEDBACK_V1",
+      "producer": "P9/P0",
+      "version": "1.0.0"
+    },
+    {
+      "canonicalization_profile": "P8-NATIVE",
+      "consumer": "P8.S1",
+      "contract_name": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+      "producer": "P9/P0",
+      "version": "1.0.0"
+    },
+    {
+      "canonicalization_profile": "RC4.1",
+      "consumer": "P8",
+      "contract_name": "PORTFOLIO_FEEDBACK_REPORT_RC4_1",
+      "producer": "P9",
+      "version": "v14.1-rc4.1"
+    },
+    {
+      "canonicalization_profile": "RC4.1",
+      "consumer": "P7",
+      "contract_name": "RANKING_FEEDBACK_REPORT_RC4_1",
+      "producer": "P9",
+      "version": "v14.1-rc4.1"
+    },
+    {
+      "canonicalization_profile": "RC4.1",
+      "consumer": "P5",
+      "contract_name": "SIGNAL_FEEDBACK_REPORT_RC4_1",
+      "producer": "P9",
+      "version": "v14.1-rc4.1"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,1834 @@
+{
+  "$defs": {
+    "AttributionAmount": {
+      "additionalProperties": false,
+      "properties": {
+        "component_id": {
+          "minLength": 1,
+          "title": "Component Id",
+          "type": "string"
+        },
+        "pnl_effect": {
+          "title": "Pnl Effect",
+          "type": "number"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "component_id",
+        "pnl_effect",
+        "evidence_class",
+        "quality"
+      ],
+      "title": "AttributionAmount",
+      "type": "object"
+    },
+    "AttributionQuality": {
+      "enum": [
+        "QUALIFIED",
+        "LIMITED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_IDENTIFIABLE",
+        "INVALID"
+      ],
+      "title": "AttributionQuality",
+      "type": "string"
+    },
+    "AttributionReconciliationReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "decomposition_version": {
+          "minLength": 1,
+          "title": "Decomposition Version",
+          "type": "string"
+        },
+        "factual_pnl": {
+          "title": "Factual Pnl",
+          "type": "number"
+        },
+        "attributed_pnl": {
+          "title": "Attributed Pnl",
+          "type": "number"
+        },
+        "residual_pnl": {
+          "title": "Residual Pnl",
+          "type": "number"
+        },
+        "tolerance": {
+          "minimum": 0.0,
+          "title": "Tolerance",
+          "type": "number"
+        },
+        "reconciled": {
+          "title": "Reconciled",
+          "type": "boolean"
+        },
+        "double_count_checks_passed": {
+          "title": "Double Count Checks Passed",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "decomposition_version",
+        "factual_pnl",
+        "attributed_pnl",
+        "residual_pnl",
+        "tolerance",
+        "reconciled",
+        "double_count_checks_passed",
+        "reason_codes"
+      ],
+      "title": "AttributionReconciliationReceipt",
+      "type": "object"
+    },
+    "CandidateAllocationEffect": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "selection_effect": {
+          "title": "Selection Effect",
+          "type": "number"
+        },
+        "sizing_effect": {
+          "title": "Sizing Effect",
+          "type": "number"
+        },
+        "constraint_effect": {
+          "title": "Constraint Effect",
+          "type": "number"
+        },
+        "discretization_effect": {
+          "title": "Discretization Effect",
+          "type": "number"
+        },
+        "total_virtual_pnl": {
+          "title": "Total Virtual Pnl",
+          "type": "number"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "selection_effect",
+        "sizing_effect",
+        "constraint_effect",
+        "discretization_effect",
+        "total_virtual_pnl"
+      ],
+      "title": "CandidateAllocationEffect",
+      "type": "object"
+    },
+    "CausalStrength": {
+      "enum": [
+        "SUPPORTED",
+        "PLAUSIBLE",
+        "UNRESOLVED"
+      ],
+      "title": "CausalStrength",
+      "type": "string"
+    },
+    "CollinearityPair": {
+      "additionalProperties": false,
+      "properties": {
+        "first_component_id": {
+          "minLength": 1,
+          "title": "First Component Id",
+          "type": "string"
+        },
+        "second_component_id": {
+          "minLength": 1,
+          "title": "Second Component Id",
+          "type": "string"
+        },
+        "correlation": {
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Correlation",
+          "type": "number"
+        }
+      },
+      "required": [
+        "first_component_id",
+        "second_component_id",
+        "correlation"
+      ],
+      "title": "CollinearityPair",
+      "type": "object"
+    },
+    "ComponentAttribution": {
+      "additionalProperties": false,
+      "properties": {
+        "component_id": {
+          "minLength": 1,
+          "title": "Component Id",
+          "type": "string"
+        },
+        "component_kind": {
+          "minLength": 1,
+          "title": "Component Kind",
+          "type": "string"
+        },
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "mean_historical_weight": {
+          "title": "Mean Historical Weight",
+          "type": "number"
+        },
+        "mean_loss_increase_when_removed": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mean Loss Increase When Removed"
+        },
+        "aggregate_pnl_effect": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Aggregate Pnl Effect"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "component_id",
+        "component_kind",
+        "observation_count",
+        "mean_historical_weight",
+        "mean_loss_increase_when_removed",
+        "aggregate_pnl_effect",
+        "quality",
+        "evidence_class"
+      ],
+      "title": "ComponentAttribution",
+      "type": "object"
+    },
+    "CounterfactualPolicyResult": {
+      "additionalProperties": false,
+      "properties": {
+        "factual_mean_reward": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Factual Mean Reward"
+        },
+        "ips_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ips Value"
+        },
+        "snips_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Snips Value"
+        },
+        "doubly_robust_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Doubly Robust Value"
+        },
+        "direct_model_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Direct Model Value"
+        },
+        "opportunity_cost_vs_factual": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Opportunity Cost Vs Factual"
+        },
+        "overlap": {
+          "$ref": "#/$defs/OverlapDiagnostics"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "result_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Result Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factual_mean_reward",
+        "ips_value",
+        "snips_value",
+        "doubly_robust_value",
+        "direct_model_value",
+        "opportunity_cost_vs_factual",
+        "overlap",
+        "quality",
+        "evidence_class",
+        "reason_codes",
+        "result_sha256"
+      ],
+      "title": "CounterfactualPolicyResult",
+      "type": "object"
+    },
+    "EstimateAccuracyItem": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "price_error": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Price Error"
+        },
+        "cost_error": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cost Error"
+        },
+        "liquidity_error": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Liquidity Error"
+        },
+        "risk_error": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Risk Error"
+        },
+        "maximum_loss_proof_valid": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum Loss Proof Valid"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "evidence_class"
+      ],
+      "title": "EstimateAccuracyItem",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "EvidenceStrength": {
+      "enum": [
+        "FACTUAL",
+        "OBSERVABLE",
+        "MODEL_BASED",
+        "INSUFFICIENT"
+      ],
+      "title": "EvidenceStrength",
+      "type": "string"
+    },
+    "ExecutionAttributionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "orders": {
+          "items": {
+            "$ref": "#/$defs/OrderShortfall"
+          },
+          "title": "Orders",
+          "type": "array"
+        },
+        "lifecycle": {
+          "items": {
+            "$ref": "#/$defs/LifecycleAttribution"
+          },
+          "title": "Lifecycle",
+          "type": "array"
+        },
+        "total_delay_cost": {
+          "title": "Total Delay Cost",
+          "type": "number"
+        },
+        "total_trading_cost": {
+          "title": "Total Trading Cost",
+          "type": "number"
+        },
+        "total_opportunity_cost": {
+          "title": "Total Opportunity Cost",
+          "type": "number"
+        },
+        "total_explicit_cost": {
+          "title": "Total Explicit Cost",
+          "type": "number"
+        },
+        "total_legging_cost": {
+          "title": "Total Legging Cost",
+          "type": "number"
+        },
+        "total_shortfall": {
+          "title": "Total Shortfall",
+          "type": "number"
+        },
+        "lifecycle_pnl_effect": {
+          "title": "Lifecycle Pnl Effect",
+          "type": "number"
+        },
+        "aggregate_pnl_effect": {
+          "title": "Aggregate Pnl Effect",
+          "type": "number"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "result_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Result Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "orders",
+        "lifecycle",
+        "total_delay_cost",
+        "total_trading_cost",
+        "total_opportunity_cost",
+        "total_explicit_cost",
+        "total_legging_cost",
+        "total_shortfall",
+        "lifecycle_pnl_effect",
+        "aggregate_pnl_effect",
+        "quality",
+        "reason_codes",
+        "result_sha256"
+      ],
+      "title": "ExecutionAttributionResult",
+      "type": "object"
+    },
+    "ForecastAttributionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "items": {
+            "$ref": "#/$defs/ComponentAttribution"
+          },
+          "title": "Components",
+          "type": "array"
+        },
+        "collinearity_pairs": {
+          "items": {
+            "$ref": "#/$defs/CollinearityPair"
+          },
+          "title": "Collinearity Pairs",
+          "type": "array"
+        },
+        "aggregate_pnl_effect": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Aggregate Pnl Effect"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "result_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Result Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "components",
+        "collinearity_pairs",
+        "aggregate_pnl_effect",
+        "quality",
+        "reason_codes",
+        "result_sha256"
+      ],
+      "title": "ForecastAttributionResult",
+      "type": "object"
+    },
+    "HierarchicalPnlAttributionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "stage_amounts": {
+          "items": {
+            "$ref": "#/$defs/AttributionAmount"
+          },
+          "title": "Stage Amounts",
+          "type": "array"
+        },
+        "option_nested_explanation": {
+          "$ref": "#/$defs/OptionAttributionResult"
+        },
+        "counterfactual_diagnostic": {
+          "$ref": "#/$defs/CounterfactualPolicyResult"
+        },
+        "reconciliation": {
+          "$ref": "#/$defs/AttributionReconciliationReceipt"
+        },
+        "root_cause_nodes": {
+          "items": {
+            "$ref": "#/$defs/RootCauseNode"
+          },
+          "title": "Root Cause Nodes",
+          "type": "array"
+        },
+        "root_cause_edges": {
+          "items": {
+            "$ref": "#/$defs/RootCauseEdge"
+          },
+          "title": "Root Cause Edges",
+          "type": "array"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "result_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Result Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "stage_amounts",
+        "option_nested_explanation",
+        "counterfactual_diagnostic",
+        "reconciliation",
+        "root_cause_nodes",
+        "root_cause_edges",
+        "quality",
+        "reason_codes",
+        "result_sha256"
+      ],
+      "title": "HierarchicalPnlAttributionResult",
+      "type": "object"
+    },
+    "IntegrityEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "SHA-256",
+          "default": "SHA-256",
+          "title": "Algorithm",
+          "type": "string"
+        },
+        "canonicalization_version": {
+          "const": "JCS-LIKE-JSON-UTF8-V1",
+          "default": "JCS-LIKE-JSON-UTF8-V1",
+          "title": "Canonicalization Version",
+          "type": "string"
+        },
+        "payload_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Payload Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "payload_sha256"
+      ],
+      "title": "IntegrityEnvelope",
+      "type": "object"
+    },
+    "LifecycleAttribution": {
+      "additionalProperties": false,
+      "properties": {
+        "position_id": {
+          "minLength": 1,
+          "title": "Position Id",
+          "type": "string"
+        },
+        "planned_event": {
+          "minLength": 1,
+          "title": "Planned Event",
+          "type": "string"
+        },
+        "actual_event": {
+          "minLength": 1,
+          "title": "Actual Event",
+          "type": "string"
+        },
+        "lifecycle_pnl_effect": {
+          "title": "Lifecycle Pnl Effect",
+          "type": "number"
+        },
+        "matched_plan": {
+          "title": "Matched Plan",
+          "type": "boolean"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        }
+      },
+      "required": [
+        "position_id",
+        "planned_event",
+        "actual_event",
+        "lifecycle_pnl_effect",
+        "matched_plan",
+        "evidence_class"
+      ],
+      "title": "LifecycleAttribution",
+      "type": "object"
+    },
+    "ModuleStatus": {
+      "enum": [
+        "SUCCESS",
+        "LIMITED",
+        "UNAVAILABLE",
+        "INSUFFICIENT_EVIDENCE",
+        "INVALID",
+        "FAILED"
+      ],
+      "title": "ModuleStatus",
+      "type": "string"
+    },
+    "OptionAttributionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "intervals": {
+          "items": {
+            "$ref": "#/$defs/OptionIntervalAttribution"
+          },
+          "title": "Intervals",
+          "type": "array"
+        },
+        "full_repricing_pnl": {
+          "title": "Full Repricing Pnl",
+          "type": "number"
+        },
+        "explained_pnl": {
+          "title": "Explained Pnl",
+          "type": "number"
+        },
+        "residual_pnl": {
+          "title": "Residual Pnl",
+          "type": "number"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "result_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Result Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "intervals",
+        "full_repricing_pnl",
+        "explained_pnl",
+        "residual_pnl",
+        "quality",
+        "reason_codes",
+        "result_sha256"
+      ],
+      "title": "OptionAttributionResult",
+      "type": "object"
+    },
+    "OptionIntervalAttribution": {
+      "additionalProperties": false,
+      "properties": {
+        "position_id": {
+          "minLength": 1,
+          "title": "Position Id",
+          "type": "string"
+        },
+        "full_repricing_pnl": {
+          "title": "Full Repricing Pnl",
+          "type": "number"
+        },
+        "delta_pnl": {
+          "title": "Delta Pnl",
+          "type": "number"
+        },
+        "gamma_pnl": {
+          "title": "Gamma Pnl",
+          "type": "number"
+        },
+        "vega_pnl": {
+          "title": "Vega Pnl",
+          "type": "number"
+        },
+        "theta_pnl": {
+          "title": "Theta Pnl",
+          "type": "number"
+        },
+        "rho_pnl": {
+          "title": "Rho Pnl",
+          "type": "number"
+        },
+        "skew_pnl": {
+          "title": "Skew Pnl",
+          "type": "number"
+        },
+        "term_structure_pnl": {
+          "title": "Term Structure Pnl",
+          "type": "number"
+        },
+        "cross_greek_pnl": {
+          "title": "Cross Greek Pnl",
+          "type": "number"
+        },
+        "lifecycle_pnl": {
+          "title": "Lifecycle Pnl",
+          "type": "number"
+        },
+        "explained_pnl": {
+          "title": "Explained Pnl",
+          "type": "number"
+        },
+        "residual_pnl": {
+          "title": "Residual Pnl",
+          "type": "number"
+        },
+        "residual_material": {
+          "title": "Residual Material",
+          "type": "boolean"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "position_id",
+        "full_repricing_pnl",
+        "delta_pnl",
+        "gamma_pnl",
+        "vega_pnl",
+        "theta_pnl",
+        "rho_pnl",
+        "skew_pnl",
+        "term_structure_pnl",
+        "cross_greek_pnl",
+        "lifecycle_pnl",
+        "explained_pnl",
+        "residual_pnl",
+        "residual_material",
+        "quality"
+      ],
+      "title": "OptionIntervalAttribution",
+      "type": "object"
+    },
+    "OrderShortfall": {
+      "additionalProperties": false,
+      "properties": {
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "delay_cost": {
+          "title": "Delay Cost",
+          "type": "number"
+        },
+        "trading_cost": {
+          "title": "Trading Cost",
+          "type": "number"
+        },
+        "opportunity_cost": {
+          "title": "Opportunity Cost",
+          "type": "number"
+        },
+        "explicit_cost": {
+          "title": "Explicit Cost",
+          "type": "number"
+        },
+        "legging_cost": {
+          "title": "Legging Cost",
+          "type": "number"
+        },
+        "total_shortfall": {
+          "title": "Total Shortfall",
+          "type": "number"
+        },
+        "fill_rate": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Fill Rate",
+          "type": "number"
+        },
+        "slippage_model_error": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Slippage Model Error"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        }
+      },
+      "required": [
+        "order_id",
+        "delay_cost",
+        "trading_cost",
+        "opportunity_cost",
+        "explicit_cost",
+        "legging_cost",
+        "total_shortfall",
+        "fill_rate",
+        "slippage_model_error",
+        "evidence_class"
+      ],
+      "title": "OrderShortfall",
+      "type": "object"
+    },
+    "OverlapDiagnostics": {
+      "additionalProperties": false,
+      "properties": {
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "supported_observation_count": {
+          "minimum": 0,
+          "title": "Supported Observation Count",
+          "type": "integer"
+        },
+        "minimum_logging_propensity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Logging Propensity"
+        },
+        "maximum_importance_weight": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum Importance Weight"
+        },
+        "effective_sample_size": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective Sample Size"
+        },
+        "support_qualified": {
+          "title": "Support Qualified",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "observation_count",
+        "supported_observation_count",
+        "support_qualified"
+      ],
+      "title": "OverlapDiagnostics",
+      "type": "object"
+    },
+    "PayoffAttributionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "fidelity": {
+          "items": {
+            "$ref": "#/$defs/PayoffFidelityItem"
+          },
+          "title": "Fidelity",
+          "type": "array"
+        },
+        "estimates": {
+          "items": {
+            "$ref": "#/$defs/EstimateAccuracyItem"
+          },
+          "title": "Estimates",
+          "type": "array"
+        },
+        "candidate_count": {
+          "minimum": 0,
+          "title": "Candidate Count",
+          "type": "integer"
+        },
+        "observable_candidate_count": {
+          "minimum": 0,
+          "title": "Observable Candidate Count",
+          "type": "integer"
+        },
+        "coverage_ratio": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Coverage Ratio",
+          "type": "number"
+        },
+        "selected_candidate_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Selected Candidate Id"
+        },
+        "best_observable_candidate_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Best Observable Candidate Id"
+        },
+        "synthesis_regret": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Synthesis Regret"
+        },
+        "aggregate_pnl_effect": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Aggregate Pnl Effect"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "result_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Result Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fidelity",
+        "estimates",
+        "candidate_count",
+        "observable_candidate_count",
+        "coverage_ratio",
+        "selected_candidate_id",
+        "best_observable_candidate_id",
+        "synthesis_regret",
+        "aggregate_pnl_effect",
+        "quality",
+        "reason_codes",
+        "result_sha256"
+      ],
+      "title": "PayoffAttributionResult",
+      "type": "object"
+    },
+    "PayoffFidelityItem": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "scenario_count": {
+          "minimum": 0,
+          "title": "Scenario Count",
+          "type": "integer"
+        },
+        "weighted_mae": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Weighted Mae"
+        },
+        "weighted_rmse": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Weighted Rmse"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "scenario_count",
+        "weighted_mae",
+        "weighted_rmse",
+        "quality"
+      ],
+      "title": "PayoffFidelityItem",
+      "type": "object"
+    },
+    "PortfolioAttributionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_effects": {
+          "items": {
+            "$ref": "#/$defs/CandidateAllocationEffect"
+          },
+          "title": "Candidate Effects",
+          "type": "array"
+        },
+        "selection_effect": {
+          "title": "Selection Effect",
+          "type": "number"
+        },
+        "sizing_effect": {
+          "title": "Sizing Effect",
+          "type": "number"
+        },
+        "constraint_effect": {
+          "title": "Constraint Effect",
+          "type": "number"
+        },
+        "discretization_effect": {
+          "title": "Discretization Effect",
+          "type": "number"
+        },
+        "netting_diversification_effect": {
+          "title": "Netting Diversification Effect",
+          "type": "number"
+        },
+        "virtual_pnl": {
+          "title": "Virtual Pnl",
+          "type": "number"
+        },
+        "physical_pnl": {
+          "title": "Physical Pnl",
+          "type": "number"
+        },
+        "dual_book_difference": {
+          "title": "Dual Book Difference",
+          "type": "number"
+        },
+        "aggregate_pnl_effect": {
+          "title": "Aggregate Pnl Effect",
+          "type": "number"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "result_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Result Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_effects",
+        "selection_effect",
+        "sizing_effect",
+        "constraint_effect",
+        "discretization_effect",
+        "netting_diversification_effect",
+        "virtual_pnl",
+        "physical_pnl",
+        "dual_book_difference",
+        "aggregate_pnl_effect",
+        "quality",
+        "reason_codes",
+        "result_sha256"
+      ],
+      "title": "PortfolioAttributionResult",
+      "type": "object"
+    },
+    "RankingAttributionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "groups": {
+          "items": {
+            "$ref": "#/$defs/RankingGroupReport"
+          },
+          "title": "Groups",
+          "type": "array"
+        },
+        "mean_pairwise_accuracy": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mean Pairwise Accuracy"
+        },
+        "mean_ndcg_at_k": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mean Ndcg At K"
+        },
+        "total_ranking_regret": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Ranking Regret"
+        },
+        "aggregate_pnl_effect": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Aggregate Pnl Effect"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "result_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Result Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "groups",
+        "aggregate_pnl_effect",
+        "quality",
+        "reason_codes",
+        "result_sha256"
+      ],
+      "title": "RankingAttributionResult",
+      "type": "object"
+    },
+    "RankingGroupReport": {
+      "additionalProperties": false,
+      "properties": {
+        "group_id": {
+          "minLength": 1,
+          "title": "Group Id",
+          "type": "string"
+        },
+        "eligible_count": {
+          "minimum": 0,
+          "title": "Eligible Count",
+          "type": "integer"
+        },
+        "observable_count": {
+          "minimum": 0,
+          "title": "Observable Count",
+          "type": "integer"
+        },
+        "pairwise_accuracy": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pairwise Accuracy"
+        },
+        "spearman_correlation": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": -1.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Spearman Correlation"
+        },
+        "ndcg_at_k": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ndcg At K"
+        },
+        "ranking_regret": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ranking Regret"
+        },
+        "dominance_violations": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Dominance Violations",
+          "type": "array"
+        },
+        "abstention_state": {
+          "minLength": 1,
+          "title": "Abstention State",
+          "type": "string"
+        },
+        "quality": {
+          "$ref": "#/$defs/AttributionQuality"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "group_id",
+        "eligible_count",
+        "observable_count",
+        "dominance_violations",
+        "abstention_state",
+        "quality"
+      ],
+      "title": "RankingGroupReport",
+      "type": "object"
+    },
+    "RootCauseEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "parent_cause_id": {
+          "minLength": 1,
+          "title": "Parent Cause Id",
+          "type": "string"
+        },
+        "child_cause_id": {
+          "minLength": 1,
+          "title": "Child Cause Id",
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "CONTRIBUTES_TO",
+            "CONTRADICTS",
+            "CONDITIONS",
+            "EXPLAINS"
+          ],
+          "title": "Relation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parent_cause_id",
+        "child_cause_id",
+        "relation"
+      ],
+      "title": "RootCauseEdge",
+      "type": "object"
+    },
+    "RootCauseNode": {
+      "additionalProperties": false,
+      "properties": {
+        "cause_id": {
+          "minLength": 1,
+          "title": "Cause Id",
+          "type": "string"
+        },
+        "source_module_id": {
+          "pattern": "^P9\\.S8\\.M0[1-8]$",
+          "title": "Source Module Id",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "pnl_effect": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pnl Effect"
+        },
+        "causal_strength": {
+          "$ref": "#/$defs/CausalStrength"
+        },
+        "evidence_strength": {
+          "$ref": "#/$defs/EvidenceStrength"
+        },
+        "evidence_refs": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "contradictions": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Contradictions",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "cause_id",
+        "source_module_id",
+        "label",
+        "causal_strength",
+        "evidence_strength",
+        "evidence_refs"
+      ],
+      "title": "RootCauseNode",
+      "type": "object"
+    },
+    "S8BundleHeader": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_name": {
+          "const": "P9_PROSPECTIVE_ATTRIBUTION_BUNDLE_V1",
+          "default": "P9_PROSPECTIVE_ATTRIBUTION_BUNDLE_V1",
+          "title": "Contract Name",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "1.0.0",
+          "default": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "created_at"
+      ],
+      "title": "S8BundleHeader",
+      "type": "object"
+    },
+    "S8ModuleExecutionReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "module_id": {
+          "pattern": "^P9\\.S8\\.M0[1-8]$",
+          "title": "Module Id",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/ModuleStatus"
+        },
+        "input_artifact_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Input Artifact Ids",
+          "type": "array"
+        },
+        "output_artifact_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Output Artifact Ids",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "started_at": {
+          "format": "date-time",
+          "title": "Started At",
+          "type": "string"
+        },
+        "completed_at": {
+          "format": "date-time",
+          "title": "Completed At",
+          "type": "string"
+        },
+        "diagnostics_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Diagnostics Sha256",
+          "type": "string"
+        },
+        "integrity": {
+          "$ref": "#/$defs/IntegrityEnvelope"
+        }
+      },
+      "required": [
+        "module_id",
+        "status",
+        "input_artifact_ids",
+        "output_artifact_ids",
+        "started_at",
+        "completed_at",
+        "diagnostics_sha256",
+        "integrity"
+      ],
+      "title": "S8ModuleExecutionReceipt",
+      "type": "object"
+    },
+    "S8SubphaseExecutionReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "subphase_id": {
+          "const": "P9.S8",
+          "default": "P9.S8",
+          "title": "Subphase Id",
+          "type": "string"
+        },
+        "expected_module_ids": {
+          "items": {
+            "pattern": "^P9\\.S8\\.M0[1-8]$",
+            "type": "string"
+          },
+          "title": "Expected Module Ids",
+          "type": "array"
+        },
+        "module_receipts": {
+          "items": {
+            "$ref": "#/$defs/S8ModuleExecutionReceipt"
+          },
+          "title": "Module Receipts",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/ModuleStatus"
+        },
+        "output_artifact_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Output Artifact Ids",
+          "type": "array"
+        },
+        "integrity": {
+          "$ref": "#/$defs/IntegrityEnvelope"
+        }
+      },
+      "required": [
+        "expected_module_ids",
+        "module_receipts",
+        "status",
+        "output_artifact_ids",
+        "integrity"
+      ],
+      "title": "S8SubphaseExecutionReceipt",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "header": {
+      "$ref": "#/$defs/S8BundleHeader"
+    },
+    "upstream_bundle_sha256s": {
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Upstream Bundle Sha256S",
+      "type": "array"
+    },
+    "s7_bundle_sha256": {
+      "title": "S7 Bundle Sha256",
+      "type": "string"
+    },
+    "forecast_attribution": {
+      "$ref": "#/$defs/ForecastAttributionResult"
+    },
+    "payoff_attribution": {
+      "$ref": "#/$defs/PayoffAttributionResult"
+    },
+    "ranking_attribution": {
+      "$ref": "#/$defs/RankingAttributionResult"
+    },
+    "portfolio_attribution": {
+      "$ref": "#/$defs/PortfolioAttributionResult"
+    },
+    "execution_attribution": {
+      "$ref": "#/$defs/ExecutionAttributionResult"
+    },
+    "option_attribution": {
+      "$ref": "#/$defs/OptionAttributionResult"
+    },
+    "counterfactual_report": {
+      "$ref": "#/$defs/CounterfactualPolicyResult"
+    },
+    "hierarchical_reconciliation": {
+      "$ref": "#/$defs/HierarchicalPnlAttributionResult"
+    },
+    "module_receipts": {
+      "items": {
+        "$ref": "#/$defs/S8ModuleExecutionReceipt"
+      },
+      "title": "Module Receipts",
+      "type": "array"
+    },
+    "subphase_receipt": {
+      "$ref": "#/$defs/S8SubphaseExecutionReceipt"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "header",
+    "upstream_bundle_sha256s",
+    "s7_bundle_sha256",
+    "forecast_attribution",
+    "payoff_attribution",
+    "ranking_attribution",
+    "portfolio_attribution",
+    "execution_attribution",
+    "option_attribution",
+    "counterfactual_report",
+    "hierarchical_reconciliation",
+    "module_receipts",
+    "subphase_receipt"
+  ],
+  "title": "ProspectiveAttributionPayload",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:ProspectiveAttributionPayload:1.0.0"
+}

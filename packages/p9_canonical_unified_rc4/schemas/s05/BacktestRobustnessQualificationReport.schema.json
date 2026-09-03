@@ -1,0 +1,278 @@
+{
+  "$defs": {
+    "MultipleTestingResult": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "reality_check_pvalue": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reality Check Pvalue"
+        },
+        "reality_check_statistic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reality Check Statistic"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "tested_trial_count": {
+          "minimum": 0,
+          "title": "Tested Trial Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "applicable",
+        "reality_check_statistic",
+        "reality_check_pvalue",
+        "tested_trial_count"
+      ],
+      "title": "MultipleTestingResult",
+      "type": "object"
+    },
+    "PBOResult": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "combination_count": {
+          "minimum": 0,
+          "title": "Combination Count",
+          "type": "integer"
+        },
+        "logits": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Logits",
+          "type": "array"
+        },
+        "pbo": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Pbo"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "applicable",
+        "pbo",
+        "combination_count",
+        "logits"
+      ],
+      "title": "PBOResult",
+      "type": "object"
+    },
+    "S5State": {
+      "enum": [
+        "SUCCESS",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "PARTIAL_METRIC_COVERAGE",
+        "INSUFFICIENT_EVIDENCE",
+        "INSUFFICIENT_HISTORY",
+        "INSUFFICIENT_TRADES",
+        "INSUFFICIENT_VALID_REPLICATES",
+        "IRREGULAR_TIME_UNSUPPORTED",
+        "TRIAL_FAMILY_INCOMPLETE",
+        "EFFECTIVE_TRIAL_COUNT_UNRESOLVED",
+        "METRIC_VERSION_MISMATCH",
+        "ROBUST",
+        "PROVISIONALLY_ROBUST",
+        "FRAGILE",
+        "BACKTEST_OVERFIT_RISK",
+        "REGIME_DEPENDENT",
+        "SELECTION_BIAS_UNRESOLVED",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S5State",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bootstrap_lower_bound": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Bootstrap Lower Bound"
+    },
+    "contrary_evidence": {
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Contrary Evidence",
+      "type": "array"
+    },
+    "dsr": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Dsr"
+    },
+    "favorable_evidence": {
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Favorable Evidence",
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "multiple_testing": {
+      "$ref": "#/$defs/MultipleTestingResult"
+    },
+    "pbo": {
+      "$ref": "#/$defs/PBOResult"
+    },
+    "probability_above_threshold": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Probability Above Threshold"
+    },
+    "rank_stability": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rank Stability"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S5State"
+    },
+    "target_configuration_id": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Target Configuration Id",
+      "type": "string"
+    },
+    "target_metric_id": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Target Metric Id",
+      "type": "string"
+    },
+    "worst_fold_score": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Worst Fold Score"
+    }
+  },
+  "required": [
+    "status",
+    "target_configuration_id",
+    "target_metric_id",
+    "pbo",
+    "multiple_testing",
+    "dsr",
+    "bootstrap_lower_bound",
+    "probability_above_threshold",
+    "worst_fold_score",
+    "rank_stability",
+    "favorable_evidence",
+    "contrary_evidence",
+    "reason_codes",
+    "limitations"
+  ],
+  "title": "BacktestRobustnessQualificationReport",
+  "type": "object"
+}

@@ -1,0 +1,136 @@
+$defs:
+  FactorAdjustmentAuditRecord:
+    additionalProperties: false
+    properties:
+      policy_id:
+        title: Policy Id
+        type: string
+      mode:
+        $ref: '#/$defs/FactorMode'
+      model_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        title: Model Id
+      model_status:
+        title: Model Status
+        type: string
+      target_metric_id:
+        title: Target Metric Id
+        type: string
+      adjusted_candidate_count:
+        minimum: 0
+        title: Adjusted Candidate Count
+        type: integer
+      bypassed_candidate_count:
+        minimum: 0
+        title: Bypassed Candidate Count
+        type: integer
+      unavailable_candidate_count:
+        minimum: 0
+        title: Unavailable Candidate Count
+        type: integer
+      blocked_candidate_count:
+        minimum: 0
+        title: Blocked Candidate Count
+        type: integer
+      conservation_max_abs_error:
+        minimum: 0
+        title: Conservation Max Abs Error
+        type: number
+      reason_counts:
+        additionalProperties:
+          type: integer
+        title: Reason Counts
+        type: object
+    required:
+    - policy_id
+    - mode
+    - model_id
+    - model_status
+    - target_metric_id
+    - adjusted_candidate_count
+    - bypassed_candidate_count
+    - unavailable_candidate_count
+    - blocked_candidate_count
+    - conservation_max_abs_error
+    - reason_counts
+    title: FactorAdjustmentAuditRecord
+    type: object
+  FactorMode:
+    enum:
+    - BYPASS
+    - STATIC_PREMIA
+    - QUALIFIED_RESIDUAL
+    title: FactorMode
+    type: string
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/FactorAdjustmentAuditRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: factor_adjustment_audit_report envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s3/factor_adjustment_audit_report/1.0.0

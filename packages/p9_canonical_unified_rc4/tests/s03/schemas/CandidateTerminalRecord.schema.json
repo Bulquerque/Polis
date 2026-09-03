@@ -1,0 +1,44 @@
+{
+  "$defs": {
+    "CandidateTerminalState": {
+      "enum": [
+        "GENERATED",
+        "RANKED",
+        "BLOCKED",
+        "ABSTAINED",
+        "SELECTED",
+        "NOT_SELECTED",
+        "EXECUTED",
+        "NO_ACTION"
+      ],
+      "title": "CandidateTerminalState",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/CandidateTerminalRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/CandidateTerminalState"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "state"
+  ],
+  "title": "CandidateTerminalRecord",
+  "type": "object"
+}

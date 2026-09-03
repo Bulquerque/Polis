@@ -1,0 +1,454 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "relationship_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relationship Type"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_version",
+        "contract_version",
+        "content_sha256",
+        "available_at"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "CashBalance": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Amount"
+        }
+      },
+      "required": [
+        "currency",
+        "amount"
+      ],
+      "title": "CashBalance",
+      "type": "object"
+    },
+    "CollateralBalance": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "market_value": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Market Value"
+        },
+        "eligible_value": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Eligible Value"
+        }
+      },
+      "required": [
+        "asset_id",
+        "currency",
+        "market_value",
+        "eligible_value"
+      ],
+      "title": "CollateralBalance",
+      "type": "object"
+    },
+    "MarginBalance": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "used": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Used"
+        },
+        "available": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Available"
+        }
+      },
+      "required": [
+        "currency",
+        "used",
+        "available"
+      ],
+      "title": "MarginBalance",
+      "type": "object"
+    },
+    "OpenOrderRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "total_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Total Quantity"
+        },
+        "filled_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Filled Quantity"
+        },
+        "remaining_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Remaining Quantity"
+        },
+        "signed_remaining_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Signed Remaining Quantity"
+        },
+        "virtual_allocations": {
+          "items": {
+            "$ref": "#/$defs/OpenOrderVirtualAllocation"
+          },
+          "title": "Virtual Allocations",
+          "type": "array"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order_id",
+        "instrument_id",
+        "total_quantity",
+        "filled_quantity",
+        "remaining_quantity",
+        "created_at"
+      ],
+      "title": "OpenOrderRecord",
+      "type": "object"
+    },
+    "OpenOrderVirtualAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "allocated_remaining_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Allocated Remaining Quantity"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "allocated_remaining_quantity"
+      ],
+      "title": "OpenOrderVirtualAllocation",
+      "type": "object"
+    },
+    "PositionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "average_cost": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Average Cost"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "quantity",
+        "contract_multiplier",
+        "currency"
+      ],
+      "title": "PositionRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "state_id": {
+      "minLength": 1,
+      "title": "State Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "positions": {
+      "items": {
+        "$ref": "#/$defs/PositionRecord"
+      },
+      "title": "Positions",
+      "type": "array"
+    },
+    "cash": {
+      "items": {
+        "$ref": "#/$defs/CashBalance"
+      },
+      "title": "Cash",
+      "type": "array"
+    },
+    "margin": {
+      "items": {
+        "$ref": "#/$defs/MarginBalance"
+      },
+      "title": "Margin",
+      "type": "array"
+    },
+    "collateral": {
+      "items": {
+        "$ref": "#/$defs/CollateralBalance"
+      },
+      "title": "Collateral",
+      "type": "array"
+    },
+    "open_orders": {
+      "items": {
+        "$ref": "#/$defs/OpenOrderRecord"
+      },
+      "title": "Open Orders",
+      "type": "array"
+    },
+    "virtual_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Virtual Candidate Ids",
+      "type": "array"
+    },
+    "event_log_ref": {
+      "$ref": "#/$defs/ArtifactReference"
+    },
+    "checkpoint_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "replay_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Replay Hash",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "state_id",
+    "as_of_time",
+    "event_log_ref",
+    "replay_hash",
+    "content_sha256"
+  ],
+  "title": "PortfolioStateProjection",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "PORTFOLIO_STATE_PROJECTION_V1.schema.json"
+}

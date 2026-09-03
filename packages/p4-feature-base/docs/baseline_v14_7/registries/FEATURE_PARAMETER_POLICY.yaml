@@ -1,0 +1,51 @@
+version: V14.6-RC1
+authority: P4_STRUCTURAL_ONLY
+research_mode: THEORY_FIRST_HIERARCHICAL
+principles:
+- economic_mechanism_precedes_observer
+- one_primary_parameterization_per_hypothesis
+- maximum_one_robustness_parameterization
+- all_attempts_count_toward_research_budget
+- parameter_variants_are_not_new_theories
+- P4_never_selects_by_future_alpha
+- P5_uses_nested_temporal_validation
+- P9_owns_sealed_holdout_audit
+canonical_sessions:
+- 1
+- 5
+- 21
+- 63
+- 126
+- 252
+observer_parameter_modes:
+- FIXED_THEORY
+- PRIMARY_PLUS_ONE_ROBUSTNESS
+- DATA_FREQUENCY_DERIVED
+- NO_SEARCH
+limits:
+  max_parameterizations_per_confirmatory_hypothesis: 2
+  primary_parameterizations: 1
+  robustness_parameterizations: 1
+  max_adjacent_scales: 1
+  parameter_change_requires_new_observer_version: true
+  hidden_manual_trials_prohibited: true
+structural_pruning_metrics:
+- coverage
+- freshness
+- missingness
+- numerical_stability
+- redundancy
+- cost
+- lineage_completeness
+- regime_coverage
+prohibited_selection_metrics_in_P4:
+- future_return
+- information_coefficient
+- Sharpe
+- PnL
+- prediction_loss
+downstream_rules:
+  exploratory_multiple_testing: family_level_FDR
+  confirmatory_multiple_testing: dependency_aware_stepdown
+  sealed_holdout_owner: P9
+  failed_or_abandoned_trial_recorded: true

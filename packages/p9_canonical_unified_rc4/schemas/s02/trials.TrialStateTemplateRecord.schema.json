@@ -1,0 +1,79 @@
+{
+  "$defs": {
+    "TrialState": {
+      "enum": [
+        "PLANNED",
+        "RESERVED",
+        "RUNNING",
+        "COMPLETED",
+        "INVALID",
+        "INFEASIBLE",
+        "EARLY_STOPPED",
+        "RESOURCE_EXHAUSTED",
+        "FAILED",
+        "QUARANTINED",
+        "CANCELLED_UPSTREAM"
+      ],
+      "title": "TrialState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "assigned_worker_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Assigned Worker Id"
+    },
+    "attempt": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Attempt",
+      "type": "integer"
+    },
+    "current_state": {
+      "$ref": "#/$defs/TrialState"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "result_artifact_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Result Artifact Id"
+    },
+    "trial_id": {
+      "pattern": "^trial-[0-9a-f]{64}$",
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trial_id",
+    "current_state"
+  ],
+  "title": "TrialStateTemplateRecord",
+  "type": "object"
+}

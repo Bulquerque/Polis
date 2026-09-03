@@ -1,0 +1,15 @@
+authority_id: P3_FINAL_GLOBAL_SCHEMA_AUTHORITY_V1
+authority_version: 1.0.0
+resolution_policy: phase_owner_is_authority_global_is_mirror
+artifacts:
+  clean_context_source_panel: {owner_phase: P2, source: phase_02_quality_pit, schema_file: clean_context_source_panel.schema.yaml}
+  clean_document_panel: {owner_phase: P2, source: phase_02_quality_pit, schema_file: clean_document_panel.schema.yaml}
+  clean_event_reference_panel: {owner_phase: P2, source: phase_02_quality_pit, schema_file: clean_event_reference_panel.schema.yaml}
+  source_quality_panel: {owner_phase: P2, source: phase_02_quality_pit, schema_file: source_quality_panel.schema.yaml}
+  context_handoff_manifest: {owner_phase: P2, source: phase_02_quality_pit, schema_file: context_handoff_manifest.schema.yaml}
+  phase3_handoff_manifest: {owner_phase: P2, source: phase_02_quality_pit, schema_file: phase3_handoff_manifest.schema.yaml}
+  hypothesis_registry: {owner_phase: P4, source: phase_04_feature_base, schema_file: hypothesis_registry.schema.yaml}
+qualification_policy:
+  global_root_required: true
+  source_owner_hash_must_match_global: true
+  local_mirror_hash_must_match_global: true

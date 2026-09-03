@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-pipeline-p5-canonical"
+version = "0.34.1rc4.post2"
+description = "Canonical, fail-closed P5 probabilistic forecasting phase"
+readme = "README_START_HERE.md"
+requires-python = ">=3.11,<3.15"
+dependencies = [
+  "pydantic>=2.10,<3",
+  "PyYAML>=6,<7",
+  "jsonschema>=4.20,<5",
+  "numpy>=1.26,<3",
+  "scipy>=1.11,<2",
+  "scikit-learn>=1.4,<2",
+]
+
+[project.optional-dependencies]
+tables = ["pandas>=2.2,<3", "pyarrow>=15,<28"]
+volatility = ["arch>=7,<9"]
+deep = ["torch>=2.3,<3"]
+graph = ["networkx>=3.2,<4"]
+dev = [
+  "pytest>=8,<10",
+  "coverage>=7,<8",
+  "hypothesis>=6,<7",
+  "ruff>=0.9,<1",
+  "mypy>=1.13,<2",
+  "types-PyYAML>=6,<7",
+]
+
+[project.scripts]
+p5 = "quant_pipeline.phase_05_underlying_forecasts.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.data-files]
+"share/quant-pipeline-p5-canonical/contracts" = ["contracts/*.yaml"]
+"share/quant-pipeline-p5-canonical/contracts/modules" = ["contracts/modules/*.yaml"]
+"share/quant-pipeline-p5-canonical/schemas" = ["schemas/*.json"]
+"share/quant-pipeline-p5-canonical/registries" = ["*_REGISTRY.yaml"]
+"share/quant-pipeline-p5-canonical/configs" = ["configs/*.yaml"]
+"share/quant-pipeline-p5-canonical/references/p4_v14_9" = ["references/p4_v14_9/*.yaml"]
+"share/quant-pipeline-p5-canonical/references/global_rc4_1" = ["references/global_rc4_1/*.yaml"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["quant_pipeline.phase_05_underlying_forecasts"]
+omit = [
+  "*/modules/P5_*.py",
+  "*/registry_data.py",
+]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
+skip_covered = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "C4", "RUF"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["quant_pipeline.phase_05_underlying_forecasts"]

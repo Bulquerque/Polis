@@ -1,0 +1,26 @@
+config_id: p3.s31.p9-consumer-compatibility
+config_version: 1.0.0
+current_p9_input_contract_hash: 19808e0b38fcaa326f546b5216537464b67a8a0cf0922cbcf25320d6244ea8c5
+current_p9_output_contract_hash: ba544ad40ed63357029157ec94b77e5306f7869a9b5bba423771031e821c9f1e
+declared_p9_inputs:
+- portfolio_backtest_result
+- performance_report
+- backtest_audit_report
+- portfolio_diagnostics_report
+- orders_panel
+- fills_panel
+- position_ledger
+- cash_ledger
+- premium_ledger
+- cost_ledger
+- margin_ledger
+- pnl_panel
+- equity_curve_panel
+- exposure_panel
+- drawdown_panel
+- ranking_context_snapshot
+- score_decomposition_snapshot
+- ranking_audit_snapshot
+consumer_contract_id: phase_09_audit_learning.INPUT_CONTRACTS.RC4.1
+consumer_binding_status: CONSUMER_NOT_YET_BOUND
+blind_holdout_policy_ref: p9.blind_holdout.v1

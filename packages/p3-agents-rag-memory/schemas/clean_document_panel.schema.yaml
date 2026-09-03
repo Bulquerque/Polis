@@ -1,0 +1,25 @@
+artifact: clean_document_panel
+grain:
+- document_id
+required_fields:
+- document_id
+- source_id
+- source_name
+- document_type
+- document_title
+- document_text_or_path
+- reference_date
+- available_at
+- ingested_at
+- source_quality_score
+- language
+- cleaning_status
+- lineage_id
+- pipeline_version
+forbidden_fields:
+- trade_decision
+- rank_score
+- portfolio_weight
+- future_return
+- realized_pnl
+schema_version: v14.1-rc4.1

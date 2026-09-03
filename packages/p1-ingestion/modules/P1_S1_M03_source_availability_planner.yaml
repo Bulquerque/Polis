@@ -1,0 +1,49 @@
+module_id: P1.S1.M03
+module_name: source_availability_planner
+phase: phase_01_ingestion
+subphase: P1.S1
+rc: RC4.1
+function: Planejar disponibilidade e tarefas de captura por fonte sem baixar dados
+  ainda.
+inputs: &id001
+- validated_ingestion_run_config
+- source_registry
+- source_calendar_config
+- local_raw_file_paths
+outputs: &id002
+- source_capture_plan
+validations:
+- source_plan_complete
+- critical_sources_marked
+fail_fast_conditions:
+- source_availability_planner_schema_violation
+- source_availability_planner_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P1.S1.M02
+    - P1.S1.M01
+    artifacts: *id001
+    phase_inputs:
+    - source_calendar_config
+    - local_raw_file_paths
+  emits_to:
+    modules:
+    - P1.S2.M01
+    artifacts: *id002
+    phase_outputs: []
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

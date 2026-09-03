@@ -1,0 +1,5 @@
+{
+  "expected_failure": "holdout_vault",
+  "vault": "FINAL_HOLDOUT",
+  "candidate_frozen": false
+}

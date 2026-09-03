@@ -1,0 +1,101 @@
+schema_id: tool_registry_config.s15.v2
+schema_version: 2.0.0
+run_id: run_demo_s15
+cycle_id: cycle_001
+snapshot_id: snapshot_demo_s15
+as_of_time: '2025-01-15T12:00:00Z'
+execution_context: BACKTEST
+discovery_mode: STATIC_ONLY
+disconnected_tools_not_entitleable: true
+unqualified_tools_not_entitleable: true
+credential_policy: handle_only
+tools:
+  - tool_id: research.search_filings.v1
+    tool_version: 1.0.0
+    name: search_filings
+    title: Search filings
+    description: Search point-in-time company filings.
+    provider_id: research_mcp
+    interface_id: MCPGatewayAdapter
+    adapter_id: mcp_streamable_http
+    adapter_version: 1.28.1-v1
+    capability_family: research
+    configuration_status: ENABLED
+    execution_mode: READ_ONLY
+    request_schema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      type: object
+      properties:
+        query: {type: string, minLength: 1}
+        as_of: {type: string, format: date-time}
+      required: [query, as_of]
+      additionalProperties: false
+    response_schema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      type: object
+      properties:
+        records: {type: array, items: {type: object}}
+        available_at: {type: string, format: date-time}
+      required: [records, available_at]
+      additionalProperties: false
+    pit_policy:
+      backtest_allowed: true
+      live_allowed: true
+      requires_available_at: true
+    credential_policy: HANDLE_ONLY
+    credential_handle_type: oauth_session_handle
+    retry_policy:
+      max_attempts: 2
+      retryable_failure_codes: [RATE_LIMIT, TIMEOUT]
+      backoff_policy: EXPONENTIAL_JITTER
+    timeout_policy: {timeout_ms: 30000}
+    rate_limit_policy: {max_calls_per_minute: 20}
+    cost_policy:
+      cost_class: LOW
+      estimated_cost_per_call: 0.0
+      currency: BRL
+    cacheable: true
+    deterministic_or_seeded: false
+    sensitivity_class: INTERNAL
+    permitted_data_classes: [public_filings]
+    max_calls_per_person_cycle: 3
+  - tool_id: quant.realized_volatility.v1
+    tool_version: 1.0.0
+    name: realized_volatility
+    title: Realized volatility
+    description: Compute deterministic realized-volatility statistics.
+    provider_id: quant_local
+    interface_id: MCPGatewayAdapter
+    adapter_id: local_function_adapter
+    adapter_version: 1.0.0
+    capability_family: quantitative
+    configuration_status: ENABLED
+    execution_mode: READ_ONLY
+    request_schema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      type: object
+      properties:
+        returns: {type: array, items: {type: number}, minItems: 2}
+      required: [returns]
+      additionalProperties: false
+    response_schema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      type: object
+      properties:
+        realized_volatility: {type: number, minimum: 0}
+      required: [realized_volatility]
+      additionalProperties: false
+    pit_policy:
+      backtest_allowed: true
+      live_allowed: true
+      requires_available_at: false
+    credential_policy: NONE
+    retry_policy: {max_attempts: 1, retryable_failure_codes: [], backoff_policy: NONE}
+    timeout_policy: {timeout_ms: 5000}
+    rate_limit_policy: {max_calls_per_minute: 100}
+    cost_policy: {cost_class: FREE, estimated_cost_per_call: 0.0, currency: BRL}
+    cacheable: true
+    deterministic_or_seeded: true
+    sensitivity_class: INTERNAL
+    permitted_data_classes: [market_returns]
+    max_calls_per_person_cycle: 5

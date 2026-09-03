@@ -1,0 +1,8 @@
+status: planned
+required:
+- meta_schema_validation
+- valid_examples_pass
+- invalid_examples_fail_for_expected_reason
+- external_compatibility
+- bounds_and_enums
+- additional_properties_policy

@@ -1,0 +1,226 @@
+{
+  "$id": "runtime_model_compatibility_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "runtime_model_compatibility_report"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "compatibility_status": {
+            "enum": [
+              "RESOLVED",
+              "UNAVAILABLE",
+              "INTERPRETABLE_ONLY"
+            ]
+          },
+          "decision_time": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "eligible_model_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "evaluated_model_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "fallback_mode": {
+            "enum": [
+              "INTERPRETABLE_ONLY",
+              "ABSTAIN_MODEL_PATH"
+            ]
+          },
+          "feature_schema_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "model_decisions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "checks": {
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "type": "object"
+                },
+                "eligible": {
+                  "type": "boolean"
+                },
+                "failed_checks": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "model_family_id": {
+                  "anyOf": [
+                    {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "model_hash": {
+                  "anyOf": [
+                    {
+                      "pattern": "^[0-9a-f]{64}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "reason_code": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "model_family_id",
+                "model_hash",
+                "checks",
+                "eligible",
+                "failed_checks",
+                "reason_code"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "reason_code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "requested_mode": {
+            "enum": [
+              "INTERPRETABLE_ONLY",
+              "LTR_SHADOW",
+              "HYBRID_QUALIFIED"
+            ]
+          },
+          "resolved_model_family_id": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "resolved_model_hash": {
+            "anyOf": [
+              {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "compatibility_status",
+          "reason_code",
+          "requested_mode",
+          "fallback_mode",
+          "feature_schema_hash",
+          "candidate_count",
+          "decision_time",
+          "resolved_model_hash",
+          "resolved_model_family_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

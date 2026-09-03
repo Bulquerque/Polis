@@ -1,0 +1,61 @@
+module_id: P4.S9.M01
+module_name: feature_lineage_temporal_safety_auditor
+phase: P4
+subphase: P4.S9
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: feature lineage temporal safety auditor
+inputs:
+- underlying_feature_matrix_raw
+- underlying_feature_matrix_selected
+- underlying_feature_factors_pca
+- underlying_feature_embeddings
+- feature_selection_report
+- feature_transform_state_manifest
+- causal_transform_fit_state_manifest
+- normalization_neutralization_fit_state_manifest
+- feature_diversity_redundancy_report
+- pca_fit_state_manifest
+- encoder_fit_state_manifest
+- representation_quality_report
+- representation_fold_plan
+- s9_policy_registry
+- research_attempt_event_log
+outputs:
+- feature_lineage_report
+- temporal_safety_report
+validations:
+- content_hashes_valid
+- snapshot_consistent
+- fit_before_use
+- folds_causal
+- feature_transform_lineage_complete
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- no_hidden_global_state
+- no_supervised_metrics
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+- sharpe
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- hash_negative
+- forbidden_field_negative
+- replay
+- metamorphic_or_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M01_feature_lineage_temporal_safety_auditor.py
+qualification_policy: LOCAL_THEN_CROSS_PHASE_THEN_P0
+production_promotion_allowed: false

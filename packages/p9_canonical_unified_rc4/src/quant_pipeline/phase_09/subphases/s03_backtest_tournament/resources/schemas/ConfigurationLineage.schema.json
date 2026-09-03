@@ -1,0 +1,34 @@
+{
+  "$id": "https://inferencia.local/p9/s3/ConfigurationLineage.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "configuration_id": {
+      "title": "Configuration Id",
+      "type": "string"
+    },
+    "economic_fingerprint": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Economic Fingerprint",
+      "type": "string"
+    },
+    "parent_configuration_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Configuration Id"
+    }
+  },
+  "required": [
+    "configuration_id",
+    "economic_fingerprint"
+  ],
+  "title": "ConfigurationLineage",
+  "type": "object"
+}

@@ -1,0 +1,155 @@
+{
+  "$defs": {
+    "PositionState": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "1",
+          "title": "Contract Multiplier"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "mark_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Mark Price"
+        },
+        "position_id": {
+          "minLength": 1,
+          "title": "Position Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "position_id",
+        "candidate_id",
+        "instrument_id",
+        "quantity",
+        "mark_price"
+      ],
+      "title": "PositionState",
+      "type": "object"
+    },
+    "ReplayState": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "format": "date-time",
+          "title": "As Of",
+          "type": "string"
+        },
+        "cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cash"
+        },
+        "fees_paid": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Fees Paid"
+        },
+        "margin_used": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Margin Used"
+        },
+        "positions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/PositionState"
+          },
+          "title": "Positions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "as_of",
+        "cash"
+      ],
+      "title": "ReplayState",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_id": {
+      "minLength": 1,
+      "title": "Checkpoint Id",
+      "type": "string"
+    },
+    "last_sequence": {
+      "minimum": -1,
+      "title": "Last Sequence",
+      "type": "integer"
+    },
+    "state": {
+      "$ref": "#/$defs/ReplayState"
+    }
+  },
+  "required": [
+    "checkpoint_id",
+    "last_sequence",
+    "state"
+  ],
+  "title": "ReplayCheckpointPayload",
+  "type": "object"
+}

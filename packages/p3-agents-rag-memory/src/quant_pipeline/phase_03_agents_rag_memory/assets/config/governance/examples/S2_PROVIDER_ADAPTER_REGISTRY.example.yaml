@@ -1,0 +1,22 @@
+registry_id: P3_PROVIDER_INTERFACE_REGISTRY_V2
+architecture: provider_agnostic
+interfaces:
+  - interface_id: LLMProviderAdapter
+    purpose: structured cognition/tool-calling
+    required_capabilities: [structured_output, tool_calling, request_audit]
+providers:
+  - provider_id: fixture_llm
+    adapter_id: DeterministicFixtureLLMAdapter
+    adapter_version: '1.0.0'
+    capabilities: [structured_output, deterministic_replay]
+    qualification_status: QUALIFIED_LOCAL
+    models:
+      - model_id: fixture-model
+        model_version: '1.0.0'
+        release_date: '2025-01-01T00:00:00Z'
+        declared_knowledge_cutoff: '2024-12-31T00:00:00Z'
+        training_data_cutoff: '2024-12-31T00:00:00Z'
+        canary_test_status: PASSED
+        qualification_status: QUALIFIED_LOCAL
+        evidence_refs: [fixture:model-card]
+rule: no module may call a vendor SDK directly outside its adapter boundary

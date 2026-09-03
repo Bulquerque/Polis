@@ -1,0 +1,61 @@
+registry_id: p3_foundation_artifact_authority.v3
+revision: P3-FINAL
+authorities:
+  GOVERNANCE:
+  - validated_context_inputs
+  - pit_validated_context
+  - phase3_run_snapshot
+  - model_knowledge_cutoff_report
+  - personality_tag_registry
+  - person_schema_policy
+  - active_retro_policy_patch
+  - active_belief_feedback_bundle
+  POPULATION:
+  - person_seed_panel
+  - validated_population_manifest
+  - validated_initial_social_graph
+  - population_runtime_view
+  - social_graph_runtime_view
+  MEMORY:
+  - memory_access_policy
+  - memory_index_manifest
+  - memory_runtime_view
+  FOUNDATION_RESOURCES:
+  - rag_index_artifact
+  - retrieval_index_manifest
+  - graph_rag_artifact
+  - graph_evidence_map
+  - tool_registry
+  - person_tool_entitlement_panel
+  - mcp_gateway_policy
+  - tool_call_audit_contract
+  - knowledge_runtime_view
+  - tool_runtime_view
+  P3.ORCHESTRATOR:
+  - p3_foundation_resource_manifest
+  - p3_foundation_runtime_manifest
+  - module_registry
+  - schema_registry
+  - artifact_registry
+  FOUNDATION_GOVERNANCE:
+  - foundation_governance_view
+  WARMUP:
+  - state_runtime_view
+  SHARED_CONTRACT_PACK:
+  - p3_integration_contract_pack
+  - cycle_kernel_request
+  - cycle_kernel_result
+  - p3_cycle_closure_manifest
+  - replay_state
+  WARMUP_STATE:
+  - current_person_state_panel
+  - current_belief_state_panel
+  - current_memory_state
+  - current_social_graph
+rules:
+- same_name_has_one_authority
+- consumer_views_are_versioned_boundary_artifacts
+- adapters_are_pure_fail_closed
+- registries_are_assembly_owned
+- worker_assignment_is_not_runtime_architecture
+- runtime_resolves_artifacts_only_through_ports

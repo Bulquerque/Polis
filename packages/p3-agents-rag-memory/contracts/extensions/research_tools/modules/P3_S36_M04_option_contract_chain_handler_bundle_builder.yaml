@@ -1,0 +1,139 @@
+module_id: P3.S36.M04
+module_name: option_contract_chain_handler_bundle_builder
+phase: phase_03_agents_rag_memory
+subphase: P3.S36
+status: implemented_qualified_local
+function: Construir handlers de contratos, cadeia histórica e histórico de quotes de opções.
+inputs: &id001
+- options_view_binding
+- options_view_readiness_report
+outputs: &id002
+- options_chain_handler_bundle
+- options_chain_operation_qualification
+validations:
+- contract_first_seen
+- quote_available_at
+- latest_visible_quote
+- no_future_contract
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- single_responsibility
+- no_hidden_global_state
+- read_only
+- deterministic_or_snapshot_pinned
+non_responsibilities:
+- signal_generation
+- ranking
+- backtest
+- portfolio_optimization
+- option_candidate_generation
+- live_network_access
+fail_fast_conditions:
+- schema_invalid
+- snapshot_mismatch
+- required_view_unavailable
+- handler_contract_mismatch
+forbidden_fields:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+- target
+- label
+- prediction
+- realized_pnl
+- performance
+- pnl
+- recommendation
+allowed_connections:
+  consumes_from:
+    modules:
+    - P3.S36.M01
+    artifacts: *id001
+  emits_to:
+    modules:
+    - P3.S36.M06
+    artifacts: *id002
+forbidden_connections:
+- network_in_backtest
+- direct_P3_to_P5_P6_P7_P8
+- arbitrary_P1_path_access
+- same_cycle_back_edge
+- undeclared_dependency
+tests_required:
+- happy_path
+- schema_negative
+- point_in_time_negative
+- hash_or_lineage_negative
+- deterministic_replay
+- consumer_compatibility
+definition_of_done:
+- required_tests_implemented_and_passing
+- outputs_match_generated_schemas
+- contracts_docs_tests_updated_together
+- no_silent_fallback
+- manifest_integrity_valid
+contract_version: p3.research_tools.s36.v1
+rc: RC4.1-S36
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S36_M04_option_contract_chain_handler_bundle_builder.py
+integration_test_target: tests/integration/test_s36_module_pipeline.py
+implementation_status_policy:
+  current: IMPLEMENTED_QUALIFIED_LOCAL
+  production_promotion_allowed: false
+  runtime_fail_closed: true
+  production_authority: P0_ONLY
+observability_requirements:
+  dimensions:
+  - run_id
+  - cycle_id
+  - module_id
+  - snapshot_id
+  - decision_time
+  - content_hash
+  metrics:
+  - duration_ms
+  - records_scanned
+  - records_visible
+  - records_rejected_future
+  - records_returned
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - provider_secrets
+  - raw_private_payloads
+review_checklist:
+- responsibility_is_single_and_bounded
+- inputs_outputs_match_contract
+- temporal_semantics_explicit
+- no_forbidden_authority
+- tests_cover_happy_negative_boundary_lineage
+debugging_contract:
+  triage_order:
+  - validate_required_and_optional_inputs
+  - validate_schema_and_version
+  - validate_point_in_time_and_snapshot_identity
+  - validate_lineage_and_hashes
+  - validate_output_schema_and_reason_codes
+  error_codes:
+  - P3RT-CONTRACT-SCHEMA-INVALID
+  - P3RT-PIT-SNAPSHOT-MISMATCH
+  - P3RT-DATA-UPSTREAM-INCOMPLETE
+  - P3RT-OUTPUT-CONTRACT-INVALID
+  fallback_policy: fail_closed_no_silent_fallback
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - documentation
+  - test_fixture
+  contract_change_requires:
+  - schema_update
+  - fixtures_update
+  - consumer_tests_update
+  - documentation_update
+  - version_review
+  major_breaking_change_during_parallel_production: false

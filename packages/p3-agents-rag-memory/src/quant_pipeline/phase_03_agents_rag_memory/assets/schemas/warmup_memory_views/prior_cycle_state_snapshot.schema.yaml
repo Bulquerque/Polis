@@ -1,0 +1,626 @@
+$defs:
+  ArtifactRef:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_type:
+        minLength: 1
+        title: Artifact Type
+        type: string
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+      schema_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Id
+      schema_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Version
+    required:
+    - artifact_id
+    - artifact_type
+    - content_hash
+    title: ArtifactRef
+    type: object
+  BeliefCommitment:
+    additionalProperties: false
+    properties:
+      commitment_id:
+        minLength: 1
+        title: Commitment Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      proposition_id:
+        minLength: 1
+        title: Proposition Id
+        type: string
+      horizon:
+        minLength: 1
+        title: Horizon
+        type: string
+      committed_at:
+        format: date-time
+        title: Committed At
+        type: string
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+    required:
+    - commitment_id
+    - person_id
+    - proposition_id
+    - horizon
+    - committed_at
+    - content_hash
+    title: BeliefCommitment
+    type: object
+  BeliefStatePanel:
+    additionalProperties: false
+    properties:
+      schema_id:
+        const: belief_state_panel.v2
+        default: belief_state_panel.v2
+        title: Schema Id
+        type: string
+      schema_version:
+        const: 2.0.0
+        default: 2.0.0
+        title: Schema Version
+        type: string
+      records:
+        items:
+          $ref: '#/$defs/BeliefStateRecord'
+        title: Records
+        type: array
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+    required:
+    - records
+    - content_hash
+    title: BeliefStatePanel
+    type: object
+  BeliefStateRecord:
+    additionalProperties: false
+    properties:
+      belief_id:
+        minLength: 1
+        title: Belief Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      proposition_id:
+        minLength: 1
+        title: Proposition Id
+        type: string
+      horizon:
+        minLength: 1
+        title: Horizon
+        type: string
+      value:
+        maximum: 1.0
+        minimum: -1.0
+        title: Value
+        type: number
+      confidence:
+        maximum: 1.0
+        minimum: 0.0
+        title: Confidence
+        type: number
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+    required:
+    - belief_id
+    - person_id
+    - proposition_id
+    - horizon
+    - value
+    - confidence
+    - available_at
+    title: BeliefStateRecord
+    type: object
+  MemoryRecord:
+    additionalProperties: false
+    properties:
+      memory_id:
+        minLength: 1
+        title: Memory Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      memory_type:
+        $ref: '#/$defs/MemoryType'
+      visibility_scope:
+        $ref: '#/$defs/VisibilityScope'
+      created_at:
+        format: date-time
+        title: Created At
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      content_ref:
+        $ref: '#/$defs/ArtifactRef'
+      importance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Importance
+        type: number
+      repetition:
+        maximum: 1.0
+        minimum: 0.0
+        title: Repetition
+        type: number
+      significance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Significance
+        type: number
+    required:
+    - memory_id
+    - person_id
+    - memory_type
+    - visibility_scope
+    - created_at
+    - available_at
+    - content_ref
+    - importance
+    - repetition
+    - significance
+    title: MemoryRecord
+    type: object
+  MemoryState:
+    additionalProperties: false
+    properties:
+      schema_id:
+        const: memory_state.v2
+        default: memory_state.v2
+        title: Schema Id
+        type: string
+      schema_version:
+        const: 2.0.0
+        default: 2.0.0
+        title: Schema Version
+        type: string
+      records:
+        items:
+          $ref: '#/$defs/MemoryRecord'
+        title: Records
+        type: array
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+    required:
+    - records
+    - content_hash
+    title: MemoryState
+    type: object
+  MemoryType:
+    enum:
+    - EPISODIC
+    - SEMANTIC
+    - PROCEDURAL
+    - SOCIAL
+    title: MemoryType
+    type: string
+  PendingStimulus:
+    additionalProperties: false
+    properties:
+      stimulus_id:
+        minLength: 1
+        title: Stimulus Id
+        type: string
+      available_from_cycle:
+        exclusiveMinimum: 0
+        title: Available From Cycle
+        type: integer
+      content_ref:
+        $ref: '#/$defs/ArtifactRef'
+    required:
+    - stimulus_id
+    - available_from_cycle
+    - content_ref
+    title: PendingStimulus
+    type: object
+  PersonDynamicStatus:
+    enum:
+    - ACTIVE
+    - INACTIVE
+    title: PersonDynamicStatus
+    type: string
+  PersonStatePanel:
+    additionalProperties: false
+    properties:
+      schema_id:
+        const: person_state_panel.v2
+        default: person_state_panel.v2
+        title: Schema Id
+        type: string
+      schema_version:
+        const: 2.0.0
+        default: 2.0.0
+        title: Schema Version
+        type: string
+      records:
+        items:
+          $ref: '#/$defs/PersonStateRecord'
+        title: Records
+        type: array
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+    required:
+    - records
+    - content_hash
+    title: PersonStatePanel
+    type: object
+  PersonStateRecord:
+    additionalProperties: false
+    properties:
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      structural_profile_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Structural Profile Hash
+        type: string
+      representation_weight:
+        maximum: 1.0
+        minimum: 0.0
+        title: Representation Weight
+        type: number
+      status:
+        $ref: '#/$defs/PersonDynamicStatus'
+      attention:
+        maximum: 1.0
+        minimum: 0.0
+        title: Attention
+        type: number
+      fatigue:
+        maximum: 1.0
+        minimum: 0.0
+        title: Fatigue
+        type: number
+      last_updated_at:
+        format: date-time
+        title: Last Updated At
+        type: string
+    required:
+    - person_id
+    - structural_profile_hash
+    - representation_weight
+    - status
+    - attention
+    - fatigue
+    - last_updated_at
+    title: PersonStateRecord
+    type: object
+  ReplayCursor:
+    additionalProperties: false
+    properties:
+      last_completed_schedule_sequence:
+        minimum: 0
+        title: Last Completed Schedule Sequence
+        type: integer
+      last_checkpoint_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        title: Last Checkpoint Id
+      schedule_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Schedule Hash
+        type: string
+      checkpoint_plan_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Checkpoint Plan Hash
+        type: string
+    required:
+    - last_completed_schedule_sequence
+    - last_checkpoint_id
+    - schedule_hash
+    - checkpoint_plan_hash
+    title: ReplayCursor
+    type: object
+  ReplayState:
+    additionalProperties: false
+    properties:
+      run_id:
+        minLength: 1
+        title: Run Id
+        type: string
+      snapshot_id:
+        minLength: 1
+        title: Snapshot Id
+        type: string
+      replay_cycle_number:
+        minimum: 0
+        title: Replay Cycle Number
+        type: integer
+      as_of_time:
+        format: date-time
+        title: As Of Time
+        type: string
+      population_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Population Hash
+        type: string
+      source:
+        $ref: '#/$defs/StateSource'
+      person_state:
+        $ref: '#/$defs/PersonStatePanel'
+      belief_state:
+        $ref: '#/$defs/BeliefStatePanel'
+      memory_state:
+        $ref: '#/$defs/MemoryState'
+      social_graph:
+        $ref: '#/$defs/SocialGraphState'
+      pending_stimuli:
+        items:
+          $ref: '#/$defs/PendingStimulus'
+        title: Pending Stimuli
+        type: array
+      belief_commitments:
+        items:
+          $ref: '#/$defs/BeliefCommitment'
+        title: Belief Commitments
+        type: array
+      replay_cursor:
+        $ref: '#/$defs/ReplayCursor'
+      resource_manifest_ref:
+        $ref: '#/$defs/ArtifactRef'
+      policy_refs:
+        items:
+          $ref: '#/$defs/ArtifactRef'
+        title: Policy Refs
+        type: array
+      audit_refs:
+        items:
+          $ref: '#/$defs/ArtifactRef'
+        title: Audit Refs
+        type: array
+      state_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: State Hash
+        type: string
+      lineage:
+        $ref: '#/$defs/StateLineage'
+    required:
+    - run_id
+    - snapshot_id
+    - replay_cycle_number
+    - as_of_time
+    - population_hash
+    - source
+    - person_state
+    - belief_state
+    - memory_state
+    - social_graph
+    - pending_stimuli
+    - belief_commitments
+    - replay_cursor
+    - resource_manifest_ref
+    - policy_refs
+    - audit_refs
+    - state_hash
+    - lineage
+    title: ReplayState
+    type: object
+  SocialEdgeState:
+    additionalProperties: false
+    properties:
+      edge_id:
+        minLength: 1
+        title: Edge Id
+        type: string
+      source_person_id:
+        minLength: 1
+        title: Source Person Id
+        type: string
+      target_person_id:
+        minLength: 1
+        title: Target Person Id
+        type: string
+      relationship_type:
+        minLength: 1
+        title: Relationship Type
+        type: string
+      trust:
+        maximum: 1.0
+        minimum: 0.0
+        title: Trust
+        type: number
+      strength:
+        maximum: 1.0
+        minimum: 0.0
+        title: Strength
+        type: number
+      valid_from:
+        format: date-time
+        title: Valid From
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+    required:
+    - edge_id
+    - source_person_id
+    - target_person_id
+    - relationship_type
+    - trust
+    - strength
+    - valid_from
+    - available_at
+    title: SocialEdgeState
+    type: object
+  SocialGraphState:
+    additionalProperties: false
+    properties:
+      schema_id:
+        const: social_graph_state.v2
+        default: social_graph_state.v2
+        title: Schema Id
+        type: string
+      schema_version:
+        const: 2.0.0
+        default: 2.0.0
+        title: Schema Version
+        type: string
+      records:
+        items:
+          $ref: '#/$defs/SocialEdgeState'
+        title: Records
+        type: array
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+    required:
+    - records
+    - content_hash
+    title: SocialGraphState
+    type: object
+  StateLineage:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_lineage_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Source Lineage Ids
+        type: array
+      parent_state_hash:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Parent State Hash
+      holdout_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Holdout Refs
+        type: array
+    required:
+    - lineage_id
+    - source_artifact_ids
+    - source_lineage_ids
+    title: StateLineage
+    type: object
+  StateSource:
+    enum:
+    - GENESIS
+    - WARMUP_CHECKPOINT
+    - PRIOR_CYCLE
+    title: StateSource
+    type: string
+  VisibilityScope:
+    enum:
+    - SELF
+    - SOCIAL_VISIBLE
+    - PUBLIC
+    - AUDIT_ONLY
+    title: VisibilityScope
+    type: string
+additionalProperties: false
+properties:
+  schema_id:
+    const: prior_cycle_state_snapshot.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    title: Schema Version
+    type: string
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  snapshot_id:
+    minLength: 1
+    title: Snapshot Id
+    type: string
+  cycle_id:
+    minLength: 1
+    title: Cycle Id
+    type: string
+  cycle_number:
+    exclusiveMinimum: 0
+    title: Cycle Number
+    type: integer
+  available_from_cycle:
+    exclusiveMinimum: 0
+    title: Available From Cycle
+    type: integer
+  state:
+    $ref: '#/$defs/ReplayState'
+  content_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Hash
+    type: string
+  lineage:
+    $ref: '#/$defs/StateLineage'
+required:
+- schema_id
+- schema_version
+- artifact_id
+- run_id
+- snapshot_id
+- cycle_id
+- cycle_number
+- available_from_cycle
+- state
+- content_hash
+- lineage
+title: PriorCycleStateSnapshot
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: prior_cycle_state_snapshot
+schema_id: prior_cycle_state_snapshot.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

@@ -1,0 +1,49 @@
+policy_id: P4_ERROR_AND_DIAGNOSTICS_V1
+version: V14.6-RC1
+error_envelope_required:
+- error_code
+- module_id
+- subphase
+- run_id
+- cycle_id
+- as_of_time
+- message
+- severity
+- retryable
+- artifact_refs
+- context_safe
+categories:
+- CONTRACT
+- TEMPORAL
+- IDENTITY
+- QUALITY
+- NUMERIC
+- RESOURCE
+- DEPENDENCY
+- REPRESENTATION
+- HANDOFF
+- INTERNAL
+rules:
+- no_raw_secret_or_payload_in_error
+- one_stable_code_per_failure_class
+- preserve_exception_cause
+- fail_closed_on_temporal_or_contract_ambiguity
+- warnings_never_promote_blocked_artifacts
+observability_events:
+- module_started
+- input_validated
+- fit_started
+- fit_completed
+- artifact_emitted
+- module_succeeded
+- module_failed
+- module_skipped
+required_metrics:
+- duration_ms
+- input_record_count
+- output_record_count
+- peak_memory_estimate_mb
+- warning_count
+- error_count
+- missingness_rate
+- blocked_record_count

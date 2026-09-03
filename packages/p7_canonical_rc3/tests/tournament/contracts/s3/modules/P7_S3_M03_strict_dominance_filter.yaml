@@ -1,0 +1,7 @@
+module_id: P7.S3.M03
+owner: TOURNAMENT
+purpose: Identify strict Pareto dominance only within frozen comparison groups.
+inputs: [factor_adjusted_metric_panel, comparable_candidate_metric_panel, candidate_comparison_group_panel, ranking_policy_context]
+outputs: [dominance_relation_panel, dominated_candidate_panel, dominance_survivor_panel]
+failure_scope: PHASE_FATAL_OR_CANDIDATE_INCOMPARABLE
+invariants: [group isolation, acyclic relation, candidate conservation, no rank]

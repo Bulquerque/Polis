@@ -1,0 +1,54 @@
+contract_id: p3_foundation_cross_capability_io.v3
+revision: P3-FINAL
+internal_boundaries:
+  - producer: GOVERNANCE
+    consumer: POPULATION
+    artifacts: [personality_tag_registry, person_schema_policy]
+    adapter: governance_to_population
+  - producer: GOVERNANCE
+    consumer: WARMUP
+    artifacts: [phase3_run_snapshot, active_retro_policy_patch]
+    adapter: governance_to_warmup
+  - producer: GOVERNANCE
+    consumer: FOUNDATION_RESOURCES
+    artifacts: [phase3_run_snapshot, pit_validated_context]
+    adapter: governance_to_resources
+  - producer: POPULATION
+    consumer: WARMUP
+    artifacts: [person_seed_panel, validated_population_manifest, validated_initial_social_graph]
+    adapter: population_to_warmup
+  - producer: POPULATION
+    consumer: FOUNDATION_RESOURCES
+    artifacts: [person_seed_panel, validated_population_manifest]
+    adapter: population_to_resources
+  - producer: P3.S15
+    consumer: P3.S16
+    artifacts: [tool_registry, person_tool_entitlement_panel, provider_adapter_registry]
+    adapter: resources_internal
+external_boundary:
+  producer: FOUNDATION
+  consumer: RUNTIME
+  contract_pack: P3_INTEGRATION_CONTRACT_PACK_V2
+  handoff: p3_foundation_runtime_manifest.v2
+  resolver_port: FoundationManifestResolverPort
+  runtime_views:
+    - foundation_governance_view.v1
+    - population_runtime_view.v1
+    - social_graph_runtime_view.v1
+    - state_runtime_view.v1
+    - knowledge_runtime_view.v1
+    - memory_runtime_view.v1
+    - tool_runtime_view.v1
+reverse_boundary:
+  producer: RUNTIME
+  consumer: FOUNDATION
+  closure: p3_cycle_closure_manifest.v1
+  resolver_port: CheckpointResolverPort
+  result: replay_state.v1
+compatibility_policy:
+  canonical_contracts: semantic_authority
+  consumer_views: strict_projections
+  lossy_projection_forbidden: true
+  silent_defaults_forbidden: true
+  embedded_large_payloads_forbidden: true
+  cross_capability_imports: ports_and_contracts_only

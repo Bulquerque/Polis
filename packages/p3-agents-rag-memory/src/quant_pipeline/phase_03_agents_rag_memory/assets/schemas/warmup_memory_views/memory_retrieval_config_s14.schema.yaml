@@ -1,0 +1,70 @@
+$defs:
+  StorageMode:
+    enum:
+    - LOCAL_ATOMIC_JSONL
+    - ADAPTER_MANAGED
+    title: StorageMode
+    type: string
+additionalProperties: false
+properties:
+  schema_id:
+    const: memory_retrieval_config_s14.v1
+    default: memory_retrieval_config_s14.v1
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 1.0.0
+    default: 1.0.0
+    title: Schema Version
+    type: string
+  adapter_id:
+    minLength: 1
+    title: Adapter Id
+    type: string
+  adapter_version:
+    minLength: 1
+    title: Adapter Version
+    type: string
+  index_version:
+    minLength: 1
+    title: Index Version
+    type: string
+  storage_mode:
+    $ref: '#/$defs/StorageMode'
+  hash_algorithm:
+    const: sha256
+    default: sha256
+    title: Hash Algorithm
+    type: string
+  partition_fields:
+    items:
+      enum:
+      - person_id
+      - memory_type
+      - visibility_scope
+      type: string
+    title: Partition Fields
+    type: array
+  max_records:
+    exclusiveMinimum: 0
+    title: Max Records
+    type: integer
+  allow_degraded_backend:
+    title: Allow Degraded Backend
+    type: boolean
+required:
+- adapter_id
+- adapter_version
+- index_version
+- storage_mode
+- partition_fields
+- max_records
+- allow_degraded_backend
+title: RetrievalConfig
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+status: implemented_unqualified
+schema_owner: P3.S14
+artifact_name: retrieval_config
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

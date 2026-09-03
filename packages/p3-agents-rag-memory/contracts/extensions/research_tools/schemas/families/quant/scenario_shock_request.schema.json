@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "QuadraticExposure": {
+      "additionalProperties": false,
+      "properties": {
+        "coefficient": {
+          "title": "Coefficient",
+          "type": "number"
+        },
+        "left_factor": {
+          "minLength": 1,
+          "title": "Left Factor",
+          "type": "string"
+        },
+        "right_factor": {
+          "minLength": 1,
+          "title": "Right Factor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "left_factor",
+        "right_factor",
+        "coefficient"
+      ],
+      "title": "QuadraticExposure",
+      "type": "object"
+    },
+    "QuantMode": {
+      "enum": [
+        "BASIC",
+        "ROBUST",
+        "STABILITY"
+      ],
+      "title": "QuantMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "baseline_value": {
+      "default": 0.0,
+      "title": "Baseline Value",
+      "type": "number"
+    },
+    "factor_shocks": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Factor Shocks",
+      "type": "object"
+    },
+    "linear_exposures": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Linear Exposures",
+      "type": "object"
+    },
+    "quadratic_exposures": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/QuadraticExposure"
+      },
+      "title": "Quadratic Exposures",
+      "type": "array"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/QuantMode",
+      "default": "BASIC"
+    },
+    "scenario_id": {
+      "minLength": 1,
+      "title": "Scenario Id",
+      "type": "string"
+    },
+    "sensitivity_multipliers": {
+      "default": [
+        0.5,
+        1.0,
+        1.5
+      ],
+      "items": {
+        "exclusiveMinimum": 0.0,
+        "type": "number"
+      },
+      "title": "Sensitivity Multipliers",
+      "type": "array"
+    }
+  },
+  "required": [
+    "scenario_id",
+    "factor_shocks",
+    "linear_exposures"
+  ],
+  "title": "ScenarioShockRequest",
+  "type": "object"
+}

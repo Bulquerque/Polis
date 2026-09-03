@@ -1,0 +1,31 @@
+passport_version: p4.v14.9-rc1.hypothesis.v1
+hypothesis_id: H03
+family_id: F01
+name: residual_momentum
+tier: FOUNDATIONAL
+economic_mechanism: firm-specific information persists after common-factor removal
+primary_observer_ids:
+- F01.O04
+robustness_observer_ids: []
+parameter_budget:
+  primary: 126D
+  robustness: 63D
+  maximum_total_parameterizations: 2
+expected_role: positive
+research_family: F01
+same_family_multiple_testing_required: true
+P4_acceptance:
+- point_in_time_inputs_available
+- formula_and_lineage_closed
+- numeric_or_metamorphic_oracle_defined
+- no_future_label_dependency
+P5_confirmation:
+- nested_temporal_validation
+- incremental_value_against_locked_baseline
+- family_level_multiplicity_adjustment
+- stability_across_folds
+P9_final_audit:
+- sealed_holdout_only_once
+- all_prior_attempts_counted
+- economic_costs_and_capacity_when_applicable
+status: DOCUMENTED_NOT_IMPLEMENTED

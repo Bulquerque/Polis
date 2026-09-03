@@ -1,0 +1,187 @@
+{
+  "$defs": {
+    "SolverMethod": {
+      "enum": [
+        "CONTINUOUS_RELAXATION",
+        "MIXED_INTEGER_BRANCH_AND_BOUND",
+        "BOUNDED_INTEGER_NEIGHBORHOOD",
+        "BEAM_SEARCH",
+        "LOCAL_SEARCH",
+        "EVOLUTIONARY_CHALLENGER"
+      ],
+      "title": "SolverMethod",
+      "type": "string"
+    },
+    "SolverQuantity": {
+      "additionalProperties": false,
+      "properties": {
+        "basis_id": {
+          "title": "Basis Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "basis_id",
+        "quantity"
+      ],
+      "title": "SolverQuantity",
+      "type": "object"
+    },
+    "SolverStatus": {
+      "enum": [
+        "OPTIMAL",
+        "FEASIBLE",
+        "INFEASIBLE",
+        "TIMEOUT",
+        "NUMERICAL_FAILURE",
+        "UNAVAILABLE"
+      ],
+      "title": "SolverStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "best_bound": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Best Bound"
+    },
+    "diagnostics": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Diagnostics",
+      "type": "array"
+    },
+    "iterations": {
+      "minimum": 0,
+      "title": "Iterations",
+      "type": "integer"
+    },
+    "method": {
+      "$ref": "#/$defs/SolverMethod"
+    },
+    "node_count": {
+      "minimum": 0,
+      "title": "Node Count",
+      "type": "integer"
+    },
+    "objective_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Objective Value"
+    },
+    "optimality_gap": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Optimality Gap"
+    },
+    "problem_id": {
+      "title": "Problem Id",
+      "type": "string"
+    },
+    "quantities": {
+      "items": {
+        "$ref": "#/$defs/SolverQuantity"
+      },
+      "title": "Quantities",
+      "type": "array"
+    },
+    "runtime_ms": {
+      "minimum": 0,
+      "title": "Runtime Ms",
+      "type": "integer"
+    },
+    "seed": {
+      "title": "Seed",
+      "type": "integer"
+    },
+    "solver_name": {
+      "title": "Solver Name",
+      "type": "string"
+    },
+    "solver_result_id": {
+      "title": "Solver Result Id",
+      "type": "string"
+    },
+    "solver_version": {
+      "title": "Solver Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/SolverStatus"
+    },
+    "target_payoff_id": {
+      "title": "Target Payoff Id",
+      "type": "string"
+    },
+    "timeout": {
+      "title": "Timeout",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "solver_result_id",
+    "problem_id",
+    "target_payoff_id",
+    "method",
+    "solver_name",
+    "solver_version",
+    "status",
+    "quantities",
+    "objective_value",
+    "best_bound",
+    "optimality_gap",
+    "runtime_ms",
+    "iterations",
+    "node_count",
+    "timeout",
+    "seed"
+  ],
+  "title": "SolverResult",
+  "type": "object"
+}

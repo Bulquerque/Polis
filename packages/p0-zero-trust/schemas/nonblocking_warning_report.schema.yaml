@@ -1,0 +1,53 @@
+schema_id: nonblocking_warning_report.v2
+artifact_name: nonblocking_warning_report
+schema_version: v14.1-rc4.1
+compatibility: backward_compatible_with_v1_consumers
+type: object
+additionalProperties: true
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- source_panel_lineage_id
+- owner
+- action
+- advisory_count
+- warning_count
+- notice_count
+- advisories
+- warnings
+- notices
+- owner_groups
+- severity_summary
+- warnings_have_owner
+- warnings_have_action
+- warnings_not_release_blocking
+- external_dispatch_performed
+- status
+- readiness_blocking
+- release_blocking
+properties:
+  artifact_id: {type: string, pattern: '^nonblocking-warning-report-[0-9a-f]{12}$'}
+  created_at: {type: string}
+  pipeline_version: {type: string, const: V14.1-RC4.1}
+  lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  source_panel_lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  owner: {type: string}
+  action: {type: string}
+  advisory_count: {type: integer, minimum: 0}
+  warning_count: {type: integer, minimum: 0}
+  notice_count: {type: integer, minimum: 0}
+  advisories: {type: array}
+  warnings: {type: array}
+  notices: {type: array}
+  owner_groups: {type: array}
+  severity_summary: {type: object}
+  warnings_have_owner: {type: boolean, const: true}
+  warnings_have_action: {type: boolean, const: true}
+  warnings_not_release_blocking: {type: boolean, const: true}
+  external_dispatch_performed: {type: boolean, const: false}
+  status: {type: string, enum: [PASS, NOTICE, WARNING]}
+  readiness_blocking: {type: boolean, const: false}
+  release_blocking: {type: boolean, const: false}
+forbidden_fields: [future_return, target, candidate_score, trade_decision, rank_score, portfolio_weight, realized_pnl]

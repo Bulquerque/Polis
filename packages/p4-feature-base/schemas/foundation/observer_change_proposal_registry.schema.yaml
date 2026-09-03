@@ -1,0 +1,97 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Observer change proposal registry
+type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    type: string
+    minLength: 1
+  artifact_name:
+    type: string
+    minLength: 1
+  schema_id:
+    type: string
+    minLength: 1
+  schema_version:
+    type: string
+    minLength: 1
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+    minLength: 1
+  cycle_id:
+    type: string
+    minLength: 1
+  as_of_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+    minLength: 1
+  lineage_id:
+    type: string
+    minLength: 1
+  producer_module_id:
+    type: string
+    pattern: ^P4\.S1\.M0[1-4]$
+  content_hash:
+    type: string
+    pattern: ^[a-f0-9]{64}$
+  status:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        proposal_id:
+          type: string
+        source_manifest_id:
+          type: string
+        source_cycle_id:
+          type: string
+        target_cycle_id:
+          type: string
+        status:
+          type: string
+          enum:
+          - PENDING_REVIEW
+        as_of_time:
+          type: string
+          format: date-time
+        references:
+          type: object
+        lineage_id:
+          type: string
+      required:
+      - proposal_id
+      - source_manifest_id
+      - source_cycle_id
+      - target_cycle_id
+      - status
+      - as_of_time
+      - references
+      - lineage_id
+  registry_status:
+    type: string
+    enum:
+    - NO_PROPOSAL
+    - PROPOSAL_REGISTERED
+required:
+- artifact_id
+- artifact_name
+- schema_id
+- schema_version
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- pipeline_version
+- lineage_id
+- producer_module_id
+- content_hash
+- status
+- records

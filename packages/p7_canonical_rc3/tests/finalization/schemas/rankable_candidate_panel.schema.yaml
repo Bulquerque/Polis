@@ -1,0 +1,168 @@
+$defs:
+  RankableRecord:
+    additionalProperties: false
+    properties:
+      cycle_id:
+        title: Cycle Id
+        type: string
+      decision_time:
+        format: date-time
+        title: Decision Time
+        type: string
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      candidate_id:
+        title: Candidate Id
+        type: string
+      hybrid_score:
+        title: Hybrid Score
+        type: number
+      diversity_penalty:
+        minimum: 0
+        title: Diversity Penalty
+        type: number
+      diversity_adjusted_score:
+        title: Diversity Adjusted Score
+        type: number
+      score_confidence:
+        maximum: 1
+        minimum: 0
+        title: Score Confidence
+        type: number
+      robustness_stage:
+        title: Robustness Component
+        type: number
+      execution_quality_stage:
+        title: Execution Quality Component
+        type: number
+      leg_count:
+        minimum: 1
+        title: Leg Count
+        type: integer
+      pareto_tier:
+        minimum: 0
+        title: Pareto Tier
+        type: integer
+      model_id:
+        title: Model Id
+        type: string
+      score_semantics_version:
+        title: Score Semantics Version
+        type: string
+      calibration_status:
+        title: Calibration Status
+        type: string
+      calibration_version:
+        title: Calibration Version
+        type: string
+      ood_severity:
+        title: Ood Severity
+        type: string
+      model_disagreement:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Model Disagreement
+      policy_version:
+        title: Policy Version
+        type: string
+      lineage_id:
+        title: Lineage Id
+        type: string
+    required:
+    - cycle_id
+    - decision_time
+    - comparison_group_id
+    - candidate_id
+    - hybrid_score
+    - diversity_penalty
+    - diversity_adjusted_score
+    - score_confidence
+    - robustness_stage
+    - execution_quality_stage
+    - leg_count
+    - pareto_tier
+    - model_id
+    - score_semantics_version
+    - calibration_status
+    - calibration_version
+    - ood_severity
+    - policy_version
+    - lineage_id
+    title: RankableRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/RankableRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: RankableArtifact
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

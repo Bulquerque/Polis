@@ -1,0 +1,48 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+title: Feature Screen Report
+properties:
+  experiment_id: &id003
+    type: string
+  technical_valid: &id001
+    type: boolean
+  pit_valid: *id001
+  coverage: &id002
+    type: number
+  missingness: *id002
+  preliminary_ic:
+    type:
+    - number
+    - 'null'
+  preliminary_rank_ic:
+    type:
+    - number
+    - 'null'
+  residual_ic:
+    type:
+    - number
+    - 'null'
+  max_abs_correlation:
+    type:
+    - number
+    - 'null'
+  complexity_score: *id002
+  estimated_cost: *id002
+  decision:
+    type: string
+    enum:
+    - PASS
+    - REJECT
+    - DEFER
+  lineage_id: *id003
+required:
+- experiment_id
+- technical_valid
+- pit_valid
+- coverage
+- missingness
+- complexity_score
+- estimated_cost
+- decision
+- lineage_id

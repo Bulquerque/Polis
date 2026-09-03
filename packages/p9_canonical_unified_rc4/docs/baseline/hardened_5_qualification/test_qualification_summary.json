@@ -1,0 +1,33 @@
+{
+  "policy": "SEPARATE_HERMETIC_CI_JOBS",
+  "receipts": [
+    {
+      "elapsed_seconds": 29.4,
+      "expected_tests": 573,
+      "log": "qualification/p9_core_tests.log",
+      "passed_tests": 573,
+      "process_isolation": "HERMETIC_JOB",
+      "release": "P9_CANONICAL_UNIFIED_RC4",
+      "returncode": 0,
+      "schema_version": "1.0.0",
+      "status": "PASS",
+      "suite": "core"
+    },
+    {
+      "elapsed_seconds": 10.43,
+      "expected_tests": 18,
+      "log": "qualification/p9_external_compatibility_tests.log",
+      "passed_tests": 18,
+      "process_isolation": "HERMETIC_JOB",
+      "release": "P9_CANONICAL_UNIFIED_RC4",
+      "returncode": 0,
+      "schema_version": "1.0.0",
+      "status": "PASS",
+      "suite": "external_compatibility"
+    }
+  ],
+  "release": "P9_CANONICAL_UNIFIED_RC4",
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "total_passed": 591
+}

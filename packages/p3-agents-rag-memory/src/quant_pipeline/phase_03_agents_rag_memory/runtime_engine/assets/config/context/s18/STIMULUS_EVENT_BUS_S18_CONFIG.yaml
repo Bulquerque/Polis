@@ -1,0 +1,29 @@
+schema_version: stimulus_event_bus_config.v2
+config_version: p3.s18.config.v1
+bus_id: P3_STIMULUS_EVENT_BUS_V2
+same_cycle_policy: EXTERNAL_ONLY_CURRENT_ENDOGENOUS_NEXT
+dedup_key_version: stimulus_dedup_v1
+deduplication_fields:
+  - source_event_id
+  - subject
+  - available_at
+  - content_hash
+origin_precedence:
+  EXTERNAL_PIT_CONTEXT: 0
+  TOOL_DISCOVERY: 1
+  SOCIAL_DELIVERY: 2
+  MEMORY_TRIGGER: 3
+  ATTENTION_FOLLOWUP: 4
+admission_policy:
+  max_total_stimuli_per_cycle: 100
+  max_external_stimuli_per_cycle: 80
+  max_endogenous_stimuli_per_cycle: 40
+  max_unresolved_stimuli_per_cycle: 20
+  preserve_deferred_decisions: true
+external_priority_formula: SALIENCE_PERCENT_V1
+expired_item_policy: DROP_WITH_AUDIT
+duplicate_policy: COLLAPSE_EXACT_FAIL_CONFLICT
+unresolved_policy: ALLOW_WITH_FLAG
+sort_policy: PRIORITY_DESC_SALIENCE_DESC_AVAILABLE_ASC_ORIGIN_STIMULUS_ID
+allow_same_cycle_endogenous: false
+verify_input_content_hashes: true

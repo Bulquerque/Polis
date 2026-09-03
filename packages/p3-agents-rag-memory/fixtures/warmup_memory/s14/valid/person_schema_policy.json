@@ -1,0 +1,20 @@
+{
+  "schema_id": "person_schema_policy_s14_view.v1",
+  "schema_version": "1.0.0",
+  "policy_id": "person-policy-s14",
+  "person_schema_version": "person-profile.2.0.0",
+  "allowed_memory_types": [
+    "EPISODIC",
+    "SEMANTIC",
+    "PROCEDURAL",
+    "SOCIAL"
+  ],
+  "allowed_visibility_scopes": [
+    "SELF",
+    "SOCIAL_VISIBLE",
+    "PUBLIC",
+    "AUDIT_ONLY"
+  ],
+  "content_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "lineage_id": "lineage-person-policy-s14"
+}

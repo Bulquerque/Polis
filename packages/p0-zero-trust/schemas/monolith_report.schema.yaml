@@ -1,0 +1,94 @@
+schema_id: monolith_report.v1
+artifact_name: monolith_report
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- checked_python_file_count
+- file_line_limit
+- function_line_limit
+- finding_count
+- findings
+- status
+- release_blocking
+- validation_evidence_status
+- promotion_blocked
+properties:
+  artifact_id:
+    type: string
+    pattern: ^monolith-report-[0-9a-f]{12}$
+  created_at:
+    type: string
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  checked_python_file_count:
+    type: integer
+    minimum: 1
+  file_line_limit:
+    type: integer
+    minimum: 1
+  function_line_limit:
+    type: integer
+    minimum: 1
+  finding_count:
+    type: integer
+    minimum: 0
+  findings:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - path
+      - symbol
+      - kind
+      - line_count
+      - limit
+      properties:
+        path:
+          type: string
+        symbol:
+          type: string
+        kind:
+          type: string
+          enum:
+          - FILE_TOO_LONG
+          - FUNCTION_TOO_LONG
+          - CLASS_TOO_LONG
+          - TOO_MANY_PUBLIC_FUNCTIONS
+          - CYCLOMATIC_COMPLEXITY
+        line_count:
+          type: integer
+          minimum: 1
+        limit:
+          type: integer
+          minimum: 1
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  release_blocking:
+    type: boolean
+  validation_evidence_status:
+    type: string
+    const: domain_oracle_pass_pending_independent_judge
+  promotion_blocked:
+    type: boolean
+    const: true
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

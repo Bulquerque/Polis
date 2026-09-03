@@ -1,0 +1,16 @@
+module_id: P5.S6.M01
+name: shrinkage_factor_covariance_resolvers
+subphase_id: P5.S6
+required_inputs:
+- qualified_resolver_registry
+- oof_validation_observation_panel
+optional_inputs: []
+outputs:
+- covariance_member_registry_shrinkage_factor
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

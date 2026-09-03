@@ -1,0 +1,13 @@
+status: planned
+paired_design: true
+dependent_data_default: stationary_or_block_bootstrap
+required_outputs:
+- delta_distribution
+- confidence_interval
+- probability_delta_positive
+- trial_count_adjustment
+multiple_testing_controls:
+- deflated_sharpe_when_applicable
+- pbo_when_applicable
+- reality_check_or_spa_when_many_candidates
+promotion_rule: reward_vector_and_guardrails_not_single_metric

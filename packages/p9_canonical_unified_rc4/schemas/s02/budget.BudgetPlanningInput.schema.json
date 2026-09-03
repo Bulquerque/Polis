@@ -1,0 +1,906 @@
+{
+  "$defs": {
+    "ActivationCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "operator": {
+          "$ref": "#/$defs/ConditionOperator"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "operator",
+        "values"
+      ],
+      "title": "ActivationCondition",
+      "type": "object"
+    },
+    "CompiledParameterDomain": {
+      "additionalProperties": false,
+      "properties": {
+        "active_when": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ActivationCondition"
+          },
+          "title": "Active When",
+          "type": "array"
+        },
+        "discrete_values": {
+          "default": [],
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Discrete Values",
+          "type": "array"
+        },
+        "grid_points": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Grid Points"
+        },
+        "kind": {
+          "$ref": "#/$defs/ParameterKind"
+        },
+        "lower": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parameter Id",
+          "type": "string"
+        },
+        "scale": {
+          "$ref": "#/$defs/ParameterScale"
+        },
+        "topological_index": {
+          "minimum": 0,
+          "title": "Topological Index",
+          "type": "integer"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        }
+      },
+      "required": [
+        "parameter_id",
+        "kind",
+        "scale",
+        "topological_index"
+      ],
+      "title": "CompiledParameterDomain",
+      "type": "object"
+    },
+    "CompiledSearchSpace": {
+      "additionalProperties": false,
+      "properties": {
+        "cardinality": {
+          "$ref": "#/$defs/SearchSpaceCardinalityReport"
+        },
+        "constraint_graph": {
+          "$ref": "#/$defs/SearchSpaceConstraintGraph"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "parameters": {
+          "items": {
+            "$ref": "#/$defs/CompiledParameterDomain"
+          },
+          "title": "Parameters",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "space_id": {
+          "minLength": 1,
+          "title": "Space Id",
+          "type": "string"
+        },
+        "space_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Space Sha256",
+          "type": "string"
+        },
+        "specification_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Specification Sha256",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/SearchSpaceState"
+        }
+      },
+      "required": [
+        "space_id",
+        "experiment_id",
+        "specification_sha256",
+        "state",
+        "parameters",
+        "constraint_graph",
+        "cardinality",
+        "space_sha256"
+      ],
+      "title": "CompiledSearchSpace",
+      "type": "object"
+    },
+    "ConditionOperator": {
+      "enum": [
+        "EQUALS",
+        "NOT_EQUALS",
+        "IN",
+        "NOT_IN"
+      ],
+      "title": "ConditionOperator",
+      "type": "string"
+    },
+    "EarlyStoppingPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "development_only": {
+          "default": true,
+          "title": "Development Only",
+          "type": "boolean"
+        },
+        "enabled": {
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "minimum_completed_cells": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Minimum Completed Cells",
+          "type": "integer"
+        },
+        "signal_metric_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+            "type": "string"
+          },
+          "title": "Signal Metric Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "title": "EarlyStoppingPolicy",
+      "type": "object"
+    },
+    "ExperimentSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "activated_at": {
+          "format": "date-time",
+          "title": "Activated At",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "development_dataset_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Development Dataset Ids",
+          "type": "array"
+        },
+        "diagnostic_metric_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+            "type": "string"
+          },
+          "title": "Diagnostic Metric Ids",
+          "type": "array"
+        },
+        "evaluation_dataset_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evaluation Dataset Ids",
+          "type": "array"
+        },
+        "experiment_id": {
+          "pattern": "^exp-[a-z0-9][a-z0-9._-]{2,127}$",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "final_holdout_dataset_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Final Holdout Dataset Ids",
+          "type": "array"
+        },
+        "hard_guardrail_metric_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+            "type": "string"
+          },
+          "title": "Hard Guardrail Metric Ids",
+          "type": "array"
+        },
+        "hypothesis": {
+          "minLength": 1,
+          "title": "Hypothesis",
+          "type": "string"
+        },
+        "non_goals": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Non Goals",
+          "type": "array"
+        },
+        "primary_metric_id": {
+          "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+          "title": "Primary Metric Id",
+          "type": "string"
+        },
+        "requested_max_configurations": {
+          "minimum": 1,
+          "title": "Requested Max Configurations",
+          "type": "integer"
+        },
+        "requested_seed_count": {
+          "maximum": 128,
+          "minimum": 1,
+          "title": "Requested Seed Count",
+          "type": "integer"
+        },
+        "required_capability_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required Capability Ids",
+          "type": "array"
+        },
+        "search_strategy": {
+          "$ref": "#/$defs/SearchStrategy"
+        },
+        "target_module_ids": {
+          "items": {
+            "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+            "type": "string"
+          },
+          "title": "Target Module Ids",
+          "type": "array"
+        },
+        "temporal_evaluation": {
+          "$ref": "#/$defs/TemporalEvaluationRequest"
+        }
+      },
+      "required": [
+        "experiment_id",
+        "created_at",
+        "activated_at",
+        "hypothesis",
+        "primary_metric_id",
+        "hard_guardrail_metric_ids",
+        "target_module_ids",
+        "development_dataset_ids",
+        "evaluation_dataset_ids",
+        "final_holdout_dataset_ids",
+        "search_strategy",
+        "requested_max_configurations",
+        "requested_seed_count",
+        "temporal_evaluation"
+      ],
+      "title": "ExperimentSpecification",
+      "type": "object"
+    },
+    "FidelityLevel": {
+      "additionalProperties": false,
+      "properties": {
+        "fidelity_id": {
+          "minLength": 1,
+          "title": "Fidelity Id",
+          "type": "string"
+        },
+        "ordinal": {
+          "minimum": 0,
+          "title": "Ordinal",
+          "type": "integer"
+        },
+        "preserves_lifecycle": {
+          "title": "Preserves Lifecycle",
+          "type": "boolean"
+        },
+        "preserves_temporal_order": {
+          "title": "Preserves Temporal Order",
+          "type": "boolean"
+        },
+        "preserves_transaction_costs": {
+          "title": "Preserves Transaction Costs",
+          "type": "boolean"
+        },
+        "resource_fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Resource Fraction"
+        }
+      },
+      "required": [
+        "fidelity_id",
+        "ordinal",
+        "resource_fraction",
+        "preserves_transaction_costs",
+        "preserves_lifecycle",
+        "preserves_temporal_order"
+      ],
+      "title": "FidelityLevel",
+      "type": "object"
+    },
+    "ParameterKind": {
+      "enum": [
+        "INTEGER",
+        "FLOAT",
+        "CATEGORICAL",
+        "BOOLEAN"
+      ],
+      "title": "ParameterKind",
+      "type": "string"
+    },
+    "ParameterScale": {
+      "enum": [
+        "LINEAR",
+        "LOG"
+      ],
+      "title": "ParameterScale",
+      "type": "string"
+    },
+    "PromotionPolicyReference": {
+      "additionalProperties": false,
+      "properties": {
+        "hard_guardrails_non_compensable": {
+          "default": true,
+          "title": "Hard Guardrails Non Compensable",
+          "type": "boolean"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Policy Sha256",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "policy_sha256"
+      ],
+      "title": "PromotionPolicyReference",
+      "type": "object"
+    },
+    "ResourceCapacitySnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "available_worker_labels": {
+          "default": [
+            "cpu"
+          ],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Available Worker Labels",
+          "type": "array"
+        },
+        "max_memory_mb_per_trial": {
+          "minimum": 128,
+          "title": "Max Memory Mb Per Trial",
+          "type": "integer"
+        },
+        "max_parallel_trials": {
+          "minimum": 1,
+          "title": "Max Parallel Trials",
+          "type": "integer"
+        },
+        "max_total_cpu_seconds": {
+          "minimum": 1,
+          "title": "Max Total Cpu Seconds",
+          "type": "integer"
+        },
+        "max_wall_clock_seconds": {
+          "minimum": 1,
+          "title": "Max Wall Clock Seconds",
+          "type": "integer"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "snapshot_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Snapshot Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "snapshot_sha256",
+        "max_parallel_trials",
+        "max_total_cpu_seconds",
+        "max_wall_clock_seconds",
+        "max_memory_mb_per_trial"
+      ],
+      "title": "ResourceCapacitySnapshot",
+      "type": "object"
+    },
+    "SearchBudgetPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_resource_limited_plan": {
+          "default": true,
+          "title": "Allow Resource Limited Plan",
+          "type": "boolean"
+        },
+        "confirmation_fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.25",
+          "title": "Confirmation Fraction"
+        },
+        "estimated_cpu_seconds_per_cell": {
+          "minimum": 1,
+          "title": "Estimated Cpu Seconds Per Cell",
+          "type": "integer"
+        },
+        "estimated_memory_mb_per_trial": {
+          "minimum": 128,
+          "title": "Estimated Memory Mb Per Trial",
+          "type": "integer"
+        },
+        "exploration_fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.6",
+          "title": "Exploration Fraction"
+        },
+        "maximum_configurations": {
+          "minimum": 1,
+          "title": "Maximum Configurations",
+          "type": "integer"
+        },
+        "maximum_parallel_trials": {
+          "minimum": 1,
+          "title": "Maximum Parallel Trials",
+          "type": "integer"
+        },
+        "maximum_total_cpu_seconds": {
+          "minimum": 1,
+          "title": "Maximum Total Cpu Seconds",
+          "type": "integer"
+        },
+        "maximum_trial_executions": {
+          "minimum": 1,
+          "title": "Maximum Trial Executions",
+          "type": "integer"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Policy Sha256",
+          "type": "string"
+        },
+        "robustness_fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.15",
+          "title": "Robustness Fraction"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_sha256",
+        "maximum_configurations",
+        "maximum_trial_executions",
+        "maximum_parallel_trials",
+        "maximum_total_cpu_seconds",
+        "estimated_cpu_seconds_per_cell",
+        "estimated_memory_mb_per_trial"
+      ],
+      "title": "SearchBudgetPolicy",
+      "type": "object"
+    },
+    "SearchSpaceCardinalityReport": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary_only_parameter_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Boundary Only Parameter Ids",
+          "type": "array"
+        },
+        "conditional_parameter_count": {
+          "minimum": 0,
+          "title": "Conditional Parameter Count",
+          "type": "integer"
+        },
+        "effective_dimension_count": {
+          "minimum": 0,
+          "title": "Effective Dimension Count",
+          "type": "integer"
+        },
+        "exact_cardinality": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Exact Cardinality"
+        },
+        "finite": {
+          "title": "Finite",
+          "type": "boolean"
+        },
+        "inactive_parameter_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Inactive Parameter Ids",
+          "type": "array"
+        },
+        "upper_bound": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper Bound"
+        }
+      },
+      "required": [
+        "finite",
+        "effective_dimension_count",
+        "conditional_parameter_count"
+      ],
+      "title": "SearchSpaceCardinalityReport",
+      "type": "object"
+    },
+    "SearchSpaceConstraintEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "child_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Child Parameter Id",
+          "type": "string"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "child_parameter_id"
+      ],
+      "title": "SearchSpaceConstraintEdge",
+      "type": "object"
+    },
+    "SearchSpaceConstraintGraph": {
+      "additionalProperties": false,
+      "properties": {
+        "edges": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/SearchSpaceConstraintEdge"
+          },
+          "title": "Edges",
+          "type": "array"
+        },
+        "parameter_order": {
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Parameter Order",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parameter_order"
+      ],
+      "title": "SearchSpaceConstraintGraph",
+      "type": "object"
+    },
+    "SearchSpaceState": {
+      "enum": [
+        "SPACE_COMPILED",
+        "SPACE_COMPILED_WITH_WARNINGS",
+        "SPACE_EMPTY",
+        "SPACE_EXPLOSIVE",
+        "SPACE_INVALID"
+      ],
+      "title": "SearchSpaceState",
+      "type": "string"
+    },
+    "SearchStrategy": {
+      "enum": [
+        "GRID",
+        "RANDOM",
+        "SUCCESSIVE_HALVING",
+        "HYPERBAND",
+        "BOHB"
+      ],
+      "title": "SearchStrategy",
+      "type": "string"
+    },
+    "TemporalEvaluationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "embargo_required": {
+          "default": true,
+          "title": "Embargo Required",
+          "type": "boolean"
+        },
+        "final_holdout_required": {
+          "default": true,
+          "title": "Final Holdout Required",
+          "type": "boolean"
+        },
+        "inner_fold_count": {
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Inner Fold Count",
+          "type": "integer"
+        },
+        "outer_fold_count": {
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Outer Fold Count",
+          "type": "integer"
+        },
+        "purge_required": {
+          "default": true,
+          "title": "Purge Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "outer_fold_count",
+        "inner_fold_count"
+      ],
+      "title": "TemporalEvaluationRequest",
+      "type": "object"
+    },
+    "ValidatedExperimentSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_registry_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Capability Registry Sha256",
+          "type": "string"
+        },
+        "cohort_id": {
+          "minLength": 1,
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "cohort_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Cohort Sha256",
+          "type": "string"
+        },
+        "metric_registry_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Metric Registry Sha256",
+          "type": "string"
+        },
+        "promotion_policy": {
+          "$ref": "#/$defs/PromotionPolicyReference"
+        },
+        "specification": {
+          "$ref": "#/$defs/ExperimentSpecification"
+        },
+        "specification_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Specification Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "specification",
+        "cohort_id",
+        "cohort_sha256",
+        "metric_registry_sha256",
+        "capability_registry_sha256",
+        "promotion_policy",
+        "specification_sha256"
+      ],
+      "title": "ValidatedExperimentSpecification",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "budget_policy": {
+      "$ref": "#/$defs/SearchBudgetPolicy"
+    },
+    "compiled_search_space": {
+      "$ref": "#/$defs/CompiledSearchSpace"
+    },
+    "early_stopping": {
+      "$ref": "#/$defs/EarlyStoppingPolicy"
+    },
+    "fidelity_levels": {
+      "items": {
+        "$ref": "#/$defs/FidelityLevel"
+      },
+      "title": "Fidelity Levels",
+      "type": "array"
+    },
+    "resource_capacity": {
+      "$ref": "#/$defs/ResourceCapacitySnapshot"
+    },
+    "validated_specification": {
+      "$ref": "#/$defs/ValidatedExperimentSpecification"
+    }
+  },
+  "required": [
+    "validated_specification",
+    "compiled_search_space",
+    "resource_capacity",
+    "budget_policy",
+    "fidelity_levels",
+    "early_stopping"
+  ],
+  "title": "BudgetPlanningInput",
+  "type": "object"
+}

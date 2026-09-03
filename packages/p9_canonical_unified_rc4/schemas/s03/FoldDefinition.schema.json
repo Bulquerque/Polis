@@ -1,0 +1,76 @@
+{
+  "$defs": {
+    "DurationSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "seconds": {
+          "minimum": 0,
+          "title": "Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "seconds"
+      ],
+      "title": "DurationSpec",
+      "type": "object"
+    },
+    "TimeWindow": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "format": "date-time",
+          "title": "End",
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "title": "Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "title": "TimeWindow",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/FoldDefinition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "embargo": {
+      "$ref": "#/$defs/DurationSpec"
+    },
+    "fold_id": {
+      "title": "Fold Id",
+      "type": "string"
+    },
+    "outer_index": {
+      "minimum": 0,
+      "title": "Outer Index",
+      "type": "integer"
+    },
+    "test_window": {
+      "$ref": "#/$defs/TimeWindow"
+    },
+    "train_window": {
+      "$ref": "#/$defs/TimeWindow"
+    },
+    "tuning_window": {
+      "$ref": "#/$defs/TimeWindow"
+    }
+  },
+  "required": [
+    "fold_id",
+    "outer_index",
+    "train_window",
+    "tuning_window",
+    "test_window",
+    "embargo"
+  ],
+  "title": "FoldDefinition",
+  "type": "object"
+}

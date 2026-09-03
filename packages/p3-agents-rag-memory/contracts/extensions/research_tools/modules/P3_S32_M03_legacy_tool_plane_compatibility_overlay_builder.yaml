@@ -1,0 +1,159 @@
+module_id: P3.S32.M03
+module_name: legacy_tool_plane_compatibility_overlay_builder
+phase: phase_03_agents_rag_memory
+subphase: P3.S32
+status: implemented_qualified_internal
+function: Projetar S15/S16 no novo Tool Plane sem alterar contratos legados, preservando limites e tornando providers externos
+  apenas opcionais.
+inputs: &id001
+- tool_registry
+- mcp_gateway_policy
+- provider_adapter_registry_config
+- canonical_research_tool_catalog
+- canonical_tool_operation_registry
+- compatibility_alias_config
+outputs: &id002
+- extended_tool_registry_overlay
+- provider_transport_overlay
+- compatibility_alias_registry
+- legacy_contract_projection_report
+validations:
+- no_secret_material
+- aliases_unique_and_resolvable
+- legacy_external_provider_not_claimed_connected
+- local_provider_preserved
+- visible_call_limit_at_most_five
+- administrative_actions_not_used_as_operations
+invariants:
+- single_contract_authority
+- deterministic_serialization
+- lineage_traceability
+- no_hidden_global_state
+- no_same_cycle_back_edge
+- no_network_access
+non_responsibilities:
+- Não modificar S15/S16, executar MCP, copiar credenciais ou criar segundo handler para aliases.
+fail_fast_conditions:
+- legacy_tool_plane_compatibility_overlay_builder_schema_violation
+- legacy_tool_plane_compatibility_overlay_builder_undeclared_dependency
+- legacy_tool_plane_compatibility_overlay_builder_contract_conflict
+forbidden_fields:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+- model_selection
+- backtest_result
+- target
+- label
+- prediction
+- realized_pnl
+- performance
+- pnl
+- recommendation
+allowed_connections:
+  consumes_from:
+    modules:
+    - P3.S15.M01
+    - P3.S16.M01
+    - P3.S32.M01
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S32.M04
+    - P3.S34.M04
+    - P3.S40.M01
+    artifacts: *id002
+    phase_outputs: []
+tests_required:
+- real_s15_s16_projection
+- external_provider_downgraded
+- local_provider_qualified
+- alias_resolution
+- secret_material_rejected
+- visible_call_limit_preserved
+definition_of_done:
+- required_tests_implemented_and_passing
+- outputs_match_generated_schemas
+- no_undeclared_side_effects
+- contracts_docs_tests_updated_together
+- existing_p3_tests_remain_green
+contract_version: p3.s32.contracts.v1
+owner_prompt: subphases/extensions/research_tools/P3_S32_research_tool_contract_compatibility_foundation.md
+implementation_boundary:
+  owns:
+  - Projetar S15/S16 no novo Tool Plane sem alterar contratos legados, preservando limites e tornando providers externos apenas
+    opcionais.
+  must_not_absorb:
+  - Não modificar S15/S16, executar MCP, copiar credenciais ou criar segundo handler para aliases.
+  state_mutation_policy: outputs_only
+observability_requirements:
+  events:
+  - module_started
+  - input_contract_validated
+  - module_succeeded
+  - module_failed
+  dimensions:
+  - module_id
+  - contract_version
+  - lineage_id
+  - content_hash
+  metrics:
+  - duration_ms
+  - input_record_count
+  - output_record_count
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - provider_secrets
+  - private_payloads
+debugging_contract:
+  triage_order:
+  - validate_required_inputs
+  - validate_schema_version
+  - validate_hash_and_lineage
+  - validate_cross_contract_invariants
+  - validate_output_schema
+  error_codes:
+  - P3RT-CONTRACT-0001
+  - P3RT-MODE-0001
+  - P3RT-ALIAS-0001
+  - P3RT-PROVIDER-0001
+  fallback_policy: fail_closed_no_silent_fallback
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - documentation
+  contract_change_requires:
+  - schema_update
+  - fixtures_update
+  - consumer_tests_update
+  - version_review
+review_checklist:
+- single_responsibility
+- input_output_match
+- no_forbidden_authority
+- deterministic
+- strict_models
+- negative_tests_present
+rc: S32-V1
+forbidden_connections:
+- any_undeclared_connection
+- network_access
+- direct_P3_to_P5_P6_P7_P8
+- modification_of_P3_S1_to_S31
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M03_legacy_tool_plane_compatibility_overlay_builder.py
+unit_test_target: tests/phase_specific/research_tools/test_p3_s32_m03_compatibility.py
+integration_test_target: tests/phase_specific/research_tools/test_p3_s32_wrappers.py
+implementation_status: QUALIFIED_LOCAL_PENDING_TEST_RUN
+production_promotion_allowed: false
+qualification_scope: LOCAL_CONTRACT_AND_COMPATIBILITY_ONLY; P0_PENDING
+documentation_refs:
+- docs/research_tools/P3_S32_IMPLEMENTATION.md
+- docs/research_tools/P3_S32_API_COMPATIBILITY.md
+- docs/research_tools/P3_S32_TESTING.md

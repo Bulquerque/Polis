@@ -1,0 +1,121 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  AttentionFollowupIntentRecord:
+    additionalProperties: false
+    properties:
+      intent_id:
+        minLength: 1
+        title: Intent Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      topic_id:
+        minLength: 1
+        title: Topic Id
+        type: string
+      priority:
+        maximum: 1.0
+        minimum: 0.0
+        title: Priority
+        type: number
+      reason:
+        minLength: 1
+        title: Reason
+        type: string
+      evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Evidence Refs
+        type: array
+    required:
+    - intent_id
+    - cognition_transaction_id
+    - person_id
+    - topic_id
+    - priority
+    - reason
+    title: AttentionFollowupIntentRecord
+    type: object
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s21.v1
+    default: p3.s21.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/AttentionFollowupIntentRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: finalized_attention_followup_intent_panel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s21:outputs:finalized_attention_followup_intent_panel:v1
+artifact_name: finalized_attention_followup_intent_panel
+x-artifact-name: finalized_attention_followup_intent_panel
+x-contract-version: p3.s21.v1
+x-authority: P3.S21
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

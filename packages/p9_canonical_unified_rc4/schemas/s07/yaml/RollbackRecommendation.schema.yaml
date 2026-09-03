@@ -1,0 +1,81 @@
+$defs:
+  DecisionTraceItem:
+    additionalProperties: false
+    properties:
+      rule_id:
+        minLength: 1
+        title: Rule Id
+        type: string
+      triggered:
+        title: Triggered
+        type: boolean
+      observed_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Observed Value
+      threshold_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Threshold Value
+      reason_code:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Reason Code
+    required:
+    - rule_id
+    - triggered
+    title: DecisionTraceItem
+    type: object
+  LiveHealthState:
+    enum:
+    - HEALTHY
+    - WATCH
+    - DEGRADED
+    - REQUALIFICATION_REQUIRED
+    - ROLLBACK_RECOMMENDED
+    - QUARANTINE_RECOMMENDED
+    - INSUFFICIENT_LIVE_EVIDENCE
+    title: LiveHealthState
+    type: string
+additionalProperties: false
+properties:
+  state:
+    $ref: '#/$defs/LiveHealthState'
+  decision_trace:
+    items:
+      $ref: '#/$defs/DecisionTraceItem'
+    title: Decision Trace
+    type: array
+  reason_codes:
+    items:
+      minLength: 1
+      type: string
+    title: Reason Codes
+    type: array
+  recommendation_only:
+    default: true
+    title: Recommendation Only
+    type: boolean
+  p0_authorization_required:
+    default: true
+    title: P0 Authorization Required
+    type: boolean
+  result_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Result Sha256
+    type: string
+required:
+- state
+- decision_trace
+- reason_codes
+- result_sha256
+title: RollbackRecommendation
+type: object
+$id: urn:inferencia:p9:s7:RollbackRecommendation:1.0.0

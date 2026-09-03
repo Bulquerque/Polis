@@ -1,0 +1,134 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "observation_id": {
+      "minLength": 1,
+      "title": "Observation Id",
+      "type": "string"
+    },
+    "target_id": {
+      "minLength": 1,
+      "title": "Target Id",
+      "type": "string"
+    },
+    "horizon_id": {
+      "minLength": 1,
+      "title": "Horizon Id",
+      "type": "string"
+    },
+    "regime_id": {
+      "minLength": 1,
+      "title": "Regime Id",
+      "type": "string"
+    },
+    "component_id": {
+      "minLength": 1,
+      "title": "Component Id",
+      "type": "string"
+    },
+    "component_kind": {
+      "minLength": 1,
+      "title": "Component Kind",
+      "type": "string"
+    },
+    "consumed": {
+      "title": "Consumed",
+      "type": "boolean"
+    },
+    "historical_weight": {
+      "title": "Historical Weight",
+      "type": "number"
+    },
+    "ensemble_loss": {
+      "minimum": 0.0,
+      "title": "Ensemble Loss",
+      "type": "number"
+    },
+    "ablated_loss": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ablated Loss"
+    },
+    "component_prediction": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Component Prediction"
+    },
+    "oof_qualified": {
+      "title": "Oof Qualified",
+      "type": "boolean"
+    },
+    "observable_pnl_with_component": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observable Pnl With Component"
+    },
+    "observable_pnl_without_component": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observable Pnl Without Component"
+    },
+    "evidence_class": {
+      "$ref": "#/$defs/EvidenceClass"
+    }
+  },
+  "required": [
+    "observation_id",
+    "target_id",
+    "horizon_id",
+    "regime_id",
+    "component_id",
+    "component_kind",
+    "consumed",
+    "historical_weight",
+    "ensemble_loss",
+    "oof_qualified",
+    "evidence_class"
+  ],
+  "title": "ForecastComponentObservation",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:ForecastComponentObservation:1.0.0"
+}

@@ -1,0 +1,14 @@
+area,problem,correction,validation,status
+Contracts,OPTIONAL_INPUTS used but not declared,Declared all optional inputs and made metadata validation compare them,AST and 47-module metadata tests,PASS
+Contracts,Incomplete S35-S38 contract documents,Normalized all 47 extension contracts to the full operational contract surface,Contract completeness test,PASS
+Boundary,Snapshot fallback accepted ghost input,Removed undeclared snapshot_id fallback and require boundary snapshot,Negative tests and metadata scan,PASS
+Corpus,Snapshot/readiness/policy could drift,Added snapshot count capability policy and budget cross-checks,Corpus mismatch test plus family suite,PASS
+Corpus,Handler qualification coverage could be partial,Require exact handler-mode coverage and unique operation records,Qualification regression suite,PASS
+Options,Surface readiness omitted contract history,Require clean_option_contract_panel for surface diagnostics,Readiness negative test,PASS
+Options,Invalid and duplicate strikes could misalign prices,Jointly filter strike-price pairs and aggregate duplicates by median,Analytical surface regression test,PASS
+Market,Family readiness could disagree with binding,Enforce snapshot identity and disjoint available/blocked sets,Market qualification suite,PASS
+Macro,Catalog readiness and contexts were not consumed coherently,Validate snapshot counts vintage counts and referenced series,Macro drift negative test,PASS
+Fundamentals,Reverse DCF returned false precision outside bounds,Report target_bracketed residual and DEGRADED nearest-bound result,Reverse DCF boundary test,PASS
+Agents,Capability thresholds could overlap,Require NONE=0 and strictly increasing capability levels,S34 calibration test,PASS
+Runtime,Monolithic pytest shutdown interaction,Official 37-partition isolated matrix with per-partition timeout and counts,Full test matrix,PASS
+Governance,External data quality could be silently assumed,Preserve fail-closed AVAILABLE DEGRADED BLOCKED_UPSTREAM and P0-only promotion,Release verification,PASS

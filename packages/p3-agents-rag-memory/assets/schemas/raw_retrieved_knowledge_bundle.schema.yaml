@@ -1,0 +1,20 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: artifact_bundle
+status: planned_internal_schema
+type: object
+properties:
+  schema_version:
+    type: string
+  items:
+    type: array
+    items: {}
+  lineage_id:
+    type: string
+additionalProperties: false
+artifact_name: raw_retrieved_knowledge_bundle
+schema_id: raw_retrieved_knowledge_bundle.v1
+schema_version: v14.1-rc4.1
+required_fields:
+- schema_version
+- items
+- lineage_id

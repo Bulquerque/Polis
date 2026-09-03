@@ -1,0 +1,61 @@
+{
+  "active_policy_id": "p7_canonical_comparison_group",
+  "policies": [
+    {
+      "capital_at_risk_sources": [
+        "risk.maximum_loss",
+        "risk.margin_estimate",
+        "cost_liquidity.entry_cost"
+      ],
+      "currency_sources": [
+        "candidate.currency",
+        "cost_liquidity.currency",
+        "market_snapshot.currency"
+      ],
+      "dimensions": [
+        "cycle_id",
+        "decision_time",
+        "underlying_id",
+        "horizon",
+        "objective_family",
+        "capital_at_risk_bucket",
+        "currency"
+      ],
+      "policy_id": "p7_canonical_comparison_group",
+      "risk_buckets": [
+        {
+          "bucket_id": "RISK_0000_0249",
+          "lower_inclusive": 0,
+          "upper_exclusive": 250
+        },
+        {
+          "bucket_id": "RISK_0250_0999",
+          "lower_inclusive": 250,
+          "upper_exclusive": 1000
+        },
+        {
+          "bucket_id": "RISK_1000_4999",
+          "lower_inclusive": 1000,
+          "upper_exclusive": 5000
+        },
+        {
+          "bucket_id": "RISK_5000_PLUS",
+          "lower_inclusive": 5000,
+          "upper_exclusive": null
+        }
+      ],
+      "supported_horizons": [
+        "1_session",
+        "5_sessions",
+        "10_sessions",
+        "21_sessions",
+        "42_sessions",
+        "63_sessions"
+      ],
+      "version": "2.3.0",
+      "allow_structured_horizons": true
+    }
+  ],
+  "registry_id": "p7_comparison_group_policy_registry",
+  "registry_version": "2.3.0"
+}

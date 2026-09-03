@@ -1,0 +1,20 @@
+contract_id: P7.FOUNDATION.RUNTIME_FOUNDATION
+contract_version: 2.0.0
+semantic_version: 2.0.0
+producer_stage: FOUNDATION
+producer_module: P7.S2.M04
+consumer_stages: [TOURNAMENT, LEARNING]
+manifest_artifact: runtime_foundation_handoff_manifest
+required_artifacts:
+  - eligible_strategy_candidate_panel
+  - eligibility_blocked_candidate_panel
+  - eligibility_decision_panel
+  - candidate_comparison_group_panel
+  - candidate_metric_route_panel
+  - ranking_feedback_context
+change_policy: ARCHITECTURE_CHANGE_REQUEST
+compatibility_rules:
+  - consumer_must_validate_hashes_and_grains
+  - consumer_must_not_import_foundation_private_implementation
+  - comparison_group_id_is_the_canonical_runtime_and_offline_query_id
+  - blocked_candidates_must_remain_available_for_audit_but_must_not_enter_scoring

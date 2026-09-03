@@ -1,0 +1,76 @@
+schema_id: schema_test_report.v1
+artifact_name: schema_test_report
+schema_version: v14.1-rc4.1
+type: object
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- schema_count
+- fixture_count
+- passed_tests
+- failed_tests
+- tests
+- schemas_fully_covered
+- schemas_partially_covered
+- mutation_class_count
+- valid_fixture_passes
+- invalid_fixture_fails
+- status
+- release_blocking
+properties:
+  created_at:
+    type: string
+  passed_tests:
+    type: integer
+    minimum: 0
+  failed_tests:
+    type: integer
+    minimum: 0
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  release_blocking:
+    type: boolean
+  artifact_id:
+    type: string
+    pattern: ^schema-test-report-[0-9a-f]{12}$
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  schema_count:
+    type: integer
+    minimum: 1
+  fixture_count:
+    type: integer
+    minimum: 2
+  tests:
+    type: array
+    minItems: 2
+  valid_fixture_passes:
+    type: boolean
+  invalid_fixture_fails:
+    type: boolean
+  schemas_fully_covered:
+    type: integer
+    minimum: 0
+  schemas_partially_covered:
+    type: integer
+    minimum: 0
+  mutation_class_count:
+    type: integer
+    minimum: 1
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

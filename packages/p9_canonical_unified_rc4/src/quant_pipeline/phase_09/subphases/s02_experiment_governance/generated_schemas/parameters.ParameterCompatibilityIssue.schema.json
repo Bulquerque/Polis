@@ -1,0 +1,32 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "blocking": {
+      "title": "Blocking",
+      "type": "boolean"
+    },
+    "description": {
+      "minLength": 1,
+      "title": "Description",
+      "type": "string"
+    },
+    "parameter_id": {
+      "minLength": 1,
+      "title": "Parameter Id",
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^P9_[A-Z0-9_]+$",
+      "title": "Reason Code",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parameter_id",
+    "reason_code",
+    "description",
+    "blocking"
+  ],
+  "title": "ParameterCompatibilityIssue",
+  "type": "object"
+}

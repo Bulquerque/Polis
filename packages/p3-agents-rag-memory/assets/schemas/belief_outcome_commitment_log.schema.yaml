@@ -1,0 +1,187 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  BeliefOutcomeCommitmentRecord:
+    additionalProperties: false
+    properties:
+      commitment_id:
+        minLength: 1
+        title: Commitment Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      subject:
+        minLength: 1
+        title: Subject
+        type: string
+      proposition:
+        minLength: 1
+        title: Proposition
+        type: string
+      direction:
+        minLength: 1
+        title: Direction
+        type: string
+      strength:
+        maximum: 1.0
+        minimum: 0.0
+        title: Strength
+        type: number
+      confidence:
+        maximum: 1.0
+        minimum: 0.0
+        title: Confidence
+        type: number
+      uncertainty:
+        maximum: 1.0
+        minimum: 0.0
+        title: Uncertainty
+        type: number
+      horizon:
+        minLength: 1
+        title: Horizon
+        type: string
+      value_payload:
+        additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        title: Value Payload
+        type: object
+      evidence_refs:
+        items:
+          minLength: 1
+          type: string
+        title: Evidence Refs
+        type: array
+      belief_update_id:
+        minLength: 1
+        title: Belief Update Id
+        type: string
+      run_id:
+        minLength: 1
+        title: Run Id
+        type: string
+      cycle_id:
+        minLength: 1
+        title: Cycle Id
+        type: string
+      snapshot_id:
+        minLength: 1
+        title: Snapshot Id
+        type: string
+      generated_at:
+        format: date-time
+        title: Generated At
+        type: string
+      committed_at:
+        format: date-time
+        title: Committed At
+        type: string
+      matures_at:
+        format: date-time
+        title: Matures At
+        type: string
+      commit_hash:
+        minLength: 1
+        title: Commit Hash
+        type: string
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+    required:
+    - commitment_id
+    - person_id
+    - subject
+    - proposition
+    - direction
+    - strength
+    - confidence
+    - uncertainty
+    - horizon
+    - value_payload
+    - evidence_refs
+    - belief_update_id
+    - run_id
+    - cycle_id
+    - snapshot_id
+    - generated_at
+    - committed_at
+    - matures_at
+    - commit_hash
+    - lineage_id
+    title: BeliefOutcomeCommitmentRecord
+    type: object
+  JsonValue: {}
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s22.v1
+    default: p3.s22.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+  records:
+    items:
+      $ref: '#/$defs/BeliefOutcomeCommitmentRecord'
+    title: Records
+    type: array
+required:
+- lineage
+- records
+title: BeliefOutcomeCommitmentLog
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: belief_outcome_commitment_log
+schema_id: belief_outcome_commitment_log.p3.s22.v1
+schema_version: v14.1-rc4.1
+artifact_schema_version: p3.s22.v1

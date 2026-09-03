@@ -1,0 +1,2976 @@
+{
+  "$defs": {
+    "CapacityCurvePanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/CapacityPoint"
+          },
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "points",
+        "evidence_class"
+      ],
+      "title": "CapacityCurvePanel",
+      "type": "object"
+    },
+    "CapacityPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "aum_multiplier": {
+          "exclusiveMinimum": 0,
+          "title": "Aum Multiplier",
+          "type": "number"
+        },
+        "estimated_impact_fraction": {
+          "minimum": 0,
+          "title": "Estimated Impact Fraction",
+          "type": "number"
+        },
+        "estimated_net_return_after_impact": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Estimated Net Return After Impact"
+        },
+        "maximum_participation_fraction": {
+          "minimum": 0,
+          "title": "Maximum Participation Fraction",
+          "type": "number"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "aum_multiplier",
+        "estimated_impact_fraction",
+        "estimated_net_return_after_impact",
+        "maximum_participation_fraction",
+        "status"
+      ],
+      "title": "CapacityPoint",
+      "type": "object"
+    },
+    "CostDragPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "observed_slippage": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observed Slippage"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "total_borrow": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Total Borrow"
+        },
+        "total_fees": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Total Fees"
+        },
+        "total_financing": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Total Financing"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "total_fees",
+        "total_financing",
+        "total_borrow",
+        "observed_slippage"
+      ],
+      "title": "CostDragPanel",
+      "type": "object"
+    },
+    "DiagnosticRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "observed": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed"
+        },
+        "severity": {
+          "pattern": "^(INFO|WARNING|ERROR|BLOCKER)$",
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "severity"
+      ],
+      "title": "DiagnosticRecord",
+      "type": "object"
+    },
+    "DistributionDiagnosticPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "rolling": {
+          "items": {
+            "$ref": "#/$defs/RollingDistributionRecord"
+          },
+          "title": "Rolling",
+          "type": "array"
+        },
+        "serial_correlations": {
+          "items": {
+            "$ref": "#/$defs/SerialCorrelationRecord"
+          },
+          "title": "Serial Correlations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "serial_correlations",
+        "rolling"
+      ],
+      "title": "DistributionDiagnosticPanel",
+      "type": "object"
+    },
+    "DistributionEngineResult": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "$ref": "#/$defs/DistributionDiagnosticPanel"
+        },
+        "serial_dependence": {
+          "$ref": "#/$defs/SerialDependenceReport"
+        },
+        "volatility": {
+          "$ref": "#/$defs/VolatilityMetricPanel"
+        }
+      },
+      "required": [
+        "volatility",
+        "diagnostics",
+        "serial_dependence"
+      ],
+      "title": "DistributionEngineResult",
+      "type": "object"
+    },
+    "DrawdownEpisode": {
+      "additionalProperties": false,
+      "properties": {
+        "censored": {
+          "title": "Censored",
+          "type": "boolean"
+        },
+        "duration_seconds": {
+          "minimum": 0,
+          "title": "Duration Seconds",
+          "type": "integer"
+        },
+        "episode_id": {
+          "title": "Episode Id",
+          "type": "string"
+        },
+        "maximum_drawdown_fraction": {
+          "maximum": 0,
+          "title": "Maximum Drawdown Fraction",
+          "type": "number"
+        },
+        "peak_time": {
+          "format": "date-time",
+          "title": "Peak Time",
+          "type": "string"
+        },
+        "recovery_seconds": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Recovery Seconds"
+        },
+        "recovery_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Recovery Time"
+        },
+        "trough_time": {
+          "format": "date-time",
+          "title": "Trough Time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "episode_id",
+        "peak_time",
+        "trough_time",
+        "recovery_time",
+        "maximum_drawdown_fraction",
+        "duration_seconds",
+        "censored"
+      ],
+      "title": "DrawdownEpisode",
+      "type": "object"
+    },
+    "DrawdownEpisodePanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "episodes": {
+          "items": {
+            "$ref": "#/$defs/DrawdownEpisode"
+          },
+          "title": "Episodes",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "episodes"
+      ],
+      "title": "DrawdownEpisodePanel",
+      "type": "object"
+    },
+    "DrawdownMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "open_episode_count": {
+          "minimum": 0,
+          "title": "Open Episode Count",
+          "type": "integer"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "open_episode_count"
+      ],
+      "title": "DrawdownMetricPanel",
+      "type": "object"
+    },
+    "DrawdownResult": {
+      "additionalProperties": false,
+      "properties": {
+        "episodes": {
+          "$ref": "#/$defs/DrawdownEpisodePanel"
+        },
+        "metrics": {
+          "$ref": "#/$defs/DrawdownMetricPanel"
+        },
+        "underwater": {
+          "$ref": "#/$defs/UnderwaterSeries"
+        }
+      },
+      "required": [
+        "episodes",
+        "metrics",
+        "underwater"
+      ],
+      "title": "DrawdownResult",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "OBSERVED_LIVE",
+        "OBSERVED_HISTORICAL",
+        "SIMULATED_ORDERBOOK",
+        "PARAMETRIC_IMPACT",
+        "STRESS_EXTRAPOLATED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "ExecutionCapacityResult": {
+      "additionalProperties": false,
+      "properties": {
+        "capacity": {
+          "$ref": "#/$defs/CapacityCurvePanel"
+        },
+        "costs": {
+          "$ref": "#/$defs/CostDragPanel"
+        },
+        "execution": {
+          "$ref": "#/$defs/ExecutionMetricPanel"
+        }
+      },
+      "required": [
+        "execution",
+        "costs",
+        "capacity"
+      ],
+      "title": "ExecutionCapacityResult",
+      "type": "object"
+    },
+    "ExecutionMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "execution_metrics": {
+          "items": {
+            "$ref": "#/$defs/ExecutionMetricRecord"
+          },
+          "title": "Execution Metrics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "execution_metrics"
+      ],
+      "title": "ExecutionMetricPanel",
+      "type": "object"
+    },
+    "ExecutionMetricRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "metric_id",
+        "value",
+        "status",
+        "evidence_class",
+        "observation_count"
+      ],
+      "title": "ExecutionMetricRecord",
+      "type": "object"
+    },
+    "FactorCoefficient": {
+      "additionalProperties": false,
+      "properties": {
+        "estimate": {
+          "title": "Estimate",
+          "type": "number"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "p_value": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P Value"
+        },
+        "standard_error": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Standard Error"
+        },
+        "t_statistic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "T Statistic"
+        }
+      },
+      "required": [
+        "name",
+        "estimate"
+      ],
+      "title": "FactorCoefficient",
+      "type": "object"
+    },
+    "FactorExposurePanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "regressions": {
+          "items": {
+            "$ref": "#/$defs/FactorRegressionRecord"
+          },
+          "title": "Regressions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "regressions"
+      ],
+      "title": "FactorExposurePanel",
+      "type": "object"
+    },
+    "FactorRegressionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "coefficients": {
+          "items": {
+            "$ref": "#/$defs/FactorCoefficient"
+          },
+          "title": "Coefficients",
+          "type": "array"
+        },
+        "condition_number": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Condition Number"
+        },
+        "covariance_method": {
+          "title": "Covariance Method",
+          "type": "string"
+        },
+        "factor_model_id": {
+          "title": "Factor Model Id",
+          "type": "string"
+        },
+        "factor_model_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Factor Model Version",
+          "type": "string"
+        },
+        "gross_net": {
+          "title": "Gross Net",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "r_squared": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "R Squared"
+        },
+        "residual_volatility_annualized": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Residual Volatility Annualized"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factor_model_id",
+        "factor_model_version",
+        "gross_net",
+        "status",
+        "observation_count",
+        "coefficients",
+        "r_squared",
+        "covariance_method"
+      ],
+      "title": "FactorRegressionRecord",
+      "type": "object"
+    },
+    "FactorRegressionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnostics": {
+          "$ref": "#/$defs/RegressionDiagnosticReport"
+        },
+        "exposures": {
+          "$ref": "#/$defs/FactorExposurePanel"
+        },
+        "rolling": {
+          "$ref": "#/$defs/RollingFactorPanel"
+        }
+      },
+      "required": [
+        "exposures",
+        "rolling",
+        "diagnostics"
+      ],
+      "title": "FactorRegressionResult",
+      "type": "object"
+    },
+    "GrossNet": {
+      "enum": [
+        "GROSS",
+        "NET",
+        "ACTIVE",
+        "EXCESS",
+        "NOT_APPLICABLE"
+      ],
+      "title": "GrossNet",
+      "type": "string"
+    },
+    "InstitutionalMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metric_count": {
+          "minimum": 0,
+          "title": "Metric Count",
+          "type": "integer"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "metric_count"
+      ],
+      "title": "InstitutionalMetricPanel",
+      "type": "object"
+    },
+    "MetricApplicability": {
+      "additionalProperties": false,
+      "properties": {
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_id",
+        "status",
+        "observation_count"
+      ],
+      "title": "MetricApplicability",
+      "type": "object"
+    },
+    "MetricLimitation": {
+      "additionalProperties": false,
+      "properties": {
+        "limitation": {
+          "title": "Limitation",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "severity": {
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_id",
+        "limitation",
+        "severity"
+      ],
+      "title": "MetricLimitation",
+      "type": "object"
+    },
+    "MetricQualityReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "check_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Check Ids",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/MetricLimitation"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "state": {
+          "$ref": "#/$defs/QualityState"
+        }
+      },
+      "required": [
+        "identity",
+        "state",
+        "check_ids",
+        "reason_codes",
+        "limitations",
+        "content_sha256"
+      ],
+      "title": "MetricQualityReceipt",
+      "type": "object"
+    },
+    "MetricQualityResult": {
+      "additionalProperties": false,
+      "properties": {
+        "panel": {
+          "$ref": "#/$defs/InstitutionalMetricPanel"
+        },
+        "receipt": {
+          "$ref": "#/$defs/MetricQualityReceipt"
+        }
+      },
+      "required": [
+        "panel",
+        "receipt"
+      ],
+      "title": "MetricQualityResult",
+      "type": "object"
+    },
+    "MetricRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "annualization_periods": {
+          "anyOf": [
+            {
+              "gt": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annualization Periods"
+        },
+        "gross_net": {
+          "$ref": "#/$defs/GrossNet",
+          "default": "NOT_APPLICABLE"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "sample_count": {
+          "minimum": 0,
+          "title": "Sample Count",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "unit": {
+          "$ref": "#/$defs/Unit"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_version",
+        "producer_module_id",
+        "value",
+        "unit",
+        "status",
+        "sample_count",
+        "method"
+      ],
+      "title": "MetricRecord",
+      "type": "object"
+    },
+    "MetricStatus": {
+      "enum": [
+        "QUALIFIED",
+        "LIMITED",
+        "UNAVAILABLE",
+        "INSUFFICIENT_SAMPLE",
+        "UNDEFINED",
+        "INVALID"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "QualifiedBacktestIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "handoff_id": {
+          "title": "Handoff Id",
+          "type": "string"
+        },
+        "handoff_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Handoff Sha256",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trial_id": {
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trial_id",
+        "fold_id",
+        "configuration_id",
+        "handoff_id",
+        "handoff_sha256"
+      ],
+      "title": "QualifiedBacktestIdentity",
+      "type": "object"
+    },
+    "QualityState": {
+      "enum": [
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EVIDENCE",
+        "INVALID"
+      ],
+      "title": "QualityState",
+      "type": "string"
+    },
+    "RegressionDiagnosticReport": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "registry_id": {
+          "title": "Registry Id",
+          "type": "string"
+        },
+        "registry_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Registry Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "registry_id",
+        "registry_version"
+      ],
+      "title": "RegressionDiagnosticReport",
+      "type": "object"
+    },
+    "ReturnConvention": {
+      "enum": [
+        "SIMPLE",
+        "LOG"
+      ],
+      "title": "ReturnConvention",
+      "type": "string"
+    },
+    "ReturnEngineResult": {
+      "additionalProperties": false,
+      "properties": {
+        "reconciliation_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Reconciliation Sha256",
+          "type": "string"
+        },
+        "return_metrics": {
+          "$ref": "#/$defs/ReturnMetricPanel"
+        },
+        "return_series": {
+          "$ref": "#/$defs/ReturnSeriesPanel"
+        },
+        "wealth_path": {
+          "$ref": "#/$defs/WealthPathPanel"
+        }
+      },
+      "required": [
+        "wealth_path",
+        "return_series",
+        "return_metrics",
+        "reconciliation_sha256"
+      ],
+      "title": "ReturnEngineResult",
+      "type": "object"
+    },
+    "ReturnMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "end_nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "End Nav"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "start_nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Start Nav"
+        },
+        "total_cost": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Total Cost"
+        },
+        "total_external_flow": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Total External Flow"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "start_nav",
+        "end_nav",
+        "total_external_flow",
+        "total_cost"
+      ],
+      "title": "ReturnMetricPanel",
+      "type": "object"
+    },
+    "ReturnSeriesPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "active_returns": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Active Returns"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "excess_returns": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Excess Returns"
+        },
+        "gross_returns": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Gross Returns",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "net_returns": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Net Returns",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "periods_per_year": {
+          "title": "Periods Per Year",
+          "type": "number"
+        },
+        "timestamps": {
+          "items": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "title": "Timestamps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "timestamps",
+        "gross_returns",
+        "net_returns",
+        "periods_per_year"
+      ],
+      "title": "ReturnSeriesPanel",
+      "type": "object"
+    },
+    "RiskAdjustedMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "applicability": {
+          "items": {
+            "$ref": "#/$defs/MetricApplicability"
+          },
+          "title": "Applicability",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "applicability"
+      ],
+      "title": "RiskAdjustedMetricPanel",
+      "type": "object"
+    },
+    "RiskAdjustedResult": {
+      "additionalProperties": false,
+      "properties": {
+        "metrics": {
+          "$ref": "#/$defs/RiskAdjustedMetricPanel"
+        },
+        "sharpe_diagnostics": {
+          "$ref": "#/$defs/SharpeDiagnosticPanel"
+        }
+      },
+      "required": [
+        "metrics",
+        "sharpe_diagnostics"
+      ],
+      "title": "RiskAdjustedResult",
+      "type": "object"
+    },
+    "RollingDistributionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "ending_index": {
+          "minimum": 0,
+          "title": "Ending Index",
+          "type": "integer"
+        },
+        "gross_volatility_annualized": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Gross Volatility Annualized"
+        },
+        "net_excess_kurtosis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Net Excess Kurtosis"
+        },
+        "net_skewness": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Net Skewness"
+        },
+        "net_volatility_annualized": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Net Volatility Annualized"
+        },
+        "window": {
+          "minimum": 2,
+          "title": "Window",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "window",
+        "ending_index",
+        "net_volatility_annualized",
+        "gross_volatility_annualized",
+        "net_skewness",
+        "net_excess_kurtosis"
+      ],
+      "title": "RollingDistributionRecord",
+      "type": "object"
+    },
+    "RollingFactorPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "records": {
+          "items": {
+            "$ref": "#/$defs/RollingFactorRecord"
+          },
+          "title": "Records",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "records"
+      ],
+      "title": "RollingFactorPanel",
+      "type": "object"
+    },
+    "RollingFactorRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "coefficients": {
+          "items": {
+            "$ref": "#/$defs/FactorCoefficient"
+          },
+          "title": "Coefficients",
+          "type": "array"
+        },
+        "end_timestamp": {
+          "format": "date-time",
+          "title": "End Timestamp",
+          "type": "string"
+        },
+        "factor_model_id": {
+          "title": "Factor Model Id",
+          "type": "string"
+        },
+        "factor_model_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Factor Model Version",
+          "type": "string"
+        },
+        "gross_net": {
+          "title": "Gross Net",
+          "type": "string"
+        },
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "r_squared": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "R Squared"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factor_model_id",
+        "factor_model_version",
+        "gross_net",
+        "end_timestamp",
+        "observation_count",
+        "coefficients",
+        "r_squared",
+        "status"
+      ],
+      "title": "RollingFactorRecord",
+      "type": "object"
+    },
+    "ScenarioPnlRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_class": {
+          "title": "Evidence Class",
+          "type": "string"
+        },
+        "pnl_fraction": {
+          "title": "Pnl Fraction",
+          "type": "number"
+        },
+        "scenario_id": {
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "scenario_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Scenario Version",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "scenario_version",
+        "timestamp",
+        "pnl_fraction",
+        "evidence_class"
+      ],
+      "title": "ScenarioPnlRecord",
+      "type": "object"
+    },
+    "SerialCorrelationRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "gross_autocorrelation": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Gross Autocorrelation"
+        },
+        "lag": {
+          "minimum": 1,
+          "title": "Lag",
+          "type": "integer"
+        },
+        "net_autocorrelation": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Net Autocorrelation"
+        }
+      },
+      "required": [
+        "lag",
+        "gross_autocorrelation",
+        "net_autocorrelation"
+      ],
+      "title": "SerialCorrelationRecord",
+      "type": "object"
+    },
+    "SerialDependenceReport": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "gross_ljung_box_pvalue": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gross Ljung Box Pvalue"
+        },
+        "gross_ljung_box_statistic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gross Ljung Box Statistic"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "ljung_box_lag": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ljung Box Lag"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "net_ljung_box_pvalue": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Net Ljung Box Pvalue"
+        },
+        "net_ljung_box_statistic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Net Ljung Box Statistic"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256"
+      ],
+      "title": "SerialDependenceReport",
+      "type": "object"
+    },
+    "SharpeDiagnosticPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "autocorrelation_adjustment_factor": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Autocorrelation Adjustment Factor"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "minimum_track_record_length": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Minimum Track Record Length"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "pearson_kurtosis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Pearson Kurtosis"
+        },
+        "skewness": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Skewness"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "autocorrelation_adjustment_factor",
+        "skewness",
+        "pearson_kurtosis",
+        "minimum_track_record_length"
+      ],
+      "title": "SharpeDiagnosticPanel",
+      "type": "object"
+    },
+    "TailEstimate": {
+      "additionalProperties": false,
+      "properties": {
+        "breach_count": {
+          "minimum": 0,
+          "title": "Breach Count",
+          "type": "integer"
+        },
+        "confidence_level": {
+          "exclusiveMaximum": 1,
+          "exclusiveMinimum": 0.5,
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "expected_shortfall": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Shortfall"
+        },
+        "gross_net": {
+          "title": "Gross Net",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "value_at_risk": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value At Risk"
+        }
+      },
+      "required": [
+        "gross_net",
+        "method",
+        "confidence_level",
+        "value_at_risk",
+        "expected_shortfall",
+        "breach_count",
+        "observation_count",
+        "status"
+      ],
+      "title": "TailEstimate",
+      "type": "object"
+    },
+    "TailMethodDiagnostics": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "parametric_model": {
+          "title": "Parametric Model",
+          "type": "string"
+        },
+        "quantile_method": {
+          "title": "Quantile Method",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "quantile_method",
+        "parametric_model"
+      ],
+      "title": "TailMethodDiagnostics",
+      "type": "object"
+    },
+    "TailRiskMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "estimates": {
+          "items": {
+            "$ref": "#/$defs/TailEstimate"
+          },
+          "title": "Estimates",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "scenario_losses": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ScenarioPnlRecord"
+          },
+          "title": "Scenario Losses",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "estimates"
+      ],
+      "title": "TailRiskMetricPanel",
+      "type": "object"
+    },
+    "TailRiskResult": {
+      "additionalProperties": false,
+      "properties": {
+        "breaches": {
+          "$ref": "#/$defs/VaRBreachPanel"
+        },
+        "diagnostics": {
+          "$ref": "#/$defs/TailMethodDiagnostics"
+        },
+        "metrics": {
+          "$ref": "#/$defs/TailRiskMetricPanel"
+        }
+      },
+      "required": [
+        "metrics",
+        "breaches",
+        "diagnostics"
+      ],
+      "title": "TailRiskResult",
+      "type": "object"
+    },
+    "UnderwaterPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "drawdown_fraction": {
+          "maximum": 0,
+          "title": "Drawdown Fraction",
+          "type": "number"
+        },
+        "high_water_mark": {
+          "title": "High Water Mark",
+          "type": "number"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        },
+        "wealth": {
+          "title": "Wealth",
+          "type": "number"
+        }
+      },
+      "required": [
+        "timestamp",
+        "high_water_mark",
+        "wealth",
+        "drawdown_fraction"
+      ],
+      "title": "UnderwaterPoint",
+      "type": "object"
+    },
+    "UnderwaterSeries": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/UnderwaterPoint"
+          },
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "points"
+      ],
+      "title": "UnderwaterSeries",
+      "type": "object"
+    },
+    "Unit": {
+      "enum": [
+        "DECIMAL_RETURN",
+        "ANNUALIZED_DECIMAL",
+        "RATIO",
+        "PROBABILITY",
+        "MONEY",
+        "BPS",
+        "COUNT",
+        "SECONDS",
+        "FRACTION",
+        "COEFFICIENT"
+      ],
+      "title": "Unit",
+      "type": "string"
+    },
+    "VaRBreachPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "breaches": {
+          "items": {
+            "$ref": "#/$defs/VaRBreachRecord"
+          },
+          "title": "Breaches",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "breaches"
+      ],
+      "title": "VaRBreachPanel",
+      "type": "object"
+    },
+    "VaRBreachRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence_level": {
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "gross_net": {
+          "title": "Gross Net",
+          "type": "string"
+        },
+        "loss": {
+          "title": "Loss",
+          "type": "number"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        },
+        "value_at_risk": {
+          "title": "Value At Risk",
+          "type": "number"
+        }
+      },
+      "required": [
+        "timestamp",
+        "gross_net",
+        "confidence_level",
+        "method",
+        "loss",
+        "value_at_risk"
+      ],
+      "title": "VaRBreachRecord",
+      "type": "object"
+    },
+    "VolatilityMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "downside_threshold_per_period": {
+          "title": "Downside Threshold Per Period",
+          "type": "number"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "periods_per_year": {
+          "title": "Periods Per Year",
+          "type": "number"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "periods_per_year",
+        "downside_threshold_per_period"
+      ],
+      "title": "VolatilityMetricPanel",
+      "type": "object"
+    },
+    "WealthPathPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "periods_per_year": {
+          "title": "Periods Per Year",
+          "type": "number"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/WealthPoint"
+          },
+          "title": "Points",
+          "type": "array"
+        },
+        "return_convention": {
+          "$ref": "#/$defs/ReturnConvention"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "points",
+        "return_convention",
+        "periods_per_year"
+      ],
+      "title": "WealthPathPanel",
+      "type": "object"
+    },
+    "WealthPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "active_return": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Active Return"
+        },
+        "benchmark_return": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Benchmark Return"
+        },
+        "cumulative_cost": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cumulative Cost"
+        },
+        "excess_return": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Excess Return"
+        },
+        "external_flow": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "External Flow"
+        },
+        "gross_return": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Gross Return"
+        },
+        "gross_wealth": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Gross Wealth"
+        },
+        "nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Nav"
+        },
+        "net_return": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Net Return"
+        },
+        "net_wealth": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Net Wealth"
+        },
+        "period_cost": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Period Cost"
+        },
+        "risk_free_return": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Risk Free Return"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "timestamp",
+        "nav",
+        "gross_wealth",
+        "net_wealth",
+        "external_flow",
+        "period_cost",
+        "cumulative_cost",
+        "gross_return",
+        "net_return"
+      ],
+      "title": "WealthPoint",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/S4AnalyticsResult.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "distribution": {
+      "$ref": "#/$defs/DistributionEngineResult"
+    },
+    "drawdowns": {
+      "$ref": "#/$defs/DrawdownResult"
+    },
+    "execution": {
+      "$ref": "#/$defs/ExecutionCapacityResult"
+    },
+    "factors": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FactorRegressionResult"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "quality": {
+      "$ref": "#/$defs/MetricQualityResult"
+    },
+    "returns": {
+      "$ref": "#/$defs/ReturnEngineResult"
+    },
+    "risk_adjusted": {
+      "$ref": "#/$defs/RiskAdjustedResult"
+    },
+    "tails": {
+      "$ref": "#/$defs/TailRiskResult"
+    }
+  },
+  "required": [
+    "returns",
+    "distribution",
+    "tails",
+    "drawdowns",
+    "risk_adjusted",
+    "factors",
+    "execution",
+    "quality"
+  ],
+  "title": "S4AnalyticsResult",
+  "type": "object"
+}

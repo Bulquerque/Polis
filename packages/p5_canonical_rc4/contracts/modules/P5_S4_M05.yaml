@@ -1,0 +1,21 @@
+module_id: P5.S4.M05
+name: drawdown_jump_path_extrema_resolvers
+subphase_id: P5.S4
+required_inputs:
+- qualified_resolver_registry
+- oof_validation_observation_panel
+optional_inputs:
+- return_member_forecast_panel_linear
+- return_member_forecast_panel_state_space
+- return_member_forecast_panel_tabular
+- return_member_forecast_panel_temporal
+- return_member_forecast_panel_foundation
+outputs:
+- path_risk_member_forecast_panel
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

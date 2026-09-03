@@ -1,0 +1,18 @@
+version: data-vault.v1
+vaults:
+  DISCOVERY:
+    retro_access: allowed
+    reuse: allowed
+  VALIDATION:
+    retro_access: limited
+    reuse: budgeted
+  SHADOW:
+    retro_access: rare_governed
+    reuse: strictly_limited
+  FINAL_HOLDOUT:
+    retro_access: forbidden_until_candidate_frozen
+    reuse: single_release_policy
+    blind: true
+    access_condition: candidate_frozen_and_release_authorized
+progressive_revelation: true
+log_every_access: true

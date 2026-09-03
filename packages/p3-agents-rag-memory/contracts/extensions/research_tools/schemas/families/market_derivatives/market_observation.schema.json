@@ -1,0 +1,159 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "adjustment_factor": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Adjustment Factor"
+    },
+    "adjustment_policy": {
+      "default": "RAW",
+      "minLength": 1,
+      "title": "Adjustment Policy",
+      "type": "string"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "close": {
+      "minimum": 0.0,
+      "title": "Close",
+      "type": "number"
+    },
+    "financial_volume": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Financial Volume"
+    },
+    "high": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "High"
+    },
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "is_trading_day": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Is Trading Day"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "low": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Low"
+    },
+    "observation_date": {
+      "format": "date",
+      "title": "Observation Date",
+      "type": "string"
+    },
+    "open": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Open"
+    },
+    "quality_flag": {
+      "minLength": 1,
+      "title": "Quality Flag",
+      "type": "string"
+    },
+    "raw_close": {
+      "minimum": 0.0,
+      "title": "Raw Close",
+      "type": "number"
+    },
+    "source_id": {
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "staleness_seconds": {
+      "minimum": 0.0,
+      "title": "Staleness Seconds",
+      "type": "number"
+    },
+    "volume": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Volume"
+    }
+  },
+  "required": [
+    "instrument_id",
+    "observation_date",
+    "available_at",
+    "raw_close",
+    "close",
+    "source_id",
+    "lineage_id",
+    "quality_flag",
+    "staleness_seconds"
+  ],
+  "title": "MarketObservation",
+  "type": "object"
+}

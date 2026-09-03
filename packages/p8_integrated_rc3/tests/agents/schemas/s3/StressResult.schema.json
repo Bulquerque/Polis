@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "failure_states": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Failure States",
+      "type": "array"
+    },
+    "reverse_stress_multiplier": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reverse Stress Multiplier"
+    },
+    "reverse_stress_status": {
+      "enum": [
+        "COMPUTED",
+        "CAPABILITY_UNAVAILABLE",
+        "NO_FAILURE_WITHIN_BOUND"
+      ],
+      "title": "Reverse Stress Status",
+      "type": "string"
+    },
+    "stress_artifact_id": {
+      "title": "Stress Artifact Id",
+      "type": "string"
+    },
+    "stress_content_sha256": {
+      "title": "Stress Content Sha256",
+      "type": "string"
+    },
+    "stress_scenario_count": {
+      "title": "Stress Scenario Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "stress_scenario_count",
+    "stress_artifact_id",
+    "stress_content_sha256",
+    "reverse_stress_status"
+  ],
+  "title": "StressResult",
+  "type": "object"
+}

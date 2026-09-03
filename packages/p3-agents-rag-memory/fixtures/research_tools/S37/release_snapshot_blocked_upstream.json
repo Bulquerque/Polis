@@ -1,0 +1,58 @@
+{
+  "coverage": {
+    "missing_dimensions": [
+      "P3_RT_PIT_VINTAGE_UNAVAILABLE"
+    ],
+    "missing_series": [
+      "UNKNOWN"
+    ],
+    "records_requested": 0,
+    "records_returned": 0,
+    "score": 0.0,
+    "series_requested": 1,
+    "series_returned": 0,
+    "truncated": false
+  },
+  "downgrade_reason": null,
+  "envelope_version": "1.0.0",
+  "evidence_refs": [],
+  "executed_mode": "VINTAGE_ANALYSIS",
+  "execution": {
+    "cost_units": 6.0,
+    "deterministic": true,
+    "internal_subquery_count": 0,
+    "records_returned": 0,
+    "records_scanned": 0,
+    "warnings": [
+      "P3_RT_PIT_VINTAGE_UNAVAILABLE"
+    ]
+  },
+  "operation_id": "get_release_snapshot",
+  "outcome_status": "BLOCKED_UPSTREAM",
+  "pit_proof": {
+    "decision_time": "2023-03-20T00:00:00Z",
+    "earliest_available_at": null,
+    "input_hashes": [],
+    "latest_available_at": null,
+    "policy_version": "p3.s37.pit.v1",
+    "proof_hash": "716c9069b1a6fc80e4e8fdb40a391255308701882a2fc3334b33a839df095a2c",
+    "records_rejected_filter": 0,
+    "records_rejected_future": 0,
+    "records_rejected_missing_time": 0,
+    "records_scanned": 0,
+    "records_visible": 0,
+    "snapshot_id": "fixture-snapshot",
+    "vintage_policy": "ORIGINAL_RELEASE"
+  },
+  "provenance": {
+    "evidence_ids": [],
+    "input_hashes": [],
+    "snapshot_id": "fixture-snapshot",
+    "source_ids": []
+  },
+  "records": [],
+  "request_id": "fixture-request",
+  "requested_mode": "VINTAGE_ANALYSIS",
+  "result_hash": "84f328d1fb9bf3cdd8daaf431ec8003b9bd2ac7012af063ad6650246af368a80",
+  "tool_id": "macro.observation.v1"
+}

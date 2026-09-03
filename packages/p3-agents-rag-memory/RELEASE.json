@@ -1,0 +1,16 @@
+{
+  "architecture_revision": "P3-FINAL",
+  "canonical_module_count": 81,
+  "content_sha256": "f3560bb0df252a97b00cac133ab4cfefb7345221ad7008e52d443538d7e7fd40",
+  "extension_module_count": 47,
+  "extension_subphase_count": 9,
+  "integration_surface": "FINAL",
+  "logical_module_count": 128,
+  "package_version": "1.0.0",
+  "production_promotion_allowed": false,
+  "promotion_authority": "P0_ONLY",
+  "qualification_status": "FAIL_NOT_QUALIFIED_UNTIL_REAL_EVIDENCE",
+  "release_id": "P3_INTEGRATED_RC4_1_FINAL",
+  "tool_family_count": 6,
+  "tool_operation_count": 34
+}

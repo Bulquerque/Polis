@@ -1,0 +1,10 @@
+{
+  "schema_version": "phase3_run_snapshot.s17.v1",
+  "run_id": "run:2026-07-27-001",
+  "cycle_id": "cycle:2026-07-27-001",
+  "target_cycle_id": "cycle:2026-07-27-001",
+  "snapshot_id": "snapshot:2026-07-27-001",
+  "as_of": "2026-07-27T14:00:00Z",
+  "seed": 1701,
+  "lineage_id": "lineage:snapshot-001"
+}

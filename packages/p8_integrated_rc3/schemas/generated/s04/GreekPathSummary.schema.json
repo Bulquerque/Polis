@@ -1,0 +1,73 @@
+{
+  "$defs": {
+    "ComponentQuality": {
+      "enum": [
+        "FULLY_QUALIFIED",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQuality",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/GreekPathSummary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "dual_book_reconciliation_error": {
+      "title": "Dual Book Reconciliation Error",
+      "type": "number"
+    },
+    "greek_coverage_by_candidate": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Greek Coverage By Candidate",
+      "type": "object"
+    },
+    "path_capability_by_candidate": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ComponentQuality"
+      },
+      "title": "Path Capability By Candidate",
+      "type": "object"
+    },
+    "quality": {
+      "$ref": "#/$defs/ComponentQuality"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "storage_npz": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Storage Npz"
+    }
+  },
+  "required": [
+    "greek_coverage_by_candidate",
+    "path_capability_by_candidate",
+    "dual_book_reconciliation_error",
+    "quality",
+    "content_sha256"
+  ],
+  "title": "GreekPathSummary",
+  "type": "object"
+}

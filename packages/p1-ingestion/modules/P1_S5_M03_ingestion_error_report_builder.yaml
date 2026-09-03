@@ -1,0 +1,47 @@
+module_id: P1.S5.M03
+module_name: ingestion_error_report_builder
+phase: phase_01_ingestion
+subphase: P1.S5
+rc: RC4.1
+function: Gerar relatório explícito de erros e warnings sem falha silenciosa.
+inputs: &id001
+- ingestion_manifest
+- raw_readability_report
+- capture_task_manifest
+outputs: &id002
+- ingestion_error_report
+validations:
+- critical_error_explicit
+- no_silent_failure
+fail_fast_conditions:
+- ingestion_error_report_builder_schema_violation
+- ingestion_error_report_builder_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P1.S5.M01
+    - P1.S4.M01
+    - P1.S2.M01
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P1.S5.M04
+    artifacts: *id002
+    phase_outputs:
+    - ingestion_error_report
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

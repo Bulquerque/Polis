@@ -1,0 +1,198 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_schema_name": {
+          "title": "Artifact Schema Name",
+          "type": "string"
+        },
+        "artifact_schema_version": {
+          "title": "Artifact Schema Version",
+          "type": "string"
+        },
+        "artifact_type": {
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "availability": {
+          "$ref": "#/$defs/Availability",
+          "default": "AVAILABLE"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "record_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Record Count"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "artifact_schema_name",
+        "artifact_schema_version",
+        "content_sha256",
+        "producer_module_id",
+        "run_id",
+        "cycle_id",
+        "available_at",
+        "location"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "Availability": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "UNAVAILABLE",
+        "LEGACY_RESEARCH_ONLY"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "PhaseName": {
+      "enum": [
+        "P5",
+        "P6",
+        "P7",
+        "P8"
+      ],
+      "title": "PhaseName",
+      "type": "string"
+    },
+    "ResourceBudget": {
+      "additionalProperties": false,
+      "properties": {
+        "hard_timeout_supported": {
+          "default": false,
+          "title": "Hard Timeout Supported",
+          "type": "boolean"
+        },
+        "maximum_output_artifacts": {
+          "default": 128,
+          "minimum": 1,
+          "title": "Maximum Output Artifacts",
+          "type": "integer"
+        },
+        "maximum_seconds": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Maximum Seconds"
+        }
+      },
+      "required": [
+        "maximum_seconds"
+      ],
+      "title": "ResourceBudget",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/PhaseRunRequest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "configuration_id": {
+      "title": "Configuration Id",
+      "type": "string"
+    },
+    "configuration_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Configuration Sha256",
+      "type": "string"
+    },
+    "cycle_id": {
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "fold_id": {
+      "title": "Fold Id",
+      "type": "string"
+    },
+    "input_artifacts": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "Input Artifacts",
+      "type": "array"
+    },
+    "phase": {
+      "$ref": "#/$defs/PhaseName"
+    },
+    "resource_budget": {
+      "$ref": "#/$defs/ResourceBudget"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "trial_id": {
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "run_id",
+    "cycle_id",
+    "trial_id",
+    "fold_id",
+    "configuration_id",
+    "configuration_sha256",
+    "seed",
+    "input_artifacts",
+    "resource_budget"
+  ],
+  "title": "PhaseRunRequest",
+  "type": "object"
+}

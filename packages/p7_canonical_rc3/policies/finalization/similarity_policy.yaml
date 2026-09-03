@@ -1,0 +1,12 @@
+policy_id: p7_similarity_v1
+stages:
+  - {name: payoff_shape, weight: 0.35}
+  - {name: scenario_payoff, weight: 0.20}
+  - {name: greek_vector, weight: 0.15}
+  - {name: leg_jaccard, weight: 0.15}
+  - {name: origin_template, weight: 0.05}
+  - {name: expiration_overlap, weight: 0.10}
+minimum_weight_coverage: 0.60
+top_k_neighbors: 25
+minimum_edge_similarity: 0.30
+max_group_size: 500

@@ -1,0 +1,61 @@
+{
+  "schema_version": "current_person_state_panel.s19.input.v1",
+  "contract_version": "p3.s11.v1",
+  "population_id": "population:demo-v1",
+  "as_of": "2026-07-27T14:00:00Z",
+  "records": [
+    {
+      "person_id": "person:analyst-tech",
+      "state_as_of": "2026-07-27T14:00:00Z",
+      "is_active": true,
+      "current_attention": 0.9,
+      "underlying_attention": [
+        {
+          "key": "figi:BBG000B9XRY4",
+          "score": 1.0
+        }
+      ],
+      "proposition_attention": [],
+      "last_cognitive_cycle_at": "2026-06-20T12:00:00Z",
+      "lineage_id": "lineage:state-analyst"
+    },
+    {
+      "person_id": "person:macro",
+      "state_as_of": "2026-07-27T14:00:00Z",
+      "is_active": true,
+      "current_attention": 0.9,
+      "underlying_attention": [],
+      "proposition_attention": [
+        {
+          "key": "regime_outlook",
+          "score": 1.0
+        }
+      ],
+      "last_cognitive_cycle_at": "2026-06-22T12:00:00Z",
+      "lineage_id": "lineage:state-macro"
+    },
+    {
+      "person_id": "person:quant",
+      "state_as_of": "2026-07-27T14:00:00Z",
+      "is_active": true,
+      "current_attention": 0.4,
+      "underlying_attention": [],
+      "proposition_attention": [],
+      "last_cognitive_cycle_at": "2026-06-15T12:00:00Z",
+      "lineage_id": "lineage:state-quant"
+    },
+    {
+      "person_id": "person:dormant",
+      "state_as_of": "2026-07-27T14:00:00Z",
+      "is_active": false,
+      "current_attention": 0.5,
+      "underlying_attention": [],
+      "proposition_attention": [],
+      "last_cognitive_cycle_at": null,
+      "lineage_id": "lineage:state-dormant"
+    }
+  ],
+  "lineage_id": "lineage:current-person-state-demo",
+  "status": "READY",
+  "content_hash": "e5871a469620c499baf47f96b354bb265ace7e0c9dce5a615dbbda4c7a4b05e5"
+}

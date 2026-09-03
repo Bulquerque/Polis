@@ -1,0 +1,33 @@
+module_id: P7.S1.M04
+module_name: promoted_ranking_feedback_loader
+owner: FOUNDATION
+subphase: P7.S1
+purpose: Load optional P9 ranking feedback only when promoted, previous-cycle, in
+  scope, evidenced and not expired.
+inputs:
+- ranking_feedback_report
+- ranking_feedback_manifest
+outputs:
+- ranking_feedback_context
+- feedback_validation_report
+failure_model: phase_fatal_and_candidate_level_as_documented
+reason_codes:
+- P7_FEEDBACK_CURRENT_CYCLE
+- P7_FEEDBACK_NOT_PROMOTED
+- P7_FEEDBACK_SCOPE_MISMATCH
+- P7_FEEDBACK_EVIDENCE_MISSING
+- P7_FEEDBACK_EXPIRED
+- P7_FEEDBACK_DUPLICATE
+implementation_rules:
+- thin_wrapper
+- typed_boundary
+- immutable_inputs
+- structured_receipt
+- no_economic_defaults
+- no_cross_subphase_private_import
+tests:
+- unit
+- contract
+- adversarial
+- property_or_metamorphic
+- deterministic_replay

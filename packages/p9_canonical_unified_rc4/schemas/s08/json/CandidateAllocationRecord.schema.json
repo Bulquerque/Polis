@@ -1,0 +1,61 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "selected": {
+      "title": "Selected",
+      "type": "boolean"
+    },
+    "ranking_position": {
+      "minimum": 1,
+      "title": "Ranking Position",
+      "type": "integer"
+    },
+    "realized_unit_pnl": {
+      "title": "Realized Unit Pnl",
+      "type": "number"
+    },
+    "reference_quantity": {
+      "default": 1.0,
+      "title": "Reference Quantity",
+      "type": "number"
+    },
+    "unconstrained_quantity": {
+      "title": "Unconstrained Quantity",
+      "type": "number"
+    },
+    "constrained_quantity": {
+      "title": "Constrained Quantity",
+      "type": "number"
+    },
+    "discrete_quantity": {
+      "title": "Discrete Quantity",
+      "type": "number"
+    },
+    "constraint_reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Constraint Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "selected",
+    "ranking_position",
+    "realized_unit_pnl",
+    "unconstrained_quantity",
+    "constrained_quantity",
+    "discrete_quantity"
+  ],
+  "title": "CandidateAllocationRecord",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:CandidateAllocationRecord:1.0.0"
+}

@@ -1,0 +1,43 @@
+{
+  "schema_id": "current_person_state_panel.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "current-person-667d0b9af3b207fc26db",
+  "module_id": "P3.S11.M03",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "cycle_id": "live-cycle-0001",
+  "cycle_number": 1,
+  "as_of_time": "2026-01-01T00:00:00Z",
+  "source_state_hash": "0387b4ccd5b3f91aa936caa1a463621ce0d8f0326e31bbe760bededad0c0cefa",
+  "records": [
+    {
+      "person_id": "person-001",
+      "structural_profile_hash": "a1fc3c4d8913e093f8f88df4242eae272f62a93d3c4645af2ceda313b36c29b3",
+      "representation_weight": 0.4,
+      "status": "ACTIVE",
+      "attention": 0.7000000000000002,
+      "fatigue": 0.0,
+      "last_updated_at": "2025-06-01T13:00:00Z"
+    },
+    {
+      "person_id": "person-002",
+      "structural_profile_hash": "0d3eb7dd3ccd3e4bfdae741b6bb8ef68b752cb426aa77dc161ebc0837f077a31",
+      "representation_weight": 0.35,
+      "status": "ACTIVE",
+      "attention": 0.7000000000000002,
+      "fatigue": 0.0,
+      "last_updated_at": "2025-06-01T13:00:00Z"
+    },
+    {
+      "person_id": "person-003",
+      "structural_profile_hash": "cf88f4bb3d96dd036f9953491a5cf1827d919ee5290bc0c6ba5c1dbeb4d34f59",
+      "representation_weight": 0.25,
+      "status": "ACTIVE",
+      "attention": 0.7000000000000002,
+      "fatigue": 0.0,
+      "last_updated_at": "2025-06-01T13:00:00Z"
+    }
+  ],
+  "content_hash": "7c36b6bda5be2d5d97683820082446dbe5649108af013004d2091960c6e2fa4c",
+  "lineage_id": "lineage-current-state-69a95b11e4b81115704f"
+}

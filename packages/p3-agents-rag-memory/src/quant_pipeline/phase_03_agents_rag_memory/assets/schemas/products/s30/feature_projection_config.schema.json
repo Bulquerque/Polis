@@ -1,0 +1,125 @@
+{
+  "$defs": {
+    "FeatureType": {
+      "enum": [
+        "FLOAT",
+        "COUNT",
+        "RATIO",
+        "SCORE"
+      ],
+      "title": "FeatureType",
+      "type": "string"
+    },
+    "PrivacyClass": {
+      "enum": [
+        "PUBLIC_AGGREGATE",
+        "INTERNAL_AGGREGATE"
+      ],
+      "title": "PrivacyClass",
+      "type": "string"
+    },
+    "ProjectionDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "feature_id": {
+          "minLength": 1,
+          "pattern": "^[a-z0-9][a-z0-9_.-]*$",
+          "title": "Feature Id",
+          "type": "string"
+        },
+        "feature_name": {
+          "minLength": 1,
+          "title": "Feature Name",
+          "type": "string"
+        },
+        "feature_type": {
+          "$ref": "#/$defs/FeatureType"
+        },
+        "formula_id": {
+          "minLength": 1,
+          "title": "Formula Id",
+          "type": "string"
+        },
+        "formula_version": {
+          "minLength": 1,
+          "title": "Formula Version",
+          "type": "string"
+        },
+        "privacy_class": {
+          "$ref": "#/$defs/PrivacyClass",
+          "default": "PUBLIC_AGGREGATE"
+        },
+        "source": {
+          "enum": [
+            "society",
+            "disagreement",
+            "evidence",
+            "memory"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "source_field": {
+          "minLength": 1,
+          "title": "Source Field",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feature_id",
+        "feature_name",
+        "source",
+        "source_field",
+        "feature_type",
+        "formula_id",
+        "formula_version"
+      ],
+      "title": "ProjectionDefinition",
+      "type": "object"
+    }
+  },
+  "$id": "https://example.invalid/p3/s30/feature_projection_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_id": {
+      "minLength": 1,
+      "title": "Catalog Id",
+      "type": "string"
+    },
+    "catalog_version": {
+      "minLength": 1,
+      "title": "Catalog Version",
+      "type": "string"
+    },
+    "definitions": {
+      "items": {
+        "$ref": "#/$defs/ProjectionDefinition"
+      },
+      "minItems": 1,
+      "title": "Definitions",
+      "type": "array"
+    },
+    "min_memory_population_coverage": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Min Memory Population Coverage",
+      "type": "number"
+    },
+    "output_precision": {
+      "default": 12,
+      "maximum": 15,
+      "minimum": 0,
+      "title": "Output Precision",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "catalog_id",
+    "catalog_version",
+    "definitions"
+  ],
+  "title": "FeatureProjectionConfig",
+  "type": "object"
+}

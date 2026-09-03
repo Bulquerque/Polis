@@ -1,0 +1,193 @@
+$defs:
+  AtomicFeatureRecord:
+    additionalProperties: false
+    properties:
+      attributes:
+        additionalProperties: true
+        title: Attributes
+        type: object
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      decision_time:
+        format: date-time
+        title: Decision Time
+        type: string
+      entity_id:
+        minLength: 1
+        title: Entity Id
+        type: string
+      feature_id:
+        minLength: 1
+        title: Feature Id
+        type: string
+      horizon_group:
+        $ref: '#/$defs/HorizonGroup'
+      missingness_state:
+        $ref: '#/$defs/MissingnessState'
+      observer_id:
+        minLength: 1
+        title: Observer Id
+        type: string
+      parameterization_id:
+        minLength: 1
+        title: Parameterization Id
+        type: string
+      quality_state:
+        $ref: '#/$defs/QualityState'
+      record_lineage_id:
+        minLength: 1
+        title: Record Lineage Id
+        type: string
+      source_modalities:
+        items:
+          type: string
+        title: Source Modalities
+        type: array
+      unit:
+        minLength: 1
+        title: Unit
+        type: string
+      value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Value
+    required:
+    - decision_time
+    - entity_id
+    - feature_id
+    - observer_id
+    - parameterization_id
+    - horizon_group
+    - value
+    - unit
+    - available_at
+    - source_modalities
+    - quality_state
+    - missingness_state
+    - record_lineage_id
+    title: AtomicFeatureRecord
+    type: object
+  ExecutionStatus:
+    enum:
+    - PRODUCED
+    - DEGRADED
+    - SKIPPED_NOT_AUTHORIZED
+    - UNAVAILABLE_UPSTREAM
+    - FAILED_NONBLOCKING
+    - BLOCKED
+    title: ExecutionStatus
+    type: string
+  HorizonGroup:
+    enum:
+    - INTRADAY
+    - SHORT
+    - MEDIUM
+    - LONG
+    - CROSS_HORIZON
+    title: HorizonGroup
+    type: string
+  MissingnessState:
+    enum:
+    - OBSERVED
+    - NOT_APPLICABLE
+    - NOT_YET_PUBLISHED
+    - SOURCE_UNAVAILABLE
+    - LATE_ARRIVAL
+    - STALE
+    - STRUCTURALLY_MISSING
+    - QUALITY_BLOCKED
+    - UNAVAILABLE_UPSTREAM
+    title: MissingnessState
+    type: string
+  QualityState:
+    enum:
+    - PASS
+    - DEGRADED
+    - BLOCKED
+    title: QualityState
+    type: string
+additionalProperties: false
+properties:
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  artifact_name:
+    const: benchmark_cross_asset_atomic_panel
+  as_of_time:
+    format: date-time
+    title: As Of Time
+    type: string
+  content_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Content Hash
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  cycle_id:
+    minLength: 1
+    title: Cycle Id
+    type: string
+  execution_status:
+    $ref: '#/$defs/ExecutionStatus'
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+  phase_id:
+    default: P4
+    title: Phase Id
+    type: string
+  pipeline_version:
+    minLength: 1
+    title: Pipeline Version
+    type: string
+  producer_module_id:
+    const: P4.S4.M04
+  quality_reasons:
+    default: []
+    items:
+      type: string
+    title: Quality Reasons
+    type: array
+  quality_status:
+    $ref: '#/$defs/QualityState'
+  records:
+    items:
+      $ref: '#/$defs/AtomicFeatureRecord'
+    title: Records
+    type: array
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  schema_version:
+    minLength: 1
+    title: Schema Version
+    type: string
+  subphase_id:
+    default: P4.S4
+    title: Subphase Id
+    type: string
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- pipeline_version
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- lineage_id
+- execution_status
+- quality_status
+- records
+title: benchmark_cross_asset_atomic_panel
+type: object

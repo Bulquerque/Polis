@@ -1,0 +1,23 @@
+schema_id: p3.research_tools.s32.artifact_schema_bindings.v1
+schema_version: 1.0.0
+bindings:
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.aliases.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.aliases.v1.schema.json
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.catalog.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.catalog.v1.schema.json
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.contract_pack_manifest.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.contract_pack_manifest.v1.schema.json
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.extension_snapshot.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.extension_snapshot.v1.schema.json
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.legacy_projection_report.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.legacy_projection_report.v1.schema.json
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.modes.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.modes.v1.schema.json
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.operation_mode_matrix.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.operation_mode_matrix.v1.schema.json
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.operations.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.operations.v1.schema.json
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.provider_overlay.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.provider_overlay.v1.schema.json
+- artifact_schema_id: https://quant-pipeline.local/schema/p3.research_tools.registry_overlay.v1
+  relative_path: contracts/extensions/research_tools/schemas/artifacts/p3.research_tools.registry_overlay.v1.schema.json

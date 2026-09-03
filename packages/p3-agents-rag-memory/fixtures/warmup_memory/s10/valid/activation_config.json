@@ -1,0 +1,8 @@
+{
+  "schema_id": "activation_config.v2",
+  "schema_version": "2.0.0",
+  "monthly_heartbeat": true,
+  "event_priority": 10,
+  "heartbeat_priority": 20,
+  "max_extra_activations": 10
+}

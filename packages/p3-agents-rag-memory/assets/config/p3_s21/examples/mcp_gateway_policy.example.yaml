@@ -1,0 +1,12 @@
+schema_version: p3.s21.v1
+policy_version: 1.0.0
+pit_required: true
+audit_required: true
+cache_mode: frozen_in_backtest
+cognition_default_calls_per_person_cycle: 3
+hard_limit_calls_per_person_cycle: 5
+credential_policy: handle_only
+timeout_seconds: 30.0
+max_retry_attempts: 1
+retry_backoff_seconds: 0.1
+provider_failure_policy: material_no_fake_success

@@ -1,0 +1,197 @@
+$defs:
+  ArtifactRef:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_type:
+        minLength: 1
+        title: Artifact Type
+        type: string
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+      schema_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Id
+      schema_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Version
+    required:
+    - artifact_id
+    - artifact_type
+    - content_hash
+    title: ArtifactRef
+    type: object
+  DatasetPartition:
+    enum:
+    - WARMUP
+    - TRAIN
+    - VALIDATION
+    - EVALUATION
+    - HOLDOUT
+    - TEST
+    title: DatasetPartition
+    type: string
+  HistoryRecord:
+    additionalProperties: false
+    properties:
+      history_record_id:
+        minLength: 1
+        title: History Record Id
+        type: string
+      event_id:
+        minLength: 1
+        title: Event Id
+        type: string
+      source_id:
+        minLength: 1
+        title: Source Id
+        type: string
+      partition:
+        $ref: '#/$defs/DatasetPartition'
+      event_time:
+        format: date-time
+        title: Event Time
+        type: string
+      effective_time:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        title: Effective Time
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      ingested_at:
+        format: date-time
+        title: Ingested At
+        type: string
+      payload_ref:
+        $ref: '#/$defs/ArtifactRef'
+      underlyings:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Underlyings
+        type: array
+      propositions:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Propositions
+        type: array
+      lineage:
+        $ref: '#/$defs/RecordLineage'
+    required:
+    - history_record_id
+    - event_id
+    - source_id
+    - partition
+    - event_time
+    - available_at
+    - ingested_at
+    - payload_ref
+    - lineage
+    title: HistoryRecord
+    type: object
+  RecordLineage:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      parent_lineage_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Parent Lineage Ids
+        type: array
+      holdout_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Holdout Refs
+        type: array
+    required:
+    - lineage_id
+    title: RecordLineage
+    type: object
+  WarmupMode:
+    enum:
+    - HISTORICAL_REPLAY
+    - GENESIS_ONLY
+    title: WarmupMode
+    type: string
+additionalProperties: false
+properties:
+  schema_id:
+    const: warmup_history_bundle.v1
+    default: warmup_history_bundle.v1
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 1.0.0
+    default: 1.0.0
+    title: Schema Version
+    type: string
+  history_id:
+    minLength: 1
+    title: History Id
+    type: string
+  mode:
+    $ref: '#/$defs/WarmupMode'
+  records:
+    items:
+      $ref: '#/$defs/HistoryRecord'
+    title: Records
+    type: array
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+  source_bundle_refs:
+    default: []
+    items:
+      $ref: '#/$defs/ArtifactRef'
+    title: Source Bundle Refs
+    type: array
+required:
+- history_id
+- mode
+- records
+- lineage_id
+title: WarmupHistoryBundle
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: warmup_history_bundle
+schema_id: warmup_history_bundle.v1
+schema_version: v14.1-rc4.1
+x-p3-owner: P3.S9
+x-contract-status: IMPLEMENTED_QUALIFIED_INTERNAL
+artifact_schema_version: 1.0.0

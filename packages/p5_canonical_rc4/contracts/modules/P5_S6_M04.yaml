@@ -1,0 +1,18 @@
+module_id: P5.S6.M04
+name: covariance_matrix_validation_registry
+subphase_id: P5.S6
+required_inputs:
+- covariance_member_registry_shrinkage_factor
+- covariance_member_registry_dynamic
+optional_inputs:
+- covariance_member_registry_network_geometric
+outputs:
+- covariance_forecast_registry
+- covariance_validation_report
+allowed_actions:
+- VALIDATE
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

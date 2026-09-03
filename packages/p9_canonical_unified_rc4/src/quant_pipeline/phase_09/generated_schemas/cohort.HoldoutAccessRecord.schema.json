@@ -1,0 +1,54 @@
+{
+  "$defs": {
+    "HoldoutPurpose": {
+      "enum": [
+        "FINAL_EVALUATION",
+        "TUNING",
+        "DIAGNOSTIC",
+        "OPERATIONS"
+      ],
+      "title": "HoldoutPurpose",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "access_id": {
+      "minLength": 1,
+      "title": "Access Id",
+      "type": "string"
+    },
+    "accessed_at": {
+      "format": "date-time",
+      "title": "Accessed At",
+      "type": "string"
+    },
+    "actor_id": {
+      "minLength": 1,
+      "title": "Actor Id",
+      "type": "string"
+    },
+    "approved": {
+      "title": "Approved",
+      "type": "boolean"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "purpose": {
+      "$ref": "#/$defs/HoldoutPurpose"
+    }
+  },
+  "required": [
+    "access_id",
+    "dataset_id",
+    "actor_id",
+    "accessed_at",
+    "purpose",
+    "approved"
+  ],
+  "title": "HoldoutAccessRecord",
+  "type": "object"
+}

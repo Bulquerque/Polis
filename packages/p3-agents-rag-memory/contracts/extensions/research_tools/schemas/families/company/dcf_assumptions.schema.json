@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base_free_cash_flow": {
+      "title": "Base Free Cash Flow",
+      "type": "number"
+    },
+    "discount_rate": {
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Discount Rate",
+      "type": "number"
+    },
+    "growth_rates": {
+      "items": {
+        "type": "number"
+      },
+      "title": "Growth Rates",
+      "type": "array"
+    },
+    "net_debt": {
+      "default": 0.0,
+      "title": "Net Debt",
+      "type": "number"
+    },
+    "shares_outstanding": {
+      "default": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Shares Outstanding",
+      "type": "number"
+    },
+    "terminal_growth_rate": {
+      "exclusiveMaximum": 0.2,
+      "minimum": -0.2,
+      "title": "Terminal Growth Rate",
+      "type": "number"
+    }
+  },
+  "required": [
+    "base_free_cash_flow",
+    "growth_rates",
+    "discount_rate",
+    "terminal_growth_rate"
+  ],
+  "title": "DcfAssumptions",
+  "type": "object"
+}

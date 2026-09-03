@@ -1,0 +1,43 @@
+module_id: P0.S4.M02
+module_name: contract_test_orchestrator
+function: Executar um oracle independente de contratos, verificando identidade de
+  módulos, simetria de I/O, bindings de schema e referências entre módulos.
+inputs: &id001
+- contract_registry
+- schema_registry
+- validated_module_registry
+outputs: &id002
+- contract_test_execution_plan
+- contract_test_report
+validations:
+- contract_tests_declared
+- connection_contracts_tested
+- forbidden_policy_delegated
+fail_fast_conditions:
+- contract_test_orchestrator_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S1.M03
+    - P0.S2.M01
+    - P0.S2.M02
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S4.M04
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S4
+rc: RC4.1
+notes: Contract oracle only. Forbidden-connection policy remains owned by P0.S1.M05
+  and is not reimplemented here.

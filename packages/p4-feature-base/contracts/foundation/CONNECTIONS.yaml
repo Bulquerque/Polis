@@ -1,0 +1,12 @@
+allowed:
+- P2->P4.S1
+- P3->P4.S1
+- P4.S1->P4.S2
+- P4.S1->P0
+forbidden:
+- P1->P4.S1
+- P5->P4.S1
+- P6->P4.S1
+- P7->P4.S1
+- P8->P4.S1
+- P9_same_cycle->P4.S1

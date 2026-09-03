@@ -1,0 +1,164 @@
+version: V14.6-RC1
+family_count: 10
+families:
+- family_id: F01_MOMENTUM_TREND_PERSISTENCE
+  question: O movimento persiste, acelera ou recebe confirmação independente?
+  views:
+  - cumulative_return
+  - robust_slope
+  - breakout
+  - directional_persistence
+  - cross_sectional_momentum
+  - time_series_momentum
+  - residual_momentum
+  - volume_confirmation
+  - option_confirmation
+  - narrative_confirmation
+  primary_modules:
+  - P4.S5.M01
+- family_id: F02_REVERSION_RELATIVE_VALUE
+  question: O ativo está deslocado de uma referência econômica, estatística ou relacional?
+  views:
+  - short_horizon_reversal
+  - distance_from_trend
+  - post_gap_reversion
+  - market_residual
+  - sector_residual
+  - pair_spread
+  - cointegration_residual
+  - cluster_position
+  - valuation_relative
+  primary_modules:
+  - P4.S5.M02
+- family_id: F03_VALUE_QUALITY_PROFITABILITY_INVESTMENT
+  question: Preço, fundamentos e política de investimento sugerem qualidade ou valuation
+    relativo?
+  views:
+  - book_to_market
+  - earnings_yield
+  - cashflow_yield
+  - gross_profitability
+  - operating_profitability
+  - asset_growth
+  - investment_intensity
+  - accruals
+  - leverage
+  - fundamental_momentum
+  primary_modules:
+  - P4.S4.M08
+  - P4.S5.M09
+- family_id: F04_LIQUIDITY_ATTENTION_CROWDING
+  question: O movimento é negociável, observado, congestionado ou vulnerável à saída
+    coletiva?
+  views:
+  - turnover
+  - amihud
+  - spread
+  - volume_shock
+  - staleness
+  - news_attention
+  - open_interest_concentration
+  - consensus_concentration
+  - crowding_stress
+  primary_modules:
+  - P4.S4.M02
+  - P4.S5.M04
+- family_id: F05_REALIZED_RISK_TAIL_ASYMMETRY
+  question: Qual a intensidade, persistência, assimetria e risco de cauda do estado
+    atual?
+  views:
+  - realized_volatility
+  - downside_semivariance
+  - drawdown
+  - skewness
+  - kurtosis
+  - jump_variation
+  - vol_of_vol
+  - expected_shortfall_proxy
+  - common_tail_risk
+  - variance_risk_premium
+  primary_modules:
+  - P4.S4.M03
+  - P4.S4.M05
+  - P4.S5.M03
+- family_id: F06_SYSTEMATIC_SYSTEMIC_CONNECTEDNESS
+  question: Como o ativo contribui ou responde ao risco comum, à rede e ao contágio?
+  views:
+  - market_beta
+  - downside_beta
+  - correlation_state
+  - partial_correlation
+  - market_mode
+  - effective_rank
+  - variance_decomposition_connectedness
+  - centrality
+  - CoVaR_proxy
+  - SRISK_inputs
+  - frequency_connectedness
+  primary_modules:
+  - P4.S4.M04
+  - P4.S5.M05
+- family_id: F07_CARRY_CURVE_BASIS_CROSS_ASSET
+  question: Qual retorno implícito decorre de curva, roll-down, basis ou estrutura
+    relativa?
+  views:
+  - term_spread
+  - curve_slope
+  - curve_curvature
+  - roll_down
+  - futures_basis
+  - option_term_structure
+  - dividend_carry
+  - fx_rate_differential
+  - cross_asset_carry
+  primary_modules:
+  - P4.S4.M05
+  - P4.S4.M06
+  - P4.S5.M10
+- family_id: F08_MACRO_CYCLE_REGIME
+  question: Qual estado contemporâneo de crescimento, inflação, liquidez e condições
+    financeiras condiciona os ativos?
+  views:
+  - growth_level_change_acceleration
+  - inflation_level_change
+  - policy_rate_curve
+  - financial_conditions
+  - credit_state
+  - commodity_energy_state
+  - macro_surprise
+  - historical_state_distance
+  - regime_state_description
+  primary_modules:
+  - P4.S4.M06
+  - P4.S5.M06
+- family_id: F09_EVENTS_SURPRISE_SEASONALITY
+  question: Eventos datados, surpresas e padrões de calendário alteram o estado informacional?
+  views:
+  - time_to_event
+  - time_since_event
+  - post_event_reaction
+  - post_earnings_drift_state
+  - corporate_action_state
+  - expiry_proximity
+  - calendar_seasonality
+  - announcement_novelty
+  primary_modules:
+  - P4.S4.M06
+  - P4.S5.M07
+- family_id: F10_NARRATIVE_EVIDENCE_DISAGREEMENT
+  question: Como evidência, novidade, confiança, memória, hipóteses e desacordo descrevem
+    o estado interpretativo?
+  views:
+  - sentiment_direction
+  - evidence_strength
+  - source_credibility
+  - novelty
+  - contradiction
+  - agent_disagreement
+  - polarization
+  - hypothesis_diversity
+  - narrative_shift
+  - minority_view_strength
+  primary_modules:
+  - P4.S4.M07
+  - P4.S5.M08

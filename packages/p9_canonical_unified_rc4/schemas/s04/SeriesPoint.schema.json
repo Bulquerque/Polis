@@ -1,0 +1,28 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/SeriesPoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "value": {
+      "title": "Value",
+      "type": "number"
+    }
+  },
+  "required": [
+    "timestamp",
+    "value",
+    "available_at"
+  ],
+  "title": "SeriesPoint",
+  "type": "object"
+}

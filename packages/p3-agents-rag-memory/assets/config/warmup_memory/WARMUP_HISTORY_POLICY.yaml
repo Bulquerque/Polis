@@ -1,0 +1,24 @@
+policy_id: warmup_history_policy.v1
+timezone: UTC
+aware_datetimes_required: true
+knowledge_boundary_field: available_at
+event_time_is_not_knowledge_boundary: true
+warmup_end_strictly_before_evaluation: true
+default_allowed_partitions:
+- WARMUP
+- TRAIN
+default_forbidden_partitions:
+- VALIDATION
+- EVALUATION
+- HOLDOUT
+- TEST
+genesis_representation: typed_empty_bundle
+missing_or_null_bundle_allowed: false
+silent_repair_allowed: false
+runtime_external_api_calls_allowed: false
+canonical_sort:
+- available_at
+- event_time
+- event_id
+- history_record_id
+hash_algorithm: sha256

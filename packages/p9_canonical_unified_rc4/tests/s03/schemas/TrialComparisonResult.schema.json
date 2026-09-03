@@ -1,0 +1,197 @@
+{
+  "$defs": {
+    "EquivalenceGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Configuration Ids",
+          "type": "array"
+        },
+        "economic_fingerprint": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Economic Fingerprint",
+          "type": "string"
+        }
+      },
+      "required": [
+        "economic_fingerprint",
+        "configuration_ids"
+      ],
+      "title": "EquivalenceGroup",
+      "type": "object"
+    },
+    "PairwiseComparison": {
+      "additionalProperties": false,
+      "properties": {
+        "a_dominates_b": {
+          "title": "A Dominates B",
+          "type": "boolean"
+        },
+        "b_dominates_a": {
+          "title": "B Dominates A",
+          "type": "boolean"
+        },
+        "common_unit_count": {
+          "minimum": 0,
+          "title": "Common Unit Count",
+          "type": "integer"
+        },
+        "comparable": {
+          "title": "Comparable",
+          "type": "boolean"
+        },
+        "configuration_a": {
+          "title": "Configuration A",
+          "type": "string"
+        },
+        "configuration_b": {
+          "title": "Configuration B",
+          "type": "string"
+        },
+        "mean_loss_a": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mean Loss A"
+        },
+        "mean_loss_b": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mean Loss B"
+        }
+      },
+      "required": [
+        "configuration_a",
+        "configuration_b",
+        "common_unit_count",
+        "mean_loss_a",
+        "mean_loss_b",
+        "a_dominates_b",
+        "b_dominates_a",
+        "comparable"
+      ],
+      "title": "PairwiseComparison",
+      "type": "object"
+    },
+    "ProvisionalModelConfidenceSet": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort_id": {
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "configuration_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Configuration Ids",
+          "type": "array"
+        },
+        "limitation": {
+          "default": "Requires P9.S5 dependent-bootstrap and multiple-testing qualification",
+          "title": "Limitation",
+          "type": "string"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "provisional": {
+          "default": true,
+          "title": "Provisional",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "policy_id",
+        "cohort_id",
+        "configuration_ids"
+      ],
+      "title": "ProvisionalModelConfidenceSet",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/TrialComparisonResult.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cohort_id": {
+      "title": "Cohort Id",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "equivalence_groups": {
+      "items": {
+        "$ref": "#/$defs/EquivalenceGroup"
+      },
+      "title": "Equivalence Groups",
+      "type": "array"
+    },
+    "non_dominated_configuration_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Non Dominated Configuration Ids",
+      "type": "array"
+    },
+    "pairwise": {
+      "items": {
+        "$ref": "#/$defs/PairwiseComparison"
+      },
+      "title": "Pairwise",
+      "type": "array"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "provisional_model_set": {
+      "$ref": "#/$defs/ProvisionalModelConfidenceSet"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "policy_id",
+    "cohort_id",
+    "pairwise",
+    "equivalence_groups",
+    "non_dominated_configuration_ids",
+    "provisional_model_set",
+    "reason_codes",
+    "content_sha256"
+  ],
+  "title": "TrialComparisonResult",
+  "type": "object"
+}

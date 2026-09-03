@@ -1,0 +1,36 @@
+{
+  "schema_id": "current_social_graph.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "current-social-667d0b9af3b207fc26db",
+  "module_id": "P3.S11.M03",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "cycle_id": "live-cycle-0001",
+  "cycle_number": 1,
+  "as_of_time": "2026-01-01T00:00:00Z",
+  "source_state_hash": "0387b4ccd5b3f91aa936caa1a463621ce0d8f0326e31bbe760bededad0c0cefa",
+  "records": [
+    {
+      "edge_id": "edge-001",
+      "source_person_id": "person-001",
+      "target_person_id": "person-002",
+      "relationship_type": "COLLEAGUE",
+      "trust": 0.5,
+      "strength": 0.5,
+      "valid_from": "2025-01-31T23:59:59Z",
+      "available_at": "2025-01-31T23:59:59Z"
+    },
+    {
+      "edge_id": "edge-002",
+      "source_person_id": "person-002",
+      "target_person_id": "person-003",
+      "relationship_type": "INFORMATION",
+      "trust": 0.5,
+      "strength": 0.5,
+      "valid_from": "2025-01-31T23:59:59Z",
+      "available_at": "2025-01-31T23:59:59Z"
+    }
+  ],
+  "content_hash": "6f7626c3fb8103daa9691e453c28b950107de07b3a88c3b21188f5546e32dd5b",
+  "lineage_id": "lineage-current-state-69a95b11e4b81115704f"
+}

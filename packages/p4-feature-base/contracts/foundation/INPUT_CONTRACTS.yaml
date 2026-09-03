@@ -1,0 +1,50 @@
+phase: phase_04_feature_base
+scope: P4.S1-S2 foundation
+contract_version: v14.5-rc2
+external_inputs:
+  from_P2:
+  - clean_underlying_panel
+  - clean_macro_br_panel
+  - clean_macro_us_panel
+  - clean_benchmark_panel
+  - clean_calendar_panel
+  - clean_corporate_actions_panel
+  - quality_report_phase_2
+  - phase4_handoff_manifest
+  P2_extensions:
+  - clean_underlying_trade_panel
+  - clean_option_contract_panel
+  - clean_option_quotes_panel
+  - clean_event_reference_panel
+  - clean_context_source_panel
+  - clean_document_panel
+  - source_quality_panel
+  - clean_liquidity_reference_panel
+  - clean_fundamental_panel
+  - clean_curve_term_structure_panel
+  from_P3:
+  - social_feature_panel
+  - evidence_tag_panel
+  - agent_disagreement_panel
+  - context_memory_feature_panel
+  - hypothesis_registry
+  - phase4_social_handoff_manifest
+  optional_N_plus_1:
+  - variable_evolution_input_manifest
+S2_internal_required:
+- validated_p4_boundary_bundle
+- validated_phase2_bundle
+- validated_phase3_bundle
+- phase2_capability_matrix
+- phase3_capability_matrix
+- materialized artifacts referenced by validated bundles
+rules:
+- S1 hashes and schemas validated before S2
+- available_at <= decision_time
+- available_at <= as_of_time
+- missingness never silently becomes zero
+- latest available vintage selected at cutoff
+- P2 entity and calendar authority preserved
+- extension absence degrades only dependent modality
+s3_required_inputs:
+- canonical_observation_panel

@@ -1,0 +1,137 @@
+{
+  "artifact_id": "state-runtime-7c36b6bda5be2d5d97683820",
+  "artifact_name": "state_runtime_view",
+  "belief_commitments_ref": {
+    "artifact_id": "belief-commitments-genesis",
+    "artifact_name": "belief_commitments",
+    "available_at": null,
+    "content_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "grain": [],
+    "lineage_id": "lineage-belief-commitments-genesis",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S11.M03",
+    "row_count": null,
+    "schema_id": "belief_commitments.v1",
+    "schema_version": "1.0.0",
+    "status": "EMPTY_VALID",
+    "storage_ref": {
+      "location": "memory://belief-commitments-genesis",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "content_hash": "a7a16a1003f170a032e13a2d5976f5e0b51b5718b60b5b4564506c0305d3ab68",
+  "current_belief_state_ref": {
+    "artifact_id": "current-belief-667d0b9af3b207fc26db",
+    "artifact_name": "current_belief_state",
+    "available_at": null,
+    "content_hash": "bd23650197fe968530e9f3137d8e7a26b6fbea7c4fcd0fb77675fe1e526e0f0c",
+    "grain": [],
+    "lineage_id": "lineage-current-state-69a95b11e4b81115704f",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S11.M03",
+    "row_count": null,
+    "schema_id": "current_belief_state_panel.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://current-belief-667d0b9af3b207fc26db",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "current_memory_state_ref": {
+    "artifact_id": "current-memory-667d0b9af3b207fc26db",
+    "artifact_name": "current_memory_state",
+    "available_at": null,
+    "content_hash": "5f457cd054cc9335e570dc0ac7fe797d97d3c4d4e6f564ea2b2e8773877364a0",
+    "grain": [],
+    "lineage_id": "lineage-current-state-69a95b11e4b81115704f",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S11.M03",
+    "row_count": null,
+    "schema_id": "current_memory_state.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://current-memory-667d0b9af3b207fc26db",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "current_person_state_ref": {
+    "artifact_id": "current-person-667d0b9af3b207fc26db",
+    "artifact_name": "current_person_state",
+    "available_at": null,
+    "content_hash": "7c36b6bda5be2d5d97683820082446dbe5649108af013004d2091960c6e2fa4c",
+    "grain": [],
+    "lineage_id": "lineage-current-state-69a95b11e4b81115704f",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S11.M03",
+    "row_count": null,
+    "schema_id": "current_person_state_panel.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://current-person-667d0b9af3b207fc26db",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "current_social_graph_ref": {
+    "artifact_id": "current-social-667d0b9af3b207fc26db",
+    "artifact_name": "current_social_graph",
+    "available_at": null,
+    "content_hash": "6f7626c3fb8103daa9691e453c28b950107de07b3a88c3b21188f5546e32dd5b",
+    "grain": [],
+    "lineage_id": "lineage-current-state-69a95b11e4b81115704f",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S11.M03",
+    "row_count": null,
+    "schema_id": "current_social_graph.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://current-social-667d0b9af3b207fc26db",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "lineage": {
+    "lineage_id": "lineage-state-runtime-7c36b6bda5be2d5d97683820",
+    "parent_lineage_ids": [],
+    "source_artifact_ids": [
+      "current-person-667d0b9af3b207fc26db",
+      "current-belief-667d0b9af3b207fc26db",
+      "current-memory-667d0b9af3b207fc26db",
+      "current-social-667d0b9af3b207fc26db",
+      "pending-stimuli-genesis",
+      "belief-commitments-genesis"
+    ],
+    "transformation_ids": [
+      "state_runtime_projection.v1"
+    ]
+  },
+  "pending_stimuli_ref": {
+    "artifact_id": "pending-stimuli-genesis",
+    "artifact_name": "pending_stimuli",
+    "available_at": null,
+    "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "grain": [],
+    "lineage_id": "lineage-pending-stimuli-genesis",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S11.M03",
+    "row_count": null,
+    "schema_id": "pending_stimuli.v1",
+    "schema_version": "1.0.0",
+    "status": "EMPTY_VALID",
+    "storage_ref": {
+      "location": "memory://pending-stimuli-genesis",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "schema_id": "state_runtime_view.v1",
+  "schema_version": "1.0.0",
+  "source": "WARMUP_CHECKPOINT"
+}

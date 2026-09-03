@@ -1,0 +1,43 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "default": "P5-RC34.1-CONTRACT-CLOSURE-RC4",
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "seed": {
+      "default": 0,
+      "title": "Seed",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "generated_at"
+  ],
+  "title": "RunIdentity",
+  "type": "object"
+}

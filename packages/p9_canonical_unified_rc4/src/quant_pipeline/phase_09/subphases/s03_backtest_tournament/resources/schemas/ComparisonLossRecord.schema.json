@@ -1,0 +1,39 @@
+{
+  "$id": "https://inferencia.local/p9/s3/ComparisonLossRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cohort_id": {
+      "title": "Cohort Id",
+      "type": "string"
+    },
+    "configuration_id": {
+      "title": "Configuration Id",
+      "type": "string"
+    },
+    "loss": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Loss"
+    },
+    "unit_id": {
+      "title": "Unit Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "configuration_id",
+    "cohort_id",
+    "unit_id",
+    "loss"
+  ],
+  "title": "ComparisonLossRecord",
+  "type": "object"
+}

@@ -1,0 +1,91 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "name": "pydantic",
+      "scope": "required",
+      "type": "library",
+      "version": "2.x"
+    },
+    {
+      "name": "pytest",
+      "scope": "optional",
+      "type": "library",
+      "version": "9.x"
+    },
+    {
+      "name": "coverage",
+      "scope": "optional",
+      "type": "library",
+      "version": "7.x"
+    },
+    {
+      "name": "PyYAML",
+      "scope": "optional",
+      "type": "library",
+      "version": "6.x"
+    },
+    {
+      "name": "ruff",
+      "scope": "optional",
+      "type": "library",
+      "version": "not-installed"
+    },
+    {
+      "name": "mypy",
+      "scope": "optional",
+      "type": "library",
+      "version": "not-installed"
+    },
+    {
+      "name": "hypothesis",
+      "scope": "optional",
+      "type": "library",
+      "version": "not-installed"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "quant-pipeline-p6-strategy-synthesis",
+      "type": "application",
+      "version": "0.6.2rc4"
+    }
+  },
+  "properties": [
+    {
+      "name": "p6.release",
+      "value": "P6-RC6.1-P5-RC34-HARDENED"
+    },
+    {
+      "name": "p6.schema_version",
+      "value": "6.1.0-rc1"
+    },
+    {
+      "name": "p6.p5_compatibility",
+      "value": "P5-RC34-native-full-manifest"
+    },
+    {
+      "name": "p6.p5_manifest_references",
+      "value": "11"
+    },
+    {
+      "name": "p6.coverage.statements",
+      "value": "99.10884786760026"
+    },
+    {
+      "name": "p6.coverage.branches",
+      "value": "95.60327198364008"
+    },
+    {
+      "name": "p6.production_promotion_allowed",
+      "value": "false"
+    },
+    {
+      "name": "p6.network_required",
+      "value": "false"
+    }
+  ],
+  "serialNumber": "urn:uuid:p6-0.6.2rc4-p5-v2-closure",
+  "specVersion": "1.5",
+  "version": 1
+}

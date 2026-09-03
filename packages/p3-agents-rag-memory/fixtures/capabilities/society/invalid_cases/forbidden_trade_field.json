@@ -1,0 +1,4 @@
+{
+  "expected_failure": "forbidden_field",
+  "trade_decision": "BUY"
+}

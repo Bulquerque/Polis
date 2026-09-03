@@ -1,0 +1,71 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/RollingDistributionRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ending_index": {
+      "minimum": 0,
+      "title": "Ending Index",
+      "type": "integer"
+    },
+    "gross_volatility_annualized": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Gross Volatility Annualized"
+    },
+    "net_excess_kurtosis": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Net Excess Kurtosis"
+    },
+    "net_skewness": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Net Skewness"
+    },
+    "net_volatility_annualized": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Net Volatility Annualized"
+    },
+    "window": {
+      "minimum": 2,
+      "title": "Window",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "window",
+    "ending_index",
+    "net_volatility_annualized",
+    "gross_volatility_annualized",
+    "net_skewness",
+    "net_excess_kurtosis"
+  ],
+  "title": "RollingDistributionRecord",
+  "type": "object"
+}

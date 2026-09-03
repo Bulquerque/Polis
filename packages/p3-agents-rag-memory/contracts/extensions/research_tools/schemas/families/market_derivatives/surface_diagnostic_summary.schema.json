@@ -1,0 +1,235 @@
+{
+  "$defs": {
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT",
+        "UNKNOWN"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    },
+    "SurfaceDiagnosticStatus": {
+      "enum": [
+        "OBSERVED_IV",
+        "QUOTE_ONLY",
+        "INSUFFICIENT_COVERAGE"
+      ],
+      "title": "SurfaceDiagnosticStatus",
+      "type": "string"
+    },
+    "SurfaceSliceDiagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "atm_iv": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Atm Iv"
+        },
+        "convexity_violations": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Convexity Violations",
+          "type": "integer"
+        },
+        "diagnostic_status": {
+          "$ref": "#/$defs/SurfaceDiagnosticStatus"
+        },
+        "executable_quote_fraction": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Executable Quote Fraction",
+          "type": "number"
+        },
+        "expiration_date": {
+          "format": "date",
+          "title": "Expiration Date",
+          "type": "string"
+        },
+        "maximum_strike": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum Strike"
+        },
+        "median_iv": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Median Iv"
+        },
+        "minimum_strike": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Strike"
+        },
+        "observed_iv_fraction": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Observed Iv Fraction",
+          "type": "number"
+        },
+        "option_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OptionType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "price_monotonicity_violations": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Price Monotonicity Violations",
+          "type": "integer"
+        },
+        "quote_count": {
+          "minimum": 0,
+          "title": "Quote Count",
+          "type": "integer"
+        },
+        "skew_slope": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Skew Slope"
+        },
+        "strike_count": {
+          "minimum": 0,
+          "title": "Strike Count",
+          "type": "integer"
+        },
+        "two_sided_quote_fraction": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Two Sided Quote Fraction",
+          "type": "number"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "expiration_date",
+        "option_type",
+        "quote_count",
+        "strike_count",
+        "executable_quote_fraction",
+        "two_sided_quote_fraction",
+        "observed_iv_fraction",
+        "diagnostic_status"
+      ],
+      "title": "SurfaceSliceDiagnostic",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "calendar_variance_violations": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Calendar Variance Violations",
+      "type": "integer"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "implied_volatility_solved": {
+      "const": false,
+      "default": false,
+      "title": "Implied Volatility Solved",
+      "type": "boolean"
+    },
+    "interpolation_performed": {
+      "const": false,
+      "default": false,
+      "title": "Interpolation Performed",
+      "type": "boolean"
+    },
+    "slices": {
+      "items": {
+        "$ref": "#/$defs/SurfaceSliceDiagnostic"
+      },
+      "title": "Slices",
+      "type": "array"
+    },
+    "underlying": {
+      "minLength": 1,
+      "title": "Underlying",
+      "type": "string"
+    },
+    "underlying_spot": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Underlying Spot"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "underlying",
+    "decision_time",
+    "slices"
+  ],
+  "title": "SurfaceDiagnosticSummary",
+  "type": "object"
+}

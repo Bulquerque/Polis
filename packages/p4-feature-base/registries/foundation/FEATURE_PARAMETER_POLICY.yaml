@@ -1,0 +1,8 @@
+registry_id: p4_s3_parameter_policy_v1
+version: 1.0.0
+max_parameterizations_per_hypothesis: 2
+allowed_roles:
+- PRIMARY
+- ROBUSTNESS
+unapproved_default: REJECT
+same_cycle_proposals_allowed: false

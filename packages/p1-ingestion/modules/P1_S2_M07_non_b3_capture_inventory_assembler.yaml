@@ -1,0 +1,49 @@
+module_id: P1.S2.M07
+module_name: non_b3_capture_inventory_assembler
+phase: phase_01_ingestion
+subphase: P1.S2
+rc: RC4.1
+function: Consolidar inventários macro, benchmark, cripto e documento em um inventário
+  não-B3.
+inputs: &id001
+- macro_raw_capture_inventory
+- benchmark_raw_capture_inventory
+- crypto_raw_capture_inventory
+- document_raw_capture_inventory
+outputs: &id002
+- non_b3_raw_capture_inventory
+validations:
+- all_non_b3_sources_accounted
+- no_cleaning
+fail_fast_conditions:
+- non_b3_capture_inventory_assembler_schema_violation
+- non_b3_capture_inventory_assembler_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P1.S2.M03
+    - P1.S2.M04
+    - P1.S2.M05
+    - P1.S2.M06
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P1.S3.M01
+    artifacts: *id002
+    phase_outputs: []
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

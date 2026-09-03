@@ -1,0 +1,18 @@
+module_id: P5.S1.M04
+name: optional_prior_cycle_resolver_feedback_loader
+subphase_id: P5.S1
+required_inputs: []
+optional_inputs:
+- resolver_feedback_report
+- signal_feedback_report
+- resolver_promotion_decision_report
+outputs:
+- optional_resolver_feedback_context
+allowed_actions:
+- RUN
+allowed_modes:
+- OFFLINE_TRAINING
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

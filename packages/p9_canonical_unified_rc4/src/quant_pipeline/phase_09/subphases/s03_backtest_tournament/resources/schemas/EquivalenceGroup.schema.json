@@ -1,0 +1,25 @@
+{
+  "$id": "https://inferencia.local/p9/s3/EquivalenceGroup.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "configuration_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Configuration Ids",
+      "type": "array"
+    },
+    "economic_fingerprint": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Economic Fingerprint",
+      "type": "string"
+    }
+  },
+  "required": [
+    "economic_fingerprint",
+    "configuration_ids"
+  ],
+  "title": "EquivalenceGroup",
+  "type": "object"
+}

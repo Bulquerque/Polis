@@ -1,0 +1,62 @@
+{
+  "$defs": {
+    "ContractCompatibilityEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_modes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Accepted Modes",
+          "type": "array"
+        },
+        "contract_name": {
+          "minLength": 1,
+          "title": "Contract Name",
+          "type": "string"
+        },
+        "contract_version": {
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+          "title": "Contract Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_name",
+        "contract_version",
+        "accepted_modes"
+      ],
+      "title": "ContractCompatibilityEntry",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entries": {
+      "items": {
+        "$ref": "#/$defs/ContractCompatibilityEntry"
+      },
+      "title": "Entries",
+      "type": "array"
+    },
+    "matrix_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Matrix Sha256",
+      "type": "string"
+    },
+    "matrix_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Matrix Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "matrix_version",
+    "matrix_sha256",
+    "entries"
+  ],
+  "title": "ContractCompatibilityMatrix",
+  "type": "object"
+}

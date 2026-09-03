@@ -1,0 +1,13 @@
+schema_id: p3.research_tools.pit_data_view_policy.v1
+schema_version: 1.0.0
+availability_field: available_at
+observational_missing_time_action: BLOCK_RECORD
+temporal_reference_missing_time_action: REQUIRE_VALIDITY_INTERVAL
+atemporal_allowlist:
+  - source_quality_taxonomy
+  - static_identifier_namespace_registry
+default_vintage_policy: KNOWN_AT_DECISION_TIME
+forbidden_backtest_vintage_policies:
+  - LATEST_REVISED_TODAY
+reject_network_backtest: true
+require_request_as_of_equals_decision_time: true

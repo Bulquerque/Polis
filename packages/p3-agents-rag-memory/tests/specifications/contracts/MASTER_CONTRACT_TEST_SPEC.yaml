@@ -1,0 +1,10 @@
+status: planned
+required:
+- input_contract_validation
+- output_contract_validation
+- forbidden_fields
+- unique_producer
+- declared_connections_only
+- same_cycle_dag
+- temporal_edges
+- schema_version_compatibility

@@ -1,0 +1,15 @@
+spec_id: ST07_PROVIDER_MCP_ZERO_TRUST
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: All external calls use adapters, entitlements, budgets, PIT and audit
+required_cases:
+- adapter_substitution
+- credential_redaction
+- budget_exhaustion
+- provider_failure_material
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

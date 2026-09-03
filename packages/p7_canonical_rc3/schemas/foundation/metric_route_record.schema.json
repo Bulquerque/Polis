@@ -1,0 +1,111 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "$id": "https://quant-pipeline.local/schemas/p7/metric_route_record/2.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "comparison_group_id": {
+      "title": "Comparison Group Id",
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        "MAXIMIZE",
+        "MINIMIZE",
+        "NEUTRAL"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "metric_id": {
+      "title": "Metric Id",
+      "type": "string"
+    },
+    "metric_route_id": {
+      "title": "Metric Route Id",
+      "type": "string"
+    },
+    "missingness_policy": {
+      "enum": [
+        "BLOCK",
+        "ALLOW_UNAVAILABLE",
+        "OMIT"
+      ],
+      "title": "Missingness Policy",
+      "type": "string"
+    },
+    "raw_value": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/JsonValue"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "required": {
+      "title": "Required",
+      "type": "boolean"
+    },
+    "semantic_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "title": "Semantic Version",
+      "type": "string"
+    },
+    "source_artifact_name": {
+      "title": "Source Artifact Name",
+      "type": "string"
+    },
+    "source_path": {
+      "title": "Source Path",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "AVAILABLE",
+        "UNAVAILABLE"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "transformation_policy": {
+      "enum": [
+        "IDENTITY",
+        "ABSOLUTE",
+        "LOG1P_POSITIVE",
+        "NEGATE"
+      ],
+      "title": "Transformation Policy",
+      "type": "string"
+    },
+    "units": {
+      "title": "Units",
+      "type": "string"
+    }
+  },
+  "required": [
+    "metric_route_id",
+    "candidate_id",
+    "comparison_group_id",
+    "metric_id",
+    "source_artifact_name",
+    "source_path",
+    "units",
+    "direction",
+    "required",
+    "transformation_policy",
+    "missingness_policy",
+    "semantic_version",
+    "status"
+  ],
+  "title": "MetricRouteRecord",
+  "type": "object"
+}

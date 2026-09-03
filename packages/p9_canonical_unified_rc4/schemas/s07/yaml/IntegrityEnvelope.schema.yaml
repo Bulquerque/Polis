@@ -1,0 +1,21 @@
+additionalProperties: false
+properties:
+  algorithm:
+    const: SHA-256
+    default: SHA-256
+    title: Algorithm
+    type: string
+  canonicalization_version:
+    const: JCS-LIKE-JSON-UTF8-V1
+    default: JCS-LIKE-JSON-UTF8-V1
+    title: Canonicalization Version
+    type: string
+  payload_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Payload Sha256
+    type: string
+required:
+- payload_sha256
+title: IntegrityEnvelope
+type: object
+$id: urn:inferencia:p9:s7:IntegrityEnvelope:1.0.0

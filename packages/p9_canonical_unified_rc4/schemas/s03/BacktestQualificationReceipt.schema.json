@@ -1,0 +1,108 @@
+{
+  "$defs": {
+    "CheckResult": {
+      "additionalProperties": false,
+      "properties": {
+        "check_id": {
+          "title": "Check Id",
+          "type": "string"
+        },
+        "expected": {
+          "title": "Expected",
+          "type": "string"
+        },
+        "observed": {
+          "title": "Observed",
+          "type": "string"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "reason_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason Code"
+        }
+      },
+      "required": [
+        "check_id",
+        "passed",
+        "observed",
+        "expected"
+      ],
+      "title": "CheckResult",
+      "type": "object"
+    },
+    "QualificationState": {
+      "enum": [
+        "QUALIFIED",
+        "NO_ACTION_VALID",
+        "INVALID",
+        "LEGACY_RESEARCH_ONLY"
+      ],
+      "title": "QualificationState",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/BacktestQualificationReceipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/CheckResult"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "handoff_id": {
+      "title": "Handoff Id",
+      "type": "string"
+    },
+    "qualified_handoff_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Qualified Handoff Sha256"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/QualificationState"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "state",
+    "checks",
+    "reason_codes",
+    "qualified_handoff_sha256",
+    "content_sha256"
+  ],
+  "title": "BacktestQualificationReceipt",
+  "type": "object"
+}

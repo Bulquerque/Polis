@@ -1,0 +1,651 @@
+schema_id: p3.research_tools.catalog_config.v1
+schema_version: 1.0.0
+contract_version: 1.0.0
+expected_tool_count: 6
+expected_operation_count: 34
+tools:
+- tool_id: company.fundamentals.v1
+  tool_version: 1.0.0
+  title: Company Fundamentals
+  description: Read-only structured and documentary fundamental research.
+  capability_family: company
+  default_provider_id: internal_research
+  default_transport: COMPOSITE_INTERNAL
+  forbidden_authorities: &id001
+  - backtest
+  - feature_selection
+  - model_selection
+  - portfolio_optimization
+  - signal_generation
+  - trade_execution
+  operations:
+  - operation_id: get_profile
+    operation_version: 1.0.0
+    description: Read the temporal corporate profile.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_profile/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_profile/result/1.0.0
+    supported_mode_ids:
+    - QUICK_CHECK
+    - STANDARD_REVIEW
+    - DEEP_QUALITATIVE
+    required_view_classes:
+    - FUNDAMENTAL_STRUCTURED
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.company.get_profile
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_financial_statements
+    operation_version: 1.0.0
+    description: Read as-reported financial statements and restatement links.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_financial_statements/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_financial_statements/result/1.0.0
+    supported_mode_ids:
+    - QUICK_CHECK
+    - STANDARD_REVIEW
+    - ACCOUNTING_QUALITY
+    - FORENSIC
+    required_view_classes:
+    - FUNDAMENTAL_STRUCTURED
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.company.get_financial_statements
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_fundamental_snapshot
+    operation_version: 1.0.0
+    description: Compute versioned fundamental metrics.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_fundamental_snapshot/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_fundamental_snapshot/result/1.0.0
+    supported_mode_ids:
+    - QUICK_CHECK
+    - STANDARD_REVIEW
+    - ACCOUNTING_QUALITY
+    required_view_classes:
+    - FUNDAMENTAL_STRUCTURED
+    - MARKET
+    - REFERENCE
+    handler_id: internal.company.get_fundamental_snapshot
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_guidance
+    operation_version: 1.0.0
+    description: Read temporal management guidance.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_guidance/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_guidance/result/1.0.0
+    supported_mode_ids:
+    - QUICK_CHECK
+    - STANDARD_REVIEW
+    - DEEP_QUALITATIVE
+    - FORENSIC
+    required_view_classes:
+    - FUNDAMENTAL_STRUCTURED
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.company.get_guidance
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_capital_allocation
+    operation_version: 1.0.0
+    description: Read capital-allocation history and diagnostics.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_capital_allocation/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_capital_allocation/result/1.0.0
+    supported_mode_ids:
+    - QUICK_CHECK
+    - STANDARD_REVIEW
+    - DEEP_QUALITATIVE
+    required_view_classes:
+    - FUNDAMENTAL_STRUCTURED
+    - DOCUMENTARY
+    - MARKET
+    - REFERENCE
+    handler_id: internal.company.get_capital_allocation
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_peers
+    operation_version: 1.0.0
+    description: Read documented or explicitly suggested peer sets.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_peers/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_peers/result/1.0.0
+    supported_mode_ids:
+    - QUICK_CHECK
+    - STANDARD_REVIEW
+    - DEEP_QUALITATIVE
+    required_view_classes:
+    - FUNDAMENTAL_STRUCTURED
+    - REFERENCE
+    handler_id: internal.company.get_peers
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: calculate_valuation
+    operation_version: 1.0.0
+    description: Calculate valuation from explicit assumptions without optimization.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/calculate_valuation/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/calculate_valuation/result/1.0.0
+    supported_mode_ids:
+    - QUICK_CHECK
+    - STANDARD_REVIEW
+    - DEEP_QUALITATIVE
+    - ACCOUNTING_QUALITY
+    required_view_classes:
+    - FUNDAMENTAL_STRUCTURED
+    - MARKET
+    - REFERENCE
+    handler_id: internal.company.calculate_valuation
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+- tool_id: macro.observation.v1
+  tool_version: 1.0.0
+  title: Macro Observation
+  description: Vintage-aware macroeconomic observations and context.
+  capability_family: macro
+  default_provider_id: internal_research
+  default_transport: ARTIFACT_QUERY
+  forbidden_authorities: *id001
+  operations:
+  - operation_id: search_series
+    operation_version: 1.0.0
+    description: Search the macroeconomic series catalog.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/search_series/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/search_series/result/1.0.0
+    supported_mode_ids:
+    - LOOKUP
+    - CONTEXT
+    required_view_classes:
+    - MACRO
+    - REFERENCE
+    handler_id: internal.macro.search_series
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_observations
+    operation_version: 1.0.0
+    description: Read observations under an explicit vintage policy.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_observations/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_observations/result/1.0.0
+    supported_mode_ids:
+    - LOOKUP
+    - CONTEXT
+    - VINTAGE_ANALYSIS
+    required_view_classes:
+    - MACRO
+    - REFERENCE
+    handler_id: internal.macro.get_observations
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_release_snapshot
+    operation_version: 1.0.0
+    description: Read releases and values known at decision time.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_release_snapshot/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_release_snapshot/result/1.0.0
+    supported_mode_ids:
+    - LOOKUP
+    - CONTEXT
+    - VINTAGE_ANALYSIS
+    required_view_classes:
+    - MACRO
+    - REFERENCE
+    handler_id: internal.macro.get_release_snapshot
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: compare_series
+    operation_version: 1.0.0
+    description: Compare macroeconomic series on aligned vintages.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/compare_series/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/compare_series/result/1.0.0
+    supported_mode_ids:
+    - CONTEXT
+    - VINTAGE_ANALYSIS
+    required_view_classes:
+    - MACRO
+    - REFERENCE
+    handler_id: internal.macro.compare_series
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_asset_context
+    operation_version: 1.0.0
+    description: Return documented macro factors relevant to an asset.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_asset_context/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_asset_context/result/1.0.0
+    supported_mode_ids:
+    - LOOKUP
+    - CONTEXT
+    required_view_classes:
+    - MACRO
+    - MARKET
+    - REFERENCE
+    handler_id: internal.macro.get_asset_context
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+- tool_id: market.observation.v1
+  tool_version: 1.0.0
+  title: Market Observation
+  description: Read-only market observations, liquidity and corporate actions.
+  capability_family: market
+  default_provider_id: internal_research
+  default_transport: ARTIFACT_QUERY
+  forbidden_authorities: *id001
+  operations:
+  - operation_id: get_snapshot
+    operation_version: 1.0.0
+    description: Read a point-in-time market snapshot.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_snapshot/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_snapshot/result/1.0.0
+    supported_mode_ids:
+    - OBSERVE
+    - DIAGNOSTIC
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.market.get_snapshot
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_history
+    operation_version: 1.0.0
+    description: Read bounded point-in-time market history.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_history/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_history/result/1.0.0
+    supported_mode_ids:
+    - OBSERVE
+    - DIAGNOSTIC
+    - STRUCTURAL
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.market.get_history
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_liquidity
+    operation_version: 1.0.0
+    description: Compute liquidity diagnostics from authorized observations.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_liquidity/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_liquidity/result/1.0.0
+    supported_mode_ids:
+    - OBSERVE
+    - DIAGNOSTIC
+    - STRUCTURAL
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.market.get_liquidity
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_corporate_actions
+    operation_version: 1.0.0
+    description: Read announced corporate actions and adjustment chronology.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_corporate_actions/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_corporate_actions/result/1.0.0
+    supported_mode_ids:
+    - OBSERVE
+    - DIAGNOSTIC
+    - STRUCTURAL
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.market.get_corporate_actions
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: compare_instruments
+    operation_version: 1.0.0
+    description: Compare instruments without generating signals or rankings.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/compare_instruments/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/compare_instruments/result/1.0.0
+    supported_mode_ids:
+    - OBSERVE
+    - DIAGNOSTIC
+    - STRUCTURAL
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.market.compare_instruments
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+- tool_id: options.observation.v1
+  tool_version: 1.0.0
+  title: Options Observation
+  description: Read-only historical option contracts, chains and diagnostics.
+  capability_family: options
+  default_provider_id: internal_research
+  default_transport: ARTIFACT_QUERY
+  forbidden_authorities: *id001
+  operations:
+  - operation_id: get_contracts
+    operation_version: 1.0.0
+    description: List option contracts known at decision time.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_contracts/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_contracts/result/1.0.0
+    supported_mode_ids:
+    - CONTRACT_LOOKUP
+    - CHAIN_DIAGNOSTIC
+    required_view_classes:
+    - OPTIONS
+    - MARKET
+    - REFERENCE
+    handler_id: internal.options.get_contracts
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_chain_snapshot
+    operation_version: 1.0.0
+    description: Read a historical option-chain snapshot.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_chain_snapshot/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_chain_snapshot/result/1.0.0
+    supported_mode_ids:
+    - CONTRACT_LOOKUP
+    - CHAIN_DIAGNOSTIC
+    required_view_classes:
+    - OPTIONS
+    - MARKET
+    - REFERENCE
+    handler_id: internal.options.get_chain_snapshot
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_quote_history
+    operation_version: 1.0.0
+    description: Read bounded option quote history.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_quote_history/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_quote_history/result/1.0.0
+    supported_mode_ids:
+    - CHAIN_DIAGNOSTIC
+    - STRUCTURE_HISTORY
+    required_view_classes:
+    - OPTIONS
+    - MARKET
+    - REFERENCE
+    handler_id: internal.options.get_quote_history
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_surface_diagnostics
+    operation_version: 1.0.0
+    description: Compute coverage-gated skew and term-structure diagnostics.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_surface_diagnostics/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_surface_diagnostics/result/1.0.0
+    supported_mode_ids:
+    - CHAIN_DIAGNOSTIC
+    - STRUCTURE_HISTORY
+    - SURFACE_ANALYSIS
+    required_view_classes:
+    - OPTIONS
+    - MARKET
+    - REFERENCE
+    handler_id: internal.options.get_surface_diagnostics
+    default_transport: ARTIFACT_QUERY
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+- tool_id: quant.diagnostics.v1
+  tool_version: 1.0.0
+  title: Quantitative Diagnostics
+  description: Deterministic descriptive diagnostics without downstream authority.
+  capability_family: quantitative
+  default_provider_id: internal_research
+  default_transport: COMPOSITE_INTERNAL
+  forbidden_authorities: *id001
+  operations:
+  - operation_id: return_statistics
+    operation_version: 1.0.0
+    description: Compute descriptive return statistics.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/return_statistics/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/return_statistics/result/1.0.0
+    supported_mode_ids:
+    - BASIC
+    - ROBUST
+    - STABILITY
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.quant.return_statistics
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: realized_volatility
+    operation_version: 1.0.0
+    description: Compute realized-volatility diagnostics.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/realized_volatility/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/realized_volatility/result/1.0.0
+    supported_mode_ids:
+    - BASIC
+    - ROBUST
+    - STABILITY
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.quant.realized_volatility
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: drawdown
+    operation_version: 1.0.0
+    description: Compute historical drawdown diagnostics.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/drawdown/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/drawdown/result/1.0.0
+    supported_mode_ids:
+    - BASIC
+    - ROBUST
+    - STABILITY
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.quant.drawdown
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: correlation
+    operation_version: 1.0.0
+    description: Compute descriptive dependence diagnostics.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/correlation/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/correlation/result/1.0.0
+    supported_mode_ids:
+    - BASIC
+    - ROBUST
+    - STABILITY
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.quant.correlation
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: entropy
+    operation_version: 1.0.0
+    description: Compute versioned entropy diagnostics.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/entropy/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/entropy/result/1.0.0
+    supported_mode_ids:
+    - BASIC
+    - ROBUST
+    - STABILITY
+    required_view_classes:
+    - MARKET
+    - REFERENCE
+    handler_id: internal.quant.entropy
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: event_window
+    operation_version: 1.0.0
+    description: Compute observable event-window diagnostics without causal claims.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/event_window/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/event_window/result/1.0.0
+    supported_mode_ids:
+    - BASIC
+    - ROBUST
+    - STABILITY
+    required_view_classes:
+    - MARKET
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.quant.event_window
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: scenario_shock
+    operation_version: 1.0.0
+    description: Apply explicit deterministic scenario shocks.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/scenario_shock/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/scenario_shock/result/1.0.0
+    supported_mode_ids:
+    - BASIC
+    - ROBUST
+    required_view_classes:
+    - REFERENCE
+    handler_id: internal.quant.scenario_shock
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+- tool_id: research.corpus.v1
+  tool_version: 1.0.0
+  title: Corpus Research
+  description: Point-in-time search, version comparison, counterevidence and provenance.
+  capability_family: research
+  default_provider_id: internal_research
+  default_transport: COMPOSITE_INTERNAL
+  forbidden_authorities: *id001
+  operations:
+  - operation_id: search
+    operation_version: 1.0.0
+    description: Search the point-in-time documentary corpus.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/search/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/search/result/1.0.0
+    supported_mode_ids:
+    - LOOKUP
+    - STANDARD
+    - TRIANGULATED
+    - FORENSIC
+    required_view_classes:
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.corpus.search
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: get_document
+    operation_version: 1.0.0
+    description: Retrieve one authorized document or selected sections.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/get_document/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/get_document/result/1.0.0
+    supported_mode_ids:
+    - LOOKUP
+    - STANDARD
+    required_view_classes:
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.corpus.get_document
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: compare_versions
+    operation_version: 1.0.0
+    description: Compare authorized versions of the same document.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/compare_versions/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/compare_versions/result/1.0.0
+    supported_mode_ids:
+    - STANDARD
+    - TRIANGULATED
+    - FORENSIC
+    required_view_classes:
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.corpus.compare_versions
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: find_counterevidence
+    operation_version: 1.0.0
+    description: Search for evidence that conflicts with a proposition.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/find_counterevidence/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/find_counterevidence/result/1.0.0
+    supported_mode_ids:
+    - STANDARD
+    - TRIANGULATED
+    - FORENSIC
+    required_view_classes:
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.corpus.find_counterevidence
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: build_timeline
+    operation_version: 1.0.0
+    description: Build an evidence-backed point-in-time event timeline.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/build_timeline/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/build_timeline/result/1.0.0
+    supported_mode_ids:
+    - LOOKUP
+    - STANDARD
+    - TRIANGULATED
+    required_view_classes:
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.corpus.build_timeline
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001
+  - operation_id: inspect_provenance
+    operation_version: 1.0.0
+    description: Inspect the P1-P2-P3 provenance chain for evidence.
+    request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/inspect_provenance/request/1.0.0
+    result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/inspect_provenance/result/1.0.0
+    supported_mode_ids:
+    - LOOKUP
+    - STANDARD
+    - FORENSIC
+    required_view_classes:
+    - DOCUMENTARY
+    - REFERENCE
+    handler_id: internal.corpus.inspect_provenance
+    default_transport: COMPOSITE_INTERNAL
+    deterministic_or_seeded: true
+    max_result_records: 1000
+    forbidden_authorities: *id001

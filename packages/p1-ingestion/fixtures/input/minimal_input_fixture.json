@@ -1,0 +1,15 @@
+{
+  "fixture_kind": "input",
+  "phase": "phase_01_ingestion",
+  "pipeline_version": "V14.1-RC4.1",
+  "required_inputs": [
+    "source_registry_config",
+    "ingestion_run_config",
+    "source_credentials_handle",
+    "source_calendar_config",
+    "local_raw_file_paths",
+    "api_source_definitions",
+    "manual_source_definitions"
+  ],
+  "optional_feedback_inputs": []
+}

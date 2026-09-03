@@ -1,0 +1,62 @@
+{
+  "$defs": {
+    "LiveHealthState": {
+      "enum": [
+        "HEALTHY",
+        "WATCH",
+        "DEGRADED",
+        "REQUALIFICATION_REQUIRED",
+        "ROLLBACK_RECOMMENDED",
+        "QUARANTINE_RECOMMENDED",
+        "INSUFFICIENT_LIVE_EVIDENCE"
+      ],
+      "title": "LiveHealthState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "minimum_live_observations": {
+      "default": 30,
+      "minimum": 1,
+      "title": "Minimum Live Observations",
+      "type": "integer"
+    },
+    "alpha_decay_threshold": {
+      "default": 0.0,
+      "title": "Alpha Decay Threshold",
+      "type": "number"
+    },
+    "cost_error_watch_bps": {
+      "default": 5.0,
+      "minimum": 0.0,
+      "title": "Cost Error Watch Bps",
+      "type": "number"
+    },
+    "cost_error_rollback_bps": {
+      "default": 20.0,
+      "minimum": 0.0,
+      "title": "Cost Error Rollback Bps",
+      "type": "number"
+    },
+    "minimum_capacity_ratio": {
+      "default": 0.8,
+      "exclusiveMinimum": 0.0,
+      "title": "Minimum Capacity Ratio",
+      "type": "number"
+    },
+    "severe_capacity_ratio": {
+      "default": 0.5,
+      "exclusiveMinimum": 0.0,
+      "title": "Severe Capacity Ratio",
+      "type": "number"
+    },
+    "confirmed_drift_action": {
+      "$ref": "#/$defs/LiveHealthState",
+      "default": "REQUALIFICATION_REQUIRED"
+    }
+  },
+  "title": "RollbackPolicy",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:RollbackPolicy:1.0.0"
+}

@@ -1,0 +1,14 @@
+schema_version: retrieval_config.s20.v1
+memory_top_k: 5
+document_top_k: 8
+graph_top_k: 5
+experience_top_k: 5
+final_top_k: 10
+semantic_weight: 0.40
+keyword_weight: 0.20
+recency_weight: 0.15
+importance_weight: 0.10
+source_quality_weight: 0.15
+minimum_evidence_items: 1
+max_items_per_source: 6
+external_reranker_enabled: false

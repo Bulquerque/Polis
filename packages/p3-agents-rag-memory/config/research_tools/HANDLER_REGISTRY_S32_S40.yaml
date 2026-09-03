@@ -1,0 +1,590 @@
+schema_id: p3.research_tools.handler_registry.s32_s40.v1
+schema_version: 1.0.0
+operation_count: 34
+operations:
+- tool_id: company.fundamentals.v1
+  operation_id: get_profile
+  handler_id: internal.company.get_profile
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_profile/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_profile/result/1.0.0
+  supported_modes:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  required_view_classes:
+  - FUNDAMENTAL_STRUCTURED
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S38
+- tool_id: company.fundamentals.v1
+  operation_id: get_financial_statements
+  handler_id: internal.company.get_financial_statements
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_financial_statements/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_financial_statements/result/1.0.0
+  supported_modes:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - ACCOUNTING_QUALITY
+  - FORENSIC
+  required_view_classes:
+  - FUNDAMENTAL_STRUCTURED
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S38
+- tool_id: company.fundamentals.v1
+  operation_id: get_fundamental_snapshot
+  handler_id: internal.company.get_fundamental_snapshot
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_fundamental_snapshot/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_fundamental_snapshot/result/1.0.0
+  supported_modes:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - ACCOUNTING_QUALITY
+  required_view_classes:
+  - FUNDAMENTAL_STRUCTURED
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S38
+- tool_id: company.fundamentals.v1
+  operation_id: get_guidance
+  handler_id: internal.company.get_guidance
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_guidance/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_guidance/result/1.0.0
+  supported_modes:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  - FORENSIC
+  required_view_classes:
+  - FUNDAMENTAL_STRUCTURED
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S38
+- tool_id: company.fundamentals.v1
+  operation_id: get_capital_allocation
+  handler_id: internal.company.get_capital_allocation
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_capital_allocation/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_capital_allocation/result/1.0.0
+  supported_modes:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  required_view_classes:
+  - FUNDAMENTAL_STRUCTURED
+  - DOCUMENTARY
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S38
+- tool_id: company.fundamentals.v1
+  operation_id: get_peers
+  handler_id: internal.company.get_peers
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_peers/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_peers/result/1.0.0
+  supported_modes:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  required_view_classes:
+  - FUNDAMENTAL_STRUCTURED
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S38
+- tool_id: company.fundamentals.v1
+  operation_id: calculate_valuation
+  handler_id: internal.company.calculate_valuation
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/calculate_valuation/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/calculate_valuation/result/1.0.0
+  supported_modes:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  - ACCOUNTING_QUALITY
+  required_view_classes:
+  - FUNDAMENTAL_STRUCTURED
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S38
+- tool_id: macro.observation.v1
+  operation_id: search_series
+  handler_id: internal.macro.search_series
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/search_series/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/search_series/result/1.0.0
+  supported_modes:
+  - LOOKUP
+  - CONTEXT
+  required_view_classes:
+  - MACRO
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S37
+- tool_id: macro.observation.v1
+  operation_id: get_observations
+  handler_id: internal.macro.get_observations
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_observations/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_observations/result/1.0.0
+  supported_modes:
+  - LOOKUP
+  - CONTEXT
+  - VINTAGE_ANALYSIS
+  required_view_classes:
+  - MACRO
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S37
+- tool_id: macro.observation.v1
+  operation_id: get_release_snapshot
+  handler_id: internal.macro.get_release_snapshot
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_release_snapshot/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_release_snapshot/result/1.0.0
+  supported_modes:
+  - LOOKUP
+  - CONTEXT
+  - VINTAGE_ANALYSIS
+  required_view_classes:
+  - MACRO
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S37
+- tool_id: macro.observation.v1
+  operation_id: compare_series
+  handler_id: internal.macro.compare_series
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/compare_series/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/compare_series/result/1.0.0
+  supported_modes:
+  - CONTEXT
+  - VINTAGE_ANALYSIS
+  required_view_classes:
+  - MACRO
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S37
+- tool_id: macro.observation.v1
+  operation_id: get_asset_context
+  handler_id: internal.macro.get_asset_context
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_asset_context/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_asset_context/result/1.0.0
+  supported_modes:
+  - LOOKUP
+  - CONTEXT
+  required_view_classes:
+  - MACRO
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S37
+- tool_id: market.observation.v1
+  operation_id: get_snapshot
+  handler_id: internal.market.get_snapshot
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_snapshot/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_snapshot/result/1.0.0
+  supported_modes:
+  - OBSERVE
+  - DIAGNOSTIC
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S36
+- tool_id: market.observation.v1
+  operation_id: get_history
+  handler_id: internal.market.get_history
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_history/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_history/result/1.0.0
+  supported_modes:
+  - OBSERVE
+  - DIAGNOSTIC
+  - STRUCTURAL
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S36
+- tool_id: market.observation.v1
+  operation_id: get_liquidity
+  handler_id: internal.market.get_liquidity
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_liquidity/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_liquidity/result/1.0.0
+  supported_modes:
+  - OBSERVE
+  - DIAGNOSTIC
+  - STRUCTURAL
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S36
+- tool_id: market.observation.v1
+  operation_id: get_corporate_actions
+  handler_id: internal.market.get_corporate_actions
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_corporate_actions/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_corporate_actions/result/1.0.0
+  supported_modes:
+  - OBSERVE
+  - DIAGNOSTIC
+  - STRUCTURAL
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S36
+- tool_id: market.observation.v1
+  operation_id: compare_instruments
+  handler_id: internal.market.compare_instruments
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/compare_instruments/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/compare_instruments/result/1.0.0
+  supported_modes:
+  - OBSERVE
+  - DIAGNOSTIC
+  - STRUCTURAL
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S36
+- tool_id: options.observation.v1
+  operation_id: get_contracts
+  handler_id: internal.options.get_contracts
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_contracts/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_contracts/result/1.0.0
+  supported_modes:
+  - CONTRACT_LOOKUP
+  - CHAIN_DIAGNOSTIC
+  required_view_classes:
+  - OPTIONS
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S36
+- tool_id: options.observation.v1
+  operation_id: get_chain_snapshot
+  handler_id: internal.options.get_chain_snapshot
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_chain_snapshot/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_chain_snapshot/result/1.0.0
+  supported_modes:
+  - CONTRACT_LOOKUP
+  - CHAIN_DIAGNOSTIC
+  required_view_classes:
+  - OPTIONS
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S36
+- tool_id: options.observation.v1
+  operation_id: get_quote_history
+  handler_id: internal.options.get_quote_history
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_quote_history/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_quote_history/result/1.0.0
+  supported_modes:
+  - CHAIN_DIAGNOSTIC
+  - STRUCTURE_HISTORY
+  required_view_classes:
+  - OPTIONS
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S36
+- tool_id: options.observation.v1
+  operation_id: get_surface_diagnostics
+  handler_id: internal.options.get_surface_diagnostics
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: ARTIFACT_QUERY
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_surface_diagnostics/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_surface_diagnostics/result/1.0.0
+  supported_modes:
+  - CHAIN_DIAGNOSTIC
+  - STRUCTURE_HISTORY
+  - SURFACE_ANALYSIS
+  required_view_classes:
+  - OPTIONS
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S36
+- tool_id: quant.diagnostics.v1
+  operation_id: return_statistics
+  handler_id: internal.quant.return_statistics
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/return_statistics/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/return_statistics/result/1.0.0
+  supported_modes:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S39
+- tool_id: quant.diagnostics.v1
+  operation_id: realized_volatility
+  handler_id: internal.quant.realized_volatility
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/realized_volatility/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/realized_volatility/result/1.0.0
+  supported_modes:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S39
+- tool_id: quant.diagnostics.v1
+  operation_id: drawdown
+  handler_id: internal.quant.drawdown
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/drawdown/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/drawdown/result/1.0.0
+  supported_modes:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S39
+- tool_id: quant.diagnostics.v1
+  operation_id: correlation
+  handler_id: internal.quant.correlation
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/correlation/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/correlation/result/1.0.0
+  supported_modes:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S39
+- tool_id: quant.diagnostics.v1
+  operation_id: entropy
+  handler_id: internal.quant.entropy
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/entropy/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/entropy/result/1.0.0
+  supported_modes:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  required_view_classes:
+  - MARKET
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S39
+- tool_id: quant.diagnostics.v1
+  operation_id: event_window
+  handler_id: internal.quant.event_window
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/event_window/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/event_window/result/1.0.0
+  supported_modes:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  required_view_classes:
+  - MARKET
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S39
+- tool_id: quant.diagnostics.v1
+  operation_id: scenario_shock
+  handler_id: internal.quant.scenario_shock
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/scenario_shock/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/scenario_shock/result/1.0.0
+  supported_modes:
+  - BASIC
+  - ROBUST
+  required_view_classes:
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S39
+- tool_id: research.corpus.v1
+  operation_id: search
+  handler_id: internal.corpus.search
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/search/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/search/result/1.0.0
+  supported_modes:
+  - LOOKUP
+  - STANDARD
+  - TRIANGULATED
+  - FORENSIC
+  required_view_classes:
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S35
+- tool_id: research.corpus.v1
+  operation_id: get_document
+  handler_id: internal.corpus.get_document
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/get_document/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/get_document/result/1.0.0
+  supported_modes:
+  - LOOKUP
+  - STANDARD
+  required_view_classes:
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S35
+- tool_id: research.corpus.v1
+  operation_id: compare_versions
+  handler_id: internal.corpus.compare_versions
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/compare_versions/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/compare_versions/result/1.0.0
+  supported_modes:
+  - STANDARD
+  - TRIANGULATED
+  - FORENSIC
+  required_view_classes:
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S35
+- tool_id: research.corpus.v1
+  operation_id: find_counterevidence
+  handler_id: internal.corpus.find_counterevidence
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/find_counterevidence/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/find_counterevidence/result/1.0.0
+  supported_modes:
+  - STANDARD
+  - TRIANGULATED
+  - FORENSIC
+  required_view_classes:
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S35
+- tool_id: research.corpus.v1
+  operation_id: build_timeline
+  handler_id: internal.corpus.build_timeline
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/build_timeline/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/build_timeline/result/1.0.0
+  supported_modes:
+  - LOOKUP
+  - STANDARD
+  - TRIANGULATED
+  required_view_classes:
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S35
+- tool_id: research.corpus.v1
+  operation_id: inspect_provenance
+  handler_id: internal.corpus.inspect_provenance
+  handler_version: 1.0.0
+  provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  request_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/inspect_provenance/request/1.0.0
+  result_schema_ref: https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/inspect_provenance/result/1.0.0
+  supported_modes:
+  - LOOKUP
+  - STANDARD
+  - FORENSIC
+  required_view_classes:
+  - DOCUMENTARY
+  - REFERENCE
+  deterministic_or_seeded: true
+  family_owner_subphase: P3.S35
+completeness_policy: all_non_blocked_operations_require_exactly_one_handler

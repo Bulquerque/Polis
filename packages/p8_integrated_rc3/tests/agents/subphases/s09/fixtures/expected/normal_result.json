@@ -1,0 +1,69 @@
+{
+  "evidence_bundle": {
+    "bundle_id": "reb_fe6f56152393732f57e4",
+    "context": {
+      "run_id": "run-001",
+      "cycle_id": "cycle-001",
+      "trace_id": "trace-001",
+      "decision_time": "2026-08-03T18:00:00Z",
+      "observed_at": "2026-08-03T18:01:00Z",
+      "policy_version": "runtime-v1"
+    },
+    "shift_result": {
+      "overall_state": "IN_DISTRIBUTION",
+      "metric_results": [
+        {
+          "metric_name": "portfolio_return",
+          "family": "MARKET",
+          "z_score": 0.1,
+          "ewma_z": 0.020000000000000004,
+          "cusum_score": 0.0,
+          "state": "IN_DISTRIBUTION",
+          "reason_codes": []
+        }
+      ],
+      "next_states": [
+        {
+          "metric_name": "portfolio_return",
+          "count": 10,
+          "ewma_z": 0.020000000000000004,
+          "cusum_positive": 0.0,
+          "cusum_negative": 0.0,
+          "last_observed_at": "2026-08-03T18:01:00Z"
+        }
+      ],
+      "generated_at": "2026-08-03T18:01:00Z"
+    },
+    "invariant_result": {
+      "healthy": true,
+      "highest_severity": "INFO",
+      "violations": []
+    },
+    "supervisor_result": {
+      "selected_mode": "NORMAL",
+      "command": {
+        "command_id": "rtc_5f5bce134b7bf9d95196",
+        "mode": "NORMAL",
+        "reason_codes": [],
+        "issued_at": "2026-08-03T18:01:00Z",
+        "valid_until": "2026-08-04T18:00:00Z",
+        "idempotency_key": "rtc_5f5bce134b7bf9d95196",
+        "allowed_actions": [
+          "OPEN",
+          "CLOSE",
+          "HEDGE",
+          "CANCEL"
+        ],
+        "feasibility_proven": true
+      },
+      "trigger_severity": "INFO",
+      "trigger_shift_state": "IN_DISTRIBUTION"
+    },
+    "shadow_result": null,
+    "adaptations": [],
+    "source_artifacts": [],
+    "production_promotion_allowed": false
+  },
+  "runtime_mode": "NORMAL",
+  "generated_at": "2026-08-03T18:01:00Z"
+}

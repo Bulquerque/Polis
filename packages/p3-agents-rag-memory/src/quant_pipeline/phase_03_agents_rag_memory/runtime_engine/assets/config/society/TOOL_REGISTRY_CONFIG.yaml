@@ -1,0 +1,4 @@
+version: v1
+tools: []
+disconnected_tools_not_entitleable: true
+credential_policy: handle_only

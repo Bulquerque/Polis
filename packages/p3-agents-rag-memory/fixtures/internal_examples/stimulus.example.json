@@ -1,0 +1,15 @@
+{
+  "stimulus_id": "STIM_001",
+  "origin_type": "tool_discovery",
+  "available_at": "2026-01-05T11:55:00Z",
+  "stimulus_type": "research_discovery",
+  "subject": "NVDA supply constraint update",
+  "underlying": "NVDA",
+  "intensity": 0.72,
+  "evidence_refs": [
+    "EV_104"
+  ],
+  "source_person_id": "PERSON_001",
+  "source_tool_call_id": "CALL_88",
+  "lineage_id": "LIN_STIM_001"
+}

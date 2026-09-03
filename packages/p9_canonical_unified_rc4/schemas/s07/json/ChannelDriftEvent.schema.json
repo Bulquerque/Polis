@@ -1,0 +1,152 @@
+{
+  "$defs": {
+    "DetectorEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "detector_name": {
+          "minLength": 1,
+          "title": "Detector Name",
+          "type": "string"
+        },
+        "statistic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Statistic"
+        },
+        "threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Threshold"
+        },
+        "alerted": {
+          "title": "Alerted",
+          "type": "boolean"
+        },
+        "details": {
+          "default": [],
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Details",
+          "type": "array"
+        }
+      },
+      "required": [
+        "detector_name",
+        "statistic",
+        "threshold",
+        "alerted"
+      ],
+      "title": "DetectorEvidence",
+      "type": "object"
+    },
+    "DriftChannelKind": {
+      "enum": [
+        "INPUT",
+        "MISSINGNESS",
+        "FORECAST_RESIDUAL",
+        "CALIBRATION",
+        "PNL",
+        "COST",
+        "LIQUIDITY",
+        "FACTOR_EXPOSURE",
+        "POLICY_ACTION"
+      ],
+      "title": "DriftChannelKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channel_id": {
+      "minLength": 1,
+      "title": "Channel Id",
+      "type": "string"
+    },
+    "channel_kind": {
+      "$ref": "#/$defs/DriftChannelKind"
+    },
+    "observation_count": {
+      "minimum": 0,
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "estimated_change_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Estimated Change Time"
+    },
+    "severity": {
+      "minimum": 0.0,
+      "title": "Severity",
+      "type": "number"
+    },
+    "alerted": {
+      "title": "Alerted",
+      "type": "boolean"
+    },
+    "hard_breach": {
+      "title": "Hard Breach",
+      "type": "boolean"
+    },
+    "detector_evidence": {
+      "items": {
+        "$ref": "#/$defs/DetectorEvidence"
+      },
+      "title": "Detector Evidence",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "channel_id",
+    "channel_kind",
+    "observation_count",
+    "estimated_change_time",
+    "severity",
+    "alerted",
+    "hard_breach",
+    "detector_evidence"
+  ],
+  "title": "ChannelDriftEvent",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:ChannelDriftEvent:1.0.0"
+}

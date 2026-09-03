@@ -1,0 +1,59 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "const": true,
+      "default": true,
+      "title": "Deterministic",
+      "type": "boolean"
+    },
+    "executed_mode": {
+      "minLength": 1,
+      "title": "Executed Mode",
+      "type": "string"
+    },
+    "handler_id": {
+      "minLength": 1,
+      "title": "Handler Id",
+      "type": "string"
+    },
+    "handler_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Handler Version",
+      "type": "string"
+    },
+    "internal_work_units": {
+      "minimum": 0,
+      "title": "Internal Work Units",
+      "type": "integer"
+    },
+    "requested_mode": {
+      "minLength": 1,
+      "title": "Requested Mode",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "handler_id",
+    "requested_mode",
+    "executed_mode",
+    "internal_work_units",
+    "seed"
+  ],
+  "title": "ExecutionReport",
+  "type": "object"
+}

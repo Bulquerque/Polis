@@ -1,0 +1,33 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/UnderwaterPoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "drawdown_fraction": {
+      "maximum": 0,
+      "title": "Drawdown Fraction",
+      "type": "number"
+    },
+    "high_water_mark": {
+      "title": "High Water Mark",
+      "type": "number"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "wealth": {
+      "title": "Wealth",
+      "type": "number"
+    }
+  },
+  "required": [
+    "timestamp",
+    "high_water_mark",
+    "wealth",
+    "drawdown_fraction"
+  ],
+  "title": "UnderwaterPoint",
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "module_id": {
+      "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+      "title": "Module Id",
+      "type": "string"
+    },
+    "phase_id": {
+      "pattern": "^P[0-9]+$",
+      "title": "Phase Id",
+      "type": "string"
+    },
+    "subphase_id": {
+      "minLength": 1,
+      "title": "Subphase Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "module_id",
+    "phase_id",
+    "subphase_id"
+  ],
+  "title": "ModuleBinding",
+  "type": "object"
+}

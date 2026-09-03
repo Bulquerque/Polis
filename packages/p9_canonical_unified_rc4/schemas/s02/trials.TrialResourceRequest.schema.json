@@ -1,0 +1,32 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cpu_seconds": {
+      "minimum": 1,
+      "title": "Cpu Seconds",
+      "type": "integer"
+    },
+    "memory_mb": {
+      "minimum": 128,
+      "title": "Memory Mb",
+      "type": "integer"
+    },
+    "worker_labels": {
+      "default": [
+        "cpu"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Worker Labels",
+      "type": "array"
+    }
+  },
+  "required": [
+    "cpu_seconds",
+    "memory_mb"
+  ],
+  "title": "TrialResourceRequest",
+  "type": "object"
+}

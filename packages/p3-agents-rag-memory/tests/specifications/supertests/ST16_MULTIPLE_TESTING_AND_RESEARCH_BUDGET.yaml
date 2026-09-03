@@ -1,0 +1,15 @@
+spec_id: ST16_MULTIPLE_TESTING_AND_RESEARCH_BUDGET
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Trial count, DSR/PBO or equivalent controls prevent search overfitting
+required_cases:
+- trial_ledger
+- parameter_search_count
+- multiple_testing_gate
+- holdout_access_count
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

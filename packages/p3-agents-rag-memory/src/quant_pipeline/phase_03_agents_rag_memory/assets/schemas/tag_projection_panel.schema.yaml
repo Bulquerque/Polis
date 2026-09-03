@@ -1,0 +1,20 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: artifact_panel
+status: planned_internal_schema
+type: object
+properties:
+  schema_version:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+  lineage_id:
+    type: string
+additionalProperties: false
+artifact_name: tag_projection_panel
+schema_id: tag_projection_panel.v1
+schema_version: v14.1-rc4.1
+required_fields:
+- schema_version
+- records

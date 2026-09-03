@@ -1,0 +1,160 @@
+{
+  "$defs": {
+    "BeliefCommitmentRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "belief_value": {
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Belief Value",
+          "type": "number"
+        },
+        "commitment_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Commitment Hash",
+          "type": "string"
+        },
+        "commitment_id": {
+          "minLength": 1,
+          "title": "Commitment Id",
+          "type": "string"
+        },
+        "committed_at": {
+          "format": "date-time",
+          "title": "Committed At",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "matures_at": {
+          "format": "date-time",
+          "title": "Matures At",
+          "type": "string"
+        },
+        "person_id": {
+          "minLength": 1,
+          "title": "Person Id",
+          "type": "string"
+        },
+        "proposition_id": {
+          "minLength": 1,
+          "title": "Proposition Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "underlying_id": {
+          "minLength": 1,
+          "title": "Underlying Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commitment_id",
+        "person_id",
+        "run_id",
+        "cycle_id",
+        "underlying_id",
+        "proposition_id",
+        "horizon",
+        "committed_at",
+        "matures_at",
+        "belief_value",
+        "confidence",
+        "commitment_hash",
+        "lineage_id"
+      ],
+      "title": "BeliefCommitmentRecord",
+      "type": "object"
+    }
+  },
+  "$id": "https://example.invalid/p3/s30/belief_outcome_commitment_log.input.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/BeliefCommitmentRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "created_at",
+    "lineage_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "records"
+  ],
+  "title": "BeliefOutcomeCommitmentLog",
+  "type": "object"
+}

@@ -1,0 +1,36 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "canonical_configuration_id": {
+      "pattern": "^cfg-[0-9a-f]{64}$",
+      "title": "Canonical Configuration Id",
+      "type": "string"
+    },
+    "equivalence_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Equivalence Sha256",
+      "type": "string"
+    },
+    "group_id": {
+      "minLength": 1,
+      "title": "Group Id",
+      "type": "string"
+    },
+    "member_configuration_ids": {
+      "items": {
+        "pattern": "^cfg-[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "title": "Member Configuration Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "group_id",
+    "canonical_configuration_id",
+    "member_configuration_ids",
+    "equivalence_sha256"
+  ],
+  "title": "EconomicEquivalenceGroup",
+  "type": "object"
+}

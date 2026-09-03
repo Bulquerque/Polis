@@ -1,0 +1,73 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p7:s1:validated-strategy-candidate-record:2.0.0
+title: Validated Strategy Candidate Record
+type: object
+additionalProperties: false
+required:
+  - candidate_id
+  - cycle_id
+  - decision_time
+  - underlying_id
+  - horizon
+  - objective_family
+  - market_snapshot_id
+  - lineage_id
+  - candidate
+  - legs
+  - payoffs
+  - scenario_evaluations
+  - generation_trace
+  - risk
+  - cost_liquidity
+  - lineage
+  - market_snapshot
+  - ambiguity_evaluations
+  - greeks
+  - equivalence
+  - quality_diversity
+properties:
+  candidate_id: {type: string, minLength: 1}
+  cycle_id: {type: string, minLength: 1}
+  decision_time: {type: string, format: date-time}
+  underlying_id: {type: string, minLength: 1}
+  horizon: {type: string, minLength: 1}
+  objective_family: {type: string, minLength: 1}
+  market_snapshot_id: {type: string, minLength: 1}
+  lineage_id: {type: string, minLength: 1}
+  candidate: {$ref: '#/$defs/openRecord'}
+  legs:
+    type: array
+    minItems: 1
+    items: {$ref: '#/$defs/openRecord'}
+  payoffs:
+    type: array
+    minItems: 1
+    items: {$ref: '#/$defs/openRecord'}
+  scenario_evaluations:
+    type: array
+    minItems: 1
+    items: {$ref: '#/$defs/openRecord'}
+  generation_trace:
+    type: array
+    minItems: 1
+    items: {$ref: '#/$defs/openRecord'}
+  risk: {$ref: '#/$defs/openRecord'}
+  cost_liquidity: {$ref: '#/$defs/openRecord'}
+  lineage: {$ref: '#/$defs/openRecord'}
+  market_snapshot: {$ref: '#/$defs/openRecord'}
+  ambiguity_evaluations:
+    type: array
+    items: {$ref: '#/$defs/openRecord'}
+  greeks:
+    type: array
+    items: {$ref: '#/$defs/openRecord'}
+  equivalence:
+    type: array
+    items: {$ref: '#/$defs/openRecord'}
+  quality_diversity:
+    type: array
+    items: {$ref: '#/$defs/openRecord'}
+$defs:
+  openRecord:
+    type: object
+    additionalProperties: true

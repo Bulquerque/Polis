@@ -1,0 +1,43 @@
+registry_id: p7_s3_reason_codes_v1
+codes:
+  P7_S3_INPUT_SCHEMA_INVALID: fatal contract violation
+  P7_S3_ARTIFACT_NAME_MISMATCH: fatal contract violation
+  P7_S3_CONTENT_HASH_MISMATCH: fatal integrity violation
+  P7_S3_REQUIRED_INPUT_MISSING: fatal contract violation
+  P7_S3_HANDOFF_IDENTITY_MISMATCH: fatal contract violation
+  P7_S3_ARTIFACT_AVAILABLE_AFTER_DECISION: fatal temporal violation
+  P7_S3_MANIFEST_REFERENCE_MISSING: fatal contract violation
+  P7_S3_MANIFEST_REFERENCE_INVALID: fatal integrity violation
+  P7_S3_FORBIDDEN_FIELD_DETECTED: fatal temporal violation
+  P7_S3_FOUNDATION_AUDIT_INVALID: fatal contract violation
+  P7_S3_DUPLICATE_CANDIDATE: fatal grain violation
+  P7_S3_DUPLICATE_GROUP_BINDING: fatal grain violation
+  P7_S3_DUPLICATE_METRIC_GRAIN: fatal grain violation
+  P7_S3_CANDIDATE_GROUP_RECONCILIATION_FAILED: fatal identity violation
+  P7_S3_METRIC_CANDIDATE_UNKNOWN: fatal identity violation
+  P7_S3_METRIC_AVAILABLE_AFTER_DECISION: fatal temporal violation
+  P7_S3_METRIC_SEMANTICS_MISMATCH: fatal semantic violation
+  P7_S3_UNIT_CONVERSION_NOT_DECLARED: fatal semantic violation
+  P7_S3_REQUIRED_METRIC_MISSING: candidate metric blocked
+  P7_S3_METRIC_UNAVAILABLE: candidate metric unavailable
+  P7_S3_OPTIONAL_METRIC_MISSING: optional metric unavailable
+  P7_S3_FACTOR_MODEL_MISSING: fatal model compatibility violation
+  P7_S3_FACTOR_MODEL_FUTURE_CUTOFF: fatal temporal violation
+  P7_S3_FACTOR_MODEL_NOT_QUALIFIED: fatal policy violation
+  P7_S3_FACTOR_SCHEMA_MISMATCH: fatal model compatibility violation
+  P7_S3_FACTOR_TARGET_MISMATCH: fatal model compatibility violation
+  P7_S3_FACTOR_SET_MISMATCH: fatal model compatibility violation
+  P7_S3_STATIC_FACTOR_SET_MISMATCH: fatal policy violation
+  P7_S3_FACTOR_ADJUSTMENT_BYPASSED: explicit baseline status
+  P7_S3_FACTOR_EXPOSURE_BYPASS: candidate target bypassed
+  P7_S3_FACTOR_EXPOSURE_UNAVAILABLE: candidate target unavailable
+  P7_S3_FACTOR_EXPOSURE_REQUIRED: candidate target blocked
+  P7_S3_CANDIDATE_INCOMPARABLE_REQUIRED_METRIC: candidate-level incomparability
+  P7_S3_CANDIDATE_BLOCKED_REQUIRED_METRIC: candidate-level block
+  P7_S3_EXACT_GROUP_BUDGET_EXCEEDED: fatal bounded-resource violation
+  P7_S3_PAIR_BUDGET_EXCEEDED: fatal bounded-resource violation
+  P7_S3_MUTUAL_DOMINANCE_DETECTED: internal invariant violation
+  P7_S3_DOMINANCE_CYCLE_DETECTED: internal invariant violation
+  P7_S3_CANDIDATE_CONSERVATION_FAILED: internal invariant violation
+  P7_S3_PARETO_VECTOR_INCOMPLETE: internal invariant violation
+  P7_S3_ARTIFACT_OVERWRITE_FORBIDDEN: fatal integrity violation

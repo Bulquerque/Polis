@@ -1,0 +1,6199 @@
+{
+  "artifact_id": "social-graph-runtime-graph_52fdd93664c0b36c363b0af4",
+  "artifact_name": "social_graph_runtime_view",
+  "content_hash": "71f5eb712c02c5d566719ecb9c52785d3603d538f6fdeacf086bd38487ec69ca",
+  "lineage": {
+    "lineage_id": "lineage-social-graph-runtime-graph_52fdd93664c0b36c363b0af4",
+    "parent_lineage_ids": [],
+    "source_artifact_ids": [
+      "validated_initial_social_graph"
+    ],
+    "transformation_ids": [
+      "social_graph_runtime_projection.v1"
+    ]
+  },
+  "population_id": "population_cfbd70a5262fb3d64f92e384",
+  "records": [
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4175000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.41227816586163835
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5375000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.43977816586163826
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4809172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4073890829308192
+        }
+      ],
+      "edge_id": "edge_00da284f83b58a12061adf8b",
+      "global_trust": 0.5401870540796703,
+      "influence": 0.545,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_7de12c2ee678042d1726c765",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_09346d05119342f10a6ebaf0",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_1761d60008f54d20d52e2a9d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5145
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5765000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5125000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4265
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5887500000000001
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.437
+        }
+      ],
+      "edge_id": "edge_0142bd2606dc3a0292033ca9",
+      "global_trust": 0.4710395833333334,
+      "influence": 0.7280000000000001,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_e4d6c5b427632a9581da3321",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_a4be046ff227385b43130821",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_958508fc4c55caea1b8065ce",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48550000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6085
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.46749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.621
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.52125
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4755
+        }
+      ],
+      "edge_id": "edge_017d3688505755f47a3b9d0a",
+      "global_trust": 0.48441875,
+      "influence": 0.7370000000000001,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_03759741b9d5109618e283b2",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_f38b3e011a8058eedc20c548",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_5bafe298ab785e2976b4c064",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.28750000000000003
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3925
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3775
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.44999999999999996
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.38625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41250000000000003
+        }
+      ],
+      "edge_id": "edge_020c9bbf3545ecfd5aa885f6",
+      "global_trust": 0.4423437499999999,
+      "influence": 0.545,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_cd30f7664dccffba06963770",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_f38b3e011a8058eedc20c548",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_1761d60008f54d20d52e2a9d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4495
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5665
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.39749999999999996
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6215
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.53625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5670000000000001
+        }
+      ],
+      "edge_id": "edge_04414bcdfbe964890d5f17c6",
+      "global_trust": 0.5324770833333333,
+      "influence": 0.553,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_b8dbb9aa388403983fac7682",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_a4be046ff227385b43130821",
+      "strength": 0.57,
+      "target_person_id": "person_6fdac2667a58d2608e7e3015",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.30100000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.40449999999999997
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.40499999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.46699999999999997
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.435
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.501
+        }
+      ],
+      "edge_id": "edge_057108aba613d537c293e021",
+      "global_trust": 0.4647958333333333,
+      "influence": 0.49899999999999994,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_efea9723c88b780a316cb9e6",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_789defaf8347b2c0de7d3bb7",
+      "strength": 0.57,
+      "target_person_id": "person_5dd05ac60062557052ebfef6",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43600000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5442781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.37
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6542781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4721672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.6233890829308192
+        }
+      ],
+      "edge_id": "edge_07221544033c90264b7333bd",
+      "global_trust": 0.4615349707463369,
+      "influence": 0.5990000000000001,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_6e80e6b00edf55aee69f9c52",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_cf5816934f24fed7769b709f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4690000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5905
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.43500000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5780000000000001
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.51
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41400000000000003
+        }
+      ],
+      "edge_id": "edge_07ab3970b81e482cb6057e87",
+      "global_trust": 0.5171208333333334,
+      "influence": 0.6910000000000001,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_9637f56d64693e28f5ae660c",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_5166323465ad7b7cd7e7f768",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.49799999999999994
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5585
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.48
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.49599999999999994
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5774999999999999
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5630000000000001
+        }
+      ],
+      "edge_id": "edge_0a825efda7deafe9659d544d",
+      "global_trust": 0.48374166666666674,
+      "influence": 0.682,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_58091d4ea21b47437c7f692a",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_cad593fc458e2faef8131bd0",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_546264c6e0448a87bf943b1d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5155000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6385000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5275
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.621
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.58125
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4755
+        }
+      ],
+      "edge_id": "edge_0a9ff74cf4705eda5b30e57f",
+      "global_trust": 0.55641875,
+      "influence": 0.7370000000000001,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_28988de7ec9c4969e3fa9cfc",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_42a800fcd82a27521dc53820",
+      "strength": 0.57,
+      "target_person_id": "person_5bafe298ab785e2976b4c064",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43200000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.47627816586163824
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.35
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.37377816586163826
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5171672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4618890829308192
+        }
+      ],
+      "edge_id": "edge_0b090f1f5e4dbd85048715f6",
+      "global_trust": 0.46105997074633687,
+      "influence": 0.49800000000000005,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_bd6c5153b78076a07e0e86d5",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_6fdac2667a58d2608e7e3015",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_5def1e4def9e1c520f42996c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.465
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5225
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.41500000000000004
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.41000000000000003
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5549999999999999
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.44
+        }
+      ],
+      "edge_id": "edge_0b9bf5d25f36c327145055ba",
+      "global_trust": 0.44414583333333335,
+      "influence": 0.59,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_5997bc73310742ec81d9f471",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_5bafe298ab785e2976b4c064",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_f38b3e011a8058eedc20c548",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4165
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5305
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4825
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5355
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5137499999999999
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.444
+        }
+      ],
+      "edge_id": "edge_1060d1d3c6e8773ee1b7c43c",
+      "global_trust": 0.5091312499999999,
+      "influence": 0.641,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_d95ff6f542e8d5c1d2a0f8bf",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_6fdac2667a58d2608e7e3015",
+      "strength": 0.57,
+      "target_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.367
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.47650000000000003
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.385
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4665
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.48
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4095
+        }
+      ],
+      "edge_id": "edge_11305eb9e868c790d3d71b26",
+      "global_trust": 0.47248749999999995,
+      "influence": 0.503,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_468a1df9fe501bc243a61fd6",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_a8292f4b418a406b97beab9c",
+      "strength": 0.57,
+      "target_person_id": "person_789defaf8347b2c0de7d3bb7",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.28750000000000003
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3925
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3775
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.44999999999999996
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.38625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41250000000000003
+        }
+      ],
+      "edge_id": "edge_114a47f55cd1d101d835df3e",
+      "global_trust": 0.38984374999999993,
+      "influence": 0.545,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_f7d9ac149f83c8978a15078a",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_5a1fb72e084d473d9c607b90",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_1761d60008f54d20d52e2a9d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.367
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.47650000000000003
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.385
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4665
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.48
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4095
+        }
+      ],
+      "edge_id": "edge_1311e864ddc8e4a2fd0cece9",
+      "global_trust": 0.47248749999999995,
+      "influence": 0.503,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_3fe94008c60533ac20fb10b5",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_5dd05ac60062557052ebfef6",
+      "strength": 0.57,
+      "target_person_id": "person_789defaf8347b2c0de7d3bb7",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2545
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3462781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.31250000000000006
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4137781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.3484172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4343890829308191
+        }
+      ],
+      "edge_id": "edge_13d3002d2a869f135c825c5b",
+      "global_trust": 0.35425788741300357,
+      "influence": 0.453,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_1647128b1c43487fcdaa9d9d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_42a800fcd82a27521dc53820",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4195
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5262781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.33749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6112781658616384
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.46091724879245743
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5618890829308192
+        }
+      ],
+      "edge_id": "edge_15434799accbbe0c0b36a6d8",
+      "global_trust": 0.4942370540796702,
+      "influence": 0.553,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_4c221c34d813be25d1e37d17",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_5def1e4def9e1c520f42996c",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_6fdac2667a58d2608e7e3015",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4195
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5262781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.33749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6112781658616384
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.46091724879245743
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5618890829308192
+        }
+      ],
+      "edge_id": "edge_157b8e46d291060c492b84fd",
+      "global_trust": 0.4417370540796702,
+      "influence": 0.553,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_c9c57d6fa82e889c0c85f630",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_09346d05119342f10a6ebaf0",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_6fdac2667a58d2608e7e3015",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48150000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5405
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.44750000000000006
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.45300000000000007
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5662499999999999
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5015000000000001
+        }
+      ],
+      "edge_id": "edge_1606b2285e745319c8a4e9aa",
+      "global_trust": 0.46394375,
+      "influence": 0.636,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_79f47b553fdcf795acad5638",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_1761d60008f54d20d52e2a9d",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_5a1fb72e084d473d9c607b90",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.531
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5945
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.395
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4695
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6000000000000001
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4985
+        }
+      ],
+      "edge_id": "edge_190d4ee95ee0f6cc3574806d",
+      "global_trust": 0.47458750000000005,
+      "influence": 0.594,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_2ebf3d64b2c037f903c2dbfb",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_89c759e8d6a2976eb710b39c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3175
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.41227816586163835
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4375
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.43977816586163826
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4309172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4073890829308192
+        }
+      ],
+      "edge_id": "edge_1c9f27b0aa90d499dc5faabc",
+      "global_trust": 0.44310372074633686,
+      "influence": 0.545,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_18bdcd4f0705228c6bc11ed7",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_1761d60008f54d20d52e2a9d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2515
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.35050000000000003
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3075
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.338
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.40124999999999994
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3165
+        }
+      ],
+      "edge_id": "edge_1d056f69fa6872a323e72a39",
+      "global_trust": 0.4579020833333333,
+      "influence": 0.361,
+      "interaction_frequency": 0.72,
+      "provenance_ref": "lin_c4ea86ef9a67fc5734c237ec",
+      "relationship_type": "geographic_peer",
+      "selection_probability": 0.22793645057321626,
+      "source_person_id": "person_cad593fc458e2faef8131bd0",
+      "strength": 0.72,
+      "target_person_id": "person_a8292f4b418a406b97beab9c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.368
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3582781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.44
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.3707781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4471672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3728890829308191
+        }
+      ],
+      "edge_id": "edge_1efcda0e8826c51a4f7bbfd3",
+      "global_trust": 0.5035433040796702,
+      "influence": 0.407,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_7ef7e40937da39828bfc1c56",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_1761d60008f54d20d52e2a9d",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_09346d05119342f10a6ebaf0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4195
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5365
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.33749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6215
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.47625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5670000000000001
+        }
+      ],
+      "edge_id": "edge_2369f63d4804066209c8c2de",
+      "global_trust": 0.46047708333333337,
+      "influence": 0.553,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_3fffd0c4866ed8fb91ac2b50",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_5166323465ad7b7cd7e7f768",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_6fdac2667a58d2608e7e3015",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.268
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.36850000000000005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.34
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.381
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4125
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.378
+        }
+      ],
+      "edge_id": "edge_24297e1ec4cabb35a2a36c34",
+      "global_trust": 0.4252,
+      "influence": 0.407,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_e27605757df3e9f371ac2d05",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_a8292f4b418a406b97beab9c",
+      "strength": 0.57,
+      "target_person_id": "person_09346d05119342f10a6ebaf0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.628
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5782781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6399999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.48577816586163824
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6721672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5578890829308192
+        }
+      ],
+      "edge_id": "edge_244136ca9f0d70f0eb798648",
+      "global_trust": 0.634084970746337,
+      "influence": 0.682,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_beb1a3221dff990aebfaecb4",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_958508fc4c55caea1b8065ce",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_546264c6e0448a87bf943b1d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4195
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5365
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.33749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6215
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.47625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5670000000000001
+        }
+      ],
+      "edge_id": "edge_2455a88c8afb6ee50b58bbcf",
+      "global_trust": 0.46047708333333337,
+      "influence": 0.553,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_b80b9649ea72e315360c31ce",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_1761d60008f54d20d52e2a9d",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_6fdac2667a58d2608e7e3015",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.35050000000000003
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4482781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3525
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5257781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.45341724879245743
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5303890829308192
+        }
+      ],
+      "edge_id": "edge_271928b8884516a033b0dc90",
+      "global_trust": 0.46644955407967026,
+      "influence": 0.45699999999999996,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_87fbc7da05b901325bd42b51",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.30400000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4105
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.26
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.493
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.39749999999999996
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4740000000000001
+        }
+      ],
+      "edge_id": "edge_2b06752a841b2fb2f7b735f6",
+      "global_trust": 0.3933916666666667,
+      "influence": 0.411,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_66d9a71718dbb379ad68961a",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_546264c6e0448a87bf943b1d",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_cad593fc458e2faef8131bd0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.533
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5382781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.465
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5682781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5596672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5003890829308192
+        }
+      ],
+      "edge_id": "edge_2e0a24ea16eb266cf8d0dd47",
+      "global_trust": 0.5910224707463368,
+      "influence": 0.507,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_1d9ac2bb105111bdf408c562",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_1c12bd8c2f2a6ceb86b50c8d",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_a4be046ff227385b43130821",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2845
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3762781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.37250000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4137781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4084172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4343890829308191
+        }
+      ],
+      "edge_id": "edge_2f033d29c77054b28af7866c",
+      "global_trust": 0.4262578874130035,
+      "influence": 0.453,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_2e3f117379ca696b98d582bc",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_1761d60008f54d20d52e2a9d",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43200000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.47627816586163824
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.35
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.37377816586163826
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5171672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4618890829308192
+        }
+      ],
+      "edge_id": "edge_3403b9bf18e2c346bc18b695",
+      "global_trust": 0.4085599707463369,
+      "influence": 0.49800000000000005,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_8965d8d86bf2209800933898",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_89c759e8d6a2976eb710b39c",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_5def1e4def9e1c520f42996c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.30100000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.40449999999999997
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.40499999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.46699999999999997
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.435
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.501
+        }
+      ],
+      "edge_id": "edge_35972da9bc99b7038b8fd122",
+      "global_trust": 0.4647958333333333,
+      "influence": 0.49899999999999994,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_ec869c67e04644ca8e021e90",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "strength": 0.57,
+      "target_person_id": "person_5dd05ac60062557052ebfef6",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.49799999999999994
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5585
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.48
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.49599999999999994
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5774999999999999
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5630000000000001
+        }
+      ],
+      "edge_id": "edge_37843b549c2dacf78beab5eb",
+      "global_trust": 0.48374166666666674,
+      "influence": 0.682,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_553e6661fbd0d51b959c9765",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_5def1e4def9e1c520f42996c",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_546264c6e0448a87bf943b1d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5125
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.45
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.49250000000000005
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5025
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3825
+        }
+      ],
+      "edge_id": "edge_3a86cead968c1eed6afcf986",
+      "global_trust": 0.4893333333333334,
+      "influence": 0.595,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_35132d9f1973f0adf8347dfe",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_1c12bd8c2f2a6ceb86b50c8d",
+      "strength": 0.57,
+      "target_person_id": "person_3c8677dee4d7572e1970c37b",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.49799999999999994
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5482781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.48
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.48577816586163824
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5621672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5578890829308192
+        }
+      ],
+      "edge_id": "edge_3b32f2cce121d6a5cb995169",
+      "global_trust": 0.4650016374130035,
+      "influence": 0.682,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_eef9cc47cf098ee5a996438d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_cf5816934f24fed7769b709f",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_546264c6e0448a87bf943b1d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.238
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.32827816586163827
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.28
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.3707781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.3371672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3728890829308191
+        }
+      ],
+      "edge_id": "edge_3c12b436c8990958dbc96abc",
+      "global_trust": 0.3344599707463369,
+      "influence": 0.407,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_0409348b01ab3830e13094a7",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_6fdac2667a58d2608e7e3015",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_09346d05119342f10a6ebaf0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.28750000000000003
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3925
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3775
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.44999999999999996
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.38625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41250000000000003
+        }
+      ],
+      "edge_id": "edge_3c49031a99c0d9ef1ccc9c50",
+      "global_trust": 0.4423437499999999,
+      "influence": 0.545,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_6ba63e4b38a9715c10f2bf47",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_42a800fcd82a27521dc53820",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_1761d60008f54d20d52e2a9d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4690000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5802781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.43500000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5677781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4946672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.40888908293081916
+        }
+      ],
+      "edge_id": "edge_3faf9dd0bd94e14c086304cc",
+      "global_trust": 0.4458808040796702,
+      "influence": 0.6910000000000001,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_3451956ee7f89d0818f62aae",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_09346d05119342f10a6ebaf0",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_5166323465ad7b7cd7e7f768",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6445
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5962781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6725000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4162781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6834172487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4318890829308192
+        }
+      ],
+      "edge_id": "edge_415bece637bbea9888d44332",
+      "global_trust": 0.6213828874130035,
+      "influence": 0.7280000000000001,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_b80861abffb7104a9ce9a0bb",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_958508fc4c55caea1b8065ce",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2845
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3762781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.37250000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4137781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4084172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4343890829308191
+        }
+      ],
+      "edge_id": "edge_41e6aa66e94d78df05465e0a",
+      "global_trust": 0.4262578874130035,
+      "influence": 0.453,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_7a28230cb9e3c845d432076d",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3205
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.42850000000000005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.2925
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.536
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.40875
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5355000000000001
+        }
+      ],
+      "edge_id": "edge_42a437e4de9c76cdcffe3840",
+      "global_trust": 0.41318958333333333,
+      "influence": 0.45699999999999996,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_ba51a83489cea004c54d028c",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_5166323465ad7b7cd7e7f768",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2845
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.38649999999999995
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.37250000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.424
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.42375
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4395
+        }
+      ],
+      "edge_id": "edge_43afa05caa9bcab4bad34de5",
+      "global_trust": 0.49749791666666665,
+      "influence": 0.453,
+      "interaction_frequency": 0.72,
+      "provenance_ref": "lin_f7e483b0a8dda17b392e718b",
+      "relationship_type": "geographic_peer",
+      "selection_probability": 0.22793645057321626,
+      "source_person_id": "person_789defaf8347b2c0de7d3bb7",
+      "strength": 0.72,
+      "target_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43200000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.47627816586163824
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.35
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.37377816586163826
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5171672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4618890829308192
+        }
+      ],
+      "edge_id": "edge_4647888617486317e593394d",
+      "global_trust": 0.4085599707463369,
+      "influence": 0.49800000000000005,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_a9ff420747ea41a7cc0173d1",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_1761d60008f54d20d52e2a9d",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_5def1e4def9e1c520f42996c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5022781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.45
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.48227816586163835
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.48716724879245743
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3773890829308192
+        }
+      ],
+      "edge_id": "edge_474baa6a573d9d0281d80651",
+      "global_trust": 0.47059330407967026,
+      "influence": 0.595,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_e29eda1b43d9717d0494a98c",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_3c8677dee4d7572e1970c37b",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5145
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5765000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5125000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4265
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5887500000000001
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.437
+        }
+      ],
+      "edge_id": "edge_49ed2ff093034ef04ee2b00d",
+      "global_trust": 0.4710395833333334,
+      "influence": 0.7280000000000001,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_71ce1b3c8c81a2b43c2aab00",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_958508fc4c55caea1b8065ce",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3175
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.41227816586163835
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4375
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.43977816586163826
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4309172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4073890829308192
+        }
+      ],
+      "edge_id": "edge_4a92a0a7b74da097bb9aac8f",
+      "global_trust": 0.44310372074633686,
+      "influence": 0.545,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_b353b8777c133bda84e6f080",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_cad593fc458e2faef8131bd0",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_1761d60008f54d20d52e2a9d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.49799999999999994
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5585
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.48
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.49599999999999994
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5774999999999999
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5630000000000001
+        }
+      ],
+      "edge_id": "edge_4c52c2fd3e366c25ab8872e0",
+      "global_trust": 0.48374166666666674,
+      "influence": 0.682,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_caca15a98e8ad428da5f83be",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_5dd05ac60062557052ebfef6",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_546264c6e0448a87bf943b1d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43600000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5442781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.37
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6542781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4721672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.6233890829308192
+        }
+      ],
+      "edge_id": "edge_4cce6d9d9520c97d7bad6edf",
+      "global_trust": 0.4615349707463369,
+      "influence": 0.5990000000000001,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_a2cd0c1418ee78cc23d3008b",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_5def1e4def9e1c520f42996c",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_cf5816934f24fed7769b709f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3865
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4225
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5355
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.45375
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.444
+        }
+      ],
+      "edge_id": "edge_50876620ceb8c9eee16e29e3",
+      "global_trust": 0.43713124999999997,
+      "influence": 0.641,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_4f294ded3ec6197459922d0d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_958508fc4c55caea1b8065ce",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2515
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.35050000000000003
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3075
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.338
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.40124999999999994
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3165
+        }
+      ],
+      "edge_id": "edge_512d73b1d8336591ae6d8d56",
+      "global_trust": 0.40540208333333333,
+      "influence": 0.361,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_906869636b1152d4ce9245d3",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_09346d05119342f10a6ebaf0",
+      "strength": 0.57,
+      "target_person_id": "person_a8292f4b418a406b97beab9c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3205
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.42850000000000005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.2925
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.536
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.40875
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5355000000000001
+        }
+      ],
+      "edge_id": "edge_5219d6a0d5cc44c831815b99",
+      "global_trust": 0.41318958333333333,
+      "influence": 0.45699999999999996,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_0af47b96163af7cd7913f78a",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_5a1fb72e084d473d9c607b90",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2545
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3462781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.31250000000000006
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4137781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.3484172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4343890829308191
+        }
+      ],
+      "edge_id": "edge_56de07a3c0f46380e35c7770",
+      "global_trust": 0.35425788741300357,
+      "influence": 0.453,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_c843a630a15c1a3e27e65f19",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_5a1fb72e084d473d9c607b90",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.38350000000000006
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.49450000000000005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.41750000000000004
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5095000000000001
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.49124999999999996
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.47100000000000003
+        }
+      ],
+      "edge_id": "edge_596390358b3195960bf71c78",
+      "global_trust": 0.4922854166666667,
+      "influence": 0.549,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_26d5816bf947427fe39a51eb",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_3c8677dee4d7572e1970c37b",
+      "strength": 0.57,
+      "target_person_id": "person_1c12bd8c2f2a6ceb86b50c8d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.531
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5842781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.395
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4592781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5846672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4933890829308192
+        }
+      ],
+      "edge_id": "edge_5ac200dee32397244828a647",
+      "global_trust": 0.4558474707463369,
+      "influence": 0.594,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_343a3a7b92d328c4469fc531",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_5def1e4def9e1c520f42996c",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_89c759e8d6a2976eb710b39c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.49799999999999994
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5482781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.48
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.48577816586163824
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5621672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5578890829308192
+        }
+      ],
+      "edge_id": "edge_5b99ebe1eba8ace1d2832b7d",
+      "global_trust": 0.5175016374130035,
+      "influence": 0.682,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_55d847557abee585fe452e07",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_5bafe298ab785e2976b4c064",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_546264c6e0448a87bf943b1d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.38450000000000006
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.38649999999999995
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4725000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.424
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.47375
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4395
+        }
+      ],
+      "edge_id": "edge_5cec5fa1764e126d2479860a",
+      "global_trust": 0.5420812500000001,
+      "influence": 0.453,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_5bf06932a58a859caa0e3159",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_cad593fc458e2faef8131bd0",
+      "strength": 0.77,
+      "target_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.337
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4362781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.325
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.45627816586163833
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4046672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4043890829308191
+        }
+      ],
+      "edge_id": "edge_5fb14d16a3d5329de3858bc7",
+      "global_trust": 0.43424747074633685,
+      "influence": 0.503,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_84ded38177ac9d28f28c2923",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_6fdac2667a58d2608e7e3015",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_789defaf8347b2c0de7d3bb7",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.28750000000000003
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3822781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3775
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.43977816586163826
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.3709172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4073890829308192
+        }
+      ],
+      "edge_id": "edge_5fc1e8ed06ba8a697bb6b686",
+      "global_trust": 0.3711037207463369,
+      "influence": 0.545,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_dcd9324082c1a06b4cccc4e0",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_5def1e4def9e1c520f42996c",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_1761d60008f54d20d52e2a9d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4990000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6205
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.49500000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5780000000000001
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5700000000000001
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41400000000000003
+        }
+      ],
+      "edge_id": "edge_613a1773b1ae13a9cfe75a62",
+      "global_trust": 0.5366208333333334,
+      "influence": 0.6910000000000001,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_ab4987e5edeabc6766a3a0b9",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_5bafe298ab785e2976b4c064",
+      "strength": 0.57,
+      "target_person_id": "person_5166323465ad7b7cd7e7f768",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43300000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5485
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.365
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5785
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.525
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5055000000000001
+        }
+      ],
+      "edge_id": "edge_61d4d7ee5e9e50bfeb8b2fe3",
+      "global_trust": 0.5126791666666667,
+      "influence": 0.507,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_f27f3e57b2d7ea445526f844",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_6fdac2667a58d2608e7e3015",
+      "strength": 0.57,
+      "target_person_id": "person_a4be046ff227385b43130821",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5660000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5845000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.53
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6645
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5974999999999999
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.6285000000000001
+        }
+      ],
+      "edge_id": "edge_62783c14156d0e46418346bd",
+      "global_trust": 0.6493583333333334,
+      "influence": 0.5990000000000001,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_0a8285c7f6352e37249659f7",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_5bafe298ab785e2976b4c064",
+      "strength": 0.77,
+      "target_person_id": "person_cf5816934f24fed7769b709f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.37000000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4722781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.39
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.48227816586163835
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.42716724879245743
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3773890829308192
+        }
+      ],
+      "edge_id": "edge_69b1ce5f12980503e44f0184",
+      "global_trust": 0.3985933040796702,
+      "influence": 0.595,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_45be07a341014a2328466f04",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_958508fc4c55caea1b8065ce",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_3c8677dee4d7572e1970c37b",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.238
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3385
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.28
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.381
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.3525
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.378
+        }
+      ],
+      "edge_id": "edge_6c6df396c6a5d3c12c8d9255",
+      "global_trust": 0.3532,
+      "influence": 0.407,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_02e70fef5cba5db19b05f84d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_5def1e4def9e1c520f42996c",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_09346d05119342f10a6ebaf0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4525
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5725
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.40249999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.535
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.49874999999999997
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3525
+        }
+      ],
+      "edge_id": "edge_6d735bf70a7a66e559906107",
+      "global_trust": 0.4973229166666666,
+      "influence": 0.645,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_5792007bdd022acd3dded04d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_1761d60008f54d20d52e2a9d",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_42a800fcd82a27521dc53820",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2515
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.35050000000000003
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3075
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.338
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.40124999999999994
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3165
+        }
+      ],
+      "edge_id": "edge_6f272dec461994e4c7c36692",
+      "global_trust": 0.40540208333333333,
+      "influence": 0.361,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_345e3778c777d19d7847e55c",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_789defaf8347b2c0de7d3bb7",
+      "strength": 0.57,
+      "target_person_id": "person_a8292f4b418a406b97beab9c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.661
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6245
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5549999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4695
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.7100000000000002
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4985
+        }
+      ],
+      "edge_id": "edge_6f2d4c5bd1aa47890dba15d7",
+      "global_trust": 0.6436708333333333,
+      "influence": 0.594,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_46deb4e3c8484209df17af76",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_5a1fb72e084d473d9c607b90",
+      "strength": 0.77,
+      "target_person_id": "person_89c759e8d6a2976eb710b39c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48150000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5302781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.44750000000000006
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4427781658616384
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5509172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4963890829308192
+        }
+      ],
+      "edge_id": "edge_6f425d1c5d431a0fd0e98812",
+      "global_trust": 0.4452037207463369,
+      "influence": 0.636,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_83abb6223c49d843c23958a6",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_5a1fb72e084d473d9c607b90",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4525
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5622781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.40249999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5247781658616384
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4834172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.34738908293081916
+        }
+      ],
+      "edge_id": "edge_705b8555b06cfed7432a871e",
+      "global_trust": 0.4260828874130035,
+      "influence": 0.645,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_2d1c63f2597d49400c6a89a9",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_42a800fcd82a27521dc53820",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3205
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.42850000000000005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.2925
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.536
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.40875
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5355000000000001
+        }
+      ],
+      "edge_id": "edge_715f39dd64a8cf7c86d407ae",
+      "global_trust": 0.41318958333333333,
+      "influence": 0.45699999999999996,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_f47a29f412d870c30c0b60ad",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_958508fc4c55caea1b8065ce",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.628
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5885
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6399999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.49599999999999994
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6875
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5630000000000001
+        }
+      ],
+      "edge_id": "edge_7574ec6ed94198263e31c266",
+      "global_trust": 0.652825,
+      "influence": 0.682,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_af02656bbc0384b5e5be6654",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "strength": 0.77,
+      "target_person_id": "person_546264c6e0448a87bf943b1d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4660000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5845000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.43
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6645
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5475
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.6285000000000001
+        }
+      ],
+      "edge_id": "edge_767395dcf383475b68eb58ba",
+      "global_trust": 0.552275,
+      "influence": 0.5990000000000001,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_cd7bb901d384af1ecdcbbc81",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_42a800fcd82a27521dc53820",
+      "strength": 0.57,
+      "target_person_id": "person_cf5816934f24fed7769b709f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6115
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5602781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6075000000000002
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4427781658616384
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6609172487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4963890829308192
+        }
+      ],
+      "edge_id": "edge_7a6011bc9a2445371f99fb0d",
+      "global_trust": 0.6142870540796703,
+      "influence": 0.636,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_8dd6fdba1b503489281d6964",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_546264c6e0448a87bf943b1d",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_5a1fb72e084d473d9c607b90",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6775
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6425
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5874999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4525
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.7212500000000002
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41000000000000003
+        }
+      ],
+      "edge_id": "edge_7ad80142a1120a40d64cccf9",
+      "global_trust": 0.64071875,
+      "influence": 0.64,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_438e5e2c476a9d07bcd48f8d",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_546264c6e0448a87bf943b1d",
+      "strength": 0.77,
+      "target_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4990000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6205
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.49500000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5780000000000001
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5700000000000001
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41400000000000003
+        }
+      ],
+      "edge_id": "edge_7bb965607e6e45410e7a4710",
+      "global_trust": 0.5366208333333334,
+      "influence": 0.6910000000000001,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_48b124f93dae564cbc5f589a",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_42a800fcd82a27521dc53820",
+      "strength": 0.57,
+      "target_person_id": "person_5166323465ad7b7cd7e7f768",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4195
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5365
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.33749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6215
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.47625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5670000000000001
+        }
+      ],
+      "edge_id": "edge_7c3218819d968eda227ddffa",
+      "global_trust": 0.46047708333333337,
+      "influence": 0.553,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_63a36258682266c1e19bb50a",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_5bafe298ab785e2976b4c064",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_6fdac2667a58d2608e7e3015",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6115
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5705
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6075000000000002
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.45300000000000007
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.67625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5015000000000001
+        }
+      ],
+      "edge_id": "edge_7e865b7402671eb4bd49abc7",
+      "global_trust": 0.6330270833333334,
+      "influence": 0.636,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_305e977126dfbdcddd219b89",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_89c759e8d6a2976eb710b39c",
+      "strength": 0.77,
+      "target_person_id": "person_5a1fb72e084d473d9c607b90",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5155000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6385000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5275
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.621
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.58125
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4755
+        }
+      ],
+      "edge_id": "edge_7f0a9f7ad6896e4193ae825a",
+      "global_trust": 0.55641875,
+      "influence": 0.7370000000000001,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_95368fd88eefcfc099eac89e",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_5166323465ad7b7cd7e7f768",
+      "strength": 0.57,
+      "target_person_id": "person_5bafe298ab785e2976b4c064",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48150000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5405
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.44750000000000006
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.45300000000000007
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5662499999999999
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5015000000000001
+        }
+      ],
+      "edge_id": "edge_81e6a91790109d52c72f1f4b",
+      "global_trust": 0.46394375,
+      "influence": 0.636,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_88b15ccaafb6a8944b4651c2",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_5a1fb72e084d473d9c607b90",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5475
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6124999999999999
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4275
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4525
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6112500000000001
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41000000000000003
+        }
+      ],
+      "edge_id": "edge_84683ac8dd4709088777efd1",
+      "global_trust": 0.5241354166666666,
+      "influence": 0.64,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_8593c35dafa0339bb7ae7301",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_3c8677dee4d7572e1970c37b",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4505
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4482781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.45249999999999996
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5257781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5034172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5303890829308192
+        }
+      ],
+      "edge_id": "edge_85dc226aa3ea93cd3459fc94",
+      "global_trust": 0.5635328874130036,
+      "influence": 0.45699999999999996,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_ef1c2b660cee95929665c5bd",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_a8292f4b418a406b97beab9c",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.661
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6142781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5549999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4592781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6946672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4933890829308192
+        }
+      ],
+      "edge_id": "edge_8824c47addff293e11b24c0a",
+      "global_trust": 0.6249308040796703,
+      "influence": 0.594,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_9e9eaaee388c62fc85f94884",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_546264c6e0448a87bf943b1d",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_89c759e8d6a2976eb710b39c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.30400000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4002781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.26
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4827781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.3821672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4688890829308192
+        }
+      ],
+      "edge_id": "edge_8a41c6626327ca3fea347bf8",
+      "global_trust": 0.37465163741300356,
+      "influence": 0.411,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_7354cf8d9fd1d127a4c947b4",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_a4be046ff227385b43130821",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_cad593fc458e2faef8131bd0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48550000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6085
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.46749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.621
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.52125
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4755
+        }
+      ],
+      "edge_id": "edge_8ae6f7cf1ef38510571d27ef",
+      "global_trust": 0.53691875,
+      "influence": 0.7370000000000001,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_e75ca6bddb35ed111dfd6901",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_a4be046ff227385b43130821",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_5bafe298ab785e2976b4c064",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4495
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5665
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.39749999999999996
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6215
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.53625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5670000000000001
+        }
+      ],
+      "edge_id": "edge_8b40375d9a7921903793121d",
+      "global_trust": 0.5324770833333333,
+      "influence": 0.553,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_4ba34f1437650d815910643f",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "strength": 0.57,
+      "target_person_id": "person_6fdac2667a58d2608e7e3015",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.271
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3745
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.345
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.46699999999999997
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.375
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.501
+        }
+      ],
+      "edge_id": "edge_8d05b282cbfad410770e695f",
+      "global_trust": 0.39279583333333334,
+      "influence": 0.49899999999999994,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_c74f2192dc963b73a0e26bb7",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_546264c6e0448a87bf943b1d",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_5dd05ac60062557052ebfef6",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6445
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5962781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6725000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4162781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6834172487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4318890829308192
+        }
+      ],
+      "edge_id": "edge_8e99f46890d09780ab8e6be3",
+      "global_trust": 0.6213828874130035,
+      "influence": 0.7280000000000001,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_193ff96309c350f053326b74",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_546264c6e0448a87bf943b1d",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_958508fc4c55caea1b8065ce",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.465
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5225
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.41500000000000004
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.41000000000000003
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5549999999999999
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.44
+        }
+      ],
+      "edge_id": "edge_92485f3c6ccecf171a12482f",
+      "global_trust": 0.49664583333333334,
+      "influence": 0.59,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_2304f6e012a03b3d3bc00de2",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_1761d60008f54d20d52e2a9d",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_f38b3e011a8058eedc20c548",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.28750000000000003
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3925
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3775
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.44999999999999996
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.38625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41250000000000003
+        }
+      ],
+      "edge_id": "edge_928400a4a0d167759ebc22ab",
+      "global_trust": 0.38984374999999993,
+      "influence": 0.545,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_38da70ec1e4036545eaccbda",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_6fdac2667a58d2608e7e3015",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_1761d60008f54d20d52e2a9d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.37000000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4825
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.39
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.49250000000000005
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4425
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3825
+        }
+      ],
+      "edge_id": "edge_9366372c948c65983e228c7c",
+      "global_trust": 0.4698333333333333,
+      "influence": 0.595,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_45e2412bb0bc24dd88f2d80d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_3c8677dee4d7572e1970c37b",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.47850000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5242781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4425
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4167781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5884172487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5233890829308191
+        }
+      ],
+      "edge_id": "edge_96474dd4e50bdd4fb1337610",
+      "global_trust": 0.5003578874130036,
+      "influence": 0.5439999999999999,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_172fe1cd1349b0b3240341f2",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_f38b3e011a8058eedc20c548",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_a089d9bd20c64bc4c8486687",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.268
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.36850000000000005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.34
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.381
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4125
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.378
+        }
+      ],
+      "edge_id": "edge_96ca45b76e8efb9a97cd82dd",
+      "global_trust": 0.4252,
+      "influence": 0.407,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_1dfdc7595d5481ce2373e8d4",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "strength": 0.57,
+      "target_person_id": "person_09346d05119342f10a6ebaf0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.47850000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5345000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4425
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.427
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.60375
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5285
+        }
+      ],
+      "edge_id": "edge_970e5ada4f3dc6e4b1a1f0cc",
+      "global_trust": 0.5190979166666667,
+      "influence": 0.5439999999999999,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_63f0b674b5127e6d488e4152",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_5def1e4def9e1c520f42996c",
+      "strength": 0.57,
+      "target_person_id": "person_a089d9bd20c64bc4c8486687",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.367
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.47650000000000003
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.385
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4665
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.48
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4095
+        }
+      ],
+      "edge_id": "edge_97bf3ed72a85c02708b010cb",
+      "global_trust": 0.5249874999999999,
+      "influence": 0.503,
+      "interaction_frequency": 0.72,
+      "provenance_ref": "lin_69039b552838dc74a47cf20c",
+      "relationship_type": "geographic_peer",
+      "selection_probability": 0.22793645057321626,
+      "source_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "strength": 0.72,
+      "target_person_id": "person_789defaf8347b2c0de7d3bb7",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4165
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5202781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4825
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5252781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4984172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4388890829308192
+        }
+      ],
+      "edge_id": "edge_9a9296bc3a898eba323e57a5",
+      "global_trust": 0.4903912207463369,
+      "influence": 0.641,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_0af31ae6a81a773a44bc040f",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_3c8677dee4d7572e1970c37b",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48350000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4842781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5175000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4992781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5259172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4658890829308192
+        }
+      ],
+      "edge_id": "edge_9be8b0ff03fb73adf4cf87fe",
+      "global_trust": 0.5706287207463369,
+      "influence": 0.549,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_6c3dfa9a0975cf27992288cf",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_a4be046ff227385b43130821",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_1c12bd8c2f2a6ceb86b50c8d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.465
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5122781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.41500000000000004
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.39977816586163833
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5396672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4348890829308192
+        }
+      ],
+      "edge_id": "edge_9ccc27f2ae13a2aeed9de1bc",
+      "global_trust": 0.42540580407967016,
+      "influence": 0.59,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_e0796bfab873d8ab3ec9765a",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_1c12bd8c2f2a6ceb86b50c8d",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_f38b3e011a8058eedc20c548",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.401
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.39427816586163833
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5049999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4567781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4696672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4958890829308191
+        }
+      ],
+      "edge_id": "edge_9d664393b54fc2aa41bf6d39",
+      "global_trust": 0.5431391374130036,
+      "influence": 0.49899999999999994,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_e66c97d66f75a41aefaca76f",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_5dd05ac60062557052ebfef6",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6115
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5705
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6075000000000002
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.45300000000000007
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.67625
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5015000000000001
+        }
+      ],
+      "edge_id": "edge_9f513894dc37e65ccb0163f1",
+      "global_trust": 0.6330270833333334,
+      "influence": 0.636,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_718da3ed0199d2d188e0a028",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_958508fc4c55caea1b8065ce",
+      "strength": 0.77,
+      "target_person_id": "person_5a1fb72e084d473d9c607b90",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4485
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4942781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.3825
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4167781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5284172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5233890829308191
+        }
+      ],
+      "edge_id": "edge_a1ee64298bc47c5437888a4d",
+      "global_trust": 0.4283578874130035,
+      "influence": 0.5439999999999999,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_7c8aff35d4ebb88b44e34ee8",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_42a800fcd82a27521dc53820",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_a089d9bd20c64bc4c8486687",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3865
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4225
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5355
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.45375
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.444
+        }
+      ],
+      "edge_id": "edge_a782023209520bd429a12ff6",
+      "global_trust": 0.43713124999999997,
+      "influence": 0.641,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_b1def51822f932148f365bb2",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_89c759e8d6a2976eb710b39c",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4620000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5062781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.41
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.37377816586163826
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5771672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4618890829308192
+        }
+      ],
+      "edge_id": "edge_a92e1967224899db1e994e07",
+      "global_trust": 0.48055997074633694,
+      "influence": 0.49800000000000005,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_f3706ddc71d48a5bd512745c",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_f38b3e011a8058eedc20c548",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_5def1e4def9e1c520f42996c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48250000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6025
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.46249999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.535
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.55875
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3525
+        }
+      ],
+      "edge_id": "edge_a9922cdbce668afb2388ca36",
+      "global_trust": 0.5168229166666667,
+      "influence": 0.645,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_3eb4ab88f279394a27272458",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_5166323465ad7b7cd7e7f768",
+      "strength": 0.57,
+      "target_person_id": "person_42a800fcd82a27521dc53820",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4525
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5622781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.40249999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5247781658616384
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4834172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.34738908293081916
+        }
+      ],
+      "edge_id": "edge_aa00792f3b40caa624b0e12e",
+      "global_trust": 0.4260828874130035,
+      "influence": 0.645,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_1151e22221266e6d768b25f1",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_cad593fc458e2faef8131bd0",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_42a800fcd82a27521dc53820",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.403
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5185
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.305
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5785
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.465
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5055000000000001
+        }
+      ],
+      "edge_id": "edge_aa25ca303126a365adbff74e",
+      "global_trust": 0.4931791666666666,
+      "influence": 0.507,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_3006d337b1470df66e78de25",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_5bafe298ab785e2976b4c064",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_a4be046ff227385b43130821",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6775
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6322781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5874999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4422781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.7059172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.40488908293081916
+        }
+      ],
+      "edge_id": "edge_ac69ed254d4d3d8c4826e780",
+      "global_trust": 0.6219787207463369,
+      "influence": 0.64,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_efc2773737bbcced4da4336f",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_958508fc4c55caea1b8065ce",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43400000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4405
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.42
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.493
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5075
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4740000000000001
+        }
+      ],
+      "edge_id": "edge_ac934c60801d9d2afc90b586",
+      "global_trust": 0.5624750000000001,
+      "influence": 0.411,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_44d5085029aa7cf709495254",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "strength": 0.77,
+      "target_person_id": "person_cad593fc458e2faef8131bd0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.403
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5185
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.305
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5785
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.465
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5055000000000001
+        }
+      ],
+      "edge_id": "edge_ad6cc60221d8354023cc2ab2",
+      "global_trust": 0.4406791666666666,
+      "influence": 0.507,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_9c3516552c1687cdad8da71d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_cf5816934f24fed7769b709f",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_a4be046ff227385b43130821",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4690000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5905
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.43500000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5780000000000001
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.51
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41400000000000003
+        }
+      ],
+      "edge_id": "edge_af9c9fb2b9088b16a5e7baaa",
+      "global_trust": 0.46462083333333337,
+      "influence": 0.6910000000000001,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_8af2a2ea4e5b861af8b34bb0",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_5166323465ad7b7cd7e7f768",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48250000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6025
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.46249999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.535
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.55875
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3525
+        }
+      ],
+      "edge_id": "edge_afa1fd6f89e5f044be30a802",
+      "global_trust": 0.5168229166666667,
+      "influence": 0.645,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_057b7650e83771c13868929e",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_cf5816934f24fed7769b709f",
+      "strength": 0.57,
+      "target_person_id": "person_42a800fcd82a27521dc53820",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48250000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6025
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.46249999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.535
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.55875
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3525
+        }
+      ],
+      "edge_id": "edge_b0566620d9bc873536a552dd",
+      "global_trust": 0.5168229166666667,
+      "influence": 0.645,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_6597bc885ae1daea7584b8be",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_5bafe298ab785e2976b4c064",
+      "strength": 0.57,
+      "target_person_id": "person_42a800fcd82a27521dc53820",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43200000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.47627816586163824
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.35
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.37377816586163826
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5171672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4618890829308192
+        }
+      ],
+      "edge_id": "edge_b10b5845a98808acc1498284",
+      "global_trust": 0.4085599707463369,
+      "influence": 0.49800000000000005,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_2f8e7f0f3c13c9aa42a5e88d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_cf5816934f24fed7769b709f",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_5def1e4def9e1c520f42996c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2215
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.31027816586163826
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.2475
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.3277781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.3259172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3113890829308191
+        }
+      ],
+      "edge_id": "edge_b14868e7ba23e5e21c474597",
+      "global_trust": 0.3146620540796702,
+      "influence": 0.361,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_a57d1392ebcf9d63c4ea7cdb",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_958508fc4c55caea1b8065ce",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_a8292f4b418a406b97beab9c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6155
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6385000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6275
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.621
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6312500000000001
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4755
+        }
+      ],
+      "edge_id": "edge_b2bcd4d6aad06f307ec07f6a",
+      "global_trust": 0.6535020833333334,
+      "influence": 0.7370000000000001,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_6862697e478a0cda4fbe352e",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_cf5816934f24fed7769b709f",
+      "strength": 0.77,
+      "target_person_id": "person_5bafe298ab785e2976b4c064",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4195
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5262781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.33749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6112781658616384
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.46091724879245743
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5618890829308192
+        }
+      ],
+      "edge_id": "edge_b6ab46c28af9d85eb403aed1",
+      "global_trust": 0.4942370540796702,
+      "influence": 0.553,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_9fc4e59cc9060adf4d79b3ff",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_789defaf8347b2c0de7d3bb7",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_6fdac2667a58d2608e7e3015",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.238
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.32827816586163827
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.28
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.3707781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.3371672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3728890829308191
+        }
+      ],
+      "edge_id": "edge_b7e3183cb382f04e7391c9b4",
+      "global_trust": 0.3344599707463369,
+      "influence": 0.407,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_853900fda28de35d3fbc0e03",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_5166323465ad7b7cd7e7f768",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_09346d05119342f10a6ebaf0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5475
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6022781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4275
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4422781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5959172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.40488908293081916
+        }
+      ],
+      "edge_id": "edge_b8dcdfc7e5a5c0476c059d04",
+      "global_trust": 0.45289538741300356,
+      "influence": 0.64,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_40a0198748b2b09e91c69054",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_cf5816934f24fed7769b709f",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5145
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5662781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5125000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4162781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5734172487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4318890829308192
+        }
+      ],
+      "edge_id": "edge_ba94de1ec2ef167c55afb166",
+      "global_trust": 0.4522995540796702,
+      "influence": 0.7280000000000001,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_89930ff8b7836f67bc886d37",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_3c8677dee4d7572e1970c37b",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_958508fc4c55caea1b8065ce",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.403
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5185
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.305
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5785
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.465
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5055000000000001
+        }
+      ],
+      "edge_id": "edge_bb3d2a248d4d552e03f023c4",
+      "global_trust": 0.4406791666666666,
+      "influence": 0.507,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_a17107050408936d141e2f9d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_958508fc4c55caea1b8065ce",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_a4be046ff227385b43130821",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.35150000000000003
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3402781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.40750000000000003
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.3277781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4359172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.3113890829308191
+        }
+      ],
+      "edge_id": "edge_bb8384a388a479fce2222f71",
+      "global_trust": 0.48374538741300355,
+      "influence": 0.361,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_b16335c5c866142223fdbac4",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_a8292f4b418a406b97beab9c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3340000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.43027816586163825
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.32
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4827781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4421672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4688890829308192
+        }
+      ],
+      "edge_id": "edge_c0512070f0ff7df5814174e1",
+      "global_trust": 0.4466516374130035,
+      "influence": 0.411,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_181f564f811d20472d492be4",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_1761d60008f54d20d52e2a9d",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_cad593fc458e2faef8131bd0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.30400000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4002781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.26
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4827781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.3821672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4688890829308192
+        }
+      ],
+      "edge_id": "edge_c3819c68f575054434759e8a",
+      "global_trust": 0.37465163741300356,
+      "influence": 0.411,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_8ce7e68df9a71c0e199cef8d",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_42a800fcd82a27521dc53820",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_cad593fc458e2faef8131bd0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6445
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6065000000000002
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6725000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4265
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6987500000000002
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.437
+        }
+      ],
+      "edge_id": "edge_c5a795a3638078c37d5969ae",
+      "global_trust": 0.6401229166666667,
+      "influence": 0.7280000000000001,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_6441e75d9edd379c1735b5f5",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_5a1fb72e084d473d9c607b90",
+      "strength": 0.77,
+      "target_person_id": "person_958508fc4c55caea1b8065ce",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43600000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5442781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.37
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6542781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4721672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.6233890829308192
+        }
+      ],
+      "edge_id": "edge_c736e68b4b2b0819ac19b032",
+      "global_trust": 0.4615349707463369,
+      "influence": 0.5990000000000001,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_fc9495dc0bd85d99c2ad6d97",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_546264c6e0448a87bf943b1d",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_cf5816934f24fed7769b709f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3340000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4405
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.32
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.493
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.45749999999999996
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4740000000000001
+        }
+      ],
+      "edge_id": "edge_ca51da71a62196483da82adc",
+      "global_trust": 0.46539166666666665,
+      "influence": 0.411,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_1aa04e95c74db2695afbf701",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_09346d05119342f10a6ebaf0",
+      "strength": 0.57,
+      "target_person_id": "person_cad593fc458e2faef8131bd0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.661
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6245
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5549999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4695
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.7100000000000002
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4985
+        }
+      ],
+      "edge_id": "edge_caf62f3a4af49fe5e7b6241a",
+      "global_trust": 0.6436708333333333,
+      "influence": 0.594,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_703005152d8cb43cc6aa6791",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_958508fc4c55caea1b8065ce",
+      "strength": 0.77,
+      "target_person_id": "person_89c759e8d6a2976eb710b39c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4690000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5905
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.43500000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5780000000000001
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.51
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.41400000000000003
+        }
+      ],
+      "edge_id": "edge_cdeb5e9a357a1e787e7aaa85",
+      "global_trust": 0.46462083333333337,
+      "influence": 0.6910000000000001,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_a00de2ffb9f8cf8cb7bd007f",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_6fdac2667a58d2608e7e3015",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_5166323465ad7b7cd7e7f768",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.628
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5782781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6399999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.48577816586163824
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6721672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5578890829308192
+        }
+      ],
+      "edge_id": "edge_cdfa8ad0e5e9a17a75046b77",
+      "global_trust": 0.634084970746337,
+      "influence": 0.682,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_b854cd0630dc23844425c8d4",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_5a1fb72e084d473d9c607b90",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_546264c6e0448a87bf943b1d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.268
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.36850000000000005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.34
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.381
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4125
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.378
+        }
+      ],
+      "edge_id": "edge_d088c9b24b707b0138a93b13",
+      "global_trust": 0.4252,
+      "influence": 0.407,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_a6a71d002116721c7768953e",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_cad593fc458e2faef8131bd0",
+      "strength": 0.57,
+      "target_person_id": "person_09346d05119342f10a6ebaf0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43200000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.48649999999999993
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.35
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.38399999999999995
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5325
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.467
+        }
+      ],
+      "edge_id": "edge_d49598fa1cffece5911a6a32",
+      "global_trust": 0.4273,
+      "influence": 0.49800000000000005,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_eb8813e448fe8926c121cfa6",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_09346d05119342f10a6ebaf0",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_5def1e4def9e1c520f42996c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.495
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5422781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.47500000000000003
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.39977816586163833
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5996672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4348890829308192
+        }
+      ],
+      "edge_id": "edge_d89d944cfa99f33ff6821e19",
+      "global_trust": 0.49740580407967017,
+      "influence": 0.59,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_380983d657f6b99e4a535959",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_5def1e4def9e1c520f42996c",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_f38b3e011a8058eedc20c548",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4620000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5165
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.41
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.38399999999999995
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5925
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.467
+        }
+      ],
+      "edge_id": "edge_df87239c6388c0c066dbccbf",
+      "global_trust": 0.49929999999999997,
+      "influence": 0.49800000000000005,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_c5d25d469c92630e518afce8",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_a089d9bd20c64bc4c8486687",
+      "strength": 0.57,
+      "target_person_id": "person_5def1e4def9e1c520f42996c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43200000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.48649999999999993
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.35
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.38399999999999995
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5325
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.467
+        }
+      ],
+      "edge_id": "edge_e0cd903922a0c53405bb26aa",
+      "global_trust": 0.4273,
+      "influence": 0.49800000000000005,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_992bc0d9dbf0874d7965ac6c",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_546264c6e0448a87bf943b1d",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_5def1e4def9e1c520f42996c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48550000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5982781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.46749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6107781658616382
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5059172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.47038908293081916
+        }
+      ],
+      "edge_id": "edge_e1d71627b141a8fc091c62af",
+      "global_trust": 0.5181787207463369,
+      "influence": 0.7370000000000001,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_2ff1975215be9e1e36895bac",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_546264c6e0448a87bf943b1d",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_5bafe298ab785e2976b4c064",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5145
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5765000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5125000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4265
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5887500000000001
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.437
+        }
+      ],
+      "edge_id": "edge_e1ff3e10a65b8228b99103a9",
+      "global_trust": 0.4710395833333334,
+      "influence": 0.7280000000000001,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_fe583646ae30f232d6fba69a",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_958508fc4c55caea1b8065ce",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2845
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.38649999999999995
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.37250000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.424
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.42375
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4395
+        }
+      ],
+      "edge_id": "edge_e3714b5f48560ecc012db906",
+      "global_trust": 0.44499791666666666,
+      "influence": 0.453,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_bb5e00f56fc53c0f95ae5683",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_5dd05ac60062557052ebfef6",
+      "strength": 0.57,
+      "target_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.6445
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6065000000000002
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6725000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4265
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6987500000000002
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.437
+        }
+      ],
+      "edge_id": "edge_e577c7647f693ecdb43f23ea",
+      "global_trust": 0.6401229166666667,
+      "influence": 0.7280000000000001,
+      "interaction_frequency": 0.77,
+      "provenance_ref": "lin_f8202abb5c89b6589bdadeec",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.49500016666000024,
+      "source_person_id": "person_89c759e8d6a2976eb710b39c",
+      "strength": 0.77,
+      "target_person_id": "person_958508fc4c55caea1b8065ce",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.48550000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6085
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.46749999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.621
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.52125
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4755
+        }
+      ],
+      "edge_id": "edge_e64a9f39dcdbb187284b8043",
+      "global_trust": 0.48441875,
+      "influence": 0.7370000000000001,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_50b0cfc5c966ba075c1882ff",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_6fdac2667a58d2608e7e3015",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_5bafe298ab785e2976b4c064",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.43600000000000005
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5545000000000001
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.37
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.6645
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4875
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.6285000000000001
+        }
+      ],
+      "edge_id": "edge_e687f0f239748845af189cda",
+      "global_trust": 0.480275,
+      "influence": 0.5990000000000001,
+      "interaction_frequency": 0.44999999999999996,
+      "provenance_ref": "lin_a2c2a699f3c00c8270d422f4",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.11920292202211755,
+      "source_person_id": "person_a4be046ff227385b43130821",
+      "strength": 0.44999999999999996,
+      "target_person_id": "person_cf5816934f24fed7769b709f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3340000000000001
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4405
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.32
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.493
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.45749999999999996
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4740000000000001
+        }
+      ],
+      "edge_id": "edge_e8f9cbb28bea1d370c09965d",
+      "global_trust": 0.5178916666666666,
+      "influence": 0.411,
+      "interaction_frequency": 0.72,
+      "provenance_ref": "lin_13e07d08c5fad4098f84daed",
+      "relationship_type": "geographic_peer",
+      "selection_probability": 0.22793645057321626,
+      "source_person_id": "person_a8292f4b418a406b97beab9c",
+      "strength": 0.72,
+      "target_person_id": "person_cad593fc458e2faef8131bd0",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.628
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5782781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.6399999999999999
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.48577816586163824
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.6721672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5578890829308192
+        }
+      ],
+      "edge_id": "edge_e9cee5bfef39fffd1c0ba5ef",
+      "global_trust": 0.634084970746337,
+      "influence": 0.682,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_060b6152910c2524ee8d3d22",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_89c759e8d6a2976eb710b39c",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_546264c6e0448a87bf943b1d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.531
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5842781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.395
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4592781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5846672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4933890829308192
+        }
+      ],
+      "edge_id": "edge_e9f84275009349290e30ea68",
+      "global_trust": 0.5083474707463369,
+      "influence": 0.594,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_c99067723d06f637deff2278",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_5dd05ac60062557052ebfef6",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_89c759e8d6a2976eb710b39c",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.2845
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.38649999999999995
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.37250000000000005
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.424
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.42375
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4395
+        }
+      ],
+      "edge_id": "edge_ea4c1a5a01e7cef7f1612454",
+      "global_trust": 0.44499791666666666,
+      "influence": 0.453,
+      "interaction_frequency": 0.57,
+      "provenance_ref": "lin_d2200dd0570bd4d4702b9dae",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.1794615194073268,
+      "source_person_id": "person_09346d05119342f10a6ebaf0",
+      "strength": 0.57,
+      "target_person_id": "person_29a078cff59584f7e4bdaf7f",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4525
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5622781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.40249999999999997
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5247781658616384
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4834172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.34738908293081916
+        }
+      ],
+      "edge_id": "edge_f033681619ee1bcc04b308d9",
+      "global_trust": 0.4260828874130035,
+      "influence": 0.645,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_e70ff426a885edcb2e9fadfc",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_a089d9bd20c64bc4c8486687",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_42a800fcd82a27521dc53820",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.465
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5122781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.41500000000000004
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.39977816586163833
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5396672487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4348890829308192
+        }
+      ],
+      "edge_id": "edge_f33ef0f4c46872c06a2b0c94",
+      "global_trust": 0.4779058040796702,
+      "influence": 0.59,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_f10c964e5902eccd4ccde9f2",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_f38b3e011a8058eedc20c548",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5145
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5662781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.5125000000000001
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4162781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5734172487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4318890829308192
+        }
+      ],
+      "edge_id": "edge_f35e2e2efdb0d3435053a232",
+      "global_trust": 0.4522995540796702,
+      "influence": 0.7280000000000001,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_966ef5a8e82ef544a0872490",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_a8292f4b418a406b97beab9c",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_958508fc4c55caea1b8065ce",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.403
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5082781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.305
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5682781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.44966724879245745
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5003890829308192
+        }
+      ],
+      "edge_id": "edge_f711a0458e05a6c162e65fe6",
+      "global_trust": 0.4219391374130035,
+      "influence": 0.507,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_434abafb798cffc22a739e2f",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_cad593fc458e2faef8131bd0",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_a4be046ff227385b43130821",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.4505
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.4482781658616384
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.45249999999999996
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5257781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5034172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.5303890829308192
+        }
+      ],
+      "edge_id": "edge_f8648dda9b50e26587503efd",
+      "global_trust": 0.5635328874130036,
+      "influence": 0.45699999999999996,
+      "interaction_frequency": 0.734223580515734,
+      "provenance_ref": "lin_e363cbe4eabb16361f90e61f",
+      "relationship_type": "institutional_peer",
+      "selection_probability": 0.46948339157022,
+      "source_person_id": "person_5dd05ac60062557052ebfef6",
+      "strength": 0.734223580515734,
+      "target_person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.495
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5422781658616382
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.47500000000000003
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.39977816586163833
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5996672487924575
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4348890829308192
+        }
+      ],
+      "edge_id": "edge_f939c040a754afcd12325979",
+      "global_trust": 0.49740580407967017,
+      "influence": 0.59,
+      "interaction_frequency": 0.5342235805157339,
+      "provenance_ref": "lin_ec981dc3373f3c95c89908d1",
+      "relationship_type": "professional_peer",
+      "selection_probability": 0.16489916097585047,
+      "source_person_id": "person_a089d9bd20c64bc4c8486687",
+      "strength": 0.5342235805157339,
+      "target_person_id": "person_f38b3e011a8058eedc20c548",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.3865
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.5005
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4225
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.5355
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.45375
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.444
+        }
+      ],
+      "edge_id": "edge_faaac0d801baf1601539a604",
+      "global_trust": 0.48963124999999996,
+      "influence": 0.641,
+      "interaction_frequency": 0.5999999999999999,
+      "provenance_ref": "lin_cc78be8a75451ff710f151c5",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.1544652650835347,
+      "source_person_id": "person_5166323465ad7b7cd7e7f768",
+      "strength": 0.5999999999999999,
+      "target_person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.35350000000000004
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.45427816586163833
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.35750000000000004
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4992781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.4159172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4658890829308192
+        }
+      ],
+      "edge_id": "edge_fdd2ce04a01ede2fb3fb2a8a",
+      "global_trust": 0.40154538741300355,
+      "influence": 0.549,
+      "interaction_frequency": 0.41422358051573394,
+      "provenance_ref": "lin_34794318d79b01411a5f7554",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.10888139705451476,
+      "source_person_id": "person_f38b3e011a8058eedc20c548",
+      "strength": 0.41422358051573394,
+      "target_person_id": "person_1c12bd8c2f2a6ceb86b50c8d",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.5475
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.6022781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.4275
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4422781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.5959172487924574
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.40488908293081916
+        }
+      ],
+      "edge_id": "edge_fe0b9e3327325c46bb498074",
+      "global_trust": 0.5053953874130036,
+      "influence": 0.64,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_76f98c86e463506490ed1860",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_f38b3e011a8058eedc20c548",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_2349d6e4baa1a4236e9720cf",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    },
+    {
+      "domain_trust": [
+        {
+          "domain_id": "company_fundamentals",
+          "value": 0.271
+        },
+        {
+          "domain_id": "macro",
+          "value": 0.3642781658616383
+        },
+        {
+          "domain_id": "policy",
+          "value": 0.345
+        },
+        {
+          "domain_id": "quantitative",
+          "value": 0.4567781658616383
+        },
+        {
+          "domain_id": "sector",
+          "value": 0.35966724879245743
+        },
+        {
+          "domain_id": "technology",
+          "value": 0.4958890829308191
+        }
+      ],
+      "edge_id": "edge_fff6c41eb34c7e602627bc7a",
+      "global_trust": 0.4265558040796702,
+      "influence": 0.49899999999999994,
+      "interaction_frequency": 0.5642235805157338,
+      "provenance_ref": "lin_05687938b08e31b1c8020793",
+      "relationship_type": "cross_role_bridge",
+      "selection_probability": 0.14158124215123724,
+      "source_person_id": "person_89c759e8d6a2976eb710b39c",
+      "strength": 0.5642235805157338,
+      "target_person_id": "person_5dd05ac60062557052ebfef6",
+      "valid_from": "2026-07-01T00:00:00Z",
+      "valid_to": null
+    }
+  ],
+  "schema_id": "social_graph_runtime_view.v1",
+  "schema_version": "1.0.0",
+  "source_graph_ref": {
+    "artifact_id": "validated_initial_social_graph-f213cb18f14f2b85219e7f8e",
+    "artifact_name": "validated_initial_social_graph",
+    "available_at": null,
+    "content_hash": "f213cb18f14f2b85219e7f8ece65fa6373c7ac39afee7ab7cd7b2c75cb076d03",
+    "grain": [],
+    "lineage_id": "lin_9f6b60f043b7ecd44c02a02e",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S8.M02",
+    "row_count": null,
+    "schema_id": "validated_initial_social_graph.v2",
+    "schema_version": "v14.1-rc4.1-p3r2",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://validated_initial_social_graph-f213cb18f14f2b85219e7f8e",
+      "scheme": "memory",
+      "version": null
+    }
+  }
+}

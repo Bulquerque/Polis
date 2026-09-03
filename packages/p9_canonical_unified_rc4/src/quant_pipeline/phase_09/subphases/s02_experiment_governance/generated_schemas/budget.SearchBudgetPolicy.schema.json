@@ -1,0 +1,101 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "allow_resource_limited_plan": {
+      "default": true,
+      "title": "Allow Resource Limited Plan",
+      "type": "boolean"
+    },
+    "confirmation_fraction": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0.25",
+      "title": "Confirmation Fraction"
+    },
+    "estimated_cpu_seconds_per_cell": {
+      "minimum": 1,
+      "title": "Estimated Cpu Seconds Per Cell",
+      "type": "integer"
+    },
+    "estimated_memory_mb_per_trial": {
+      "minimum": 128,
+      "title": "Estimated Memory Mb Per Trial",
+      "type": "integer"
+    },
+    "exploration_fraction": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0.6",
+      "title": "Exploration Fraction"
+    },
+    "maximum_configurations": {
+      "minimum": 1,
+      "title": "Maximum Configurations",
+      "type": "integer"
+    },
+    "maximum_parallel_trials": {
+      "minimum": 1,
+      "title": "Maximum Parallel Trials",
+      "type": "integer"
+    },
+    "maximum_total_cpu_seconds": {
+      "minimum": 1,
+      "title": "Maximum Total Cpu Seconds",
+      "type": "integer"
+    },
+    "maximum_trial_executions": {
+      "minimum": 1,
+      "title": "Maximum Trial Executions",
+      "type": "integer"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Policy Sha256",
+      "type": "string"
+    },
+    "robustness_fraction": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0.15",
+      "title": "Robustness Fraction"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_sha256",
+    "maximum_configurations",
+    "maximum_trial_executions",
+    "maximum_parallel_trials",
+    "maximum_total_cpu_seconds",
+    "estimated_cpu_seconds_per_cell",
+    "estimated_memory_mb_per_trial"
+  ],
+  "title": "SearchBudgetPolicy",
+  "type": "object"
+}

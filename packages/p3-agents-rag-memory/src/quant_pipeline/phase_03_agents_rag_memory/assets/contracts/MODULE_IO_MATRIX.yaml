@@ -1,0 +1,1975 @@
+phase: P3
+rc: RC4.1
+contract: MODULE_IO_MATRIX
+format: compact_contract_v4
+module_io_matrix:
+- module_id: P3.S1.M01
+  module_name: phase2_handoff_contract_validator
+  subphase: P3.S1
+  consumes_from:
+    modules: []
+    artifacts:
+    - clean_context_source_panel
+    - clean_document_panel
+    - clean_event_reference_panel
+    - source_quality_panel
+    - context_handoff_manifest
+    - phase3_handoff_manifest
+    phase_inputs:
+    - clean_context_source_panel
+    - clean_document_panel
+    - clean_event_reference_panel
+    - source_quality_panel
+    - context_handoff_manifest
+    - phase3_handoff_manifest
+  emits_to:
+    modules:
+    - P3.S1.M02
+    artifacts:
+    - validated_phase2_handoff
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S1_M01_phase2_handoff_contract_validator.yaml
+- module_id: P3.S1.M02
+  module_name: source_quality_context_guard
+  subphase: P3.S1
+  consumes_from:
+    modules:
+    - P3.S1.M01
+    artifacts:
+    - validated_phase2_handoff
+    - source_quality_panel
+    - source_quality_policy_config
+    phase_inputs:
+    - source_quality_panel
+    - source_quality_policy_config
+  emits_to:
+    modules:
+    - P3.S2.M01
+    artifacts:
+    - validated_context_inputs
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S1_M02_source_quality_context_guard.yaml
+- module_id: P3.S2.M01
+  module_name: point_in_time_context_gate
+  subphase: P3.S2
+  consumes_from:
+    modules:
+    - P3.S1.M02
+    artifacts:
+    - validated_context_inputs
+    - evaluation_window_config
+    phase_inputs:
+    - evaluation_window_config
+  emits_to:
+    modules:
+    - P3.S12.M01
+    - P3.S13.M01
+    - P3.S17.M01
+    - P3.S2.M02
+    artifacts:
+    - pit_validated_context
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S2_M01_point_in_time_context_gate.yaml
+- module_id: P3.S2.M02
+  module_name: phase3_run_snapshot_builder
+  subphase: P3.S2
+  consumes_from:
+    modules:
+    - P3.S2.M01
+    artifacts:
+    - pit_validated_context
+    - phase3_handoff_manifest
+    - config_bindings_registry
+    - provider_adapter_registry_config
+    - p3_schema_authority_inventory
+    phase_inputs:
+    - phase3_handoff_manifest
+    - config_bindings_registry
+    - provider_adapter_registry_config
+    - p3_schema_authority_inventory
+  emits_to:
+    modules:
+    - P3.S12.M01
+    - P3.S13.M01
+    - P3.S14.M01
+    - P3.S17.M01
+    - P3.S20.M01
+    - P3.S21.M04
+    - P3.S22.M01
+    - P3.S22.M03
+    - P3.S26.M02
+    - P3.S26.M03
+    - P3.S28.M03
+    - P3.S2.M03
+    - P3.S30.M04
+    - P3.S30.M05
+    - P3.S31.M01
+    - P3.S31.M02
+    - P3.S3.M01
+    - P3.S3.M02
+    - P3.S9.M01
+    artifacts:
+    - phase3_run_snapshot
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S2_M02_phase3_run_snapshot_builder.yaml
+- module_id: P3.S2.M03
+  module_name: model_knowledge_cutoff_firewall
+  subphase: P3.S2
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    artifacts:
+    - phase3_run_snapshot
+    - provider_adapter_registry_config
+    - evaluation_protocol_config
+    - model_knowledge_cutoff_policy_config
+    phase_inputs:
+    - provider_adapter_registry_config
+    - evaluation_protocol_config
+    - model_knowledge_cutoff_policy_config
+  emits_to:
+    modules:
+    - P3.S20.M07
+    - P3.S31.M01
+    artifacts:
+    - model_knowledge_cutoff_report
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S2_M03_model_knowledge_cutoff_firewall.yaml
+- module_id: P3.S3.M01
+  module_name: promoted_retro_update_ingestor
+  subphase: P3.S3
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    artifacts:
+    - retro_memory_update_package
+    - phase3_retro_handoff_manifest
+    - phase3_run_snapshot
+    - retro_patch_compatibility_config
+    phase_inputs:
+    - retro_memory_update_package
+    - phase3_retro_handoff_manifest
+    - retro_patch_compatibility_config
+  emits_to:
+    modules:
+    - P3.S11.M01
+    - P3.S15.M01
+    - P3.S20.M06
+    - P3.S25.M02
+    - P3.S26.M01
+    artifacts:
+    - active_retro_policy_patch
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S3_M01_promoted_retro_update_ingestor.yaml
+- module_id: P3.S3.M02
+  module_name: matured_belief_feedback_ingestor
+  subphase: P3.S3
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    artifacts:
+    - p9_belief_outcome_feedback_package
+    - phase3_learning_feedback_handoff_manifest
+    - phase3_run_snapshot
+    phase_inputs:
+    - p9_belief_outcome_feedback_package
+    - phase3_learning_feedback_handoff_manifest
+  emits_to:
+    modules:
+    - P3.S25.M01
+    - P3.S26.M01
+    artifacts:
+    - active_belief_feedback_bundle
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S3_M02_matured_belief_feedback_ingestor.yaml
+- module_id: P3.S4.M01
+  module_name: personality_tag_registry_loader
+  subphase: P3.S4
+  consumes_from:
+    modules: []
+    artifacts:
+    - personality_tag_registry_config
+    phase_inputs:
+    - personality_tag_registry_config
+  emits_to:
+    modules:
+    - P3.S28.M01
+    - P3.S4.M02
+    - P3.S5.M01
+    - P3.S6.M01
+    - P3.S8.M01
+    artifacts:
+    - personality_tag_registry
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S4_M01_personality_tag_registry_loader.yaml
+- module_id: P3.S4.M02
+  module_name: person_schema_policy_loader
+  subphase: P3.S4
+  consumes_from:
+    modules:
+    - P3.S4.M01
+    artifacts:
+    - person_schema_policy_config
+    - personality_tag_registry
+    - economic_role_taxonomy_config
+    - role_objective_registry_config
+    - population_representation_config
+    phase_inputs:
+    - person_schema_policy_config
+    - economic_role_taxonomy_config
+    - role_objective_registry_config
+    - population_representation_config
+  emits_to:
+    modules:
+    - P3.S14.M01
+    - P3.S15.M02
+    - P3.S23.M01
+    - P3.S23.M02
+    - P3.S5.M01
+    - P3.S5.M02
+    - P3.S7.M01
+    artifacts:
+    - person_schema_policy
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S4_M02_person_schema_policy_loader.yaml
+- module_id: P3.S5.M01
+  module_name: personality_candidate_generator
+  subphase: P3.S5
+  consumes_from:
+    modules:
+    - P3.S4.M01
+    - P3.S4.M02
+    artifacts:
+    - personality_tag_registry
+    - person_schema_policy
+    - population_generation_config
+    - prior_population_generation_state
+    - provider_adapter_registry_config
+    - personality_creator_retry_policy_config
+    phase_inputs:
+    - population_generation_config
+    - prior_population_generation_state
+    - provider_adapter_registry_config
+    - personality_creator_retry_policy_config
+  emits_to:
+    modules:
+    - P3.S5.M02
+    - P3.S7.M02
+    artifacts:
+    - personality_candidate_pool
+    - personality_creator_generation_audit
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S5_M01_personality_candidate_generator.yaml
+- module_id: P3.S5.M02
+  module_name: personality_candidate_consistency_checker
+  subphase: P3.S5
+  consumes_from:
+    modules:
+    - P3.S4.M02
+    - P3.S5.M01
+    artifacts:
+    - personality_candidate_pool
+    - person_schema_policy
+    - personality_consistency_rules_config
+    phase_inputs:
+    - personality_consistency_rules_config
+  emits_to:
+    modules:
+    - P3.S6.M01
+    artifacts:
+    - validated_personality_candidate_pool
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S5_M02_personality_candidate_consistency_checker.yaml
+- module_id: P3.S6.M01
+  module_name: personality_coverage_metric_calculator
+  subphase: P3.S6
+  consumes_from:
+    modules:
+    - P3.S4.M01
+    - P3.S5.M02
+    artifacts:
+    - validated_personality_candidate_pool
+    - personality_tag_registry
+    - coverage_density_config
+    - prior_population_generation_state
+    phase_inputs:
+    - coverage_density_config
+    - prior_population_generation_state
+  emits_to:
+    modules:
+    - P3.S6.M02
+    - P3.S7.M02
+    artifacts:
+    - personality_coverage_report
+    - population_candidate_accumulator
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S6_M01_personality_coverage_metric_calculator.yaml
+- module_id: P3.S6.M02
+  module_name: coverage_density_controller
+  subphase: P3.S6
+  consumes_from:
+    modules:
+    - P3.S6.M01
+    artifacts:
+    - personality_coverage_report
+    - population_candidate_accumulator
+    - coverage_density_config
+    phase_inputs:
+    - coverage_density_config
+  emits_to:
+    modules:
+    - P3.S7.M01
+    artifacts:
+    - population_generation_control
+    - next_population_generation_state
+    - finalized_personality_candidate_pool
+    phase_outputs:
+    - next_population_generation_state
+  module_contract: contracts/modules/P3_S6_M02_coverage_density_controller.yaml
+- module_id: P3.S7.M01
+  module_name: fixed_population_builder
+  subphase: P3.S7
+  consumes_from:
+    modules:
+    - P3.S4.M02
+    - P3.S6.M02
+    artifacts:
+    - finalized_personality_candidate_pool
+    - population_generation_control
+    - person_schema_policy
+    - population_representation_config
+    phase_inputs:
+    - population_representation_config
+  emits_to:
+    modules:
+    - P3.S11.M01
+    - P3.S15.M02
+    - P3.S19.M01
+    - P3.S28.M01
+    - P3.S7.M02
+    - P3.S8.M01
+    artifacts:
+    - person_seed_panel
+    - population_manifest
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S7_M01_fixed_population_builder.yaml
+- module_id: P3.S7.M02
+  module_name: population_consistency_validator
+  subphase: P3.S7
+  consumes_from:
+    modules:
+    - P3.S6.M01
+    - P3.S7.M01
+    - P3.S5.M01
+    artifacts:
+    - person_seed_panel
+    - population_manifest
+    - personality_coverage_report
+    - population_representation_config
+    - personality_creator_generation_audit
+    phase_inputs:
+    - population_representation_config
+  emits_to:
+    modules:
+    - P3.S10.M01
+    - P3.S19.M02
+    - P3.S27.M01
+    - P3.S27.M02
+    - P3.S28.M01
+    - P3.S8.M01
+    artifacts:
+    - validated_population_manifest
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S7_M02_population_consistency_validator.yaml
+- module_id: P3.S8.M01
+  module_name: initial_social_graph_builder
+  subphase: P3.S8
+  consumes_from:
+    modules:
+    - P3.S4.M01
+    - P3.S7.M01
+    - P3.S7.M02
+    artifacts:
+    - validated_population_manifest
+    - person_seed_panel
+    - social_graph_config
+    - personality_tag_registry
+    phase_inputs:
+    - social_graph_config
+  emits_to:
+    modules:
+    - P3.S8.M02
+    artifacts:
+    - initial_social_graph
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S8_M01_initial_social_graph_builder.yaml
+- module_id: P3.S8.M02
+  module_name: relationship_prior_validator
+  subphase: P3.S8
+  consumes_from:
+    modules:
+    - P3.S8.M01
+    artifacts:
+    - initial_social_graph
+    - social_graph_config
+    phase_inputs:
+    - social_graph_config
+  emits_to:
+    modules:
+    - P3.S10.M01
+    - P3.S11.M01
+    artifacts:
+    - validated_initial_social_graph
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S8_M02_relationship_prior_validator.yaml
+- module_id: P3.S9.M01
+  module_name: warmup_history_validator
+  subphase: P3.S9
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    artifacts:
+    - warmup_history_bundle
+    - phase3_run_snapshot
+    - evaluation_window_config
+    phase_inputs:
+    - warmup_history_bundle
+    - evaluation_window_config
+  emits_to:
+    modules:
+    - P3.S10.M01
+    - P3.S11.M02
+    artifacts:
+    - validated_warmup_history
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S9_M01_warmup_history_validator.yaml
+- module_id: P3.S10.M01
+  module_name: warmup_scheduler
+  subphase: P3.S10
+  consumes_from:
+    modules:
+    - P3.S7.M02
+    - P3.S8.M02
+    - P3.S9.M01
+    artifacts:
+    - validated_warmup_history
+    - validated_population_manifest
+    - validated_initial_social_graph
+    - activation_config
+    - heartbeat_config
+    phase_inputs:
+    - activation_config
+    - heartbeat_config
+  emits_to:
+    modules:
+    - P3.S10.M02
+    - P3.S11.M01
+    artifacts:
+    - warmup_event_schedule
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S10_M01_warmup_scheduler.yaml
+- module_id: P3.S10.M02
+  module_name: warmup_checkpoint_planner
+  subphase: P3.S10
+  consumes_from:
+    modules:
+    - P3.S10.M01
+    artifacts:
+    - warmup_event_schedule
+    - warmup_checkpoint_config
+    phase_inputs:
+    - warmup_checkpoint_config
+  emits_to:
+    modules:
+    - P3.S11.M01
+    artifacts:
+    - warmup_checkpoint_plan
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S10_M02_warmup_checkpoint_planner.yaml
+- module_id: P3.S11.M01
+  module_name: warmup_replay_orchestrator
+  subphase: P3.S11
+  consumes_from:
+    modules:
+    - P3.S3.M01
+    - P3.S7.M01
+    - P3.S8.M02
+    - P3.S10.M01
+    - P3.S10.M02
+    artifacts:
+    - warmup_event_schedule
+    - warmup_checkpoint_plan
+    - person_seed_panel
+    - validated_initial_social_graph
+    - active_retro_policy_patch
+    - canonical_cycle_pipeline_config
+    - warmup_replay_config
+    phase_inputs:
+    - canonical_cycle_pipeline_config
+    - warmup_replay_config
+  emits_to:
+    modules:
+    - P3.S11.M02
+    artifacts:
+    - initial_cycle_state_snapshot
+    - warmup_replay_audit
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S11_M01_warmup_replay_orchestrator.yaml
+- module_id: P3.S11.M02
+  module_name: bootstrap_leakage_guard
+  subphase: P3.S11
+  consumes_from:
+    modules:
+    - P3.S9.M01
+    - P3.S11.M01
+    artifacts:
+    - initial_cycle_state_snapshot
+    - validated_warmup_history
+    - warmup_replay_audit
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S11.M03
+    artifacts:
+    - validated_initial_cycle_state_snapshot
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S11_M02_bootstrap_leakage_guard.yaml
+- module_id: P3.S11.M03
+  module_name: cycle_state_loader
+  subphase: P3.S11
+  consumes_from:
+    modules:
+    - P3.S11.M02
+    artifacts:
+    - validated_initial_cycle_state_snapshot
+    - prior_cycle_state_snapshot
+    phase_inputs:
+    - prior_cycle_state_snapshot
+  emits_to:
+    modules:
+    - P3.S14.M02
+    - P3.S19.M01
+    - P3.S20.M01
+    - P3.S20.M04
+    - P3.S20.M06
+    - P3.S22.M01
+    - P3.S23.M01
+    - P3.S23.M02
+    - P3.S24.M01
+    - P3.S25.M01
+    - P3.S26.M01
+    artifacts:
+    - current_person_state_panel
+    - current_belief_state_panel
+    - current_memory_state
+    - current_social_graph
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S11_M03_cycle_state_loader.yaml
+- module_id: P3.S12.M01
+  module_name: document_chunker_and_indexer
+  subphase: P3.S12
+  consumes_from:
+    modules:
+    - P3.S2.M01
+    - P3.S2.M02
+    artifacts:
+    - pit_validated_context
+    - phase3_run_snapshot
+    - provider_adapter_registry_config
+    - retrieval_config
+    phase_inputs:
+    - provider_adapter_registry_config
+    - retrieval_config
+  emits_to:
+    modules:
+    - P3.S12.M02
+    - P3.S13.M01
+    - P3.S13.M02
+    - P3.S22.M02
+    - P3.S29.M02
+    artifacts:
+    - rag_index_artifact
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S12_M01_document_chunker_and_indexer.yaml
+- module_id: P3.S12.M02
+  module_name: retrieval_index_manifest_builder
+  subphase: P3.S12
+  consumes_from:
+    modules:
+    - P3.S12.M01
+    artifacts:
+    - rag_index_artifact
+    - retrieval_config
+    - provider_adapter_registry_config
+    phase_inputs:
+    - retrieval_config
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S20.M02
+    artifacts:
+    - retrieval_index_manifest
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S12_M02_retrieval_index_manifest_builder.yaml
+- module_id: P3.S13.M01
+  module_name: temporal_graph_builder
+  subphase: P3.S13
+  consumes_from:
+    modules:
+    - P3.S12.M01
+    - P3.S2.M01
+    - P3.S2.M02
+    artifacts:
+    - rag_index_artifact
+    - pit_validated_context
+    - phase3_run_snapshot
+    - graph_config
+    - provider_adapter_registry_config
+    phase_inputs:
+    - graph_config
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S13.M02
+    - P3.S17.M01
+    - P3.S20.M03
+    artifacts:
+    - graph_rag_artifact
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S13_M01_temporal_graph_builder.yaml
+- module_id: P3.S13.M02
+  module_name: graph_evidence_linker
+  subphase: P3.S13
+  consumes_from:
+    modules:
+    - P3.S12.M01
+    - P3.S13.M01
+    artifacts:
+    - graph_rag_artifact
+    - rag_index_artifact
+    - graph_config
+    phase_inputs:
+    - graph_config
+  emits_to:
+    modules:
+    - P3.S20.M03
+    - P3.S22.M02
+    - P3.S29.M02
+    artifacts:
+    - graph_evidence_map
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S13_M02_graph_evidence_linker.yaml
+- module_id: P3.S14.M01
+  module_name: memory_access_policy_builder
+  subphase: P3.S14
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S4.M02
+    artifacts:
+    - memory_access_config
+    - person_schema_policy
+    - phase3_run_snapshot
+    phase_inputs:
+    - memory_access_config
+  emits_to:
+    modules:
+    - P3.S14.M02
+    - P3.S20.M02
+    - P3.S20.M04
+    artifacts:
+    - memory_access_policy
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S14_M01_memory_access_policy_builder.yaml
+- module_id: P3.S14.M02
+  module_name: memory_index_manifest_builder
+  subphase: P3.S14
+  consumes_from:
+    modules:
+    - P3.S11.M03
+    - P3.S14.M01
+    artifacts:
+    - current_memory_state
+    - memory_access_policy
+    - retrieval_config
+    phase_inputs:
+    - retrieval_config
+  emits_to:
+    modules:
+    - P3.S20.M02
+    artifacts:
+    - memory_index_manifest
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S14_M02_memory_index_manifest_builder.yaml
+- module_id: P3.S15.M01
+  module_name: tool_registry_builder
+  subphase: P3.S15
+  consumes_from:
+    modules:
+    - P3.S3.M01
+    artifacts:
+    - tool_registry_config
+    - active_retro_policy_patch
+    - provider_adapter_registry_config
+    phase_inputs:
+    - tool_registry_config
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S15.M02
+    - P3.S16.M01
+    artifacts:
+    - tool_registry
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S15_M01_tool_registry_builder.yaml
+- module_id: P3.S15.M02
+  module_name: person_tool_entitlement_router
+  subphase: P3.S15
+  consumes_from:
+    modules:
+    - P3.S4.M02
+    - P3.S7.M01
+    - P3.S15.M01
+    artifacts:
+    - tool_registry
+    - person_seed_panel
+    - person_schema_policy
+    - tool_entitlement_config
+    phase_inputs:
+    - tool_entitlement_config
+  emits_to:
+    modules:
+    - P3.S16.M01
+    - P3.S20.M06
+    - P3.S21.M02
+    - P3.S24.M03
+    - P3.S27.M02
+    artifacts:
+    - person_tool_entitlement_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S15_M02_person_tool_entitlement_router.yaml
+- module_id: P3.S16.M01
+  module_name: mcp_tool_gateway_policy_builder
+  subphase: P3.S16
+  consumes_from:
+    modules:
+    - P3.S15.M01
+    - P3.S15.M02
+    artifacts:
+    - tool_registry
+    - person_tool_entitlement_panel
+    - tool_gateway_config
+    - provider_adapter_registry_config
+    phase_inputs:
+    - tool_gateway_config
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S16.M02
+    - P3.S21.M02
+    - P3.S21.M03
+    artifacts:
+    - mcp_gateway_policy
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S16_M01_mcp_tool_gateway_policy_builder.yaml
+- module_id: P3.S16.M02
+  module_name: tool_call_audit_contract_builder
+  subphase: P3.S16
+  consumes_from:
+    modules:
+    - P3.S16.M01
+    artifacts:
+    - mcp_gateway_policy
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S21.M02
+    - P3.S21.M03
+    artifacts:
+    - tool_call_audit_contract
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S16_M02_tool_call_audit_contract_builder.yaml
+- module_id: P3.S17.M01
+  module_name: external_stimulus_builder
+  subphase: P3.S17
+  consumes_from:
+    modules:
+    - P3.S2.M01
+    - P3.S2.M02
+    - P3.S13.M01
+    artifacts:
+    - pit_validated_context
+    - graph_rag_artifact
+    - phase3_run_snapshot
+    - stimulus_bus_config
+    phase_inputs:
+    - stimulus_bus_config
+  emits_to:
+    modules:
+    - P3.S17.M02
+    artifacts:
+    - external_stimulus_stream
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S17_M01_external_stimulus_builder.yaml
+- module_id: P3.S17.M02
+  module_name: canonical_underlying_resolver
+  subphase: P3.S17
+  consumes_from:
+    modules:
+    - P3.S17.M01
+    artifacts:
+    - external_stimulus_stream
+    - entity_underlying_map_config
+    - proposition_registry_config
+    phase_inputs:
+    - entity_underlying_map_config
+    - proposition_registry_config
+  emits_to:
+    modules:
+    - P3.S18.M02
+    artifacts:
+    - resolved_external_stimulus_stream
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S17_M02_canonical_underlying_resolver.yaml
+- module_id: P3.S18.M01
+  module_name: endogenous_stimulus_queue_loader
+  subphase: P3.S18
+  consumes_from:
+    modules: []
+    artifacts:
+    - prior_cycle_endogenous_stimulus_queue
+    - phase3_run_snapshot
+    - stimulus_bus_config
+    phase_inputs:
+    - prior_cycle_endogenous_stimulus_queue
+    - stimulus_bus_config
+  emits_to:
+    modules:
+    - P3.S18.M02
+    artifacts:
+    - endogenous_stimulus_stream
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S18_M01_endogenous_stimulus_queue_loader.yaml
+- module_id: P3.S18.M02
+  module_name: stimulus_event_bus_merger
+  subphase: P3.S18
+  consumes_from:
+    modules:
+    - P3.S17.M02
+    - P3.S18.M01
+    artifacts:
+    - resolved_external_stimulus_stream
+    - endogenous_stimulus_stream
+    - stimulus_bus_config
+    phase_inputs:
+    - stimulus_bus_config
+  emits_to:
+    modules:
+    - P3.S19.M01
+    - P3.S20.M01
+    - P3.S20.M06
+    - P3.S27.M01
+    - P3.S27.M03
+    artifacts:
+    - stimulus_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S18_M02_stimulus_event_bus_merger.yaml
+- module_id: P3.S19.M01
+  module_name: deterministic_activation_gate
+  subphase: P3.S19
+  consumes_from:
+    modules:
+    - P3.S7.M01
+    - P3.S11.M03
+    - P3.S18.M02
+    artifacts:
+    - stimulus_panel
+    - current_person_state_panel
+    - person_seed_panel
+    - activation_config
+    phase_inputs:
+    - activation_config
+  emits_to:
+    modules:
+    - P3.S19.M02
+    - P3.S20.M01
+    - P3.S20.M06
+    - P3.S27.M03
+    artifacts:
+    - activation_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S19_M01_deterministic_activation_gate.yaml
+- module_id: P3.S19.M02
+  module_name: monthly_heartbeat_scheduler
+  subphase: P3.S19
+  consumes_from:
+    modules:
+    - P3.S7.M02
+    - P3.S19.M01
+    artifacts:
+    - activation_panel
+    - current_person_state_panel
+    - validated_population_manifest
+    - heartbeat_config
+    phase_inputs:
+    - heartbeat_config
+  emits_to:
+    modules:
+    - P3.S20.M01
+    - P3.S20.M06
+    artifacts:
+    - cognitive_cycle_schedule
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S19_M02_monthly_heartbeat_scheduler.yaml
+- module_id: P3.S20.M01
+  module_name: activated_person_query_builder
+  subphase: P3.S20
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S11.M03
+    - P3.S18.M02
+    - P3.S19.M01
+    - P3.S19.M02
+    artifacts:
+    - cognitive_cycle_schedule
+    - stimulus_panel
+    - activation_panel
+    - current_person_state_panel
+    - current_belief_state_panel
+    - phase3_run_snapshot
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S20.M02
+    - P3.S20.M03
+    - P3.S20.M04
+    artifacts:
+    - person_retrieval_query_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S20_M01_activated_person_query_builder.yaml
+- module_id: P3.S20.M02
+  module_name: hybrid_memory_rag_retriever
+  subphase: P3.S20
+  consumes_from:
+    modules:
+    - P3.S12.M02
+    - P3.S14.M01
+    - P3.S14.M02
+    - P3.S20.M01
+    artifacts:
+    - person_retrieval_query_panel
+    - memory_index_manifest
+    - retrieval_index_manifest
+    - memory_access_policy
+    - retrieval_config
+    - provider_adapter_registry_config
+    phase_inputs:
+    - retrieval_config
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S20.M05
+    artifacts:
+    - raw_retrieved_knowledge_bundle
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S20_M02_hybrid_memory_rag_retriever.yaml
+- module_id: P3.S20.M03
+  module_name: graph_rag_query_executor
+  subphase: P3.S20
+  consumes_from:
+    modules:
+    - P3.S13.M01
+    - P3.S13.M02
+    - P3.S20.M01
+    artifacts:
+    - person_retrieval_query_panel
+    - graph_rag_artifact
+    - graph_evidence_map
+    - graph_config
+    - provider_adapter_registry_config
+    phase_inputs:
+    - graph_config
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S20.M05
+    artifacts:
+    - graph_retrieval_bundle
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S20_M03_graph_rag_query_executor.yaml
+- module_id: P3.S20.M04
+  module_name: person_experience_retriever
+  subphase: P3.S20
+  consumes_from:
+    modules:
+    - P3.S11.M03
+    - P3.S14.M01
+    - P3.S20.M01
+    artifacts:
+    - person_retrieval_query_panel
+    - current_memory_state
+    - memory_access_policy
+    - context_learning_config
+    phase_inputs:
+    - context_learning_config
+  emits_to:
+    modules:
+    - P3.S20.M05
+    - P3.S26.M01
+    artifacts:
+    - person_learning_trajectory_bundle
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S20_M04_person_experience_retriever.yaml
+- module_id: P3.S20.M05
+  module_name: retrieval_reranker_evidence_bundle_builder
+  subphase: P3.S20
+  consumes_from:
+    modules:
+    - P3.S20.M02
+    - P3.S20.M03
+    - P3.S20.M04
+    artifacts:
+    - raw_retrieved_knowledge_bundle
+    - graph_retrieval_bundle
+    - person_learning_trajectory_bundle
+    - retrieval_config
+    - provider_adapter_registry_config
+    phase_inputs:
+    - retrieval_config
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S20.M06
+    - P3.S21.M04
+    - P3.S22.M02
+    - P3.S29.M02
+    artifacts:
+    - retrieved_knowledge_bundle
+    - retrieval_evidence_map
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S20_M05_retrieval_reranker_evidence_bundle_builder.yaml
+- module_id: P3.S20.M06
+  module_name: person_context_assembler
+  subphase: P3.S20
+  consumes_from:
+    modules:
+    - P3.S3.M01
+    - P3.S11.M03
+    - P3.S15.M02
+    - P3.S18.M02
+    - P3.S19.M01
+    - P3.S19.M02
+    - P3.S20.M05
+    artifacts:
+    - cognitive_cycle_schedule
+    - stimulus_panel
+    - activation_panel
+    - current_person_state_panel
+    - current_belief_state_panel
+    - retrieved_knowledge_bundle
+    - current_social_graph
+    - person_tool_entitlement_panel
+    - active_retro_policy_patch
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S20.M07
+    artifacts:
+    - person_context_bundle
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S20_M06_person_context_assembler.yaml
+- module_id: P3.S20.M07
+  module_name: context_budget_validator
+  subphase: P3.S20
+  consumes_from:
+    modules:
+    - P3.S2.M03
+    - P3.S20.M06
+    artifacts:
+    - person_context_bundle
+    - context_budget_config
+    - model_knowledge_cutoff_report
+    phase_inputs:
+    - context_budget_config
+  emits_to:
+    modules:
+    - P3.S21.M01
+    - P3.S21.M05
+    artifacts:
+    - validated_person_context_bundle
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S20_M07_context_budget_validator.yaml
+- module_id: P3.S21.M01
+  module_name: initial_llm_cognition_planner
+  subphase: P3.S21
+  consumes_from:
+    modules:
+    - P3.S20.M07
+    artifacts:
+    - validated_person_context_bundle
+    - cognition_config
+    - provider_adapter_registry_config
+    phase_inputs:
+    - cognition_config
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S21.M02
+    - P3.S21.M05
+    artifacts:
+    - initial_agent_reading_panel
+    - preliminary_belief_proposal_panel
+    - social_intent_panel
+    - tool_call_request_panel
+    - attention_followup_intent_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S21_M01_initial_llm_cognition_planner.yaml
+- module_id: P3.S21.M02
+  module_name: tool_call_request_validator
+  subphase: P3.S21
+  consumes_from:
+    modules:
+    - P3.S15.M02
+    - P3.S16.M01
+    - P3.S16.M02
+    - P3.S21.M01
+    artifacts:
+    - tool_call_request_panel
+    - person_tool_entitlement_panel
+    - mcp_gateway_policy
+    - tool_call_audit_contract
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S21.M03
+    - P3.S24.M03
+    artifacts:
+    - validated_tool_call_request_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S21_M02_tool_call_request_validator.yaml
+- module_id: P3.S21.M03
+  module_name: mcp_tool_executor
+  subphase: P3.S21
+  consumes_from:
+    modules:
+    - P3.S16.M01
+    - P3.S16.M02
+    - P3.S21.M02
+    artifacts:
+    - validated_tool_call_request_panel
+    - mcp_gateway_policy
+    - tool_call_audit_contract
+    - provider_adapter_registry_config
+    phase_inputs:
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S21.M04
+    - P3.S26.M02
+    - P3.S27.M02
+    artifacts:
+    - raw_tool_result_panel
+    - tool_call_audit_panel
+    - tool_discovery_event_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S21_M03_mcp_tool_executor.yaml
+- module_id: P3.S21.M04
+  module_name: tool_result_validator
+  subphase: P3.S21
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S20.M05
+    - P3.S21.M03
+    artifacts:
+    - raw_tool_result_panel
+    - tool_call_audit_panel
+    - phase3_run_snapshot
+    - retrieval_evidence_map
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S21.M05
+    - P3.S22.M02
+    artifacts:
+    - validated_tool_result_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S21_M04_tool_result_validator.yaml
+- module_id: P3.S21.M05
+  module_name: llm_cognition_continuation_runner
+  subphase: P3.S21
+  consumes_from:
+    modules:
+    - P3.S20.M07
+    - P3.S21.M01
+    - P3.S21.M04
+    artifacts:
+    - initial_agent_reading_panel
+    - preliminary_belief_proposal_panel
+    - validated_tool_result_panel
+    - validated_person_context_bundle
+    - cognition_config
+    - provider_adapter_registry_config
+    - social_intent_panel
+    - attention_followup_intent_panel
+    phase_inputs:
+    - cognition_config
+    - provider_adapter_registry_config
+  emits_to:
+    modules:
+    - P3.S21.M06
+    - P3.S24.M01
+    - P3.S26.M02
+    - P3.S29.M02
+    artifacts:
+    - agent_reading_panel
+    - raw_belief_proposal_panel
+    - finalized_social_intent_panel
+    - finalized_attention_followup_intent_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S21_M05_llm_cognition_continuation_runner.yaml
+- module_id: P3.S21.M06
+  module_name: structured_belief_proposal_parser
+  subphase: P3.S21
+  consumes_from:
+    modules:
+    - P3.S21.M05
+    artifacts:
+    - raw_belief_proposal_panel
+    - proposition_registry_config
+    phase_inputs:
+    - proposition_registry_config
+  emits_to:
+    modules:
+    - P3.S22.M01
+    artifacts:
+    - structured_belief_proposal_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S21_M06_structured_belief_proposal_parser.yaml
+- module_id: P3.S22.M01
+  module_name: belief_state_validator
+  subphase: P3.S22
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S11.M03
+    - P3.S21.M06
+    artifacts:
+    - structured_belief_proposal_panel
+    - current_belief_state_panel
+    - phase3_run_snapshot
+    - proposition_registry_config
+    phase_inputs:
+    - proposition_registry_config
+  emits_to:
+    modules:
+    - P3.S22.M02
+    artifacts:
+    - validated_belief_update_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S22_M01_belief_state_validator.yaml
+- module_id: P3.S22.M02
+  module_name: evidence_binding_validator
+  subphase: P3.S22
+  consumes_from:
+    modules:
+    - P3.S12.M01
+    - P3.S13.M02
+    - P3.S20.M05
+    - P3.S21.M04
+    - P3.S22.M01
+    artifacts:
+    - validated_belief_update_panel
+    - retrieval_evidence_map
+    - graph_evidence_map
+    - rag_index_artifact
+    - validated_tool_result_panel
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S22.M03
+    - P3.S23.M01
+    - P3.S29.M02
+    artifacts:
+    - evidence_bound_belief_update_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S22_M02_evidence_binding_validator.yaml
+- module_id: P3.S22.M03
+  module_name: belief_outcome_commitment_logger
+  subphase: P3.S22
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S22.M02
+    artifacts:
+    - evidence_bound_belief_update_panel
+    - phase3_run_snapshot
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S26.M03
+    - P3.S30.M05
+    - P3.S31.M01
+    artifacts:
+    - belief_outcome_commitment_log
+    phase_outputs:
+    - belief_outcome_commitment_log
+  module_contract: contracts/modules/P3_S22_M03_belief_outcome_commitment_logger.yaml
+- module_id: P3.S23.M01
+  module_name: person_state_transition_writer
+  subphase: P3.S23
+  consumes_from:
+    modules:
+    - P3.S4.M02
+    - P3.S11.M03
+    - P3.S22.M02
+    artifacts:
+    - evidence_bound_belief_update_panel
+    - current_person_state_panel
+    - current_belief_state_panel
+    - person_schema_policy
+    - state_change_config
+    phase_inputs:
+    - state_change_config
+  emits_to:
+    modules:
+    - P3.S23.M02
+    - P3.S26.M01
+    - P3.S26.M03
+    - P3.S27.M01
+    - P3.S28.M01
+    artifacts:
+    - next_person_state_panel
+    - next_belief_state_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S23_M01_person_state_transition_writer.yaml
+- module_id: P3.S23.M02
+  module_name: gradual_change_guard
+  subphase: P3.S23
+  consumes_from:
+    modules:
+    - P3.S4.M02
+    - P3.S11.M03
+    - P3.S23.M01
+    artifacts:
+    - next_person_state_panel
+    - current_person_state_panel
+    - person_schema_policy
+    - state_change_config
+    phase_inputs:
+    - state_change_config
+  emits_to:
+    modules:
+    - P3.S24.M01
+    - P3.S25.M01
+    - P3.S26.M01
+    - P3.S26.M03
+    - P3.S27.M02
+    - P3.S28.M01
+    artifacts:
+    - validated_next_person_state_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S23_M02_gradual_change_guard.yaml
+- module_id: P3.S24.M01
+  module_name: social_message_router
+  subphase: P3.S24
+  consumes_from:
+    modules:
+    - P3.S11.M03
+    - P3.S21.M05
+    - P3.S23.M02
+    artifacts:
+    - finalized_social_intent_panel
+    - current_social_graph
+    - validated_next_person_state_panel
+    - social_delivery_config
+    phase_inputs:
+    - social_delivery_config
+  emits_to:
+    modules:
+    - P3.S24.M02
+    artifacts:
+    - social_message_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S24_M01_social_message_router.yaml
+- module_id: P3.S24.M02
+  module_name: social_delivery_scheduler
+  subphase: P3.S24
+  consumes_from:
+    modules:
+    - P3.S24.M01
+    artifacts:
+    - social_message_panel
+    - social_delivery_config
+    phase_inputs:
+    - social_delivery_config
+  emits_to:
+    modules:
+    - P3.S24.M03
+    - P3.S25.M01
+    - P3.S26.M01
+    - P3.S26.M02
+    - P3.S27.M03
+    artifacts:
+    - social_delivery_panel
+    - social_delivery_event_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S24_M02_social_delivery_scheduler.yaml
+- module_id: P3.S24.M03
+  module_name: social_tool_usage_auditor
+  subphase: P3.S24
+  consumes_from:
+    modules:
+    - P3.S15.M02
+    - P3.S21.M02
+    - P3.S24.M02
+    artifacts:
+    - social_delivery_panel
+    - validated_tool_call_request_panel
+    - person_tool_entitlement_panel
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S25.M02
+    - P3.S27.M03
+    artifacts:
+    - social_tool_audit_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S24_M03_social_tool_usage_auditor.yaml
+- module_id: P3.S25.M01
+  module_name: trust_relationship_updater
+  subphase: P3.S25
+  consumes_from:
+    modules:
+    - P3.S3.M02
+    - P3.S11.M03
+    - P3.S23.M02
+    - P3.S24.M02
+    artifacts:
+    - current_social_graph
+    - social_delivery_panel
+    - validated_next_person_state_panel
+    - active_belief_feedback_bundle
+    - relationship_update_config
+    phase_inputs:
+    - relationship_update_config
+  emits_to:
+    modules:
+    - P3.S25.M02
+    - P3.S25.M03
+    artifacts:
+    - updated_social_graph
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S25_M01_trust_relationship_updater.yaml
+- module_id: P3.S25.M02
+  module_name: social_relationship_tool_executor
+  subphase: P3.S25
+  consumes_from:
+    modules:
+    - P3.S3.M01
+    - P3.S24.M03
+    - P3.S25.M01
+    artifacts:
+    - updated_social_graph
+    - social_tool_audit_panel
+    - active_retro_policy_patch
+    - relationship_formation_config
+    phase_inputs:
+    - relationship_formation_config
+  emits_to:
+    modules:
+    - P3.S25.M03
+    artifacts:
+    - relationship_candidate_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S25_M02_social_relationship_tool_executor.yaml
+- module_id: P3.S25.M03
+  module_name: relationship_change_validator
+  subphase: P3.S25
+  consumes_from:
+    modules:
+    - P3.S25.M01
+    - P3.S25.M02
+    artifacts:
+    - updated_social_graph
+    - relationship_candidate_panel
+    - social_graph_config
+    phase_inputs:
+    - social_graph_config
+  emits_to:
+    modules:
+    - P3.S26.M03
+    artifacts:
+    - next_social_graph
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S25_M03_relationship_change_validator.yaml
+- module_id: P3.S26.M01
+  module_name: memory_consolidation_manager
+  subphase: P3.S26
+  consumes_from:
+    modules:
+    - P3.S3.M01
+    - P3.S3.M02
+    - P3.S11.M03
+    - P3.S20.M04
+    - P3.S23.M01
+    - P3.S23.M02
+    - P3.S24.M02
+    artifacts:
+    - current_memory_state
+    - person_learning_trajectory_bundle
+    - next_belief_state_panel
+    - validated_next_person_state_panel
+    - social_delivery_panel
+    - active_belief_feedback_bundle
+    - active_retro_policy_patch
+    - memory_consolidation_config
+    phase_inputs:
+    - memory_consolidation_config
+  emits_to:
+    modules:
+    - P3.S26.M02
+    - P3.S26.M03
+    - P3.S30.M02
+    artifacts:
+    - next_memory_state
+    - memory_trigger_event_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S26_M01_memory_consolidation_manager.yaml
+- module_id: P3.S26.M02
+  module_name: endogenous_stimulus_queue_checkpoint_writer
+  subphase: P3.S26
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S21.M03
+    - P3.S21.M05
+    - P3.S24.M02
+    - P3.S26.M01
+    artifacts:
+    - tool_discovery_event_panel
+    - social_delivery_event_panel
+    - memory_trigger_event_panel
+    - finalized_attention_followup_intent_panel
+    - phase3_run_snapshot
+    - stimulus_bus_config
+    phase_inputs:
+    - stimulus_bus_config
+  emits_to:
+    modules:
+    - P3.S26.M03
+    artifacts:
+    - next_cycle_endogenous_stimulus_queue
+    phase_outputs:
+    - next_cycle_endogenous_stimulus_queue
+  module_contract: contracts/modules/P3_S26_M02_endogenous_stimulus_queue_checkpoint_writer.yaml
+- module_id: P3.S26.M03
+  module_name: cycle_state_checkpoint_writer
+  subphase: P3.S26
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S22.M03
+    - P3.S23.M01
+    - P3.S23.M02
+    - P3.S25.M03
+    - P3.S26.M01
+    - P3.S26.M02
+    artifacts:
+    - validated_next_person_state_panel
+    - next_belief_state_panel
+    - next_memory_state
+    - next_social_graph
+    - next_cycle_endogenous_stimulus_queue
+    - phase3_run_snapshot
+    - belief_outcome_commitment_log
+    phase_inputs: []
+  emits_to:
+    modules: []
+    artifacts:
+    - cycle_state_snapshot_out
+    phase_outputs:
+    - cycle_state_snapshot_out
+  module_contract: contracts/modules/P3_S26_M03_cycle_state_checkpoint_writer.yaml
+- module_id: P3.S27.M01
+  module_name: belief_distribution_aggregator
+  subphase: P3.S27
+  consumes_from:
+    modules:
+    - P3.S7.M02
+    - P3.S18.M02
+    - P3.S23.M01
+    artifacts:
+    - next_belief_state_panel
+    - validated_population_manifest
+    - stimulus_panel
+    - proposition_registry_config
+    - aggregation_semantics_config
+    phase_inputs:
+    - proposition_registry_config
+    - aggregation_semantics_config
+  emits_to:
+    modules:
+    - P3.S28.M02
+    - P3.S29.M01
+    artifacts:
+    - belief_distribution_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S27_M01_belief_distribution_aggregator.yaml
+- module_id: P3.S27.M02
+  module_name: attention_information_asymmetry_metrics
+  subphase: P3.S27
+  consumes_from:
+    modules:
+    - P3.S7.M02
+    - P3.S15.M02
+    - P3.S21.M03
+    - P3.S23.M02
+    artifacts:
+    - validated_next_person_state_panel
+    - tool_call_audit_panel
+    - person_tool_entitlement_panel
+    - validated_population_manifest
+    - aggregation_semantics_config
+    phase_inputs:
+    - aggregation_semantics_config
+  emits_to:
+    modules:
+    - P3.S28.M02
+    artifacts:
+    - attention_information_metrics
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S27_M02_attention_information_asymmetry_metrics.yaml
+- module_id: P3.S27.M03
+  module_name: cascade_emergence_metrics
+  subphase: P3.S27
+  consumes_from:
+    modules:
+    - P3.S18.M02
+    - P3.S19.M01
+    - P3.S24.M02
+    - P3.S24.M03
+    artifacts:
+    - activation_panel
+    - social_delivery_panel
+    - social_tool_audit_panel
+    - stimulus_panel
+    - aggregation_semantics_config
+    phase_inputs:
+    - aggregation_semantics_config
+  emits_to:
+    modules:
+    - P3.S28.M02
+    artifacts:
+    - cascade_metrics_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S27_M03_cascade_emergence_metrics.yaml
+- module_id: P3.S28.M01
+  module_name: tag_conditioned_projection_engine
+  subphase: P3.S28
+  consumes_from:
+    modules:
+    - P3.S4.M01
+    - P3.S7.M01
+    - P3.S7.M02
+    - P3.S23.M01
+    - P3.S23.M02
+    artifacts:
+    - next_belief_state_panel
+    - person_seed_panel
+    - validated_population_manifest
+    - validated_next_person_state_panel
+    - personality_tag_registry
+    - proposition_registry_config
+    - aggregation_semantics_config
+    phase_inputs:
+    - proposition_registry_config
+    - aggregation_semantics_config
+  emits_to:
+    modules:
+    - P3.S28.M02
+    artifacts:
+    - tag_projection_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S28_M01_tag_conditioned_projection_engine.yaml
+- module_id: P3.S28.M02
+  module_name: underlying_society_state_vector_builder
+  subphase: P3.S28
+  consumes_from:
+    modules:
+    - P3.S27.M01
+    - P3.S27.M02
+    - P3.S27.M03
+    - P3.S28.M01
+    artifacts:
+    - belief_distribution_panel
+    - attention_information_metrics
+    - cascade_metrics_panel
+    - tag_projection_panel
+    - emergence_vector_config
+    - aggregation_semantics_config
+    phase_inputs:
+    - emergence_vector_config
+    - aggregation_semantics_config
+  emits_to:
+    modules:
+    - P3.S28.M03
+    artifacts:
+    - synthetic_society_state_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S28_M02_underlying_society_state_vector_builder.yaml
+- module_id: P3.S28.M03
+  module_name: society_vector_quality_guard
+  subphase: P3.S28
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S28.M02
+    artifacts:
+    - synthetic_society_state_panel
+    - source_quality_panel
+    - phase3_run_snapshot
+    - emergence_vector_config
+    phase_inputs:
+    - source_quality_panel
+    - emergence_vector_config
+  emits_to:
+    modules:
+    - P3.S29.M01
+    - P3.S30.M01
+    - P3.S30.M02
+    - P3.S30.M05
+    - P3.S31.M01
+    artifacts:
+    - validated_society_state_panel
+    phase_outputs: []
+  module_contract: contracts/modules/P3_S28_M03_society_vector_quality_guard.yaml
+- module_id: P3.S29.M01
+  module_name: agent_disagreement_panel_builder
+  subphase: P3.S29
+  consumes_from:
+    modules:
+    - P3.S27.M01
+    - P3.S28.M03
+    artifacts:
+    - belief_distribution_panel
+    - validated_society_state_panel
+    - aggregation_semantics_config
+    phase_inputs:
+    - aggregation_semantics_config
+  emits_to:
+    modules:
+    - P3.S30.M01
+    - P3.S30.M03
+    - P3.S30.M04
+    artifacts:
+    - agent_disagreement_panel
+    phase_outputs:
+    - agent_disagreement_panel
+  module_contract: contracts/modules/P3_S29_M01_agent_disagreement_panel_builder.yaml
+- module_id: P3.S29.M02
+  module_name: evidence_claim_extractor
+  subphase: P3.S29
+  consumes_from:
+    modules:
+    - P3.S12.M01
+    - P3.S13.M02
+    - P3.S20.M05
+    - P3.S22.M02
+    - P3.S21.M05
+    artifacts:
+    - evidence_bound_belief_update_panel
+    - retrieval_evidence_map
+    - graph_evidence_map
+    - rag_index_artifact
+    - agent_reading_panel
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S30.M01
+    - P3.S30.M02
+    - P3.S30.M03
+    - P3.S30.M04
+    artifacts:
+    - evidence_tag_panel
+    phase_outputs:
+    - evidence_tag_panel
+  module_contract: contracts/modules/P3_S29_M02_evidence_claim_extractor.yaml
+- module_id: P3.S30.M01
+  module_name: social_feature_builder
+  subphase: P3.S30
+  consumes_from:
+    modules:
+    - P3.S28.M03
+    - P3.S29.M01
+    - P3.S29.M02
+    artifacts:
+    - validated_society_state_panel
+    - evidence_tag_panel
+    - agent_disagreement_panel
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S30.M03
+    - P3.S30.M04
+    - P3.S30.M05
+    artifacts:
+    - social_feature_panel
+    phase_outputs:
+    - social_feature_panel
+  module_contract: contracts/modules/P3_S30_M01_social_feature_builder.yaml
+- module_id: P3.S30.M02
+  module_name: context_memory_feature_builder
+  subphase: P3.S30
+  consumes_from:
+    modules:
+    - P3.S26.M01
+    - P3.S28.M03
+    - P3.S29.M02
+    artifacts:
+    - next_memory_state
+    - validated_society_state_panel
+    - evidence_tag_panel
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S30.M03
+    - P3.S30.M04
+    - P3.S30.M05
+    artifacts:
+    - context_memory_feature_panel
+    phase_outputs:
+    - context_memory_feature_panel
+  module_contract: contracts/modules/P3_S30_M02_context_memory_feature_builder.yaml
+- module_id: P3.S30.M03
+  module_name: hypothesis_registry_builder
+  subphase: P3.S30
+  consumes_from:
+    modules:
+    - P3.S29.M01
+    - P3.S29.M02
+    - P3.S30.M01
+    - P3.S30.M02
+    artifacts:
+    - social_feature_panel
+    - context_memory_feature_panel
+    - evidence_tag_panel
+    - agent_disagreement_panel
+    - proposition_registry_config
+    phase_inputs:
+    - proposition_registry_config
+  emits_to:
+    modules:
+    - P3.S30.M04
+    - P3.S30.M05
+    artifacts:
+    - hypothesis_registry
+    phase_outputs:
+    - hypothesis_registry
+  module_contract: contracts/modules/P3_S30_M03_hypothesis_registry_builder.yaml
+- module_id: P3.S30.M04
+  module_name: phase4_social_handoff_builder
+  subphase: P3.S30
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S29.M01
+    - P3.S29.M02
+    - P3.S30.M01
+    - P3.S30.M02
+    - P3.S30.M03
+    artifacts:
+    - social_feature_panel
+    - evidence_tag_panel
+    - agent_disagreement_panel
+    - context_memory_feature_panel
+    - hypothesis_registry
+    - phase3_run_snapshot
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S31.M01
+    - P3.S31.M02
+    artifacts:
+    - phase4_social_handoff_manifest
+    phase_outputs:
+    - phase4_social_handoff_manifest
+  module_contract: contracts/modules/P3_S30_M04_phase4_social_handoff_builder.yaml
+- module_id: P3.S30.M05
+  module_name: variable_evolution_handoff_builder
+  subphase: P3.S30
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S22.M03
+    - P3.S28.M03
+    - P3.S30.M01
+    - P3.S30.M02
+    - P3.S30.M03
+    artifacts:
+    - validated_society_state_panel
+    - social_feature_panel
+    - context_memory_feature_panel
+    - hypothesis_registry
+    - belief_outcome_commitment_log
+    - phase3_run_snapshot
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S31.M01
+    - P3.S31.M02
+    artifacts:
+    - variable_evolution_input_manifest
+    phase_outputs:
+    - variable_evolution_input_manifest
+  module_contract: contracts/modules/P3_S30_M05_variable_evolution_handoff_builder.yaml
+- module_id: P3.S31.M01
+  module_name: p9_evaluation_evidence_bundle_builder
+  subphase: P3.S31
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S2.M03
+    - P3.S22.M03
+    - P3.S28.M03
+    - P3.S30.M04
+    - P3.S30.M05
+    artifacts:
+    - phase4_social_handoff_manifest
+    - variable_evolution_input_manifest
+    - belief_outcome_commitment_log
+    - model_knowledge_cutoff_report
+    - phase3_run_snapshot
+    - validated_society_state_panel
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S31.M02
+    artifacts:
+    - p9_evaluation_evidence_bundle
+    phase_outputs:
+    - p9_evaluation_evidence_bundle
+  module_contract: contracts/modules/P3_S31_M01_p9_evaluation_evidence_bundle_builder.yaml
+- module_id: P3.S31.M02
+  module_name: p9_context_learning_handoff_builder
+  subphase: P3.S31
+  consumes_from:
+    modules:
+    - P3.S2.M02
+    - P3.S30.M04
+    - P3.S30.M05
+    - P3.S31.M01
+    artifacts:
+    - p9_evaluation_evidence_bundle
+    - phase4_social_handoff_manifest
+    - variable_evolution_input_manifest
+    - phase3_run_snapshot
+    phase_inputs: []
+  emits_to:
+    modules: []
+    artifacts:
+    - p9_context_learning_handoff_manifest
+    phase_outputs:
+    - p9_context_learning_handoff_manifest
+  module_contract: contracts/modules/P3_S31_M02_p9_context_learning_handoff_builder.yaml

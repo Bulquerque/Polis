@@ -1,0 +1,202 @@
+{
+  "$defs": {
+    "S6State": {
+      "enum": [
+        "SUCCESS",
+        "COMMITTED",
+        "COMMITTED_WITH_COVERAGE_GAPS",
+        "DUPLICATE_REJECTED",
+        "SUCCESS_WITH_MAPPING_LIMITATIONS",
+        "MATERIAL_EXPOSURE_UNMAPPED",
+        "LOCAL_ONLY",
+        "EXTRAPOLATION_LIMITED",
+        "CONSTRAINT_DISCONTINUITY_FOUND",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EXCEEDANCES",
+        "UNSTABLE_TAIL_INDEX",
+        "THRESHOLD_NOT_IDENTIFIED",
+        "DEPENDENCE_NOT_REMOVED",
+        "AMBIGUITY_SET_UNINFORMATIVE",
+        "SOLVER_NOT_QUALIFIED",
+        "UNBOUNDED",
+        "CAPACITY_LIMITED",
+        "BORROW_LIMITED",
+        "MARGIN_FRAGILE",
+        "NETWORK_STRESS_RESEARCH_ONLY",
+        "INSUFFICIENT_LIQUIDITY_DATA",
+        "STRESS_RESILIENT",
+        "RESILIENT_WITH_LIMITATIONS",
+        "REVERSE_STRESS_TOO_CLOSE",
+        "STRUCTURALLY_UNSAFE",
+        "NO_FAILURE_WITHIN_DOMAIN",
+        "SEARCH_NOT_CONVERGED",
+        "VALIDATED",
+        "VALIDATED_WITH_LIMITATIONS",
+        "RESEARCH_ONLY",
+        "SCENARIO_INCOMPLETE",
+        "MODEL_NOT_FIT_FOR_STRESS",
+        "UNVALIDATED",
+        "CAPABILITY_UNAVAILABLE",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S6State",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "binding_condition": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Binding Condition"
+    },
+    "condition_id": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Condition Id",
+      "type": "string"
+    },
+    "distance_to_failure": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Distance To Failure"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "safe_axis_distances": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Safe Axis Distances",
+      "type": "array"
+    },
+    "shock_vector": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          {
+            "type": "number"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Shock Vector",
+      "type": "array"
+    },
+    "solution_count": {
+      "minimum": 0,
+      "title": "Solution Count",
+      "type": "integer"
+    },
+    "solver_messages": {
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Solver Messages",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S6State"
+    },
+    "stressed_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Stressed Value"
+    },
+    "verification_error": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Verification Error"
+    }
+  },
+  "required": [
+    "status",
+    "condition_id",
+    "distance_to_failure",
+    "shock_vector",
+    "stressed_value",
+    "binding_condition",
+    "verification_error",
+    "solution_count",
+    "safe_axis_distances",
+    "solver_messages"
+  ],
+  "title": "ReverseStressResult",
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+registry_id: P3_FINAL_REPLAY_STATE_MIGRATIONS_V1
+registry_version: 1.0.0
+current_schema_version: 2.0.0
+migrations:
+- from_version: 1.0.0
+  to_version: 2.0.0
+  migration_id: replay-state-v1-to-v2
+  lossless: true
+unknown_version_policy: FAIL_CLOSED

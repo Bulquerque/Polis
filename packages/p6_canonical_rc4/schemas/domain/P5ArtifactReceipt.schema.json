@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "artifact_name": {
+      "minLength": 1,
+      "title": "Artifact Name",
+      "type": "string"
+    },
+    "artifact_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Artifact Sha256",
+      "type": "string"
+    },
+    "availability": {
+      "title": "Availability",
+      "type": "string"
+    },
+    "reason_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason Code"
+    },
+    "row_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Row Count"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_name",
+    "artifact_id",
+    "artifact_sha256",
+    "schema_version",
+    "availability"
+  ],
+  "title": "P5ArtifactReceipt",
+  "type": "object"
+}

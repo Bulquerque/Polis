@@ -1,0 +1,36 @@
+{
+  "bundle_python_requires": ">=3.13,<3.15",
+  "bundle_release": "P5_P9_P0_P4_COMPAT_RC3_HARDENED_6",
+  "closure_changes": [
+    "statistical_interval_qualification",
+    "research_vs_economic_promotion_separation",
+    "explicit_binding_and_missing_view_receipts",
+    "conservative_covariance_repair",
+    "modern_p9_feedback_consumer"
+  ],
+  "generated_at": "2026-08-06T20:49:35.384169+00:00",
+  "modules": 45,
+  "package_id": "quant-pipeline-p5-canonical",
+  "package_version": "0.34.1rc4.post2",
+  "phase_id": "P5",
+  "pipeline_version": "P5-RC34.1-CONTRACT-CLOSURE-RC4",
+  "producer_contract_version": "P5-P6-V2",
+  "production_promotion_allowed": false,
+  "python_requires": ">=3.11,<3.15",
+  "status": "PASS_TECHNICAL_CLOSURE_ECONOMIC_PROMOTION_BLOCKED",
+  "subphases": 9,
+  "technical_closure": true,
+  "tests": {
+    "collected": 129,
+    "execution": "SEGMENTED_WITH_EXPLICIT_TIMEOUTS",
+    "failed": 0,
+    "generated_at": "2026-08-06T20:49:35.384202+00:00",
+    "passed": 129,
+    "status": "PASS"
+  },
+  "wheel": {
+    "filename": "quant_pipeline_p5_canonical-0.34.1rc4.post2-py3-none-any.whl",
+    "sha256": "78da2e534e406a7b01f0c7056de0851f31abfaf77bee125a2b2aa1f5f156f843",
+    "size": 281900
+  }
+}

@@ -1,0 +1,19 @@
+item,root_cause,repair,status
+S33.M05,ports described but not materialized,BoundaryRuntimeFactory and injected process-local store,FIXED
+S35.M02,corpus policy orphaned,policy and work budget declared consumed and hashed,FIXED
+S35.M05,corpus bundle hidden dependencies,explicit snapshot policy budget qualification and runtime ports,FIXED
+S36.M06,readiness lost before composition,qualification and readiness wired into M01,FIXED
+S37.M01-M04,nested required optional contract parsed as artifacts,normalized required_inputs and optional_inputs,FIXED
+S38.M06,branch readiness not visible to gate,readiness qualification and evidence hashes enforced,FIXED
+S39.M04,method qualification orphaned,qualification and evidence package enforced by registry and M05,FIXED
+S40.M01,hidden dependencies and test-only authority,one canonical registry with complete declared lineage,FIXED
+S40.M02,second registry reconstructed,consumes exact M01 registry from injected runtime store,FIXED
+S40.M03,undeclared input and fake projections,contract and implementation aligned with hash/provider/policy preflight,FIXED
+S40.M04,incorrect direct route from M03,real S21 M03/M04 outputs required,FIXED
+S40.M05,completeness and preflight ignored,all gates and receipts made blocking,FIXED
+S40.M06,dead registries and unproven consumer,canonical IDs/modes validated and no false P4 edge,FIXED
+S40.M07,dead cutoff and unsafe direct P9 assumption,prior commitment cutoff proof N+1 and governance deferral,FIXED
+S40.M08,upstream chain non-executable,full release evidence and handoff hash integrity,FIXED
+GLOBAL_REGISTRY,extension invisible to official executor,stable 81 legacy registry plus 128 executable composition,FIXED
+GLOBAL_DAG,invalid and nonexistent artifact edges,regenerated acyclic producer-consumer DAG,FIXED
+GLOBAL_GOVERNANCE,false P3 to P9 edge,removed edge and marked DEFERRED_BY_GOVERNANCE,FIXED

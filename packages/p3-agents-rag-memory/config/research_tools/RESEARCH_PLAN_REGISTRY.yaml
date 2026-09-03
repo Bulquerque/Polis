@@ -1,0 +1,447 @@
+schema_id: p3.research_tools.plan_registry_config.v1
+schema_version: 1.0.0
+registry_version: 1.0.0
+plans:
+- plan_id: QUICK_RETAIL_RESEARCH
+  title: Quick retail research
+  description: Low-cost public-data review for a time-constrained retail persona.
+  subject_kinds: [COMPANY, INSTRUMENT]
+  maximum_visible_calls_per_cycle: 5
+  continuation_allowed: true
+  nodes:
+  - node_id: corpus_lookup
+    tool_id: research.corpus.v1
+    operation_id: search
+    requested_mode: LOOKUP
+    required: true
+    predecessors: []
+    stop_conditions: [NO_PUBLIC_EVIDENCE]
+    downgrade_policy: BLOCK
+    visible_call_cost: 1
+    priority: 10
+  - node_id: market_snapshot
+    tool_id: market.observation.v1
+    operation_id: get_snapshot
+    requested_mode: OBSERVE
+    required: false
+    predecessors: [corpus_lookup]
+    stop_conditions: [INSTRUMENT_UNRESOLVED]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 20
+  - node_id: company_profile
+    tool_id: company.fundamentals.v1
+    operation_id: get_profile
+    requested_mode: QUICK_CHECK
+    required: false
+    predecessors: [corpus_lookup]
+    stop_conditions: [UPSTREAM_BLOCKED]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 30
+  - node_id: return_summary
+    tool_id: quant.diagnostics.v1
+    operation_id: return_statistics
+    requested_mode: BASIC
+    required: false
+    predecessors: [market_snapshot]
+    stop_conditions: [INSUFFICIENT_HISTORY]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 40
+
+- plan_id: STANDARD_COMPANY_REVIEW
+  title: Standard company review
+  description: Multi-source company review with financial and counterevidence checks.
+  subject_kinds: [COMPANY]
+  maximum_visible_calls_per_cycle: 5
+  continuation_allowed: true
+  nodes:
+  - node_id: document_search
+    tool_id: research.corpus.v1
+    operation_id: search
+    requested_mode: STANDARD
+    required: true
+    predecessors: []
+    stop_conditions: [NO_RELEVANT_DOCUMENTS]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 10
+  - node_id: company_profile
+    tool_id: company.fundamentals.v1
+    operation_id: get_profile
+    requested_mode: STANDARD_REVIEW
+    required: true
+    predecessors: [document_search]
+    stop_conditions: [UPSTREAM_BLOCKED]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 20
+  - node_id: statements
+    tool_id: company.fundamentals.v1
+    operation_id: get_financial_statements
+    requested_mode: STANDARD_REVIEW
+    required: true
+    predecessors: [company_profile]
+    stop_conditions: [UPSTREAM_BLOCKED]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 30
+  - node_id: fundamental_snapshot
+    tool_id: company.fundamentals.v1
+    operation_id: get_fundamental_snapshot
+    requested_mode: STANDARD_REVIEW
+    required: false
+    predecessors: [statements]
+    stop_conditions: [INSUFFICIENT_FACTS]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 40
+  - node_id: counterevidence
+    tool_id: research.corpus.v1
+    operation_id: find_counterevidence
+    requested_mode: STANDARD
+    required: true
+    predecessors: [document_search]
+    stop_conditions: [NO_INDEPENDENT_SOURCE]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 50
+
+- plan_id: DEEP_QUALITATIVE_RESEARCH
+  title: Deep qualitative research
+  description: Deep qualitative company analysis with triangulation and mandatory counterevidence.
+  subject_kinds: [COMPANY]
+  maximum_visible_calls_per_cycle: 5
+  continuation_allowed: true
+  nodes:
+  - node_id: triangulated_search
+    tool_id: research.corpus.v1
+    operation_id: search
+    requested_mode: TRIANGULATED
+    required: true
+    predecessors: []
+    stop_conditions: [COVERAGE_BELOW_FLOOR]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 10
+  - node_id: deep_profile
+    tool_id: company.fundamentals.v1
+    operation_id: get_profile
+    requested_mode: DEEP_QUALITATIVE
+    required: true
+    predecessors: [triangulated_search]
+    stop_conditions: [UPSTREAM_BLOCKED]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 20
+  - node_id: guidance
+    tool_id: company.fundamentals.v1
+    operation_id: get_guidance
+    requested_mode: DEEP_QUALITATIVE
+    required: false
+    predecessors: [deep_profile]
+    stop_conditions: [GUIDANCE_UNAVAILABLE]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 30
+  - node_id: capital_allocation
+    tool_id: company.fundamentals.v1
+    operation_id: get_capital_allocation
+    requested_mode: DEEP_QUALITATIVE
+    required: false
+    predecessors: [deep_profile]
+    stop_conditions: [UPSTREAM_BLOCKED]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 40
+  - node_id: counterevidence
+    tool_id: research.corpus.v1
+    operation_id: find_counterevidence
+    requested_mode: TRIANGULATED
+    required: true
+    predecessors: [triangulated_search]
+    stop_conditions: [NO_INDEPENDENT_SOURCE]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 50
+
+- plan_id: ACCOUNTING_QUALITY_REVIEW
+  title: Accounting quality review
+  description: Structured accounting quality review using as-reported statements and version evidence.
+  subject_kinds: [COMPANY]
+  maximum_visible_calls_per_cycle: 5
+  continuation_allowed: true
+  nodes:
+  - node_id: statements
+    tool_id: company.fundamentals.v1
+    operation_id: get_financial_statements
+    requested_mode: ACCOUNTING_QUALITY
+    required: true
+    predecessors: []
+    stop_conditions: [UPSTREAM_BLOCKED]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 10
+  - node_id: quality_snapshot
+    tool_id: company.fundamentals.v1
+    operation_id: get_fundamental_snapshot
+    requested_mode: ACCOUNTING_QUALITY
+    required: true
+    predecessors: [statements]
+    stop_conditions: [INSUFFICIENT_FACTS]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 20
+  - node_id: valuation
+    tool_id: company.fundamentals.v1
+    operation_id: calculate_valuation
+    requested_mode: ACCOUNTING_QUALITY
+    required: false
+    predecessors: [quality_snapshot]
+    stop_conditions: [VALUATION_INPUTS_MISSING]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 30
+  - node_id: version_compare
+    tool_id: research.corpus.v1
+    operation_id: compare_versions
+    requested_mode: FORENSIC
+    required: false
+    predecessors: [statements]
+    stop_conditions: [VERSION_HISTORY_UNAVAILABLE]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 40
+  - node_id: counterevidence
+    tool_id: research.corpus.v1
+    operation_id: find_counterevidence
+    requested_mode: FORENSIC
+    required: true
+    predecessors: [statements]
+    stop_conditions: [NO_INDEPENDENT_SOURCE]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 50
+
+- plan_id: FORENSIC_DOCUMENT_REVIEW
+  title: Forensic document review
+  description: Version-aware document review with provenance and adversarial evidence search.
+  subject_kinds: [COMPANY, EVENT, DOCUMENT]
+  maximum_visible_calls_per_cycle: 5
+  continuation_allowed: true
+  nodes:
+  - node_id: forensic_search
+    tool_id: research.corpus.v1
+    operation_id: search
+    requested_mode: FORENSIC
+    required: true
+    predecessors: []
+    stop_conditions: [VERSION_HISTORY_UNAVAILABLE]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 10
+  - node_id: compare_versions
+    tool_id: research.corpus.v1
+    operation_id: compare_versions
+    requested_mode: FORENSIC
+    required: true
+    predecessors: [forensic_search]
+    stop_conditions: [NO_COMPARABLE_VERSION]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 20
+  - node_id: provenance
+    tool_id: research.corpus.v1
+    operation_id: inspect_provenance
+    requested_mode: FORENSIC
+    required: true
+    predecessors: [forensic_search]
+    stop_conditions: [LINEAGE_UNAVAILABLE]
+    downgrade_policy: BLOCK
+    visible_call_cost: 1
+    priority: 30
+  - node_id: counterevidence
+    tool_id: research.corpus.v1
+    operation_id: find_counterevidence
+    requested_mode: FORENSIC
+    required: true
+    predecessors: [forensic_search]
+    stop_conditions: [NO_INDEPENDENT_SOURCE]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 40
+
+- plan_id: MACRO_CONTEXT_RESEARCH
+  title: Macro context research
+  description: Vintage-aware macro context and cross-series comparison for an asset or theme.
+  subject_kinds: [INSTRUMENT, SECTOR, MACRO_THEME]
+  maximum_visible_calls_per_cycle: 5
+  continuation_allowed: true
+  nodes:
+  - node_id: series_search
+    tool_id: macro.observation.v1
+    operation_id: search_series
+    requested_mode: CONTEXT
+    required: true
+    predecessors: []
+    stop_conditions: [SERIES_UNRESOLVED]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 10
+  - node_id: observations
+    tool_id: macro.observation.v1
+    operation_id: get_observations
+    requested_mode: VINTAGE_ANALYSIS
+    required: true
+    predecessors: [series_search]
+    stop_conditions: [VINTAGE_UNAVAILABLE]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 20
+  - node_id: compare_series
+    tool_id: macro.observation.v1
+    operation_id: compare_series
+    requested_mode: VINTAGE_ANALYSIS
+    required: false
+    predecessors: [observations]
+    stop_conditions: [INSUFFICIENT_ALIGNED_SERIES]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 30
+  - node_id: asset_context
+    tool_id: macro.observation.v1
+    operation_id: get_asset_context
+    requested_mode: CONTEXT
+    required: false
+    predecessors: [observations]
+    stop_conditions: [EXPOSURE_MAP_UNAVAILABLE]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 40
+  - node_id: market_compare
+    tool_id: market.observation.v1
+    operation_id: compare_instruments
+    requested_mode: DIAGNOSTIC
+    required: false
+    predecessors: [observations]
+    stop_conditions: [MARKET_VIEW_UNAVAILABLE]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 50
+
+- plan_id: QUANT_DESCRIPTIVE_REVIEW
+  title: Quantitative descriptive review
+  description: Descriptive and stability diagnostics without backtest or model selection.
+  subject_kinds: [INSTRUMENT, PORTFOLIO_REFERENCE]
+  maximum_visible_calls_per_cycle: 5
+  continuation_allowed: true
+  nodes:
+  - node_id: history
+    tool_id: market.observation.v1
+    operation_id: get_history
+    requested_mode: DIAGNOSTIC
+    required: true
+    predecessors: []
+    stop_conditions: [INSUFFICIENT_HISTORY]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 10
+  - node_id: returns
+    tool_id: quant.diagnostics.v1
+    operation_id: return_statistics
+    requested_mode: ROBUST
+    required: true
+    predecessors: [history]
+    stop_conditions: [INSUFFICIENT_OBSERVATIONS]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 20
+  - node_id: volatility
+    tool_id: quant.diagnostics.v1
+    operation_id: realized_volatility
+    requested_mode: ROBUST
+    required: false
+    predecessors: [history]
+    stop_conditions: [INSUFFICIENT_OBSERVATIONS]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 30
+  - node_id: drawdown
+    tool_id: quant.diagnostics.v1
+    operation_id: drawdown
+    requested_mode: ROBUST
+    required: false
+    predecessors: [history]
+    stop_conditions: [INSUFFICIENT_OBSERVATIONS]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 40
+  - node_id: correlation
+    tool_id: quant.diagnostics.v1
+    operation_id: correlation
+    requested_mode: ROBUST
+    required: false
+    predecessors: [history]
+    stop_conditions: [INSUFFICIENT_ALIGNED_SERIES]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 50
+
+- plan_id: OPTIONS_STRUCTURE_REVIEW
+  title: Options structure review
+  description: Point-in-time options chain and structure diagnostics without trade selection.
+  subject_kinds: [OPTION_UNDERLYING]
+  maximum_visible_calls_per_cycle: 5
+  continuation_allowed: true
+  nodes:
+  - node_id: contracts
+    tool_id: options.observation.v1
+    operation_id: get_contracts
+    requested_mode: CHAIN_DIAGNOSTIC
+    required: true
+    predecessors: []
+    stop_conditions: [CONTRACT_SNAPSHOT_UNAVAILABLE]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 10
+  - node_id: chain
+    tool_id: options.observation.v1
+    operation_id: get_chain_snapshot
+    requested_mode: CHAIN_DIAGNOSTIC
+    required: true
+    predecessors: [contracts]
+    stop_conditions: [CHAIN_SNAPSHOT_UNAVAILABLE]
+    downgrade_policy: ALLOW
+    visible_call_cost: 1
+    priority: 20
+  - node_id: quote_history
+    tool_id: options.observation.v1
+    operation_id: get_quote_history
+    requested_mode: STRUCTURE_HISTORY
+    required: false
+    predecessors: [chain]
+    stop_conditions: [HISTORICAL_COVERAGE_INSUFFICIENT]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 30
+  - node_id: surface
+    tool_id: options.observation.v1
+    operation_id: get_surface_diagnostics
+    requested_mode: STRUCTURE_HISTORY
+    required: false
+    predecessors: [chain]
+    stop_conditions: [SURFACE_COVERAGE_INSUFFICIENT]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 40
+  - node_id: liquidity
+    tool_id: market.observation.v1
+    operation_id: get_liquidity
+    requested_mode: DIAGNOSTIC
+    required: false
+    predecessors: [chain]
+    stop_conditions: [LIQUIDITY_VIEW_UNAVAILABLE]
+    downgrade_policy: SKIP_OPTIONAL
+    visible_call_cost: 1
+    priority: 50

@@ -1,0 +1,6 @@
+policy_id: p7_safety_v1
+max_execution_context_age_seconds: 86400
+accepted_defined_risk_statuses: [VALID, PROVEN]
+accepted_model_promotion_statuses: [PROMOTED, CHAMPION]
+accepted_model_compatibility_statuses: [COMPATIBLE]
+severe_ood_values: [SEVERE, CRITICAL]

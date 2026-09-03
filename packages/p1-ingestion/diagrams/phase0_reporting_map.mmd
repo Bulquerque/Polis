@@ -1,0 +1,4 @@
+flowchart LR
+  PX[phase_01_ingestion] -->|test/schema/hash/code/dashboard reports| P0[phase_00_zero_trust_guardian]
+  P0 -->|technical PASS/WARN/FAIL feedback| PX
+  P0 -. forbidden .-> ECON[No economic payloads]

@@ -1,0 +1,142 @@
+{
+  "$defs": {
+    "CandidateLiquidityState": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "capacity_units": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Capacity Units"
+        },
+        "fidelity": {
+          "$ref": "#/$defs/ComponentQuality"
+        },
+        "fill_probability_one_unit": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fill Probability One Unit"
+        },
+        "legging_risk": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Legging Risk"
+        },
+        "partial_fill_risk": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Partial Fill Risk"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "spread_bps": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Spread Bps"
+        },
+        "weakest_leg_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Weakest Leg Id"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "fidelity"
+      ],
+      "title": "CandidateLiquidityState",
+      "type": "object"
+    },
+    "ComponentQuality": {
+      "enum": [
+        "FULLY_QUALIFIED",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQuality",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/LiquiditySummary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "states": {
+      "items": {
+        "$ref": "#/$defs/CandidateLiquidityState"
+      },
+      "title": "States",
+      "type": "array"
+    }
+  },
+  "required": [
+    "states",
+    "content_sha256"
+  ],
+  "title": "LiquiditySummary",
+  "type": "object"
+}

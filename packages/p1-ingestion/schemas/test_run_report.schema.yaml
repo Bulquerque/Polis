@@ -1,0 +1,23 @@
+schema_id: test_run_report.v1
+artifact_name: test_run_report
+schema_version: v14.1-rc4.1
+required_fields:
+- test_run_id
+- phase_id
+- package_version
+- pipeline_version
+- executed_at
+- total_tests
+- passed_tests
+- failed_tests
+- skipped_tests
+- status
+forbidden_fields:
+- future_return
+- target
+- signal_direction
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision

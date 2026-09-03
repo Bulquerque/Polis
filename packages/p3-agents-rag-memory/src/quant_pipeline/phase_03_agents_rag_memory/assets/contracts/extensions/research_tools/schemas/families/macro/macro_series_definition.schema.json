@@ -1,0 +1,191 @@
+{
+  "$defs": {
+    "Frequency": {
+      "enum": [
+        "DAILY",
+        "WEEKLY",
+        "MONTHLY",
+        "QUARTERLY",
+        "ANNUAL",
+        "IRREGULAR",
+        "UNKNOWN"
+      ],
+      "title": "Frequency",
+      "type": "string"
+    },
+    "Transformation": {
+      "enum": [
+        "LEVEL",
+        "DIFFERENCE",
+        "PERCENT_CHANGE",
+        "LOG_DIFFERENCE",
+        "YEAR_OVER_YEAR",
+        "ANNUALIZED"
+      ],
+      "title": "Transformation",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "aliases": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Aliases",
+      "type": "array"
+    },
+    "allowed_transformations": {
+      "default": [
+        "LEVEL"
+      ],
+      "items": {
+        "$ref": "#/$defs/Transformation"
+      },
+      "title": "Allowed Transformations",
+      "type": "array"
+    },
+    "country": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Country"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Description"
+    },
+    "family": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Family"
+    },
+    "frequency": {
+      "$ref": "#/$defs/Frequency",
+      "default": "UNKNOWN"
+    },
+    "region": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Region"
+    },
+    "release_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Release Id"
+    },
+    "seasonal_adjustment": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Seasonal Adjustment"
+    },
+    "series_id": {
+      "minLength": 1,
+      "title": "Series Id",
+      "type": "string"
+    },
+    "source_id": {
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "title": {
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "unit": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Unit"
+    },
+    "valid_from": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valid From"
+    },
+    "valid_to": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valid To"
+    },
+    "vintage_support": {
+      "default": false,
+      "title": "Vintage Support",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "series_id",
+    "title",
+    "source_id"
+  ],
+  "title": "MacroSeriesDefinition",
+  "type": "object"
+}

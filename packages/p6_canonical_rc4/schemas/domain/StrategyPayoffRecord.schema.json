@@ -1,0 +1,141 @@
+{
+  "$defs": {
+    "CalculationStatus": {
+      "enum": [
+        "AVAILABLE",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "BLOCKED"
+      ],
+      "title": "CalculationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "break_even_points": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Break Even Points",
+      "type": "array"
+    },
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "entry_cash_flow": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Entry Cash Flow"
+    },
+    "maximum_gain": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Maximum Gain"
+    },
+    "maximum_gain_unbounded": {
+      "title": "Maximum Gain Unbounded",
+      "type": "boolean"
+    },
+    "maximum_loss": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Maximum Loss"
+    },
+    "payoff_status": {
+      "$ref": "#/$defs/CalculationStatus"
+    },
+    "right_tail_slope": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Right Tail Slope"
+    },
+    "spot_grid": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Spot Grid",
+      "type": "array"
+    },
+    "terminal_pnl": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Terminal Pnl",
+      "type": "array"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "spot_grid",
+    "terminal_pnl",
+    "entry_cash_flow",
+    "maximum_loss",
+    "maximum_gain",
+    "maximum_gain_unbounded",
+    "break_even_points",
+    "right_tail_slope",
+    "payoff_status"
+  ],
+  "title": "StrategyPayoffRecord",
+  "type": "object"
+}

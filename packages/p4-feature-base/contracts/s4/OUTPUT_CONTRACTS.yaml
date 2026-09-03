@@ -1,0 +1,26 @@
+version: V14.9-RC1
+outputs:
+  price_return_atomic_panel:
+    producer: P4.S4.M01
+    schema: schemas/s4/price_return_atomic_panel.schema.yaml
+  liquidity_microstructure_atomic_panel:
+    producer: P4.S4.M02
+    schema: schemas/s4/liquidity_microstructure_atomic_panel.schema.yaml
+  risk_tail_atomic_panel:
+    producer: P4.S4.M03
+    schema: schemas/s4/risk_tail_atomic_panel.schema.yaml
+  benchmark_cross_asset_atomic_panel:
+    producer: P4.S4.M04
+    schema: schemas/s4/benchmark_cross_asset_atomic_panel.schema.yaml
+  underlying_option_state_atomic_panel:
+    producer: P4.S4.M05
+    schema: schemas/s4/underlying_option_state_atomic_panel.schema.yaml
+  macro_event_calendar_atomic_panel:
+    producer: P4.S4.M06
+    schema: schemas/s4/macro_event_calendar_atomic_panel.schema.yaml
+  social_evidence_context_atomic_panel:
+    producer: P4.S4.M07
+    schema: schemas/s4/social_evidence_context_atomic_panel.schema.yaml
+  fundamental_accounting_atomic_panel:
+    producer: P4.S4.M08
+    schema: schemas/s4/fundamental_accounting_atomic_panel.schema.yaml

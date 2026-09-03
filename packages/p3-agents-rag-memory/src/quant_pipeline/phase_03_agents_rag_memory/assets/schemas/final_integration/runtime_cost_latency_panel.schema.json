@@ -1,0 +1,132 @@
+{
+  "$defs": {
+    "RuntimeCostLatencyRow": {
+      "additionalProperties": false,
+      "properties": {
+        "execution_record_hash": {
+          "title": "Execution Record Hash",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "latency_ms_p50": {
+          "minimum": 0.0,
+          "title": "Latency Ms P50",
+          "type": "number"
+        },
+        "latency_ms_p95": {
+          "minimum": 0.0,
+          "title": "Latency Ms P95",
+          "type": "number"
+        },
+        "provider_cost": {
+          "minimum": 0.0,
+          "title": "Provider Cost",
+          "type": "number"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "storage_cost": {
+          "minimum": 0.0,
+          "title": "Storage Cost",
+          "type": "number"
+        },
+        "tool_cost": {
+          "minimum": 0.0,
+          "title": "Tool Cost",
+          "type": "number"
+        },
+        "variant": {
+          "enum": [
+            "SEARCH_RAG",
+            "SINGLE_AGENT",
+            "SOCIETY_NO_RELATIONS",
+            "SOCIETY_NO_MEMORY",
+            "SOCIETY_NO_TOOLS",
+            "FULL_SOCIETY"
+          ],
+          "title": "Variant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "variant",
+        "fold_id",
+        "seed",
+        "execution_record_hash",
+        "provider_cost",
+        "storage_cost",
+        "tool_cost",
+        "latency_ms_p50",
+        "latency_ms_p95"
+      ],
+      "title": "RuntimeCostLatencyRow",
+      "type": "object"
+    }
+  },
+  "$id": "p3://schemas/final_integration/runtime_cost_latency_panel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cost_budget_per_execution": {
+      "exclusiveMinimum": 0.0,
+      "title": "Cost Budget Per Execution",
+      "type": "number"
+    },
+    "experiment_id": {
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "experiment_registry_hash": {
+      "title": "Experiment Registry Hash",
+      "type": "string"
+    },
+    "latency_budget_ms_p95": {
+      "exclusiveMinimum": 0.0,
+      "title": "Latency Budget Ms P95",
+      "type": "number"
+    },
+    "panel_hash": {
+      "title": "Panel Hash",
+      "type": "string"
+    },
+    "panel_version": {
+      "default": "p3.runtime-cost-latency.v2",
+      "title": "Panel Version",
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "$ref": "#/$defs/RuntimeCostLatencyRow"
+      },
+      "minItems": 90,
+      "title": "Rows",
+      "type": "array"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "experiment_id",
+    "experiment_registry_hash",
+    "rows",
+    "cost_budget_per_execution",
+    "latency_budget_ms_p95",
+    "panel_hash"
+  ],
+  "title": "RuntimeCostLatencyPanel",
+  "type": "object"
+}

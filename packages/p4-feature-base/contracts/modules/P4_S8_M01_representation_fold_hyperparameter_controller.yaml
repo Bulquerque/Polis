@@ -1,0 +1,20 @@
+module_id: P4.S8.M01
+module_name: representation_fold_hyperparameter_controller
+status: IMPLEMENTED_LOCAL_QUALIFIED
+contract_version: p4.v14.9-rc1.module.v1
+inputs:
+- underlying_feature_matrix_selected
+- feature_transform_state_manifest
+- representation_policy_registry
+outputs:
+- representation_fold_plan
+- encoder_hyperparameter_search_plan
+- encoder_execution_decision
+invariants:
+- point_in_time_integrity
+- cross_fitted_representation
+- deterministic_replay
+- no_predictive_objective
+production_promotion_allowed: false
+phase: P4
+subphase: P4.S8

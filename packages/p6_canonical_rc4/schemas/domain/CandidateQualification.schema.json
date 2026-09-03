@@ -1,0 +1,102 @@
+{
+  "$defs": {
+    "CalculationStatus": {
+      "enum": [
+        "AVAILABLE",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "BLOCKED"
+      ],
+      "title": "CalculationStatus",
+      "type": "string"
+    },
+    "MarginMethod": {
+      "enum": [
+        "EXACT_RULE_ENGINE",
+        "DEFINED_RISK_UPPER_BOUND",
+        "CONSERVATIVE_PROXY",
+        "UNAVAILABLE"
+      ],
+      "title": "MarginMethod",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "data_quality_status": {
+      "$ref": "#/$defs/CalculationStatus"
+    },
+    "margin_confidence": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Margin Confidence"
+    },
+    "margin_estimate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Margin Estimate"
+    },
+    "margin_method": {
+      "$ref": "#/$defs/MarginMethod"
+    },
+    "margin_scope": {
+      "default": "STANDALONE_CANDIDATE",
+      "title": "Margin Scope",
+      "type": "string"
+    },
+    "margin_status": {
+      "$ref": "#/$defs/CalculationStatus",
+      "default": "UNAVAILABLE"
+    },
+    "maximum_loss_proven": {
+      "title": "Maximum Loss Proven",
+      "type": "boolean"
+    },
+    "qualified": {
+      "title": "Qualified",
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "qualified",
+    "reason_codes",
+    "maximum_loss_proven",
+    "margin_method",
+    "margin_estimate",
+    "data_quality_status"
+  ],
+  "title": "CandidateQualification",
+  "type": "object"
+}

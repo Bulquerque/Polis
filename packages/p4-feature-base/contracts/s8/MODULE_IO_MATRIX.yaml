@@ -1,0 +1,60 @@
+phase: P4
+scope: P4.S8
+version: V14.9-RC1
+module_io_matrix:
+- module_id: P4.S8.M01
+  module_name: representation_fold_hyperparameter_controller
+  subphase: P4.S8
+  consumes_artifacts:
+  - underlying_feature_matrix_selected
+  - feature_transform_state_manifest
+  - representation_policy_registry
+  emits_artifacts:
+  - representation_fold_plan
+  - encoder_hyperparameter_search_plan
+  - encoder_execution_decision
+  module_contract: contracts/modules/P4_S8_M01_representation_fold_hyperparameter_controller.yaml
+  execution_stage: build
+- module_id: P4.S8.M02
+  module_name: family_pca_sparse_pca_builder
+  subphase: P4.S8
+  consumes_artifacts:
+  - underlying_feature_matrix_selected
+  - feature_transform_state_manifest
+  - representation_fold_plan
+  - representation_policy_registry
+  emits_artifacts:
+  - underlying_feature_factors_pca
+  - pca_fit_state_manifest
+  module_contract: contracts/modules/P4_S8_M02_family_pca_sparse_pca_builder.yaml
+  execution_stage: build
+- module_id: P4.S8.M03
+  module_name: family_shared_private_denoising_encoder_builder
+  subphase: P4.S8
+  consumes_artifacts:
+  - underlying_feature_matrix_selected
+  - feature_transform_state_manifest
+  - representation_fold_plan
+  - encoder_hyperparameter_search_plan
+  - encoder_execution_decision
+  - representation_policy_registry
+  emits_artifacts:
+  - underlying_feature_embeddings
+  - encoder_fit_state_manifest
+  module_contract: contracts/modules/P4_S8_M03_family_shared_private_denoising_encoder_builder.yaml
+  execution_stage: build
+- module_id: P4.S8.M04
+  module_name: representation_quality_horizon_packager
+  subphase: P4.S8
+  consumes_artifacts:
+  - underlying_feature_factors_pca
+  - underlying_feature_embeddings
+  - pca_fit_state_manifest
+  - encoder_fit_state_manifest
+  - representation_fold_plan
+  emits_artifacts:
+  - representation_quality_report
+  - representation_horizon_bundle
+  - encoder_hyperparameter_search_report
+  module_contract: contracts/modules/P4_S8_M04_representation_quality_horizon_packager.yaml
+  execution_stage: build

@@ -1,0 +1,35 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "authorization_id": {
+      "minLength": 1,
+      "title": "Authorization Id",
+      "type": "string"
+    },
+    "authorized_at": {
+      "format": "date-time",
+      "title": "Authorized At",
+      "type": "string"
+    },
+    "authorized_feedback_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Authorized Feedback Ids",
+      "type": "array"
+    },
+    "authorizer": {
+      "minLength": 1,
+      "title": "Authorizer",
+      "type": "string"
+    }
+  },
+  "required": [
+    "authorization_id",
+    "authorized_feedback_ids",
+    "authorized_at",
+    "authorizer"
+  ],
+  "title": "P0FeedbackAuthorization",
+  "type": "object"
+}

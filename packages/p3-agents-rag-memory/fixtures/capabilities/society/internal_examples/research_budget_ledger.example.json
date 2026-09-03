@@ -1,0 +1,16 @@
+{
+  "ledger_id": "rbl-001",
+  "total_trials": 147,
+  "trials_by_family": {
+    "M6_REGIME_CONDITIONING": 42,
+    "M4_TEMPORAL_TRANSFORM": 51
+  },
+  "failed_trials": 120,
+  "promoted_trials": 5,
+  "datasets_seen": [
+    "DISCOVERY_V1",
+    "VALIDATION_V1"
+  ],
+  "holdout_access_count": 0,
+  "lineage_id": "lin-ledger-001"
+}

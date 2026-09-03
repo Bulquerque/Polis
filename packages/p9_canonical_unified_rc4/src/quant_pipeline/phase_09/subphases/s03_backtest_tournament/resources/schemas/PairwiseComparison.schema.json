@@ -1,0 +1,74 @@
+{
+  "$id": "https://inferencia.local/p9/s3/PairwiseComparison.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "a_dominates_b": {
+      "title": "A Dominates B",
+      "type": "boolean"
+    },
+    "b_dominates_a": {
+      "title": "B Dominates A",
+      "type": "boolean"
+    },
+    "common_unit_count": {
+      "minimum": 0,
+      "title": "Common Unit Count",
+      "type": "integer"
+    },
+    "comparable": {
+      "title": "Comparable",
+      "type": "boolean"
+    },
+    "configuration_a": {
+      "title": "Configuration A",
+      "type": "string"
+    },
+    "configuration_b": {
+      "title": "Configuration B",
+      "type": "string"
+    },
+    "mean_loss_a": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mean Loss A"
+    },
+    "mean_loss_b": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mean Loss B"
+    }
+  },
+  "required": [
+    "configuration_a",
+    "configuration_b",
+    "common_unit_count",
+    "mean_loss_a",
+    "mean_loss_b",
+    "a_dominates_b",
+    "b_dominates_a",
+    "comparable"
+  ],
+  "title": "PairwiseComparison",
+  "type": "object"
+}

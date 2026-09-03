@@ -1,0 +1,197 @@
+$defs:
+  CandidatePolicyResolution:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        title: Candidate Id
+        type: string
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      rule_id:
+        title: Rule Id
+        type: string
+      head_ids:
+        items:
+          type: string
+        title: Head Ids
+        type: array
+      penalty_rules:
+        items:
+          $ref: '#/$defs/PenaltyRule'
+        title: Penalty Rules
+        type: array
+      confidence_head_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        title: Confidence Head Id
+      confidence_shrinkage_strength:
+        maximum: 1
+        minimum: 0
+        title: Confidence Shrinkage Strength
+        type: number
+    required:
+    - candidate_id
+    - comparison_group_id
+    - rule_id
+    - head_ids
+    - penalty_rules
+    - confidence_head_id
+    - confidence_shrinkage_strength
+    title: CandidatePolicyResolution
+    type: object
+  PenaltyRule:
+    additionalProperties: false
+    properties:
+      penalty_id:
+        title: Penalty Id
+        type: string
+      head_id:
+        title: Head Id
+        type: string
+      threshold:
+        maximum: 1
+        minimum: 0
+        title: Threshold
+        type: number
+      coefficient:
+        minimum: 0
+        title: Coefficient
+        type: number
+    required:
+    - penalty_id
+    - head_id
+    - threshold
+    - coefficient
+    title: PenaltyRule
+    type: object
+  ScoringPolicyReceiptRecord:
+    additionalProperties: false
+    properties:
+      policy_id:
+        title: Policy Id
+        type: string
+      policy_version:
+        title: Policy Version
+        type: string
+      operational_mode:
+        title: Operational Mode
+        type: string
+      policy_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Policy Hash
+        type: string
+      candidate_count:
+        minimum: 0
+        title: Candidate Count
+        type: integer
+      selected_candidate_count:
+        minimum: 0
+        title: Selected Candidate Count
+        type: integer
+      excluded_candidate_count:
+        minimum: 0
+        title: Excluded Candidate Count
+        type: integer
+      binding_count:
+        minimum: 0
+        title: Binding Count
+        type: integer
+      resolutions:
+        items:
+          $ref: '#/$defs/CandidatePolicyResolution'
+        title: Resolutions
+        type: array
+      rule_counts:
+        additionalProperties:
+          type: integer
+        title: Rule Counts
+        type: object
+      forbidden_field_scan_passed:
+        title: Forbidden Field Scan Passed
+        type: boolean
+    required:
+    - policy_id
+    - policy_version
+    - operational_mode
+    - policy_hash
+    - candidate_count
+    - selected_candidate_count
+    - excluded_candidate_count
+    - binding_count
+    - resolutions
+    - rule_counts
+    - forbidden_field_scan_passed
+    title: ScoringPolicyReceiptRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/ScoringPolicyReceiptRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: scoring_policy_receipt envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s4/scoring_policy_receipt/1.0.0

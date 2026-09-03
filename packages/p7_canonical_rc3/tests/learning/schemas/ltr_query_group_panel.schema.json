@@ -1,0 +1,146 @@
+{
+  "$id": "ltr_query_group_panel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "ltr_query_group_panel"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_count": {
+            "minimum": 2,
+            "type": "integer"
+          },
+          "capital_at_risk_bucket": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "cycle_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "decision_time": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "feature_schema_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "horizon": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "label_end_time": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "objective_family": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "outcome_available_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "query_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "underlying_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "query_id",
+          "cycle_id",
+          "decision_time",
+          "underlying_id",
+          "horizon",
+          "objective_family",
+          "capital_at_risk_bucket",
+          "candidate_count",
+          "label_end_time",
+          "outcome_available_at",
+          "feature_schema_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

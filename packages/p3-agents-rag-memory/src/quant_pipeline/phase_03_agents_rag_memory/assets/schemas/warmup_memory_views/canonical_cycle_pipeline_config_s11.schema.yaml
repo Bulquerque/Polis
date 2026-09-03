@@ -1,0 +1,173 @@
+$defs:
+  ArtifactRef:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_type:
+        minLength: 1
+        title: Artifact Type
+        type: string
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+      schema_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Id
+      schema_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Version
+    required:
+    - artifact_id
+    - artifact_type
+    - content_hash
+    title: ArtifactRef
+    type: object
+  FoundationResourceManifest:
+    additionalProperties: false
+    properties:
+      schema_id:
+        const: p3_foundation_resource_manifest.v1
+        title: Schema Id
+        type: string
+      schema_version:
+        const: 1.0.0
+        title: Schema Version
+        type: string
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      run_id:
+        minLength: 1
+        title: Run Id
+        type: string
+      snapshot_id:
+        minLength: 1
+        title: Snapshot Id
+        type: string
+      rag_index_ref:
+        $ref: '#/$defs/ArtifactRef'
+      graph_rag_ref:
+        $ref: '#/$defs/ArtifactRef'
+      memory_policy_ref:
+        $ref: '#/$defs/ArtifactRef'
+      tool_registry_ref:
+        $ref: '#/$defs/ArtifactRef'
+      entitlement_ref:
+        $ref: '#/$defs/ArtifactRef'
+      gateway_policy_ref:
+        $ref: '#/$defs/ArtifactRef'
+      prompt_bundle_ref:
+        $ref: '#/$defs/ArtifactRef'
+      model_registry_ref:
+        $ref: '#/$defs/ArtifactRef'
+      manifest_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Manifest Hash
+        type: string
+      status:
+        enum:
+        - READY
+        - DEGRADED
+        title: Status
+        type: string
+      degraded_capabilities:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Degraded Capabilities
+        type: array
+    required:
+    - schema_id
+    - schema_version
+    - artifact_id
+    - run_id
+    - snapshot_id
+    - rag_index_ref
+    - graph_rag_ref
+    - memory_policy_ref
+    - tool_registry_ref
+    - entitlement_ref
+    - gateway_policy_ref
+    - prompt_bundle_ref
+    - model_registry_ref
+    - manifest_hash
+    - status
+    title: FoundationResourceManifest
+    type: object
+additionalProperties: false
+properties:
+  schema_id:
+    const: canonical_cycle_pipeline_config.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    title: Schema Version
+    type: string
+  initialization_module_ranges:
+    items:
+      const: P3.S12-P3.S16
+      type: string
+    title: Initialization Module Ranges
+    type: array
+  cycle_kernel_module_ranges:
+    items:
+      const: P3.S17-P3.S26
+      type: string
+    title: Cycle Kernel Module Ranges
+    type: array
+  kernel_contract_version:
+    minLength: 1
+    title: Kernel Contract Version
+    type: string
+  accepted_kernel_versions:
+    items:
+      minLength: 1
+      type: string
+    title: Accepted Kernel Versions
+    type: array
+  warmup_mode_overrides:
+    items:
+      minLength: 1
+      type: string
+    title: Warmup Mode Overrides
+    type: array
+  required_trace_fields:
+    items:
+      minLength: 1
+      type: string
+    title: Required Trace Fields
+    type: array
+  foundation_resource_manifest:
+    $ref: '#/$defs/FoundationResourceManifest'
+required:
+- schema_id
+- schema_version
+- initialization_module_ranges
+- cycle_kernel_module_ranges
+- kernel_contract_version
+- accepted_kernel_versions
+- warmup_mode_overrides
+- required_trace_fields
+- foundation_resource_manifest
+title: CanonicalCyclePipelineConfig
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: canonical_cycle_pipeline_config_s11
+schema_id: canonical_cycle_pipeline_config.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

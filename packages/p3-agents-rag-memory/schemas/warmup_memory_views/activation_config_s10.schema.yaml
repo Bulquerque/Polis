@@ -1,0 +1,43 @@
+additionalProperties: false
+properties:
+  schema_id:
+    const: activation_config.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    title: Schema Version
+    type: string
+  monthly_heartbeat:
+    const: true
+    title: Monthly Heartbeat
+    type: boolean
+  event_priority:
+    default: 10
+    maximum: 1000
+    minimum: 0
+    title: Event Priority
+    type: integer
+  heartbeat_priority:
+    default: 20
+    maximum: 1000
+    minimum: 0
+    title: Heartbeat Priority
+    type: integer
+  max_extra_activations:
+    default: 10
+    maximum: 1000
+    minimum: 0
+    title: Max Extra Activations
+    type: integer
+required:
+- schema_id
+- schema_version
+- monthly_heartbeat
+title: ActivationConfigView
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: activation_config_s10
+schema_id: activation_config.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

@@ -1,0 +1,149 @@
+{
+  "$defs": {
+    "CapabilityStatus": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "UNAVAILABLE"
+      ],
+      "title": "CapabilityStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "ambiguity_regret": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ambiguity Regret"
+    },
+    "ambiguity_set_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ambiguity Set Id"
+    },
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "distribution_sensitivity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Distribution Sensitivity"
+    },
+    "nominal_expected_payoff": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Nominal Expected Payoff"
+    },
+    "reason_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason Code"
+    },
+    "status": {
+      "$ref": "#/$defs/CapabilityStatus"
+    },
+    "worst_case_cvar": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Worst Case Cvar"
+    },
+    "worst_case_expected_payoff": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Worst Case Expected Payoff"
+    },
+    "worst_case_expected_utility": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Worst Case Expected Utility"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "status",
+    "nominal_expected_payoff",
+    "worst_case_expected_payoff",
+    "worst_case_expected_utility",
+    "worst_case_cvar",
+    "ambiguity_regret",
+    "distribution_sensitivity",
+    "ambiguity_set_id"
+  ],
+  "title": "RobustAmbiguityEvaluation",
+  "type": "object"
+}

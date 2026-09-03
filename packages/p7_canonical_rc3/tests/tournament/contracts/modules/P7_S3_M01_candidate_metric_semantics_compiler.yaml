@@ -1,0 +1,7 @@
+module_id: P7.S3.M01
+owner: TOURNAMENT
+purpose: Compile candidate metrics into an explicit comparable semantic space.
+inputs: [runtime_foundation_handoff_manifest, eligible_strategy_candidate_panel, candidate_comparison_group_panel, candidate_metric_source_panel, ranking_policy_context, runtime_foundation_audit_report]
+outputs: [comparable_candidate_metric_panel, metric_semantics_audit_report]
+failure_scope: PHASE_FATAL_OR_METRIC_STATUS
+invariants: [raw value preserved, no implicit unit conversion, null is not zero, no future fields]

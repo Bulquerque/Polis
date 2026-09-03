@@ -1,0 +1,775 @@
+{
+  "bundle_id": "run-1:P9.S6:c7d1392ae43b9017",
+  "context": {
+    "run_id": "run-1",
+    "cycle_id": "cycle-1",
+    "experiment_id": "exp-1",
+    "configuration_id": "cfg-1",
+    "decision_time": "2026-01-10T00:00:00Z",
+    "available_at": "2026-01-09T00:00:00Z",
+    "code_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "data_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "scenario_registry": {
+    "status": "COMMITTED",
+    "registry_id": "run-1:P9.S6.SCENARIOS:b7082d0484cae1ee",
+    "scenarios": [
+      {
+        "scenario": {
+          "scenario_id": "historical-crisis-1",
+          "name": "Synthetic equity-volatility crisis",
+          "scenario_class": "HISTORICAL_REPLAY",
+          "created_at": "2026-01-08T00:00:00Z",
+          "purpose": "structural stress qualification",
+          "approved_uses": [
+            "RESEARCH",
+            "QUALIFICATION"
+          ],
+          "prohibited_uses": [],
+          "shocks": [
+            {
+              "factor_id": "equity",
+              "value": -1.0,
+              "unit": "decimal"
+            },
+            {
+              "factor_id": "volatility",
+              "value": 1.0,
+              "unit": "decimal"
+            }
+          ],
+          "horizon_days": 4,
+          "severity_label": "SEVERE",
+          "plausibility_label": "PLAUSIBLE"
+        },
+        "semantic_sha256": "dd98353ecba68f368d16a4651722095f66c2f4f94c66805a3bcda161424fbdd2"
+      }
+    ],
+    "duplicate_scenario_ids": [],
+    "risk_coverage": [
+      {
+        "risk_id": "market-risk",
+        "covered": true,
+        "covering_scenario_ids": [
+          "historical-crisis-1"
+        ],
+        "materiality_weight": 1.0
+      }
+    ],
+    "weighted_material_risk_coverage": 1.0,
+    "commitment_time": "2026-01-10T00:00:00Z",
+    "registry_sha256": "b7082d0484cae1eefef4ba4599f4ea7f25365d89059b8eedc82149cb34f0c8e6",
+    "reason_codes": [],
+    "limitations": [],
+    "evidence": []
+  },
+  "historical_replay": {
+    "status": "SUCCESS",
+    "scenario_id": "historical-crisis-1",
+    "replay_mode": "STATIC_EXPOSURE",
+    "mappings": [
+      {
+        "exposure_id": "exp-equity",
+        "current_factor_id": "equity",
+        "historical_factor_id": "equity",
+        "mapping_scale": 1.0,
+        "evidence_class": "OBSERVED_HISTORICAL",
+        "mapped": true,
+        "notional": 1000000.0
+      },
+      {
+        "exposure_id": "exp-vol",
+        "current_factor_id": "volatility",
+        "historical_factor_id": "volatility",
+        "mapping_scale": 1.0,
+        "evidence_class": "OBSERVED_HISTORICAL",
+        "mapped": true,
+        "notional": 500000.0
+      }
+    ],
+    "path": [
+      {
+        "timestamp": "2025-12-31T00:00:00Z",
+        "pnl": 0.0,
+        "cumulative_pnl": 0.0,
+        "mapped_pnl": 0.0,
+        "modelled_pnl": 0.0,
+        "unmapped_notional": 0.0
+      },
+      {
+        "timestamp": "2026-01-01T00:00:00Z",
+        "pnl": -1.0185,
+        "cumulative_pnl": -1.0185,
+        "mapped_pnl": -1.0185,
+        "modelled_pnl": 0.0,
+        "unmapped_notional": 0.0
+      },
+      {
+        "timestamp": "2026-01-02T00:00:00Z",
+        "pnl": -0.5249,
+        "cumulative_pnl": -1.5434,
+        "mapped_pnl": -0.5249,
+        "modelled_pnl": 0.0,
+        "unmapped_notional": 0.0
+      },
+      {
+        "timestamp": "2026-01-03T00:00:00Z",
+        "pnl": 0.95935,
+        "cumulative_pnl": -0.5840500000000001,
+        "mapped_pnl": 0.95935,
+        "modelled_pnl": 0.0,
+        "unmapped_notional": 0.0
+      }
+    ],
+    "mapped_exposure_share": 1.0,
+    "modelled_pnl_share": 0.0,
+    "unmapped_notional": 0.0,
+    "worst_cumulative_pnl": -1.5434,
+    "recovery_included": true,
+    "reason_codes": [],
+    "limitations": []
+  },
+  "sensitivity": {
+    "status": "CONSTRAINT_DISCONTINUITY_FOUND",
+    "model_id": "quadratic-pnl-v1",
+    "points": [
+      {
+        "shocks": [
+          [
+            "equity",
+            -1.0
+          ],
+          [
+            "volatility",
+            -1.0
+          ]
+        ],
+        "output_value": 1.25,
+        "extrapolated": true,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            -1.0
+          ],
+          [
+            "volatility",
+            0.0
+          ]
+        ],
+        "output_value": 0.9,
+        "extrapolated": true,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            -1.0
+          ],
+          [
+            "volatility",
+            1.0
+          ]
+        ],
+        "output_value": 0.45,
+        "extrapolated": true,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            -0.5
+          ],
+          [
+            "volatility",
+            -1.0
+          ]
+        ],
+        "output_value": 0.875,
+        "extrapolated": false,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            -0.5
+          ],
+          [
+            "volatility",
+            0.0
+          ]
+        ],
+        "output_value": 0.475,
+        "extrapolated": false,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            -0.5
+          ],
+          [
+            "volatility",
+            1.0
+          ]
+        ],
+        "output_value": -0.025,
+        "extrapolated": false,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            0.0
+          ],
+          [
+            "volatility",
+            -1.0
+          ]
+        ],
+        "output_value": 0.45,
+        "extrapolated": false,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            0.0
+          ],
+          [
+            "volatility",
+            0.0
+          ]
+        ],
+        "output_value": 0.0,
+        "extrapolated": false,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            0.0
+          ],
+          [
+            "volatility",
+            1.0
+          ]
+        ],
+        "output_value": -0.55,
+        "extrapolated": false,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            0.5
+          ],
+          [
+            "volatility",
+            -1.0
+          ]
+        ],
+        "output_value": -0.025,
+        "extrapolated": false,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            0.5
+          ],
+          [
+            "volatility",
+            0.0
+          ]
+        ],
+        "output_value": -0.525,
+        "extrapolated": false,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            0.5
+          ],
+          [
+            "volatility",
+            1.0
+          ]
+        ],
+        "output_value": -1.125,
+        "extrapolated": false,
+        "breached_constraint_ids": [
+          "loss-limit"
+        ]
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            1.0
+          ],
+          [
+            "volatility",
+            -1.0
+          ]
+        ],
+        "output_value": -0.55,
+        "extrapolated": true,
+        "breached_constraint_ids": []
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            1.0
+          ],
+          [
+            "volatility",
+            0.0
+          ]
+        ],
+        "output_value": -1.1,
+        "extrapolated": true,
+        "breached_constraint_ids": [
+          "loss-limit"
+        ]
+      },
+      {
+        "shocks": [
+          [
+            "equity",
+            1.0
+          ],
+          [
+            "volatility",
+            1.0
+          ]
+        ],
+        "output_value": -1.75,
+        "extrapolated": true,
+        "breached_constraint_ids": [
+          "loss-limit"
+        ]
+      }
+    ],
+    "factor_sensitivities": [
+      {
+        "factor_id": "equity",
+        "local_gradient": -1.0,
+        "curvature": -0.2,
+        "main_effect_range": 2.0
+      },
+      {
+        "factor_id": "volatility",
+        "local_gradient": -0.5,
+        "curvature": -0.1,
+        "main_effect_range": 1.0
+      }
+    ],
+    "interactions": [
+      {
+        "factor_id_left": "equity",
+        "factor_id_right": "volatility",
+        "interaction_coefficient": -0.1
+      }
+    ],
+    "cliffs": [
+      {
+        "factor_id": "equity",
+        "left_shock": 0.5,
+        "right_shock": 1.0,
+        "relative_jump": 0.050000000000000044,
+        "constraint_ids": [
+          "loss-limit"
+        ]
+      }
+    ],
+    "evaluation_count": 15,
+    "extrapolated_point_fraction": 0.4,
+    "reason_codes": [
+      "P9_STRESS_EXTRAPOLATION_UNQUALIFIED",
+      "P9_STRESS_CONSTRAINT_DISCONTINUITY_FOUND"
+    ],
+    "limitations": [
+      "some surface points are outside the observed factor domain"
+    ]
+  },
+  "evt": {
+    "status": "QUALIFIED",
+    "loss_series_id": "portfolio-loss",
+    "threshold": 1.6515294253597594,
+    "exceedance_count": 100,
+    "tail_index": -0.04390277515126536,
+    "scale_parameter": 0.41820733992677744,
+    "conditional_var": 1.7633268616681799,
+    "conditional_expected_shortfall": 2.0120210871772493,
+    "residual_lag1_autocorrelation": 0.07060208095139488,
+    "threshold_tail_index_range": 0.01107126498942021,
+    "ks_statistic": 0.05142670694217322,
+    "parameter_intervals": [
+      {
+        "parameter": "tail_index",
+        "estimate": -0.08841182040988045,
+        "low": -0.33026281026514626,
+        "high": 0.1663836427809108
+      },
+      {
+        "parameter": "scale",
+        "estimate": 0.438789719851649,
+        "low": 0.3190333438330741,
+        "high": 0.5586388167889522
+      }
+    ],
+    "capability_state": "AVAILABLE",
+    "reason_codes": [],
+    "limitations": []
+  },
+  "dro": {
+    "status": "QUALIFIED",
+    "family": "DISCRETE_SUPPORT_WASSERSTEIN_1",
+    "empirical_mean_loss": 0.29999999999999993,
+    "empirical_cvar": 1.2,
+    "empirical_mean_score": 0.125,
+    "frontier": [
+      {
+        "radius": 0.0,
+        "worst_case_mean_loss": 0.29999999999999993,
+        "worst_case_cvar": 1.2,
+        "worst_case_score": 0.125,
+        "transport_cost": 0.0,
+        "solver_status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "target_probabilities": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      {
+        "radius": 0.1,
+        "worst_case_mean_loss": 0.36552647894858814,
+        "worst_case_cvar": 1.2,
+        "worst_case_score": 0.03139074435915967,
+        "transport_cost": 0.1,
+        "solver_status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "target_probabilities": [
+          0.3436092556408403,
+          0.15639074435915967,
+          0.25,
+          0.25
+        ]
+      },
+      {
+        "radius": 0.3,
+        "worst_case_mean_loss": 0.4938249158938368,
+        "worst_case_cvar": 1.2,
+        "worst_case_score": -0.14672105680058095,
+        "transport_cost": 0.3,
+        "solver_status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "target_probabilities": [
+          0.5144807045337206,
+          0.0,
+          0.2355192954662794,
+          0.25
+        ]
+      }
+    ],
+    "capability_state": "AVAILABLE",
+    "radius_calibrated": true,
+    "reason_codes": [],
+    "limitations": []
+  },
+  "capacity": {
+    "status": "QUALIFIED_WITH_LIMITATIONS",
+    "points": [
+      {
+        "aum": 250000.0,
+        "net_return": 0.17807931357262893,
+        "annual_cost_fraction": 0.0019206864273710721,
+        "maximum_participation_rate": 0.0015873015873015873,
+        "liquidation_horizon_days": 1.0416666666666667,
+        "margin_usage_fraction": 0.285,
+        "evidence_class": "OBSERVED_HISTORICAL",
+        "feasible": true
+      },
+      {
+        "aum": 1000000.0,
+        "net_return": 0.17807416109772597,
+        "annual_cost_fraction": 0.0019258389022740242,
+        "maximum_participation_rate": 0.006349206349206349,
+        "liquidation_horizon_days": 4.166666666666667,
+        "margin_usage_fraction": 0.285,
+        "evidence_class": "OBSERVED_HISTORICAL",
+        "feasible": true
+      },
+      {
+        "aum": 4000000.0,
+        "net_return": 0.17803009555379695,
+        "annual_cost_fraction": 0.0019699044462030417,
+        "maximum_participation_rate": 0.025396825396825397,
+        "liquidation_horizon_days": 16.666666666666668,
+        "margin_usage_fraction": 0.285,
+        "evidence_class": "STRESS_EXTRAPOLATED",
+        "feasible": true
+      },
+      {
+        "aum": 12000000.0,
+        "net_return": 0.17780580451793915,
+        "annual_cost_fraction": 0.0021941954820608577,
+        "maximum_participation_rate": 0.07619047619047618,
+        "liquidation_horizon_days": 50.0,
+        "margin_usage_fraction": 0.285,
+        "evidence_class": "STRESS_EXTRAPOLATED",
+        "feasible": true
+      }
+    ],
+    "break_even_aum": null,
+    "capacity_limit_aum": 12000000.0,
+    "maximum_liquidation_horizon_days": 50.0,
+    "minimum_margin_buffer": 0.7150000000000001,
+    "network_spectral_radius": null,
+    "network_loss_amplification": null,
+    "reason_codes": [
+      "P9_STRESS_BREAK_EVEN_AUM_NOT_IDENTIFIED",
+      "P9_STRESS_CAPACITY_EXTRAPOLATION_MATERIAL"
+    ],
+    "limitations": [
+      "net return does not cross zero inside the qualified AUM grid",
+      "part of the capacity curve is extrapolated beyond observed scale"
+    ]
+  },
+  "reverse_stress": {
+    "status": "STRESS_RESILIENT",
+    "condition_id": "portfolio-loss-limit",
+    "distance_to_failure": 0.6642034546170249,
+    "shock_vector": [
+      [
+        "equity",
+        0.5909281407312887
+      ],
+      [
+        "volatility",
+        0.30326582665551427
+      ]
+    ],
+    "stressed_value": -0.8000000000000004,
+    "binding_condition": "portfolio-loss-limit",
+    "verification_error": 3.3306690738754696e-16,
+    "solution_count": 2,
+    "safe_axis_distances": [
+      [
+        "equity",
+        0.7445626465380287
+      ],
+      [
+        "volatility",
+        1.4031242374328488
+      ]
+    ],
+    "solver_messages": [
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully",
+      "Optimization terminated successfully"
+    ],
+    "reason_codes": [],
+    "limitations": []
+  },
+  "validation": {
+    "status": "VALIDATED",
+    "checks": [
+      {
+        "check_id": "material-risk-coverage",
+        "passed": true,
+        "detail": "coverage=1.000000"
+      },
+      {
+        "check_id": "historical-mapping-share",
+        "passed": true,
+        "detail": "mapped_share=1.000000"
+      },
+      {
+        "check_id": "historical-modelled-pnl-share",
+        "passed": true,
+        "detail": "modelled_share=0.000000"
+      },
+      {
+        "check_id": "surface-has-points",
+        "passed": true,
+        "detail": "point_count=15"
+      },
+      {
+        "check_id": "capacity-cost-monotonicity",
+        "passed": true,
+        "detail": "annual cost fraction must not decrease as AUM rises"
+      },
+      {
+        "check_id": "capacity-applicable",
+        "passed": true,
+        "detail": "status=QUALIFIED_WITH_LIMITATIONS"
+      },
+      {
+        "check_id": "reverse-forward-verification",
+        "passed": true,
+        "detail": "status=STRESS_RESILIENT, error=3.3306690738754696e-16"
+      },
+      {
+        "check_id": "reverse-distance",
+        "passed": true,
+        "detail": "distance=0.6642034546170249"
+      },
+      {
+        "check_id": "evt-capability",
+        "passed": true,
+        "detail": "EVT is optional unless required by validation policy"
+      },
+      {
+        "check_id": "dro-capability",
+        "passed": true,
+        "detail": "DRO is optional unless required by validation policy"
+      }
+    ],
+    "approved_uses": [
+      {
+        "use_id": "RESEARCH",
+        "approved": true,
+        "reason_codes": []
+      },
+      {
+        "use_id": "QUALIFICATION",
+        "approved": true,
+        "reason_codes": []
+      },
+      {
+        "use_id": "PROMOTION_SUPPORT",
+        "approved": true,
+        "reason_codes": []
+      }
+    ],
+    "material_risk_coverage": 1.0,
+    "failed_check_count": 0,
+    "specialist_capability_states": [
+      [
+        "EVT",
+        "AVAILABLE"
+      ],
+      [
+        "DRO",
+        "AVAILABLE"
+      ]
+    ],
+    "reason_codes": [],
+    "limitations": []
+  },
+  "module_receipts": [
+    {
+      "module_id": "P9.S6.M01",
+      "status": "COMMITTED",
+      "reason_codes": [],
+      "limitations": [],
+      "output_sha256": "a1da105b269a8fabbf95875f359725e2a8a2fa6c0ff5a979b943fc055e4ace97",
+      "started_at": "2026-01-10T00:00:00Z",
+      "completed_at": "2026-01-10T00:00:00Z"
+    },
+    {
+      "module_id": "P9.S6.M02",
+      "status": "SUCCESS",
+      "reason_codes": [],
+      "limitations": [],
+      "output_sha256": "86c1bc52539e721ad30346f653d94d580a8d7037709eed7f30c72aaa431e5c20",
+      "started_at": "2026-01-10T00:00:00Z",
+      "completed_at": "2026-01-10T00:00:00Z"
+    },
+    {
+      "module_id": "P9.S6.M03",
+      "status": "CONSTRAINT_DISCONTINUITY_FOUND",
+      "reason_codes": [
+        "P9_STRESS_EXTRAPOLATION_UNQUALIFIED",
+        "P9_STRESS_CONSTRAINT_DISCONTINUITY_FOUND"
+      ],
+      "limitations": [
+        "some surface points are outside the observed factor domain"
+      ],
+      "output_sha256": "74b63ae2a834c255597a08a88bf5cd741f1756c4272109c7f00b1a79a3801577",
+      "started_at": "2026-01-10T00:00:00Z",
+      "completed_at": "2026-01-10T00:00:00Z"
+    },
+    {
+      "module_id": "P9.S6.M04",
+      "status": "QUALIFIED",
+      "reason_codes": [],
+      "limitations": [],
+      "output_sha256": "97971cf76f33b7921b465878c675cf247cdb067fd52cae4f52897d31a3a0079c",
+      "started_at": "2026-01-10T00:00:00Z",
+      "completed_at": "2026-01-10T00:00:00Z"
+    },
+    {
+      "module_id": "P9.S6.M05",
+      "status": "QUALIFIED",
+      "reason_codes": [],
+      "limitations": [],
+      "output_sha256": "5a1fb64daaf89df229604ae8e7e2abde4e65a9fec19a596b48f2ff0983f94bc0",
+      "started_at": "2026-01-10T00:00:00Z",
+      "completed_at": "2026-01-10T00:00:00Z"
+    },
+    {
+      "module_id": "P9.S6.M06",
+      "status": "QUALIFIED_WITH_LIMITATIONS",
+      "reason_codes": [
+        "P9_STRESS_BREAK_EVEN_AUM_NOT_IDENTIFIED",
+        "P9_STRESS_CAPACITY_EXTRAPOLATION_MATERIAL"
+      ],
+      "limitations": [
+        "net return does not cross zero inside the qualified AUM grid",
+        "part of the capacity curve is extrapolated beyond observed scale"
+      ],
+      "output_sha256": "be022775940437b185f9db8a0275b90c4a582c70f45bbb8fed8e5a0a24a1a591",
+      "started_at": "2026-01-10T00:00:00Z",
+      "completed_at": "2026-01-10T00:00:00Z"
+    },
+    {
+      "module_id": "P9.S6.M07",
+      "status": "STRESS_RESILIENT",
+      "reason_codes": [],
+      "limitations": [],
+      "output_sha256": "31d6ad112a9261afbc432043e2e91bbae526b7fdc2029fbfe09b78303bb400d1",
+      "started_at": "2026-01-10T00:00:00Z",
+      "completed_at": "2026-01-10T00:00:00Z"
+    },
+    {
+      "module_id": "P9.S6.M08",
+      "status": "VALIDATED",
+      "reason_codes": [],
+      "limitations": [],
+      "output_sha256": "a054ec30951ca7482bb9a655784f1c6596e545e7376bd18495570dcfd0e7bb16",
+      "started_at": "2026-01-10T00:00:00Z",
+      "completed_at": "2026-01-10T00:00:00Z"
+    }
+  ],
+  "bundle_sha256": "c7d1392ae43b9017e618c6835a6d69e2b3d55512a2017f3ea671756c3a2eb8b9"
+}

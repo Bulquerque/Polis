@@ -1,0 +1,176 @@
+$defs:
+  ArtifactReference:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_type:
+        minLength: 1
+        title: Artifact Type
+        type: string
+      artifact_schema_name:
+        minLength: 1
+        title: Artifact Schema Name
+        type: string
+      artifact_schema_version:
+        minLength: 1
+        title: Artifact Schema Version
+        type: string
+      artifact_schema_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Artifact Schema Sha256
+        type: string
+      content_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Sha256
+        type: string
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+      run_id:
+        minLength: 1
+        title: Run Id
+        type: string
+      cycle_id:
+        minLength: 1
+        title: Cycle Id
+        type: string
+      decision_time:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        title: Decision Time
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      computed_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        title: Computed At
+      maturity_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        title: Maturity At
+      uri:
+        minLength: 1
+        title: Uri
+        type: string
+      availability:
+        $ref: '#/$defs/Availability'
+        default: AVAILABLE
+    required:
+    - artifact_id
+    - artifact_type
+    - artifact_schema_name
+    - artifact_schema_version
+    - artifact_schema_sha256
+    - content_sha256
+    - producer_module_id
+    - run_id
+    - cycle_id
+    - available_at
+    - uri
+    title: ArtifactReference
+    type: object
+  Availability:
+    enum:
+    - AVAILABLE
+    - LIMITED
+    - UNAVAILABLE
+    - RESEARCH_ONLY
+    title: Availability
+    type: string
+  ConsumerReceipt:
+    additionalProperties: false
+    properties:
+      consumer_module_id:
+        pattern: ^P9\.S7\.M0[1-8]$
+        title: Consumer Module Id
+        type: string
+      source_contract_name:
+        minLength: 1
+        title: Source Contract Name
+        type: string
+      source_contract_version:
+        minLength: 1
+        title: Source Contract Version
+        type: string
+      source_bundle_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Source Bundle Sha256
+        type: string
+      input_ref_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Input Ref Ids
+        type: array
+      accepted_ref_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Accepted Ref Ids
+        type: array
+      rejected_ref_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Rejected Ref Ids
+        type: array
+      reserved_ref_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reserved Ref Ids
+        type: array
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - consumer_module_id
+    - source_contract_name
+    - source_contract_version
+    - source_bundle_sha256
+    - input_ref_ids
+    - accepted_ref_ids
+    title: ConsumerReceipt
+    type: object
+additionalProperties: false
+properties:
+  foundation_bundle:
+    $ref: '#/$defs/ArtifactReference'
+  backtest_metrics_bundle:
+    $ref: '#/$defs/ArtifactReference'
+  robustness_stress_bundle:
+    $ref: '#/$defs/ArtifactReference'
+  consumer_receipts:
+    items:
+      $ref: '#/$defs/ConsumerReceipt'
+    title: Consumer Receipts
+    type: array
+required:
+- foundation_bundle
+- backtest_metrics_bundle
+- robustness_stress_bundle
+- consumer_receipts
+title: S7UpstreamReferences
+type: object
+$id: urn:inferencia:p9:s7:S7UpstreamReferences:1.0.0

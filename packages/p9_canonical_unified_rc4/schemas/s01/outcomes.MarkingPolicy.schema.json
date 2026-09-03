@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allow_model_marks": {
+      "default": false,
+      "title": "Allow Model Marks",
+      "type": "boolean"
+    },
+    "max_staleness_seconds": {
+      "minimum": 0,
+      "title": "Max Staleness Seconds",
+      "type": "integer"
+    },
+    "midpoint_for_bid_ask": {
+      "default": true,
+      "title": "Midpoint For Bid Ask",
+      "type": "boolean"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "prefer_official_settlement": {
+      "default": true,
+      "title": "Prefer Official Settlement",
+      "type": "boolean"
+    },
+    "require_contract_match": {
+      "default": true,
+      "title": "Require Contract Match",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "policy_id",
+    "max_staleness_seconds"
+  ],
+  "title": "MarkingPolicy",
+  "type": "object"
+}

@@ -1,0 +1,336 @@
+$defs:
+  HeadPolicy:
+    additionalProperties: false
+    properties:
+      head_id:
+        title: Head Id
+        type: string
+      head_weight:
+        exclusiveMinimum: 0
+        minimum: 0
+        title: Head Weight
+        type: number
+      missing_head_action:
+        $ref: '#/$defs/MissingHeadAction'
+      missing_head_penalty:
+        default: 0.0
+        maximum: 1
+        minimum: 0
+        title: Missing Head Penalty
+        type: number
+      metric_bindings:
+        items:
+          $ref: '#/$defs/MetricBindingPolicy'
+        title: Metric Bindings
+        type: array
+    required:
+    - head_id
+    - head_weight
+    - missing_head_action
+    - metric_bindings
+    title: HeadPolicy
+    type: object
+  MetricBindingPolicy:
+    additionalProperties: false
+    properties:
+      metric_id:
+        title: Metric Id
+        type: string
+      source_preference:
+        $ref: '#/$defs/MetricSourcePreference'
+      transformation:
+        $ref: '#/$defs/TransformationMethod'
+      normalization:
+        $ref: '#/$defs/NormalizationMethod'
+      metric_weight:
+        exclusiveMinimum: 0
+        minimum: 0
+        title: Metric Weight
+        type: number
+      clip_lower:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Clip Lower
+      clip_upper:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Clip Upper
+      absolute_lower:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Absolute Lower
+      absolute_upper:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Absolute Upper
+      robust_scale:
+        default: 1.0
+        exclusiveMinimum: 0
+        minimum: 0
+        title: Robust Scale
+        type: number
+      min_group_size:
+        default: 2
+        minimum: 1
+        title: Min Group Size
+        type: integer
+      small_group_action:
+        $ref: '#/$defs/SmallGroupAction'
+        default: ABSOLUTE_FALLBACK
+      missing_metric_action:
+        $ref: '#/$defs/MissingMetricAction'
+        default: BLOCK_HEAD
+      missing_metric_penalty:
+        default: 0.0
+        maximum: 1
+        minimum: 0
+        title: Missing Metric Penalty
+        type: number
+    required:
+    - metric_id
+    - source_preference
+    - transformation
+    - normalization
+    - metric_weight
+    title: MetricBindingPolicy
+    type: object
+  MetricSourcePreference:
+    enum:
+    - COMPARABLE_ONLY
+    - FACTOR_ADJUSTED_PREFERRED
+    - FACTOR_ADJUSTED_REQUIRED
+    title: MetricSourcePreference
+    type: string
+  MissingHeadAction:
+    enum:
+    - BLOCK
+    - PENALIZE
+    - RENORMALIZE_ALLOWED
+    title: MissingHeadAction
+    type: string
+  MissingMetricAction:
+    enum:
+    - BLOCK_HEAD
+    - PENALIZE_HEAD
+    - RENORMALIZE_METRICS
+    - UNAVAILABLE
+    title: MissingMetricAction
+    type: string
+  NormalizationMethod:
+    enum:
+    - IDENTITY_BOUNDED
+    - ABSOLUTE_RANGE
+    - ROBUST_Z_SIGMOID
+    - PERCENTILE
+    title: NormalizationMethod
+    type: string
+  PenaltyRule:
+    additionalProperties: false
+    properties:
+      penalty_id:
+        title: Penalty Id
+        type: string
+      head_id:
+        title: Head Id
+        type: string
+      threshold:
+        maximum: 1
+        minimum: 0
+        title: Threshold
+        type: number
+      coefficient:
+        minimum: 0
+        title: Coefficient
+        type: number
+    required:
+    - penalty_id
+    - head_id
+    - threshold
+    - coefficient
+    title: PenaltyRule
+    type: object
+  ScoringPolicyContextRecord:
+    additionalProperties: false
+    properties:
+      policy_id:
+        title: Policy Id
+        type: string
+      policy_version:
+        title: Policy Version
+        type: string
+      operational_mode:
+        title: Operational Mode
+        type: string
+      rules:
+        items:
+          $ref: '#/$defs/ScoringPolicyRule'
+        title: Rules
+        type: array
+      forbidden_field_names:
+        items:
+          type: string
+        title: Forbidden Field Names
+        type: array
+    required:
+    - policy_id
+    - policy_version
+    - operational_mode
+    - rules
+    - forbidden_field_names
+    title: ScoringPolicyContextRecord
+    type: object
+  ScoringPolicyRule:
+    additionalProperties: false
+    properties:
+      rule_id:
+        title: Rule Id
+        type: string
+      operational_modes:
+        items:
+          type: string
+        title: Operational Modes
+        type: array
+      objective_families:
+        default:
+        - '*'
+        items:
+          type: string
+        title: Objective Families
+        type: array
+      horizons:
+        default:
+        - '*'
+        items:
+          type: string
+        title: Horizons
+        type: array
+      max_frontier_layer:
+        default: 0
+        minimum: 0
+        title: Max Frontier Layer
+        type: integer
+      include_incomparable:
+        default: false
+        title: Include Incomparable
+        type: boolean
+      heads:
+        items:
+          $ref: '#/$defs/HeadPolicy'
+        title: Heads
+        type: array
+      penalty_rules:
+        default: []
+        items:
+          $ref: '#/$defs/PenaltyRule'
+        title: Penalty Rules
+        type: array
+      confidence_head_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Confidence Head Id
+      confidence_shrinkage_strength:
+        default: 0.0
+        maximum: 1
+        minimum: 0
+        title: Confidence Shrinkage Strength
+        type: number
+    required:
+    - rule_id
+    - operational_modes
+    - heads
+    title: ScoringPolicyRule
+    type: object
+  SmallGroupAction:
+    enum:
+    - ABSOLUTE_FALLBACK
+    - UNAVAILABLE
+    - BLOCK
+    title: SmallGroupAction
+    type: string
+  TransformationMethod:
+    enum:
+    - IDENTITY
+    - SIGNED_LOG1P
+    - CLIP
+    title: TransformationMethod
+    type: string
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/ScoringPolicyContextRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: scoring_policy_context envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s4/scoring_policy_context/1.0.0

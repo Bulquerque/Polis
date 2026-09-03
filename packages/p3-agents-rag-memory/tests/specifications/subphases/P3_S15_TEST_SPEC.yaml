@@ -1,0 +1,13 @@
+subphase: P3.S15
+modules:
+- module_id: P3.S15.M01
+  required_cases:
+  - disconnected_tool_not_available
+  - duplicate_tool_fails
+- module_id: P3.S15.M02
+  required_cases:
+  - implausible_tool_rejected
+  - disconnected_tool_rejected
+canonical_module_order:
+- P3.S15.M01
+- P3.S15.M02

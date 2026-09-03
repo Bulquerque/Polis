@@ -1,0 +1,126 @@
+$defs:
+  SimilarityEdgeRecord:
+    additionalProperties: false
+    properties:
+      cycle_id:
+        title: Cycle Id
+        type: string
+      decision_time:
+        format: date-time
+        title: Decision Time
+        type: string
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      candidate_id_left:
+        title: Candidate Id Left
+        type: string
+      candidate_id_right:
+        title: Candidate Id Right
+        type: string
+      similarity_score:
+        maximum: 1
+        minimum: 0
+        title: Similarity Score
+        type: number
+      stage_scores:
+        additionalProperties:
+          type: number
+        title: Component Scores
+        type: object
+      evidence_weight_coverage:
+        maximum: 1
+        minimum: 0
+        title: Evidence Weight Coverage
+        type: number
+      policy_version:
+        title: Policy Version
+        type: string
+      lineage_id:
+        title: Lineage Id
+        type: string
+    required:
+    - cycle_id
+    - decision_time
+    - comparison_group_id
+    - candidate_id_left
+    - candidate_id_right
+    - similarity_score
+    - stage_scores
+    - evidence_weight_coverage
+    - policy_version
+    - lineage_id
+    title: SimilarityEdgeRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/SimilarityEdgeRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: SimilarityEdgeArtifact
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

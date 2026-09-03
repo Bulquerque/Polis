@@ -1,0 +1,704 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "content_sha256",
+        "contract_version",
+        "schema_version"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "AuthorizationStatus": {
+      "enum": [
+        "AUTHORIZED",
+        "PARTIALLY_AUTHORIZED"
+      ],
+      "title": "AuthorizationStatus",
+      "type": "string"
+    },
+    "CandidateAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "allocated_target_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Allocated Target Quantity"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "allocated_target_quantity"
+      ],
+      "title": "CandidateAllocation",
+      "type": "object"
+    },
+    "CurrentPosition": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "quantity"
+      ],
+      "title": "CurrentPosition",
+      "type": "object"
+    },
+    "CurrentVirtualPosition": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "instrument_id",
+        "quantity"
+      ],
+      "title": "CurrentVirtualPosition",
+      "type": "object"
+    },
+    "ExecutableTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "authorization_id": {
+          "minLength": 1,
+          "title": "Authorization Id",
+          "type": "string"
+        },
+        "execution_group_id": {
+          "minLength": 1,
+          "title": "Execution Group Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "leg_priority": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Leg Priority",
+          "type": "integer"
+        },
+        "position_intent": {
+          "$ref": "#/$defs/PositionIntent"
+        },
+        "risk_role": {
+          "$ref": "#/$defs/RiskRole"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "target_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Target Quantity"
+        },
+        "urgency": {
+          "$ref": "#/$defs/Urgency"
+        },
+        "virtual_allocations": {
+          "items": {
+            "$ref": "#/$defs/CandidateAllocation"
+          },
+          "title": "Virtual Allocations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "target_id",
+        "authorization_id",
+        "execution_group_id",
+        "instrument_id",
+        "target_quantity",
+        "urgency",
+        "risk_role",
+        "position_intent",
+        "virtual_allocations"
+      ],
+      "title": "ExecutableTarget",
+      "type": "object"
+    },
+    "ExecutionAuthorization": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_legging": {
+          "title": "Allow Legging",
+          "type": "boolean"
+        },
+        "allow_market_order": {
+          "default": false,
+          "title": "Allow Market Order",
+          "type": "boolean"
+        },
+        "allow_unwind": {
+          "default": false,
+          "title": "Allow Unwind",
+          "type": "boolean"
+        },
+        "allowed_order_types": {
+          "items": {
+            "$ref": "#/$defs/OrderType"
+          },
+          "title": "Allowed Order Types",
+          "type": "array"
+        },
+        "allowed_time_in_force": {
+          "items": {
+            "$ref": "#/$defs/TimeInForce"
+          },
+          "title": "Allowed Time In Force",
+          "type": "array"
+        },
+        "authorization_id": {
+          "minLength": 1,
+          "title": "Authorization Id",
+          "type": "string"
+        },
+        "max_participation_rate": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Participation Rate"
+        },
+        "max_temporary_notional": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Max Temporary Notional"
+        },
+        "preferred_venues": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Preferred Venues",
+          "type": "array"
+        },
+        "price_protection_bps": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Price Protection Bps"
+        },
+        "status": {
+          "$ref": "#/$defs/AuthorizationStatus"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "valid_until": {
+          "format": "date-time",
+          "title": "Valid Until",
+          "type": "string"
+        }
+      },
+      "required": [
+        "authorization_id",
+        "target_id",
+        "status",
+        "valid_until",
+        "allowed_order_types",
+        "allowed_time_in_force",
+        "allow_legging",
+        "max_participation_rate",
+        "price_protection_bps",
+        "preferred_venues"
+      ],
+      "title": "ExecutionAuthorization",
+      "type": "object"
+    },
+    "InstrumentSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "expiration": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expiration"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "lot_size": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Lot Size"
+        },
+        "quantity_increment": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity Increment"
+        },
+        "security_type": {
+          "$ref": "#/$defs/SecurityType"
+        },
+        "symbol": {
+          "minLength": 1,
+          "title": "Symbol",
+          "type": "string"
+        },
+        "underlying_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Underlying Id"
+        },
+        "valid_from": {
+          "format": "date-time",
+          "title": "Valid From",
+          "type": "string"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid Until"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "symbol",
+        "security_type",
+        "currency",
+        "lot_size",
+        "quantity_increment",
+        "contract_multiplier",
+        "valid_from"
+      ],
+      "title": "InstrumentSpec",
+      "type": "object"
+    },
+    "LineageEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "parent_artifact_id": {
+          "minLength": 1,
+          "title": "Parent Artifact Id",
+          "type": "string"
+        },
+        "parent_content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Parent Content Sha256",
+          "type": "string"
+        },
+        "relationship_type": {
+          "minLength": 1,
+          "title": "Relationship Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parent_artifact_id",
+        "parent_content_sha256",
+        "relationship_type"
+      ],
+      "title": "LineageEdge",
+      "type": "object"
+    },
+    "OpenOrderExposure": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "remaining_signed_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Remaining Signed Quantity"
+        },
+        "virtual_allocations": {
+          "items": {
+            "$ref": "#/$defs/CandidateAllocation"
+          },
+          "title": "Virtual Allocations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "order_id",
+        "instrument_id",
+        "remaining_signed_quantity",
+        "virtual_allocations"
+      ],
+      "title": "OpenOrderExposure",
+      "type": "object"
+    },
+    "OrderType": {
+      "enum": [
+        "MARKET",
+        "LIMIT",
+        "STOP",
+        "STOP_LIMIT"
+      ],
+      "title": "OrderType",
+      "type": "string"
+    },
+    "PositionIntent": {
+      "enum": [
+        "BUY_TO_OPEN",
+        "BUY_TO_CLOSE",
+        "SELL_TO_OPEN",
+        "SELL_TO_CLOSE",
+        "NO_PHYSICAL_TRADE"
+      ],
+      "title": "PositionIntent",
+      "type": "string"
+    },
+    "RiskRole": {
+      "enum": [
+        "PROTECTIVE",
+        "RISK_REDUCING",
+        "NEUTRAL",
+        "RISK_INCREASING"
+      ],
+      "title": "RiskRole",
+      "type": "string"
+    },
+    "SecurityType": {
+      "enum": [
+        "EQUITY",
+        "OPTION",
+        "FUTURE",
+        "ETF",
+        "CRYPTO"
+      ],
+      "title": "SecurityType",
+      "type": "string"
+    },
+    "TimeInForce": {
+      "enum": [
+        "DAY",
+        "GTC",
+        "IOC",
+        "FOK",
+        "OPG",
+        "CLS"
+      ],
+      "title": "TimeInForce",
+      "type": "string"
+    },
+    "Urgency": {
+      "enum": [
+        "LOW",
+        "NORMAL",
+        "HIGH",
+        "CRITICAL"
+      ],
+      "title": "Urgency",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "authorizations": {
+      "items": {
+        "$ref": "#/$defs/ExecutionAuthorization"
+      },
+      "title": "Authorizations",
+      "type": "array"
+    },
+    "bundle_id": {
+      "minLength": 1,
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "contract_version": {
+      "default": "1.0.0",
+      "minLength": 1,
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "current_positions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/CurrentPosition"
+      },
+      "title": "Current Positions",
+      "type": "array"
+    },
+    "current_virtual_positions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/CurrentVirtualPosition"
+      },
+      "title": "Current Virtual Positions",
+      "type": "array"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "dual_book_map_ref": {
+      "$ref": "#/$defs/ArtifactReference"
+    },
+    "hedge_plan_ref": {
+      "$ref": "#/$defs/ArtifactReference"
+    },
+    "instruments": {
+      "items": {
+        "$ref": "#/$defs/InstrumentSpec"
+      },
+      "title": "Instruments",
+      "type": "array"
+    },
+    "lifecycle_plan_ref": {
+      "$ref": "#/$defs/ArtifactReference"
+    },
+    "lineage": {
+      "items": {
+        "$ref": "#/$defs/LineageEdge"
+      },
+      "title": "Lineage",
+      "type": "array"
+    },
+    "open_orders": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/OpenOrderExposure"
+      },
+      "title": "Open Orders",
+      "type": "array"
+    },
+    "producer_release": {
+      "minLength": 1,
+      "title": "Producer Release",
+      "type": "string"
+    },
+    "risk_gate_ref": {
+      "$ref": "#/$defs/ArtifactReference"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "1.0.0",
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "targets": {
+      "items": {
+        "$ref": "#/$defs/ExecutableTarget"
+      },
+      "title": "Targets",
+      "type": "array"
+    },
+    "valid_until": {
+      "format": "date-time",
+      "title": "Valid Until",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "producer_release",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "valid_until",
+    "targets",
+    "authorizations",
+    "instruments",
+    "dual_book_map_ref",
+    "risk_gate_ref",
+    "hedge_plan_ref",
+    "lifecycle_plan_ref",
+    "lineage",
+    "content_sha256"
+  ],
+  "title": "P8ExecutionAuthorizationBundle",
+  "type": "object"
+}

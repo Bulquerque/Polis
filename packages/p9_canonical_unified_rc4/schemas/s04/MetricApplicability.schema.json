@@ -1,0 +1,35 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/MetricApplicability.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "metric_id": {
+      "title": "Metric Id",
+      "type": "string"
+    },
+    "observation_count": {
+      "minimum": 0,
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "metric_id",
+    "status",
+    "observation_count"
+  ],
+  "title": "MetricApplicability",
+  "type": "object"
+}

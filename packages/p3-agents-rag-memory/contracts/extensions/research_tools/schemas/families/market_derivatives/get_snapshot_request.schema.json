@@ -1,0 +1,43 @@
+{
+  "$defs": {
+    "MarketMode": {
+      "enum": [
+        "OBSERVE",
+        "DIAGNOSTIC",
+        "STRUCTURAL"
+      ],
+      "title": "MarketMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "max_staleness_seconds": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Staleness Seconds"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/MarketMode",
+      "default": "OBSERVE"
+    }
+  },
+  "required": [
+    "instrument_id"
+  ],
+  "title": "GetSnapshotRequest",
+  "type": "object"
+}

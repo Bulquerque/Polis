@@ -1,0 +1,253 @@
+{
+  "schema_version": "activation_panel.v2",
+  "contract_version": "p3.s19.v1",
+  "formula_id": "multiplicative_activation_v1",
+  "run_id": "run:2026-07-27-001",
+  "cycle_id": "cycle:2026-07-27-001",
+  "target_cycle_id": "cycle:2026-07-27-001",
+  "population_id": "population:demo-v1",
+  "as_of": "2026-07-27T14:00:00Z",
+  "records": [
+    {
+      "activation_id": "activation:07e7ad16593c0b2a946abbb4dd1f76f0",
+      "person_id": "person:analyst-tech",
+      "stimulus_id": "stim:b9489b957ef8b35f656b0e3a55d295f1",
+      "trigger_type": "STIMULUS",
+      "activation_reason": "STIMULUS_THRESHOLD_MET",
+      "activation_score": 0.8275,
+      "threshold": 0.1,
+      "components": {
+        "stimulus_intensity": 0.8275,
+        "relevance": 1.0,
+        "tag_sensitivity": 1.0,
+        "current_attention": 1.0,
+        "exposure": 1.0
+      },
+      "stimulus_priority": 83,
+      "stimulus_available_at": "2026-07-27T13:05:00Z",
+      "underlying_id": "figi:BBG000B9XRY4",
+      "proposition_id": "directional_outlook",
+      "horizon": "21d",
+      "seed": 248208156434486588,
+      "tie_break_hash": "0371d000d2a1d53cb73afbcc8232f68afc5fded17bde01f8939f706eaa48f0cc",
+      "source_lineage_ids": [
+        "lin:0a08f7e74d1497f6098e5190bc3e0b44",
+        "lineage:person-seed-demo"
+      ]
+    },
+    {
+      "activation_id": "activation:7c2011417667e13c0e66ccc31ca0f733",
+      "person_id": "person:macro",
+      "stimulus_id": "stim:b9e8793db20612b39c45d398c86537d4",
+      "trigger_type": "STIMULUS",
+      "activation_reason": "STIMULUS_THRESHOLD_MET",
+      "activation_score": 0.66,
+      "threshold": 0.1,
+      "components": {
+        "stimulus_intensity": 0.66,
+        "relevance": 1.0,
+        "tag_sensitivity": 1.0,
+        "current_attention": 1.0,
+        "exposure": 1.0
+      },
+      "stimulus_priority": 66,
+      "stimulus_available_at": "2026-07-27T12:31:00Z",
+      "underlying_id": null,
+      "proposition_id": "regime_outlook",
+      "horizon": "21d",
+      "seed": 2281240130861270419,
+      "tie_break_hash": "1fa897cfff5a05931da9ac09036987b26508abd2cfb4a1c1c0f4245f6b22e220",
+      "source_lineage_ids": [
+        "lin:f1148cd5dec576eca91079e7aa39f79d",
+        "lineage:person-seed-demo"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "person_id": "person:analyst-tech",
+      "stimulus_id": "stim:b9489b957ef8b35f656b0e3a55d295f1",
+      "activation_id": "activation:07e7ad16593c0b2a946abbb4dd1f76f0",
+      "reason": "ACCEPTED",
+      "detail": "candidate passed threshold and activation caps",
+      "activation_score": 0.8275,
+      "threshold": 0.1,
+      "tie_break_hash": "0371d000d2a1d53cb73afbcc8232f68afc5fded17bde01f8939f706eaa48f0cc"
+    },
+    {
+      "person_id": "person:analyst-tech",
+      "stimulus_id": "stim:b9e8793db20612b39c45d398c86537d4",
+      "activation_id": "activation:97842e375c9466b911b8f3d4a6cc9f7c",
+      "reason": "DEFERRED_PERSON_CAP",
+      "detail": "candidate exceeded per-person cycle cap",
+      "activation_score": 0.14256,
+      "threshold": 0.1,
+      "tie_break_hash": "6b21d82274bd565604a8cca33bf3f40c1225078528029df3c576db83403501bc"
+    },
+    {
+      "person_id": "person:analyst-tech",
+      "stimulus_id": "stim:endogenous-followup-001",
+      "activation_id": "activation:6f6d8193b45ed3a45fc51541c137ca33",
+      "reason": "DEFERRED_PERSON_CAP",
+      "detail": "candidate exceeded per-person cycle cap",
+      "activation_score": 0.576,
+      "threshold": 0.1,
+      "tie_break_hash": "0ed7c4def586e45a8a521c7355d4493b7f5eeafd8594828bd252ef30934888b1"
+    },
+    {
+      "person_id": "person:analyst-tech",
+      "stimulus_id": "stim:endogenous-social-001",
+      "activation_id": "activation:9ed60c3468fc707948844979e89df898",
+      "reason": "DEFERRED_PERSON_CAP",
+      "detail": "candidate exceeded per-person cycle cap",
+      "activation_score": 0.1188,
+      "threshold": 0.1,
+      "tie_break_hash": "9b3d9b390008d1c88e7795b23a08909660ba9d90236777993c5bc90ba0e0beee"
+    },
+    {
+      "person_id": "person:dormant",
+      "stimulus_id": "stim:b9489b957ef8b35f656b0e3a55d295f1",
+      "activation_id": "activation:28ad3921f9f870db2f91a4d920250ef1",
+      "reason": "INACTIVE_PERSON",
+      "detail": "person state is inactive",
+      "activation_score": 0.1655,
+      "threshold": 0.1,
+      "tie_break_hash": "de84f163042a74b635c8723c6772673e4391e2b4b73ddefcc42021f427c08729"
+    },
+    {
+      "person_id": "person:dormant",
+      "stimulus_id": "stim:b9e8793db20612b39c45d398c86537d4",
+      "activation_id": "activation:2e916fbcdadbfca1e0133d492fc91966",
+      "reason": "INACTIVE_PERSON",
+      "detail": "person state is inactive",
+      "activation_score": 0.132,
+      "threshold": 0.1,
+      "tie_break_hash": "7d3d834d2bc4533f86d1cd077937507e1b6bd26a1f63c24545aa1ea51593fc44"
+    },
+    {
+      "person_id": "person:dormant",
+      "stimulus_id": "stim:endogenous-followup-001",
+      "activation_id": "activation:71b644201e2ab6590108f068325170a8",
+      "reason": "INACTIVE_PERSON",
+      "detail": "person state is inactive",
+      "activation_score": 0.144,
+      "threshold": 0.1,
+      "tie_break_hash": "0b0b2976ec2896d03005b103cbbaa29795d0e7ffc24cb172dd295a273c5b2ffd"
+    },
+    {
+      "person_id": "person:dormant",
+      "stimulus_id": "stim:endogenous-social-001",
+      "activation_id": "activation:75e7c97ac99fd938f1e9f628e896c12b",
+      "reason": "INACTIVE_PERSON",
+      "detail": "person state is inactive",
+      "activation_score": 0.11,
+      "threshold": 0.1,
+      "tie_break_hash": "fa218786f50bd27b56304813b2d1d41b1925a8abf393a4dd774fc7cf0d3c0249"
+    },
+    {
+      "person_id": "person:macro",
+      "stimulus_id": "stim:b9489b957ef8b35f656b0e3a55d295f1",
+      "activation_id": "activation:e53e26393bcc020a42a92e72c1063d33",
+      "reason": "DEFERRED_PERSON_CAP",
+      "detail": "candidate exceeded per-person cycle cap",
+      "activation_score": 0.53622,
+      "threshold": 0.1,
+      "tie_break_hash": "40176789b32f9dea9589e959e7639d0976166538bfc2c82e4db05e13405723e7"
+    },
+    {
+      "person_id": "person:macro",
+      "stimulus_id": "stim:b9e8793db20612b39c45d398c86537d4",
+      "activation_id": "activation:7c2011417667e13c0e66ccc31ca0f733",
+      "reason": "ACCEPTED",
+      "detail": "candidate passed threshold and activation caps",
+      "activation_score": 0.66,
+      "threshold": 0.1,
+      "tie_break_hash": "1fa897cfff5a05931da9ac09036987b26508abd2cfb4a1c1c0f4245f6b22e220"
+    },
+    {
+      "person_id": "person:macro",
+      "stimulus_id": "stim:endogenous-followup-001",
+      "activation_id": "activation:219cca584058255a6e875d45c8fb42f8",
+      "reason": "DEFERRED_PERSON_CAP",
+      "detail": "candidate exceeded per-person cycle cap",
+      "activation_score": 0.46656,
+      "threshold": 0.1,
+      "tie_break_hash": "919dd39a0fea48add29c595e3e3e68a331dfd8e24611c106f794ac0feeddfdf1"
+    },
+    {
+      "person_id": "person:macro",
+      "stimulus_id": "stim:endogenous-social-001",
+      "activation_id": "activation:fd5c85437c839446617114dac35b9e7c",
+      "reason": "DEFERRED_PERSON_CAP",
+      "detail": "candidate exceeded per-person cycle cap",
+      "activation_score": 0.275,
+      "threshold": 0.1,
+      "tie_break_hash": "402fe2513274aad3d0d0f9bd96b3dc557f9720b1d74b4290bb0901f13e30eb68"
+    },
+    {
+      "person_id": "person:quant",
+      "stimulus_id": "stim:b9489b957ef8b35f656b0e3a55d295f1",
+      "activation_id": "activation:ef4d073b2a45b4e60a35ae2b85b7b773",
+      "reason": "BELOW_THRESHOLD",
+      "detail": "activation score is below person-specific threshold",
+      "activation_score": 0.08275,
+      "threshold": 0.95,
+      "tie_break_hash": "6cc5994d35c5eae59740cfe8599c0524c1f4b6b091a73f22fc2944fd3a1e9ec7"
+    },
+    {
+      "person_id": "person:quant",
+      "stimulus_id": "stim:b9e8793db20612b39c45d398c86537d4",
+      "activation_id": "activation:72a82b08181b6598a50e742be01f5230",
+      "reason": "BELOW_THRESHOLD",
+      "detail": "activation score is below person-specific threshold",
+      "activation_score": 0.04224,
+      "threshold": 0.95,
+      "tie_break_hash": "fa90031be87d3560d08f2fe38bcadb61d07c9feacba70515cda8876b279a1268"
+    },
+    {
+      "person_id": "person:quant",
+      "stimulus_id": "stim:endogenous-followup-001",
+      "activation_id": "activation:a84d68c2421ccb146a13370342824311",
+      "reason": "BELOW_THRESHOLD",
+      "detail": "activation score is below person-specific threshold",
+      "activation_score": 0.1152,
+      "threshold": 0.95,
+      "tie_break_hash": "19ee1b95154aa808347f7aa1e98b1f380d1cec9cd27d97cdc65b92b194eb38bb"
+    },
+    {
+      "person_id": "person:quant",
+      "stimulus_id": "stim:endogenous-social-001",
+      "activation_id": "activation:247473880036f68d972a27fd4b36aab0",
+      "reason": "BELOW_THRESHOLD",
+      "detail": "activation score is below person-specific threshold",
+      "activation_score": 0.0352,
+      "threshold": 0.95,
+      "tie_break_hash": "750b3b778f240043f17f68c008472e5a31bf75796f8adbfd6e4f7d41b2ea1413"
+    }
+  ],
+  "source_lineage_ids": [
+    "lineage:current-person-state-demo",
+    "lineage:p3.s18.m02:17c0f80a0ba6216a4d40a52f6bf82ea8",
+    "lineage:person-seed-demo"
+  ],
+  "lineage_id": "lineage:p3.s19.m01:d9772bc10c770343548259c8b71f0e6a",
+  "content_hash": "438457109066fa0b64ed62edacd7a047759bb895eae3ae1e815b4f1dc33c1067",
+  "status": "DEGRADED",
+  "warnings": [
+    "unresolved_stimulus_accepted"
+  ],
+  "metrics": {
+    "stimulus_count": 4,
+    "active_person_count": 3,
+    "candidate_count": 16,
+    "accepted_count": 2,
+    "below_threshold_count": 4,
+    "deferred_person_cap_count": 6,
+    "deferred_global_cap_count": 0,
+    "inactive_person_count": 4,
+    "no_exposure_count": 0,
+    "unresolved_skipped_count": 0,
+    "global_cap_applied": 2,
+    "warning_count": 1
+  }
+}

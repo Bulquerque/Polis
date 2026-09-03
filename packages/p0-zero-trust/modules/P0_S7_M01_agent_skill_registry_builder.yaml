@@ -1,0 +1,43 @@
+module_id: P0.S7.M01
+module_name: agent_skill_registry_builder
+function: Validar e materializar o registro canônico de skills de agentes, vinculando
+  cada skill à fase, módulos, permissões e paths autorizados sem ampliar privilégios.
+inputs: &id001
+- agent_skill_definitions_yaml
+- validated_phase_registry
+- validated_module_registry
+outputs: &id002
+- agent_skill_registry
+validations:
+- skill_id_unique
+- skill_scope_declared
+- module_scope_matches_phase_scope
+- permissions_declared
+- allowed_paths_safe
+fail_fast_conditions:
+- agent_skill_registry_builder_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S1.M01
+    - P0.S1.M03
+    artifacts: *id001
+    phase_inputs:
+    - agent_skill_definitions_yaml
+  emits_to:
+    modules:
+    - P0.S7.M02
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S7
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

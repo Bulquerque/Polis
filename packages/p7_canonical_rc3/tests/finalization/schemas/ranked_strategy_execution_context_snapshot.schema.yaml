@@ -1,0 +1,169 @@
+$defs:
+  ArtifactReference:
+    additionalProperties: false
+    properties:
+      artifact_name:
+        title: Artifact Name
+        type: string
+      artifact_id:
+        title: Artifact Id
+        type: string
+      content_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Sha256
+        type: string
+      schema_version:
+        title: Schema Version
+        type: string
+      record_count:
+        minimum: 0
+        title: Record Count
+        type: integer
+    required:
+    - artifact_name
+    - artifact_id
+    - content_sha256
+    - schema_version
+    - record_count
+    title: ArtifactReference
+    type: object
+  ExecutionContextSnapshotRecord:
+    additionalProperties: false
+    properties:
+      cycle_id:
+        title: Cycle Id
+        type: string
+      decision_time:
+        format: date-time
+        title: Decision Time
+        type: string
+      candidate_id:
+        title: Candidate Id
+        type: string
+      rank_position:
+        minimum: 1
+        title: Rank Position
+        type: integer
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      strategy_candidate_reference:
+        $ref: '#/$defs/ArtifactReference'
+      strategy_legs_reference:
+        $ref: '#/$defs/ArtifactReference'
+      payoff_evaluation_reference:
+        $ref: '#/$defs/ArtifactReference'
+      scenario_evaluation_reference:
+        $ref: '#/$defs/ArtifactReference'
+      risk_reference:
+        $ref: '#/$defs/ArtifactReference'
+      cost_liquidity_reference:
+        $ref: '#/$defs/ArtifactReference'
+      greeks_reference:
+        $ref: '#/$defs/ArtifactReference'
+      generation_trace_reference:
+        $ref: '#/$defs/ArtifactReference'
+      thesis_card_reference:
+        $ref: '#/$defs/ArtifactReference'
+      score_decomposition_reference:
+        $ref: '#/$defs/ArtifactReference'
+      leg_ids:
+        items:
+          type: string
+        title: Leg Ids
+        type: array
+      lineage_id:
+        title: Lineage Id
+        type: string
+    required:
+    - cycle_id
+    - decision_time
+    - candidate_id
+    - rank_position
+    - comparison_group_id
+    - strategy_candidate_reference
+    - strategy_legs_reference
+    - payoff_evaluation_reference
+    - scenario_evaluation_reference
+    - risk_reference
+    - cost_liquidity_reference
+    - greeks_reference
+    - generation_trace_reference
+    - thesis_card_reference
+    - score_decomposition_reference
+    - leg_ids
+    - lineage_id
+    title: ExecutionContextSnapshotRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/ExecutionContextSnapshotRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: ExecutionContextArtifact
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

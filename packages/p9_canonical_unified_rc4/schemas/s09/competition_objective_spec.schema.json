@@ -1,0 +1,279 @@
+{
+  "$defs": {
+    "FrontierAxis": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "$ref": "#/$defs/OptimizationDirection"
+        },
+        "epsilon": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Epsilon",
+          "type": "number"
+        },
+        "metric_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Metric Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_id",
+        "direction"
+      ],
+      "title": "FrontierAxis",
+      "type": "object"
+    },
+    "HardGateRule": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_states": {
+          "default": [
+            "PASS",
+            "PASS_WITH_LIMITATIONS"
+          ],
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Accepted States",
+          "type": "array"
+        },
+        "gate_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Gate Id",
+          "type": "string"
+        },
+        "missing_is_failure": {
+          "default": true,
+          "title": "Missing Is Failure",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "gate_id"
+      ],
+      "title": "HardGateRule",
+      "type": "object"
+    },
+    "OptimizationDirection": {
+      "enum": [
+        "MAXIMIZE",
+        "MINIMIZE"
+      ],
+      "title": "OptimizationDirection",
+      "type": "string"
+    },
+    "SoftPenaltyRule": {
+      "additionalProperties": false,
+      "properties": {
+        "cap": {
+          "default": 10.0,
+          "minimum": 0.0,
+          "title": "Cap",
+          "type": "number"
+        },
+        "direction": {
+          "$ref": "#/$defs/OptimizationDirection"
+        },
+        "metric_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "reference_value": {
+          "title": "Reference Value",
+          "type": "number"
+        },
+        "scale": {
+          "exclusiveMinimum": 0.0,
+          "title": "Scale",
+          "type": "number"
+        },
+        "weight": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 100.0,
+          "title": "Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric_id",
+        "direction",
+        "weight",
+        "reference_value",
+        "scale"
+      ],
+      "title": "SoftPenaltyRule",
+      "type": "object"
+    },
+    "TieBreakerRule": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "$ref": "#/$defs/OptimizationDirection"
+        },
+        "metric_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "priority": {
+          "minimum": 1,
+          "title": "Priority",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "metric_id",
+        "direction",
+        "priority"
+      ],
+      "title": "TieBreakerRule",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_deployment_stages": {
+      "items": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Allowed Deployment Stages",
+      "type": "array"
+    },
+    "committed_at": {
+      "format": "date-time",
+      "title": "Committed At",
+      "type": "string"
+    },
+    "evaluation_started_at": {
+      "format": "date-time",
+      "title": "Evaluation Started At",
+      "type": "string"
+    },
+    "frontier_axes": {
+      "items": {
+        "$ref": "#/$defs/FrontierAxis"
+      },
+      "title": "Frontier Axes",
+      "type": "array"
+    },
+    "hard_gates": {
+      "items": {
+        "$ref": "#/$defs/HardGateRule"
+      },
+      "title": "Hard Gates",
+      "type": "array"
+    },
+    "maximum_complexity_increase_without_material_gain": {
+      "minimum": 0.0,
+      "title": "Maximum Complexity Increase Without Material Gain",
+      "type": "number"
+    },
+    "maximum_pbo": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Maximum Pbo",
+      "type": "number"
+    },
+    "minimum_dsr": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Minimum Dsr",
+      "type": "number"
+    },
+    "minimum_effect_size": {
+      "minimum": 0.0,
+      "title": "Minimum Effect Size",
+      "type": "number"
+    },
+    "minimum_probability_of_superiority": {
+      "maximum": 1.0,
+      "minimum": 0.5,
+      "title": "Minimum Probability Of Superiority",
+      "type": "number"
+    },
+    "policy_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "primary_direction": {
+      "$ref": "#/$defs/OptimizationDirection"
+    },
+    "primary_score_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Primary Score Id",
+      "type": "string"
+    },
+    "primary_score_version": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Primary Score Version",
+      "type": "string"
+    },
+    "soft_penalties": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/SoftPenaltyRule"
+      },
+      "title": "Soft Penalties",
+      "type": "array"
+    },
+    "supported_metric_versions": {
+      "items": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Supported Metric Versions",
+      "type": "array"
+    },
+    "tie_breakers": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/TieBreakerRule"
+      },
+      "title": "Tie Breakers",
+      "type": "array"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version",
+    "primary_score_id",
+    "primary_score_version",
+    "primary_direction",
+    "hard_gates",
+    "frontier_axes",
+    "minimum_effect_size",
+    "minimum_probability_of_superiority",
+    "maximum_pbo",
+    "minimum_dsr",
+    "maximum_complexity_increase_without_material_gain",
+    "allowed_deployment_stages",
+    "committed_at",
+    "evaluation_started_at",
+    "supported_metric_versions"
+  ],
+  "title": "CompetitionObjectiveSpec",
+  "type": "object"
+}

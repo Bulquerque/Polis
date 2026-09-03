@@ -1,0 +1,51 @@
+module_id: P2.S3.M06
+module_name: underlying_trade_panel_builder
+phase: phase_02_quality_pit
+subphase: P2.S3
+rc: RC4.1
+function: Construir painel negociável de underlying para Fase 6, sem candidato.
+inputs: &id001
+- clean_underlying_panel
+- clean_calendar_panel
+- source_quality_panel
+outputs: &id002
+- clean_underlying_trade_panel
+validations:
+- tradable_price_present
+- calendar_aligned
+- no_candidate_creation
+fail_fast_conditions:
+- underlying_trade_panel_builder_schema_violation
+- underlying_trade_panel_builder_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P2.S3.M05
+    - P2.S3.M03
+    - P2.S1.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P2.S4.M03
+    - P2.S6.M01
+    - P2.S6.M02
+    artifacts: *id002
+    phase_outputs:
+    - clean_underlying_trade_panel
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

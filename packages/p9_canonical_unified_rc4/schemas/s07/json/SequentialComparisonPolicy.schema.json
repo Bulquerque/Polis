@@ -1,0 +1,45 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "alpha": {
+      "default": 0.05,
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Alpha",
+      "type": "number"
+    },
+    "minimum_samples": {
+      "default": 30,
+      "minimum": 2,
+      "title": "Minimum Samples",
+      "type": "integer"
+    },
+    "minimum_effect": {
+      "default": 0.0,
+      "minimum": 0.0,
+      "title": "Minimum Effect",
+      "type": "number"
+    },
+    "loss_lower_bound": {
+      "title": "Loss Lower Bound",
+      "type": "number"
+    },
+    "loss_upper_bound": {
+      "title": "Loss Upper Bound",
+      "type": "number"
+    },
+    "maximum_family_size": {
+      "default": 20,
+      "minimum": 1,
+      "title": "Maximum Family Size",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "loss_lower_bound",
+    "loss_upper_bound"
+  ],
+  "title": "SequentialComparisonPolicy",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:SequentialComparisonPolicy:1.0.0"
+}

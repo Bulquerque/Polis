@@ -1,0 +1,13 @@
+subphase: P4.S9
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+- sharpe

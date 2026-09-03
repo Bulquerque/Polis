@@ -1,0 +1,27 @@
+module_id: P7.S4.M04
+owner: TOURNAMENT
+purpose: Reconcile score decomposition, preserve tournament evidence, and publish the content-addressed Tournament handoff.
+inputs:
+  - interpretable_score_panel
+  - scoring_head_panel
+  - scoring_policy_receipt
+  - pareto_frontier_panel
+  - pareto_frontier_audit_report
+  - dominated_candidate_panel
+  - dominance_survivor_panel
+  - dominance_relation_panel
+  - factor_adjusted_metric_panel
+  - factor_exposure_panel
+  - comparable_candidate_metric_panel
+  - metric_semantics_audit_report
+  - factor_adjustment_audit_report
+outputs:
+  - score_decomposition_panel
+  - interpretable_tournament_audit_report
+  - interpretable_tournament_handoff_manifest
+invariants:
+  - decomposition reconciles to final score
+  - factor rows are informational and not double-counted
+  - all manifest references match exact artifact hashes
+  - forbidden rank, outcome, portfolio, and execution fields are absent
+failure_scope: MODULE_FATAL

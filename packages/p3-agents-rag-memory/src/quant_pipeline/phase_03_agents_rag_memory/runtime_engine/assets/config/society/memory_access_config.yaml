@@ -1,0 +1,8 @@
+factors:
+- relevance
+- recency
+- importance
+- repetition
+- significance
+top_k: configurable
+audit_memory_separate: true

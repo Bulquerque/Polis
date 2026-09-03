@@ -1,0 +1,64 @@
+{
+  "$id": "https://inferencia.local/p9/s3/MetricInputRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Components",
+      "type": "array"
+    },
+    "configuration_id": {
+      "title": "Configuration Id",
+      "type": "string"
+    },
+    "fold_id": {
+      "title": "Fold Id",
+      "type": "string"
+    },
+    "observation_count": {
+      "minimum": 0,
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "qualification_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Qualification Sha256",
+      "type": "string"
+    },
+    "trial_id": {
+      "title": "Trial Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trial_id",
+    "fold_id",
+    "configuration_id",
+    "qualification_sha256",
+    "components",
+    "observation_count"
+  ],
+  "title": "MetricInputRecord",
+  "type": "object"
+}

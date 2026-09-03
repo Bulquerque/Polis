@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.quant.local/p3/s29/config/disagreement-semantics/1.0.0",
+  "$defs": {
+    "DisagreementWeights": {
+      "additionalProperties": false,
+      "properties": {
+        "direction_entropy": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Direction Entropy",
+          "type": "number"
+        },
+        "belief_variance": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Belief Variance",
+          "type": "number"
+        },
+        "polarization": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Polarization",
+          "type": "number"
+        },
+        "confidence_dispersion": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence Dispersion",
+          "type": "number"
+        },
+        "evidence_diversity": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Evidence Diversity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "direction_entropy",
+        "belief_variance",
+        "polarization",
+        "confidence_dispersion",
+        "evidence_diversity"
+      ],
+      "title": "DisagreementWeights",
+      "type": "object"
+    },
+    "QualityStatus": {
+      "enum": [
+        "PASS",
+        "DEGRADED",
+        "BLOCKED"
+      ],
+      "title": "QualityStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "formula_id": {
+      "const": "s29.disagreement.composite",
+      "title": "Formula Id",
+      "type": "string"
+    },
+    "formula_version": {
+      "const": "1.0.0",
+      "title": "Formula Version",
+      "type": "string"
+    },
+    "variance_cap": {
+      "exclusiveMinimum": 0.0,
+      "title": "Variance Cap",
+      "type": "number"
+    },
+    "min_effective_sample_size": {
+      "minimum": 0.0,
+      "title": "Min Effective Sample Size",
+      "type": "number"
+    },
+    "min_coverage_ratio": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Min Coverage Ratio",
+      "type": "number"
+    },
+    "min_source_quality_score": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Min Source Quality Score",
+      "type": "number"
+    },
+    "weights": {
+      "$ref": "#/$defs/DisagreementWeights"
+    },
+    "blocked_quality_statuses": {
+      "default": [
+        "BLOCKED"
+      ],
+      "items": {
+        "$ref": "#/$defs/QualityStatus"
+      },
+      "title": "Blocked Quality Statuses",
+      "type": "array"
+    },
+    "output_precision": {
+      "default": 12,
+      "maximum": 15,
+      "minimum": 0,
+      "title": "Output Precision",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "formula_id",
+    "formula_version",
+    "variance_cap",
+    "min_effective_sample_size",
+    "min_coverage_ratio",
+    "min_source_quality_score",
+    "weights"
+  ],
+  "title": "DisagreementSemanticsConfig",
+  "type": "object"
+}

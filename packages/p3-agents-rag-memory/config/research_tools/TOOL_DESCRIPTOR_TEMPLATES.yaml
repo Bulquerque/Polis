@@ -1,0 +1,5 @@
+schema_version: 1.0.0
+templates:
+  compact: '{tool_id}/{operation_id}: {description} Modes={modes}; required={required_arguments};
+    cost={cost}.'
+  alias: '{alias_tool_id} is deprecated; resolve to {target_tool_id}/{target_operation_id}.'

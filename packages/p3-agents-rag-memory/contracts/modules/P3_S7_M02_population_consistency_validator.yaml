@@ -1,0 +1,187 @@
+module_id: P3.S7.M02
+module_name: population_consistency_validator
+phase: phase_03_agents_rag_memory
+subphase: P3.S7
+status: implemented_qualified_internal
+function: Validar cobertura, clones, concentração e representatividade da população
+  congelada.
+inputs:
+- person_seed_panel
+- population_manifest
+- personality_coverage_report
+- population_representation_config
+- personality_creator_generation_audit
+outputs:
+- validated_population_manifest
+validations:
+- clone_distance_floor
+- role_concentration_bounds
+- tag_concentration_bounds
+- weight_concentration_bounds
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- single_responsibility
+- no_hidden_global_state
+- no_same_cycle_back_edge
+non_responsibilities:
+- Não rebalancear silenciosamente.
+fail_fast_conditions:
+- population_consistency_validator_schema_violation
+- population_consistency_validator_forbidden_field_detected
+- population_consistency_validator_undeclared_dependency
+forbidden_fields:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+allowed_connections:
+  consumes_from:
+    modules:
+    - P3.S6.M01
+    - P3.S7.M01
+    - P3.S5.M01
+    artifacts:
+    - person_seed_panel
+    - population_manifest
+    - personality_coverage_report
+    - population_representation_config
+    - personality_creator_generation_audit
+    phase_inputs:
+    - population_representation_config
+  emits_to:
+    modules:
+    - P3.S10.M01
+    - P3.S19.M02
+    - P3.S27.M01
+    - P3.S27.M02
+    - P3.S28.M01
+    - P3.S8.M01
+    artifacts:
+    - validated_population_manifest
+    phase_outputs: []
+temporal_inputs: []
+tests_required:
+- clone_detection
+- weight_concentration_failure
+- coverage_floor
+definition_of_done:
+- required_tests_implemented_and_passing
+- outputs_match_schemas
+- no_undeclared_side_effects
+- observability_present
+- contracts_docs_tests_updated_together
+notes:
+- Implementation, contract and executable tests are synchronized in the final release.
+contract_version: p3.reformed.plan.module.v2
+owner_prompt: subphases/P3_S7_integrated.md
+implementation_boundary:
+  owns:
+  - Validar cobertura, clones, concentração e representatividade da população congelada.
+  must_not_absorb:
+  - Não rebalancear silenciosamente.
+  state_mutation_policy: only_outputs_declared_in_MODULE_IO_MATRIX
+observability_requirements:
+  events:
+  - module_started
+  - input_contract_validated
+  - module_succeeded
+  - module_failed
+  dimensions:
+  - run_id
+  - cycle_id
+  - module_id
+  - as_of_time
+  - contract_version
+  - lineage_id
+  metrics:
+  - duration_ms
+  - input_record_count
+  - output_record_count
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - provider_secrets
+  - private_tool_payloads
+debugging_contract:
+  triage_order:
+  - verify_declared_inputs_materialized
+  - verify_schema_and_version
+  - verify_available_at_and_as_of_time
+  - verify_upstream_lineage
+  - verify_provider_or_tool_boundary_if_applicable
+  - verify_output_schema_and_forbidden_fields
+  error_codes:
+  - P3_S7_M02_INPUT_INVALID
+  - P3_S7_M02_TEMPORAL_VIOLATION
+  - P3_S7_M02_UNDECLARED_DEPENDENCY
+  - P3_S7_M02_OUTPUT_INVALID
+  - P3_S7_M02_FORBIDDEN_FIELD
+  fallback_policy: no_silent_fallback; any fallback must be declared, observable and
+    tested
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - prompt_block
+  - provider_adapter
+  contract_change_requires:
+  - schema_update
+  - io_matrix_update
+  - tests_update
+  - documentation_update
+  one_change_experiment_required_when_retro_managed: true
+review_checklist:
+- responsibility_is_single_and_bounded
+- inputs_and_outputs_match_io_matrix
+- no_forbidden_authority
+- temporal_semantics_are_explicit
+- tests_cover_happy_negative_boundary_lineage_observability
+rc: RC4.1
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+- same_cycle_back_edge
+- direct_P3_to_P5_P6_P7_P8
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/modules/P3_S7_M02_population_consistency_validator.py
+unit_test_target: tests/phase_specific/test_p3_s7_m02_population_consistency_validator.py
+integration_test_target: tests/phase_specific/test_p3_s7_integration.py
+implementation_status_policy:
+  current: IMPLEMENTED_QUALIFIED_INTERNAL
+  qualification_required: false
+  production_promotion_allowed: false
+  runtime_fail_closed: true
+integration_revision: P3-FINAL
+canonical_namespace: quant_pipeline.phase_03_agents_rag_memory
+authority_note: Cross-cluster consumer views are produced only by shared/adapters
+  and are not canonical artifacts.
+qualification_evidence:
+  python_test_target: tests/phase_specific/test_p3_s7_m02_population_consistency_validator.py
+  integration_test_target: tests/phase_specific/test_p3_s7_integration.py
+  canonical_entrypoint: execute(inputs, ModuleExecutionContext)
+  profile_aware: true
+final_integration:
+  gate: P3.CALIBRATION
+  criticality: MEDIA_ALTA
+  required_change: Provar estabilidade de IDs/população em versões, seeds e amostras;
+    medir representatividade e effective sample size.
+  evidence_artifacts:
+  - population_calibration_bundle
+  - social_graph_calibration_report
+  - activation_trust_sensitivity_report
+  mandatory_tests:
+  - teste positivo com artefatos reais/versionados
+  - teste negativo de leakage, hash ou schema incompatível
+  - sensibilidade por seed e versão
+  - stress de starvation/runaway feedback
+  - comparação com benchmark observado
+  acceptance: Implementação real + evidência hash-linked + testes positivos/negativos
+    + gate anterior PASS
+  rollback: Schema/version bump reversível; preservar artefatos antigos; rollback
+    validado em cópia pristine
+  qualification_policy: REAL_PIPELINE_ONLY_FAIL_CLOSED
+  production_promotion_authority: P0_ONLY

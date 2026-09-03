@@ -1,0 +1,23 @@
+version: v1
+propositions:
+- proposition_id: directional_outlook
+  description: Expected directional outlook for an underlying and horizon
+  allowed_horizons:
+  - 1d
+  - 5d
+  - 21d
+  - 63d
+  - 252d
+- proposition_id: volatility_outlook
+  description: Expected change in realized/implied volatility
+  allowed_horizons:
+  - 1d
+  - 5d
+  - 21d
+  - 63d
+- proposition_id: regime_outlook
+  description: Expected regime state or transition
+  allowed_horizons:
+  - 5d
+  - 21d
+  - 63d

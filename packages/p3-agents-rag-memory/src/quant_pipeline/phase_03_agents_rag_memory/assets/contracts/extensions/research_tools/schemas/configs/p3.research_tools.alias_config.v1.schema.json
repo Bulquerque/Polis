@@ -1,0 +1,75 @@
+{
+  "$defs": {
+    "AliasConfigRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "alias_tool_id": {
+          "minLength": 1,
+          "title": "Alias Tool Id",
+          "type": "string"
+        },
+        "argument_renames": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Argument Renames",
+          "type": "object"
+        },
+        "fixed_arguments": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Fixed Arguments",
+          "type": "object"
+        },
+        "target_operation_id": {
+          "minLength": 1,
+          "title": "Target Operation Id",
+          "type": "string"
+        },
+        "target_tool_id": {
+          "minLength": 1,
+          "title": "Target Tool Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "alias_tool_id",
+        "target_tool_id",
+        "target_operation_id"
+      ],
+      "title": "AliasConfigRecord",
+      "type": "object"
+    },
+    "JsonValue": {}
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.alias_config.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aliases": {
+      "items": {
+        "$ref": "#/$defs/AliasConfigRecord"
+      },
+      "title": "Aliases",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "p3.research_tools.alias_config.v1",
+      "default": "p3.research_tools.alias_config.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "aliases"
+  ],
+  "title": "CompatibilityAliasConfig",
+  "type": "object"
+}

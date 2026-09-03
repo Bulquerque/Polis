@@ -1,0 +1,11 @@
+version: V14.9-RC1
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl

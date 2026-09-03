@@ -1,0 +1,76 @@
+{
+  "$defs": {
+    "MetricRegistryEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_gross_net": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Gross Net",
+          "type": "array"
+        },
+        "metric_pattern": {
+          "title": "Metric Pattern",
+          "type": "string"
+        },
+        "metric_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_pattern",
+        "metric_version",
+        "producer_module_id",
+        "unit",
+        "allowed_gross_net"
+      ],
+      "title": "MetricRegistryEntry",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/MetricRegistry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "$ref": "#/$defs/MetricRegistryEntry"
+      },
+      "title": "Entries",
+      "type": "array"
+    },
+    "registry_id": {
+      "title": "Registry Id",
+      "type": "string"
+    },
+    "registry_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Registry Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_id",
+    "registry_version",
+    "entries",
+    "content_sha256"
+  ],
+  "title": "MetricRegistry",
+  "type": "object"
+}

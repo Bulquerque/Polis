@@ -1,0 +1,69 @@
+{
+  "$defs": {
+    "QualificationStatus": {
+      "enum": [
+        "QUALIFIED_LOCAL",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM",
+        "FAILED"
+      ],
+      "title": "QualificationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "mode_id": {
+      "minLength": 1,
+      "title": "Mode Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "required_views": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Required Views",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/QualificationStatus"
+    },
+    "test_targets": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Test Targets",
+      "type": "array"
+    },
+    "tool_id": {
+      "minLength": 1,
+      "title": "Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool_id",
+    "operation_id",
+    "mode_id",
+    "status",
+    "reason_codes",
+    "required_views",
+    "test_targets"
+  ],
+  "title": "OperationModeQualification",
+  "type": "object"
+}

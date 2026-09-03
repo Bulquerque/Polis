@@ -1,0 +1,57 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/calculate_valuation/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assumptions": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Assumptions",
+      "type": "object"
+    },
+    "currency": {
+      "minLength": 1,
+      "title": "Currency",
+      "type": "string"
+    },
+    "entity_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "title": "Entity Ids",
+      "type": "array"
+    },
+    "method": {
+      "enum": [
+        "MULTIPLES",
+        "HISTORICAL_BANDS",
+        "PEER_BANDS",
+        "SCENARIO_DCF",
+        "REVERSE_DCF"
+      ],
+      "title": "Method",
+      "type": "string"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "entity_ids",
+    "method",
+    "currency"
+  ],
+  "title": "CalculateValuationRequest",
+  "type": "object"
+}

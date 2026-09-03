@@ -1,0 +1,49 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/search_series/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "categories": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Categories",
+      "type": "array"
+    },
+    "max_results": {
+      "default": 20,
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Max Results",
+      "type": "integer"
+    },
+    "query": {
+      "minLength": 1,
+      "title": "Query",
+      "type": "string"
+    },
+    "regions": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Regions",
+      "type": "array"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "query"
+  ],
+  "title": "SearchMacroSeriesRequest",
+  "type": "object"
+}

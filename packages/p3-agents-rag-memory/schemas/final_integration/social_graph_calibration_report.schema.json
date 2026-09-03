@@ -1,0 +1,146 @@
+{
+  "$defs": {
+    "GraphMetricComparison": {
+      "additionalProperties": false,
+      "properties": {
+        "generated": {
+          "title": "Generated",
+          "type": "number"
+        },
+        "metric": {
+          "enum": [
+            "degree_distribution",
+            "clustering",
+            "assortativity",
+            "homophily",
+            "centralization",
+            "component_sizes",
+            "path_length"
+          ],
+          "title": "Metric",
+          "type": "string"
+        },
+        "observed": {
+          "title": "Observed",
+          "type": "number"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "tolerance": {
+          "minimum": 0.0,
+          "title": "Tolerance",
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric",
+        "observed",
+        "generated",
+        "tolerance",
+        "passed"
+      ],
+      "title": "GraphMetricComparison",
+      "type": "object"
+    },
+    "PriorSource": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_or_owner": {
+          "title": "Citation Or Owner",
+          "type": "string"
+        },
+        "effective_at": {
+          "format": "date-time",
+          "title": "Effective At",
+          "type": "string"
+        },
+        "source_hash": {
+          "title": "Source Hash",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "OBSERVED_DATA",
+            "LITERATURE",
+            "EXPERT_ELICITATION"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_type",
+        "source_id",
+        "source_hash",
+        "citation_or_owner",
+        "effective_at"
+      ],
+      "title": "PriorSource",
+      "type": "object"
+    }
+  },
+  "$id": "p3://schemas/final_integration/social_graph_calibration_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "benchmark_source": {
+      "$ref": "#/$defs/PriorSource"
+    },
+    "comparisons": {
+      "items": {
+        "$ref": "#/$defs/GraphMetricComparison"
+      },
+      "maxItems": 7,
+      "minItems": 7,
+      "title": "Comparisons",
+      "type": "array"
+    },
+    "experiment_id": {
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    },
+    "report_hash": {
+      "title": "Report Hash",
+      "type": "string"
+    },
+    "report_version": {
+      "default": "p3.social-graph-calibration.v2",
+      "title": "Report Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "experiment_id",
+    "benchmark_source",
+    "comparisons",
+    "status",
+    "report_hash"
+  ],
+  "title": "SocialGraphCalibrationReport",
+  "type": "object"
+}

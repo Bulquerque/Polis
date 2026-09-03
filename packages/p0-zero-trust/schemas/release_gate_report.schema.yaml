@@ -1,0 +1,111 @@
+schema_id: release_gate_report.v1
+artifact_name: release_gate_report
+schema_version: v14.1-rc4.1
+type: object
+required_fields:
+- artifact_id
+- release_id
+- pipeline_version
+- decision
+- blocking_reasons
+- warnings
+- critical_test_failure_evaluated
+- created_at
+- lineage_id
+- evaluations
+- evaluated_artifact_count
+- forbidden_connection_evaluated
+- agent_package_evaluated
+- phases
+- status
+- release_blocking
+- validation_evidence_status
+- promotion_blocked
+properties:
+  release_id:
+    type: string
+    minLength: 1
+  created_at:
+    type: string
+    minLength: 1
+  artifact_id:
+    type: string
+    pattern: ^release-gate-report-[0-9a-f]{12}$
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  decision:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  blocking_reasons:
+    type: array
+  warnings:
+    type: array
+  evaluations:
+    type: array
+    minItems: 6
+  evaluated_artifact_count:
+    type: integer
+    minimum: 6
+  critical_test_failure_evaluated:
+    type: boolean
+    const: true
+  forbidden_connection_evaluated:
+    type: boolean
+    const: true
+  agent_package_evaluated:
+    type: boolean
+    const: true
+  phases:
+    type: array
+    minItems: 10
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  release_blocking:
+    type: boolean
+  validation_evidence_status:
+    type: string
+    const: domain_oracle_pass_pending_independent_judge
+  promotion_blocked:
+    type: boolean
+  release_fingerprint:
+    type: string
+  release_scope:
+    type: string
+    minLength: 1
+  reason_codes:
+    type: array
+  blocking_kinds:
+    type: array
+  phase_readiness:
+    type: array
+    minItems: 10
+  readiness_state:
+    type: string
+    enum:
+    - READY
+    - NOT_READY
+  qualification_evaluated:
+    type: boolean
+  snapshot_coherence_evaluated:
+    type: boolean
+  validation_evidence_state:
+    type: string
+  production_promotion_allowed:
+    type: boolean
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision

@@ -1,0 +1,124 @@
+phase: P4
+bundles:
+  p2_required_bundle:
+  - clean_underlying_panel
+  - clean_macro_br_panel
+  - clean_macro_us_panel
+  - clean_benchmark_panel
+  - clean_calendar_panel
+  - clean_corporate_actions_panel
+  - quality_report_phase_2
+  - phase4_handoff_manifest
+  p2_extension_bundle:
+  - clean_underlying_trade_panel
+  - clean_option_contract_panel
+  - clean_option_quotes_panel
+  - clean_event_reference_panel
+  - clean_context_source_panel
+  - clean_document_panel
+  - source_quality_panel
+  - clean_liquidity_reference_panel
+  - clean_fundamental_panel
+  - clean_curve_term_structure_panel
+  p3_required_bundle:
+  - social_feature_panel
+  - evidence_tag_panel
+  - agent_disagreement_panel
+  - context_memory_feature_panel
+  - hypothesis_registry
+  - phase4_social_handoff_manifest
+  variable_evolution_input_manifest_optional:
+  - variable_evolution_input_manifest
+  atomic_observation_bundle:
+  - price_return_atomic_panel
+  - liquidity_microstructure_atomic_panel
+  - risk_tail_atomic_panel
+  - benchmark_cross_asset_atomic_panel
+  - underlying_option_state_atomic_panel
+  - macro_event_calendar_atomic_panel
+  - social_evidence_context_atomic_panel
+  - fundamental_accounting_atomic_panel
+  perspective_family_bundle:
+  - momentum_perspective_panel
+  - reversion_relative_value_perspective_panel
+  - risk_uncertainty_stress_perspective_panel
+  - liquidity_attention_crowding_perspective_panel
+  - structure_contagion_breadth_perspective_panel
+  - macro_cycle_regime_state_perspective_panel
+  - event_surprise_seasonality_perspective_panel
+  - narrative_evidence_disagreement_perspective_panel
+  - value_quality_profitability_investment_perspective_panel
+  - carry_curve_basis_perspective_panel
+  all_fit_state_manifests:
+  - operator_fit_state_registry
+  - relational_fit_state_registry
+  - causal_transform_fit_state_manifest
+  - normalization_neutralization_fit_state_manifest
+  - feature_transform_state_manifest
+  - pca_fit_state_manifest
+  - encoder_fit_state_manifest
+  - representation_fold_plan
+  - encoder_hyperparameter_search_report
+  p4_output_candidate_bundle:
+  - underlying_feature_matrix_raw
+  - underlying_feature_matrix_selected
+  - underlying_feature_factors_pca
+  - underlying_feature_embeddings
+  - feature_selection_report
+  - representation_quality_report
+  - horizon_feature_set_manifest
+  research_governance_bundle:
+  - approved_hypothesis_passport_registry
+  - hypothesis_budget_report
+  - rejected_hypothesis_registry
+  - p4_research_attempt_ledger
+  - p4_rejected_feature_graveyard
+  - p4_research_governance_report
+  momentum_atomic_bundle:
+  - price_return_atomic_panel
+  - liquidity_microstructure_atomic_panel
+  - benchmark_cross_asset_atomic_panel
+  - underlying_option_state_atomic_panel
+  - social_evidence_context_atomic_panel
+  reversion_atomic_bundle:
+  - price_return_atomic_panel
+  - liquidity_microstructure_atomic_panel
+  - benchmark_cross_asset_atomic_panel
+  - social_evidence_context_atomic_panel
+  risk_atomic_bundle:
+  - risk_tail_atomic_panel
+  - underlying_option_state_atomic_panel
+  - benchmark_cross_asset_atomic_panel
+  - macro_event_calendar_atomic_panel
+  - social_evidence_context_atomic_panel
+  liquidity_attention_atomic_bundle:
+  - liquidity_microstructure_atomic_panel
+  - underlying_option_state_atomic_panel
+  - social_evidence_context_atomic_panel
+  structure_contagion_atomic_bundle:
+  - benchmark_cross_asset_atomic_panel
+  - risk_tail_atomic_panel
+  - social_evidence_context_atomic_panel
+  macro_regime_atomic_bundle:
+  - macro_event_calendar_atomic_panel
+  - benchmark_cross_asset_atomic_panel
+  - risk_tail_atomic_panel
+  event_atomic_bundle:
+  - macro_event_calendar_atomic_panel
+  - price_return_atomic_panel
+  - underlying_option_state_atomic_panel
+  - social_evidence_context_atomic_panel
+  narrative_atomic_bundle:
+  - social_evidence_context_atomic_panel
+  - price_return_atomic_panel
+  - liquidity_microstructure_atomic_panel
+  fundamental_atomic_bundle:
+  - fundamental_accounting_atomic_panel
+  - price_return_atomic_panel
+  - benchmark_cross_asset_atomic_panel
+  carry_atomic_bundle:
+  - macro_event_calendar_atomic_panel
+  - benchmark_cross_asset_atomic_panel
+  - underlying_option_state_atomic_panel
+aliases:
+  underlying_feature_matrix_raw: underlying_feature_matrix_interpretable

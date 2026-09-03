@@ -1,0 +1,13 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p7:s1:temporal-integrity-report-record:2.0.0
+type: object
+additionalProperties: false
+required: [status, candidate_count, checked_runtime_time_fields, violation_count]
+properties:
+  status: {const: PASS}
+  candidate_count: {type: integer, minimum: 0}
+  checked_runtime_time_fields:
+    type: array
+    uniqueItems: true
+    items: {type: string}
+  violation_count: {const: 0}

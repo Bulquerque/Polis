@@ -1,0 +1,40 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "created_at",
+    "pipeline_version"
+  ],
+  "title": "ExecutionContext",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

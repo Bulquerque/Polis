@@ -1,0 +1,8 @@
+catalog_id: p3.s21.prompt_catalog.v1
+prompts:
+  - prompt_id: p3.s21.initial
+    prompt_version: 1.0.0
+    path: prompts/initial_cognition.v1.0.0.md
+  - prompt_id: p3.s21.continuation
+    prompt_version: 1.0.0
+    path: prompts/continuation_cognition.v1.0.0.md

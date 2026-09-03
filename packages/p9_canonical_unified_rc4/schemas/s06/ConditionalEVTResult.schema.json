@@ -1,0 +1,260 @@
+{
+  "$defs": {
+    "CapabilityState": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "RESEARCH_ONLY",
+        "UNAVAILABLE",
+        "INVALID"
+      ],
+      "title": "CapabilityState",
+      "type": "string"
+    },
+    "EVTParameterInterval": {
+      "additionalProperties": false,
+      "properties": {
+        "estimate": {
+          "title": "Estimate",
+          "type": "number"
+        },
+        "high": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "High"
+        },
+        "low": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Low"
+        },
+        "parameter": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Parameter",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameter",
+        "estimate",
+        "low",
+        "high"
+      ],
+      "title": "EVTParameterInterval",
+      "type": "object"
+    },
+    "S6State": {
+      "enum": [
+        "SUCCESS",
+        "COMMITTED",
+        "COMMITTED_WITH_COVERAGE_GAPS",
+        "DUPLICATE_REJECTED",
+        "SUCCESS_WITH_MAPPING_LIMITATIONS",
+        "MATERIAL_EXPOSURE_UNMAPPED",
+        "LOCAL_ONLY",
+        "EXTRAPOLATION_LIMITED",
+        "CONSTRAINT_DISCONTINUITY_FOUND",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EXCEEDANCES",
+        "UNSTABLE_TAIL_INDEX",
+        "THRESHOLD_NOT_IDENTIFIED",
+        "DEPENDENCE_NOT_REMOVED",
+        "AMBIGUITY_SET_UNINFORMATIVE",
+        "SOLVER_NOT_QUALIFIED",
+        "UNBOUNDED",
+        "CAPACITY_LIMITED",
+        "BORROW_LIMITED",
+        "MARGIN_FRAGILE",
+        "NETWORK_STRESS_RESEARCH_ONLY",
+        "INSUFFICIENT_LIQUIDITY_DATA",
+        "STRESS_RESILIENT",
+        "RESILIENT_WITH_LIMITATIONS",
+        "REVERSE_STRESS_TOO_CLOSE",
+        "STRUCTURALLY_UNSAFE",
+        "NO_FAILURE_WITHIN_DOMAIN",
+        "SEARCH_NOT_CONVERGED",
+        "VALIDATED",
+        "VALIDATED_WITH_LIMITATIONS",
+        "RESEARCH_ONLY",
+        "SCENARIO_INCOMPLETE",
+        "MODEL_NOT_FIT_FOR_STRESS",
+        "UNVALIDATED",
+        "CAPABILITY_UNAVAILABLE",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S6State",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_state": {
+      "$ref": "#/$defs/CapabilityState"
+    },
+    "conditional_expected_shortfall": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Conditional Expected Shortfall"
+    },
+    "conditional_var": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Conditional Var"
+    },
+    "exceedance_count": {
+      "minimum": 0,
+      "title": "Exceedance Count",
+      "type": "integer"
+    },
+    "ks_statistic": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ks Statistic"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "loss_series_id": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Loss Series Id",
+      "type": "string"
+    },
+    "parameter_intervals": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/EVTParameterInterval"
+      },
+      "title": "Parameter Intervals",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "residual_lag1_autocorrelation": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Residual Lag1 Autocorrelation"
+    },
+    "scale_parameter": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Scale Parameter"
+    },
+    "status": {
+      "$ref": "#/$defs/S6State"
+    },
+    "tail_index": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Tail Index"
+    },
+    "threshold": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Threshold"
+    },
+    "threshold_tail_index_range": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Threshold Tail Index Range"
+    }
+  },
+  "required": [
+    "status",
+    "loss_series_id",
+    "threshold",
+    "exceedance_count",
+    "tail_index",
+    "conditional_var",
+    "conditional_expected_shortfall",
+    "residual_lag1_autocorrelation",
+    "threshold_tail_index_range",
+    "ks_statistic",
+    "capability_state"
+  ],
+  "title": "ConditionalEVTResult",
+  "type": "object"
+}

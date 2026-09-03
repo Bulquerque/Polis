@@ -1,0 +1,12 @@
+{
+  "pipeline_version": "V14.1-RC4.1",
+  "fixture_kind": "input",
+  "test_run_report": {
+    "test_run_id": "t0",
+    "phase_id": "P1",
+    "total_tests": 1,
+    "passed_tests": 1,
+    "failed_tests": 0,
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cognition_transaction_id": {
+      "minLength": 1,
+      "title": "Cognition Transaction Id",
+      "type": "string"
+    },
+    "cost_units": {
+      "minimum": 0.0,
+      "title": "Cost Units",
+      "type": "number"
+    },
+    "counterevidence_ratio": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Counterevidence Ratio",
+      "type": "number"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "downgrade_count": {
+      "minimum": 0,
+      "title": "Downgrade Count",
+      "type": "integer"
+    },
+    "evidence_coverage": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Evidence Coverage",
+      "type": "number"
+    },
+    "evidence_refs": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "executed_modes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Executed Modes",
+      "type": "array"
+    },
+    "future_records_rejected": {
+      "minimum": 0,
+      "title": "Future Records Rejected",
+      "type": "integer"
+    },
+    "information_latency_seconds": {
+      "minimum": 0.0,
+      "title": "Information Latency Seconds",
+      "type": "number"
+    },
+    "internal_subquery_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Internal Subquery Count",
+      "type": "integer"
+    },
+    "operation_keys": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Operation Keys",
+      "type": "array"
+    },
+    "operations_used": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Operations Used",
+      "type": "array"
+    },
+    "person_id": {
+      "minLength": 1,
+      "title": "Person Id",
+      "type": "string"
+    },
+    "process_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Process Hash",
+      "type": "string"
+    },
+    "process_id": {
+      "minLength": 1,
+      "title": "Process Id",
+      "type": "string"
+    },
+    "proposition_refs": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Proposition Refs",
+      "type": "array"
+    },
+    "requested_modes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Requested Modes",
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "source_diversity": {
+      "minimum": 0,
+      "title": "Source Diversity",
+      "type": "integer"
+    },
+    "source_quality_mean": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Source Quality Mean",
+      "type": "number"
+    },
+    "subject_refs": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Subject Refs",
+      "type": "array"
+    },
+    "tool_families_used": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Tool Families Used",
+      "type": "array"
+    },
+    "truncated": {
+      "title": "Truncated",
+      "type": "boolean"
+    },
+    "visible_tool_call_count": {
+      "minimum": 0,
+      "title": "Visible Tool Call Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "process_id",
+    "run_id",
+    "cycle_id",
+    "cognition_transaction_id",
+    "person_id",
+    "tool_families_used",
+    "operations_used",
+    "operation_keys",
+    "requested_modes",
+    "executed_modes",
+    "visible_tool_call_count",
+    "cost_units",
+    "source_diversity",
+    "source_quality_mean",
+    "evidence_coverage",
+    "information_latency_seconds",
+    "future_records_rejected",
+    "downgrade_count",
+    "truncated",
+    "evidence_refs",
+    "process_hash"
+  ],
+  "title": "ResearchProcessRecord",
+  "type": "object"
+}

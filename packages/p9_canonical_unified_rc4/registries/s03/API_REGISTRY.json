@@ -1,0 +1,16 @@
+{
+  "legacy_api": "run_phase(inputs: dict, config: dict) -> dict",
+  "legacy_policy": "LEGACY_RESEARCH_ONLY",
+  "public_api": [
+    "build_temporal_evaluation_plan",
+    "build_purged_walk_forward_assignments",
+    "execute_trial_plan",
+    "qualify_backtest",
+    "compute_competition_score",
+    "aggregate_scores",
+    "compare_trials",
+    "S3TournamentService"
+  ],
+  "required_phase_protocol": "PhaseRunner.run(PhaseRunRequest) -> PhaseRunResult",
+  "schema_version": "1.0.0"
+}

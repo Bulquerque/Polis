@@ -1,0 +1,517 @@
+{
+  "runtime_foundation_audit_report": {
+    "artifact_id": "runtime_foundation_audit_report:18c7bfb302b60c85d423d4ed",
+    "artifact_name": "runtime_foundation_audit_report",
+    "available_at": "2026-01-02T15:00:00Z",
+    "content_sha256": "18c7bfb302b60c85d423d4edf30b5bc0b76a1e7342bc4e2462029416cc094c02",
+    "created_at": "2026-01-02T15:00:00Z",
+    "cycle_id": "cycle-fixture-001",
+    "decision_time": "2026-01-02T15:00:00Z",
+    "lineage_id": "lineage:runtime_foundation_audit_report",
+    "producer_module_id": "P7.S2.M04",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "candidate_count": 3,
+        "candidate_reconciliation_passed": true,
+        "comparison_group_count": 1,
+        "comparison_groups_frozen": true,
+        "forbidden_field_scan_passed": true,
+        "status": "PASS"
+      }
+    ],
+    "run_id": "run-fixture-001",
+    "schema_version": "1.0.0"
+  },
+  "runtime_foundation_handoff_manifest": {
+    "artifact_id": "runtime_foundation_handoff_manifest:913f165889089167b9c39754",
+    "artifact_name": "runtime_foundation_handoff_manifest",
+    "available_at": "2026-01-02T15:00:00Z",
+    "content_sha256": "913f165889089167b9c397544e48b7a6af06b17fb0bd63e8c6cccb24b59af547",
+    "created_at": "2026-01-02T15:00:00Z",
+    "cycle_id": "cycle-fixture-001",
+    "decision_time": "2026-01-02T15:00:00Z",
+    "lineage_id": "lineage:runtime_foundation_handoff_manifest",
+    "producer_module_id": "P7.S2.M04",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "consumer": "TOURNAMENT",
+        "contract_id": "runtime_foundation_handoff_v1",
+        "producer": "FOUNDATION",
+        "references": [
+          {
+            "artifact_id": "runtime_foundation_audit_report:18c7bfb302b60c85d423d4ed",
+            "artifact_name": "runtime_foundation_audit_report",
+            "content_sha256": "18c7bfb302b60c85d423d4edf30b5bc0b76a1e7342bc4e2462029416cc094c02",
+            "record_count": 1,
+            "schema_version": "1.0.0"
+          },
+          {
+            "artifact_id": "candidate_comparison_group_panel:d62e432c1336154a0ab24343",
+            "artifact_name": "candidate_comparison_group_panel",
+            "content_sha256": "d62e432c1336154a0ab243439be5585a3e98462b690f2c8d77c0ee099cd37331",
+            "record_count": 3,
+            "schema_version": "1.0.0"
+          },
+          {
+            "artifact_id": "candidate_metric_source_panel:978d420d08633015c97b02f3",
+            "artifact_name": "candidate_metric_source_panel",
+            "content_sha256": "978d420d08633015c97b02f395450e007f43b6c9d72e02877a549d8ad948be9a",
+            "record_count": 9,
+            "schema_version": "1.0.0"
+          },
+          {
+            "artifact_id": "eligible_strategy_candidate_panel:33b09a4083eca92c4e80d5b5",
+            "artifact_name": "eligible_strategy_candidate_panel",
+            "content_sha256": "33b09a4083eca92c4e80d5b5ffe3241fbb95e4f1fb2a77b23d83a4c66e927ba0",
+            "record_count": 3,
+            "schema_version": "1.0.0"
+          },
+          {
+            "artifact_id": "ranking_policy_context:4868315b02a81c82210435fc",
+            "artifact_name": "ranking_policy_context",
+            "content_sha256": "4868315b02a81c82210435fc57d8e6ac4ba659e2a4f9b710a77283e4b9c3e050",
+            "record_count": 1,
+            "schema_version": "1.0.0"
+          }
+        ]
+      }
+    ],
+    "run_id": "run-fixture-001",
+    "schema_version": "1.0.0"
+  },
+  "candidate_comparison_group_panel": {
+    "artifact_id": "candidate_comparison_group_panel:d62e432c1336154a0ab24343",
+    "artifact_name": "candidate_comparison_group_panel",
+    "available_at": "2026-01-02T15:00:00Z",
+    "content_sha256": "d62e432c1336154a0ab243439be5585a3e98462b690f2c8d77c0ee099cd37331",
+    "created_at": "2026-01-02T15:00:00Z",
+    "cycle_id": "cycle-fixture-001",
+    "decision_time": "2026-01-02T15:00:00Z",
+    "lineage_id": "lineage:candidate_comparison_group_panel",
+    "producer_module_id": "P7.S2.M04",
+    "producer_phase": "P7",
+    "record_count": 3,
+    "records": [
+      {
+        "candidate_id": "A",
+        "capital_at_risk_bucket": "SMALL",
+        "comparison_group_id": "group-1",
+        "horizon": "5D",
+        "lineage_id": "candidate:A",
+        "objective_family": "RANGE",
+        "underlying_id": "XYZ"
+      },
+      {
+        "candidate_id": "B",
+        "capital_at_risk_bucket": "SMALL",
+        "comparison_group_id": "group-1",
+        "horizon": "5D",
+        "lineage_id": "candidate:B",
+        "objective_family": "RANGE",
+        "underlying_id": "XYZ"
+      },
+      {
+        "candidate_id": "C",
+        "capital_at_risk_bucket": "SMALL",
+        "comparison_group_id": "group-1",
+        "horizon": "5D",
+        "lineage_id": "candidate:C",
+        "objective_family": "RANGE",
+        "underlying_id": "XYZ"
+      }
+    ],
+    "run_id": "run-fixture-001",
+    "schema_version": "1.0.0"
+  },
+  "candidate_metric_source_panel": {
+    "artifact_id": "candidate_metric_source_panel:978d420d08633015c97b02f3",
+    "artifact_name": "candidate_metric_source_panel",
+    "available_at": "2026-01-02T15:00:00Z",
+    "content_sha256": "978d420d08633015c97b02f395450e007f43b6c9d72e02877a549d8ad948be9a",
+    "created_at": "2026-01-02T15:00:00Z",
+    "cycle_id": "cycle-fixture-001",
+    "decision_time": "2026-01-02T15:00:00Z",
+    "lineage_id": "lineage:candidate_metric_source_panel",
+    "producer_module_id": "P7.S2.M04",
+    "producer_phase": "P7",
+    "record_count": 9,
+    "records": [
+      {
+        "available_at": "2026-01-02T15:00:00Z",
+        "candidate_id": "A",
+        "direction": "MAXIMIZE",
+        "lineage_id": "metric:A:expected_net_payoff",
+        "metric_id": "expected_net_payoff",
+        "missingness_status": "AVAILABLE",
+        "raw_value": 12.0,
+        "semantic_version": "1.0.0",
+        "source_artifact_id": "p6:strategy-risk-panel",
+        "units": "currency"
+      },
+      {
+        "available_at": "2026-01-02T15:00:00Z",
+        "candidate_id": "A",
+        "direction": "MINIMIZE",
+        "lineage_id": "metric:A:expected_shortfall",
+        "metric_id": "expected_shortfall",
+        "missingness_status": "AVAILABLE",
+        "raw_value": 5.0,
+        "semantic_version": "1.0.0",
+        "source_artifact_id": "p6:strategy-risk-panel",
+        "units": "currency_loss"
+      },
+      {
+        "available_at": "2026-01-02T15:00:00Z",
+        "candidate_id": "A",
+        "direction": "MAXIMIZE",
+        "lineage_id": "metric:A:liquidity_quality",
+        "metric_id": "liquidity_quality",
+        "missingness_status": "AVAILABLE",
+        "raw_value": 0.8,
+        "semantic_version": "1.0.0",
+        "source_artifact_id": "p6:strategy-risk-panel",
+        "units": "normalized_score"
+      },
+      {
+        "available_at": "2026-01-02T15:00:00Z",
+        "candidate_id": "B",
+        "direction": "MAXIMIZE",
+        "lineage_id": "metric:B:expected_net_payoff",
+        "metric_id": "expected_net_payoff",
+        "missingness_status": "AVAILABLE",
+        "raw_value": 10.0,
+        "semantic_version": "1.0.0",
+        "source_artifact_id": "p6:strategy-risk-panel",
+        "units": "currency"
+      },
+      {
+        "available_at": "2026-01-02T15:00:00Z",
+        "candidate_id": "B",
+        "direction": "MINIMIZE",
+        "lineage_id": "metric:B:expected_shortfall",
+        "metric_id": "expected_shortfall",
+        "missingness_status": "AVAILABLE",
+        "raw_value": 6.0,
+        "semantic_version": "1.0.0",
+        "source_artifact_id": "p6:strategy-risk-panel",
+        "units": "currency_loss"
+      },
+      {
+        "available_at": "2026-01-02T15:00:00Z",
+        "candidate_id": "B",
+        "direction": "MAXIMIZE",
+        "lineage_id": "metric:B:liquidity_quality",
+        "metric_id": "liquidity_quality",
+        "missingness_status": "AVAILABLE",
+        "raw_value": 0.7,
+        "semantic_version": "1.0.0",
+        "source_artifact_id": "p6:strategy-risk-panel",
+        "units": "normalized_score"
+      },
+      {
+        "available_at": "2026-01-02T15:00:00Z",
+        "candidate_id": "C",
+        "direction": "MAXIMIZE",
+        "lineage_id": "metric:C:expected_net_payoff",
+        "metric_id": "expected_net_payoff",
+        "missingness_status": "AVAILABLE",
+        "raw_value": 15.0,
+        "semantic_version": "1.0.0",
+        "source_artifact_id": "p6:strategy-risk-panel",
+        "units": "currency"
+      },
+      {
+        "available_at": "2026-01-02T15:00:00Z",
+        "candidate_id": "C",
+        "direction": "MINIMIZE",
+        "lineage_id": "metric:C:expected_shortfall",
+        "metric_id": "expected_shortfall",
+        "missingness_status": "AVAILABLE",
+        "raw_value": 9.0,
+        "semantic_version": "1.0.0",
+        "source_artifact_id": "p6:strategy-risk-panel",
+        "units": "currency_loss"
+      },
+      {
+        "available_at": "2026-01-02T15:00:00Z",
+        "candidate_id": "C",
+        "direction": "MAXIMIZE",
+        "lineage_id": "metric:C:liquidity_quality",
+        "metric_id": "liquidity_quality",
+        "missingness_status": "AVAILABLE",
+        "raw_value": 0.9,
+        "semantic_version": "1.0.0",
+        "source_artifact_id": "p6:strategy-risk-panel",
+        "units": "normalized_score"
+      }
+    ],
+    "run_id": "run-fixture-001",
+    "schema_version": "1.0.0"
+  },
+  "eligible_strategy_candidate_panel": {
+    "artifact_id": "eligible_strategy_candidate_panel:33b09a4083eca92c4e80d5b5",
+    "artifact_name": "eligible_strategy_candidate_panel",
+    "available_at": "2026-01-02T15:00:00Z",
+    "content_sha256": "33b09a4083eca92c4e80d5b5ffe3241fbb95e4f1fb2a77b23d83a4c66e927ba0",
+    "created_at": "2026-01-02T15:00:00Z",
+    "cycle_id": "cycle-fixture-001",
+    "decision_time": "2026-01-02T15:00:00Z",
+    "lineage_id": "lineage:eligible_strategy_candidate_panel",
+    "producer_module_id": "P7.S2.M04",
+    "producer_phase": "P7",
+    "record_count": 3,
+    "records": [
+      {
+        "candidate_id": "A",
+        "capital_at_risk_bucket": "SMALL",
+        "factor_values": {
+          "delta": 0.1,
+          "vega": 0.2
+        },
+        "horizon": "5D",
+        "lineage_id": "candidate:A",
+        "objective_family": "RANGE",
+        "underlying_id": "XYZ"
+      },
+      {
+        "candidate_id": "B",
+        "capital_at_risk_bucket": "SMALL",
+        "factor_values": {
+          "delta": 0.2,
+          "vega": 0.1
+        },
+        "horizon": "5D",
+        "lineage_id": "candidate:B",
+        "objective_family": "RANGE",
+        "underlying_id": "XYZ"
+      },
+      {
+        "candidate_id": "C",
+        "capital_at_risk_bucket": "SMALL",
+        "factor_values": {
+          "delta": 0.3,
+          "vega": 0.3
+        },
+        "horizon": "5D",
+        "lineage_id": "candidate:C",
+        "objective_family": "RANGE",
+        "underlying_id": "XYZ"
+      }
+    ],
+    "run_id": "run-fixture-001",
+    "schema_version": "1.0.0"
+  },
+  "ranking_policy_context": {
+    "artifact_id": "ranking_policy_context:4868315b02a81c82210435fc",
+    "artifact_name": "ranking_policy_context",
+    "available_at": "2026-01-02T15:00:00Z",
+    "content_sha256": "4868315b02a81c82210435fc57d8e6ac4ba659e2a4f9b710a77283e4b9c3e050",
+    "created_at": "2026-01-02T15:00:00Z",
+    "cycle_id": "cycle-fixture-001",
+    "decision_time": "2026-01-02T15:00:00Z",
+    "lineage_id": "lineage:ranking_policy_context",
+    "producer_module_id": "P7.S2.M04",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "dominance": {
+          "active_metric_ids": [
+            "expected_net_payoff",
+            "expected_shortfall",
+            "liquidity_quality"
+          ],
+          "exact_max_group_size": 1000,
+          "exact_max_pair_comparisons": 1000000,
+          "missing_required_metric_action": "INCOMPARABLE"
+        },
+        "factor_adjustment": {
+          "factor_ids": [
+            "delta",
+            "vega"
+          ],
+          "factor_schema_version": "option-factors-v1",
+          "missing_exposure_action": "UNAVAILABLE",
+          "mode": "BYPASS",
+          "static_coefficients": {},
+          "static_intercept": 0.0,
+          "target_metric_id": "expected_net_payoff"
+        },
+        "forbidden_field_names": [
+          "future_return",
+          "realized_return",
+          "realized_pnl",
+          "outcome",
+          "target_return"
+        ],
+        "metric_policies": [
+          {
+            "active_for_dominance": true,
+            "canonical_units": "currency",
+            "direction": "MAXIMIZE",
+            "epsilon_absolute": 0.0,
+            "epsilon_relative": 0.0,
+            "factor_adjustment_target": true,
+            "metric_id": "expected_net_payoff",
+            "missing_action": "BLOCK",
+            "semantic_version": "1.0.0"
+          },
+          {
+            "active_for_dominance": true,
+            "canonical_units": "currency_loss",
+            "direction": "MINIMIZE",
+            "epsilon_absolute": 0.0,
+            "epsilon_relative": 0.0,
+            "factor_adjustment_target": false,
+            "metric_id": "expected_shortfall",
+            "missing_action": "BLOCK",
+            "semantic_version": "1.0.0"
+          },
+          {
+            "active_for_dominance": true,
+            "canonical_units": "normalized_score",
+            "direction": "MAXIMIZE",
+            "epsilon_absolute": 1e-12,
+            "epsilon_relative": 0.0,
+            "factor_adjustment_target": false,
+            "metric_id": "liquidity_quality",
+            "missing_action": "BLOCK",
+            "semantic_version": "1.0.0"
+          }
+        ],
+        "operational_mode": "BASELINE",
+        "policy_id": "p7-s3-policy-v1",
+        "policy_version": "1.0.0",
+        "unit_conversions": []
+      }
+    ],
+    "run_id": "run-fixture-001",
+    "schema_version": "1.0.0"
+  },
+  "scoring_policy_context": {
+    "artifact_id": "scoring_policy_context:dd9eaa639aed10d9ac45821b",
+    "artifact_name": "scoring_policy_context",
+    "available_at": "2026-01-02T15:00:00Z",
+    "content_sha256": "dd9eaa639aed10d9ac45821b4526c7c809d3c37c1a2620c7857291267b30ad2a",
+    "created_at": "2026-01-02T15:00:00Z",
+    "cycle_id": "cycle-fixture-001",
+    "decision_time": "2026-01-02T15:00:00Z",
+    "lineage_id": "lineage:scoring_policy_context",
+    "producer_module_id": "P7.S2.M04",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "forbidden_field_names": [
+          "future_return",
+          "realized_return",
+          "realized_pnl",
+          "outcome",
+          "target_return"
+        ],
+        "operational_mode": "BASELINE",
+        "policy_id": "tournament-integrated-policy-v1",
+        "policy_version": "1.0.0",
+        "rules": [
+          {
+            "confidence_head_id": null,
+            "confidence_shrinkage_strength": 0.0,
+            "heads": [
+              {
+                "head_id": "ECONOMIC_EDGE",
+                "head_weight": 0.5,
+                "metric_bindings": [
+                  {
+                    "absolute_lower": 0.0,
+                    "absolute_upper": 20.0,
+                    "clip_lower": null,
+                    "clip_upper": null,
+                    "metric_id": "expected_net_payoff",
+                    "metric_weight": 1.0,
+                    "min_group_size": 1,
+                    "missing_metric_action": "BLOCK_HEAD",
+                    "missing_metric_penalty": 0.0,
+                    "normalization": "ABSOLUTE_RANGE",
+                    "robust_scale": 1.0,
+                    "small_group_action": "ABSOLUTE_FALLBACK",
+                    "source_preference": "FACTOR_ADJUSTED_PREFERRED",
+                    "transformation": "IDENTITY"
+                  }
+                ],
+                "missing_head_action": "BLOCK",
+                "missing_head_penalty": 0.0
+              },
+              {
+                "head_id": "DOWNSIDE_SAFETY",
+                "head_weight": 0.3,
+                "metric_bindings": [
+                  {
+                    "absolute_lower": -20.0,
+                    "absolute_upper": 0.0,
+                    "clip_lower": null,
+                    "clip_upper": null,
+                    "metric_id": "expected_shortfall",
+                    "metric_weight": 1.0,
+                    "min_group_size": 1,
+                    "missing_metric_action": "BLOCK_HEAD",
+                    "missing_metric_penalty": 0.0,
+                    "normalization": "ABSOLUTE_RANGE",
+                    "robust_scale": 1.0,
+                    "small_group_action": "ABSOLUTE_FALLBACK",
+                    "source_preference": "COMPARABLE_ONLY",
+                    "transformation": "IDENTITY"
+                  }
+                ],
+                "missing_head_action": "BLOCK",
+                "missing_head_penalty": 0.0
+              },
+              {
+                "head_id": "EXECUTION_QUALITY",
+                "head_weight": 0.2,
+                "metric_bindings": [
+                  {
+                    "absolute_lower": 0.0,
+                    "absolute_upper": 1.0,
+                    "clip_lower": null,
+                    "clip_upper": null,
+                    "metric_id": "liquidity_quality",
+                    "metric_weight": 1.0,
+                    "min_group_size": 1,
+                    "missing_metric_action": "BLOCK_HEAD",
+                    "missing_metric_penalty": 0.0,
+                    "normalization": "ABSOLUTE_RANGE",
+                    "robust_scale": 1.0,
+                    "small_group_action": "ABSOLUTE_FALLBACK",
+                    "source_preference": "COMPARABLE_ONLY",
+                    "transformation": "IDENTITY"
+                  }
+                ],
+                "missing_head_action": "BLOCK",
+                "missing_head_penalty": 0.0
+              }
+            ],
+            "horizons": [
+              "5D"
+            ],
+            "include_incomparable": false,
+            "max_frontier_layer": 1,
+            "objective_families": [
+              "RANGE"
+            ],
+            "operational_modes": [
+              "BASELINE"
+            ],
+            "penalty_rules": [],
+            "rule_id": "range-5d-integrated"
+          }
+        ]
+      }
+    ],
+    "run_id": "run-fixture-001",
+    "schema_version": "1.0.0"
+  }
+}

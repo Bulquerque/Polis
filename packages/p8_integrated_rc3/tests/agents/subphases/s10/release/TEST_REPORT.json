@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "tests_passed": 70,
+  "tests_failed": 0,
+  "combined_statement_branch_coverage_percent": 99.16,
+  "statement_coverage_percent": 99.57,
+  "branch_coverage_percent": 96.27,
+  "coverage_threshold_percent": 94.0,
+  "structure_gate": "PASS",
+  "schema_gate": "PASS",
+  "commands": [
+    "python -m pytest -q --disable-warnings",
+    "python -m coverage run --branch -m pytest -q",
+    "python scripts/check_structure.py"
+  ]
+}

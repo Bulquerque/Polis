@@ -1,0 +1,8 @@
+flowchart LR
+  P2[P2 Facts + Vintages] --> P4[P4 State Representation]
+  P3[P3 Evidence + Beliefs + Disagreement] --> P4
+  P4 --> P5[P5 Supervised Forecasts]
+  P5 --> P6[P6 Candidate Generation]
+  P9[P9 Audit/Learning] -->|N+1 through P3| P3
+  P4 -. forbidden .-> P6
+  P9 -. no direct same-cycle input .-> P4

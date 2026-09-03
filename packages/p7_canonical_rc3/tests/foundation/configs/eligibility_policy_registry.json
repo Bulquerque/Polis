@@ -1,0 +1,170 @@
+{
+  "active_policy_id": "p7_defined_risk_baseline",
+  "policies": [
+    {
+      "allowed_calendars": [
+        "XNYS",
+        "XNAS",
+        "B3",
+        "XLON"
+      ],
+      "allowed_currencies": [
+        "USD",
+        "BRL",
+        "EUR",
+        "GBP"
+      ],
+      "allowed_objective_families": [
+        "RANGE",
+        "DIRECTIONAL_UP",
+        "DIRECTIONAL_DOWN",
+        "LONG_VOLATILITY",
+        "SHORT_VOLATILITY_DEFINED_RISK",
+        "TAIL_HEDGE",
+        "INCOME_DEFINED_RISK",
+        "SKEW_RELATIVE_VALUE",
+        "TERM_STRUCTURE",
+        "EVENT",
+        "PORTFOLIO_HEDGE",
+        "HYBRID",
+        "POSITIVE_CONVEXITY"
+      ],
+      "defined_risk_required": true,
+      "disabled_strategy_classes": [],
+      "feedback_mutable_parameters": [
+        "min_scenario_count",
+        "max_snapshot_age_seconds"
+      ],
+      "max_snapshot_age_seconds": 3600,
+      "min_scenario_count": 2,
+      "policy_id": "p7_defined_risk_baseline",
+      "representative_only": true,
+      "require_maximum_loss_proven": true,
+      "required_candidate_paths": [
+        "candidate.candidate_id",
+        "candidate.currency"
+      ],
+      "required_metric_paths_by_objective": {
+        "DIRECTIONAL_DOWN": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "DIRECTIONAL_UP": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "EVENT": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "HYBRID": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "INCOME_DEFINED_RISK": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "LONG_VOLATILITY": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "PORTFOLIO_HEDGE": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "RANGE": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "SHORT_VOLATILITY_DEFINED_RISK": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "SKEW_RELATIVE_VALUE": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "TAIL_HEDGE": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "TERM_STRUCTURE": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ],
+        "POSITIVE_CONVEXITY": [
+          "risk.maximum_loss",
+          "risk.expected_net_payoff",
+          "risk.expected_shortfall",
+          "risk.probability_of_profit",
+          "cost_liquidity.entry_cost",
+          "cost_liquidity.liquidity_score"
+        ]
+      },
+      "required_sections": [
+        "candidate",
+        "legs",
+        "payoffs",
+        "scenario_evaluations",
+        "risk",
+        "cost_liquidity",
+        "lineage",
+        "market_snapshot",
+        "generation_trace"
+      ],
+      "version": "2.3.0",
+      "require_calendar_id": false
+    }
+  ],
+  "registry_id": "p7_eligibility_policy_registry",
+  "registry_version": "2.3.0"
+}

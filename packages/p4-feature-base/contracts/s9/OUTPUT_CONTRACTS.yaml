@@ -1,0 +1,28 @@
+subphase: P4.S9
+required_outputs:
+- feature_lineage_report
+- temporal_safety_report
+- drift_safety_report
+- p4_quality_gate_decision
+- model_consumer_view_manifest
+- model_consumer_view_bundle
+- phase5_feature_handoff_manifest
+- p4_to_p5_integration_receipt
+- research_attempt_ledger
+- rejected_feature_graveyard
+- research_budget_compliance_report
+legacy_p5_surface:
+- underlying_feature_matrix_raw
+- underlying_feature_matrix_selected
+- underlying_feature_factors_pca
+- underlying_feature_embeddings
+- feature_selection_report
+- feature_lineage_report
+- drift_safety_report
+- phase5_feature_handoff_manifest
+rules:
+- handoff_manifest_does_not_self_reference
+- blocked_gate_prevents_clean_promotion
+- consumer_views_contain_no_predictions
+- receipt_does_not_claim_alpha
+- negative_attempts_preserved

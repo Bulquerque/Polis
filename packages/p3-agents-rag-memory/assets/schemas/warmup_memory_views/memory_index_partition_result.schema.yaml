@@ -1,0 +1,36 @@
+additionalProperties: false
+properties:
+  partition_key:
+    minLength: 1
+    title: Partition Key
+    type: string
+  index_ref:
+    minLength: 1
+    title: Index Ref
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  partition_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Partition Hash
+    type: string
+  storage_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Storage Hash
+    type: string
+required:
+- partition_key
+- index_ref
+- record_count
+- partition_hash
+- storage_hash
+title: IndexPartitionResult
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+status: implemented_unqualified
+schema_owner: P3.S14
+artifact_name: memory_index_partition_result
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

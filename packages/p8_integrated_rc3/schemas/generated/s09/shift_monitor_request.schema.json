@@ -1,0 +1,238 @@
+{
+  "$defs": {
+    "MetricFamily": {
+      "enum": [
+        "MARKET",
+        "MODEL",
+        "RISK",
+        "LIQUIDITY",
+        "EXECUTION"
+      ],
+      "title": "MetricFamily",
+      "type": "string"
+    },
+    "MetricMonitorState": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "minimum": 0,
+          "title": "Count",
+          "type": "integer"
+        },
+        "cusum_negative": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Cusum Negative",
+          "type": "number"
+        },
+        "cusum_positive": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Cusum Positive",
+          "type": "number"
+        },
+        "ewma_z": {
+          "default": 0.0,
+          "title": "Ewma Z",
+          "type": "number"
+        },
+        "last_observed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Observed At"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_name",
+        "count"
+      ],
+      "title": "MetricMonitorState",
+      "type": "object"
+    },
+    "MetricObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_mean": {
+          "title": "Baseline Mean",
+          "type": "number"
+        },
+        "baseline_std": {
+          "exclusiveMinimum": 0.0,
+          "title": "Baseline Std",
+          "type": "number"
+        },
+        "family": {
+          "$ref": "#/$defs/MetricFamily"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric_name",
+        "family",
+        "value",
+        "baseline_mean",
+        "baseline_std",
+        "observed_at"
+      ],
+      "title": "MetricObservation",
+      "type": "object"
+    },
+    "RuntimeContext": {
+      "additionalProperties": false,
+      "properties": {
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "minLength": 1,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trace_id",
+        "decision_time",
+        "observed_at",
+        "policy_version"
+      ],
+      "title": "RuntimeContext",
+      "type": "object"
+    },
+    "ShiftMonitorPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Alpha",
+          "type": "number"
+        },
+        "critical_threshold": {
+          "exclusiveMinimum": 0.0,
+          "title": "Critical Threshold",
+          "type": "number"
+        },
+        "drift_allowance": {
+          "minimum": 0.0,
+          "title": "Drift Allowance",
+          "type": "number"
+        },
+        "material_threshold": {
+          "exclusiveMinimum": 0.0,
+          "title": "Material Threshold",
+          "type": "number"
+        },
+        "maximum_observation_age_seconds": {
+          "exclusiveMinimum": 0,
+          "title": "Maximum Observation Age Seconds",
+          "type": "integer"
+        },
+        "mild_threshold": {
+          "exclusiveMinimum": 0.0,
+          "title": "Mild Threshold",
+          "type": "number"
+        },
+        "minimum_observations": {
+          "minimum": 1,
+          "title": "Minimum Observations",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "alpha",
+        "drift_allowance",
+        "mild_threshold",
+        "material_threshold",
+        "critical_threshold",
+        "minimum_observations",
+        "maximum_observation_age_seconds"
+      ],
+      "title": "ShiftMonitorPolicy",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/schemas/p8/s9/shift_monitor_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "$ref": "#/$defs/RuntimeContext"
+    },
+    "observations": {
+      "items": {
+        "$ref": "#/$defs/MetricObservation"
+      },
+      "minItems": 1,
+      "title": "Observations",
+      "type": "array"
+    },
+    "policy": {
+      "$ref": "#/$defs/ShiftMonitorPolicy"
+    },
+    "prior_states": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/MetricMonitorState"
+      },
+      "title": "Prior States",
+      "type": "array"
+    }
+  },
+  "required": [
+    "context",
+    "observations",
+    "policy"
+  ],
+  "title": "ShiftMonitorRequest",
+  "type": "object"
+}

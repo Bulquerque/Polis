@@ -1,0 +1,4 @@
+minimum_cycles_per_person_per_calendar_month: 1
+deduplicate_with_event_activation: true
+priority: event_then_heartbeat
+max_heartbeat_delay_days: 3

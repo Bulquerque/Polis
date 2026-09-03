@@ -1,0 +1,188 @@
+{
+  "$defs": {
+    "PriorSource": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_or_owner": {
+          "title": "Citation Or Owner",
+          "type": "string"
+        },
+        "effective_at": {
+          "format": "date-time",
+          "title": "Effective At",
+          "type": "string"
+        },
+        "source_hash": {
+          "title": "Source Hash",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "OBSERVED_DATA",
+            "LITERATURE",
+            "EXPERT_ELICITATION"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_type",
+        "source_id",
+        "source_hash",
+        "citation_or_owner",
+        "effective_at"
+      ],
+      "title": "PriorSource",
+      "type": "object"
+    },
+    "SensitivityPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "coverage": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Coverage",
+          "type": "number"
+        },
+        "density": {
+          "minimum": 0.0,
+          "title": "Density",
+          "type": "number"
+        },
+        "effective_sample_size": {
+          "exclusiveMinimum": 0.0,
+          "title": "Effective Sample Size",
+          "type": "number"
+        },
+        "parameter": {
+          "title": "Parameter",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "parameter",
+        "value",
+        "coverage",
+        "density",
+        "effective_sample_size"
+      ],
+      "title": "SensitivityPoint",
+      "type": "object"
+    }
+  },
+  "$id": "p3://schemas/final_integration/population_calibration_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "title": "Bundle Hash",
+      "type": "string"
+    },
+    "bundle_version": {
+      "default": "p3.population-calibration.v2",
+      "title": "Bundle Version",
+      "type": "string"
+    },
+    "effective_sample_size": {
+      "exclusiveMinimum": 0.0,
+      "title": "Effective Sample Size",
+      "type": "number"
+    },
+    "experiment_id": {
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "frozen_at": {
+      "format": "date-time",
+      "title": "Frozen At",
+      "type": "string"
+    },
+    "prior_sources": {
+      "items": {
+        "$ref": "#/$defs/PriorSource"
+      },
+      "minItems": 1,
+      "title": "Prior Sources",
+      "type": "array"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    },
+    "resolved_parameters": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
+      "title": "Resolved Parameters",
+      "type": "object"
+    },
+    "seed_stability_score": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Seed Stability Score",
+      "type": "number"
+    },
+    "seeds": {
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 3,
+      "title": "Seeds",
+      "type": "array"
+    },
+    "sensitivity_curve": {
+      "items": {
+        "$ref": "#/$defs/SensitivityPoint"
+      },
+      "minItems": 3,
+      "title": "Sensitivity Curve",
+      "type": "array"
+    },
+    "version_stability_score": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Version Stability Score",
+      "type": "number"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "experiment_id",
+    "prior_sources",
+    "resolved_parameters",
+    "seeds",
+    "version_stability_score",
+    "seed_stability_score",
+    "effective_sample_size",
+    "sensitivity_curve",
+    "frozen_at",
+    "bundle_hash"
+  ],
+  "title": "PopulationCalibrationBundle",
+  "type": "object"
+}

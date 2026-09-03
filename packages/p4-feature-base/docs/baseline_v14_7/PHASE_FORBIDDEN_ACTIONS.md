@@ -1,0 +1,11 @@
+# Ações proibidas na P4
+- usar labels ou resultados futuros;
+- transformar ausência em zero;
+- inventar timestamps ou lineage;
+- pesquisar parâmetros fora do orçamento;
+- executar observer não aprovado pelo gate;
+- criar interação não pré-registrada;
+- tornar encoder obrigatório;
+- corrigir silenciosamente upstream;
+- criar estado global ou cache não versionado;
+- registrar só tentativas vencedoras;

@@ -1,0 +1,72 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/quant.diagnostics.v1/event_window/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "benchmark_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Benchmark Id"
+    },
+    "event_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Event Ids",
+      "type": "array"
+    },
+    "frequency": {
+      "minLength": 1,
+      "title": "Frequency",
+      "type": "string"
+    },
+    "instrument_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Instrument Ids",
+      "type": "array"
+    },
+    "post_observations": {
+      "maximum": 10000,
+      "minimum": 0,
+      "title": "Post Observations",
+      "type": "integer"
+    },
+    "pre_observations": {
+      "maximum": 10000,
+      "minimum": 0,
+      "title": "Pre Observations",
+      "type": "integer"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "event_ids",
+    "instrument_ids",
+    "pre_observations",
+    "post_observations",
+    "frequency"
+  ],
+  "title": "EventWindowRequest",
+  "type": "object"
+}

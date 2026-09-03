@@ -1,0 +1,192 @@
+{
+  "$defs": {
+    "ProviderAdapterDescriptor": {
+      "additionalProperties": false,
+      "properties": {
+        "provider_id": {
+          "title": "Provider Id",
+          "type": "string"
+        },
+        "interface_id": {
+          "title": "Interface Id",
+          "type": "string"
+        },
+        "adapter_id": {
+          "title": "Adapter Id",
+          "type": "string"
+        },
+        "adapter_version": {
+          "title": "Adapter Version",
+          "type": "string"
+        },
+        "protocol": {
+          "title": "Protocol",
+          "type": "string"
+        },
+        "protocol_version": {
+          "title": "Protocol Version",
+          "type": "string"
+        },
+        "connectivity_status": {
+          "enum": [
+            "CONNECTED",
+            "DISCONNECTED",
+            "INTERFACE_ONLY",
+            "LOCAL"
+          ],
+          "title": "Connectivity Status",
+          "type": "string"
+        },
+        "qualification_status": {
+          "title": "Qualification Status",
+          "type": "string"
+        },
+        "capabilities": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Capabilities",
+          "type": "array"
+        },
+        "timeout_seconds": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 300.0,
+          "title": "Timeout Seconds",
+          "type": "number"
+        },
+        "max_concurrency": {
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Max Concurrency",
+          "type": "integer"
+        },
+        "retryable_status_codes": {
+          "default": [
+            429,
+            502,
+            503,
+            504
+          ],
+          "items": {
+            "type": "integer"
+          },
+          "title": "Retryable Status Codes",
+          "type": "array"
+        },
+        "pit_policy": {
+          "title": "Pit Policy",
+          "type": "string"
+        },
+        "credential_handle": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Credential Handle"
+        },
+        "model_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Id"
+        },
+        "model_revision": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Revision"
+        },
+        "observed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed At"
+        },
+        "fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Fingerprint",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider_id",
+        "interface_id",
+        "adapter_id",
+        "adapter_version",
+        "protocol",
+        "protocol_version",
+        "connectivity_status",
+        "qualification_status",
+        "capabilities",
+        "timeout_seconds",
+        "max_concurrency",
+        "pit_policy",
+        "fingerprint"
+      ],
+      "title": "ProviderAdapterDescriptor",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_id": {
+      "const": "provider_adapter_registry.v2",
+      "default": "provider_adapter_registry.v2",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0.0",
+      "default": "2.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "registry_id": {
+      "title": "Registry Id",
+      "type": "string"
+    },
+    "adapters": {
+      "items": {
+        "$ref": "#/$defs/ProviderAdapterDescriptor"
+      },
+      "title": "Adapters",
+      "type": "array"
+    },
+    "content_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_id",
+    "adapters",
+    "content_hash"
+  ],
+  "title": "ProviderAdapterRegistry",
+  "type": "object"
+}

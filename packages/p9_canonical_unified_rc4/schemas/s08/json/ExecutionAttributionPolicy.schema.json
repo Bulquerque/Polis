@@ -1,0 +1,14 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "quantity_tolerance": {
+      "default": 1e-12,
+      "minimum": 0.0,
+      "title": "Quantity Tolerance",
+      "type": "number"
+    }
+  },
+  "title": "ExecutionAttributionPolicy",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:ExecutionAttributionPolicy:1.0.0"
+}

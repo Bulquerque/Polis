@@ -1,0 +1,12 @@
+{
+  "required_phase_ids": [
+    "P2",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "verify_all_artifact_hashes": true,
+  "allow_nonmaterial_gaps": true
+}

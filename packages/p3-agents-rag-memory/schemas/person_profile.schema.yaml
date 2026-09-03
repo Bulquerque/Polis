@@ -1,0 +1,286 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: person_profile.v1
+title: person_profile
+schema_version: v14.1-rc4.1
+type: object
+required:
+- person_id
+- representation_weight
+- identity
+- resources
+- cognitive_capabilities
+- decision_profile
+- objective_weights
+- tags
+- creator_provenance
+- lineage_id
+$defs:
+  unit_interval: &id001
+    type: number
+    minimum: 0
+    maximum: 1
+  person_tag_assignment:
+    type: object
+    required:
+    - tag_id
+    - intensity
+    - confidence
+    properties:
+      tag_id:
+        type: string
+        pattern: ^[a-z][a-z0-9_]*$
+      intensity: *id001
+      confidence: *id001
+    additionalProperties: false
+properties:
+  person_id:
+    type: string
+    minLength: 1
+  representation_weight:
+    type: number
+    exclusiveMinimum: 0
+    maximum: 1
+  identity:
+    type: object
+    required:
+    - life_stage
+    - education_level
+    - occupation
+    - economic_role
+    - economic_role_family
+    - economic_sector
+    - experience_band
+    properties:
+      life_stage:
+        type: string
+        minLength: 1
+      education_level:
+        type: string
+        minLength: 1
+      occupation:
+        type: string
+        minLength: 1
+      economic_role:
+        enum:
+        - academic_researcher
+        - active_trader
+        - asset_manager
+        - business_owner
+        - buy_side_analyst
+        - central_bank_economist
+        - chief_executive
+        - commercial_employee
+        - consumer_household_decision_maker
+        - content_creator_or_influencer
+        - corporate_strategy_professional
+        - economic_commentator
+        - entrepreneur
+        - finance_executive
+        - financial_journalist
+        - general_journalist
+        - government_economist
+        - hedge_fund_professional
+        - independent_researcher
+        - industry_expert
+        - investor_relations_professional
+        - market_maker_or_liquidity_professional
+        - operating_executive
+        - options_specialist
+        - policy_advisor
+        - portfolio_manager
+        - procurement_or_supply_chain_professional
+        - professional_worker
+        - public_statistician
+        - quant_researcher
+        - regulator
+        - retail_investor
+        - risk_professional
+        - sector_specialist
+        - sell_side_analyst
+        - technical_employee
+        - wealth_manager
+      economic_role_family:
+        enum:
+        - corporate_actors
+        - information_actors
+        - market_participants
+        - policy_institutions
+        - real_economy
+      economic_sector:
+        type: string
+        minLength: 1
+      institution_id:
+        type:
+        - string
+        - 'null'
+      geography_region:
+        type:
+        - string
+        - 'null'
+      experience_band:
+        type: string
+        minLength: 1
+    additionalProperties: false
+  resources:
+    type: object
+    required:
+    - income_band
+    - wealth_band
+    - available_capital_band
+    - liquidity_need
+    - research_time_budget
+    - information_access_level
+    - research_budget_level
+    - computational_access_level
+    - network_access_level
+    properties:
+      income_band:
+        type: string
+      wealth_band:
+        type: string
+      available_capital_band:
+        type: string
+      liquidity_need:
+        $ref: '#/$defs/unit_interval'
+      research_time_budget:
+        $ref: '#/$defs/unit_interval'
+      information_access_level:
+        $ref: '#/$defs/unit_interval'
+      research_budget_level:
+        $ref: '#/$defs/unit_interval'
+      computational_access_level:
+        $ref: '#/$defs/unit_interval'
+      network_access_level:
+        $ref: '#/$defs/unit_interval'
+    additionalProperties: false
+  cognitive_capabilities:
+    type: object
+    required:
+    - attention_capacity
+    - working_memory_capacity
+    - numerical_reasoning
+    - verbal_reasoning
+    - financial_literacy
+    - statistical_literacy
+    - research_skill
+    - source_evaluation_skill
+    - learning_rate
+    - uncertainty_reasoning
+    - planning_depth
+    properties:
+      attention_capacity:
+        $ref: '#/$defs/unit_interval'
+      working_memory_capacity:
+        $ref: '#/$defs/unit_interval'
+      numerical_reasoning:
+        $ref: '#/$defs/unit_interval'
+      verbal_reasoning:
+        $ref: '#/$defs/unit_interval'
+      financial_literacy:
+        $ref: '#/$defs/unit_interval'
+      statistical_literacy:
+        $ref: '#/$defs/unit_interval'
+      research_skill:
+        $ref: '#/$defs/unit_interval'
+      source_evaluation_skill:
+        $ref: '#/$defs/unit_interval'
+      learning_rate:
+        $ref: '#/$defs/unit_interval'
+      uncertainty_reasoning:
+        $ref: '#/$defs/unit_interval'
+      planning_depth:
+        $ref: '#/$defs/unit_interval'
+    additionalProperties: false
+  decision_profile:
+    type: object
+    required:
+    - risk_tolerance
+    - loss_sensitivity
+    - patience
+    - impulsivity
+    - baseline_confidence
+    - curiosity
+    - cognitive_flexibility
+    - social_susceptibility
+    - need_for_certainty
+    - persistence
+    - novelty_seeking
+    properties:
+      risk_tolerance:
+        $ref: '#/$defs/unit_interval'
+      loss_sensitivity:
+        $ref: '#/$defs/unit_interval'
+      patience:
+        $ref: '#/$defs/unit_interval'
+      impulsivity:
+        $ref: '#/$defs/unit_interval'
+      baseline_confidence:
+        $ref: '#/$defs/unit_interval'
+      curiosity:
+        $ref: '#/$defs/unit_interval'
+      cognitive_flexibility:
+        $ref: '#/$defs/unit_interval'
+      social_susceptibility:
+        $ref: '#/$defs/unit_interval'
+      need_for_certainty:
+        $ref: '#/$defs/unit_interval'
+      persistence:
+        $ref: '#/$defs/unit_interval'
+      novelty_seeking:
+        $ref: '#/$defs/unit_interval'
+    additionalProperties: false
+  objective_weights:
+    type: object
+    minProperties: 1
+    propertyNames:
+      enum:
+      - audience_reach
+      - capital_preservation
+      - career_risk
+      - forecast_accuracy
+      - income_generation
+      - information_accuracy
+      - institutional_mandate_pressure
+      - liquidity_priority
+      - operational_continuity
+      - policy_effectiveness
+      - regulatory_compliance
+      - social_status
+      - wealth_growth
+    additionalProperties:
+      $ref: '#/$defs/unit_interval'
+  tags:
+    type: array
+    minItems: 1
+    items:
+      $ref: '#/$defs/person_tag_assignment'
+  creator_provenance:
+    type: object
+    required:
+    - creator_run_id
+    - generation_round
+    - mode
+    - prompt_version
+    - seed
+    properties:
+      creator_run_id:
+        type: string
+        minLength: 1
+      generation_round:
+        type: integer
+        minimum: 1
+      mode:
+        enum:
+        - coverage
+        - density
+      prompt_version:
+        type: string
+        minLength: 1
+      seed:
+        type: integer
+    additionalProperties: false
+  lineage_id:
+    type: string
+    minLength: 1
+additionalProperties: false
+artifact_schema_version: 1.0.0

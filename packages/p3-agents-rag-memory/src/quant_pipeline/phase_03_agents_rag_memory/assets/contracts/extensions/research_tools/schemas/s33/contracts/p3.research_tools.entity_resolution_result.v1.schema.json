@@ -1,0 +1,111 @@
+{
+  "$defs": {
+    "EntityMatchMethod": {
+      "enum": [
+        "EXACT_IDENTIFIER",
+        "TICKER_VENUE",
+        "TEMPORAL_ALIAS",
+        "COMPANY_INSTRUMENT_MAP",
+        "OPTIONAL_PROBABILISTIC"
+      ],
+      "title": "EntityMatchMethod",
+      "type": "string"
+    },
+    "EntityResolutionCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "entity_id": {
+          "minLength": 1,
+          "title": "Entity Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instrument Id"
+        },
+        "method": {
+          "$ref": "#/$defs/EntityMatchMethod"
+        },
+        "resolution_key": {
+          "minLength": 1,
+          "title": "Resolution Key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resolution_key",
+        "entity_id",
+        "method",
+        "confidence"
+      ],
+      "title": "EntityResolutionCandidate",
+      "type": "object"
+    },
+    "EntityResolutionStatus": {
+      "enum": [
+        "RESOLVED",
+        "AMBIGUOUS",
+        "UNRESOLVED"
+      ],
+      "title": "EntityResolutionStatus",
+      "type": "string"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.entity_resolution_result.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "items": {
+        "$ref": "#/$defs/EntityResolutionCandidate"
+      },
+      "title": "Candidates",
+      "type": "array"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "query": {
+      "minLength": 1,
+      "title": "Query",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/EntityResolutionStatus"
+    }
+  },
+  "required": [
+    "query",
+    "decision_time",
+    "status",
+    "candidates"
+  ],
+  "title": "EntityResolutionResult",
+  "type": "object"
+}

@@ -1,0 +1,15 @@
+subphase: P3.S5
+modules:
+- module_id: P3.S5.M01
+  required_cases:
+  - same_seed_reproducible_envelope
+  - retry_exhaustion_fails
+  - provider_failure_no_fake_candidates
+- module_id: P3.S5.M02
+  required_cases:
+  - age_experience_failure
+  - role_tool_failure
+  - silent_repair_forbidden
+canonical_module_order:
+- P3.S5.M01
+- P3.S5.M02

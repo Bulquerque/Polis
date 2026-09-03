@@ -1,0 +1,10 @@
+{
+  "cycle_id": "C001",
+  "as_of_time": "2026-01-01T00:00:00Z",
+  "person_state_ref": "person_state@C001",
+  "belief_state_ref": "belief_state@C001",
+  "memory_state_ref": "memory@C001",
+  "social_graph_ref": "social@C001",
+  "endogenous_stimulus_queue_ref": "queue@C002",
+  "lineage_id": "LIN_C001"
+}

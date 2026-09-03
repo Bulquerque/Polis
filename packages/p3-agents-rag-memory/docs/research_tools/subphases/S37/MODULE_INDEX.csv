@@ -1,0 +1,5 @@
+module_id,module_name,public_operations,outputs_summary
+P3.S37.M01,macro_series_release_catalog_builder,4,"catalog, readiness, context snapshot"
+P3.S37.M02,macro_observation_vintage_handler_bundle_builder,3,"search, observations, releases"
+P3.S37.M03,macro_comparison_asset_context_handler_bundle_builder,2,"comparison, asset context"
+P3.S37.M04,macro_tool_bundle_vintage_qualification_builder,3,"consolidation, qualification, readiness"

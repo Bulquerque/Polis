@@ -1,0 +1,15 @@
+subphase: P3.S1
+modules:
+- module_id: P3.S1.M01
+  required_cases:
+  - missing_artifact_fails
+  - hash_mismatch_fails
+  - schema_version_mismatch_fails
+- module_id: P3.S1.M02
+  required_cases:
+  - invalid_source_fails
+  - low_quality_flag_propagates
+  - no_quality_recalculation
+canonical_module_order:
+- P3.S1.M01
+- P3.S1.M02

@@ -1,0 +1,54 @@
+{
+  "$id": "https://inferencia.local/p8/s4/v1/AccountState.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_cash": {
+      "minimum": 0.0,
+      "title": "Available Cash",
+      "type": "number"
+    },
+    "cash_buffer_required": {
+      "minimum": 0.0,
+      "title": "Cash Buffer Required",
+      "type": "number"
+    },
+    "currency": {
+      "maxLength": 3,
+      "minLength": 3,
+      "title": "Currency",
+      "type": "string"
+    },
+    "current_margin_used": {
+      "minimum": 0.0,
+      "title": "Current Margin Used",
+      "type": "number"
+    },
+    "eligible_collateral": {
+      "minimum": 0.0,
+      "title": "Eligible Collateral",
+      "type": "number"
+    },
+    "margin_limit": {
+      "minimum": 0.0,
+      "title": "Margin Limit",
+      "type": "number"
+    },
+    "max_new_risk_capital": {
+      "minimum": 0.0,
+      "title": "Max New Risk Capital",
+      "type": "number"
+    }
+  },
+  "required": [
+    "currency",
+    "available_cash",
+    "eligible_collateral",
+    "current_margin_used",
+    "margin_limit",
+    "cash_buffer_required",
+    "max_new_risk_capital"
+  ],
+  "title": "AccountState",
+  "type": "object"
+}

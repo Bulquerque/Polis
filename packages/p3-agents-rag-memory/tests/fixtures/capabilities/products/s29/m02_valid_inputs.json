@@ -1,0 +1,114 @@
+{
+  "evidence_bound_belief_update_panel": {
+    "artifact_id": "belief-update-panel-fixture",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-belief-update-panel",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s29-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:00:00Z",
+    "records": [
+      {
+        "belief_update_id": "belief-update-001",
+        "person_id": "person-001",
+        "run_id": "run-s29-fixture",
+        "cycle_id": "cycle-2024-01",
+        "as_of_time": "2024-01-31T20:00:00Z",
+        "underlying_id": "PETR4",
+        "proposition_id": "earnings_direction",
+        "horizon": "30d",
+        "prior_value": 0.1,
+        "new_value": 0.35,
+        "confidence": 0.72,
+        "supporting_evidence_refs": [
+          "evidence-rag-001"
+        ],
+        "opposing_evidence_refs": [],
+        "context_evidence_refs": [],
+        "lineage_id": "lineage-belief-update-001"
+      }
+    ]
+  },
+  "retrieval_evidence_map": {
+    "artifact_id": "retrieval-evidence-fixture",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-retrieval-map",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s29-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:00:00Z",
+    "records": [
+      {
+        "evidence_id": "evidence-rag-001",
+        "evidence_kind": "RAG_CHUNK",
+        "source_id": "source-cvm-001",
+        "document_id": "document-001",
+        "chunk_id": "chunk-001",
+        "graph_path_id": null,
+        "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "event_time": "2024-01-29T13:00:00Z",
+        "available_at": "2024-01-29T14:00:00Z",
+        "source_quality_score": 0.93,
+        "lineage_id": "lineage-evidence-rag-001"
+      }
+    ]
+  },
+  "graph_evidence_map": {
+    "artifact_id": "graph-evidence-fixture",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-graph-map",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s29-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:00:00Z",
+    "records": []
+  },
+  "rag_index_artifact": {
+    "artifact_id": "rag-index-fixture",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-rag-index",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s29-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:00:00Z",
+    "records": [
+      {
+        "chunk_id": "chunk-001",
+        "document_id": "document-001",
+        "source_id": "source-cvm-001",
+        "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "available_at": "2024-01-29T14:00:00Z",
+        "lineage_id": "lineage-rag-chunk-001"
+      }
+    ]
+  },
+  "agent_reading_panel": {
+    "artifact_id": "agent-reading-fixture",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-agent-reading",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s29-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:00:00Z",
+    "records": [
+      {
+        "claim_id": "claim-001",
+        "belief_update_id": "belief-update-001",
+        "person_id": "person-001",
+        "run_id": "run-s29-fixture",
+        "cycle_id": "cycle-2024-01",
+        "created_at": "2024-01-31T19:50:00Z",
+        "underlying_id": "PETR4",
+        "proposition_id": "earnings_direction",
+        "horizon": "30d",
+        "claim_type": "fundamentals.earnings",
+        "statement_summary": "Evidência disponível sustenta melhora esperada dos resultados.",
+        "relation": "SUPPORTS",
+        "evidence_refs": [
+          "evidence-rag-001"
+        ],
+        "lineage_id": "lineage-claim-001"
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+registry_id: offline_training_pipeline_registry_rc4_1
+schema_version: v14.1-rc4.1
+authority: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth
+pipeline_id: offline_ltr_training_pipeline
+role: governed_offline_training_preparation_and_model_registry
+owner_phase: phase_07_ranking
+branch: offline_training_only
+registered_producers:
+  - producer_id: offline_ltr_training_pipeline
+    implementation_path: phase_07_extracted/phase_07_ranking_agent_package_RC4_1/src/quant_pipeline/phase_07_ranking/offline_ltr_training_pipeline.py
+    produces:
+      - historical_candidate_outcome_panel
+      - realized_training_window
+      - trained_ltr_model_artifact
+    consumes:
+      - ltr_training_target_panel
+    status: contract_surface_implemented
+    promotion_allowed: false
+rules:
+  - no_phase_09_input_is_training_data
+  - every_artifact_has_dataset_version_and_lineage
+  - every_target_has_post_horizon_availability
+  - every_model_has_training_cutoff_and_inference_compatibility

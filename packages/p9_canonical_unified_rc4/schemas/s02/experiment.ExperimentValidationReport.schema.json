@@ -1,0 +1,71 @@
+{
+  "$defs": {
+    "ExperimentValidationState": {
+      "enum": [
+        "SPEC_VALID",
+        "SPEC_VALID_WITH_LIMITATIONS",
+        "SPEC_INVALID",
+        "CAPABILITY_UNAVAILABLE",
+        "HOLDOUT_POLICY_INVALID"
+      ],
+      "title": "ExperimentValidationState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "checked_capability_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Checked Capability Ids",
+      "type": "array"
+    },
+    "checked_metric_ids": {
+      "default": [],
+      "items": {
+        "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+        "type": "string"
+      },
+      "title": "Checked Metric Ids",
+      "type": "array"
+    },
+    "checked_target_module_ids": {
+      "default": [],
+      "items": {
+        "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+        "type": "string"
+      },
+      "title": "Checked Target Module Ids",
+      "type": "array"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/ExperimentValidationState"
+    }
+  },
+  "required": [
+    "state"
+  ],
+  "title": "ExperimentValidationReport",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+policy_id: p7_s3_strict_dominance_v1
+scope: comparison_group_id
+canonical_direction: maximize
+formula:
+  no_worse: A_m >= B_m - epsilon_m for every active metric m
+  materially_better: A_j > B_j + epsilon_j for at least one active metric j
+  epsilon: epsilon_absolute + epsilon_relative * max(abs(A_m), abs(B_m))
+requirements:
+  - no comparison across groups
+  - no score-based dominance
+  - candidate_id is never a preference variable
+  - missing required metrics make the candidate incomparable or blocked by policy
+  - relation graph must be acyclic
+  - all candidate identities must be conserved

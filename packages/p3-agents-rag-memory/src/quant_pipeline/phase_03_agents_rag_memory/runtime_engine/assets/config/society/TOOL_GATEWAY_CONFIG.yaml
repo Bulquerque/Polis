@@ -1,0 +1,6 @@
+pit_required: true
+audit_required: true
+cache_mode: frozen_in_backtest
+max_calls_per_person_cycle: 5
+credential_policy: handle_only
+provider_failure_policy: material_no_fake_success

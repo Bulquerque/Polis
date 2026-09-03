@@ -1,0 +1,49 @@
+{
+  "$defs": {
+    "CorpusMode": {
+      "enum": [
+        "LOOKUP",
+        "STANDARD",
+        "TRIANGULATED",
+        "FORENSIC"
+      ],
+      "title": "CorpusMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "chunk_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Chunk Id"
+    },
+    "document_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Document Id"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/CorpusMode",
+      "default": "LOOKUP"
+    }
+  },
+  "title": "InspectProvenanceRequest",
+  "type": "object"
+}

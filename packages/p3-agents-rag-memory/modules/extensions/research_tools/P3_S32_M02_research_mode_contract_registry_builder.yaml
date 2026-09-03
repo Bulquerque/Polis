@@ -1,0 +1,148 @@
+module_id: P3.S32.M02
+module_name: research_mode_contract_registry_builder
+phase: phase_03_agents_rag_memory
+subphase: P3.S32
+status: implemented_qualified_internal
+function: Construir a autoridade de modos por operação, requisitos, custos, cobertura
+  e grafo acíclico de downgrade.
+inputs: &id001
+- canonical_tool_operation_registry
+- operation_mode_registry_config
+- research_capability_taxonomy_config
+outputs: &id002
+- research_mode_registry
+- operation_mode_matrix
+validations:
+- every_operation_has_assignment
+- mode_template_exists
+- capabilities_exist
+- downgrade_is_lower_band
+- downgrade_graph_acyclic
+- view_requirements_subset_operation
+- resource_limits_bounded
+invariants:
+- single_contract_authority
+- deterministic_serialization
+- lineage_traceability
+- no_hidden_global_state
+- no_same_cycle_back_edge
+- no_network_access
+non_responsibilities:
+- Não perfilar pessoas, resolver entitlement, executar planos ou adaptar resultados
+  do S21.
+fail_fast_conditions:
+- research_mode_contract_registry_builder_schema_violation
+- research_mode_contract_registry_builder_undeclared_dependency
+- research_mode_contract_registry_builder_contract_conflict
+forbidden_fields:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+- model_selection
+- backtest_result
+allowed_connections:
+  consumes_from:
+    modules:
+    - P3.S32.M01
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P3.S32.M04
+    - P3.S34.M03
+    - P3.S34.M04
+    artifacts: *id002
+    phase_outputs: []
+tests_required:
+- mode_happy_path
+- missing_assignment_rejected
+- unknown_capability_rejected
+- downgrade_cycle_rejected
+- invalid_view_requirement_rejected
+- mode_order_invariant
+definition_of_done:
+- required_tests_implemented_and_passing
+- outputs_match_generated_schemas
+- no_undeclared_side_effects
+- contracts_docs_tests_updated_together
+- existing_p3_tests_remain_green
+contract_version: p3.s32.contracts.v1
+owner_prompt: subphases/extensions/research_tools/P3_S32_research_tool_contract_compatibility_foundation.md
+implementation_boundary:
+  owns:
+  - Construir a autoridade de modos por operação, requisitos, custos, cobertura e
+    grafo acíclico de downgrade.
+  must_not_absorb:
+  - Não perfilar pessoas, resolver entitlement, executar planos ou adaptar resultados
+    do S21.
+  state_mutation_policy: outputs_only
+observability_requirements:
+  events:
+  - module_started
+  - input_contract_validated
+  - module_succeeded
+  - module_failed
+  dimensions:
+  - module_id
+  - contract_version
+  - lineage_id
+  - content_hash
+  metrics:
+  - duration_ms
+  - input_record_count
+  - output_record_count
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - provider_secrets
+  - private_payloads
+debugging_contract:
+  triage_order:
+  - validate_required_inputs
+  - validate_schema_version
+  - validate_hash_and_lineage
+  - validate_cross_contract_invariants
+  - validate_output_schema
+  error_codes:
+  - P3RT-CONTRACT-0001
+  - P3RT-MODE-0001
+  - P3RT-ALIAS-0001
+  - P3RT-PROVIDER-0001
+  fallback_policy: fail_closed_no_silent_fallback
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - documentation
+  contract_change_requires:
+  - schema_update
+  - fixtures_update
+  - consumer_tests_update
+  - version_review
+review_checklist:
+- single_responsibility
+- input_output_match
+- no_forbidden_authority
+- deterministic
+- strict_models
+- negative_tests_present
+rc: S32-V1
+forbidden_connections:
+- any_undeclared_connection
+- network_access
+- direct_P3_to_P5_P6_P7_P8
+- modification_of_P3_S1_to_S31
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M02_research_mode_contract_registry_builder.py
+unit_test_target: tests/phase_specific/research_tools/test_p3_s32_m02_modes.py
+integration_test_target: tests/phase_specific/research_tools/test_p3_s32_wrappers.py
+implementation_status: QUALIFIED_LOCAL_PENDING_TEST_RUN
+production_promotion_allowed: false
+qualification_scope: LOCAL_CONTRACT_AND_COMPATIBILITY_ONLY; P0_PENDING
+documentation_refs:
+- docs/research_tools/P3_S32_IMPLEMENTATION.md
+- docs/research_tools/P3_S32_API_COMPATIBILITY.md
+- docs/research_tools/P3_S32_TESTING.md

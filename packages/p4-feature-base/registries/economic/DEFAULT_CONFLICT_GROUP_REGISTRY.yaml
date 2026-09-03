@@ -1,0 +1,156 @@
+artifact_id: p4-s6-default-conflict-groups
+schema_version: p4.s6.conflict_registry.v1
+pipeline_version: V14.5-RC1
+run_id: RUN_ID_REQUIRED
+cycle_id: CYCLE_ID_REQUIRED
+as_of_time: '2024-01-01T00:00:00Z'
+lineage_id: REGISTRY_LINEAGE_REQUIRED
+records:
+- group_id: momentum_direction
+  output_prefix: conflict.momentum.direction
+  phenomenon_id: momentum
+  horizon_group: MEDIUM
+  mode: SIGNED_DIRECTIONAL
+  min_views: 2
+  enabled: true
+  members:
+  - feature_id: perspective.momentum.time_series
+    direction_multiplier: 1
+    independence_group: absolute
+    weight: 1.0
+  - feature_id: perspective.momentum.cross_sectional_rank
+    direction_multiplier: 1
+    independence_group: cross_sectional
+    weight: 1.0
+  - feature_id: perspective.momentum.residual
+    direction_multiplier: 1
+    independence_group: residual
+    weight: 1.0
+  - feature_id: perspective.momentum.volume_confirmed
+    direction_multiplier: 1
+    independence_group: volume
+    weight: 1.0
+- group_id: reversion_direction
+  output_prefix: conflict.reversion.direction
+  phenomenon_id: reversion
+  horizon_group: SHORT
+  mode: SIGNED_DIRECTIONAL
+  min_views: 2
+  enabled: true
+  members:
+  - feature_id: perspective.reversion.short_term
+    direction_multiplier: 1
+    independence_group: short_pressure
+    weight: 1.0
+  - feature_id: perspective.reversion.robust_deviation
+    direction_multiplier: 1
+    independence_group: robust_deviation
+    weight: 1.0
+  - feature_id: perspective.reversion.residual
+    direction_multiplier: 1
+    independence_group: residual
+    weight: 1.0
+- group_id: risk_stress
+  output_prefix: conflict.risk.stress
+  phenomenon_id: risk
+  horizon_group: MEDIUM
+  mode: MAGNITUDE_DISPERSION
+  min_views: 2
+  enabled: true
+  members:
+  - feature_id: perspective.risk.multiscale
+    direction_multiplier: 1
+    independence_group: realized
+    weight: 1.0
+  - feature_id: perspective.risk.downside
+    direction_multiplier: 1
+    independence_group: downside
+    weight: 1.0
+  - feature_id: perspective.risk.drawdown_stress
+    direction_multiplier: 1
+    independence_group: path
+    weight: 1.0
+  - feature_id: perspective.risk.implied_uncertainty
+    direction_multiplier: 1
+    independence_group: implied
+    weight: 1.0
+- group_id: liquidity_stress
+  output_prefix: conflict.liquidity.stress
+  phenomenon_id: liquidity
+  horizon_group: SHORT
+  mode: MAGNITUDE_DISPERSION
+  min_views: 2
+  enabled: true
+  members:
+  - feature_id: perspective.liquidity.participation
+    direction_multiplier: 1
+    independence_group: participation
+    weight: 1.0
+  - feature_id: perspective.liquidity.price_impact
+    direction_multiplier: 1
+    independence_group: impact
+    weight: 1.0
+  - feature_id: perspective.liquidity.attention_crowding
+    direction_multiplier: 1
+    independence_group: attention
+    weight: 1.0
+- group_id: structure_pressure
+  output_prefix: conflict.structure.pressure
+  phenomenon_id: structure
+  horizon_group: MEDIUM
+  mode: MAGNITUDE_DISPERSION
+  min_views: 2
+  enabled: true
+  members:
+  - feature_id: perspective.structure.systematic_exposure
+    direction_multiplier: 1
+    independence_group: systematic
+    weight: 1.0
+  - feature_id: perspective.structure.common_mode_proxy
+    direction_multiplier: 1
+    independence_group: common_mode
+    weight: 1.0
+  - feature_id: perspective.structure.contagion_pressure_proxy
+    direction_multiplier: 1
+    independence_group: contagion
+    weight: 1.0
+- group_id: narrative_direction
+  output_prefix: conflict.narrative.direction
+  phenomenon_id: narrative
+  horizon_group: SHORT
+  mode: SIGNED_DIRECTIONAL
+  min_views: 2
+  enabled: true
+  members:
+  - feature_id: perspective.narrative.information_state
+    direction_multiplier: 1
+    independence_group: information
+    weight: 1.0
+  - feature_id: perspective.narrative.shift_state
+    direction_multiplier: 1
+    independence_group: shift
+    weight: 1.0
+- group_id: fundamental_strength
+  output_prefix: conflict.fundamental.strength
+  phenomenon_id: fundamentals
+  horizon_group: LONG
+  mode: SIGNED_DIRECTIONAL
+  min_views: 2
+  enabled: true
+  members:
+  - feature_id: perspective.fundamental.value_state
+    direction_multiplier: 1
+    independence_group: value
+    weight: 1.0
+  - feature_id: perspective.fundamental.profitability_state
+    direction_multiplier: 1
+    independence_group: profitability
+    weight: 1.0
+  - feature_id: perspective.fundamental.investment_state
+    direction_multiplier: 1
+    independence_group: investment
+    weight: 1.0
+  - feature_id: perspective.fundamental.accrual_quality_state
+    direction_multiplier: 1
+    independence_group: accrual
+    weight: 1.0

@@ -1,0 +1,5 @@
+max_query_hops: 3
+edge_requires_evidence: true
+temporal_edges_required: true
+orphan_edge_policy: fail
+entity_resolution_version: v1

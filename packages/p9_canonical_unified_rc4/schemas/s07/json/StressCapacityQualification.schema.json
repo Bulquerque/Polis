@@ -1,0 +1,51 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "qualification_state": {
+      "minLength": 1,
+      "title": "Qualification State",
+      "type": "string"
+    },
+    "reverse_stress_distance": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reverse Stress Distance"
+    },
+    "capacity_limit_ratio": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Capacity Limit Ratio"
+    },
+    "hard_blocking_reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Hard Blocking Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "qualification_state"
+  ],
+  "title": "StressCapacityQualification",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:StressCapacityQualification:1.0.0"
+}

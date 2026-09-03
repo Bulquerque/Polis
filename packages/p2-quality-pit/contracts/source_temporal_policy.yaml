@@ -1,0 +1,13 @@
+schema_version: source-temporal-policy-v1
+policies:
+  B3_PUBLIC_DATA:
+    reference_time_source: report_date
+    available_at_source: provider_publication_or_retrieval
+    timezone: America/Sao_Paulo
+  LONDON_STRATEGIC_EDGE:
+    reference_time_source: provider_timestamp
+    available_at_source: provider_timestamp_or_retrieved_at
+    timezone: provider_declared
+  FRED_STATIC_EXPORT:
+    vintage_semantics: LATEST_REVISED_VALUE
+    strict_historical_pit_eligible: false

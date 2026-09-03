@@ -1,0 +1,5 @@
+max_trust_delta_per_cycle: 0.05
+domain_specific: true
+direct_experience_weight: 0.7
+indirect_reputation_weight: 0.3
+matured_feedback_required_for_accuracy_update: true

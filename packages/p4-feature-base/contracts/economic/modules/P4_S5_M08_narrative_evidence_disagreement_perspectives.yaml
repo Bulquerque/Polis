@@ -1,0 +1,41 @@
+module_id: P4.S5.M08
+module_name: narrative_evidence_disagreement_perspectives
+phase: P4
+subphase: P4.S5
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: Construct narrative_evidence_disagreement_perspective_panel from approved
+  atomic observations without targets.
+inputs:
+- social_evidence_context_atomic_panel
+- approved_hypothesis_passport_registry
+outputs:
+- narrative_evidence_disagreement_perspective_panel
+invariants:
+- point_in_time_integrity
+- approved_hypotheses_only
+- no_target_or_prediction
+- lineage_all_dependencies
+- deterministic_replay
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+fail_fast_conditions:
+- P4_S5_M08_UNKNOWN_OBSERVER
+- P4_S5_M08_ATOMIC_SCHEMA_INVALID
+- P4_S5_M08_OUTPUT_INVALID
+tests_required:
+- happy_path
+- schema_negative
+- point_in_time
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+production_promotion_allowed: false

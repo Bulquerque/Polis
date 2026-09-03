@@ -1,0 +1,9 @@
+patch_id: patch_disable_research_tool
+change_type: tool_update
+change_target: research.search_filings.v1
+promoted_at: '2025-01-14T12:00:00Z'
+effective_cycle_id: cycle_001
+lineage_id: p9_promoted_patch_demo
+changes:
+  - field: configuration_status
+    value: DISABLED

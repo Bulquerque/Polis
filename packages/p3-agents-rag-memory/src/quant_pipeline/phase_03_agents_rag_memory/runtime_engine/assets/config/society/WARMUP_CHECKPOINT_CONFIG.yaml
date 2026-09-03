@@ -1,0 +1,4 @@
+checkpoint_frequency: monthly
+final_checkpoint_required: true
+resume_supported: true
+hash_all_state_families: true

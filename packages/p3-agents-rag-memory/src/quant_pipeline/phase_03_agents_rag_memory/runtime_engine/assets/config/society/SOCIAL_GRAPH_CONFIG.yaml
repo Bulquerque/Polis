@@ -1,0 +1,15 @@
+version: social_graph.v2
+min_degree: 1
+max_degree: 12
+max_connected_components: 5
+min_bridge_edges_between_role_families: 4
+max_hub_share: 0.2
+domain_trust_range: [0.0, 1.0]
+allowed_relationship_types:
+  - peer
+  - advisor
+  - information_source
+  - institutional_contact
+degree_mode: total_unique_neighbors
+enforce_minimums: true
+allow_parallel_relationship_types: true

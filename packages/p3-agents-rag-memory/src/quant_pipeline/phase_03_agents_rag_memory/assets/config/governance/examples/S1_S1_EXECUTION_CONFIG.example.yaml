@@ -1,0 +1,6 @@
+pipeline_version: V14.1-RC4.1
+execution_profile: DEVELOPMENT
+strict_manifest_hashes: true
+require_precise_manifest_refs_in_qualification: true
+block_if_no_accepted_records: true
+block_on_duplicate_quality_source: true

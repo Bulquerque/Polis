@@ -1,0 +1,51 @@
+{
+  "$defs": {
+    "MetricDirection": {
+      "enum": [
+        "MAXIMIZE",
+        "MINIMIZE"
+      ],
+      "title": "MetricDirection",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "allowed_for_tuning": {
+      "title": "Allowed For Tuning",
+      "type": "boolean"
+    },
+    "direction": {
+      "$ref": "#/$defs/MetricDirection"
+    },
+    "hard_guardrail_eligible": {
+      "default": false,
+      "title": "Hard Guardrail Eligible",
+      "type": "boolean"
+    },
+    "metric_id": {
+      "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+      "title": "Metric Id",
+      "type": "string"
+    },
+    "metric_version": {
+      "minLength": 1,
+      "title": "Metric Version",
+      "type": "string"
+    },
+    "minimum_observations": {
+      "minimum": 1,
+      "title": "Minimum Observations",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "metric_id",
+    "metric_version",
+    "direction",
+    "minimum_observations",
+    "allowed_for_tuning"
+  ],
+  "title": "MetricBinding",
+  "type": "object"
+}

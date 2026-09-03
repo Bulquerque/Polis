@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "P9",
+  "subphase": "P9.S6",
+  "module_count": 8,
+  "modules": [
+    {
+      "module_id": "P9.S6.M01",
+      "name": "stress_scenario_taxonomy_and_commitment_registry",
+      "tier": "CORE",
+      "source_file": "m01_stress_scenario_taxonomy_and_commitment_registry.py",
+      "responsibility": "Commit immutable scenarios before outcomes and calculate weighted material-risk coverage."
+    },
+    {
+      "module_id": "P9.S6.M02",
+      "name": "historical_crisis_replay_and_regime_mapping_engine",
+      "tier": "CORE",
+      "source_file": "m02_historical_crisis_replay_and_regime_mapping_engine.py",
+      "responsibility": "Replay historical factor paths against frozen exposures while separating observed, translated and unavailable mappings."
+    },
+    {
+      "module_id": "P9.S6.M03",
+      "name": "factor_shock_and_global_sensitivity_surface_engine",
+      "tier": "CORE",
+      "source_file": "m03_factor_shock_and_global_sensitivity_surface_engine.py",
+      "responsibility": "Evaluate multivariate response surfaces, interactions, extrapolation and constraint cliffs."
+    },
+    {
+      "module_id": "P9.S6.M04",
+      "name": "conditional_extreme_value_tail_engine",
+      "tier": "SPECIALIST",
+      "source_file": "m04_conditional_extreme_value_tail_engine.py",
+      "responsibility": "Fit conditional POT/GPD tail models with diagnostics, threshold sensitivity and parameter uncertainty."
+    },
+    {
+      "module_id": "P9.S6.M05",
+      "name": "distributional_ambiguity_and_worst_case_engine",
+      "tier": "CHALLENGER",
+      "source_file": "m05_distributional_ambiguity_and_worst_case_engine.py",
+      "responsibility": "Evaluate a finite-support Wasserstein-1 worst-case frontier for loss, CVaR and optional score."
+    },
+    {
+      "module_id": "P9.S6.M06",
+      "name": "liquidity_capacity_crowding_and_fire_sale_engine",
+      "tier": "CORE",
+      "source_file": "m06_liquidity_capacity_crowding_and_fire_sale_engine.py",
+      "responsibility": "Compute nonlinear implementation cost, feasibility and capacity curves by AUM, with optional research-only network stress."
+    },
+    {
+      "module_id": "P9.S6.M07",
+      "name": "reverse_stress_breakpoint_and_resilience_engine",
+      "tier": "CORE",
+      "source_file": "m07_reverse_stress_breakpoint_and_resilience_engine.py",
+      "responsibility": "Find the minimum weighted-L2 shock that breaches a committed failure condition and verify it by forward evaluation."
+    },
+    {
+      "module_id": "P9.S6.M08",
+      "name": "stress_model_and_scenario_validation_gate",
+      "tier": "INDEPENDENT_GATE",
+      "source_file": "m08_stress_model_and_scenario_validation_gate.py",
+      "responsibility": "Validate scenario coverage, evidence quality, capacity monotonicity, reverse stress and specialist capability limitations."
+    }
+  ]
+}

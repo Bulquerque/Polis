@@ -1,0 +1,172 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  BeliefValueType:
+    enum:
+    - DIRECTIONAL_SCORE
+    - VOLATILITY_LEVEL
+    - REGIME_PROBABILITIES
+    title: BeliefValueType
+    type: string
+  JsonValue: {}
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  RawBeliefProposalRecord:
+    additionalProperties: false
+    properties:
+      belief_proposal_id:
+        minLength: 1
+        title: Belief Proposal Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      underlying_id:
+        minLength: 1
+        title: Underlying Id
+        type: string
+      proposition_id:
+        minLength: 1
+        title: Proposition Id
+        type: string
+      horizon:
+        minLength: 1
+        title: Horizon
+        type: string
+      value_type:
+        $ref: '#/$defs/BeliefValueType'
+      value_payload:
+        additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        title: Value Payload
+        type: object
+      strength:
+        maximum: 1.0
+        minimum: 0.0
+        title: Strength
+        type: number
+      confidence:
+        maximum: 1.0
+        minimum: 0.0
+        title: Confidence
+        type: number
+      uncertainty:
+        maximum: 1.0
+        minimum: 0.0
+        title: Uncertainty
+        type: number
+      supporting_evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Supporting Evidence Refs
+        type: array
+      opposing_evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Opposing Evidence Refs
+        type: array
+      generated_at:
+        format: date-time
+        title: Generated At
+        type: string
+      as_of:
+        format: date-time
+        title: As Of
+        type: string
+    required:
+    - belief_proposal_id
+    - cognition_transaction_id
+    - person_id
+    - underlying_id
+    - proposition_id
+    - horizon
+    - value_type
+    - value_payload
+    - strength
+    - confidence
+    - uncertainty
+    - generated_at
+    - as_of
+    title: RawBeliefProposalRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s21.v1
+    default: p3.s21.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/RawBeliefProposalRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: preliminary_belief_proposal_panel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s21:outputs:preliminary_belief_proposal_panel:v1
+artifact_name: preliminary_belief_proposal_panel
+x-artifact-name: preliminary_belief_proposal_panel
+x-contract-version: p3.s21.v1
+x-authority: P3.S21
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

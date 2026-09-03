@@ -1,0 +1,34 @@
+registry_id: p7_learning_s5_s6_module_registry_v1
+owner: LEARNING
+subphases:
+- P7.S5
+- P7.S6
+module_count: 9
+modules:
+- module_id: P7.S5.M01
+  name: ranking_target_policy_registry_builder
+  branch: offline
+- module_id: P7.S5.M02
+  name: counterfactual_training_dataset_builder
+  branch: offline
+- module_id: P7.S5.M03
+  name: query_group_temporal_split_planner
+  branch: offline
+- module_id: P7.S5.M04
+  name: ltr_training_orchestrator
+  branch: offline
+- module_id: P7.S5.M05
+  name: ltr_model_qualification_gate
+  branch: offline
+- module_id: P7.S6.M01
+  name: runtime_model_compatibility_gate
+  branch: runtime
+- module_id: P7.S6.M02
+  name: group_aware_ltr_runtime_scorer
+  branch: runtime
+- module_id: P7.S6.M03
+  name: score_calibration_confidence_engine
+  branch: runtime
+- module_id: P7.S6.M04
+  name: hybrid_score_blend_and_handoff_builder
+  branch: runtime

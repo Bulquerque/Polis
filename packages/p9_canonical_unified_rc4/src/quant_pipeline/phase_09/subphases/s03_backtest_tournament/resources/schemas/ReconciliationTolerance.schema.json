@@ -1,0 +1,37 @@
+{
+  "$id": "https://inferencia.local/p9/s3/ReconciliationTolerance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "money": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0.000001",
+      "title": "Money"
+    },
+    "quantity": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0.000001",
+      "title": "Quantity"
+    }
+  },
+  "title": "ReconciliationTolerance",
+  "type": "object"
+}

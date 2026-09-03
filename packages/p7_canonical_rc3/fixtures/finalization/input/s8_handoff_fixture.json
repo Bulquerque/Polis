@@ -1,0 +1,2248 @@
+{
+  "abstained_candidate_panel": {
+    "artifact_id": "abstained_candidate_panel:f7e64e4306b1e9450f25",
+    "artifact_name": "abstained_candidate_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "f7e64e4306b1e9450f25787feab1e248e859a28767d6fe782f217d15dd761c6e",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M04",
+    "producer_phase": "P7",
+    "record_count": 2,
+    "records": [
+      {
+        "candidate_id": "C",
+        "comparison_group_id": "G1",
+        "confidence": 0.75,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "cal-v1",
+          "ltr-champion-1"
+        ],
+        "lineage_id": "strategy-lineage-C",
+        "policy_version": "p7_abstention_v1",
+        "reason_codes": [
+          "P7_MODERATE_OOD_ABSTAIN"
+        ]
+      },
+      {
+        "candidate_id": "F",
+        "comparison_group_id": "G2",
+        "confidence": 0.3,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "cal-v1",
+          "ltr-champion-1"
+        ],
+        "lineage_id": "strategy-lineage-F",
+        "policy_version": "p7_abstention_v1",
+        "reason_codes": [
+          "P7_CONFIDENCE_BELOW_MINIMUM"
+        ]
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "candidate_diversity_cluster_panel": {
+    "artifact_id": "candidate_diversity_cluster_panel:84c50217704146e4f3ed",
+    "artifact_name": "candidate_diversity_cluster_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "84c50217704146e4f3ed0e3cc067353af484efc4a1aee626915616b9a0fbd5b8",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M02",
+    "producer_phase": "P7",
+    "record_count": 6,
+    "records": [
+      {
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_cluster_id": "cluster:99a59ce505fc0bc4",
+        "lineage_id": "strategy-lineage-A",
+        "local_density": 0.5089040673895956,
+        "novelty_score": 0.4910959326104044,
+        "policy_version": "p7_diversity_v1"
+      },
+      {
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_cluster_id": "cluster:99a59ce505fc0bc4",
+        "lineage_id": "strategy-lineage-B",
+        "local_density": 0.5094087068825299,
+        "novelty_score": 0.4905912931174701,
+        "policy_version": "p7_diversity_v1"
+      },
+      {
+        "candidate_id": "C",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_cluster_id": "cluster:3ca10a7bd3cfe455",
+        "lineage_id": "strategy-lineage-C",
+        "local_density": 0.10069086473878967,
+        "novelty_score": 0.8993091352612104,
+        "policy_version": "p7_diversity_v1"
+      },
+      {
+        "candidate_id": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_cluster_id": "cluster:29343620cfc46718",
+        "lineage_id": "strategy-lineage-D",
+        "local_density": 0.4523691133483765,
+        "novelty_score": 0.5476308866516235,
+        "policy_version": "p7_diversity_v1"
+      },
+      {
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_cluster_id": "cluster:9f0d7e374fff95dc",
+        "lineage_id": "strategy-lineage-E",
+        "local_density": 0.0,
+        "novelty_score": 1.0,
+        "policy_version": "p7_diversity_v1"
+      },
+      {
+        "candidate_id": "F",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_cluster_id": "cluster:4e8531221a8fee95",
+        "lineage_id": "strategy-lineage-F",
+        "local_density": 0.0,
+        "novelty_score": 1.0,
+        "policy_version": "p7_diversity_v1"
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "candidate_score_confidence_panel": {
+    "artifact_id": "candidate_score_confidence_panel:5d96c763e3ec893ba8c2",
+    "artifact_name": "candidate_score_confidence_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "5d96c763e3ec893ba8c2248c4bde2290515133ec2a86357eea9df03f40712e99",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S6.M04",
+    "producer_phase": "P7",
+    "record_count": 6,
+    "records": [
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "A",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "confidence-A",
+        "model_disagreement": 0.1,
+        "ood_severity": "NONE",
+        "score_confidence": 0.9,
+        "score_interval_lower": 0.65,
+        "score_interval_upper": 0.9500000000000001
+      },
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "B",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "confidence-B",
+        "model_disagreement": 0.1,
+        "ood_severity": "NONE",
+        "score_confidence": 0.88,
+        "score_interval_lower": 0.64,
+        "score_interval_upper": 0.9400000000000001
+      },
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "C",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "confidence-C",
+        "model_disagreement": 0.1,
+        "ood_severity": "MODERATE",
+        "score_confidence": 0.75,
+        "score_interval_lower": 0.5499999999999999,
+        "score_interval_upper": 0.85
+      },
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "D",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "confidence-D",
+        "model_disagreement": 0.1,
+        "ood_severity": "NONE",
+        "score_confidence": 0.8,
+        "score_interval_lower": 0.44999999999999996,
+        "score_interval_upper": 0.75
+      },
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "E",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "confidence-E",
+        "model_disagreement": 0.1,
+        "ood_severity": "NONE",
+        "score_confidence": 0.8,
+        "score_interval_lower": 0.35,
+        "score_interval_upper": 0.65
+      },
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "F",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "confidence-F",
+        "model_disagreement": 0.1,
+        "ood_severity": "NONE",
+        "score_confidence": 0.3,
+        "score_interval_lower": 0.25,
+        "score_interval_upper": 0.55
+      }
+    ],
+    "run_id": "run-learning-fixture",
+    "schema_version": "2.0.0"
+  },
+  "candidate_similarity_edge_panel": {
+    "artifact_id": "candidate_similarity_edge_panel:00c4f5a31c88767d307c",
+    "artifact_name": "candidate_similarity_edge_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "00c4f5a31c88767d307c82dde1b740bb126737dcca8a20555bb0376cf5bcd21f",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M01",
+    "producer_phase": "P7",
+    "record_count": 4,
+    "records": [
+      {
+        "candidate_id_left": "A",
+        "candidate_id_right": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_weight_coverage": 1.0,
+        "lineage_id": "sim:strategy-lineage-A:strategy-lineage-B",
+        "policy_version": "p7_similarity_v1",
+        "similarity_score": 0.9999517884938081,
+        "stage_scores": {
+          "expiration_overlap": 1.0,
+          "greek_vector": 0.999851361788898,
+          "leg_jaccard": 1.0,
+          "origin_template": 1.0,
+          "payoff_shape": 0.9999324027443712,
+          "scenario_payoff": 0.9999887163247171
+        }
+      },
+      {
+        "candidate_id_left": "A",
+        "candidate_id_right": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_weight_coverage": 1.0,
+        "lineage_id": "sim:strategy-lineage-A:strategy-lineage-D",
+        "policy_version": "p7_similarity_v1",
+        "similarity_score": 0.5267604136749786,
+        "stage_scores": {
+          "expiration_overlap": 1.0,
+          "greek_vector": 0.0,
+          "leg_jaccard": 0.0,
+          "origin_template": 0.0,
+          "payoff_shape": 0.6793662204867573,
+          "scenario_payoff": 0.944911182523068
+        }
+      },
+      {
+        "candidate_id_left": "B",
+        "candidate_id_right": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_weight_coverage": 1.0,
+        "lineage_id": "sim:strategy-lineage-B:strategy-lineage-D",
+        "policy_version": "p7_similarity_v1",
+        "similarity_score": 0.5282743321537818,
+        "stage_scores": {
+          "expiration_overlap": 1.0,
+          "greek_vector": 0.0,
+          "leg_jaccard": 0.0,
+          "origin_template": 0.0,
+          "payoff_shape": 0.6845863460101483,
+          "scenario_payoff": 0.9433455552511497
+        }
+      },
+      {
+        "candidate_id_left": "C",
+        "candidate_id_right": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_weight_coverage": 1.0,
+        "lineage_id": "sim:strategy-lineage-C:strategy-lineage-D",
+        "policy_version": "p7_similarity_v1",
+        "similarity_score": 0.302072594216369,
+        "stage_scores": {
+          "expiration_overlap": 1.0,
+          "greek_vector": 0.0,
+          "leg_jaccard": 0.0,
+          "origin_template": 0.0,
+          "payoff_shape": 0.5773502691896257,
+          "scenario_payoff": 0.0
+        }
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "candidate_similarity_summary_panel": {
+    "artifact_id": "candidate_similarity_summary_panel:54f45d1824e7d64fff20",
+    "artifact_name": "candidate_similarity_summary_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "54f45d1824e7d64fff20876b086f6c9835bcf4dc3a6865b1803c19732cefe477",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M01",
+    "producer_phase": "P7",
+    "record_count": 6,
+    "records": [
+      {
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evaluated_pair_count": 3,
+        "insufficient_evidence_pair_count": 0,
+        "lineage_id": "strategy-lineage-A",
+        "mean_top_k_similarity": 0.5089040673895956,
+        "policy_version": "p7_similarity_v1",
+        "retained_neighbor_count": 2,
+        "top_similarity": 0.9999517884938081
+      },
+      {
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evaluated_pair_count": 3,
+        "insufficient_evidence_pair_count": 0,
+        "lineage_id": "strategy-lineage-B",
+        "mean_top_k_similarity": 0.5094087068825299,
+        "policy_version": "p7_similarity_v1",
+        "retained_neighbor_count": 2,
+        "top_similarity": 0.9999517884938081
+      },
+      {
+        "candidate_id": "C",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evaluated_pair_count": 3,
+        "insufficient_evidence_pair_count": 0,
+        "lineage_id": "strategy-lineage-C",
+        "mean_top_k_similarity": 0.10069086473878967,
+        "policy_version": "p7_similarity_v1",
+        "retained_neighbor_count": 1,
+        "top_similarity": 0.302072594216369
+      },
+      {
+        "candidate_id": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evaluated_pair_count": 3,
+        "insufficient_evidence_pair_count": 0,
+        "lineage_id": "strategy-lineage-D",
+        "mean_top_k_similarity": 0.4523691133483765,
+        "policy_version": "p7_similarity_v1",
+        "retained_neighbor_count": 3,
+        "top_similarity": 0.5282743321537818
+      },
+      {
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evaluated_pair_count": 1,
+        "insufficient_evidence_pair_count": 0,
+        "lineage_id": "strategy-lineage-E",
+        "mean_top_k_similarity": 0.0,
+        "policy_version": "p7_similarity_v1",
+        "retained_neighbor_count": 0,
+        "top_similarity": 0.0
+      },
+      {
+        "candidate_id": "F",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evaluated_pair_count": 1,
+        "insufficient_evidence_pair_count": 0,
+        "lineage_id": "strategy-lineage-F",
+        "mean_top_k_similarity": 0.0,
+        "policy_version": "p7_similarity_v1",
+        "retained_neighbor_count": 0,
+        "top_similarity": 0.0
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "comparison_group_panel": {
+    "artifact_id": "comparison_group_panel:4b55e1cb2ab8462bd4cb",
+    "artifact_name": "comparison_group_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "4b55e1cb2ab8462bd4cb2c032df5553612b45f404fdeecbebc3a777af3e0662f",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S6.M04",
+    "producer_phase": "P7",
+    "record_count": 6,
+    "records": [
+      {
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "horizon": "20S",
+        "lineage_id": "group-A",
+        "objective_family": "HYBRID",
+        "risk_bucket": "DEFINED_RISK",
+        "underlying_id": "ASSET1"
+      },
+      {
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "horizon": "20S",
+        "lineage_id": "group-B",
+        "objective_family": "HYBRID",
+        "risk_bucket": "DEFINED_RISK",
+        "underlying_id": "ASSET1"
+      },
+      {
+        "candidate_id": "C",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "horizon": "20S",
+        "lineage_id": "group-C",
+        "objective_family": "HYBRID",
+        "risk_bucket": "DEFINED_RISK",
+        "underlying_id": "ASSET1"
+      },
+      {
+        "candidate_id": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "horizon": "20S",
+        "lineage_id": "group-D",
+        "objective_family": "HYBRID",
+        "risk_bucket": "DEFINED_RISK",
+        "underlying_id": "ASSET1"
+      },
+      {
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "horizon": "20S",
+        "lineage_id": "group-E",
+        "objective_family": "HYBRID",
+        "risk_bucket": "DEFINED_RISK",
+        "underlying_id": "ASSET2"
+      },
+      {
+        "candidate_id": "F",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "horizon": "20S",
+        "lineage_id": "group-F",
+        "objective_family": "HYBRID",
+        "risk_bucket": "DEFINED_RISK",
+        "underlying_id": "ASSET2"
+      }
+    ],
+    "run_id": "run-learning-fixture",
+    "schema_version": "2.0.0"
+  },
+  "diversity_adjusted_score_panel": {
+    "artifact_id": "diversity_adjusted_score_panel:ab68666d365958c47bc8",
+    "artifact_name": "diversity_adjusted_score_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "ab68666d365958c47bc8369e6fd3fd143a54a89f796e6a5d5c471bcc888e4a87",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M02",
+    "producer_phase": "P7",
+    "record_count": 6,
+    "records": [
+      {
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.7236643898915607,
+        "diversity_penalty": 0.07633561010843934,
+        "hybrid_score": 0.8,
+        "lineage_id": "strategy-lineage-A",
+        "policy_version": "p7_diversity_v1",
+        "score_confidence": 0.9,
+        "score_status": "VALID"
+      },
+      {
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.7135886939676206,
+        "diversity_penalty": 0.07641130603237949,
+        "hybrid_score": 0.79,
+        "lineage_id": "strategy-lineage-B",
+        "policy_version": "p7_diversity_v1",
+        "score_confidence": 0.88,
+        "score_status": "VALID"
+      },
+      {
+        "candidate_id": "C",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.6848963702891815,
+        "diversity_penalty": 0.01510362971081845,
+        "hybrid_score": 0.7,
+        "lineage_id": "strategy-lineage-C",
+        "policy_version": "p7_diversity_v1",
+        "score_confidence": 0.75,
+        "score_status": "VALID"
+      },
+      {
+        "candidate_id": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.5321446329977435,
+        "diversity_penalty": 0.06785536700225647,
+        "hybrid_score": 0.6,
+        "lineage_id": "strategy-lineage-D",
+        "policy_version": "p7_diversity_v1",
+        "score_confidence": 0.8,
+        "score_status": "VALID"
+      },
+      {
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.5,
+        "diversity_penalty": 0.0,
+        "hybrid_score": 0.5,
+        "lineage_id": "strategy-lineage-E",
+        "policy_version": "p7_diversity_v1",
+        "score_confidence": 0.8,
+        "score_status": "VALID"
+      },
+      {
+        "candidate_id": "F",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.4,
+        "diversity_penalty": 0.0,
+        "hybrid_score": 0.4,
+        "lineage_id": "strategy-lineage-F",
+        "policy_version": "p7_diversity_v1",
+        "score_confidence": 0.3,
+        "score_status": "VALID"
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "diversity_adjustment_panel": {
+    "artifact_id": "diversity_adjustment_panel:c02a30cfd34aa5022a6f",
+    "artifact_name": "diversity_adjustment_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "c02a30cfd34aa5022a6fab090573a7af03016b36cd95b1d18fd1d9f22d4e23e8",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M02",
+    "producer_phase": "P7",
+    "record_count": 6,
+    "records": [
+      {
+        "applied_penalty": 0.0,
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-E",
+        "local_density": 0.0,
+        "penalty_cap": 0.2,
+        "policy_version": "p7_diversity_v1",
+        "raw_penalty": 0.0
+      },
+      {
+        "applied_penalty": 0.0,
+        "candidate_id": "F",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-F",
+        "local_density": 0.0,
+        "penalty_cap": 0.2,
+        "policy_version": "p7_diversity_v1",
+        "raw_penalty": 0.0
+      },
+      {
+        "applied_penalty": 0.01510362971081845,
+        "candidate_id": "C",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-C",
+        "local_density": 0.10069086473878967,
+        "penalty_cap": 0.2,
+        "policy_version": "p7_diversity_v1",
+        "raw_penalty": 0.01510362971081845
+      },
+      {
+        "applied_penalty": 0.06785536700225647,
+        "candidate_id": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-D",
+        "local_density": 0.4523691133483765,
+        "penalty_cap": 0.2,
+        "policy_version": "p7_diversity_v1",
+        "raw_penalty": 0.06785536700225647
+      },
+      {
+        "applied_penalty": 0.07633561010843934,
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-A",
+        "local_density": 0.5089040673895956,
+        "penalty_cap": 0.2,
+        "policy_version": "p7_diversity_v1",
+        "raw_penalty": 0.07633561010843934
+      },
+      {
+        "applied_penalty": 0.07641130603237949,
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "strategy-lineage-B",
+        "local_density": 0.5094087068825299,
+        "penalty_cap": 0.2,
+        "policy_version": "p7_diversity_v1",
+        "raw_penalty": 0.07641130603237949
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "diversity_audit_report": {
+    "artifact_id": "diversity_audit_report:795391a9082bacec6448",
+    "artifact_name": "diversity_audit_report",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "795391a9082bacec6448dca34376487fc7636eb724513cbdb7b56d8e7094c962",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M02",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "counts": {
+          "candidates": 6,
+          "clusters": 5,
+          "edges": 4
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "lineage-learning-fixture",
+        "module_id": "P7.S7.M02",
+        "policy_version": "p7_diversity_v1",
+        "reason_code_distribution": {}
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "final_blocked_candidate_panel": {
+    "artifact_id": "final_blocked_candidate_panel:91fa897ba76715e1f9c6",
+    "artifact_name": "final_blocked_candidate_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "91fa897ba76715e1f9c693496c5ee4db22cdf018b1f00ff5788e2d1d03353d18",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M04",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "candidate_id": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "strategy-D"
+        ],
+        "lineage_id": "strategy-lineage-D",
+        "policy_version": "p7_safety_v1",
+        "reason_codes": [
+          "P7_UPSTREAM_DEFINED_RISK_INVALID",
+          "P7_UPSTREAM_ELIGIBILITY_BLOCK"
+        ]
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "hybrid_candidate_score_panel": {
+    "artifact_id": "hybrid_candidate_score_panel:b0a66861f909bab175ae",
+    "artifact_name": "hybrid_candidate_score_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "b0a66861f909bab175ae824f40e65555302a1e23fb7db307dc235c9b3668932d",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S6.M04",
+    "producer_phase": "P7",
+    "record_count": 6,
+    "records": [
+      {
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "complexity_score": 0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "execution_quality": 0.8,
+        "hybrid_score": 0.8,
+        "lineage_id": "score-A",
+        "model_compatibility_status": "COMPATIBLE",
+        "model_id": "ltr-champion-1",
+        "model_promotion_status": "PROMOTED",
+        "robust_score": 0.75,
+        "score_semantics_version": "hybrid-v1"
+      },
+      {
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "complexity_score": 0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "execution_quality": 0.8,
+        "hybrid_score": 0.79,
+        "lineage_id": "score-B",
+        "model_compatibility_status": "COMPATIBLE",
+        "model_id": "ltr-champion-1",
+        "model_promotion_status": "PROMOTED",
+        "robust_score": 0.74,
+        "score_semantics_version": "hybrid-v1"
+      },
+      {
+        "candidate_id": "C",
+        "comparison_group_id": "G1",
+        "complexity_score": 0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "execution_quality": 0.8,
+        "hybrid_score": 0.7,
+        "lineage_id": "score-C",
+        "model_compatibility_status": "COMPATIBLE",
+        "model_id": "ltr-champion-1",
+        "model_promotion_status": "PROMOTED",
+        "robust_score": 0.6499999999999999,
+        "score_semantics_version": "hybrid-v1"
+      },
+      {
+        "candidate_id": "D",
+        "comparison_group_id": "G1",
+        "complexity_score": 0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "execution_quality": 0.8,
+        "hybrid_score": 0.6,
+        "lineage_id": "score-D",
+        "model_compatibility_status": "COMPATIBLE",
+        "model_id": "ltr-champion-1",
+        "model_promotion_status": "PROMOTED",
+        "robust_score": 0.5499999999999999,
+        "score_semantics_version": "hybrid-v1"
+      },
+      {
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "complexity_score": 0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "execution_quality": 0.8,
+        "hybrid_score": 0.5,
+        "lineage_id": "score-E",
+        "model_compatibility_status": "COMPATIBLE",
+        "model_id": "ltr-champion-1",
+        "model_promotion_status": "PROMOTED",
+        "robust_score": 0.45,
+        "score_semantics_version": "hybrid-v1"
+      },
+      {
+        "candidate_id": "F",
+        "comparison_group_id": "G2",
+        "complexity_score": 0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "execution_quality": 0.8,
+        "hybrid_score": 0.4,
+        "lineage_id": "score-F",
+        "model_compatibility_status": "COMPATIBLE",
+        "model_id": "ltr-champion-1",
+        "model_promotion_status": "PROMOTED",
+        "robust_score": 0.35000000000000003,
+        "score_semantics_version": "hybrid-v1"
+      }
+    ],
+    "run_id": "run-learning-fixture",
+    "schema_version": "2.0.0"
+  },
+  "hybrid_scoring_handoff_manifest": {
+    "artifact_id": "hybrid_scoring_handoff_manifest:fe175dd637078b353601",
+    "artifact_name": "hybrid_scoring_handoff_manifest",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "fe175dd637078b353601b3639a2345f3380f968fb68b0fd74b27551a6de5775d",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S6.M05",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "artifact_references": [
+          {
+            "artifact_id": "candidate_score_confidence_panel:5d96c763e3ec893ba8c2",
+            "artifact_name": "candidate_score_confidence_panel",
+            "content_sha256": "5d96c763e3ec893ba8c2248c4bde2290515133ec2a86357eea9df03f40712e99",
+            "record_count": 6,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "comparison_group_panel:4b55e1cb2ab8462bd4cb",
+            "artifact_name": "comparison_group_panel",
+            "content_sha256": "4b55e1cb2ab8462bd4cb2c032df5553612b45f404fdeecbebc3a777af3e0662f",
+            "record_count": 6,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "hybrid_candidate_score_panel:b0a66861f909bab175ae",
+            "artifact_name": "hybrid_candidate_score_panel",
+            "content_sha256": "b0a66861f909bab175ae824f40e65555302a1e23fb7db307dc235c9b3668932d",
+            "record_count": 6,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "pre_final_blocked_candidate_panel:6ad6e5c003c0705c20cb",
+            "artifact_name": "pre_final_blocked_candidate_panel",
+            "content_sha256": "6ad6e5c003c0705c20cb6c5f1567ca28503b91a9cf89420bdb8b133ffa4c0cc4",
+            "record_count": 1,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "score_decomposition_panel:6708cd86c860d17c529e",
+            "artifact_name": "score_decomposition_panel",
+            "content_sha256": "6708cd86c860d17c529ebf373e10c670fff2dd1c1411afd9cc42a9d2d27e7c27",
+            "record_count": 24,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103",
+            "artifact_name": "validated_strategy_candidate_reference_panel",
+            "content_sha256": "8292669fadf2ed3b7103789d7e6bf8e665e9d606a1f16b869ddf8f6a9d7015a8",
+            "record_count": 6,
+            "schema_version": "2.0.0"
+          }
+        ],
+        "candidate_conservation_sha256": null,
+        "candidate_count": 6,
+        "consumer": "FINALIZATION",
+        "contract_id": "p7_learning_to_finalization_handoff",
+        "contract_version": "2.0.0",
+        "forbidden_fields_scanned": true,
+        "policy_versions": {
+          "calibration": "cal-v1",
+          "hybrid": "hybrid-v1"
+        },
+        "producer": "LEARNING"
+      }
+    ],
+    "run_id": "run-learning-fixture",
+    "schema_version": "2.0.0"
+  },
+  "pre_final_blocked_candidate_panel": {
+    "artifact_id": "pre_final_blocked_candidate_panel:6ad6e5c003c0705c20cb",
+    "artifact_name": "pre_final_blocked_candidate_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "6ad6e5c003c0705c20cb6c5f1567ca28503b91a9cf89420bdb8b133ffa4c0cc4",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S6.M04",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "candidate_id": "D",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "p6-risk-D"
+        ],
+        "lineage_id": "preblock-D",
+        "reason_codes": [
+          "P7_UPSTREAM_ELIGIBILITY_BLOCK"
+        ]
+      }
+    ],
+    "run_id": "run-learning-fixture",
+    "schema_version": "2.0.0"
+  },
+  "rankability_group_report": {
+    "artifact_id": "rankability_group_report:b1bd824e539a0cc1748e",
+    "artifact_name": "rankability_group_report",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "b1bd824e539a0cc1748e3c454c0124897f4f88b4aea0e344236d9837ac52d396",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M04",
+    "producer_phase": "P7",
+    "record_count": 2,
+    "records": [
+      {
+        "abstained_count": 1,
+        "blocked_count": 0,
+        "comparison_group_id": "G2",
+        "coverage": 0.5,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "group_reason_codes": [],
+        "lineage_id": "lineage-learning-fixture",
+        "policy_version": "p7_abstention_v1",
+        "rankable_count": 1,
+        "received_count": 2
+      },
+      {
+        "abstained_count": 1,
+        "blocked_count": 1,
+        "comparison_group_id": "G1",
+        "coverage": 0.5,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "group_reason_codes": [],
+        "lineage_id": "lineage-learning-fixture",
+        "policy_version": "p7_abstention_v1",
+        "rankable_count": 2,
+        "received_count": 4
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "rankability_handoff_manifest": {
+    "artifact_id": "rankability_handoff_manifest:8e0e61c3088606a94c62",
+    "artifact_name": "rankability_handoff_manifest",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "8e0e61c3088606a94c623d2160b8cc9aa343ed9db705cc086c6082e41f0503a8",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M04",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "artifact_references": [
+          {
+            "artifact_id": "abstained_candidate_panel:f7e64e4306b1e9450f25",
+            "artifact_name": "abstained_candidate_panel",
+            "content_sha256": "f7e64e4306b1e9450f25787feab1e248e859a28767d6fe782f217d15dd761c6e",
+            "record_count": 2,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "candidate_diversity_cluster_panel:84c50217704146e4f3ed",
+            "artifact_name": "candidate_diversity_cluster_panel",
+            "content_sha256": "84c50217704146e4f3ed0e3cc067353af484efc4a1aee626915616b9a0fbd5b8",
+            "record_count": 6,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "comparison_group_panel:4b55e1cb2ab8462bd4cb",
+            "artifact_name": "comparison_group_panel",
+            "content_sha256": "4b55e1cb2ab8462bd4cb2c032df5553612b45f404fdeecbebc3a777af3e0662f",
+            "record_count": 6,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "diversity_adjusted_score_panel:ab68666d365958c47bc8",
+            "artifact_name": "diversity_adjusted_score_panel",
+            "content_sha256": "ab68666d365958c47bc8369e6fd3fd143a54a89f796e6a5d5c471bcc888e4a87",
+            "record_count": 6,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "final_blocked_candidate_panel:91fa897ba76715e1f9c6",
+            "artifact_name": "final_blocked_candidate_panel",
+            "content_sha256": "91fa897ba76715e1f9c693496c5ee4db22cdf018b1f00ff5788e2d1d03353d18",
+            "record_count": 1,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "rankability_group_report:b1bd824e539a0cc1748e",
+            "artifact_name": "rankability_group_report",
+            "content_sha256": "b1bd824e539a0cc1748e3c454c0124897f4f88b4aea0e344236d9837ac52d396",
+            "record_count": 2,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "rankable_candidate_panel:2973b1946aea0db3ef6e",
+            "artifact_name": "rankable_candidate_panel",
+            "content_sha256": "2973b1946aea0db3ef6ef1f8c02e418879b47a57bfdb346808e34fbf0c1bb48c",
+            "record_count": 3,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "score_decomposition_panel:6708cd86c860d17c529e",
+            "artifact_name": "score_decomposition_panel",
+            "content_sha256": "6708cd86c860d17c529ebf373e10c670fff2dd1c1411afd9cc42a9d2d27e7c27",
+            "record_count": 24,
+            "schema_version": "2.0.0"
+          },
+          {
+            "artifact_id": "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103",
+            "artifact_name": "validated_strategy_candidate_reference_panel",
+            "content_sha256": "8292669fadf2ed3b7103789d7e6bf8e665e9d606a1f16b869ddf8f6a9d7015a8",
+            "record_count": 6,
+            "schema_version": "2.0.0"
+          }
+        ],
+        "candidate_conservation_sha256": "f5da81ee3867d31175bfa348f9cc95fc344dba6cdb848266e2dcbcc03518cef6",
+        "candidate_count": 6,
+        "consumer": "P7.S8",
+        "contract_id": "p7_s7_to_s8_rankability_handoff",
+        "contract_version": "2.0.0",
+        "forbidden_fields_scanned": true,
+        "policy_versions": {
+          "abstention": "p7_abstention_v1",
+          "diversity": "p7_diversity_v1",
+          "safety": "p7_safety_v1",
+          "similarity": "p7_similarity_v1"
+        },
+        "producer": "P7.S7.M04"
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "rankable_candidate_panel": {
+    "artifact_id": "rankable_candidate_panel:2973b1946aea0db3ef6e",
+    "artifact_name": "rankable_candidate_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "2973b1946aea0db3ef6ef1f8c02e418879b47a57bfdb346808e34fbf0c1bb48c",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M04",
+    "producer_phase": "P7",
+    "record_count": 3,
+    "records": [
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.7236643898915607,
+        "diversity_penalty": 0.07633561010843934,
+        "execution_quality_stage": 0.8,
+        "hybrid_score": 0.8,
+        "leg_count": 2,
+        "lineage_id": "strategy-lineage-A",
+        "model_disagreement": 0.1,
+        "model_id": "ltr-champion-1",
+        "ood_severity": "NONE",
+        "pareto_tier": 0,
+        "policy_version": "p7_abstention_v1",
+        "robustness_stage": 0.75,
+        "score_confidence": 0.9,
+        "score_semantics_version": "hybrid-v1"
+      },
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.7135886939676206,
+        "diversity_penalty": 0.07641130603237949,
+        "execution_quality_stage": 0.8,
+        "hybrid_score": 0.79,
+        "leg_count": 2,
+        "lineage_id": "strategy-lineage-B",
+        "model_disagreement": 0.1,
+        "model_id": "ltr-champion-1",
+        "ood_severity": "NONE",
+        "pareto_tier": 0,
+        "policy_version": "p7_abstention_v1",
+        "robustness_stage": 0.74,
+        "score_confidence": 0.88,
+        "score_semantics_version": "hybrid-v1"
+      },
+      {
+        "calibration_status": "CALIBRATED",
+        "calibration_version": "cal-v1",
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "diversity_adjusted_score": 0.5,
+        "diversity_penalty": 0.0,
+        "execution_quality_stage": 0.8,
+        "hybrid_score": 0.5,
+        "leg_count": 2,
+        "lineage_id": "strategy-lineage-E",
+        "model_disagreement": 0.1,
+        "model_id": "ltr-champion-1",
+        "ood_severity": "NONE",
+        "pareto_tier": 0,
+        "policy_version": "p7_abstention_v1",
+        "robustness_stage": 0.45,
+        "score_confidence": 0.8,
+        "score_semantics_version": "hybrid-v1"
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "safety_blocked_candidate_panel": {
+    "artifact_id": "safety_blocked_candidate_panel:8cd35c2bd4be01b800d3",
+    "artifact_name": "safety_blocked_candidate_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "8cd35c2bd4be01b800d389856a0a11e3b19fec4d4162e9ace4f11df750a5eba7",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M03",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "candidate_id": "D",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "strategy-D"
+        ],
+        "lineage_id": "strategy-lineage-D",
+        "policy_version": "p7_safety_v1",
+        "reason_codes": [
+          "P7_UPSTREAM_DEFINED_RISK_INVALID",
+          "P7_UPSTREAM_ELIGIBILITY_BLOCK"
+        ]
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "safety_eligible_candidate_panel": {
+    "artifact_id": "safety_eligible_candidate_panel:fb92d8a4732692317b6f",
+    "artifact_name": "safety_eligible_candidate_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "fb92d8a4732692317b6fd65573c9b4ebb235605f158adc4737819dcf703cf7c2",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M03",
+    "producer_phase": "P7",
+    "record_count": 5,
+    "records": [
+      {
+        "candidate_id": "A",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision": "ELIGIBLE",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "strategy-A"
+        ],
+        "lineage_id": "strategy-lineage-A",
+        "policy_version": "p7_safety_v1",
+        "reason_codes": []
+      },
+      {
+        "candidate_id": "B",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision": "ELIGIBLE",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "strategy-B"
+        ],
+        "lineage_id": "strategy-lineage-B",
+        "policy_version": "p7_safety_v1",
+        "reason_codes": []
+      },
+      {
+        "candidate_id": "C",
+        "comparison_group_id": "G1",
+        "cycle_id": "cycle-2026-01-05",
+        "decision": "ELIGIBLE",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "strategy-C"
+        ],
+        "lineage_id": "strategy-lineage-C",
+        "policy_version": "p7_safety_v1",
+        "reason_codes": []
+      },
+      {
+        "candidate_id": "E",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision": "ELIGIBLE",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "strategy-E"
+        ],
+        "lineage_id": "strategy-lineage-E",
+        "policy_version": "p7_safety_v1",
+        "reason_codes": []
+      },
+      {
+        "candidate_id": "F",
+        "comparison_group_id": "G2",
+        "cycle_id": "cycle-2026-01-05",
+        "decision": "ELIGIBLE",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "evidence_ids": [
+          "strategy-F"
+        ],
+        "lineage_id": "strategy-lineage-F",
+        "policy_version": "p7_safety_v1",
+        "reason_codes": []
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "safety_gate_audit_report": {
+    "artifact_id": "safety_gate_audit_report:0ef24772cfe87bc5c5fe",
+    "artifact_name": "safety_gate_audit_report",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "0ef24772cfe87bc5c5fec175028e9b575e5f7c16122193ab0888c27ae18cba8e",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S7.M03",
+    "producer_phase": "P7",
+    "record_count": 1,
+    "records": [
+      {
+        "counts": {
+          "blocked": 1,
+          "eligible": 5,
+          "received": 6
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "lineage_id": "lineage-learning-fixture",
+        "module_id": "P7.S7.M03",
+        "policy_version": "p7_safety_v1",
+        "reason_code_distribution": {
+          "P7_UPSTREAM_DEFINED_RISK_INVALID": 1,
+          "P7_UPSTREAM_ELIGIBILITY_BLOCK": 1
+        }
+      }
+    ],
+    "run_id": "run-finalization-fixture",
+    "schema_version": "2.0.0"
+  },
+  "score_decomposition_panel": {
+    "artifact_id": "score_decomposition_panel:6708cd86c860d17c529e",
+    "artifact_name": "score_decomposition_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "6708cd86c860d17c529ebf373e10c670fff2dd1c1411afd9cc42a9d2d27e7c27",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S6.M04",
+    "producer_phase": "P7",
+    "record_count": 24,
+    "records": [
+      {
+        "candidate_id": "A",
+        "contribution": -0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "complexity_penalty",
+        "lineage_id": "decomp-A-complexity_penalty"
+      },
+      {
+        "candidate_id": "A",
+        "contribution": 0.75,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "robustness",
+        "lineage_id": "decomp-A-robustness"
+      },
+      {
+        "candidate_id": "A",
+        "contribution": 0.8,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "edge",
+        "lineage_id": "decomp-A-edge"
+      },
+      {
+        "candidate_id": "A",
+        "contribution": 0.8,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "execution_quality",
+        "lineage_id": "decomp-A-execution_quality"
+      },
+      {
+        "candidate_id": "B",
+        "contribution": -0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "complexity_penalty",
+        "lineage_id": "decomp-B-complexity_penalty"
+      },
+      {
+        "candidate_id": "B",
+        "contribution": 0.74,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "robustness",
+        "lineage_id": "decomp-B-robustness"
+      },
+      {
+        "candidate_id": "B",
+        "contribution": 0.79,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "edge",
+        "lineage_id": "decomp-B-edge"
+      },
+      {
+        "candidate_id": "B",
+        "contribution": 0.8,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "execution_quality",
+        "lineage_id": "decomp-B-execution_quality"
+      },
+      {
+        "candidate_id": "C",
+        "contribution": -0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "complexity_penalty",
+        "lineage_id": "decomp-C-complexity_penalty"
+      },
+      {
+        "candidate_id": "C",
+        "contribution": 0.6499999999999999,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "robustness",
+        "lineage_id": "decomp-C-robustness"
+      },
+      {
+        "candidate_id": "C",
+        "contribution": 0.7,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "edge",
+        "lineage_id": "decomp-C-edge"
+      },
+      {
+        "candidate_id": "C",
+        "contribution": 0.8,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "execution_quality",
+        "lineage_id": "decomp-C-execution_quality"
+      },
+      {
+        "candidate_id": "D",
+        "contribution": -0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "complexity_penalty",
+        "lineage_id": "decomp-D-complexity_penalty"
+      },
+      {
+        "candidate_id": "D",
+        "contribution": 0.5499999999999999,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "robustness",
+        "lineage_id": "decomp-D-robustness"
+      },
+      {
+        "candidate_id": "D",
+        "contribution": 0.6,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "edge",
+        "lineage_id": "decomp-D-edge"
+      },
+      {
+        "candidate_id": "D",
+        "contribution": 0.8,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "execution_quality",
+        "lineage_id": "decomp-D-execution_quality"
+      },
+      {
+        "candidate_id": "E",
+        "contribution": -0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "complexity_penalty",
+        "lineage_id": "decomp-E-complexity_penalty"
+      },
+      {
+        "candidate_id": "E",
+        "contribution": 0.45,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "robustness",
+        "lineage_id": "decomp-E-robustness"
+      },
+      {
+        "candidate_id": "E",
+        "contribution": 0.5,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "edge",
+        "lineage_id": "decomp-E-edge"
+      },
+      {
+        "candidate_id": "E",
+        "contribution": 0.8,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "execution_quality",
+        "lineage_id": "decomp-E-execution_quality"
+      },
+      {
+        "candidate_id": "F",
+        "contribution": -0.2,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "complexity_penalty",
+        "lineage_id": "decomp-F-complexity_penalty"
+      },
+      {
+        "candidate_id": "F",
+        "contribution": 0.35000000000000003,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "robustness",
+        "lineage_id": "decomp-F-robustness"
+      },
+      {
+        "candidate_id": "F",
+        "contribution": 0.4,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "edge",
+        "lineage_id": "decomp-F-edge"
+      },
+      {
+        "candidate_id": "F",
+        "contribution": 0.8,
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "head": "execution_quality",
+        "lineage_id": "decomp-F-execution_quality"
+      }
+    ],
+    "run_id": "run-learning-fixture",
+    "schema_version": "2.0.0"
+  },
+  "validated_strategy_candidate_reference_panel": {
+    "artifact_id": "validated_strategy_candidate_reference_panel:8292669fadf2ed3b7103",
+    "artifact_name": "validated_strategy_candidate_reference_panel",
+    "available_at": "2026-01-05T14:00:00Z",
+    "content_sha256": "8292669fadf2ed3b7103789d7e6bf8e665e9d606a1f16b869ddf8f6a9d7015a8",
+    "created_at": "2026-01-05T15:00:00Z",
+    "cycle_id": "cycle-2026-01-05",
+    "decision_time": "2026-01-05T14:00:00Z",
+    "lineage_id": "lineage-learning-fixture",
+    "producer_module_id": "P7.S6.M04",
+    "producer_phase": "P7",
+    "record_count": 6,
+    "records": [
+      {
+        "belief_reference_ids": [
+          "belief:A:return",
+          "belief:A:volatility"
+        ],
+        "candidate_id": "A",
+        "candidate_identity_hash": "4e67fcec1459d3891758acca18bf4576ee2ac088f4cdba503b80e403f220402a",
+        "comparison_group_id": "G1",
+        "context_available": true,
+        "cost_liquidity_reference": {
+          "artifact_id": "strategy_cost_liquidity_panel:A:e7d02bc990982b53c68a",
+          "artifact_name": "strategy_cost_liquidity_panel",
+          "content_sha256": "c6fcfeb3a9dbf65c3537f12d9453415b24113581c3ad8f887e4a2800ad0454d4",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "defined_risk_status": "VALID",
+        "execution_context_time": "2026-01-05T14:00:00Z",
+        "expiration_ids": [
+          "2026-03"
+        ],
+        "failure_regions": [
+          "scenario-region:A:tail-loss"
+        ],
+        "generation_trace_reference": {
+          "artifact_id": "strategy_generation_trace_panel:A:087bd251502dd3fd276f",
+          "artifact_name": "strategy_generation_trace_panel",
+          "content_sha256": "0d2988780a0fefd1e0a9be05c66e5002da62d6c34babc8008621b91b724e9ea7",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "greek_vector": [
+          0.2,
+          0.8,
+          -0.1,
+          0.2
+        ],
+        "greeks_reference": {
+          "artifact_id": "strategy_greek_panel:A:e190231fe03a83760e11",
+          "artifact_name": "strategy_greek_panel",
+          "content_sha256": "88d74ab12223f8dc6a6887082a753f58dcd6104bc386cb2324660c28b1b5411e",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "invalidation_conditions": [
+          "forecast_confidence_below_policy",
+          "execution_context_stale"
+        ],
+        "leg_ids": [
+          "C100",
+          "P90"
+        ],
+        "mutation_trace": [
+          "origin:LONG_STRANGLE",
+          "legs:2"
+        ],
+        "origin_template": "LONG_STRANGLE",
+        "pareto_tier": 0,
+        "payoff_evaluation_reference": {
+          "artifact_id": "strategy_payoff_panel:A:3da1e350bad8d5d8d8e0",
+          "artifact_name": "strategy_payoff_panel",
+          "content_sha256": "ccf4b2b051fc3dfa394fd0efe77c70272b92231dcd63358d4ee04490c504025a",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "payoff_shape": [
+          0.0,
+          1.0,
+          0.2
+        ],
+        "profit_regions": [
+          "scenario-region:A:profit"
+        ],
+        "risk_reference": {
+          "artifact_id": "strategy_risk_panel:A:fd7d594a251498d8d0e3",
+          "artifact_name": "strategy_risk_panel",
+          "content_sha256": "a87ee68cf4dca2fe6dab1bf1e8fe8e6a623f0560ceac85faa29e69315826a115",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "scenario_evaluation_reference": {
+          "artifact_id": "strategy_scenario_evaluation_panel:A:75f7cc9d1e665af2755c",
+          "artifact_name": "strategy_scenario_evaluation_panel",
+          "content_sha256": "f45e10ce5d882aea8ef4b45b3bb885f6496d209baaf5c611292c368d0a77d117",
+          "record_count": 16,
+          "schema_version": "2.0.0"
+        },
+        "scenario_payoff": [
+          -1.0,
+          0.5,
+          1.5
+        ],
+        "strategy_artifact_id": "strategy-A",
+        "strategy_candidate_reference": {
+          "artifact_id": "strategy_candidate_panel:A:7288965b5fccdee0fa83",
+          "artifact_name": "strategy_candidate_panel",
+          "content_sha256": "eb64c19ec3f33e3f00c715731cdc8f4f9d9a9ba7623f3224bbade0bbc65a45a3",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_content_sha256": "7ce6a5a1fd488055d28838c0be79e8b91037aadeb1e40afa6439c127da1d3519",
+        "strategy_legs_reference": {
+          "artifact_id": "strategy_leg_panel:A:f29c62324a683791f774",
+          "artifact_name": "strategy_leg_panel",
+          "content_sha256": "9a54660e3174e2aea0019b8bbc8b7278e0afd36e907b7e9588d7ecd19951644e",
+          "record_count": 2,
+          "schema_version": "2.0.0"
+        },
+        "strategy_lineage_id": "strategy-lineage-A",
+        "strategy_schema_version": "2.0.0"
+      },
+      {
+        "belief_reference_ids": [
+          "belief:B:return",
+          "belief:B:volatility"
+        ],
+        "candidate_id": "B",
+        "candidate_identity_hash": "2687aa3e83b12b390b890b8affd0b882130d6ea0a032c23c7b4649109fdedb23",
+        "comparison_group_id": "G1",
+        "context_available": true,
+        "cost_liquidity_reference": {
+          "artifact_id": "strategy_cost_liquidity_panel:B:6f07b570bc5dddf7c2f9",
+          "artifact_name": "strategy_cost_liquidity_panel",
+          "content_sha256": "88dbdc4c7b6d4f5fd942b9f52984fa85cc7736903b62173e559fee84ba8d4b5d",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "defined_risk_status": "VALID",
+        "execution_context_time": "2026-01-05T14:00:00Z",
+        "expiration_ids": [
+          "2026-03"
+        ],
+        "failure_regions": [
+          "scenario-region:B:tail-loss"
+        ],
+        "generation_trace_reference": {
+          "artifact_id": "strategy_generation_trace_panel:B:3a3ba60e16f19c9e4b78",
+          "artifact_name": "strategy_generation_trace_panel",
+          "content_sha256": "f32c4d61fee18435840d623d11508b2bcbfb5fbc53b4f30feec095a981f6d1a6",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "greek_vector": [
+          0.21,
+          0.79,
+          -0.1,
+          0.19
+        ],
+        "greeks_reference": {
+          "artifact_id": "strategy_greek_panel:B:0cb030b7e2fcce7c6d58",
+          "artifact_name": "strategy_greek_panel",
+          "content_sha256": "a501fdee36ddf3c607339af98c1fdcb89bb9783ef0f39160dd3bf3edd8b90d16",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "invalidation_conditions": [
+          "forecast_confidence_below_policy",
+          "execution_context_stale"
+        ],
+        "leg_ids": [
+          "C100",
+          "P90"
+        ],
+        "mutation_trace": [
+          "origin:LONG_STRANGLE",
+          "legs:2"
+        ],
+        "origin_template": "LONG_STRANGLE",
+        "pareto_tier": 0,
+        "payoff_evaluation_reference": {
+          "artifact_id": "strategy_payoff_panel:B:9a3711f5d3f4375ac8d2",
+          "artifact_name": "strategy_payoff_panel",
+          "content_sha256": "3b29b568a3bf5db3ec8307fef7722d2783e927f0467b4e100f3754fddee0304c",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "payoff_shape": [
+          0.0,
+          0.99,
+          0.21
+        ],
+        "profit_regions": [
+          "scenario-region:B:profit"
+        ],
+        "risk_reference": {
+          "artifact_id": "strategy_risk_panel:B:ca994566621902ad5aaa",
+          "artifact_name": "strategy_risk_panel",
+          "content_sha256": "729656f2ce7029a53d2a21ab942c05b6e0296e2dad174fb40dc5730124fe95ec",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "scenario_evaluation_reference": {
+          "artifact_id": "strategy_scenario_evaluation_panel:B:3b11460c4dc09f493d0e",
+          "artifact_name": "strategy_scenario_evaluation_panel",
+          "content_sha256": "63fc7a665b90050473bb6cfd011645a5ec9d647cb4388388dd6404aefde87b2d",
+          "record_count": 16,
+          "schema_version": "2.0.0"
+        },
+        "scenario_payoff": [
+          -0.95,
+          0.48,
+          1.45
+        ],
+        "strategy_artifact_id": "strategy-B",
+        "strategy_candidate_reference": {
+          "artifact_id": "strategy_candidate_panel:B:5053230ebca5ca19458b",
+          "artifact_name": "strategy_candidate_panel",
+          "content_sha256": "b1486a56e14a6d3bf40d4f452418a3551623852da76a69010dc911e5b909fee2",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_content_sha256": "31c08afcac79003e67aebe11ccb0f4b0a3b4fa4ec1764bb27ff6b845fa22faa4",
+        "strategy_legs_reference": {
+          "artifact_id": "strategy_leg_panel:B:50aab6c6f0a8c687ccda",
+          "artifact_name": "strategy_leg_panel",
+          "content_sha256": "ee8bb198be3013af751670511b3258cfaeb164bd8eb4e9ac6465289f889c29a4",
+          "record_count": 2,
+          "schema_version": "2.0.0"
+        },
+        "strategy_lineage_id": "strategy-lineage-B",
+        "strategy_schema_version": "2.0.0"
+      },
+      {
+        "belief_reference_ids": [
+          "belief:C:return",
+          "belief:C:volatility"
+        ],
+        "candidate_id": "C",
+        "candidate_identity_hash": "6f05bc6a578ff5c94242b555642b553f157e2628345db44bdc5607fcff3d8889",
+        "comparison_group_id": "G1",
+        "context_available": true,
+        "cost_liquidity_reference": {
+          "artifact_id": "strategy_cost_liquidity_panel:C:af10773fe62bb3d43f46",
+          "artifact_name": "strategy_cost_liquidity_panel",
+          "content_sha256": "0c0cb5ed86e5180ee3c98526a1deaa9420e73fc04470c45e7382f2872cfea221",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "defined_risk_status": "VALID",
+        "execution_context_time": "2026-01-05T14:00:00Z",
+        "expiration_ids": [
+          "2026-03"
+        ],
+        "failure_regions": [
+          "scenario-region:C:tail-loss"
+        ],
+        "generation_trace_reference": {
+          "artifact_id": "strategy_generation_trace_panel:C:b292b79a32b58a9fc0c4",
+          "artifact_name": "strategy_generation_trace_panel",
+          "content_sha256": "cfca73c87d886ba2a3f25bbdc4cc328a5e9e1b969ed9db4d8173955c75d09762",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "greek_vector": [
+          0.8,
+          0.1,
+          0.2,
+          -0.1
+        ],
+        "greeks_reference": {
+          "artifact_id": "strategy_greek_panel:C:ab43bf502f515fd18151",
+          "artifact_name": "strategy_greek_panel",
+          "content_sha256": "bc3cb66f529bbbcd275c75de31afb7182e2ff8e7faadd29fb585763737333eb5",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "invalidation_conditions": [
+          "forecast_confidence_below_policy",
+          "execution_context_stale"
+        ],
+        "leg_ids": [
+          "C105"
+        ],
+        "legacy_action_type": "BUY",
+        "legacy_contract_key": "C105",
+        "legacy_cost_estimate": 0.05,
+        "legacy_dte": 46,
+        "legacy_expiration_date": "2026-02-20",
+        "legacy_instrument_type": "OPTION",
+        "legacy_liquidity_score": 0.8,
+        "legacy_reference_price": 10.0,
+        "legacy_strike": 100.0,
+        "legacy_underlying": "TEST3",
+        "mutation_trace": [
+          "origin:LONG_CALL",
+          "legs:1"
+        ],
+        "origin_template": "LONG_CALL",
+        "pareto_tier": 1,
+        "payoff_evaluation_reference": {
+          "artifact_id": "strategy_payoff_panel:C:b609901fae70f0d29a8f",
+          "artifact_name": "strategy_payoff_panel",
+          "content_sha256": "8eabfc8f728ca92f5d950ab95a0b03e5549ebc6949d3c8435fb092341d1c658e",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "payoff_shape": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "profit_regions": [
+          "scenario-region:C:profit"
+        ],
+        "risk_reference": {
+          "artifact_id": "strategy_risk_panel:C:907945c71e0399944d3d",
+          "artifact_name": "strategy_risk_panel",
+          "content_sha256": "d2d06f123c89f18d8f87a7779c316763b977e6731e87c0fecfa2aed98f1ab233",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "scenario_evaluation_reference": {
+          "artifact_id": "strategy_scenario_evaluation_panel:C:323823609b06a26f9d7d",
+          "artifact_name": "strategy_scenario_evaluation_panel",
+          "content_sha256": "bbe34cf58468e8ffccba85336635728abe2c3ca785a060cdc0fd6b13f4efca19",
+          "record_count": 16,
+          "schema_version": "2.0.0"
+        },
+        "scenario_payoff": [
+          1.0,
+          0.0,
+          -1.0
+        ],
+        "strategy_artifact_id": "strategy-C",
+        "strategy_candidate_reference": {
+          "artifact_id": "strategy_candidate_panel:C:4c9fac957980764ecd18",
+          "artifact_name": "strategy_candidate_panel",
+          "content_sha256": "2048317218a055adeaa10992203f3281db115a2af1c87d0357b16c0b1edb63a9",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_content_sha256": "810166a9fa50e5ac3a9b37189fc92febe18bc50fee778faa42ca99c57cd45909",
+        "strategy_legs_reference": {
+          "artifact_id": "strategy_leg_panel:C:bc75009e6e3217c676c0",
+          "artifact_name": "strategy_leg_panel",
+          "content_sha256": "0ff83f45b349807f1a5be068ce651b855706fd35313f51deeb056204bc627c5c",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_lineage_id": "strategy-lineage-C",
+        "strategy_schema_version": "2.0.0"
+      },
+      {
+        "belief_reference_ids": [
+          "belief:D:return",
+          "belief:D:volatility"
+        ],
+        "candidate_id": "D",
+        "candidate_identity_hash": "874620d7c43621d3bbc03835c8f6f6f44e00246f58986a39b416ffd38b464e77",
+        "comparison_group_id": "G1",
+        "context_available": true,
+        "cost_liquidity_reference": {
+          "artifact_id": "strategy_cost_liquidity_panel:D:c3da82cf79391412d23a",
+          "artifact_name": "strategy_cost_liquidity_panel",
+          "content_sha256": "10776d2af2016fd011e84f97e1e0cde8d4ca4baa5bde9db427b446ab5783700d",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "defined_risk_status": "INVALID",
+        "execution_context_time": "2026-01-05T14:00:00Z",
+        "expiration_ids": [
+          "2026-03"
+        ],
+        "failure_regions": [
+          "scenario-region:D:tail-loss"
+        ],
+        "generation_trace_reference": {
+          "artifact_id": "strategy_generation_trace_panel:D:44c483c51f874916df94",
+          "artifact_name": "strategy_generation_trace_panel",
+          "content_sha256": "d0258207d38277b482b7dfc40f57ab65a4f1c36c2015d49ed7129d2faf5791b3",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "greek_vector": [
+          -0.2,
+          -0.7,
+          0.2,
+          0.3
+        ],
+        "greeks_reference": {
+          "artifact_id": "strategy_greek_panel:D:6e9ef13ef1e56095a6d0",
+          "artifact_name": "strategy_greek_panel",
+          "content_sha256": "d6c9ea8565684aafa4dfc58bfe0667f9c3bafb6476dfafc255747b1301a1b129",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "invalidation_conditions": [
+          "forecast_confidence_below_policy",
+          "execution_context_stale"
+        ],
+        "leg_ids": [
+          "SHORT_C110"
+        ],
+        "legacy_action_type": "BUY",
+        "legacy_contract_key": "SHORT_C110",
+        "legacy_cost_estimate": 0.05,
+        "legacy_dte": 46,
+        "legacy_expiration_date": "2026-02-20",
+        "legacy_instrument_type": "OPTION",
+        "legacy_liquidity_score": 0.8,
+        "legacy_reference_price": 10.0,
+        "legacy_strike": 100.0,
+        "legacy_underlying": "TEST3",
+        "mutation_trace": [
+          "origin:NAKED_SHORT_CALL",
+          "legs:1"
+        ],
+        "origin_template": "NAKED_SHORT_CALL",
+        "pareto_tier": 1,
+        "payoff_evaluation_reference": {
+          "artifact_id": "strategy_payoff_panel:D:216b324a56458a36a5f0",
+          "artifact_name": "strategy_payoff_panel",
+          "content_sha256": "876d667f050f9eec1779c7addcf3f5b199bdaae3ee9807f124dffff02f98433d",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "payoff_shape": [
+          0.3,
+          0.3,
+          0.3
+        ],
+        "profit_regions": [
+          "scenario-region:D:profit"
+        ],
+        "risk_reference": {
+          "artifact_id": "strategy_risk_panel:D:9db3960abd3eeebde722",
+          "artifact_name": "strategy_risk_panel",
+          "content_sha256": "2ed81384e40d21eb564799b0984be6d11c99fab801b2ccae337f914593084512",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "scenario_evaluation_reference": {
+          "artifact_id": "strategy_scenario_evaluation_panel:D:46e295c18cf5eba5f61b",
+          "artifact_name": "strategy_scenario_evaluation_panel",
+          "content_sha256": "271415979d4fb71decd3b03e9898fe7184b13914867c3e55cdec8a267730d52e",
+          "record_count": 16,
+          "schema_version": "2.0.0"
+        },
+        "scenario_payoff": [
+          -2.0,
+          0.2,
+          0.4
+        ],
+        "strategy_artifact_id": "strategy-D",
+        "strategy_candidate_reference": {
+          "artifact_id": "strategy_candidate_panel:D:f79f4ccf9765be6fbc69",
+          "artifact_name": "strategy_candidate_panel",
+          "content_sha256": "4d3f65a81e20a7d3671b6d543490085e0317c296d24bdbba8b87527a6abf70a9",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_content_sha256": "c6a1b0e18e631b800d5af844a5333383514d6319f04f4576c85129db390a735f",
+        "strategy_legs_reference": {
+          "artifact_id": "strategy_leg_panel:D:887b77d8f57b55be1253",
+          "artifact_name": "strategy_leg_panel",
+          "content_sha256": "880a83b52b9c5cdb125cc2fd43e9898b164460235709025d402dba823d7fc042",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_lineage_id": "strategy-lineage-D",
+        "strategy_schema_version": "2.0.0"
+      },
+      {
+        "belief_reference_ids": [
+          "belief:E:return",
+          "belief:E:volatility"
+        ],
+        "candidate_id": "E",
+        "candidate_identity_hash": "c909e9e6907bab92a97bc3cb18388a7537cc1339e52df919efb08c38899e62a6",
+        "comparison_group_id": "G2",
+        "context_available": true,
+        "cost_liquidity_reference": {
+          "artifact_id": "strategy_cost_liquidity_panel:E:2c012c67fe68e5017fd6",
+          "artifact_name": "strategy_cost_liquidity_panel",
+          "content_sha256": "424fb131d85c5c183c5f73f51e441d38131a957e8e1897e5a7a2adcc6f35425f",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "defined_risk_status": "PROVEN",
+        "execution_context_time": "2026-01-05T14:00:00Z",
+        "expiration_ids": [
+          "2026-06"
+        ],
+        "failure_regions": [
+          "scenario-region:E:tail-loss"
+        ],
+        "generation_trace_reference": {
+          "artifact_id": "strategy_generation_trace_panel:E:fa3f131cb03e0e4e8346",
+          "artifact_name": "strategy_generation_trace_panel",
+          "content_sha256": "1c5f744a57fdaf106ec4e193ed8b3bdb389ec3ebdc6e3553a0545fb44a05cbb5",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "greek_vector": [
+          0.0,
+          0.9,
+          -0.2,
+          0.1
+        ],
+        "greeks_reference": {
+          "artifact_id": "strategy_greek_panel:E:2eb87bb98feb53efb86c",
+          "artifact_name": "strategy_greek_panel",
+          "content_sha256": "9a9261391d8153a3980926e8b1826a984ee8f4b22f9add00f6a2b975367c60a2",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "invalidation_conditions": [
+          "forecast_confidence_below_policy",
+          "execution_context_stale"
+        ],
+        "leg_ids": [
+          "C100",
+          "C110"
+        ],
+        "mutation_trace": [
+          "origin:CALL_SPREAD",
+          "legs:2"
+        ],
+        "origin_template": "CALL_SPREAD",
+        "pareto_tier": 0,
+        "payoff_evaluation_reference": {
+          "artifact_id": "strategy_payoff_panel:E:d6264ba5f49f81a1df24",
+          "artifact_name": "strategy_payoff_panel",
+          "content_sha256": "894a3f03efaed857fb954293bd26838df8fa9cb72a98a6d32d8514a92f758e50",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "payoff_shape": [
+          0.1,
+          0.8,
+          0.1
+        ],
+        "profit_regions": [
+          "scenario-region:E:profit"
+        ],
+        "risk_reference": {
+          "artifact_id": "strategy_risk_panel:E:f5c44b8af364096e9e2a",
+          "artifact_name": "strategy_risk_panel",
+          "content_sha256": "29f5636ea61211b857e7724dcf165485e7e5b9ab5a7adac15e14a0da0583cf76",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "scenario_evaluation_reference": {
+          "artifact_id": "strategy_scenario_evaluation_panel:E:e56d23d50bab14aaf091",
+          "artifact_name": "strategy_scenario_evaluation_panel",
+          "content_sha256": "4cfe8e7d88656b2479910130627d1f2baddfc48a8f1239b85505b9efe2036686",
+          "record_count": 16,
+          "schema_version": "2.0.0"
+        },
+        "scenario_payoff": [
+          -0.5,
+          1.0,
+          -0.2
+        ],
+        "strategy_artifact_id": "strategy-E",
+        "strategy_candidate_reference": {
+          "artifact_id": "strategy_candidate_panel:E:8e1f1d1e9d564fa0a90d",
+          "artifact_name": "strategy_candidate_panel",
+          "content_sha256": "4663f970e0b57efefac59a405e5c8f0913a91c4d998828d49833d27f168bc46c",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_content_sha256": "7ccafb614e86c1782d03d37beff0ae40ff5de012816b03b5e1c16b904119d73b",
+        "strategy_legs_reference": {
+          "artifact_id": "strategy_leg_panel:E:e818cc8efa81cc8f270b",
+          "artifact_name": "strategy_leg_panel",
+          "content_sha256": "0f566617668cfd29da045610a8e1d70e2ee0d050ee51fb2772d81e8909af6aaf",
+          "record_count": 2,
+          "schema_version": "2.0.0"
+        },
+        "strategy_lineage_id": "strategy-lineage-E",
+        "strategy_schema_version": "2.0.0"
+      },
+      {
+        "belief_reference_ids": [
+          "belief:F:return",
+          "belief:F:volatility"
+        ],
+        "candidate_id": "F",
+        "candidate_identity_hash": "52e9ea6e8f5ff660ab3b6ef68ddc3ef782d5b677215815444a9ad91aeb9b77c0",
+        "comparison_group_id": "G2",
+        "context_available": true,
+        "cost_liquidity_reference": {
+          "artifact_id": "strategy_cost_liquidity_panel:F:ad04700f7d8948537f8a",
+          "artifact_name": "strategy_cost_liquidity_panel",
+          "content_sha256": "0928411ba4a39042ffbab0dab23fe413e84fbdd07c08457735b1db0bc250589b",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "cycle_id": "cycle-2026-01-05",
+        "decision_time": "2026-01-05T14:00:00Z",
+        "defined_risk_status": "PROVEN",
+        "execution_context_time": "2026-01-05T14:00:00Z",
+        "expiration_ids": [
+          "2026-06"
+        ],
+        "failure_regions": [
+          "scenario-region:F:tail-loss"
+        ],
+        "generation_trace_reference": {
+          "artifact_id": "strategy_generation_trace_panel:F:58b77cea7f77d89e93c4",
+          "artifact_name": "strategy_generation_trace_panel",
+          "content_sha256": "101244a61020d0e5a51a41e7ec488f8b79273fdcf6598c62c33942d7300a954f",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "greek_vector": [
+          0.7,
+          0.2,
+          0.1,
+          -0.3
+        ],
+        "greeks_reference": {
+          "artifact_id": "strategy_greek_panel:F:06b4dbc62ca485a2c25f",
+          "artifact_name": "strategy_greek_panel",
+          "content_sha256": "1284c2e918b7045f0cb63596f5cb103d1962ed359905cb749a7e5554d4af2e47",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "invalidation_conditions": [
+          "forecast_confidence_below_policy",
+          "execution_context_stale"
+        ],
+        "leg_ids": [
+          "P100",
+          "P90"
+        ],
+        "mutation_trace": [
+          "origin:PUT_SPREAD",
+          "legs:2"
+        ],
+        "origin_template": "PUT_SPREAD",
+        "pareto_tier": 1,
+        "payoff_evaluation_reference": {
+          "artifact_id": "strategy_payoff_panel:F:e75ebf5129ece9affffa",
+          "artifact_name": "strategy_payoff_panel",
+          "content_sha256": "9170e78b3f90d8f86292491aa9010bd40c9f45b4b6874077117ef9bd503ea91a",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "payoff_shape": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "profit_regions": [
+          "scenario-region:F:profit"
+        ],
+        "risk_reference": {
+          "artifact_id": "strategy_risk_panel:F:b13f9188c82a52323b8b",
+          "artifact_name": "strategy_risk_panel",
+          "content_sha256": "b4af9bb0e4819c3ff7d58918d8bab8fdc2ab4d7185d3db46ff3c1a823407a35b",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "scenario_evaluation_reference": {
+          "artifact_id": "strategy_scenario_evaluation_panel:F:22dec4e076736a1e2adc",
+          "artifact_name": "strategy_scenario_evaluation_panel",
+          "content_sha256": "75a34b55f98d03a546da25ab2e0c3aceb50ead8ff94e31f31f312e3cbd385444",
+          "record_count": 16,
+          "schema_version": "2.0.0"
+        },
+        "scenario_payoff": [
+          1.0,
+          -0.2,
+          -0.3
+        ],
+        "strategy_artifact_id": "strategy-F",
+        "strategy_candidate_reference": {
+          "artifact_id": "strategy_candidate_panel:F:cfd73dcdf5230bf32d82",
+          "artifact_name": "strategy_candidate_panel",
+          "content_sha256": "97c4dada172f5ed7ec0b5aa182c2ab49c49b7bf4b6e1f0220326af4866ac9f6f",
+          "record_count": 1,
+          "schema_version": "2.0.0"
+        },
+        "strategy_content_sha256": "42a68bf2a8f74ab4c4050c50d41b565ae29756a11037bb500fdb78d3f6d6050d",
+        "strategy_legs_reference": {
+          "artifact_id": "strategy_leg_panel:F:97ecd4a837abd54a79ba",
+          "artifact_name": "strategy_leg_panel",
+          "content_sha256": "4d6f50aaca03d7ce9dd776e3f7cf9e9ec5899a0ad0fc190cd6d443ba4928781d",
+          "record_count": 2,
+          "schema_version": "2.0.0"
+        },
+        "strategy_lineage_id": "strategy-lineage-F",
+        "strategy_schema_version": "2.0.0"
+      }
+    ],
+    "run_id": "run-learning-fixture",
+    "schema_version": "2.0.0"
+  }
+}

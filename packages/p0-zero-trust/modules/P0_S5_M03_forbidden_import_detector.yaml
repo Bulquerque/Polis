@@ -1,0 +1,38 @@
+module_id: P0.S5.M03
+module_name: forbidden_import_detector
+function: Executar forbidden import detector da Fase 0, mantendo controle Zero Trust
+  técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- source_tree_manifest
+- forbidden_import_policy_yaml
+outputs: &id002
+- forbidden_import_report
+validations:
+- no_future_phase_import
+- no_dashboard_as_business_logic
+fail_fast_conditions:
+- forbidden_import_detector_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - source_tree_manifest
+    - forbidden_import_policy_yaml
+  emits_to:
+    modules:
+    - P0.S5.M06
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S5
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

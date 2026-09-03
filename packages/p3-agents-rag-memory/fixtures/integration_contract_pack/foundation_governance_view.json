@@ -1,0 +1,145 @@
+{
+  "active_feedback_ref": {
+    "artifact_id": "active_feedback_view-162b4ebdff27d8b629f78a70",
+    "artifact_name": "active_feedback_view",
+    "available_at": null,
+    "content_hash": "162b4ebdff27d8b629f78a70e77d7f0d41768bf604b0bc66537a407871a0cec7",
+    "grain": [],
+    "lineage_id": null,
+    "media_type": "application/json",
+    "producer_module_id": "P3.S3",
+    "row_count": null,
+    "schema_id": "active_feedback_view.v1",
+    "schema_version": "1.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://active_feedback_view-162b4ebdff27d8b629f78a70",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "artifact_id": "foundation-governance-p3-snapshot-80d7a9e94ae78ed385298d2c",
+  "artifact_name": "foundation_governance_view",
+  "content_hash": "cda83dbce42d1576e1d1383ca416d4ccb7abffc27bb84c8d38cfb161a79eeef8",
+  "identity": {
+    "architecture_revision": "P3-FINAL",
+    "as_of_time": "2026-07-27T12:00:00Z",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "test-run-001",
+    "snapshot_id": "p3-snapshot-80d7a9e94ae78ed385298d2c"
+  },
+  "lineage": {
+    "lineage_id": "lineage-foundation-governance-p3-snapshot-80d7a9e94ae78ed385298d2c",
+    "parent_lineage_ids": [],
+    "source_artifact_ids": [
+      "pit_validated_context",
+      "phase3_run_snapshot",
+      "model_knowledge_cutoff_report",
+      "active_retro_policy_patch",
+      "active_belief_feedback_bundle",
+      "person_schema_policy",
+      "personality_tag_registry"
+    ],
+    "transformation_ids": [
+      "foundation_governance_projection.v1"
+    ]
+  },
+  "model_cutoff_view_ref": {
+    "artifact_id": "model_knowledge_cutoff_report-0211e896d0baa0d8cf6fb9b3",
+    "artifact_name": "model_knowledge_cutoff_report",
+    "available_at": null,
+    "content_hash": "0211e896d0baa0d8cf6fb9b375fb6b5784c1c368214f5639bbb3c4c6acb52de5",
+    "grain": [],
+    "lineage_id": "lineage-p3-s2-cutoff-21393ca3783a55418f91",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S2.M03",
+    "row_count": null,
+    "schema_id": "model_knowledge_cutoff_report.v1",
+    "schema_version": "v14.1-rc4.1",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://model_knowledge_cutoff_report-0211e896d0baa0d8cf6fb9b3",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "person_policy_ref": {
+    "artifact_id": "person_schema_policy-1eb061a90cc4c3860a0fd960",
+    "artifact_name": "person_schema_policy",
+    "available_at": null,
+    "content_hash": "1eb061a90cc4c3860a0fd96017baf6fc10acd7da3118c8ca1164f218e12aa913",
+    "grain": [],
+    "lineage_id": "LIN_CONFIG_P3_PERSON_SCHEMA_POLICY_V2",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S4.M02",
+    "row_count": null,
+    "schema_id": "person_schema_policy.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://person_schema_policy-1eb061a90cc4c3860a0fd960",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "pit_context_ref": {
+    "artifact_id": "pit_validated_context-d587daa73918183653f661a2",
+    "artifact_name": "pit_validated_context",
+    "available_at": null,
+    "content_hash": "d587daa73918183653f661a2fb5edcba461f6fb4d70147b3cddfd78eab606eec",
+    "grain": [],
+    "lineage_id": "lineage-p3-s2-pit-e59c072287043dbcb244",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S2.M01",
+    "row_count": null,
+    "schema_id": "pit_validated_context.v1",
+    "schema_version": "v14.1-rc4.1",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://pit_validated_context-d587daa73918183653f661a2",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "run_snapshot_ref": {
+    "artifact_id": "phase3_run_snapshot-80d7a9e94ae78ed385298d2c",
+    "artifact_name": "phase3_run_snapshot",
+    "available_at": null,
+    "content_hash": "80d7a9e94ae78ed385298d2cf8f4b9872c5cd14f330433814ed53597f01aec83",
+    "grain": [],
+    "lineage_id": "lineage-p3-snapshot-80d7a9e94ae78ed385298d2c",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S2.M02",
+    "row_count": null,
+    "schema_id": "phase3_run_snapshot.v1",
+    "schema_version": "v14.1-rc4.1",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://phase3_run_snapshot-80d7a9e94ae78ed385298d2c",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "schema_id": "foundation_governance_view.v1",
+  "schema_version": "1.0.0",
+  "selected_model_ref": "fixture_llm::fixture-model::1.0.0",
+  "tag_registry_ref": {
+    "artifact_id": "personality_tag_registry-393d71a63d7437911c7907cb",
+    "artifact_name": "personality_tag_registry",
+    "available_at": null,
+    "content_hash": "393d71a63d7437911c7907cba6c23282ecbbcae5456287a86baef5ff37f15215",
+    "grain": [],
+    "lineage_id": "LIN_CONFIG_P3_PERSONALITY_TAG_REGISTRY_V1",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S4.M01",
+    "row_count": null,
+    "schema_id": "personality_tag_registry.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://personality_tag_registry-393d71a63d7437911c7907cb",
+      "scheme": "memory",
+      "version": null
+    }
+  }
+}

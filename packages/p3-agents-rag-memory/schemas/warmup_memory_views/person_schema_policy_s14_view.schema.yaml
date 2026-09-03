@@ -1,0 +1,70 @@
+$defs:
+  MemoryType:
+    enum:
+    - EPISODIC
+    - SEMANTIC
+    - PROCEDURAL
+    - SOCIAL
+    title: MemoryType
+    type: string
+  VisibilityScope:
+    enum:
+    - SELF
+    - SOCIAL_VISIBLE
+    - PUBLIC
+    - AUDIT_ONLY
+    title: VisibilityScope
+    type: string
+additionalProperties: false
+properties:
+  schema_id:
+    const: person_schema_policy_s14_view.v1
+    default: person_schema_policy_s14_view.v1
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 1.0.0
+    default: 1.0.0
+    title: Schema Version
+    type: string
+  policy_id:
+    minLength: 1
+    title: Policy Id
+    type: string
+  person_schema_version:
+    minLength: 1
+    title: Person Schema Version
+    type: string
+  allowed_memory_types:
+    items:
+      $ref: '#/$defs/MemoryType'
+    title: Allowed Memory Types
+    type: array
+  allowed_visibility_scopes:
+    items:
+      $ref: '#/$defs/VisibilityScope'
+    title: Allowed Visibility Scopes
+    type: array
+  content_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Hash
+    type: string
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+required:
+- policy_id
+- person_schema_version
+- allowed_memory_types
+- allowed_visibility_scopes
+- content_hash
+- lineage_id
+title: PersonSchemaPolicyView
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+status: implemented_unqualified
+schema_owner: P3.S14
+artifact_name: person_schema_policy
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

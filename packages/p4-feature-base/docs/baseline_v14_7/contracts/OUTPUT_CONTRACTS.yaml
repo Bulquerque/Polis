@@ -1,0 +1,57 @@
+phase: phase_04_feature_base
+contract_version: v14.9-rc1
+legacy_compatible_required_outputs:
+- underlying_feature_matrix_raw
+- underlying_feature_matrix_selected
+- underlying_feature_factors_pca
+- underlying_feature_embeddings
+- feature_selection_report
+- feature_lineage_report
+- drift_safety_report
+- phase5_feature_handoff_manifest
+supplemental_outputs:
+- feature_observer_registry
+- perspective_conflict_panel
+- feature_transform_state_manifest
+- representation_quality_report
+- horizon_feature_set_manifest
+- p4_to_p5_integration_receipt
+- feature_parameter_policy_registry
+- representation_fold_plan
+- encoder_hyperparameter_search_report
+- model_consumer_view_manifest
+- approved_hypothesis_passport_registry
+- hypothesis_budget_report
+- p4_research_attempt_ledger
+- p4_rejected_feature_graveyard
+- p4_research_governance_report
+artifact_aliases:
+  underlying_feature_matrix_raw: underlying_feature_matrix_interpretable
+forbidden_output_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- buy_sell_signal
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- execution_fill
+- position_size
+rules:
+- legacy_outputs_remain_consumable_by_P5
+- supplemental_outputs_are_referenced_by_handoff_manifest
+- all_outputs_have_single_authorized_producer
+- lineage_and_fit_state_required
+- quality_status_explicit
+- no_alpha_or_production_claim_from_P4_only
+- encoder_output_is_optional_challenger_until_downstream_promotion
+- consumer_views_do_not_contain_predictions
+- all_research_attempts_are_append_only_logged
+- foundational_hypotheses_follow_pre_registered_budget
+- negative_results_are_preserved

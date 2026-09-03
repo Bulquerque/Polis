@@ -1,0 +1,19 @@
+baseline:
+  required:
+  - statistical_return
+  - har_ewma_volatility
+  - empirical_conditional_quantiles
+  - shrinkage_covariance
+  - block_bootstrap
+  - simple_regime
+  - proper_scores
+  cpu_first: true
+probabilistic:
+  extends: baseline
+  status: AVAILABLE
+robust:
+  extends: probabilistic
+  status: AVAILABLE
+challenger:
+  optional: true
+  must_not_block_baseline: true

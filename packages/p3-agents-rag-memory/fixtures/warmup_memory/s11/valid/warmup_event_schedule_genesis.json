@@ -1,0 +1,40 @@
+{
+  "schema_id": "warmup_event_schedule.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "p3-s10-schedule-run-s9-001-b90b4ab72e2d8adb",
+  "module_id": "P3.S10.M01",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "as_of": "2026-01-01T00:00:00Z",
+  "evaluation_start": "2026-01-01T00:00:00Z",
+  "mode": "GENESIS_ONLY",
+  "status": "READY",
+  "schedule_start": null,
+  "schedule_end": null,
+  "items": [],
+  "schedule_hash": "b90b4ab72e2d8adb0a6e96b4541d58ba70210849c6d5217e6b54c5e80b895fb0",
+  "activation_config_hash": "20f478a61ef5c418142957a84f90fda96f8262ca27ce066f487be96873f61b38",
+  "heartbeat_config_hash": "eb31e55f1b2c953e3da23563e5bd2b3b032b92896d087b2e47573f65b7555ad4",
+  "lineage": {
+    "lineage_id": "s10-schedule-lineage-b90b4ab72e2d8adb",
+    "history_artifact_id": "p3-s9-run-s9-001-996614ea593c6748",
+    "history_hash": "996614ea593c67480d019fb51d2cec6f33680848e2dcb4740e43ae17128529f8",
+    "population_artifact_id": "population-manifest-001",
+    "population_hash": "f1a7212ba343f7fd15ab02f53d27347d6674a6c70fb2c544b287ab862fb11e43",
+    "social_graph_artifact_id": "social-graph-001",
+    "graph_hash": "f4e336f3ee7fab872de9f00353fbf27d2714e343fead0245975478273a285e03",
+    "source_lineage_ids": [
+      "lineage-graph-001",
+      "lineage-history-genesis-001:validated:996614ea593c",
+      "lineage-population-001"
+    ]
+  },
+  "summary": {
+    "event_item_count": 0,
+    "heartbeat_item_count": 0,
+    "person_count": 3,
+    "month_count": 0,
+    "total_item_count": 0
+  },
+  "issues": []
+}

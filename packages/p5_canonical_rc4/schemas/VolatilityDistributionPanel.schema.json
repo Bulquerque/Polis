@@ -1,0 +1,706 @@
+{
+  "$defs": {
+    "CalibrationStatus": {
+      "enum": [
+        "CALIBRATED",
+        "PARTIALLY_CALIBRATED",
+        "UNCALIBRATED",
+        "UNAVAILABLE"
+      ],
+      "title": "CalibrationStatus",
+      "type": "string"
+    },
+    "CapabilityStatus": {
+      "enum": [
+        "AVAILABLE",
+        "DEGRADED",
+        "LIMITED",
+        "UNAVAILABLE",
+        "SKIPPED_CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "CapabilityStatus",
+      "type": "string"
+    },
+    "EmpiricalDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "EMPIRICAL",
+          "default": "EMPIRICAL",
+          "title": "Kind",
+          "type": "string"
+        },
+        "samples": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2048,
+          "minItems": 2,
+          "title": "Samples",
+          "type": "array"
+        }
+      },
+      "required": [
+        "samples"
+      ],
+      "title": "EmpiricalDistribution",
+      "type": "object"
+    },
+    "MixtureComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "degrees_of_freedom": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Degrees Of Freedom"
+        },
+        "family": {
+          "enum": [
+            "NORMAL",
+            "STUDENT_T",
+            "GED"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "type": "number"
+        },
+        "scale": {
+          "exclusiveMinimum": 0.0,
+          "title": "Scale",
+          "type": "number"
+        },
+        "shape_parameter": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Shape Parameter"
+        },
+        "weight": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "family",
+        "weight",
+        "location",
+        "scale"
+      ],
+      "title": "MixtureComponent",
+      "type": "object"
+    },
+    "MixtureDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "items": {
+            "$ref": "#/$defs/MixtureComponent"
+          },
+          "maxItems": 8,
+          "minItems": 2,
+          "title": "Components",
+          "type": "array"
+        },
+        "kind": {
+          "const": "MIXTURE",
+          "default": "MIXTURE",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "components"
+      ],
+      "title": "MixtureDistribution",
+      "type": "object"
+    },
+    "ParametricDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "degrees_of_freedom": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Degrees Of Freedom"
+        },
+        "family": {
+          "enum": [
+            "NORMAL",
+            "STUDENT_T",
+            "GED"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "kind": {
+          "const": "PARAMETRIC",
+          "default": "PARAMETRIC",
+          "title": "Kind",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "type": "number"
+        },
+        "scale": {
+          "exclusiveMinimum": 0.0,
+          "title": "Scale",
+          "type": "number"
+        },
+        "shape_parameter": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Shape Parameter"
+        }
+      },
+      "required": [
+        "family",
+        "location",
+        "scale"
+      ],
+      "title": "ParametricDistribution",
+      "type": "object"
+    },
+    "PointDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "POINT",
+          "default": "POINT",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "PointDistribution",
+      "type": "object"
+    },
+    "QuantileDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "QUANTILES",
+          "default": "QUANTILES",
+          "title": "Kind",
+          "type": "string"
+        },
+        "quantiles": {
+          "items": {
+            "$ref": "#/$defs/QuantilePoint"
+          },
+          "minItems": 2,
+          "title": "Quantiles",
+          "type": "array"
+        }
+      },
+      "required": [
+        "quantiles"
+      ],
+      "title": "QuantileDistribution",
+      "type": "object"
+    },
+    "QuantilePoint": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Level",
+          "type": "number"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "level",
+        "value"
+      ],
+      "title": "QuantilePoint",
+      "type": "object"
+    },
+    "ScenarioDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "SCENARIOS",
+          "default": "SCENARIOS",
+          "title": "Kind",
+          "type": "string"
+        },
+        "scenarios": {
+          "items": {
+            "$ref": "#/$defs/ScenarioPoint"
+          },
+          "maxItems": 2048,
+          "minItems": 2,
+          "title": "Scenarios",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scenarios"
+      ],
+      "title": "ScenarioDistribution",
+      "type": "object"
+    },
+    "ScenarioPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "probability": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Probability",
+          "type": "number"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "value",
+        "probability"
+      ],
+      "title": "ScenarioPoint",
+      "type": "object"
+    },
+    "VolatilityDistributionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "calibration_status": {
+          "$ref": "#/$defs/CalibrationStatus"
+        },
+        "capability_status": {
+          "$ref": "#/$defs/CapabilityStatus"
+        },
+        "conditional_volatility_distribution": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "EMPIRICAL": "#/$defs/EmpiricalDistribution",
+                  "MIXTURE": "#/$defs/MixtureDistribution",
+                  "PARAMETRIC": "#/$defs/ParametricDistribution",
+                  "POINT": "#/$defs/PointDistribution",
+                  "QUANTILES": "#/$defs/QuantileDistribution",
+                  "SCENARIOS": "#/$defs/ScenarioDistribution"
+                },
+                "propertyName": "kind"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/PointDistribution"
+                },
+                {
+                  "$ref": "#/$defs/QuantileDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ParametricDistribution"
+                },
+                {
+                  "$ref": "#/$defs/MixtureDistribution"
+                },
+                {
+                  "$ref": "#/$defs/EmpiricalDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ScenarioDistribution"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Conditional Volatility Distribution"
+        },
+        "continuous_variation": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "EMPIRICAL": "#/$defs/EmpiricalDistribution",
+                  "MIXTURE": "#/$defs/MixtureDistribution",
+                  "PARAMETRIC": "#/$defs/ParametricDistribution",
+                  "POINT": "#/$defs/PointDistribution",
+                  "QUANTILES": "#/$defs/QuantileDistribution",
+                  "SCENARIOS": "#/$defs/ScenarioDistribution"
+                },
+                "propertyName": "kind"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/PointDistribution"
+                },
+                {
+                  "$ref": "#/$defs/QuantileDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ParametricDistribution"
+                },
+                {
+                  "$ref": "#/$defs/MixtureDistribution"
+                },
+                {
+                  "$ref": "#/$defs/EmpiricalDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ScenarioDistribution"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Continuous Variation"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "forecast_horizon": {
+          "minLength": 1,
+          "title": "Forecast Horizon",
+          "type": "string"
+        },
+        "implied_volatility_state": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "EMPIRICAL": "#/$defs/EmpiricalDistribution",
+                  "MIXTURE": "#/$defs/MixtureDistribution",
+                  "PARAMETRIC": "#/$defs/ParametricDistribution",
+                  "POINT": "#/$defs/PointDistribution",
+                  "QUANTILES": "#/$defs/QuantileDistribution",
+                  "SCENARIOS": "#/$defs/ScenarioDistribution"
+                },
+                "propertyName": "kind"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/PointDistribution"
+                },
+                {
+                  "$ref": "#/$defs/QuantileDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ParametricDistribution"
+                },
+                {
+                  "$ref": "#/$defs/MixtureDistribution"
+                },
+                {
+                  "$ref": "#/$defs/EmpiricalDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ScenarioDistribution"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Implied Volatility State"
+        },
+        "jump_variation": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "EMPIRICAL": "#/$defs/EmpiricalDistribution",
+                  "MIXTURE": "#/$defs/MixtureDistribution",
+                  "PARAMETRIC": "#/$defs/ParametricDistribution",
+                  "POINT": "#/$defs/PointDistribution",
+                  "QUANTILES": "#/$defs/QuantileDistribution",
+                  "SCENARIOS": "#/$defs/ScenarioDistribution"
+                },
+                "propertyName": "kind"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/PointDistribution"
+                },
+                {
+                  "$ref": "#/$defs/QuantileDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ParametricDistribution"
+                },
+                {
+                  "$ref": "#/$defs/MixtureDistribution"
+                },
+                {
+                  "$ref": "#/$defs/EmpiricalDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ScenarioDistribution"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Jump Variation"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "model_member_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Model Member Ids",
+          "type": "array"
+        },
+        "realized_volatility_distribution": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "EMPIRICAL": "#/$defs/EmpiricalDistribution",
+                  "MIXTURE": "#/$defs/MixtureDistribution",
+                  "PARAMETRIC": "#/$defs/ParametricDistribution",
+                  "POINT": "#/$defs/PointDistribution",
+                  "QUANTILES": "#/$defs/QuantileDistribution",
+                  "SCENARIOS": "#/$defs/ScenarioDistribution"
+                },
+                "propertyName": "kind"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/PointDistribution"
+                },
+                {
+                  "$ref": "#/$defs/QuantileDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ParametricDistribution"
+                },
+                {
+                  "$ref": "#/$defs/MixtureDistribution"
+                },
+                {
+                  "$ref": "#/$defs/EmpiricalDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ScenarioDistribution"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Realized Volatility Distribution"
+        },
+        "underlying": {
+          "minLength": 1,
+          "title": "Underlying",
+          "type": "string"
+        },
+        "units": {
+          "default": "annualized_volatility",
+          "title": "Units",
+          "type": "string"
+        },
+        "volatility_of_volatility": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "EMPIRICAL": "#/$defs/EmpiricalDistribution",
+                  "MIXTURE": "#/$defs/MixtureDistribution",
+                  "PARAMETRIC": "#/$defs/ParametricDistribution",
+                  "POINT": "#/$defs/PointDistribution",
+                  "QUANTILES": "#/$defs/QuantileDistribution",
+                  "SCENARIOS": "#/$defs/ScenarioDistribution"
+                },
+                "propertyName": "kind"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/PointDistribution"
+                },
+                {
+                  "$ref": "#/$defs/QuantileDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ParametricDistribution"
+                },
+                {
+                  "$ref": "#/$defs/MixtureDistribution"
+                },
+                {
+                  "$ref": "#/$defs/EmpiricalDistribution"
+                },
+                {
+                  "$ref": "#/$defs/ScenarioDistribution"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Volatility Of Volatility"
+        }
+      },
+      "required": [
+        "underlying",
+        "decision_time",
+        "forecast_horizon",
+        "capability_status",
+        "model_member_ids",
+        "calibration_status",
+        "lineage_id"
+      ],
+      "title": "VolatilityDistributionRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "artifact_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Artifact Sha256",
+      "type": "string"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "producer_module_id": {
+      "pattern": "^P5\\.S[1-9]\\.M\\d{2}$",
+      "title": "Producer Module Id",
+      "type": "string"
+    },
+    "producer_phase": {
+      "default": "P5",
+      "pattern": "^P5$",
+      "title": "Producer Phase",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/VolatilityDistributionRecord"
+      },
+      "minItems": 1,
+      "title": "Records",
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "2.0.0",
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_sha256",
+    "producer_module_id",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "created_at",
+    "available_at",
+    "lineage_id",
+    "records"
+  ],
+  "title": "VolatilityDistributionPanel",
+  "type": "object"
+}

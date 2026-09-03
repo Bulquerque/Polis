@@ -1,0 +1,33 @@
+schema_id: p3.research_tools.s34.artifact_schema_bindings.v1
+schema_version: 1.0.0
+bindings:
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.capability_profile_coverage.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.capability_profile_coverage.v1.schema.json
+  sha256: f41360ac8190ba91199a8241918d36bbf2d855aa20017fc411918730faac78e6
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.capability_requirement_matrix.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.capability_requirement_matrix.v1.schema.json
+  sha256: 32559ac2b0aa7f432f7c1356f61d83a18790dda81ee8d3c21d899d17b379db4c
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.capability_taxonomy.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.capability_taxonomy.v1.schema.json
+  sha256: 7a9a9f3c4099c1da03c8fd33187ad9bd5b564652230511642bba5cf123d714ad
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.context_projection_audit.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.context_projection_audit.v1.schema.json
+  sha256: cd0ba0b952d502efb5836bfca9f4eaec7a6591516bf90048f4775187226b28ac
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.entitlement_audit.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.entitlement_audit.v1.schema.json
+  sha256: 0f2ed9cbd4767783408b8fd91cbe800b37619ae1b2971ba5ef3aaf3dc3553d4b
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.person_capabilities.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.person_capabilities.v1.schema.json
+  sha256: 9e7c96cb4f9405083afe3c5e18593e185dd7ed4c58a545f7459b7a1088604bcd
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.person_resources.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.person_resources.v1.schema.json
+  sha256: 76061d21fb03479696dcc41a1ae6bcdadeab854c8989520dff6f867670e6dd30
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.plan_dependency_matrix.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.plan_dependency_matrix.v1.schema.json
+  sha256: fec620031bba6e56cf6462f8a6e507ebcd3a07381b826e2f9373ebcfbb0740ea
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.plan_readiness.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.plan_readiness.v1.schema.json
+  sha256: aad46aac371702b2075bbcc8620821920fb11f914ae9a1f797d6fc7048f4053d
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.plan_registry.v1
+  relative_path: contracts/extensions/research_tools/schemas/s34/artifacts/p3.research_tools.plan_registry.v1.schema.json
+  sha256: 3d7bb1fef79da004fa1ae1f8b01b56b9755566940b574277be3eac21c2facd70

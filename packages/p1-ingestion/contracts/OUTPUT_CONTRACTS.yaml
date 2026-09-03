@@ -1,0 +1,24 @@
+phase: phase_01_ingestion
+outputs:
+- handoff_manifest_to_phase_2
+- source_registry
+- raw_file_inventory
+- source_snapshot_registry
+- raw_readability_report
+- raw_schema_hint_report
+- ingestion_error_report
+forbidden_output_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+rules:
+- outputs_must_match_schema
+- forbidden_fields_absent
+- lineage_required
+- all_declared_outputs_have_producer_module

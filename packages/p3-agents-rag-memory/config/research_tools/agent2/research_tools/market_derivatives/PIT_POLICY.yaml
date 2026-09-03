@@ -1,0 +1,20 @@
+schema_id: p3.s36.pit_policy.v1
+schema_version: 1.0.0
+execution_profiles:
+  BACKTEST:
+    network_allowed: false
+    decision_time_source: RUNTIME_ONLY
+    market_visibility_field: available_at
+    option_contract_visibility_field: first_seen_date
+    option_quote_visibility_field: available_at
+    unknown_visibility_policy: REJECT
+  LIVE:
+    network_allowed: false
+    decision_time_source: RUNTIME_ONLY
+    unknown_visibility_policy: REJECT
+invariants:
+  - available_at_lte_decision_time
+  - first_seen_date_lte_decision_date
+  - future_rows_filtered_before_calculation
+  - p1_bytes_only_by_authorized_reference
+  - deterministic_ordering_and_hashing

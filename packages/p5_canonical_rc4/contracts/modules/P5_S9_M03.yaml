@@ -1,0 +1,23 @@
+module_id: P5.S9.M03
+name: covariance_regime_surprise_publication_builder
+subphase_id: P5.S9
+required_inputs: []
+optional_inputs:
+- covariance_forecast_registry
+- covariance_validation_report
+- regime_probability_member_panel
+- structural_break_member_panel
+- ood_drift_diagnostics_panel
+- regime_ood_surprise_panel
+- resolver_context_router_panel
+- perspective_model_disagreement_panel
+outputs:
+- published_covariance_registry
+- published_regime_ood_surprise_panel
+allowed_actions:
+- PUBLISH
+allowed_modes:
+- PUBLICATION
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

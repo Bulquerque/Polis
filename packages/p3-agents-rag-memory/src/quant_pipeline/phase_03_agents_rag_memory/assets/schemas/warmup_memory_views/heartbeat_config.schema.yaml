@@ -1,0 +1,68 @@
+additionalProperties: false
+properties:
+  schema_id:
+    const: heartbeat_config.v1
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 1.0.0
+    title: Schema Version
+    type: string
+  enabled:
+    const: true
+    title: Enabled
+    type: boolean
+  frequency:
+    const: MONTHLY
+    title: Frequency
+    type: string
+  due_day_policy:
+    const: MONTH_END
+    title: Due Day Policy
+    type: string
+  due_hour_utc:
+    default: 23
+    maximum: 23
+    minimum: 0
+    title: Due Hour Utc
+    type: integer
+  due_minute_utc:
+    default: 59
+    maximum: 59
+    minimum: 0
+    title: Due Minute Utc
+    type: integer
+  due_second_utc:
+    default: 59
+    maximum: 59
+    minimum: 0
+    title: Due Second Utc
+    type: integer
+  include_partial_months:
+    default: true
+    title: Include Partial Months
+    type: boolean
+  event_activation_may_satisfy_obligation:
+    const: true
+    default: true
+    title: Event Activation May Satisfy Obligation
+    type: boolean
+  max_heartbeat_delay_days:
+    default: 7
+    maximum: 31
+    minimum: 0
+    title: Max Heartbeat Delay Days
+    type: integer
+required:
+- schema_id
+- schema_version
+- enabled
+- frequency
+- due_day_policy
+title: HeartbeatConfig
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: heartbeat_config
+schema_id: heartbeat_config.v1
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

@@ -1,0 +1,28 @@
+registry_id: P3_PERSONALITY_TAG_REGISTRY_V1
+policy: fixed_registry_no_free_tag_creation
+assignment_fields: [intensity, confidence]
+categories:
+  - category_id: life_context
+    tags:
+      - tag_id: young
+        description: Early-life or early-career orientation.
+      - tag_id: senior_experienced
+        description: Long accumulated professional experience.
+  - category_id: cognition
+    tags:
+      - tag_id: analytical
+        description: Prefers explicit decomposition.
+      - tag_id: quantitative_background
+        description: Comfortable with quantitative representations.
+  - category_id: information_access
+    tags:
+      - tag_id: institutional_data_access
+        description: Access to institutional-grade information.
+      - tag_id: public_data_reliant
+        description: Primarily uses public data.
+  - category_id: social_behavior
+    tags:
+      - tag_id: independent_thinker
+        description: Resistant to social conformity.
+      - tag_id: high_social_activity
+        description: Frequently exchanges information.

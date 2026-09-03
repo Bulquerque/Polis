@@ -1,0 +1,32 @@
+schema_version: p3.s24.v1
+config_version: s24-social-delivery-v1
+run_id: RUN_RESOLVED_BY_COMPOSITION
+current_cycle_id: CYCLE_N_RESOLVED_BY_COMPOSITION
+next_cycle_id: CYCLE_N_PLUS_1_RESOLVED_BY_COMPOSITION
+as_of: '2026-01-01T00:00:00Z'
+next_cycle_start: '2026-01-01T01:00:00Z'
+next_cycle_end: '2026-01-02T00:00:00Z'
+max_messages_per_person_cycle: 5
+social_events_target_cycle: N_plus_1
+undelivered_preserved: true
+allow_self_message: false
+allow_without_relationship: false
+default_channel_id: direct_message
+message_type_channel_map:
+  ALERT: direct_message
+  EVIDENCE_SHARE: direct_message
+evidence_required_message_types:
+- EVIDENCE_SHARE
+attention_metric_key: social_receptivity
+availability_metric_key: social_availability
+default_attention_score: 0.5
+default_availability_score: 1.0
+minimum_availability_score: 0.25
+relationship_latency_weight: 1.0
+attention_latency_weight: 1.0
+channel_policies:
+- channel_id: direct_message
+  enabled: true
+  visibility: DECLARED
+  base_latency_seconds: 60
+  max_latency_seconds: 3600

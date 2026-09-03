@@ -1,0 +1,21 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "request_id": {
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "request_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Request Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_id",
+    "request_sha256"
+  ],
+  "title": "FoldPlanReference",
+  "type": "object"
+}

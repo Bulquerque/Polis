@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accounting_tolerance": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0.000001",
+      "title": "Accounting Tolerance"
+    },
+    "allow_numerical_equivalence": {
+      "default": true,
+      "title": "Allow Numerical Equivalence",
+      "type": "boolean"
+    },
+    "require_contiguous_sequence": {
+      "default": true,
+      "title": "Require Contiguous Sequence",
+      "type": "boolean"
+    }
+  },
+  "title": "ReplayPolicy",
+  "type": "object"
+}

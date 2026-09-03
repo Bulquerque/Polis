@@ -1,0 +1,28 @@
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- signal_direction
+- buy_sell_signal
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- execution_fill
+- position_size
+- feature_genome
+- mutation_candidate
+- promotion_decision
+private_fields:
+- content
+- memory_text
+- message_text
+- prompt
+- raw_payload
+- tool_payload
+- private_notes
+- credentials
+- api_key

@@ -1,0 +1,69 @@
+{
+  "$defs": {
+    "ReductionStatus": {
+      "enum": [
+        "SAFE",
+        "SCENARIO_REDUCTION_UNSAFE",
+        "CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "ReductionStatus",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "covariance_error": {
+      "title": "Covariance Error",
+      "type": "number"
+    },
+    "decision_aware_status": {
+      "enum": [
+        "EVALUATED",
+        "CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "Decision Aware Status",
+      "type": "string"
+    },
+    "mean_error": {
+      "title": "Mean Error",
+      "type": "number"
+    },
+    "original_count": {
+      "title": "Original Count",
+      "type": "integer"
+    },
+    "output_count": {
+      "title": "Output Count",
+      "type": "integer"
+    },
+    "status": {
+      "$ref": "#/$defs/ReductionStatus"
+    },
+    "tail_error": {
+      "title": "Tail Error",
+      "type": "number"
+    },
+    "transport_cost": {
+      "title": "Transport Cost",
+      "type": "number"
+    }
+  },
+  "required": [
+    "status",
+    "original_count",
+    "output_count",
+    "mean_error",
+    "covariance_error",
+    "tail_error",
+    "transport_cost",
+    "decision_aware_status",
+    "content_sha256"
+  ],
+  "title": "ReductionAssessment",
+  "type": "object"
+}

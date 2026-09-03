@@ -1,0 +1,8 @@
+policy_id: p7_abstention_v1
+minimum_confidence: 0.55
+maximum_score_interval_width: 0.60
+maximum_model_disagreement: 0.40
+accepted_calibration_statuses: [CALIBRATED, VALID]
+moderate_ood_values: [MODERATE]
+minimum_group_rankable_count: 1
+minimum_group_rankable_fraction: 0.20

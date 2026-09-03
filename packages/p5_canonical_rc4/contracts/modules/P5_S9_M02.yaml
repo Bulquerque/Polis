@@ -1,0 +1,22 @@
+module_id: P5.S9.M02
+name: forecast_distribution_scenario_builder
+subphase_id: P5.S9
+required_inputs:
+- ensemble_forecast_panel
+- validated_tail_scenario_registry
+optional_inputs:
+- forecast_confidence_panel
+- covariance_forecast_registry
+- resolver_context_router_panel
+outputs:
+- forecast_distribution_panel
+- forecast_scenario_panel
+- ambiguity_set
+- market_belief_state
+allowed_actions:
+- PUBLISH
+allowed_modes:
+- PUBLICATION
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

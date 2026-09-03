@@ -1,0 +1,142 @@
+$defs:
+  Availability:
+    enum:
+    - AVAILABLE
+    - LIMITED
+    - UNAVAILABLE
+    - RESEARCH_ONLY
+    title: Availability
+    type: string
+  ConformalGroupSummary:
+    additionalProperties: false
+    properties:
+      group_id:
+        minLength: 1
+        title: Group Id
+        type: string
+      observation_count:
+        minimum: 0
+        title: Observation Count
+        type: integer
+      empirical_coverage:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Empirical Coverage
+      target_coverage:
+        title: Target Coverage
+        type: number
+      coverage_regret:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Coverage Regret
+      mean_interval_width:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Mean Interval Width
+      recommended_miscoverage:
+        title: Recommended Miscoverage
+        type: number
+      quality_state:
+        minLength: 1
+        title: Quality State
+        type: string
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - group_id
+    - observation_count
+    - empirical_coverage
+    - target_coverage
+    - coverage_regret
+    - mean_interval_width
+    - recommended_miscoverage
+    - quality_state
+    title: ConformalGroupSummary
+    type: object
+  ConformalStep:
+    additionalProperties: false
+    properties:
+      event_id:
+        minLength: 1
+        title: Event Id
+        type: string
+      group_id:
+        minLength: 1
+        title: Group Id
+        type: string
+      alpha_before:
+        title: Alpha Before
+        type: number
+      error_indicator:
+        maximum: 1
+        minimum: 0
+        title: Error Indicator
+        type: integer
+      alpha_after:
+        title: Alpha After
+        type: number
+      nonconformity_score:
+        minimum: 0.0
+        title: Nonconformity Score
+        type: number
+      calibration_quantile:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Calibration Quantile
+      interval_width:
+        minimum: 0.0
+        title: Interval Width
+        type: number
+    required:
+    - event_id
+    - group_id
+    - alpha_before
+    - error_indicator
+    - alpha_after
+    - nonconformity_score
+    - calibration_quantile
+    - interval_width
+    title: ConformalStep
+    type: object
+additionalProperties: false
+properties:
+  availability:
+    $ref: '#/$defs/Availability'
+  steps:
+    items:
+      $ref: '#/$defs/ConformalStep'
+    title: Steps
+    type: array
+  summaries:
+    items:
+      $ref: '#/$defs/ConformalGroupSummary'
+    title: Summaries
+    type: array
+  result_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Result Sha256
+    type: string
+  limitations:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Limitations
+    type: array
+required:
+- availability
+- steps
+- summaries
+- result_sha256
+title: ConformalMonitoringResult
+type: object
+$id: urn:inferencia:p9:s7:ConformalMonitoringResult:1.0.0

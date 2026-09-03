@@ -1,0 +1,161 @@
+$defs:
+  ConstraintSlack:
+    additionalProperties: false
+    properties:
+      constraint_name:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Constraint Name
+        type: string
+      slack:
+        title: Slack
+        type: number
+    required:
+    - constraint_name
+    - slack
+    title: ConstraintSlack
+    type: object
+  DiscreteStatus:
+    enum:
+    - FEASIBLE_ROUNDED
+    - FEASIBLE_REOPTIMIZED
+    - INFEASIBLE_AFTER_ROUNDING
+    - NO_ACTION_VALID
+    title: DiscreteStatus
+    type: string
+  QuantityPath:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      quantities_by_horizon:
+        items:
+          type: number
+        title: Quantities By Horizon
+        type: array
+    required:
+    - candidate_id
+    - quantities_by_horizon
+    title: QuantityPath
+    type: object
+  RoundingChange:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      horizon_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Horizon Id
+        type: string
+      continuous_quantity:
+        title: Continuous Quantity
+        type: number
+      discrete_quantity:
+        title: Discrete Quantity
+        type: number
+    required:
+    - candidate_id
+    - horizon_id
+    - continuous_quantity
+    - discrete_quantity
+    title: RoundingChange
+    type: object
+  SolutionValidationReport:
+    additionalProperties: false
+    properties:
+      feasible:
+        title: Feasible
+        type: boolean
+      objective_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Objective Value
+      maximum_inequality_violation:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Maximum Inequality Violation
+      maximum_equality_violation:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Maximum Equality Violation
+      slacks:
+        default: []
+        items:
+          $ref: '#/$defs/ConstraintSlack'
+        title: Slacks
+        type: array
+      reason_codes:
+        default: []
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - feasible
+    - objective_value
+    title: SolutionValidationReport
+    type: object
+additionalProperties: false
+properties:
+  status:
+    $ref: '#/$defs/DiscreteStatus'
+  quantities:
+    items:
+      $ref: '#/$defs/QuantityPath'
+    title: Quantities
+    type: array
+  changes:
+    items:
+      $ref: '#/$defs/RoundingChange'
+    title: Changes
+    type: array
+  objective_value:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Objective Value
+  validation:
+    $ref: '#/$defs/SolutionValidationReport'
+  discrete_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Discrete Hash
+    type: string
+  reason_codes:
+    default: []
+    items:
+      maxLength: 160
+      minLength: 1
+      pattern: ^[A-Za-z0-9_.:\-/]+$
+      type: string
+    title: Reason Codes
+    type: array
+required:
+- status
+- quantities
+- changes
+- objective_value
+- validation
+- discrete_hash
+title: DiscreteTargetPositionPanel
+type: object

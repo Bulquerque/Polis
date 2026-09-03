@@ -1,0 +1,19 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p7:s1:verified-p6-artifact-index-record:2.0.0
+title: Verified P6 Artifact Index Record
+type: object
+additionalProperties: false
+required: [manifest, artifacts, artifact_names]
+properties:
+  manifest:
+    type: object
+    additionalProperties: true
+  artifacts:
+    type: array
+    items:
+      type: object
+      additionalProperties: true
+  artifact_names:
+    type: array
+    uniqueItems: true
+    items: {type: string}

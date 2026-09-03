@@ -1,0 +1,392 @@
+{
+  "$id": "ltr_model_qualification_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "ltr_model_qualification_report"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "calibration_summary": {
+            "additionalProperties": false,
+            "properties": {
+              "calibrator_status": {
+                "enum": [
+                  "CALIBRATED",
+                  "DEGRADED",
+                  "UNAVAILABLE"
+                ]
+              },
+              "finite": {
+                "type": "boolean"
+              },
+              "intercept": {
+                "type": "number"
+              },
+              "mean_absolute_error": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "query_count": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "record_count": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "slope": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "query_count",
+              "record_count",
+              "finite",
+              "calibrator_status",
+              "slope",
+              "intercept"
+            ],
+            "type": "object"
+          },
+          "fold_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "fold_ndcg_std": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "gate_results": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "type": "object"
+          },
+          "interpretable_baseline_metrics": {
+            "additionalProperties": false,
+            "properties": {
+              "ndcg_at_k": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "precision_at_k": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "regret_at_k": {
+                "type": "number"
+              },
+              "spearman": {
+                "maximum": 1,
+                "minimum": -1,
+                "type": "number"
+              },
+              "top_bottom_spread": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "ndcg_at_k",
+              "precision_at_k",
+              "regret_at_k",
+              "spearman",
+              "top_bottom_spread"
+            ],
+            "type": "object"
+          },
+          "model_family_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "model_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "model_metrics": {
+            "additionalProperties": false,
+            "properties": {
+              "ndcg_at_k": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "precision_at_k": {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              "regret_at_k": {
+                "type": "number"
+              },
+              "spearman": {
+                "maximum": 1,
+                "minimum": -1,
+                "type": "number"
+              },
+              "top_bottom_spread": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "ndcg_at_k",
+              "precision_at_k",
+              "regret_at_k",
+              "spearman",
+              "top_bottom_spread"
+            ],
+            "type": "object"
+          },
+          "ndcg_improvement": {
+            "type": "number"
+          },
+          "promotion_authority": {
+            "const": "P0_MODEL_REGISTRY"
+          },
+          "query_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "reason_code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "regret_delta": {
+            "type": "number"
+          },
+          "slice_gate_summary": {
+            "additionalProperties": false,
+            "properties": {
+              "decisions": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "checks": {
+                      "additionalProperties": {
+                        "type": "boolean"
+                      },
+                      "type": "object"
+                    },
+                    "dimension": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "ndcg_at_k": {
+                      "type": "number"
+                    },
+                    "passed": {
+                      "type": "boolean"
+                    },
+                    "query_count": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "regret_at_k": {
+                      "type": "number"
+                    },
+                    "slice_value": {
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "dimension",
+                    "slice_value",
+                    "query_count",
+                    "ndcg_at_k",
+                    "regret_at_k",
+                    "checks",
+                    "passed"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "policy": {
+                "additionalProperties": false,
+                "properties": {
+                  "max_slice_regret": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "min_slice_ndcg": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "min_slice_queries": {
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "min_slice_queries",
+                  "min_slice_ndcg",
+                  "max_slice_regret"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "policy",
+              "decisions",
+              "passed"
+            ],
+            "type": "object"
+          },
+          "slice_metrics": {
+            "additionalProperties": {
+              "additionalProperties": {
+                "additionalProperties": false,
+                "properties": {
+                  "ndcg_at_k": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "precision_at_k": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "query_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "regret_at_k": {
+                    "type": "number"
+                  },
+                  "spearman": {
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                  },
+                  "top_bottom_spread": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "ndcg_at_k",
+                  "precision_at_k",
+                  "regret_at_k",
+                  "spearman",
+                  "top_bottom_spread"
+                ],
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "type": "object"
+          },
+          "status": {
+            "enum": [
+              "CHAMPION",
+              "QUALIFIED_CHALLENGER",
+              "SHADOW",
+              "REJECTED",
+              "INSUFFICIENT_EVIDENCE",
+              "DEPRECATED"
+            ]
+          }
+        },
+        "required": [
+          "model_family_id",
+          "model_hash",
+          "status",
+          "reason_code",
+          "query_count",
+          "fold_count",
+          "model_metrics",
+          "interpretable_baseline_metrics",
+          "ndcg_improvement",
+          "regret_delta",
+          "fold_ndcg_std",
+          "slice_metrics",
+          "calibration_summary",
+          "gate_results",
+          "promotion_authority"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

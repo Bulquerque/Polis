@@ -1,0 +1,18 @@
+# Reproducible Python 3.13/3.14 baseline. Optional providers are pinned here
+# as well; installation remains opt-in through pyproject extras.
+pydantic==2.13.4
+PyYAML==6.0.3
+jsonschema==4.26.0
+cryptography==46.0.7
+httpx==0.28.1
+pytest==9.0.3
+pytest-asyncio==1.4.0
+coverage==7.15.2
+opentelemetry-api==1.44.0
+opentelemetry-sdk==1.44.0
+tzdata==2025.2
+numpy==2.4.6
+scipy==1.17.1
+mcp==1.29.0
+pyarrow==25.0.0
+neo4j==6.2.0

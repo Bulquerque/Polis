@@ -1,0 +1,25 @@
+module_id: P5.S8.M01
+name: predictive_distribution_harmonizer
+subphase_id: P5.S8
+required_inputs: []
+optional_inputs:
+- return_member_forecast_panel_linear
+- return_member_forecast_panel_state_space
+- return_member_forecast_panel_tabular
+- return_member_forecast_panel_temporal
+- return_member_forecast_panel_foundation
+- volatility_member_forecast_panel_har
+- volatility_member_forecast_panel_conditional
+- volatility_member_forecast_panel_rough_implied
+- volatility_member_forecast_panel_ml_neural
+- path_risk_member_forecast_panel
+- validated_tail_scenario_registry
+outputs:
+- harmonized_forecast_member_panel
+allowed_actions:
+- RUN
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

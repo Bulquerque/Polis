@@ -1,0 +1,145 @@
+{
+  "$id": "governed_model_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "governed_model_registry"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed_horizons": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "allowed_objective_families": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "approval_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "approved_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "deprecated": {
+            "type": "boolean"
+          },
+          "model_family_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "model_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "promotion_status": {
+            "enum": [
+              "PROMOTED",
+              "NOT_PROMOTED",
+              "DEPRECATED"
+            ]
+          },
+          "runtime_priority": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "approval_id",
+          "model_family_id",
+          "model_hash",
+          "promotion_status",
+          "deprecated",
+          "approved_at",
+          "runtime_priority",
+          "allowed_objective_families",
+          "allowed_horizons"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

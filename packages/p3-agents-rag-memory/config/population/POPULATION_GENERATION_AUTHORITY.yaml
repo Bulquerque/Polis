@@ -1,0 +1,26 @@
+authority_id: P3_FINAL_POPULATION_GENERATION_AUTHORITY_V1
+authority_version: 1.0.0
+generation_contract_version: population-generation.3.0.0
+distribution_registry_version: person-distributions.1.0.0
+generation_rules_version: person-consistency-rules.2.0.0
+seed_derivation_version: sha256_uint63_v1
+candidate_id_version: sha256_candidate_record_v2
+person_id_version: sha256_typed_canonical_profile_v1
+population_id_version: sha256_sorted_person_ids_v1
+graph_seed_version: sha256_uint63_v1
+files:
+- path: config/governance/PERSONALITY_TAG_REGISTRY.yaml
+  sha256: c1d42eee8d0dd07f4c8d2179bd9d7a027172b371a0c25651979f23be2e1fa647
+- path: config/population/operational_person_policy.yaml
+  sha256: 4059e5a9790be78d0288c843172893e43d87fdab21644966faec51e086368d4c
+- path: config/population/s5/population_generation_config.yaml
+  sha256: 26acc531dd36643365a33d21d88cc0ef83e073d71b4a4cdfe60f0235c3cd20f3
+- path: config/population/s5/personality_consistency_rules.yaml
+  sha256: 0dd3758e5150a78139d4482dc2c024b9b1a80f6c1df0e9b9f464a9b03998b901
+- path: config/population/s6/coverage_density_config.yaml
+  sha256: 751db74349249743f15efa894c2d63767e5c5ec1c4a8719bd6f3b6b1e22f28e4
+- path: config/population/s7/population_representation_config.yaml
+  sha256: bcbe26f31ea00e58d1f7bc53b653ecbad1a0d2f892b9b41bd5f1a369d2718856
+- path: config/population/s8/social_graph_config.yaml
+  sha256: 84a62637140c6ff8d603016e84fca848115d0daa1d9f0efdad2348889fb95d9b
+change_policy: ANY_HASH_CHANGE_REQUIRES_NEW_AUTHORITY_VERSION_AND_REQUALIFICATION

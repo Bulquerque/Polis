@@ -1,0 +1,12 @@
+registry_id: common_utility_registry_v14_1_rc4_1
+common_utilities:
+- name: load_yaml
+  module: quant_pipeline.common.contracts
+- name: compute_sha256
+  module: quant_pipeline.common.hashing
+- name: validate_required_fields
+  module: quant_pipeline.common.validation
+- name: write_manifest
+  module: quant_pipeline.common.manifest
+- name: build_dashboard_payload
+  module: quant_pipeline.common.dashboard

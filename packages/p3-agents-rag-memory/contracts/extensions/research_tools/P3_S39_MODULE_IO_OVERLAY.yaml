@@ -1,0 +1,66 @@
+overlay_id: P3_S39_MODULE_IO_OVERLAY
+version: 1.0.0
+status: ADDITIVE_NOT_GLOBAL_AUTHORITY
+global_authority_update_owner: P3.S40
+module_io_overlay:
+- module_id: P3.S39.M01
+  module_name: return_risk_volatility_handler_bundle_builder
+  subphase: P3.S39
+  consumes_from:
+    artifacts:
+    - research_data_boundary_bundle
+    - quant_method_policy_config
+    - frequency_annualization_registry
+    - tool_operation_registry
+    - research_mode_registry
+  emits_to:
+    artifacts:
+    - return_risk_volatility_handler_bundle
+    - return_volatility_method_manifest
+  contract_path: contracts/research_tools/modules/P3_S39_M01_return_risk_volatility_handler_bundle_builder.yaml
+- module_id: P3.S39.M02
+  module_name: dependence_entropy_handler_bundle_builder
+  subphase: P3.S39
+  consumes_from:
+    artifacts:
+    - research_data_boundary_bundle
+    - dependence_method_policy_config
+    - entropy_discretization_registry
+    - tool_operation_registry
+    - research_mode_registry
+  emits_to:
+    artifacts:
+    - dependence_entropy_handler_bundle
+    - dependence_entropy_method_manifest
+  contract_path: contracts/research_tools/modules/P3_S39_M02_dependence_entropy_handler_bundle_builder.yaml
+- module_id: P3.S39.M03
+  module_name: event_window_scenario_handler_bundle_builder
+  subphase: P3.S39
+  consumes_from:
+    artifacts:
+    - research_data_boundary_bundle
+    - event_scenario_method_policy_config
+    - tool_operation_registry
+    - research_mode_registry
+  emits_to:
+    artifacts:
+    - event_window_scenario_handler_bundle
+    - event_scenario_method_manifest
+  contract_path: contracts/research_tools/modules/P3_S39_M03_event_window_scenario_handler_bundle_builder.yaml
+- module_id: P3.S39.M04
+  module_name: quant_tool_bundle_method_qualification_builder
+  subphase: P3.S39
+  consumes_from:
+    artifacts:
+    - return_risk_volatility_handler_bundle
+    - dependence_entropy_handler_bundle
+    - event_window_scenario_handler_bundle
+    - quant_contract_test_report
+    - quant_property_test_report
+    - quant_leakage_test_report
+  emits_to:
+    artifacts:
+    - quant_tool_handler_bundle
+    - quant_operation_mode_qualification
+    - quant_qualification_evidence_package
+  contract_path: contracts/research_tools/modules/P3_S39_M04_quant_tool_bundle_method_qualification_builder.yaml

@@ -1,0 +1,199 @@
+{
+  "$defs": {
+    "CompanyMode": {
+      "enum": [
+        "QUICK_CHECK",
+        "STANDARD_REVIEW",
+        "DEEP_QUALITATIVE",
+        "ACCOUNTING_QUALITY",
+        "FORENSIC"
+      ],
+      "title": "CompanyMode",
+      "type": "string"
+    },
+    "ExtensionLineage": {
+      "additionalProperties": false,
+      "properties": {
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "pattern": "^P3\\.S38\\.M\\d{2}$",
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "source_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Artifact Ids",
+          "type": "array"
+        },
+        "source_hashes": {
+          "additionalProperties": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Source Hashes",
+          "type": "object"
+        },
+        "transformation_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Transformation Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "lineage_id",
+        "producer_module_id"
+      ],
+      "title": "ExtensionLineage",
+      "type": "object"
+    },
+    "HandlerBindingSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic_or_seeded": {
+          "default": true,
+          "title": "Deterministic Or Seeded",
+          "type": "boolean"
+        },
+        "forbidden_authorities": {
+          "default": [
+            "investment_recommendation",
+            "signal_generation",
+            "portfolio_optimization",
+            "backtest",
+            "feature_selection",
+            "model_selection",
+            "direct_p5_consumption"
+          ],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Forbidden Authorities",
+          "type": "array"
+        },
+        "handler_id": {
+          "minLength": 1,
+          "title": "Handler Id",
+          "type": "string"
+        },
+        "handler_version": {
+          "minLength": 1,
+          "title": "Handler Version",
+          "type": "string"
+        },
+        "operation_id": {
+          "minLength": 1,
+          "title": "Operation Id",
+          "type": "string"
+        },
+        "read_only": {
+          "const": true,
+          "default": true,
+          "title": "Read Only",
+          "type": "boolean"
+        },
+        "request_schema_ref": {
+          "minLength": 1,
+          "title": "Request Schema Ref",
+          "type": "string"
+        },
+        "required_view_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required View Ids",
+          "type": "array"
+        },
+        "result_schema_ref": {
+          "minLength": 1,
+          "title": "Result Schema Ref",
+          "type": "string"
+        },
+        "supported_modes": {
+          "items": {
+            "$ref": "#/$defs/CompanyMode"
+          },
+          "title": "Supported Modes",
+          "type": "array"
+        },
+        "tool_id": {
+          "const": "company.fundamentals.v1",
+          "default": "company.fundamentals.v1",
+          "title": "Tool Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation_id",
+        "handler_id",
+        "handler_version",
+        "request_schema_ref",
+        "result_schema_ref",
+        "supported_modes"
+      ],
+      "title": "HandlerBindingSpec",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Bundle Hash",
+      "type": "string"
+    },
+    "bundle_version": {
+      "minLength": 1,
+      "title": "Bundle Version",
+      "type": "string"
+    },
+    "handlers": {
+      "items": {
+        "$ref": "#/$defs/HandlerBindingSpec"
+      },
+      "title": "Handlers",
+      "type": "array"
+    },
+    "lineage": {
+      "$ref": "#/$defs/ExtensionLineage"
+    },
+    "schema_version": {
+      "const": "p3.s38.v1",
+      "default": "p3.s38.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "tool_id": {
+      "const": "company.fundamentals.v1",
+      "default": "company.fundamentals.v1",
+      "title": "Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_version",
+    "handlers",
+    "lineage",
+    "bundle_hash"
+  ],
+  "title": "CompanyToolBundle",
+  "type": "object"
+}

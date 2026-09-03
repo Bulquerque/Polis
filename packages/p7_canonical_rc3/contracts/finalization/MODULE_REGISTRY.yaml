@@ -1,0 +1,155 @@
+registry_id: p7_finalization_module_registry_2_2
+phase_id: P7
+scope: FINALIZATION
+version: 2.3.1rc3
+subphases:
+- P7.S7
+- P7.S8
+module_count: 8
+modules:
+- module_id: P7.S7.M01
+  subphase: P7.S7
+  subphase_name: Similarity, Diversity, Safety and Abstention
+  module_name: candidate_similarity_graph_builder
+  purpose: Build a sparse graph from payoff, scenario, Greek, leg, template and expiry
+    similarity.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/finalization/modules/P7_S7_M01_candidate_similarity_graph_builder.py
+  inputs:
+  - hybrid_scoring_handoff_manifest
+  - validated_strategy_candidate_reference_panel
+  - hybrid_candidate_score_panel
+  outputs:
+  - candidate_similarity_edge_panel
+  - candidate_similarity_summary_panel
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S7.M02
+  subphase: P7.S7
+  subphase_name: Similarity, Diversity, Safety and Abstention
+  module_name: diversity_adjustment_engine
+  purpose: Cluster similar candidates and apply a bounded, deterministic redundancy
+    adjustment.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/finalization/modules/P7_S7_M02_diversity_adjustment_engine.py
+  inputs:
+  - hybrid_scoring_handoff_manifest
+  - validated_strategy_candidate_reference_panel
+  - hybrid_candidate_score_panel
+  - candidate_similarity_edge_panel
+  outputs:
+  - candidate_diversity_cluster_panel
+  - diversity_adjustment_panel
+  - diversity_adjusted_score_panel
+  - diversity_audit_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S7.M03
+  subphase: P7.S7
+  subphase_name: Similarity, Diversity, Safety and Abstention
+  module_name: final_candidate_safety_gate
+  purpose: Block materially invalid candidates using finite-score, context, cost,
+    liquidity and upstream evidence rules.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/finalization/modules/P7_S7_M03_final_candidate_safety_gate.py
+  inputs:
+  - hybrid_scoring_handoff_manifest
+  - validated_strategy_candidate_reference_panel
+  - diversity_adjusted_score_panel
+  - pre_final_blocked_candidate_panel
+  outputs:
+  - safety_eligible_candidate_panel
+  - safety_blocked_candidate_panel
+  - safety_gate_audit_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S7.M04
+  subphase: P7.S7
+  subphase_name: Similarity, Diversity, Safety and Abstention
+  module_name: abstention_and_rankability_gate
+  purpose: Separate rankable candidates from valid candidates with insufficient confidence,
+    OOD evidence or group coverage.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/finalization/modules/P7_S7_M04_abstention_and_rankability_gate.py
+  inputs:
+  - hybrid_scoring_handoff_manifest
+  - validated_strategy_candidate_reference_panel
+  - safety_eligible_candidate_panel
+  - safety_blocked_candidate_panel
+  - candidate_score_confidence_panel
+  outputs:
+  - rankable_candidate_panel
+  - abstained_candidate_panel
+  - final_blocked_candidate_panel
+  - rankability_group_report
+  - rankability_handoff_manifest
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S8.M01
+  subphase: P7.S8
+  subphase_name: Deterministic Ranking and P8 Publication
+  module_name: deterministic_group_ranking_engine
+  purpose: Order rankable candidates within each comparison group with deterministic
+    economic tie-breaking.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/finalization/modules/P7_S8_M01_deterministic_group_ranking_engine.py
+  inputs:
+  - rankability_handoff_manifest
+  - rankable_candidate_panel
+  - diversity_adjusted_score_panel
+  - candidate_score_confidence_panel
+  outputs:
+  - ranked_strategy_candidate_panel
+  - ranking_tie_report
+  - ranking_group_summary_panel
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S8.M02
+  subphase: P7.S8
+  subphase_name: Deterministic Ranking and P8 Publication
+  module_name: thesis_card_and_ranking_audit_builder
+  purpose: Publish structured strategy theses, trace records and complete ranking
+    audit evidence.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/finalization/modules/P7_S8_M02_thesis_card_and_ranking_audit_builder.py
+  inputs:
+  - rankability_handoff_manifest
+  - ranked_strategy_candidate_panel
+  - score_decomposition_panel
+  - validated_strategy_candidate_reference_panel
+  outputs:
+  - strategy_thesis_card_panel
+  - ranking_trace_panel
+  - ranking_audit_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S8.M03
+  subphase: P7.S8
+  subphase_name: Deterministic Ranking and P8 Publication
+  module_name: phase8_strategy_ranking_handoff_builder
+  purpose: Join ranked candidates to immutable P6 execution-context references and
+    publish the P8 contract.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/finalization/modules/P7_S8_M03_phase8_strategy_ranking_handoff_builder.py
+  inputs:
+  - ranked_strategy_candidate_panel
+  - strategy_thesis_card_panel
+  - ranking_trace_panel
+  - ranking_audit_report
+  - validated_strategy_candidate_reference_panel
+  outputs:
+  - ranked_strategy_execution_context_snapshot
+  - compatibility_projection_report
+  - phase8_strategy_ranking_handoff_manifest
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S8.M04
+  subphase: P7.S8
+  subphase_name: Deterministic Ranking and P8 Publication
+  module_name: phase8_handoff_and_release_publisher
+  purpose: Verify terminal candidate conservation, seal hashes and publish the technical
+    phase release receipt.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/finalization/modules/P7_S8_M04_phase8_handoff_and_release_publisher.py
+  inputs:
+  - phase8_strategy_ranking_handoff_manifest
+  - ranked_strategy_candidate_panel
+  - final_blocked_candidate_panel
+  - abstained_candidate_panel
+  outputs:
+  - p7_phase_release_receipt
+  - p7_phase_release_manifest
+  status: IMPLEMENTED
+  production_promotion_allowed: false

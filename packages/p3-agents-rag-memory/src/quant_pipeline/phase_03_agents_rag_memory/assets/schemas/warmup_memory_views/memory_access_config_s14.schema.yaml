@@ -1,0 +1,211 @@
+$defs:
+  FactorWeights:
+    additionalProperties: false
+    properties:
+      relevance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Relevance
+        type: number
+      recency:
+        maximum: 1.0
+        minimum: 0.0
+        title: Recency
+        type: number
+      importance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Importance
+        type: number
+      repetition:
+        maximum: 1.0
+        minimum: 0.0
+        title: Repetition
+        type: number
+      significance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Significance
+        type: number
+    required:
+    - relevance
+    - recency
+    - importance
+    - repetition
+    - significance
+    title: FactorWeights
+    type: object
+  FutureRecordPolicy:
+    enum:
+    - EXCLUDE_AND_REPORT
+    - BLOCK
+    title: FutureRecordPolicy
+    type: string
+  MemoryType:
+    enum:
+    - EPISODIC
+    - SEMANTIC
+    - PROCEDURAL
+    - SOCIAL
+    title: MemoryType
+    type: string
+  RetrievalBudgetConfig:
+    additionalProperties: false
+    properties:
+      top_k_default:
+        exclusiveMinimum: 0
+        title: Top K Default
+        type: integer
+      top_k_min:
+        exclusiveMinimum: 0
+        title: Top K Min
+        type: integer
+      top_k_max:
+        exclusiveMinimum: 0
+        title: Top K Max
+        type: integer
+      max_context_tokens:
+        exclusiveMinimum: 0
+        title: Max Context Tokens
+        type: integer
+      max_per_source:
+        exclusiveMinimum: 0
+        title: Max Per Source
+        type: integer
+      max_social_visible:
+        minimum: 0
+        title: Max Social Visible
+        type: integer
+    required:
+    - top_k_default
+    - top_k_min
+    - top_k_max
+    - max_context_tokens
+    - max_per_source
+    - max_social_visible
+    title: RetrievalBudgetConfig
+    type: object
+  ScopePolicyConfig:
+    additionalProperties: false
+    properties:
+      visibility_scope:
+        $ref: '#/$defs/VisibilityScope'
+      retrievable:
+        title: Retrievable
+        type: boolean
+      requires_relationship:
+        title: Requires Relationship
+        type: boolean
+      audit_only:
+        title: Audit Only
+        type: boolean
+    required:
+    - visibility_scope
+    - retrievable
+    - requires_relationship
+    - audit_only
+    title: ScopePolicyConfig
+    type: object
+  TypePolicyConfig:
+    additionalProperties: false
+    properties:
+      memory_type:
+        $ref: '#/$defs/MemoryType'
+      enabled:
+        title: Enabled
+        type: boolean
+      half_life_days:
+        exclusiveMinimum: 0
+        title: Half Life Days
+        type: integer
+      max_per_query:
+        minimum: 0
+        title: Max Per Query
+        type: integer
+    required:
+    - memory_type
+    - enabled
+    - half_life_days
+    - max_per_query
+    title: TypePolicyConfig
+    type: object
+  VisibilityScope:
+    enum:
+    - SELF
+    - SOCIAL_VISIBLE
+    - PUBLIC
+    - AUDIT_ONLY
+    title: VisibilityScope
+    type: string
+additionalProperties: false
+properties:
+  schema_id:
+    const: memory_access_config_s14.v1
+    default: memory_access_config_s14.v1
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 1.0.0
+    default: 1.0.0
+    title: Schema Version
+    type: string
+  policy_version:
+    minLength: 1
+    title: Policy Version
+    type: string
+  formula_id:
+    minLength: 1
+    title: Formula Id
+    type: string
+  formula_version:
+    minLength: 1
+    title: Formula Version
+    type: string
+  factor_weights:
+    $ref: '#/$defs/FactorWeights'
+  budgets:
+    $ref: '#/$defs/RetrievalBudgetConfig'
+  type_policies:
+    items:
+      $ref: '#/$defs/TypePolicyConfig'
+    title: Type Policies
+    type: array
+  scope_policies:
+    items:
+      $ref: '#/$defs/ScopePolicyConfig'
+    title: Scope Policies
+    type: array
+  pit_filter_required:
+    const: true
+    default: true
+    title: Pit Filter Required
+    type: boolean
+  audit_memory_separate:
+    const: true
+    default: true
+    title: Audit Memory Separate
+    type: boolean
+  same_cycle_back_edge_forbidden:
+    const: true
+    default: true
+    title: Same Cycle Back Edge Forbidden
+    type: boolean
+  future_record_policy:
+    $ref: '#/$defs/FutureRecordPolicy'
+required:
+- policy_version
+- formula_id
+- formula_version
+- factor_weights
+- budgets
+- type_policies
+- scope_policies
+- future_record_policy
+title: MemoryAccessConfig
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+status: implemented_unqualified
+schema_owner: P3.S14
+artifact_name: memory_access_config
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

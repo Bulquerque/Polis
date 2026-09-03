@@ -1,0 +1,21 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: artifact_plan
+status: planned_internal_schema
+type: object
+required:
+- schema_version
+- status
+- steps
+- lineage_id
+properties:
+  schema_version:
+    type: string
+  status:
+    type: string
+  steps:
+    type: array
+    items:
+      type: object
+  lineage_id:
+    type: string
+additionalProperties: false

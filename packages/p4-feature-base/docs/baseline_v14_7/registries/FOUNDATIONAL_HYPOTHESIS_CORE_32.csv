@@ -1,0 +1,33 @@
+hypothesis_id,family_id,name,economic_mechanism,primary_observer_ids,robustness_observer_ids,primary_parameterization,robustness_parameterization,expected_role,tier
+H01,F01,time_series_momentum,underreaction and trend persistence,F01.O02,F01.O01,63D,21D or 126D,positive,FOUNDATIONAL
+H02,F01,cross_sectional_momentum,slow diffusion of relative information,F01.O03,,126D,63D,positive,FOUNDATIONAL
+H03,F01,residual_momentum,firm-specific information persists after common-factor removal,F01.O04,,126D,63D,positive,FOUNDATIONAL
+H04,F01,volume_confirmed_momentum,independent trading activity confirms price persistence,F01.O11,F01.O14,63D,21D,positive,FOUNDATIONAL
+H05,F02,short_term_reversal,temporary price pressure and liquidity provision,F02.O01,,5D,1D,negative,FOUNDATIONAL
+H06,F02,trend_deviation_reversal,extreme deviation from robust local state partially mean reverts,F02.O04,,21D,63D,negative,FOUNDATIONAL
+H07,F02,residual_relative_reversal,idiosyncratic displacement reverses after market removal,F02.O05,F02.O07,5D,21D,negative,FOUNDATIONAL
+H08,F03,value,price is low relative to conservative fundamentals,F03.O01,F03.O02,annual PIT,alternate value denominator,positive,FOUNDATIONAL
+H09,F03,profitability,productive firms command distinct expected-return exposure,F03.O05,F03.O06,annual PIT,alternate profitability definition,positive,FOUNDATIONAL
+H10,F03,investment,aggressive asset expansion is associated with lower expected returns,F03.O10,F03.O11,annual PIT,alternate investment definition,negative,FOUNDATIONAL
+H11,F03,accrual_quality,cash-backed earnings are more persistent than accrual-heavy earnings,F03.O12,F03.O09,annual PIT,alternate quality definition,positive,FOUNDATIONAL
+H12,F04,turnover_liquidity_state,trading intensity captures liquidity and participation state,F04.O01,,21D,63D,contextual,FOUNDATIONAL
+H13,F04,price_impact_illiquidity,return per unit of volume captures trading friction,F04.O02,F04.O03,21D,63D,contextual,FOUNDATIONAL
+H14,F04,attention_shock,abnormal attention changes information processing and crowding,F04.O09,F04.O06,5D,21D,contextual,FOUNDATIONAL
+H15,F05,multiscale_volatility,daily weekly and monthly volatility components describe heterogeneous risk horizons,F05.O01;F05.O02;F05.O03,,HAR 1/5/21,HAR 1/5/63,contextual,FOUNDATIONAL
+H16,F05,downside_semivariance,negative variation is economically different from symmetric variance,F05.O04,,21D,63D,risk,FOUNDATIONAL
+H17,F05,drawdown_state,depth and duration capture path-dependent stress,F05.O08,F05.O09,252D,126D,risk,FOUNDATIONAL
+H18,F05,option_implied_tail_state,risk-neutral variance and skew contain forward-looking risk compensation,F05.O15,F05.O16,30-60D maturity,60-90D maturity,risk,FOUNDATIONAL
+H19,F06,downside_beta,co-movement in bad markets differs from unconditional beta,F06.O02,F06.O01,63D,126D,risk,FOUNDATIONAL
+H20,F06,common_market_concentration,market-mode concentration captures systemic synchronization,F06.O07,F06.O08,63D,126D,risk,FOUNDATIONAL
+H21,F06,dynamic_connectedness,directional spillovers identify transmitters and receivers of shocks,F06.O11,F06.O09;F06.O10,63D,126D,risk,FOUNDATIONAL
+H22,F07,term_structure_carry,curve slope and roll-down encode holding-period carry,F07.O02,F07.O04,contract-specific,adjacent maturity robustness,positive,FOUNDATIONAL
+H23,F07,basis_roll_yield,spot-futures basis captures financing scarcity and convenience yield,F07.O05,F07.O10,front/next,alternate curve segment,contextual,FOUNDATIONAL
+H24,F07,cross_asset_carry_rank,relative carry is a common cross-asset characteristic,F07.O11,F07.O08,monthly,weekly,positive,FOUNDATIONAL
+H25,F08,growth_inflation_state,joint growth and inflation dynamics condition expected returns and risk,F08.O01;F08.O02,,monthly vintage,quarterly vintage,contextual,FOUNDATIONAL
+H26,F08,financial_conditions_state,rates curve credit and liquidity jointly describe financing conditions,F08.O07,F08.O04;F08.O06,weekly,monthly,contextual,FOUNDATIONAL
+H27,F08,macro_surprise,release surprise differs from macro level and must be measured at publication time,F08.O11,,release event,standardized alternate expectation,contextual,FOUNDATIONAL
+H28,F09,earnings_surprise,unexpected earnings information creates an event state,F09.O02,,event PIT,alternate standardization,contextual,FOUNDATIONAL
+H29,F09,post_earnings_drift,underreaction can persist after earnings announcements,F09.O03,,1-21D,1-63D,positive,FOUNDATIONAL
+H30,F10,novelty_weighted_narrative,new credible evidence differs from repeated sentiment,F10.O04,F10.O01;F10.O02;F10.O03,1-5D,21D,contextual,FOUNDATIONAL
+H31,F10,disagreement_polarization,dispersion of beliefs contains information not present in consensus,F10.O07,F10.O08,1-5D,21D,contextual,FOUNDATIONAL
+H32,F10,narrative_shift_minority_view,changes in dominant hypotheses and credible minority views reveal regime transition,F10.O10,F10.O12,5-21D,63D,contextual,FOUNDATIONAL

@@ -1,0 +1,15 @@
+spec_id: ST14_RETRO_SINGLE_CHANGE_CONTEXT_LEARNING
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Retro uses experience retrieval and textual gradient but proposes one allowed mutation
+required_cases:
+- similar_experiment_retrieval
+- success_failure_balance
+- one_mutation_class
+- prompt_tool_retrieval_only
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

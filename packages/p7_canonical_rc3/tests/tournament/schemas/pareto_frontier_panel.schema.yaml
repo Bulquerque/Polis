@@ -1,0 +1,122 @@
+$defs:
+  FrontierStatus:
+    enum:
+    - FRONTIER
+    - DOMINATED_LAYER
+    - INCOMPARABLE
+    title: FrontierStatus
+    type: string
+  ParetoFrontierRecord:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        title: Candidate Id
+        type: string
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      frontier_layer:
+        anyOf:
+        - minimum: 0
+          type: integer
+        - type: 'null'
+        default: null
+        title: Frontier Layer
+      frontier_status:
+        $ref: '#/$defs/FrontierStatus'
+      dominated_by_count:
+        minimum: 0
+        title: Dominated By Count
+        type: integer
+      metric_vector_hash:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Metric Vector Hash
+      policy_id:
+        title: Policy Id
+        type: string
+      lineage_id:
+        title: Lineage Id
+        type: string
+    required:
+    - candidate_id
+    - comparison_group_id
+    - frontier_status
+    - dominated_by_count
+    - policy_id
+    - lineage_id
+    title: ParetoFrontierRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/ParetoFrontierRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: pareto_frontier_panel envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s3/pareto_frontier_panel/1.0.0

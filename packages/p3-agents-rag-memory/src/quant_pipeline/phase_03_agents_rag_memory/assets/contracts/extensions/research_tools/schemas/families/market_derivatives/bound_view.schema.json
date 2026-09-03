@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "ViewReadinessStatus": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM",
+        "FAILED"
+      ],
+      "title": "ViewReadinessStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "artifact_name": {
+      "minLength": 1,
+      "title": "Artifact Name",
+      "type": "string"
+    },
+    "available_fields": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Available Fields",
+      "type": "array"
+    },
+    "content_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "missing_required_fields": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Missing Required Fields",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "record_count": {
+      "minimum": 0,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/ViewReadinessStatus"
+    }
+  },
+  "required": [
+    "artifact_name",
+    "artifact_id",
+    "schema_version",
+    "content_hash",
+    "record_count",
+    "available_fields",
+    "status"
+  ],
+  "title": "BoundView",
+  "type": "object"
+}

@@ -1,0 +1,84 @@
+{
+  "$defs": {
+    "CalculationStatus": {
+      "enum": [
+        "AVAILABLE",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "BLOCKED"
+      ],
+      "title": "CalculationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "marks": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Marks",
+      "type": "array"
+    },
+    "maximum_path_loss": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Maximum Path Loss"
+    },
+    "method": {
+      "title": "Method",
+      "type": "string"
+    },
+    "reason_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason Code"
+    },
+    "scenario_id": {
+      "title": "Scenario Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/CalculationStatus"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "scenario_id",
+    "marks",
+    "maximum_path_loss",
+    "method",
+    "status"
+  ],
+  "title": "PathwiseValuationRecord",
+  "type": "object"
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "module_id": "P8.S10.M01",
+    "module_name": "independent_accounting_and_conservation_auditor",
+    "entrypoint": "independent_auditor:run_independent_audit",
+    "authority": "technical audit"
+  },
+  {
+    "module_id": "P8.S10.M02",
+    "module_name": "backtest_execution_qualification_gate",
+    "entrypoint": "qualification_gate:run_qualification_gate",
+    "authority": "technical/robustness/readiness"
+  },
+  {
+    "module_id": "P8.S10.M03",
+    "module_name": "phase9_evidence_bundle_builder",
+    "entrypoint": "p9_handoff_builder:build_p9_handoff",
+    "authority": "P9 evidence publication"
+  },
+  {
+    "module_id": "P8.S10.M04",
+    "module_name": "deterministic_release_manifest_and_receipt_publisher",
+    "entrypoint": "release_publisher:publish_release",
+    "authority": "P0 technical release evidence"
+  }
+]

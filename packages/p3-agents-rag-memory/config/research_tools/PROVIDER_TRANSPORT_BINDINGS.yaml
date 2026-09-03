@@ -1,0 +1,31 @@
+schema_id: p3.research_tools.provider_bindings.v1
+schema_version: 1.0.0
+providers:
+- provider_id: internal_research
+  transport: COMPOSITE_INTERNAL
+  availability: QUALIFIED_LOCAL
+  protocol: LOCAL
+  protocol_version: p3-research-local-v1
+  configured: true
+  qualified: true
+  metadata:
+    network_required: false
+- provider_id: research_mcp
+  transport: MCP_OPTIONAL
+  availability: OPTIONAL_NOT_CONFIGURED
+  protocol: MCP
+  protocol_version: '2025-11-25'
+  configured: false
+  qualified: false
+  metadata:
+    network_required: true
+    optional: true
+- provider_id: quant_local
+  transport: LOCAL_FUNCTION
+  availability: QUALIFIED_LOCAL
+  protocol: LOCAL
+  protocol_version: local-v1
+  configured: true
+  qualified: true
+  metadata:
+    legacy_compatibility: true

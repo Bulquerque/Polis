@@ -1,0 +1,39 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "name": "pydantic",
+      "type": "library"
+    },
+    {
+      "name": "PyYAML",
+      "type": "library"
+    },
+    {
+      "name": "jsonschema",
+      "type": "library"
+    },
+    {
+      "name": "numpy",
+      "type": "library"
+    },
+    {
+      "name": "scipy",
+      "type": "library"
+    },
+    {
+      "name": "scikit-learn",
+      "type": "library"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "P5_INTEGRATED_RC34_INTEGRATION_HARDENED",
+      "type": "application",
+      "version": "0.34.1rc4"
+    },
+    "timestamp": "2026-08-02T18:28:46Z"
+  },
+  "specVersion": "1.5",
+  "version": 1
+}

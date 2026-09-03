@@ -1,0 +1,199 @@
+{
+  "$defs": {
+    "ApprovedUseDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "approved": {
+          "title": "Approved",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "use_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Use Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "use_id",
+        "approved"
+      ],
+      "title": "ApprovedUseDecision",
+      "type": "object"
+    },
+    "CapabilityState": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "RESEARCH_ONLY",
+        "UNAVAILABLE",
+        "INVALID"
+      ],
+      "title": "CapabilityState",
+      "type": "string"
+    },
+    "S6State": {
+      "enum": [
+        "SUCCESS",
+        "COMMITTED",
+        "COMMITTED_WITH_COVERAGE_GAPS",
+        "DUPLICATE_REJECTED",
+        "SUCCESS_WITH_MAPPING_LIMITATIONS",
+        "MATERIAL_EXPOSURE_UNMAPPED",
+        "LOCAL_ONLY",
+        "EXTRAPOLATION_LIMITED",
+        "CONSTRAINT_DISCONTINUITY_FOUND",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EXCEEDANCES",
+        "UNSTABLE_TAIL_INDEX",
+        "THRESHOLD_NOT_IDENTIFIED",
+        "DEPENDENCE_NOT_REMOVED",
+        "AMBIGUITY_SET_UNINFORMATIVE",
+        "SOLVER_NOT_QUALIFIED",
+        "UNBOUNDED",
+        "CAPACITY_LIMITED",
+        "BORROW_LIMITED",
+        "MARGIN_FRAGILE",
+        "NETWORK_STRESS_RESEARCH_ONLY",
+        "INSUFFICIENT_LIQUIDITY_DATA",
+        "STRESS_RESILIENT",
+        "RESILIENT_WITH_LIMITATIONS",
+        "REVERSE_STRESS_TOO_CLOSE",
+        "STRUCTURALLY_UNSAFE",
+        "NO_FAILURE_WITHIN_DOMAIN",
+        "SEARCH_NOT_CONVERGED",
+        "VALIDATED",
+        "VALIDATED_WITH_LIMITATIONS",
+        "RESEARCH_ONLY",
+        "SCENARIO_INCOMPLETE",
+        "MODEL_NOT_FIT_FOR_STRESS",
+        "UNVALIDATED",
+        "CAPABILITY_UNAVAILABLE",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S6State",
+      "type": "string"
+    },
+    "StressCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "check_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Check Id",
+          "type": "string"
+        },
+        "detail": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Detail",
+          "type": "string"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "check_id",
+        "passed",
+        "detail"
+      ],
+      "title": "StressCheck",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approved_uses": {
+      "items": {
+        "$ref": "#/$defs/ApprovedUseDecision"
+      },
+      "title": "Approved Uses",
+      "type": "array"
+    },
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/StressCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "failed_check_count": {
+      "minimum": 0,
+      "title": "Failed Check Count",
+      "type": "integer"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "material_risk_coverage": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Material Risk Coverage",
+      "type": "number"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "specialist_capability_states": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          {
+            "$ref": "#/$defs/CapabilityState"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Specialist Capability States",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S6State"
+    }
+  },
+  "required": [
+    "status",
+    "checks",
+    "approved_uses",
+    "material_risk_coverage",
+    "failed_check_count",
+    "specialist_capability_states"
+  ],
+  "title": "StressModelValidationResult",
+  "type": "object"
+}

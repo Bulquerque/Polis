@@ -1,0 +1,35 @@
+config_version: stimulus_event_bus.v2
+bus_id: P3_STIMULUS_EVENT_BUS_V2
+same_cycle_policy: EXTERNAL_ONLY_CURRENT_ENDOGENOUS_NEXT
+stimulus_type_by_record_type:
+  EVENT: NEWS_EVENT
+  DOCUMENT: RESEARCH_EVENT
+  CONTEXT_SOURCE: OTHER
+salience_formula_id: stimulus_salience_v1
+salience_weights:
+  source_quality: 0.25
+  novelty: 0.20
+  subject_relevance: 0.25
+  event_severity: 0.20
+  information_specificity: 0.10
+salience_defaults_by_record_type:
+  EVENT:
+    source_quality: 0.70
+    novelty: 0.60
+    subject_relevance: 0.70
+    event_severity: 0.60
+    information_specificity: 0.70
+  DOCUMENT:
+    source_quality: 0.75
+    novelty: 0.45
+    subject_relevance: 0.60
+    event_severity: 0.35
+    information_specificity: 0.80
+  CONTEXT_SOURCE:
+    source_quality: 0.60
+    novelty: 0.40
+    subject_relevance: 0.50
+    event_severity: 0.30
+    information_specificity: 0.50
+allow_exact_subject_graph_match: false
+max_subject_length: 1024

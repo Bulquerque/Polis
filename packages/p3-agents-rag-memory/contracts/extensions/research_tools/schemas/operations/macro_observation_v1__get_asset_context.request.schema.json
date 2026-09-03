@@ -1,0 +1,45 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_asset_context/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "factor_categories": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Factor Categories",
+      "type": "array"
+    },
+    "instrument_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "title": "Instrument Ids",
+      "type": "array"
+    },
+    "lookback_observations": {
+      "default": 120,
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Lookback Observations",
+      "type": "integer"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "instrument_ids"
+  ],
+  "title": "GetAssetMacroContextRequest",
+  "type": "object"
+}

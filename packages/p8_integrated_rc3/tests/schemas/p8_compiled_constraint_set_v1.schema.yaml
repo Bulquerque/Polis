@@ -1,0 +1,126 @@
+$defs:
+  ConstraintConflict:
+    additionalProperties: false
+    properties:
+      conflict_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Conflict Id
+        type: string
+      reason_code:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Reason Code
+        type: string
+      candidate_id:
+        anyOf:
+        - maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        - type: 'null'
+        default: null
+        title: Candidate Id
+      detail:
+        title: Detail
+        type: string
+    required:
+    - conflict_id
+    - reason_code
+    - detail
+    title: ConstraintConflict
+    type: object
+additionalProperties: false
+properties:
+  candidate_ids:
+    items:
+      maxLength: 160
+      minLength: 1
+      pattern: ^[A-Za-z0-9_.:\-/]+$
+      type: string
+    title: Candidate Ids
+    type: array
+  horizon_ids:
+    items:
+      maxLength: 160
+      minLength: 1
+      pattern: ^[A-Za-z0-9_.:\-/]+$
+      type: string
+    title: Horizon Ids
+    type: array
+  candidate_bounds:
+    items:
+      maxItems: 2
+      minItems: 2
+      prefixItems:
+      - type: number
+      - type: number
+      type: array
+    title: Candidate Bounds
+    type: array
+  quantity_increments:
+    items:
+      type: number
+    title: Quantity Increments
+    type: array
+  capital_limits:
+    items:
+      type: number
+    title: Capital Limits
+    type: array
+  margin_limits:
+    items:
+      type: number
+    title: Margin Limits
+    type: array
+  maximum_loss_limits:
+    items:
+      type: number
+    title: Maximum Loss Limits
+    type: array
+  liquidity_caps:
+    items:
+      items:
+        type: number
+      type: array
+    title: Liquidity Caps
+    type: array
+  maximum_turnover:
+    title: Maximum Turnover
+    type: number
+  maximum_cvar:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Maximum Cvar
+  constraint_count:
+    minimum: 0
+    title: Constraint Count
+    type: integer
+  conflicts:
+    default: []
+    items:
+      $ref: '#/$defs/ConstraintConflict'
+    title: Conflicts
+    type: array
+  constraint_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Constraint Hash
+    type: string
+required:
+- candidate_ids
+- horizon_ids
+- candidate_bounds
+- quantity_increments
+- capital_limits
+- margin_limits
+- maximum_loss_limits
+- liquidity_caps
+- maximum_turnover
+- maximum_cvar
+- constraint_count
+- constraint_hash
+title: CompiledConstraintSet
+type: object

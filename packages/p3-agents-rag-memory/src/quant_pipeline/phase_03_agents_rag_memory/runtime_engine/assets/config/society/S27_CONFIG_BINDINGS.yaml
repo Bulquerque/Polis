@@ -1,0 +1,8 @@
+subphase: P3.S27
+bindings:
+  aggregation_semantics_config: config/S27_AGGREGATION_SEMANTICS.yaml
+  proposition_registry_config: config/S27_PROPOSITION_REGISTRY.yaml
+rules:
+  - runtime modules receive validated configuration objects; they do not read YAML or environment variables
+  - formula_version is written into every output record
+  - changes to formulas require schema, fixtures, tests and documentation changes

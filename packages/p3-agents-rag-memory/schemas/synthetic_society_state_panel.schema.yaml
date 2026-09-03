@@ -1,0 +1,140 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: synthetic_society_state
+status: planned_internal_schema
+type: object
+properties:
+  underlying:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  features:
+    type: object
+    required:
+    - belief
+    - dynamics
+    - attention
+    - social
+    - information
+    - tag_projection
+    properties:
+      belief:
+        type: object
+        required:
+        - belief_mean
+        - belief_variance
+        - belief_entropy
+        - belief_polarization
+        - bullish_share
+        - bearish_share
+        properties:
+          belief_mean:
+            type: number
+          belief_variance:
+            type: number
+          belief_entropy:
+            type: number
+          belief_polarization:
+            type: number
+          bullish_share:
+            type: number
+          bearish_share:
+            type: number
+        additionalProperties: false
+      dynamics:
+        type: object
+        required:
+        - belief_update_velocity
+        - belief_reversal_rate
+        properties:
+          belief_update_velocity:
+            type: number
+          belief_reversal_rate:
+            type: number
+        additionalProperties: false
+      attention:
+        type: object
+        required:
+        - attention_intensity
+        - attention_concentration
+        properties:
+          attention_intensity:
+            type: number
+          attention_concentration:
+            type: number
+        additionalProperties: false
+      social:
+        type: object
+        required:
+        - cascade_size
+        - cascade_depth
+        - social_contagion
+        - influence_concentration
+        properties:
+          cascade_size:
+            type: number
+          cascade_depth:
+            type: number
+          social_contagion:
+            type: number
+          influence_concentration:
+            type: number
+        additionalProperties: false
+      information:
+        type: object
+        required:
+        - information_asymmetry
+        - expert_nonexpert_divergence
+        - institutional_disagreement
+        properties:
+          information_asymmetry:
+            type: number
+          expert_nonexpert_divergence:
+            type: number
+          institutional_disagreement:
+            type: number
+        additionalProperties: false
+      tag_projection:
+        type: object
+        required:
+        - top_tag_divergence
+        - top_tag_conditioned_shift
+        - active_tag_projection_count
+        properties:
+          top_tag_divergence:
+            type: number
+          top_tag_conditioned_shift:
+            type: number
+          active_tag_projection_count:
+            type: integer
+            minimum: 0
+        additionalProperties: false
+    additionalProperties: false
+  coverage:
+    type: object
+    required:
+    - active_person_count
+    - population_coverage_ratio
+    - belief_coverage_ratio
+    properties:
+      active_person_count:
+        type: integer
+        minimum: 0
+      population_coverage_ratio: &id001
+        type: number
+        minimum: 0
+        maximum: 1
+      belief_coverage_ratio: *id001
+    additionalProperties: false
+  lineage_id:
+    type: string
+additionalProperties: false
+artifact_name: synthetic_society_state_panel
+schema_id: synthetic_society_state_panel.v1
+schema_version: v14.1-rc4.1
+required_fields:
+- underlying
+- as_of_time
+- features
+- coverage
+- lineage_id

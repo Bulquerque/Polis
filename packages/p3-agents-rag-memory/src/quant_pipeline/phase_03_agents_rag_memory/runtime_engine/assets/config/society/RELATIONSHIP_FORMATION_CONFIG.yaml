@@ -1,0 +1,21 @@
+version: relationship_formation.v2
+minimum_repeated_interactions: 3
+minimum_mutual_relevance: 0.5
+retro_named_edge_forbidden: true
+requires_social_tool_entitlement: true
+max_new_relationships_per_source_cycle: 2
+allowed_relationship_types:
+  - peer
+  - advisor
+  - information_source
+  - institutional_contact
+initial_trust_by_domain:
+  market_knowledge: 0.5
+  technical_skill: 0.5
+  source_reliability: 0.5
+  social_reliability: 0.5
+  domain_expertise: 0.5
+allowed_patch_parameters:
+  - minimum_repeated_interactions
+  - minimum_mutual_relevance
+  - max_new_relationships_per_source_cycle

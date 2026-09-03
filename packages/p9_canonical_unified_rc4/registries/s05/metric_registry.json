@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0.0",
+  "implementation_version": "1.0.0",
+  "metrics": [
+    {
+      "metric_name": "ANNUALIZED_RETURN",
+      "definition": "annualized return",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "VOLATILITY",
+      "definition": "annualized sample volatility",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "SHARPE",
+      "definition": "annualized excess-return Sharpe",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "CUMULATIVE_RETURN",
+      "definition": "compounded cumulative return",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "CAGR",
+      "definition": "compound annual growth rate",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "MAX_DRAWDOWN",
+      "definition": "maximum peak-to-trough drawdown",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "SORTINO",
+      "definition": "annualized excess return over downside deviation",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "CALMAR",
+      "definition": "CAGR over absolute maximum drawdown",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "EXPECTED_SHORTFALL",
+      "definition": "historical expected shortfall",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "ALPHA",
+      "definition": "annualized single-benchmark alpha",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "BETA",
+      "definition": "single-benchmark beta",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "INFORMATION_RATIO",
+      "definition": "annualized active return over tracking error",
+      "availability": "builtin"
+    },
+    {
+      "metric_name": "COMPETITION_SCORE",
+      "definition": "frozen upstream/competition implementation required",
+      "availability": "external_required"
+    }
+  ]
+}

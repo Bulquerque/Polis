@@ -1,0 +1,11 @@
+hybrid_weights:
+  semantic: 0.45
+  keyword: 0.2
+  recency: 0.15
+  importance: 0.1
+  source_quality: 0.1
+top_k_raw: 40
+top_k_final: 12
+reranker_required_when_connected: true
+provider_unavailable_policy: material_failure_or_declared_deterministic_fallback
+person_memory_partition_required: true

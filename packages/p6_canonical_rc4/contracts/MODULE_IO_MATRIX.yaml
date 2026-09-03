@@ -1,0 +1,429 @@
+release: P6-RC6.2-P5-V2-CLOSURE-RC4
+modules:
+- module_id: P6.S1.M01
+  inputs:
+  - phase6_strategy_scenario_manifest+phase5_output_handoff_manifest
+  - market_belief_state_compact_legacy
+  - underlying_forecast_panel_v1_deprecated
+  - clean_underlying_trade_panel_for_price_anchor
+  outputs:
+  - validated_market_belief_state
+  - p5_handoff_compatibility_report
+  status: OPERATIONAL_P5_RC34_NATIVE
+- module_id: P6.S1.M02
+  inputs:
+  - clean_option_contract_panel
+  - clean_option_quotes_panel
+  outputs:
+  - validated_option_contract_panel
+  - validated_option_quote_panel
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S1.M03
+  inputs:
+  - clean_underlying_trade_panel
+  outputs:
+  - validated_underlying_panel
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S1.M04
+  inputs:
+  - validated_option_contract_panel
+  - validated_option_quote_panel
+  - validated_underlying_panel
+  outputs:
+  - static_arbitrage_report
+  - arbitrage_validated_option_quote_panel
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S1.M05
+  inputs:
+  - validated_market_belief_state
+  - validated_option_contract_panel
+  - arbitrage_validated_option_quote_panel
+  - validated_underlying_panel
+  - static_arbitrage_report
+  - p5_handoff_compatibility_report
+  outputs:
+  - strategy_market_snapshot
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S2.M01
+  inputs:
+  - validated_option_contract_panel
+  - arbitrage_validated_option_quote_panel
+  outputs:
+  - eligible_option_contract_panel
+  - eligible_option_quote_panel
+  - contract_rejection_report
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S2.M02
+  inputs: []
+  outputs:
+  - strategy_template_registry
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S2.M03
+  inputs: []
+  outputs:
+  - objective_family_registry
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S2.M04
+  inputs: []
+  outputs:
+  - constraint_policy_registry
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S2.M05
+  inputs: []
+  outputs:
+  - strategy_identity_policy
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S3.M01
+  inputs:
+  - template_parameter_plan
+  outputs:
+  - single_candidates
+  - single_candidates_trace
+  - single_candidates_rejections
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S3.M02
+  inputs:
+  - template_parameter_plan
+  outputs:
+  - vertical_candidates
+  - vertical_candidates_trace
+  - vertical_candidates_rejections
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S3.M03
+  inputs:
+  - template_parameter_plan
+  outputs:
+  - volatility_candidates
+  - volatility_candidates_trace
+  - volatility_candidates_rejections
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S3.M04
+  inputs:
+  - template_parameter_plan
+  outputs:
+  - skew_candidates
+  - skew_candidates_trace
+  - skew_candidates_rejections
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S3.M05
+  inputs:
+  - template_parameter_plan
+  outputs:
+  - term_candidates
+  - term_candidates_trace
+  - term_candidates_rejections
+  status: RESERVED_CAPABILITY
+- module_id: P6.S3.M06
+  inputs:
+  - template_parameter_plan
+  outputs:
+  - overlay_candidates
+  - overlay_candidates_trace
+  - overlay_candidates_rejections
+  status: RESERVED_CAPABILITY
+- module_id: P6.S3.M07
+  inputs:
+  - eligible_option_contract_panel
+  - eligible_option_quote_panel
+  - validated_underlying_panel
+  outputs:
+  - template_parameter_plan
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S4.M01
+  inputs: []
+  outputs:
+  - mutation_operator_registry
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S4.M02
+  inputs:
+  - raw_strategy_candidate_panel
+  - eligible_option_contract_panel
+  - eligible_option_quote_panel
+  - validated_underlying_panel
+  outputs:
+  - mutated_strategy_candidate_panel_raw
+  - mutation_generation_trace_panel
+  - mutation_application_panel_raw
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S4.M03
+  inputs:
+  - mutated_strategy_candidate_panel_raw
+  - mutation_application_panel_raw
+  outputs:
+  - mutation_application_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S4.M04
+  inputs:
+  - mutated_strategy_candidate_panel_raw
+  - mutation_application_panel
+  outputs:
+  - mutated_strategy_candidate_panel
+  - mutation_rejection_report
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S5.M01
+  inputs:
+  - validated_market_belief_state
+  - eligible_option_contract_panel
+  - eligible_option_quote_panel
+  outputs:
+  - market_implied_state_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S5.M02
+  inputs:
+  - validated_market_belief_state
+  - market_implied_state_panel
+  - validated_underlying_panel
+  outputs:
+  - target_payoff_panel_raw
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S5.M03
+  inputs:
+  - target_payoff_panel_raw
+  outputs:
+  - target_payoff_panel
+  - target_payoff_regularization_report
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S5.M04
+  inputs:
+  - target_payoff_panel
+  outputs:
+  - target_payoff_qualification_report
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S6.M01
+  inputs:
+  - target_payoff_panel
+  - target_payoff_qualification_report
+  - eligible_option_contract_panel
+  - eligible_option_quote_panel
+  - validated_underlying_panel
+  outputs:
+  - replication_basis_panel
+  - strategy_synthesis_problem_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S6.M02
+  inputs:
+  - strategy_synthesis_problem_panel
+  - replication_basis_panel
+  outputs:
+  - continuous_solver_result_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S6.M03
+  inputs:
+  - strategy_synthesis_problem_panel
+  - replication_basis_panel
+  - continuous_solver_result_panel
+  outputs:
+  - mixed_integer_solver_result_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S6.M04
+  inputs:
+  - strategy_synthesis_problem_panel
+  - replication_basis_panel
+  outputs:
+  - beam_solver_result_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S6.M05
+  inputs:
+  - strategy_synthesis_problem_panel
+  - replication_basis_panel
+  - mixed_integer_solver_result_panel
+  - beam_solver_result_panel
+  outputs:
+  - local_search_solver_result_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S6.M06
+  inputs:
+  - strategy_synthesis_problem_panel
+  - replication_basis_panel
+  outputs:
+  - evolutionary_solver_result_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S6.M07
+  inputs:
+  - all_solver_result_panels
+  - template_candidates
+  - mutation_candidates
+  outputs:
+  - solver_result_panel
+  - inverse_strategy_candidate_panel
+  - inverse_generation_trace_panel
+  - synthesized_strategy_candidate_panel
+  - synthesized_generation_trace_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S7.M01
+  inputs:
+  - raw_strategy_candidate_panel
+  - eligible_option_quote_panel
+  outputs:
+  - strategy_cost_liquidity_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S7.M02
+  inputs:
+  - raw_strategy_candidate_panel
+  - validated_underlying_panel
+  - strategy_cost_liquidity_panel
+  outputs:
+  - strategy_payoff_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S7.M03
+  inputs:
+  - raw_strategy_candidate_panel
+  - validated_market_belief_state
+  - eligible_option_quote_panel
+  - strategy_cost_liquidity_panel
+  outputs:
+  - pathwise_valuation_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S7.M04
+  inputs:
+  - raw_strategy_candidate_panel
+  - eligible_option_quote_panel
+  - validated_underlying_panel
+  outputs:
+  - strategy_greek_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S7.M05
+  inputs:
+  - strategy_payoff_panel
+  outputs:
+  - strategy_shape_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S7.M06
+  inputs:
+  - raw_strategy_candidate_panel
+  - validated_market_belief_state
+  - strategy_cost_liquidity_panel
+  outputs:
+  - strategy_scenario_evaluation_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S7.M07
+  inputs:
+  - strategy_scenario_evaluation_panel
+  - validated_market_belief_state
+  - raw_strategy_candidate_panel
+  outputs:
+  - strategy_ambiguity_evaluation_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S8.M01
+  inputs:
+  - raw_strategy_candidate_panel
+  outputs:
+  - structural_gate_report
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S8.M02
+  inputs:
+  - structural_gate_report
+  - strategy_payoff_panel
+  outputs:
+  - maximum_loss_gate_report
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S8.M03
+  inputs:
+  - maximum_loss_gate_report
+  - strategy_payoff_panel
+  outputs:
+  - margin_feasibility_report
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S8.M04
+  inputs:
+  - margin_feasibility_report
+  - strategy_cost_liquidity_panel
+  outputs:
+  - liquidity_gate_report
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S8.M05
+  inputs:
+  - liquidity_gate_report
+  - strategy_cost_liquidity_panel
+  outputs:
+  - cost_gate_report
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S8.M06
+  inputs:
+  - cost_gate_report
+  - strategy_greek_panel
+  outputs:
+  - data_quality_gate_report
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S8.M07
+  inputs:
+  - data_quality_gate_report
+  - raw_strategy_candidate_panel
+  - strategy_payoff_panel
+  - strategy_scenario_evaluation_panel
+  outputs:
+  - strategy_qualification_panel
+  - strategy_risk_panel
+  - feasibility_rejection_report
+  status: OPERATIONAL_FOUNDATION
+- module_id: P6.S9.M01
+  inputs:
+  - raw_strategy_candidate_panel
+  - strategy_qualification_panel
+  outputs:
+  - canonical_strategy_candidate_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S9.M02
+  inputs:
+  - canonical_strategy_candidate_panel
+  outputs:
+  - relative_scale_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S9.M03
+  inputs:
+  - relative_scale_panel
+  - strategy_payoff_panel
+  outputs:
+  - payoff_fingerprint_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S9.M04
+  inputs:
+  - payoff_fingerprint_panel
+  - strategy_risk_panel
+  - strategy_cost_liquidity_panel
+  outputs:
+  - economic_fingerprint_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S9.M05
+  inputs:
+  - economic_fingerprint_panel
+  outputs:
+  - candidate_equivalence_panel
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S9.M06
+  inputs:
+  - canonical_strategy_candidate_panel
+  - candidate_equivalence_panel
+  - strategy_risk_panel
+  - strategy_cost_liquidity_panel
+  outputs:
+  - candidate_equivalence_panel_final
+  - representative_strategy_candidate_panel
+  - quality_diversity_archive
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S10.M01
+  inputs:
+  - representative_strategy_candidate_panel
+  - all canonical sidecars
+  outputs:
+  - strategy_candidate_panel
+  - strategy_leg_panel
+  - strategy_lineage_panel
+  - candidate_rejection_report
+  - candidate_generation_audit
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S10.M02
+  inputs:
+  - strategy_candidate_panel
+  - strategy_risk_panel
+  - strategy_greek_panel
+  outputs:
+  - P7 V1 projection outputs
+  status: OPERATIONAL_WAVE2
+- module_id: P6.S10.M03
+  inputs:
+  - canonical publication outputs
+  outputs:
+  - phase7_strategy_handoff_manifest
+  - phase7_candidate_handoff_manifest
+  status: OPERATIONAL_WAVE2

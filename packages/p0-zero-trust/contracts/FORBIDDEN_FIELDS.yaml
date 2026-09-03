@@ -1,0 +1,11 @@
+forbidden_fields:
+- future_return
+- target
+- signal_direction
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+- execution_price
+- position_size

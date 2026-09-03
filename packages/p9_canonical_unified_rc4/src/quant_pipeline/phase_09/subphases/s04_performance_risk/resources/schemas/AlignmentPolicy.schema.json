@@ -1,0 +1,42 @@
+{
+  "$defs": {
+    "ObservationAlignment": {
+      "enum": [
+        "EXACT_TIMESTAMP",
+        "PREVIOUS_AVAILABLE"
+      ],
+      "title": "ObservationAlignment",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/AlignmentPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "maximum_staleness_seconds": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Maximum Staleness Seconds",
+      "type": "integer"
+    },
+    "mode": {
+      "$ref": "#/$defs/ObservationAlignment",
+      "default": "EXACT_TIMESTAMP"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Policy Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version"
+  ],
+  "title": "AlignmentPolicy",
+  "type": "object"
+}

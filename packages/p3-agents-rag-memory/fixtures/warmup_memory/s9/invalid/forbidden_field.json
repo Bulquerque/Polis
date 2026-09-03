@@ -1,0 +1,78 @@
+{
+  "schema_id": "warmup_history_bundle.v1",
+  "schema_version": "1.0.0",
+  "history_id": "history-001",
+  "mode": "HISTORICAL_REPLAY",
+  "records": [
+    {
+      "history_record_id": "history-record-001",
+      "event_id": "event-001",
+      "source_id": "source-001",
+      "partition": "WARMUP",
+      "event_time": "2025-06-01T09:00:00-03:00",
+      "effective_time": "2025-06-01T09:00:00-03:00",
+      "available_at": "2025-06-01T13:00:00Z",
+      "ingested_at": "2025-06-01T13:05:00Z",
+      "payload_ref": {
+        "artifact_id": "artifact-001",
+        "artifact_type": "clean_event_reference",
+        "content_hash": "0c4def370440ec924e4e907156290f050967a623a9e0acf45cad65ca9f88818d",
+        "schema_id": "clean_event_reference.v1",
+        "schema_version": "1.0.0"
+      },
+      "underlyings": [
+        "PETR4"
+      ],
+      "propositions": [
+        "oil-price-impact"
+      ],
+      "lineage": {
+        "lineage_id": "lineage-record-001",
+        "source_artifact_ids": [
+          "artifact-001"
+        ],
+        "parent_lineage_ids": [
+          "lineage-p2-001"
+        ],
+        "holdout_refs": []
+      },
+      "future_return": 0.2
+    },
+    {
+      "history_record_id": "history-record-002",
+      "event_id": "event-002",
+      "source_id": "source-002",
+      "partition": "TRAIN",
+      "event_time": "2025-05-01T10:00:00Z",
+      "available_at": "2025-05-01T10:30:00Z",
+      "ingested_at": "2025-05-01T10:31:00Z",
+      "payload_ref": {
+        "artifact_id": "artifact-002",
+        "artifact_type": "clean_document",
+        "content_hash": "4018d96d0f04b87d4dd71f084559df5263ab9894e99d284916bc93d676a4cdc4"
+      },
+      "underlyings": [
+        "VALE3"
+      ],
+      "propositions": [
+        "iron-ore-demand"
+      ],
+      "lineage": {
+        "lineage_id": "lineage-record-002",
+        "source_artifact_ids": [
+          "artifact-002"
+        ],
+        "parent_lineage_ids": [],
+        "holdout_refs": []
+      }
+    }
+  ],
+  "lineage_id": "lineage-history-001",
+  "source_bundle_refs": [
+    {
+      "artifact_id": "p2-history-bundle-001",
+      "artifact_type": "warmup_history_source_bundle",
+      "content_hash": "22c58e4ff7614d47eda616bca048dafe58dcd2979f70f21641a1aa969b6da8ef"
+    }
+  ]
+}

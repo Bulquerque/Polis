@@ -1,0 +1,15 @@
+spec_id: ST05_FIXED_ECONOMIC_SOCIETY
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Population is broad, coherent and fixed after initialization
+required_cases:
+- role_coverage
+- person_consistency
+- same_person_ids_all_cycles
+- initial_graph_provenance
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

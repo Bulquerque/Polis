@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "hard_timeout_supported": {
+      "default": false,
+      "title": "Hard Timeout Supported",
+      "type": "boolean"
+    },
+    "maximum_memory_mb_per_trial": {
+      "anyOf": [
+        {
+          "minimum": 128,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maximum Memory Mb Per Trial"
+    },
+    "maximum_output_artifacts": {
+      "default": 128,
+      "minimum": 1,
+      "title": "Maximum Output Artifacts",
+      "type": "integer"
+    },
+    "maximum_seconds": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Maximum Seconds"
+    },
+    "maximum_total_cpu_seconds": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maximum Total Cpu Seconds"
+    },
+    "required_worker_labels": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Required Worker Labels",
+      "type": "array"
+    }
+  },
+  "required": [
+    "maximum_seconds"
+  ],
+  "title": "ResourceBudget",
+  "type": "object"
+}

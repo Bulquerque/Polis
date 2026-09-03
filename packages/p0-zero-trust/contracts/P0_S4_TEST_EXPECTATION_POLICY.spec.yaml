@@ -1,0 +1,15 @@
+spec_id: p0_s4_test_expectation_policy.v2
+subphase: P0.S4
+principles:
+  - a phase that is NOT_STARTED or PLANNED does not owe runtime test evidence
+  - an implemented phase missing expected evidence is a FAIL condition
+  - skipped tests are PARTIAL by default and may be promoted to FAIL by policy
+  - NOT_RUN is not equivalent to FAIL
+  - readiness is resolved outside the primary test-status vocabulary
+phase_test_statuses: [NOT_RUN, PARTIAL, PASS, FAIL]
+external_control_statuses: [PASS, FAIL]
+report_families:
+  - test_run_report_all_phases
+  - contract_test_report_all_phases
+  - schema_test_report_all_phases
+  - code_quality_test_report_all_phases

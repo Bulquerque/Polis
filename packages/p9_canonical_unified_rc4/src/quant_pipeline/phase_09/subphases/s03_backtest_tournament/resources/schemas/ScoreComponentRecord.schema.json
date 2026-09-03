@@ -1,0 +1,68 @@
+{
+  "$id": "https://inferencia.local/p9/s3/ScoreComponentRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "component_id": {
+      "title": "Component Id",
+      "type": "string"
+    },
+    "contribution": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Contribution"
+    },
+    "effective_weight": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Effective Weight"
+    },
+    "raw_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Raw Value"
+    },
+    "transformed_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Transformed Value"
+    }
+  },
+  "required": [
+    "component_id",
+    "raw_value",
+    "transformed_value",
+    "effective_weight",
+    "contribution"
+  ],
+  "title": "ScoreComponentRecord",
+  "type": "object"
+}

@@ -1,0 +1,46 @@
+module_id: P0.S1.M01
+module_name: phase_registry_loader
+function: Executar phase registry loader da Fase 0, mantendo controle Zero Trust técnico
+  e sem tocar no fluxo econômico.
+inputs: &id001
+- phase_registry_yaml
+- global_architecture_config
+outputs: &id002
+- validated_phase_registry
+validations:
+- phase_id_unique
+- phase_type_declared
+- registry_id_declared
+- package_name_declared
+- global_architecture_config_valid
+- registry_version_compatible
+fail_fast_conditions:
+- phase_registry_loader_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - phase_registry_yaml
+    - global_architecture_config
+  emits_to:
+    modules:
+    - P0.S1.M02
+    - P0.S1.M03
+    - P0.S1.M04
+    - P0.S7.M01
+    - P0.S8.M01
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S1
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

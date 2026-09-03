@@ -1,0 +1,9 @@
+{
+  "schema_id": "warmup_history_bundle.v1",
+  "schema_version": "1.0.0",
+  "history_id": "history-genesis-001",
+  "mode": "GENESIS_ONLY",
+  "records": [],
+  "lineage_id": "lineage-history-genesis-001",
+  "source_bundle_refs": []
+}

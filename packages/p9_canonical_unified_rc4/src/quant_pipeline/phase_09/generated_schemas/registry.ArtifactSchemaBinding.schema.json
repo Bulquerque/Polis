@@ -1,0 +1,42 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "allowed_producer_module_ids": {
+      "items": {
+        "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+        "type": "string"
+      },
+      "title": "Allowed Producer Module Ids",
+      "type": "array"
+    },
+    "artifact_type": {
+      "minLength": 1,
+      "title": "Artifact Type",
+      "type": "string"
+    },
+    "schema_name": {
+      "minLength": 1,
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Schema Sha256",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_name",
+    "schema_version",
+    "schema_sha256",
+    "artifact_type",
+    "allowed_producer_module_ids"
+  ],
+  "title": "ArtifactSchemaBinding",
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+module_id: P5.S7.M05
+name: weighted_context_uncertainty_router
+subphase_id: P5.S7
+required_inputs:
+- regime_probability_member_panel
+- structural_break_member_panel
+- ood_drift_diagnostics_panel
+- perspective_model_disagreement_panel
+optional_inputs:
+- p4_perspective_context
+outputs:
+- regime_ood_surprise_panel
+- resolver_context_router_panel
+- regime_transition_evaluation_plan
+allowed_actions:
+- RUN
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

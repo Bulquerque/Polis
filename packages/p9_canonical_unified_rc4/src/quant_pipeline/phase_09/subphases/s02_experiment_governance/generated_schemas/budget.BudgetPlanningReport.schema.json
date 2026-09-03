@@ -1,0 +1,43 @@
+{
+  "$defs": {
+    "BudgetState": {
+      "enum": [
+        "BUDGET_RESERVED",
+        "BUDGET_LIMITED",
+        "BUDGET_INFEASIBLE",
+        "RESOURCE_CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "BudgetState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/BudgetState"
+    }
+  },
+  "required": [
+    "state"
+  ],
+  "title": "BudgetPlanningReport",
+  "type": "object"
+}

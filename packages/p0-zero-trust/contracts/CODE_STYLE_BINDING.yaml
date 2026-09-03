@@ -1,0 +1,7 @@
+phase_id: P0
+policy: minimal_code_policy_v14_1_rc4_1
+search_first_patch_only: true
+max_python_file_lines: 350
+max_function_lines: 60
+common_utilities_must_be_imported_from: quant_pipeline.common
+forbidden_new_files_without_manifest_update: true

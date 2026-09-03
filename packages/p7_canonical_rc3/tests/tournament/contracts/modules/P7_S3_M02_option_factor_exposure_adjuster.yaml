@@ -1,0 +1,8 @@
+module_id: P7.S3.M02
+owner: TOURNAMENT
+purpose: Preserve raw edge and optionally derive factor-adjusted residual edge.
+inputs: [comparable_candidate_metric_panel, eligible_strategy_candidate_panel, ranking_policy_context]
+optional_inputs: [option_factor_model_artifact]
+outputs: [factor_exposure_panel, factor_adjusted_metric_panel, factor_adjustment_audit_report]
+failure_scope: PHASE_FATAL_OR_CANDIDATE_STATUS
+invariants: [no runtime fitting, cutoff no later than decision, contribution conservation, raw target preserved]

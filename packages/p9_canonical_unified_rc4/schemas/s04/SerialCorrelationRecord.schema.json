@@ -1,0 +1,41 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/SerialCorrelationRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "gross_autocorrelation": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Gross Autocorrelation"
+    },
+    "lag": {
+      "minimum": 1,
+      "title": "Lag",
+      "type": "integer"
+    },
+    "net_autocorrelation": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Net Autocorrelation"
+    }
+  },
+  "required": [
+    "lag",
+    "gross_autocorrelation",
+    "net_autocorrelation"
+  ],
+  "title": "SerialCorrelationRecord",
+  "type": "object"
+}

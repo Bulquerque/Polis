@@ -1,0 +1,52 @@
+{
+  "$defs": {
+    "CompanyMode": {
+      "enum": [
+        "QUICK_CHECK",
+        "STANDARD_REVIEW",
+        "DEEP_QUALITATIVE",
+        "ACCOUNTING_QUALITY",
+        "FORENSIC"
+      ],
+      "title": "CompanyMode",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "corporate_action_view_id": {
+      "default": "corporate_actions",
+      "minLength": 1,
+      "title": "Corporate Action View Id",
+      "type": "string"
+    },
+    "entity_id": {
+      "minLength": 1,
+      "title": "Entity Id",
+      "type": "string"
+    },
+    "periods": {
+      "default": 5,
+      "maximum": 20,
+      "minimum": 1,
+      "title": "Periods",
+      "type": "integer"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/CompanyMode",
+      "default": "QUICK_CHECK"
+    },
+    "statement_view_id": {
+      "default": "financial_statements",
+      "minLength": 1,
+      "title": "Statement View Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "entity_id"
+  ],
+  "title": "GetCapitalAllocationRequest",
+  "type": "object"
+}

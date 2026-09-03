@@ -1,0 +1,71 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/DrawdownEpisode.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "censored": {
+      "title": "Censored",
+      "type": "boolean"
+    },
+    "duration_seconds": {
+      "minimum": 0,
+      "title": "Duration Seconds",
+      "type": "integer"
+    },
+    "episode_id": {
+      "title": "Episode Id",
+      "type": "string"
+    },
+    "maximum_drawdown_fraction": {
+      "maximum": 0,
+      "title": "Maximum Drawdown Fraction",
+      "type": "number"
+    },
+    "peak_time": {
+      "format": "date-time",
+      "title": "Peak Time",
+      "type": "string"
+    },
+    "recovery_seconds": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Recovery Seconds"
+    },
+    "recovery_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Recovery Time"
+    },
+    "trough_time": {
+      "format": "date-time",
+      "title": "Trough Time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "episode_id",
+    "peak_time",
+    "trough_time",
+    "recovery_time",
+    "maximum_drawdown_fraction",
+    "duration_seconds",
+    "censored"
+  ],
+  "title": "DrawdownEpisode",
+  "type": "object"
+}

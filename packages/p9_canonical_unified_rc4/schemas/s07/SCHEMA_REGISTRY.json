@@ -1,0 +1,353 @@
+{
+  "schema_version": "1.0.0",
+  "models": [
+    {
+      "model": "ArtifactReference",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.contracts.ArtifactReference",
+      "json_schema": "schemas/json/ArtifactReference.schema.json",
+      "yaml_schema": "schemas/yaml/ArtifactReference.schema.yaml"
+    },
+    {
+      "model": "BinaryProbabilityForecast",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.BinaryProbabilityForecast",
+      "json_schema": "schemas/json/BinaryProbabilityForecast.schema.json",
+      "yaml_schema": "schemas/yaml/BinaryProbabilityForecast.schema.yaml"
+    },
+    {
+      "model": "BundleHeader",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.contracts.BundleHeader",
+      "json_schema": "schemas/json/BundleHeader.schema.json",
+      "yaml_schema": "schemas/yaml/BundleHeader.schema.yaml"
+    },
+    {
+      "model": "CalibrationBin",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m03_scoring.CalibrationBin",
+      "json_schema": "schemas/json/CalibrationBin.schema.json",
+      "yaml_schema": "schemas/yaml/CalibrationBin.schema.yaml"
+    },
+    {
+      "model": "ChannelDriftEvent",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m05_drift.ChannelDriftEvent",
+      "json_schema": "schemas/json/ChannelDriftEvent.schema.json",
+      "yaml_schema": "schemas/yaml/ChannelDriftEvent.schema.yaml"
+    },
+    {
+      "model": "ConformalGroupSummary",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m04_conformal.ConformalGroupSummary",
+      "json_schema": "schemas/json/ConformalGroupSummary.schema.json",
+      "yaml_schema": "schemas/yaml/ConformalGroupSummary.schema.yaml"
+    },
+    {
+      "model": "ConformalMonitoringResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m04_conformal.ConformalMonitoringResult",
+      "json_schema": "schemas/json/ConformalMonitoringResult.schema.json",
+      "yaml_schema": "schemas/yaml/ConformalMonitoringResult.schema.yaml"
+    },
+    {
+      "model": "ConformalObservation",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m04_conformal.ConformalObservation",
+      "json_schema": "schemas/json/ConformalObservation.schema.json",
+      "yaml_schema": "schemas/yaml/ConformalObservation.schema.yaml"
+    },
+    {
+      "model": "ConformalPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m04_conformal.ConformalPolicy",
+      "json_schema": "schemas/json/ConformalPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/ConformalPolicy.schema.yaml"
+    },
+    {
+      "model": "ConformalStep",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m04_conformal.ConformalStep",
+      "json_schema": "schemas/json/ConformalStep.schema.json",
+      "yaml_schema": "schemas/yaml/ConformalStep.schema.yaml"
+    },
+    {
+      "model": "ConsumerReceipt",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.contracts.ConsumerReceipt",
+      "json_schema": "schemas/json/ConsumerReceipt.schema.json",
+      "yaml_schema": "schemas/yaml/ConsumerReceipt.schema.yaml"
+    },
+    {
+      "model": "CrossChannelAgreement",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m05_drift.CrossChannelAgreement",
+      "json_schema": "schemas/json/CrossChannelAgreement.schema.json",
+      "yaml_schema": "schemas/yaml/CrossChannelAgreement.schema.yaml"
+    },
+    {
+      "model": "DecisionTraceItem",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m07_rollback.DecisionTraceItem",
+      "json_schema": "schemas/json/DecisionTraceItem.schema.json",
+      "yaml_schema": "schemas/yaml/DecisionTraceItem.schema.yaml"
+    },
+    {
+      "model": "DetectorEvidence",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m05_drift.DetectorEvidence",
+      "json_schema": "schemas/json/DetectorEvidence.schema.json",
+      "yaml_schema": "schemas/yaml/DetectorEvidence.schema.yaml"
+    },
+    {
+      "model": "DriftChannelPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m05_drift.DriftChannelPolicy",
+      "json_schema": "schemas/json/DriftChannelPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/DriftChannelPolicy.schema.yaml"
+    },
+    {
+      "model": "DriftObservation",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m05_drift.DriftObservation",
+      "json_schema": "schemas/json/DriftObservation.schema.json",
+      "yaml_schema": "schemas/yaml/DriftObservation.schema.yaml"
+    },
+    {
+      "model": "DriftQualificationResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m05_drift.DriftQualificationResult",
+      "json_schema": "schemas/json/DriftQualificationResult.schema.json",
+      "yaml_schema": "schemas/yaml/DriftQualificationResult.schema.yaml"
+    },
+    {
+      "model": "IntegrityEnvelope",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.contracts.IntegrityEnvelope",
+      "json_schema": "schemas/json/IntegrityEnvelope.schema.json",
+      "yaml_schema": "schemas/yaml/IntegrityEnvelope.schema.yaml"
+    },
+    {
+      "model": "IntervalForecast",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.IntervalForecast",
+      "json_schema": "schemas/json/IntervalForecast.schema.json",
+      "yaml_schema": "schemas/yaml/IntervalForecast.schema.yaml"
+    },
+    {
+      "model": "LiveExecutionMetrics",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m07_rollback.LiveExecutionMetrics",
+      "json_schema": "schemas/json/LiveExecutionMetrics.schema.json",
+      "yaml_schema": "schemas/yaml/LiveExecutionMetrics.schema.yaml"
+    },
+    {
+      "model": "MaturityQueueItem",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.MaturityQueueItem",
+      "json_schema": "schemas/json/MaturityQueueItem.schema.json",
+      "yaml_schema": "schemas/yaml/MaturityQueueItem.schema.yaml"
+    },
+    {
+      "model": "ModuleExecutionReceipt",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.contracts.ModuleExecutionReceipt",
+      "json_schema": "schemas/json/ModuleExecutionReceipt.schema.json",
+      "yaml_schema": "schemas/yaml/ModuleExecutionReceipt.schema.yaml"
+    },
+    {
+      "model": "NormalForecast",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.NormalForecast",
+      "json_schema": "schemas/json/NormalForecast.schema.json",
+      "yaml_schema": "schemas/yaml/NormalForecast.schema.yaml"
+    },
+    {
+      "model": "OnlineScoreRecord",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m03_scoring.OnlineScoreRecord",
+      "json_schema": "schemas/json/OnlineScoreRecord.schema.json",
+      "yaml_schema": "schemas/yaml/OnlineScoreRecord.schema.yaml"
+    },
+    {
+      "model": "OnlineScoringResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m03_scoring.OnlineScoringResult",
+      "json_schema": "schemas/json/OnlineScoringResult.schema.json",
+      "yaml_schema": "schemas/yaml/OnlineScoringResult.schema.yaml"
+    },
+    {
+      "model": "OutcomeEvent",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.OutcomeEvent",
+      "json_schema": "schemas/json/OutcomeEvent.schema.json",
+      "yaml_schema": "schemas/yaml/OutcomeEvent.schema.yaml"
+    },
+    {
+      "model": "PairedLossObservation",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m06_sequential.PairedLossObservation",
+      "json_schema": "schemas/json/PairedLossObservation.schema.json",
+      "yaml_schema": "schemas/yaml/PairedLossObservation.schema.yaml"
+    },
+    {
+      "model": "PairwiseRealityGap",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m08_reality_gap.PairwiseRealityGap",
+      "json_schema": "schemas/json/PairwiseRealityGap.schema.json",
+      "yaml_schema": "schemas/yaml/PairwiseRealityGap.schema.yaml"
+    },
+    {
+      "model": "PointForecast",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.PointForecast",
+      "json_schema": "schemas/json/PointForecast.schema.json",
+      "yaml_schema": "schemas/yaml/PointForecast.schema.yaml"
+    },
+    {
+      "model": "PolicyComparison",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m06_sequential.PolicyComparison",
+      "json_schema": "schemas/json/PolicyComparison.schema.json",
+      "yaml_schema": "schemas/yaml/PolicyComparison.schema.yaml"
+    },
+    {
+      "model": "PolicyExecutionOutput",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m02_shadow.PolicyExecutionOutput",
+      "json_schema": "schemas/json/PolicyExecutionOutput.schema.json",
+      "yaml_schema": "schemas/yaml/PolicyExecutionOutput.schema.yaml"
+    },
+    {
+      "model": "PolicySpecification",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m02_shadow.PolicySpecification",
+      "json_schema": "schemas/json/PolicySpecification.schema.json",
+      "yaml_schema": "schemas/yaml/PolicySpecification.schema.yaml"
+    },
+    {
+      "model": "PredictionEvent",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.PredictionEvent",
+      "json_schema": "schemas/json/PredictionEvent.schema.json",
+      "yaml_schema": "schemas/yaml/PredictionEvent.schema.yaml"
+    },
+    {
+      "model": "PrequentialRecord",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.PrequentialRecord",
+      "json_schema": "schemas/json/PrequentialRecord.schema.json",
+      "yaml_schema": "schemas/yaml/PrequentialRecord.schema.yaml"
+    },
+    {
+      "model": "PrequentialStreamResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.PrequentialStreamResult",
+      "json_schema": "schemas/json/PrequentialStreamResult.schema.json",
+      "yaml_schema": "schemas/yaml/PrequentialStreamResult.schema.yaml"
+    },
+    {
+      "model": "ProspectiveMonitoringBundle",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.bundle.ProspectiveMonitoringBundle",
+      "json_schema": "schemas/json/ProspectiveMonitoringBundle.schema.json",
+      "yaml_schema": "schemas/yaml/ProspectiveMonitoringBundle.schema.yaml"
+    },
+    {
+      "model": "ProspectiveMonitoringPayload",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.bundle.ProspectiveMonitoringPayload",
+      "json_schema": "schemas/json/ProspectiveMonitoringPayload.schema.json",
+      "yaml_schema": "schemas/yaml/ProspectiveMonitoringPayload.schema.yaml"
+    },
+    {
+      "model": "QuantileForecast",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.QuantileForecast",
+      "json_schema": "schemas/json/QuantileForecast.schema.json",
+      "yaml_schema": "schemas/yaml/QuantileForecast.schema.yaml"
+    },
+    {
+      "model": "QuantilePoint",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.QuantilePoint",
+      "json_schema": "schemas/json/QuantilePoint.schema.json",
+      "yaml_schema": "schemas/yaml/QuantilePoint.schema.yaml"
+    },
+    {
+      "model": "RealityGapPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m08_reality_gap.RealityGapPolicy",
+      "json_schema": "schemas/json/RealityGapPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/RealityGapPolicy.schema.yaml"
+    },
+    {
+      "model": "RealityGapResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m08_reality_gap.RealityGapResult",
+      "json_schema": "schemas/json/RealityGapResult.schema.json",
+      "yaml_schema": "schemas/yaml/RealityGapResult.schema.yaml"
+    },
+    {
+      "model": "ReliabilitySummary",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m03_scoring.ReliabilitySummary",
+      "json_schema": "schemas/json/ReliabilitySummary.schema.json",
+      "yaml_schema": "schemas/yaml/ReliabilitySummary.schema.yaml"
+    },
+    {
+      "model": "RollbackPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m07_rollback.RollbackPolicy",
+      "json_schema": "schemas/json/RollbackPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/RollbackPolicy.schema.yaml"
+    },
+    {
+      "model": "RollbackRecommendation",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m07_rollback.RollbackRecommendation",
+      "json_schema": "schemas/json/RollbackRecommendation.schema.json",
+      "yaml_schema": "schemas/yaml/RollbackRecommendation.schema.yaml"
+    },
+    {
+      "model": "S7ExecutionRequest",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.bundle.S7ExecutionRequest",
+      "json_schema": "schemas/json/S7ExecutionRequest.schema.json",
+      "yaml_schema": "schemas/yaml/S7ExecutionRequest.schema.yaml"
+    },
+    {
+      "model": "S7SubphaseExecutionReceipt",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.contracts.S7SubphaseExecutionReceipt",
+      "json_schema": "schemas/json/S7SubphaseExecutionReceipt.schema.json",
+      "yaml_schema": "schemas/yaml/S7SubphaseExecutionReceipt.schema.yaml"
+    },
+    {
+      "model": "S7UpstreamReferences",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.contracts.S7UpstreamReferences",
+      "json_schema": "schemas/json/S7UpstreamReferences.schema.json",
+      "yaml_schema": "schemas/yaml/S7UpstreamReferences.schema.yaml"
+    },
+    {
+      "model": "ScoringPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m03_scoring.ScoringPolicy",
+      "json_schema": "schemas/json/ScoringPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/ScoringPolicy.schema.yaml"
+    },
+    {
+      "model": "SequentialComparisonPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m06_sequential.SequentialComparisonPolicy",
+      "json_schema": "schemas/json/SequentialComparisonPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/SequentialComparisonPolicy.schema.yaml"
+    },
+    {
+      "model": "SequentialModelSet",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m06_sequential.SequentialModelSet",
+      "json_schema": "schemas/json/SequentialModelSet.schema.json",
+      "yaml_schema": "schemas/yaml/SequentialModelSet.schema.yaml"
+    },
+    {
+      "model": "ShadowComparabilityReceipt",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m02_shadow.ShadowComparabilityReceipt",
+      "json_schema": "schemas/json/ShadowComparabilityReceipt.schema.json",
+      "yaml_schema": "schemas/yaml/ShadowComparabilityReceipt.schema.yaml"
+    },
+    {
+      "model": "ShadowExecutionPlan",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m02_shadow.ShadowExecutionPlan",
+      "json_schema": "schemas/json/ShadowExecutionPlan.schema.json",
+      "yaml_schema": "schemas/yaml/ShadowExecutionPlan.schema.yaml"
+    },
+    {
+      "model": "ShadowPlanEntry",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m02_shadow.ShadowPlanEntry",
+      "json_schema": "schemas/json/ShadowPlanEntry.schema.json",
+      "yaml_schema": "schemas/yaml/ShadowPlanEntry.schema.yaml"
+    },
+    {
+      "model": "StageExecutionRecord",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m08_reality_gap.StageExecutionRecord",
+      "json_schema": "schemas/json/StageExecutionRecord.schema.json",
+      "yaml_schema": "schemas/yaml/StageExecutionRecord.schema.yaml"
+    },
+    {
+      "model": "StreamIntegrityReceipt",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m01_prequential.StreamIntegrityReceipt",
+      "json_schema": "schemas/json/StreamIntegrityReceipt.schema.json",
+      "yaml_schema": "schemas/yaml/StreamIntegrityReceipt.schema.yaml"
+    },
+    {
+      "model": "StressCapacityQualification",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m07_rollback.StressCapacityQualification",
+      "json_schema": "schemas/json/StressCapacityQualification.schema.json",
+      "yaml_schema": "schemas/yaml/StressCapacityQualification.schema.yaml"
+    },
+    {
+      "model": "StrictModel",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.contracts.StrictModel",
+      "json_schema": "schemas/json/StrictModel.schema.json",
+      "yaml_schema": "schemas/yaml/StrictModel.schema.yaml"
+    },
+    {
+      "model": "TimeUniformPoint",
+      "python_path": "quant_pipeline.phase_09.subphases.s07_prospective_validation.m06_sequential.TimeUniformPoint",
+      "json_schema": "schemas/json/TimeUniformPoint.schema.json",
+      "yaml_schema": "schemas/yaml/TimeUniformPoint.schema.yaml"
+    }
+  ]
+}

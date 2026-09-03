@@ -1,0 +1,42 @@
+phase: phase_00_zero_trust_guardian
+consumes_from:
+- phase_01_ingestion
+- phase_02_quality_pit
+- phase_03_agents_rag_memory
+- phase_04_feature_base
+- phase_05_underlying_forecasts
+- phase_06_candidate_generation
+- phase_07_ranking
+- phase_08_portfolio_backtest
+- phase_09_audit_learning
+emits_to:
+- phase_01_ingestion
+- phase_02_quality_pit
+- phase_03_agents_rag_memory
+- phase_04_feature_base
+- phase_05_underlying_forecasts
+- phase_06_candidate_generation
+- phase_07_ranking
+- phase_08_portfolio_backtest
+- phase_09_audit_learning
+channel_type: zero_trust_control_plane_only
+forbidden_connections:
+- phase_00_zero_trust_guardian->economic_feature_flow
+- phase_00_zero_trust_guardian->trade_decision_flow
+policy_rules:
+- rule_id: EXPLICIT_FORBIDDEN_CONNECTION
+  source:
+    phase: P0
+  target:
+    plane: economic_pipeline
+  severity: CRITICAL
+  release_blocking: true
+  message: Phase 0 control-plane modules cannot feed economic-pipeline modules.
+- rule_id: EXPLICIT_FORBIDDEN_CONNECTION
+  source:
+    phase: P0
+  target:
+    phase: P8
+  severity: CRITICAL
+  release_blocking: true
+  message: Phase 0 cannot feed trade-decision or execution flow.

@@ -1,0 +1,85 @@
+schema_id: forbidden_connection_report.v1
+artifact_name: forbidden_connection_report
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- validated_connection_matrix_lineage_id
+- evaluated_connection_count
+- declared_connection_count
+- forbidden_connections
+- forbidden_connection_count
+- critical_finding_count
+- warning_finding_count
+- findings
+- status
+- severity
+- release_blocking
+- no_forbidden_economic_connection
+- phase0_not_economic_input
+- connection_matrix_consistent
+- validation_evidence_status
+- promotion_blocked
+properties:
+  artifact_id: {type: string, pattern: '^forbidden-connection-report-[0-9a-f]{12}$'}
+  created_at: {type: string, pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'}
+  pipeline_version: {type: string, const: V14.1-RC4.1}
+  lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  validated_connection_matrix_lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  evaluated_connection_count: {type: integer, minimum: 0}
+  declared_connection_count: {type: integer, minimum: 0}
+  forbidden_connections: {type: integer, minimum: 0}
+  forbidden_connection_count: {type: integer, minimum: 0}
+  critical_finding_count: {type: integer, minimum: 0}
+  warning_finding_count: {type: integer, const: 0}
+  findings:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - finding_id
+      - rule_id
+      - severity
+      - source_module
+      - target_module
+      - artifact
+      - message
+      - release_blocking
+      properties:
+        finding_id: {type: string, pattern: '^FC-[0-9]{4}$'}
+        rule_id:
+          type: string
+          enum:
+          - EXPLICIT_FORBIDDEN_CONNECTION
+          - P0_ECONOMIC_INPUT
+          - UNDECLARED_VALIDATED_EDGE
+          - VALIDATED_EDGE_MISSING
+          - IO_MATRIX_ASYMMETRY
+          - UNKNOWN_MODULE_REFERENCE
+        severity: {type: string, const: CRITICAL}
+        source_module: {type: string, minLength: 1}
+        target_module: {type: string, minLength: 1}
+        artifact: {type: string, minLength: 1}
+        message: {type: string, minLength: 1}
+        release_blocking: {type: boolean, const: true}
+  status: {type: string, enum: [PASS, FAIL]}
+  severity: {type: string, enum: [NONE, CRITICAL]}
+  release_blocking: {type: boolean}
+  no_forbidden_economic_connection: {type: boolean}
+  phase0_not_economic_input: {type: boolean}
+  connection_matrix_consistent: {type: boolean}
+  validation_evidence_status: {type: string, const: domain_oracle_pass_pending_independent_judge}
+  promotion_blocked: {type: boolean, const: true}
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

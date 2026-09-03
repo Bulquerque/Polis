@@ -1,0 +1,6 @@
+flowchart LR
+  P9[P9 outcome audit N] --> P3[P3 retro/hypothesis N]
+  P3 --> VE[variable_evolution_input_manifest]
+  VE -->|only N+1| REG[P4 observer change proposal registry]
+  REG --> REVIEW[P0/change-control review]
+  REVIEW -->|approved version bump| P4N[P4 feature set N+1]

@@ -1,0 +1,91 @@
+{
+  "$defs": {
+    "MissingTimeAction": {
+      "enum": [
+        "BLOCK_RECORD",
+        "REQUIRE_VALIDITY_INTERVAL",
+        "ALLOW_EXPLICIT_ATEMPORAL"
+      ],
+      "title": "MissingTimeAction",
+      "type": "string"
+    },
+    "VintagePolicyName": {
+      "enum": [
+        "KNOWN_AT_DECISION_TIME",
+        "ORIGINAL_RELEASE",
+        "LATEST_KNOWN_AT_DECISION_TIME"
+      ],
+      "title": "VintagePolicyName",
+      "type": "string"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.pit_data_view_policy.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "atemporal_allowlist": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Atemporal Allowlist",
+      "type": "array"
+    },
+    "availability_field": {
+      "const": "available_at",
+      "default": "available_at",
+      "title": "Availability Field",
+      "type": "string"
+    },
+    "default_vintage_policy": {
+      "$ref": "#/$defs/VintagePolicyName"
+    },
+    "forbidden_backtest_vintage_policies": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Forbidden Backtest Vintage Policies",
+      "type": "array"
+    },
+    "observational_missing_time_action": {
+      "$ref": "#/$defs/MissingTimeAction"
+    },
+    "reject_network_backtest": {
+      "const": true,
+      "default": true,
+      "title": "Reject Network Backtest",
+      "type": "boolean"
+    },
+    "require_request_as_of_equals_decision_time": {
+      "const": true,
+      "default": true,
+      "title": "Require Request As Of Equals Decision Time",
+      "type": "boolean"
+    },
+    "schema_id": {
+      "const": "p3.research_tools.pit_data_view_policy.v1",
+      "default": "p3.research_tools.pit_data_view_policy.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "temporal_reference_missing_time_action": {
+      "$ref": "#/$defs/MissingTimeAction"
+    }
+  },
+  "required": [
+    "observational_missing_time_action",
+    "temporal_reference_missing_time_action",
+    "atemporal_allowlist",
+    "default_vintage_policy",
+    "forbidden_backtest_vintage_policies"
+  ],
+  "title": "PitDataViewPolicyConfig",
+  "type": "object"
+}

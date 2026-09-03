@@ -1,0 +1,8 @@
+contract_id: p3.s31.current-p9-contract-hashes.v1
+source_snapshot: P3 products current P9 contract snapshot, namespaced for P3 integration
+files:
+- file: contracts/products/current_p9/INPUT_CONTRACTS.yaml
+  sha256: 19808e0b38fcaa326f546b5216537464b67a8a0cf0922cbcf25320d6244ea8c5
+- file: contracts/products/current_p9/OUTPUT_CONTRACTS.yaml
+  sha256: ba544ad40ed63357029157ec94b77e5306f7869a9b5bba423771031e821c9f1e
+binding_status: CONSUMER_NOT_YET_BOUND

@@ -1,0 +1,45 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_peers/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dimensions": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Dimensions",
+      "type": "array"
+    },
+    "entity_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "title": "Entity Ids",
+      "type": "array"
+    },
+    "max_peers": {
+      "default": 20,
+      "maximum": 100,
+      "minimum": 1,
+      "title": "Max Peers",
+      "type": "integer"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "entity_ids"
+  ],
+  "title": "GetPeersRequest",
+  "type": "object"
+}

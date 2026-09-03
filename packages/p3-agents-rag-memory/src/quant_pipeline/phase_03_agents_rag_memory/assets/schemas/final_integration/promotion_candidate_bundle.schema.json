@@ -1,0 +1,63 @@
+{
+  "$id": "p3://schemas/final_integration/promotion_candidate_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "title": "Bundle Hash",
+      "type": "string"
+    },
+    "bundle_version": {
+      "default": "p3.promotion-candidate.v2",
+      "title": "Bundle Version",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Evidence Hashes",
+      "type": "object"
+    },
+    "production_promotion_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Production Promotion Allowed",
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "const": "P0_ONLY",
+      "default": "P0_ONLY",
+      "title": "Promotion Authority",
+      "type": "string"
+    },
+    "qualification_chain_hash": {
+      "title": "Qualification Chain Hash",
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "qualification_chain_hash",
+    "evidence_hashes",
+    "created_at",
+    "bundle_hash"
+  ],
+  "title": "PromotionCandidateBundle",
+  "type": "object"
+}

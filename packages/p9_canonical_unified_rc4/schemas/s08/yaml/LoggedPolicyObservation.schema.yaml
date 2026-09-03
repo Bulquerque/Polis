@@ -1,0 +1,60 @@
+$defs:
+  EvidenceClass:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED_NOT_EXECUTED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceClass
+    type: string
+additionalProperties: false
+properties:
+  observation_id:
+    minLength: 1
+    title: Observation Id
+    type: string
+  action_id:
+    minLength: 1
+    title: Action Id
+    type: string
+  reward:
+    title: Reward
+    type: number
+  logging_propensity:
+    anyOf:
+    - exclusiveMinimum: 0.0
+      maximum: 1.0
+      type: number
+    - type: 'null'
+    default: null
+    title: Logging Propensity
+  target_action_probability:
+    maximum: 1.0
+    minimum: 0.0
+    title: Target Action Probability
+    type: number
+  direct_model_chosen_reward:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Direct Model Chosen Reward
+  direct_model_target_value:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Direct Model Target Value
+  evidence_class:
+    $ref: '#/$defs/EvidenceClass'
+required:
+- observation_id
+- action_id
+- reward
+- target_action_probability
+- evidence_class
+title: LoggedPolicyObservation
+type: object
+$id: urn:inferencia:p9:s8:LoggedPolicyObservation:1.0.0

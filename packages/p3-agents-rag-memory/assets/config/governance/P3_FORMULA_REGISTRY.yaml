@@ -1,0 +1,14 @@
+registry_id: P3_FORMULA_REGISTRY
+registry_version: 1.0.0
+authority: src/quant_pipeline/phase_03_agents_rag_memory/governance/formulas.py
+policy:
+  formulas_are_versioned: true
+  implicit_formula_changes_forbidden: true
+  output_must_record_formula_id_and_version: true
+owners:
+  population: [P3.S6.M01, P3.S6.M02, P3.S7.M01, P3.S7.M02, P3.S8.M01, P3.S8.M02]
+  activation: [P3.S19.M01]
+  retrieval: [P3.S20.M05]
+  emergence: [P3.S27.M01, P3.S27.M02, P3.S27.M03]
+  society_vector: [P3.S28.M01, P3.S28.M02, P3.S28.M03]
+  disagreement: [P3.S29.M01]

@@ -1,0 +1,17 @@
+schema_id: p1_qualification_verdict.v1
+schema_version: v14.1-rc4.1
+release_version: V14.1-RC4.1
+type: object
+required: [schema_id, schema_version, release_version, phase, verdict, status, module_count, blocking_issue_count, snapshot_digest]
+properties:
+  schema_id: {const: p1_qualification_verdict.v1}
+  schema_version: {const: v14.1-rc4.1}
+  release_version: {const: V14.1-RC4.1}
+  phase: {const: P1}
+  verdict: {enum: [PASS, FAIL_IN_SCOPE_DATA, FAIL]}
+  status: {enum: [PASS, FAIL, NOT_EVALUATED, OUT_OF_SCOPE]}
+  module_count: {type: integer}
+  blocking_issue_count: {type: integer}
+  snapshot_digest: {type: string}
+  failure_category: {enum: [FAIL_IN_SCOPE_DATA, FAIL_PROVIDER_CONTRACT, FAIL_CAPTURE_INCOMPLETE, FAIL_DEPENDENCY_EVIDENCE, FAIL_OPERATIONAL_PROOF, FAIL_HANDOFF, FAIL_INTEGRITY]}
+  reason_code: {type: string}

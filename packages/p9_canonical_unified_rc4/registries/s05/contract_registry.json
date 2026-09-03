@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "contract_count": 18,
+  "contracts": [
+    {
+      "schema_name": "BacktestRobustnessQualificationReport",
+      "schema_file": "schemas/BacktestRobustnessQualificationReport.schema.json",
+      "schema_sha256": "dbaa29836cd6fd2c379e4d2a5e7413b6f5ecb4a7da7723f21869ee8dc6c23a51"
+    },
+    {
+      "schema_name": "BlockBootstrapRequest",
+      "schema_file": "schemas/BlockBootstrapRequest.schema.json",
+      "schema_sha256": "e6572df432a4ff569dbfb2e6809065d8ad6f09fa8d450b4271637f072e9af17c"
+    },
+    {
+      "schema_name": "BlockBootstrapResult",
+      "schema_file": "schemas/BlockBootstrapResult.schema.json",
+      "schema_sha256": "e731150292bd3792248864aa2cc14ebe3793e988f7966e1d1c7c1bf04447b50c"
+    },
+    {
+      "schema_name": "BlockLengthSelectionRequest",
+      "schema_file": "schemas/BlockLengthSelectionRequest.schema.json",
+      "schema_sha256": "17f698d135dd8ee79fe25ffcef60d17a9319201526d6dbc55106b9a74fd72a33"
+    },
+    {
+      "schema_name": "BlockLengthSelectionResult",
+      "schema_file": "schemas/BlockLengthSelectionResult.schema.json",
+      "schema_sha256": "f394cb879db8218ece6c196405de2f6363c021ab3b67618f61e0dba035f5c66b"
+    },
+    {
+      "schema_name": "DependenceDiagnosticsRequest",
+      "schema_file": "schemas/DependenceDiagnosticsRequest.schema.json",
+      "schema_sha256": "8543e3446fcdcbb68ebdaba649e9fcf6b611852cb1e8f3589c78b9c388795ad6"
+    },
+    {
+      "schema_name": "DependenceDiagnosticsResult",
+      "schema_file": "schemas/DependenceDiagnosticsResult.schema.json",
+      "schema_sha256": "25208529a3df56e7d5c3558aac00be613427842da555c2e8b59b883cd5d1084b"
+    },
+    {
+      "schema_name": "HierarchicalBootstrapRequest",
+      "schema_file": "schemas/HierarchicalBootstrapRequest.schema.json",
+      "schema_sha256": "09dffb8992947d429d4da2a559cf8f5868ebf9b0cad709ca86034aabec2c9dec"
+    },
+    {
+      "schema_name": "HierarchicalBootstrapResult",
+      "schema_file": "schemas/HierarchicalBootstrapResult.schema.json",
+      "schema_sha256": "8c6a6a7129a2e8da4806f596e520e7af2b3e37f6bd1a1f83876d6f655cd5c987"
+    },
+    {
+      "schema_name": "MetricDistributionRequest",
+      "schema_file": "schemas/MetricDistributionRequest.schema.json",
+      "schema_sha256": "7aabe79ed2e4800aaeebb252197a9fcbca046b7a3395debb0b01d73ab2a3bbf6"
+    },
+    {
+      "schema_name": "MetricDistributionResult",
+      "schema_file": "schemas/MetricDistributionResult.schema.json",
+      "schema_sha256": "e318ab749736e9e4fa38c6584f671505f145f01369a273532cd98a035fffd0ca"
+    },
+    {
+      "schema_name": "RobustnessQualificationRequest",
+      "schema_file": "schemas/RobustnessQualificationRequest.schema.json",
+      "schema_sha256": "3a2c5fd8c76c707366656c34913da9b61cea1e351d8b40a66d901fd12eb746e3"
+    },
+    {
+      "schema_name": "S5OutputBundle",
+      "schema_file": "schemas/S5OutputBundle.schema.json",
+      "schema_sha256": "f0780cd449fe148582e5b0e8af8006d020985a519dd5023469ce8b51ac110ea8"
+    },
+    {
+      "schema_name": "S5RunRequest",
+      "schema_file": "schemas/S5RunRequest.schema.json",
+      "schema_sha256": "2396e44075c337a0cb285a0953b7556c09ac137072d89e8a7fbd456b0089da69"
+    },
+    {
+      "schema_name": "SharpeInferenceRequest",
+      "schema_file": "schemas/SharpeInferenceRequest.schema.json",
+      "schema_sha256": "e2730d933721603b757a395020bc352e3d058c8d54f7117d14e007561ea924d0"
+    },
+    {
+      "schema_name": "SharpeInferenceResult",
+      "schema_file": "schemas/SharpeInferenceResult.schema.json",
+      "schema_sha256": "2d63e31bf64ca47ce8a06cc8338507c78c85f7873d869d033a380dc70eab4305"
+    },
+    {
+      "schema_name": "TradeResamplingRequest",
+      "schema_file": "schemas/TradeResamplingRequest.schema.json",
+      "schema_sha256": "17744fba6c87768f683fecb4b04c27638edab5a8caf569ffdb0401e75c2ada25"
+    },
+    {
+      "schema_name": "TradeResamplingResult",
+      "schema_file": "schemas/TradeResamplingResult.schema.json",
+      "schema_sha256": "60baee72ce0ff1d56a8f86cc66a14446eb9df9e272dad91105817a054bd5ad69"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+phase,python_files,python_loc,max_file_lines,max_function_lines,broad_except_count,primary_strength,primary_risk
+P0,99,14066,400,115,0,contract authority and zero-trust governance,runner and validators approaching monolithic size
+P1,35,3877,389,175,5,provider and transport separation,semantic helpers and handoff functions concentrate business rules
+P2,34,5282,546,149,2,temporal and identity awareness,large subphase cores and quality modules
+P3,483,61552,811,235,35,"typed domains, ports, deterministic runtime patterns","fragmentation, giant files, generic common modules and broad catches"
+P4_RC4_1,23,514,205,87,0,small topological runner,thin wrappers with missing economic semantics

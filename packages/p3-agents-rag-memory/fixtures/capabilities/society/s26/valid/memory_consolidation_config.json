@@ -1,0 +1,26 @@
+{
+  "version": "p3.s26.memory_consolidation.v2",
+  "formula_version": "memory_consolidation_formula_v1",
+  "episodic_to_semantic_min_repetitions": 3,
+  "feedback_requires_commit_hash": true,
+  "audit_memory_append_only": true,
+  "retro_experiment_memory_forbidden": true,
+  "memory_trigger_threshold": 0.35,
+  "belief_delta_memory_threshold": 0.15,
+  "social_delivery_statuses": [
+    "SEEN",
+    "INTERPRETED",
+    "USED"
+  ],
+  "initial_retrievability": 0.65,
+  "max_retrievability_delta": 0.2,
+  "reinforcement_learning_rate": 0.25,
+  "decay_per_cycle": 0.03,
+  "expiration_cycles": 12,
+  "expiration_retrievability_threshold": 0.1,
+  "allowed_patch_parameters": [
+    "memory_trigger_threshold",
+    "belief_delta_memory_threshold",
+    "decay_per_cycle"
+  ]
+}

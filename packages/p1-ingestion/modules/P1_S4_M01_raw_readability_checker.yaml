@@ -1,0 +1,46 @@
+module_id: P1.S4.M01
+module_name: raw_readability_checker
+phase: phase_01_ingestion
+subphase: P1.S4
+rc: RC4.1
+function: Checar legibilidade mínima sem interpretar economicamente dados.
+inputs: &id001
+- versioned_raw_file_inventory
+outputs: &id002
+- raw_readability_report
+validations:
+- readability_status_present
+- empty_file_flagged
+fail_fast_conditions:
+- raw_readability_checker_schema_violation
+- raw_readability_checker_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P1.S3.M02
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P1.S4.M02
+    - P1.S5.M01
+    - P1.S5.M03
+    - P1.S5.M04
+    artifacts: *id002
+    phase_outputs:
+    - raw_readability_report
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

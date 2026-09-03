@@ -1,0 +1,29 @@
+module_id: P5.S9.M05
+name: phase6_phase9_lineage_handoff_builder
+subphase_id: P5.S9
+required_inputs:
+- forecast_member_panel
+- forecast_distribution_panel
+- forecast_scenario_panel
+- resolver_diversity_panel
+- underlying_forecast_panel
+- ensemble_selection_report
+- representation_downstream_ablation_report
+optional_inputs:
+- published_covariance_registry
+- published_regime_ood_surprise_panel
+- market_belief_state
+- ambiguity_set
+- forecast_confidence_panel
+outputs:
+- phase5_output_handoff_manifest
+- resolver_evaluation_lineage_map
+- representation_feedback_lineage_map
+- phase6_strategy_scenario_manifest
+allowed_actions:
+- PUBLISH
+allowed_modes:
+- PUBLICATION
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

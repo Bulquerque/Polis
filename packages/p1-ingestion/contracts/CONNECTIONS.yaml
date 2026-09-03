@@ -1,0 +1,6 @@
+phase: phase_01_ingestion
+consumes_from:
+- external_sources
+emits_to:
+- phase_02_quality_pit
+forbidden_connections: []

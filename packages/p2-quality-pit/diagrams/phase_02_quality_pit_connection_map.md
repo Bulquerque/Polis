@@ -1,0 +1,14 @@
+# Connection map
+
+```mermaid
+flowchart LR
+  P1[P1] --> P2[P2]
+  P2[P2] --> P3[P3]
+  P2[P2] --> P4[P4]
+  P2[P2] --> P6[P6]
+```
+
+- P1 → P2
+- P2 → P3
+- P2 → P4
+- P2 → P6

@@ -1,0 +1,60 @@
+{
+  "$defs": {
+    "ConsumptionStatus": {
+      "enum": [
+        "INTEGRITY_VALIDATED",
+        "SEMANTICALLY_CONSUMED",
+        "PARTIALLY_CONSUMED",
+        "RESERVED",
+        "NOT_APPLICABLE",
+        "CAPABILITY_UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ConsumptionStatus",
+      "type": "string"
+    },
+    "SizabilityState": {
+      "enum": [
+        "FULLY_SIZABLE",
+        "DEGRADED_SIZABLE",
+        "NOT_SIZABLE",
+        "RISK_STATE_INCOMPLETE"
+      ],
+      "title": "SizabilityState",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/RiskCapabilityReceipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_status": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ConsumptionStatus"
+      },
+      "title": "Artifact Status",
+      "type": "object"
+    },
+    "candidate_status": {
+      "additionalProperties": {
+        "$ref": "#/$defs/SizabilityState"
+      },
+      "title": "Candidate Status",
+      "type": "object"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_status",
+    "candidate_status"
+  ],
+  "title": "RiskCapabilityReceipt",
+  "type": "object"
+}

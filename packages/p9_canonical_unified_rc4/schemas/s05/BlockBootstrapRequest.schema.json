@@ -1,0 +1,168 @@
+{
+  "$defs": {
+    "BootstrapMethod": {
+      "enum": [
+        "MOVING",
+        "CIRCULAR",
+        "STATIONARY"
+      ],
+      "title": "BootstrapMethod",
+      "type": "string"
+    },
+    "BootstrapPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "materialize_indices": {
+          "default": true,
+          "title": "Materialize Indices",
+          "type": "boolean"
+        },
+        "maximum_materialized_elements": {
+          "default": 20000000,
+          "minimum": 1,
+          "title": "Maximum Materialized Elements",
+          "type": "integer"
+        },
+        "method": {
+          "$ref": "#/$defs/BootstrapMethod",
+          "default": "STATIONARY"
+        },
+        "replicate_count": {
+          "default": 1000,
+          "minimum": 1,
+          "title": "Replicate Count",
+          "type": "integer"
+        }
+      },
+      "title": "BootstrapPolicy",
+      "type": "object"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    },
+    "SeedPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "default": "PCG64",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Algorithm",
+          "type": "string"
+        },
+        "derivation_version": {
+          "default": "seedsequence-v1",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Derivation Version",
+          "type": "string"
+        },
+        "root_entropy": {
+          "minimum": 0,
+          "title": "Root Entropy",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "root_entropy"
+      ],
+      "title": "SeedPolicy",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "block_length": {
+      "minimum": 1,
+      "title": "Block Length",
+      "type": "integer"
+    },
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "observation_count": {
+      "minimum": 1,
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "policy": {
+      "$ref": "#/$defs/BootstrapPolicy",
+      "default": {
+        "materialize_indices": true,
+        "maximum_materialized_elements": 20000000,
+        "method": "STATIONARY",
+        "replicate_count": 1000
+      }
+    },
+    "seed_policy": {
+      "$ref": "#/$defs/SeedPolicy"
+    }
+  },
+  "required": [
+    "context",
+    "observation_count",
+    "block_length",
+    "seed_policy"
+  ],
+  "title": "BlockBootstrapRequest",
+  "type": "object"
+}

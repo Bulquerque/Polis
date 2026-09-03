@@ -1,0 +1,183 @@
+{
+  "$defs": {
+    "CompatibilityReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "backtest_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Backtest Id"
+        },
+        "checked_at": {
+          "format": "date-time",
+          "title": "Checked At",
+          "type": "string"
+        },
+        "contract_name": {
+          "minLength": 1,
+          "title": "Contract Name",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "cycle_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cycle Id"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "output_payload_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output Payload Sha256"
+        },
+        "package_name": {
+          "minLength": 1,
+          "title": "Package Name",
+          "type": "string"
+        },
+        "package_version": {
+          "minLength": 1,
+          "title": "Package Version",
+          "type": "string"
+        },
+        "phase_id": {
+          "minLength": 1,
+          "title": "Phase Id",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "run_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Run Id"
+        },
+        "source_payload_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Payload Sha256"
+        },
+        "state": {
+          "$ref": "#/$defs/CompatibilityState"
+        }
+      },
+      "required": [
+        "phase_id",
+        "package_name",
+        "package_version",
+        "contract_name",
+        "contract_version",
+        "state",
+        "checked_at"
+      ],
+      "title": "CompatibilityReceipt",
+      "type": "object"
+    },
+    "CompatibilityState": {
+      "enum": [
+        "COMPATIBLE",
+        "COMPATIBLE_LIMITED",
+        "COMPATIBLE_PROCESS_ISOLATED",
+        "COMPATIBLE_GOVERNED",
+        "UNAVAILABLE",
+        "INCOMPATIBLE"
+      ],
+      "title": "CompatibilityState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "manifest": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Manifest"
+    },
+    "receipt": {
+      "$ref": "#/$defs/CompatibilityReceipt"
+    },
+    "report": {
+      "additionalProperties": true,
+      "title": "Report",
+      "type": "object"
+    },
+    "target_phase": {
+      "title": "Target Phase",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_phase",
+    "report",
+    "receipt"
+  ],
+  "title": "ModernFeedbackMaterialization",
+  "type": "object"
+}

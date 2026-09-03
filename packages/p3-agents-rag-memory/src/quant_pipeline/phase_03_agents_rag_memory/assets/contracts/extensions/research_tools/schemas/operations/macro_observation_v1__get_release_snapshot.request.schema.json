@@ -1,0 +1,36 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/macro.observation.v1/get_release_snapshot/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "release_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Release Ids",
+      "type": "array"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "series_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Series Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "research_mode"
+  ],
+  "title": "GetMacroReleaseSnapshotRequest",
+  "type": "object"
+}

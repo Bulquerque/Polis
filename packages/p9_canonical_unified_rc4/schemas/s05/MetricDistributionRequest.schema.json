@@ -1,0 +1,468 @@
+{
+  "$defs": {
+    "BootstrapIndexManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "block_length": {
+          "minimum": 1,
+          "title": "Block Length",
+          "type": "integer"
+        },
+        "indices": {
+          "items": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "title": "Indices",
+          "type": "array"
+        },
+        "manifest_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Manifest Id",
+          "type": "string"
+        },
+        "manifest_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Manifest Sha256",
+          "type": "string"
+        },
+        "method": {
+          "$ref": "#/$defs/BootstrapMethod"
+        },
+        "observation_count": {
+          "minimum": 1,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "replicate_count": {
+          "minimum": 1,
+          "title": "Replicate Count",
+          "type": "integer"
+        },
+        "replicate_sha256": {
+          "items": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "title": "Replicate Sha256",
+          "type": "array"
+        },
+        "seed_lineage": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Seed Lineage",
+          "type": "string"
+        }
+      },
+      "required": [
+        "manifest_id",
+        "method",
+        "observation_count",
+        "replicate_count",
+        "block_length",
+        "seed_lineage",
+        "indices",
+        "replicate_sha256",
+        "manifest_sha256"
+      ],
+      "title": "BootstrapIndexManifest",
+      "type": "object"
+    },
+    "BootstrapMethod": {
+      "enum": [
+        "MOVING",
+        "CIRCULAR",
+        "STATIONARY"
+      ],
+      "title": "BootstrapMethod",
+      "type": "string"
+    },
+    "ConfidenceIntervalMethod": {
+      "enum": [
+        "PERCENTILE",
+        "BASIC"
+      ],
+      "title": "ConfidenceIntervalMethod",
+      "type": "string"
+    },
+    "GrossNet": {
+      "enum": [
+        "GROSS",
+        "NET"
+      ],
+      "title": "GrossNet",
+      "type": "string"
+    },
+    "MetricDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "benchmark_series_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": ".*\\S.*",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Benchmark Series Id"
+        },
+        "confidence_level": {
+          "default": 0.95,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "metric_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_name": {
+          "$ref": "#/$defs/MetricName"
+        },
+        "metric_version": {
+          "default": "1.0.0",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "minimum_valid_replicates": {
+          "default": 100,
+          "minimum": 1,
+          "title": "Minimum Valid Replicates",
+          "type": "integer"
+        },
+        "risk_free_series_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": ".*\\S.*",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Risk Free Series Id"
+        },
+        "tail_probability": {
+          "default": 0.05,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Tail Probability",
+          "type": "number"
+        },
+        "target_series_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Target Series Id",
+          "type": "string"
+        },
+        "threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Threshold"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_name",
+        "target_series_id"
+      ],
+      "title": "MetricDefinition",
+      "type": "object"
+    },
+    "MetricDistributionPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence_level": {
+          "default": 0.95,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "interval_method": {
+          "$ref": "#/$defs/ConfidenceIntervalMethod",
+          "default": "PERCENTILE"
+        },
+        "invalid_replicate_limit": {
+          "default": 0.2,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Invalid Replicate Limit",
+          "type": "number"
+        },
+        "worst_quantile": {
+          "default": 0.05,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Worst Quantile",
+          "type": "number"
+        }
+      },
+      "title": "MetricDistributionPolicy",
+      "type": "object"
+    },
+    "MetricName": {
+      "enum": [
+        "ANNUALIZED_RETURN",
+        "VOLATILITY",
+        "SHARPE",
+        "CUMULATIVE_RETURN",
+        "CAGR",
+        "MAX_DRAWDOWN",
+        "SORTINO",
+        "CALMAR",
+        "EXPECTED_SHORTFALL",
+        "ALPHA",
+        "BETA",
+        "INFORMATION_RATIO",
+        "COMPETITION_SCORE"
+      ],
+      "title": "MetricName",
+      "type": "string"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    },
+    "TimeSeriesPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "benchmark_series_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": ".*\\S.*",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Benchmark Series Id"
+        },
+        "fold_ids": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "pattern": ".*\\S.*",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fold Ids"
+        },
+        "gross_or_net": {
+          "$ref": "#/$defs/GrossNet"
+        },
+        "metric_registry_version": {
+          "default": "1.0.0",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Metric Registry Version",
+          "type": "string"
+        },
+        "panel_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "periods_per_year": {
+          "exclusiveMinimum": 0,
+          "title": "Periods Per Year",
+          "type": "number"
+        },
+        "regime_ids": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "pattern": ".*\\S.*",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Regime Ids"
+        },
+        "risk_free_series_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": ".*\\S.*",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Risk Free Series Id"
+        },
+        "series_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Series Ids",
+          "type": "array"
+        },
+        "timestamps": {
+          "items": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "title": "Timestamps",
+          "type": "array"
+        },
+        "values": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "timestamps",
+        "series_ids",
+        "values",
+        "periods_per_year",
+        "gross_or_net"
+      ],
+      "title": "TimeSeriesPanel",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "indices": {
+      "$ref": "#/$defs/BootstrapIndexManifest"
+    },
+    "metric_definitions": {
+      "items": {
+        "$ref": "#/$defs/MetricDefinition"
+      },
+      "title": "Metric Definitions",
+      "type": "array"
+    },
+    "policy": {
+      "$ref": "#/$defs/MetricDistributionPolicy",
+      "default": {
+        "confidence_level": 0.95,
+        "interval_method": "PERCENTILE",
+        "invalid_replicate_limit": 0.2,
+        "worst_quantile": 0.05
+      }
+    },
+    "series": {
+      "$ref": "#/$defs/TimeSeriesPanel"
+    }
+  },
+  "required": [
+    "context",
+    "series",
+    "indices",
+    "metric_definitions"
+  ],
+  "title": "MetricDistributionRequest",
+  "type": "object"
+}

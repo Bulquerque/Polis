@@ -1,0 +1,1657 @@
+{
+  "execution_envelope": {
+    "payload": {
+      "subphase_id": "P9.S10",
+      "schema_version": "1.0.0",
+      "normalization_result": {
+        "module_id": "P9.S10.M01",
+        "status": "LIMITED",
+        "output": {
+          "policy_id": "research-normalization-policy",
+          "matured_lessons": {
+            "items": [
+              {
+                "item_id": "research-memory-d291a49887498a26928a63c2",
+                "semantic_key": "cost-buffer-underestimation",
+                "item_type": "SUPPORTED_LESSON",
+                "state": "ACTIVE",
+                "claim": "Observed execution costs exceeded the P6 pricing buffer.",
+                "abstract_claim": "Pricing buffers can become insufficient in high-cost regimes.",
+                "scope": {
+                  "phases": [
+                    "P6",
+                    "P8"
+                  ],
+                  "policy_ids": [
+                    "p6-pricing",
+                    "p8-capacity"
+                  ],
+                  "regimes": [
+                    "high-cost"
+                  ],
+                  "asset_families": []
+                },
+                "causal_status": "ATTRIBUTED",
+                "evidence_for": [
+                  {
+                    "evidence_id": "ev-claim-supported",
+                    "artifact_ref": {
+                      "artifact_id": "artifact-ev-claim-supported",
+                      "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                      "schema_name": "p9_backtest_metrics_bundle_v1",
+                      "schema_version": "1.0.0",
+                      "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "producer_module_id": "P9.S4.M08",
+                      "run_id": "run-1",
+                      "cycle": {
+                        "cycle_id": "cycle-5",
+                        "ordinal": 5
+                      },
+                      "available_at": "2026-08-03T17:00:00Z",
+                      "location": "artifact://run-1/artifact-ev-claim-supported"
+                    },
+                    "quality": "FACTUAL_EXECUTED",
+                    "summary": "independently produced upstream evidence"
+                  }
+                ],
+                "evidence_against": [],
+                "confidence": 0.95,
+                "materiality": 0.15,
+                "validity_start": {
+                  "cycle_id": "cycle-5",
+                  "ordinal": 5
+                },
+                "expires_after_cycle": null,
+                "source_cycles": [
+                  {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  }
+                ],
+                "supersedes_item_ids": [],
+                "contradicts_item_ids": [],
+                "export_blocked": false,
+                "export_block_reasons": []
+              }
+            ]
+          },
+          "research_hypotheses": {
+            "items": [
+              {
+                "item_id": "research-memory-73cc0aa1afda0d671fffb2a4",
+                "semantic_key": "capacity-cost-interaction",
+                "item_type": "PLAUSIBLE_HYPOTHESIS",
+                "state": "ACTIVE",
+                "claim": "Capacity and cost buffers may interact nonlinearly.",
+                "abstract_claim": "Capacity and cost controls may require joint evaluation.",
+                "scope": {
+                  "phases": [
+                    "P6",
+                    "P8"
+                  ],
+                  "policy_ids": [
+                    "p6-pricing",
+                    "p8-capacity"
+                  ],
+                  "regimes": [
+                    "high-cost"
+                  ],
+                  "asset_families": []
+                },
+                "causal_status": "ASSOCIATION",
+                "evidence_for": [
+                  {
+                    "evidence_id": "ev-claim-hypothesis",
+                    "artifact_ref": {
+                      "artifact_id": "artifact-ev-claim-hypothesis",
+                      "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                      "schema_name": "p9_backtest_metrics_bundle_v1",
+                      "schema_version": "1.0.0",
+                      "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "producer_module_id": "P9.S4.M08",
+                      "run_id": "run-1",
+                      "cycle": {
+                        "cycle_id": "cycle-5",
+                        "ordinal": 5
+                      },
+                      "available_at": "2026-08-03T17:00:00Z",
+                      "location": "artifact://run-1/artifact-ev-claim-hypothesis"
+                    },
+                    "quality": "FACTUAL_OBSERVED",
+                    "summary": "independently produced upstream evidence"
+                  }
+                ],
+                "evidence_against": [
+                  {
+                    "evidence_id": "ev-claim-contrary",
+                    "artifact_ref": {
+                      "artifact_id": "artifact-ev-claim-contrary",
+                      "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                      "schema_name": "p9_backtest_metrics_bundle_v1",
+                      "schema_version": "1.0.0",
+                      "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "producer_module_id": "P9.S4.M08",
+                      "run_id": "run-1",
+                      "cycle": {
+                        "cycle_id": "cycle-5",
+                        "ordinal": 5
+                      },
+                      "available_at": "2026-08-03T17:00:00Z",
+                      "location": "artifact://run-1/artifact-ev-claim-contrary"
+                    },
+                    "quality": "FACTUAL_OBSERVED",
+                    "summary": "independently produced upstream evidence"
+                  }
+                ],
+                "confidence": 0.7,
+                "materiality": 0.1,
+                "validity_start": {
+                  "cycle_id": "cycle-5",
+                  "ordinal": 5
+                },
+                "expires_after_cycle": null,
+                "source_cycles": [
+                  {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  }
+                ],
+                "supersedes_item_ids": [],
+                "contradicts_item_ids": [],
+                "export_blocked": false,
+                "export_block_reasons": []
+              }
+            ]
+          },
+          "negative_memory": {
+            "items": [
+              {
+                "item_id": "research-memory-7ec6f3fb472902056fd8edbd",
+                "semantic_key": "capacity-breakpoint",
+                "item_type": "BREAKPOINT_MEMORY",
+                "state": "ACTIVE",
+                "claim": "A nearby participation breakpoint caused unacceptable market impact.",
+                "abstract_claim": "Aggressive participation can create a nearby capacity breakpoint.",
+                "scope": {
+                  "phases": [
+                    "P6",
+                    "P8"
+                  ],
+                  "policy_ids": [
+                    "p6-pricing",
+                    "p8-capacity"
+                  ],
+                  "regimes": [
+                    "high-cost"
+                  ],
+                  "asset_families": []
+                },
+                "causal_status": "ATTRIBUTED",
+                "evidence_for": [
+                  {
+                    "evidence_id": "ev-claim-negative",
+                    "artifact_ref": {
+                      "artifact_id": "artifact-ev-claim-negative",
+                      "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                      "schema_name": "p9_backtest_metrics_bundle_v1",
+                      "schema_version": "1.0.0",
+                      "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "producer_module_id": "P9.S4.M08",
+                      "run_id": "run-1",
+                      "cycle": {
+                        "cycle_id": "cycle-5",
+                        "ordinal": 5
+                      },
+                      "available_at": "2026-08-03T17:00:00Z",
+                      "location": "artifact://run-1/artifact-ev-claim-negative"
+                    },
+                    "quality": "FACTUAL_EXECUTED",
+                    "summary": "independently produced upstream evidence"
+                  }
+                ],
+                "evidence_against": [],
+                "confidence": 0.92,
+                "materiality": 0.2,
+                "validity_start": {
+                  "cycle_id": "cycle-5",
+                  "ordinal": 5
+                },
+                "expires_after_cycle": null,
+                "source_cycles": [
+                  {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  }
+                ],
+                "supersedes_item_ids": [],
+                "contradicts_item_ids": [],
+                "export_blocked": false,
+                "export_block_reasons": []
+              }
+            ]
+          },
+          "skipped_candidate_ids": [
+            "claim-immature"
+          ],
+          "merged_candidate_ids": [],
+          "warnings": []
+        },
+        "diagnostics": {
+          "warnings": [],
+          "counters": [
+            [
+              "candidate_count",
+              4
+            ],
+            [
+              "matured_count",
+              3
+            ],
+            [
+              "memory_item_count",
+              3
+            ],
+            [
+              "skipped_count",
+              1
+            ]
+          ],
+          "scalars": [],
+          "trace": []
+        },
+        "evidence_refs": [
+          {
+            "evidence_id": "ev-claim-contrary",
+            "artifact_ref": {
+              "artifact_id": "artifact-ev-claim-contrary",
+              "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+              "schema_name": "p9_backtest_metrics_bundle_v1",
+              "schema_version": "1.0.0",
+              "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "producer_module_id": "P9.S4.M08",
+              "run_id": "run-1",
+              "cycle": {
+                "cycle_id": "cycle-5",
+                "ordinal": 5
+              },
+              "available_at": "2026-08-03T17:00:00Z",
+              "location": "artifact://run-1/artifact-ev-claim-contrary"
+            },
+            "quality": "FACTUAL_OBSERVED",
+            "summary": "independently produced upstream evidence"
+          },
+          {
+            "evidence_id": "ev-claim-hypothesis",
+            "artifact_ref": {
+              "artifact_id": "artifact-ev-claim-hypothesis",
+              "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+              "schema_name": "p9_backtest_metrics_bundle_v1",
+              "schema_version": "1.0.0",
+              "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "producer_module_id": "P9.S4.M08",
+              "run_id": "run-1",
+              "cycle": {
+                "cycle_id": "cycle-5",
+                "ordinal": 5
+              },
+              "available_at": "2026-08-03T17:00:00Z",
+              "location": "artifact://run-1/artifact-ev-claim-hypothesis"
+            },
+            "quality": "FACTUAL_OBSERVED",
+            "summary": "independently produced upstream evidence"
+          },
+          {
+            "evidence_id": "ev-claim-negative",
+            "artifact_ref": {
+              "artifact_id": "artifact-ev-claim-negative",
+              "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+              "schema_name": "p9_backtest_metrics_bundle_v1",
+              "schema_version": "1.0.0",
+              "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "producer_module_id": "P9.S4.M08",
+              "run_id": "run-1",
+              "cycle": {
+                "cycle_id": "cycle-5",
+                "ordinal": 5
+              },
+              "available_at": "2026-08-03T17:00:00Z",
+              "location": "artifact://run-1/artifact-ev-claim-negative"
+            },
+            "quality": "FACTUAL_EXECUTED",
+            "summary": "independently produced upstream evidence"
+          },
+          {
+            "evidence_id": "ev-claim-supported",
+            "artifact_ref": {
+              "artifact_id": "artifact-ev-claim-supported",
+              "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+              "schema_name": "p9_backtest_metrics_bundle_v1",
+              "schema_version": "1.0.0",
+              "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "producer_module_id": "P9.S4.M08",
+              "run_id": "run-1",
+              "cycle": {
+                "cycle_id": "cycle-5",
+                "ordinal": 5
+              },
+              "available_at": "2026-08-03T17:00:00Z",
+              "location": "artifact://run-1/artifact-ev-claim-supported"
+            },
+            "quality": "FACTUAL_EXECUTED",
+            "summary": "independently produced upstream evidence"
+          }
+        ],
+        "reason_codes": [
+          "P9_MEMORY_IMMATURE_CLAIMS_SKIPPED"
+        ],
+        "output_sha256": "40b734c3cbdcf6db3efd8eae16294813a437ca7cba3fe935facd15d452f9e298"
+      },
+      "memory_handoff_result": {
+        "module_id": "P9.S10.M02",
+        "status": "SUCCESS",
+        "output": {
+          "memory_update": {
+            "state": "RESEARCH_MEMORY_UPDATED",
+            "previous_snapshot_sha256": "92047f88de54f07e0779493a7b0583f8639914d8145d3bfcc6d26fbbeb352139",
+            "memory_snapshot": {
+              "memory_id": "p9-system-research-memory",
+              "generation": 1,
+              "previous_snapshot_sha256": "92047f88de54f07e0779493a7b0583f8639914d8145d3bfcc6d26fbbeb352139",
+              "items": [
+                {
+                  "item_id": "research-memory-73cc0aa1afda0d671fffb2a4",
+                  "semantic_key": "capacity-cost-interaction",
+                  "item_type": "PLAUSIBLE_HYPOTHESIS",
+                  "state": "ACTIVE",
+                  "claim": "Capacity and cost buffers may interact nonlinearly.",
+                  "abstract_claim": "Capacity and cost controls may require joint evaluation.",
+                  "scope": {
+                    "phases": [
+                      "P6",
+                      "P8"
+                    ],
+                    "policy_ids": [
+                      "p6-pricing",
+                      "p8-capacity"
+                    ],
+                    "regimes": [
+                      "high-cost"
+                    ],
+                    "asset_families": []
+                  },
+                  "causal_status": "ASSOCIATION",
+                  "evidence_for": [
+                    {
+                      "evidence_id": "ev-claim-hypothesis",
+                      "artifact_ref": {
+                        "artifact_id": "artifact-ev-claim-hypothesis",
+                        "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                        "schema_name": "p9_backtest_metrics_bundle_v1",
+                        "schema_version": "1.0.0",
+                        "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "producer_module_id": "P9.S4.M08",
+                        "run_id": "run-1",
+                        "cycle": {
+                          "cycle_id": "cycle-5",
+                          "ordinal": 5
+                        },
+                        "available_at": "2026-08-03T17:00:00Z",
+                        "location": "artifact://run-1/artifact-ev-claim-hypothesis"
+                      },
+                      "quality": "FACTUAL_OBSERVED",
+                      "summary": "independently produced upstream evidence"
+                    }
+                  ],
+                  "evidence_against": [
+                    {
+                      "evidence_id": "ev-claim-contrary",
+                      "artifact_ref": {
+                        "artifact_id": "artifact-ev-claim-contrary",
+                        "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                        "schema_name": "p9_backtest_metrics_bundle_v1",
+                        "schema_version": "1.0.0",
+                        "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "producer_module_id": "P9.S4.M08",
+                        "run_id": "run-1",
+                        "cycle": {
+                          "cycle_id": "cycle-5",
+                          "ordinal": 5
+                        },
+                        "available_at": "2026-08-03T17:00:00Z",
+                        "location": "artifact://run-1/artifact-ev-claim-contrary"
+                      },
+                      "quality": "FACTUAL_OBSERVED",
+                      "summary": "independently produced upstream evidence"
+                    }
+                  ],
+                  "confidence": 0.7,
+                  "materiality": 0.1,
+                  "validity_start": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "expires_after_cycle": null,
+                  "source_cycles": [
+                    {
+                      "cycle_id": "cycle-5",
+                      "ordinal": 5
+                    }
+                  ],
+                  "supersedes_item_ids": [],
+                  "contradicts_item_ids": [],
+                  "export_blocked": false,
+                  "export_block_reasons": []
+                },
+                {
+                  "item_id": "research-memory-7ec6f3fb472902056fd8edbd",
+                  "semantic_key": "capacity-breakpoint",
+                  "item_type": "BREAKPOINT_MEMORY",
+                  "state": "ACTIVE",
+                  "claim": "A nearby participation breakpoint caused unacceptable market impact.",
+                  "abstract_claim": "Aggressive participation can create a nearby capacity breakpoint.",
+                  "scope": {
+                    "phases": [
+                      "P6",
+                      "P8"
+                    ],
+                    "policy_ids": [
+                      "p6-pricing",
+                      "p8-capacity"
+                    ],
+                    "regimes": [
+                      "high-cost"
+                    ],
+                    "asset_families": []
+                  },
+                  "causal_status": "ATTRIBUTED",
+                  "evidence_for": [
+                    {
+                      "evidence_id": "ev-claim-negative",
+                      "artifact_ref": {
+                        "artifact_id": "artifact-ev-claim-negative",
+                        "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                        "schema_name": "p9_backtest_metrics_bundle_v1",
+                        "schema_version": "1.0.0",
+                        "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "producer_module_id": "P9.S4.M08",
+                        "run_id": "run-1",
+                        "cycle": {
+                          "cycle_id": "cycle-5",
+                          "ordinal": 5
+                        },
+                        "available_at": "2026-08-03T17:00:00Z",
+                        "location": "artifact://run-1/artifact-ev-claim-negative"
+                      },
+                      "quality": "FACTUAL_EXECUTED",
+                      "summary": "independently produced upstream evidence"
+                    }
+                  ],
+                  "evidence_against": [],
+                  "confidence": 0.92,
+                  "materiality": 0.2,
+                  "validity_start": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "expires_after_cycle": null,
+                  "source_cycles": [
+                    {
+                      "cycle_id": "cycle-5",
+                      "ordinal": 5
+                    }
+                  ],
+                  "supersedes_item_ids": [],
+                  "contradicts_item_ids": [],
+                  "export_blocked": false,
+                  "export_block_reasons": []
+                },
+                {
+                  "item_id": "research-memory-d291a49887498a26928a63c2",
+                  "semantic_key": "cost-buffer-underestimation",
+                  "item_type": "SUPPORTED_LESSON",
+                  "state": "ACTIVE",
+                  "claim": "Observed execution costs exceeded the P6 pricing buffer.",
+                  "abstract_claim": "Pricing buffers can become insufficient in high-cost regimes.",
+                  "scope": {
+                    "phases": [
+                      "P6",
+                      "P8"
+                    ],
+                    "policy_ids": [
+                      "p6-pricing",
+                      "p8-capacity"
+                    ],
+                    "regimes": [
+                      "high-cost"
+                    ],
+                    "asset_families": []
+                  },
+                  "causal_status": "ATTRIBUTED",
+                  "evidence_for": [
+                    {
+                      "evidence_id": "ev-claim-supported",
+                      "artifact_ref": {
+                        "artifact_id": "artifact-ev-claim-supported",
+                        "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                        "schema_name": "p9_backtest_metrics_bundle_v1",
+                        "schema_version": "1.0.0",
+                        "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        "producer_module_id": "P9.S4.M08",
+                        "run_id": "run-1",
+                        "cycle": {
+                          "cycle_id": "cycle-5",
+                          "ordinal": 5
+                        },
+                        "available_at": "2026-08-03T17:00:00Z",
+                        "location": "artifact://run-1/artifact-ev-claim-supported"
+                      },
+                      "quality": "FACTUAL_EXECUTED",
+                      "summary": "independently produced upstream evidence"
+                    }
+                  ],
+                  "evidence_against": [],
+                  "confidence": 0.95,
+                  "materiality": 0.15,
+                  "validity_start": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "expires_after_cycle": null,
+                  "source_cycles": [
+                    {
+                      "cycle_id": "cycle-5",
+                      "ordinal": 5
+                    }
+                  ],
+                  "supersedes_item_ids": [],
+                  "contradicts_item_ids": [],
+                  "export_blocked": false,
+                  "export_block_reasons": []
+                }
+              ],
+              "snapshot_sha256": "d180723f8edf4fff79d9af66fa903c07c023f184bd44d97c57c8889e59e844b7"
+            },
+            "added_item_ids": [
+              "research-memory-73cc0aa1afda0d671fffb2a4",
+              "research-memory-7ec6f3fb472902056fd8edbd",
+              "research-memory-d291a49887498a26928a63c2"
+            ],
+            "superseded_item_ids": [],
+            "unchanged_item_ids": [],
+            "warnings": []
+          },
+          "p3_handoff": {
+            "contract_name": "P9_RESEARCH_CONTEXT_HANDOFF_V1",
+            "contract_version": "1.0.0",
+            "destination": "P3_RESEARCH_CONTEXT_ONLY",
+            "state": "P3_CONTEXT_READY",
+            "context_items": [
+              {
+                "context_item_id": "p3-research-context-9575dec9a4728e685a80c65a",
+                "category": "FAILURE_PATTERN",
+                "abstract_claim": "Aggressive participation can create a nearby capacity breakpoint.",
+                "uncertainty": "Confidence 0.920; interpretation remains bounded by the declared scope, regimes, and evidence quality.",
+                "research_question": "Under which observable conditions does this failure pattern reappear?",
+                "scope": {
+                  "phases": [
+                    "P6",
+                    "P8"
+                  ],
+                  "policy_ids": [
+                    "p6-pricing",
+                    "p8-capacity"
+                  ],
+                  "regimes": [
+                    "high-cost"
+                  ],
+                  "asset_families": []
+                },
+                "source_memory_item_id": "research-memory-7ec6f3fb472902056fd8edbd",
+                "evidence_quality": "FACTUAL_EXECUTED",
+                "world_memory_write_allowed": false
+              },
+              {
+                "context_item_id": "p3-research-context-8bc661ef69a4e20123dadaa2",
+                "category": "ABSTRACT_LESSON",
+                "abstract_claim": "Pricing buffers can become insufficient in high-cost regimes.",
+                "uncertainty": "Confidence 0.950; interpretation remains bounded by the declared scope, regimes, and evidence quality.",
+                "research_question": "Can this abstract relationship be reproduced in a future, leakage-safe cycle?",
+                "scope": {
+                  "phases": [
+                    "P6",
+                    "P8"
+                  ],
+                  "policy_ids": [
+                    "p6-pricing",
+                    "p8-capacity"
+                  ],
+                  "regimes": [
+                    "high-cost"
+                  ],
+                  "asset_families": []
+                },
+                "source_memory_item_id": "research-memory-d291a49887498a26928a63c2",
+                "evidence_quality": "FACTUAL_EXECUTED",
+                "world_memory_write_allowed": false
+              },
+              {
+                "context_item_id": "p3-research-context-9f5f36f6ee3220e3fa249032",
+                "category": "RESEARCH_HYPOTHESIS",
+                "abstract_claim": "Capacity and cost controls may require joint evaluation.",
+                "uncertainty": "Confidence 0.700; contrary evidence remains and the claim is valid only inside the declared scope.",
+                "research_question": "Can this abstract relationship be reproduced in a future, leakage-safe cycle?",
+                "scope": {
+                  "phases": [
+                    "P6",
+                    "P8"
+                  ],
+                  "policy_ids": [
+                    "p6-pricing",
+                    "p8-capacity"
+                  ],
+                  "regimes": [
+                    "high-cost"
+                  ],
+                  "asset_families": []
+                },
+                "source_memory_item_id": "research-memory-73cc0aa1afda0d671fffb2a4",
+                "evidence_quality": "FACTUAL_OBSERVED",
+                "world_memory_write_allowed": false
+              }
+            ],
+            "blocked_memory_item_ids": [],
+            "reason_codes": [],
+            "world_memory_write_allowed": false
+          },
+          "p3_manifest": {
+            "manifest_id": "p3-context-manifest-c397638df6bfbdb8750cdd47",
+            "source_memory_snapshot_sha256": "d180723f8edf4fff79d9af66fa903c07c023f184bd44d97c57c8889e59e844b7",
+            "handoff_sha256": "c397638df6bfbdb8750cdd4782c84e8812324f05e6fcec5b0eb16d0748192453",
+            "contract_name": "P9_RESEARCH_CONTEXT_HANDOFF_V1",
+            "contract_version": "1.0.0",
+            "context_item_ids": [
+              "p3-research-context-9575dec9a4728e685a80c65a",
+              "p3-research-context-8bc661ef69a4e20123dadaa2",
+              "p3-research-context-9f5f36f6ee3220e3fa249032"
+            ],
+            "blocked_memory_item_ids": [],
+            "created_at": "2026-08-03T18:00:00Z"
+          }
+        },
+        "diagnostics": {
+          "warnings": [],
+          "counters": [
+            [
+              "incoming_item_count",
+              3
+            ],
+            [
+              "memory_item_count",
+              3
+            ],
+            [
+              "p3_context_item_count",
+              3
+            ],
+            [
+              "blocked_item_count",
+              0
+            ]
+          ],
+          "scalars": [],
+          "trace": [
+            "system research memory updated separately from P3 research context",
+            "world memory writes remained disabled"
+          ]
+        },
+        "evidence_refs": [],
+        "reason_codes": [],
+        "output_sha256": "22c8bd87e911f04443be5f6b422ddf3bc61d13107b703f53c9c0fe4dd3914bca"
+      },
+      "effectiveness_result": {
+        "module_id": "P9.S10.M03",
+        "status": "SUCCESS",
+        "output": {
+          "report": {
+            "policy_id": "feedback-effectiveness-policy",
+            "assessments": [
+              {
+                "feedback_id": "fb-p6-e90970879325ca68",
+                "state": "EFFECTIVE",
+                "metric_id": "net_competition_score",
+                "sample_size": 6,
+                "mean_effect": 0.10000000000000009,
+                "standard_error": 0.0,
+                "confidence_lower": 0.10000000000000009,
+                "confidence_upper": 0.10000000000000009,
+                "guardrail_regressions": [],
+                "policy_diff_sha256": "a212f2c8d12752b00aea0177f390ba332f659c72750e431aabc8c6b51c36d9aa",
+                "confounded": false,
+                "evidence_refs": [
+                  {
+                    "evidence_id": "ev-root-p6",
+                    "artifact_ref": {
+                      "artifact_id": "artifact-ev-root-p6",
+                      "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                      "schema_name": "p9_backtest_metrics_bundle_v1",
+                      "schema_version": "1.0.0",
+                      "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "producer_module_id": "P9.S4.M08",
+                      "run_id": "run-1",
+                      "cycle": {
+                        "cycle_id": "cycle-5",
+                        "ordinal": 5
+                      },
+                      "available_at": "2026-08-03T17:00:00Z",
+                      "location": "artifact://run-1/artifact-ev-root-p6"
+                    },
+                    "quality": "FACTUAL_EXECUTED",
+                    "summary": "independently produced upstream evidence"
+                  }
+                ],
+                "reason_codes": []
+              },
+              {
+                "feedback_id": "fb-p8-f4f737fb8fc66cb8",
+                "state": "EFFECTIVE",
+                "metric_id": "net_competition_score",
+                "sample_size": 6,
+                "mean_effect": 0.10000000000000009,
+                "standard_error": 0.0,
+                "confidence_lower": 0.10000000000000009,
+                "confidence_upper": 0.10000000000000009,
+                "guardrail_regressions": [],
+                "policy_diff_sha256": "a212f2c8d12752b00aea0177f390ba332f659c72750e431aabc8c6b51c36d9aa",
+                "confounded": false,
+                "evidence_refs": [
+                  {
+                    "evidence_id": "ev-root-p8",
+                    "artifact_ref": {
+                      "artifact_id": "artifact-ev-root-p8",
+                      "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                      "schema_name": "p9_backtest_metrics_bundle_v1",
+                      "schema_version": "1.0.0",
+                      "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "producer_module_id": "P9.S4.M08",
+                      "run_id": "run-1",
+                      "cycle": {
+                        "cycle_id": "cycle-5",
+                        "ordinal": 5
+                      },
+                      "available_at": "2026-08-03T17:00:00Z",
+                      "location": "artifact://run-1/artifact-ev-root-p8"
+                    },
+                    "quality": "FACTUAL_EXECUTED",
+                    "summary": "independently produced upstream evidence"
+                  }
+                ],
+                "reason_codes": []
+              }
+            ],
+            "effective_count": 2,
+            "ineffective_count": 0,
+            "regressive_count": 0,
+            "inconclusive_count": 0,
+            "pending_count": 0,
+            "other_count": 0
+          },
+          "lifecycle_ledger": {
+            "previous_ledger_sha256": null,
+            "events": [
+              {
+                "event_id": "feedback-event-dfae9baacf551b51ebf27921",
+                "feedback_id": "fb-p6-e90970879325ca68",
+                "state": "EFFECTIVE",
+                "cycle": {
+                  "cycle_id": "cycle-5",
+                  "ordinal": 5
+                },
+                "event_time": "2026-08-03T18:00:00Z",
+                "reason_codes": [],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "ev-root-p6",
+                    "artifact_ref": {
+                      "artifact_id": "artifact-ev-root-p6",
+                      "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                      "schema_name": "p9_backtest_metrics_bundle_v1",
+                      "schema_version": "1.0.0",
+                      "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "producer_module_id": "P9.S4.M08",
+                      "run_id": "run-1",
+                      "cycle": {
+                        "cycle_id": "cycle-5",
+                        "ordinal": 5
+                      },
+                      "available_at": "2026-08-03T17:00:00Z",
+                      "location": "artifact://run-1/artifact-ev-root-p6"
+                    },
+                    "quality": "FACTUAL_EXECUTED",
+                    "summary": "independently produced upstream evidence"
+                  }
+                ]
+              },
+              {
+                "event_id": "feedback-event-c109541e3032b06dac1a4c66",
+                "feedback_id": "fb-p8-f4f737fb8fc66cb8",
+                "state": "EFFECTIVE",
+                "cycle": {
+                  "cycle_id": "cycle-5",
+                  "ordinal": 5
+                },
+                "event_time": "2026-08-03T18:00:00Z",
+                "reason_codes": [],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "ev-root-p8",
+                    "artifact_ref": {
+                      "artifact_id": "artifact-ev-root-p8",
+                      "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                      "schema_name": "p9_backtest_metrics_bundle_v1",
+                      "schema_version": "1.0.0",
+                      "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                      "producer_module_id": "P9.S4.M08",
+                      "run_id": "run-1",
+                      "cycle": {
+                        "cycle_id": "cycle-5",
+                        "ordinal": 5
+                      },
+                      "available_at": "2026-08-03T17:00:00Z",
+                      "location": "artifact://run-1/artifact-ev-root-p8"
+                    },
+                    "quality": "FACTUAL_EXECUTED",
+                    "summary": "independently produced upstream evidence"
+                  }
+                ]
+              }
+            ],
+            "ledger_sha256": "d095326f9cb50bb98bc95f7aa371db1b5bdb590faf10d91a953c243f20f547c3"
+          },
+          "regression_panel": {
+            "records": []
+          }
+        },
+        "diagnostics": {
+          "warnings": [],
+          "counters": [
+            [
+              "feedback_count",
+              2
+            ],
+            [
+              "effective_count",
+              2
+            ],
+            [
+              "ineffective_count",
+              0
+            ],
+            [
+              "regressive_count",
+              0
+            ],
+            [
+              "inconclusive_count",
+              0
+            ],
+            [
+              "pending_count",
+              0
+            ]
+          ],
+          "scalars": [],
+          "trace": [
+            "feedback effects were evaluated only after authorization and activation",
+            "critical guardrail regressions override target-metric improvements"
+          ]
+        },
+        "evidence_refs": [
+          {
+            "evidence_id": "ev-root-p6",
+            "artifact_ref": {
+              "artifact_id": "artifact-ev-root-p6",
+              "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+              "schema_name": "p9_backtest_metrics_bundle_v1",
+              "schema_version": "1.0.0",
+              "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "producer_module_id": "P9.S4.M08",
+              "run_id": "run-1",
+              "cycle": {
+                "cycle_id": "cycle-5",
+                "ordinal": 5
+              },
+              "available_at": "2026-08-03T17:00:00Z",
+              "location": "artifact://run-1/artifact-ev-root-p6"
+            },
+            "quality": "FACTUAL_EXECUTED",
+            "summary": "independently produced upstream evidence"
+          },
+          {
+            "evidence_id": "ev-root-p8",
+            "artifact_ref": {
+              "artifact_id": "artifact-ev-root-p8",
+              "artifact_role": "P9_BACKTEST_METRICS_BUNDLE_V1",
+              "schema_name": "p9_backtest_metrics_bundle_v1",
+              "schema_version": "1.0.0",
+              "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "producer_module_id": "P9.S4.M08",
+              "run_id": "run-1",
+              "cycle": {
+                "cycle_id": "cycle-5",
+                "ordinal": 5
+              },
+              "available_at": "2026-08-03T17:00:00Z",
+              "location": "artifact://run-1/artifact-ev-root-p8"
+            },
+            "quality": "FACTUAL_EXECUTED",
+            "summary": "independently produced upstream evidence"
+          }
+        ],
+        "reason_codes": [],
+        "output_sha256": "06ef3890894ac25a9deb7003df4832af0b6ae501f10fcea738dbf8040f007870"
+      },
+      "release_candidate_result": {
+        "module_id": "P9.S10.M04",
+        "status": "SUCCESS",
+        "output": {
+          "release_state": "RELEASE_READY_FOR_P0",
+          "release_manifest_without_s10": {
+            "release_id": "p9-release-51c65a69142b6f953111cf5b",
+            "source_cycle": {
+              "cycle_id": "cycle-5",
+              "ordinal": 5
+            },
+            "release_state": "RELEASE_READY_FOR_P0",
+            "subphase_receipts": [
+              {
+                "subphase_id": "P9.S1",
+                "status": "SUCCESS",
+                "receipt_ref": {
+                  "artifact_id": "receipt-p9-s1",
+                  "artifact_role": "subphase_execution_receipt",
+                  "schema_name": "subphase_execution_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S1.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/receipt-p9-s1"
+                },
+                "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "limitations": []
+              },
+              {
+                "subphase_id": "P9.S2",
+                "status": "SUCCESS",
+                "receipt_ref": {
+                  "artifact_id": "receipt-p9-s2",
+                  "artifact_role": "subphase_execution_receipt",
+                  "schema_name": "subphase_execution_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S2.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/receipt-p9-s2"
+                },
+                "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "limitations": []
+              },
+              {
+                "subphase_id": "P9.S3",
+                "status": "SUCCESS",
+                "receipt_ref": {
+                  "artifact_id": "receipt-p9-s3",
+                  "artifact_role": "subphase_execution_receipt",
+                  "schema_name": "subphase_execution_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S3.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/receipt-p9-s3"
+                },
+                "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "limitations": []
+              },
+              {
+                "subphase_id": "P9.S4",
+                "status": "SUCCESS",
+                "receipt_ref": {
+                  "artifact_id": "receipt-p9-s4",
+                  "artifact_role": "subphase_execution_receipt",
+                  "schema_name": "subphase_execution_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S4.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/receipt-p9-s4"
+                },
+                "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "limitations": []
+              },
+              {
+                "subphase_id": "P9.S5",
+                "status": "SUCCESS",
+                "receipt_ref": {
+                  "artifact_id": "receipt-p9-s5",
+                  "artifact_role": "subphase_execution_receipt",
+                  "schema_name": "subphase_execution_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S5.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/receipt-p9-s5"
+                },
+                "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "limitations": []
+              },
+              {
+                "subphase_id": "P9.S6",
+                "status": "SUCCESS",
+                "receipt_ref": {
+                  "artifact_id": "receipt-p9-s6",
+                  "artifact_role": "subphase_execution_receipt",
+                  "schema_name": "subphase_execution_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S6.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/receipt-p9-s6"
+                },
+                "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "limitations": []
+              },
+              {
+                "subphase_id": "P9.S7",
+                "status": "SUCCESS",
+                "receipt_ref": {
+                  "artifact_id": "receipt-p9-s7",
+                  "artifact_role": "subphase_execution_receipt",
+                  "schema_name": "subphase_execution_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S7.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/receipt-p9-s7"
+                },
+                "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "limitations": []
+              },
+              {
+                "subphase_id": "P9.S8",
+                "status": "SUCCESS",
+                "receipt_ref": {
+                  "artifact_id": "receipt-p9-s8",
+                  "artifact_role": "subphase_execution_receipt",
+                  "schema_name": "subphase_execution_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S8.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/receipt-p9-s8"
+                },
+                "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "limitations": []
+              },
+              {
+                "subphase_id": "P9.S9",
+                "status": "SUCCESS",
+                "receipt_ref": {
+                  "artifact_id": "receipt-p9-s9",
+                  "artifact_role": "subphase_execution_receipt",
+                  "schema_name": "subphase_execution_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S9.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/receipt-p9-s9"
+                },
+                "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "limitations": []
+              }
+            ],
+            "artifacts": [
+              {
+                "artifact_role": "s9_execution_envelope",
+                "schema_name": "S9ExecutionEnvelope",
+                "schema_version": "1.0.0",
+                "payload_sha256": "f4e3b68312bb8ab8f863c1df31894622fced21d48204bf9161d0abe5c80aa320",
+                "producer_module_id": "P9.S9.M07",
+                "record_count": 1,
+                "limitations": []
+              },
+              {
+                "artifact_role": "normalized_research_memory",
+                "schema_name": "NormalizedResearchMemoryBundle",
+                "schema_version": "1.0.0",
+                "payload_sha256": "40b734c3cbdcf6db3efd8eae16294813a437ca7cba3fe935facd15d452f9e298",
+                "producer_module_id": "P9.S10.M01",
+                "record_count": 3,
+                "limitations": []
+              },
+              {
+                "artifact_role": "system_research_memory_update",
+                "schema_name": "SystemResearchMemoryUpdate",
+                "schema_version": "1.0.0",
+                "payload_sha256": "e61b835a902e7939982cf670abe9383facc926c135a72bd663d30a8922df6c00",
+                "producer_module_id": "P9.S10.M02",
+                "record_count": 3,
+                "limitations": []
+              },
+              {
+                "artifact_role": "p3_research_context_handoff",
+                "schema_name": "P3ResearchContextHandoff",
+                "schema_version": "1.0.0",
+                "payload_sha256": "c397638df6bfbdb8750cdd4782c84e8812324f05e6fcec5b0eb16d0748192453",
+                "producer_module_id": "P9.S10.M02",
+                "record_count": 3,
+                "limitations": []
+              },
+              {
+                "artifact_role": "feedback_effectiveness_report",
+                "schema_name": "FeedbackEffectivenessReport",
+                "schema_version": "1.0.0",
+                "payload_sha256": "08e27406665798f7c32b9ea70f728b72117ad45917872837a85d588cad34c99a",
+                "producer_module_id": "P9.S10.M03",
+                "record_count": 2,
+                "limitations": []
+              },
+              {
+                "artifact_role": "feedback_lifecycle_ledger",
+                "schema_name": "FeedbackLifecycleLedger",
+                "schema_version": "1.0.0",
+                "payload_sha256": "19cc2c38bbc891899a04ed5db78b1ac11363dc92be655f35c4ea193ef41c010c",
+                "producer_module_id": "P9.S10.M03",
+                "record_count": 2,
+                "limitations": []
+              }
+            ],
+            "material_limitations": [],
+            "created_at": "2026-08-03T18:00:00Z",
+            "manifest_sha256": "5c65006eaa1f941805b546ad84ade514088e5533d79a66d6397f48e71ff37226"
+          },
+          "p0_authorization_manifest": {
+            "release_id": "p9-release-51c65a69142b6f953111cf5b",
+            "request_id": "p0-7dfcb3d8df9a4e87",
+            "recommendation_id": "rec-f4bf6a83ea811231",
+            "authorization_state": "PENDING_P0",
+            "request_payload_sha256": "ccab05f37beb97ebd359a090400e4a3726a1cfd91c5ba91fca5edc7d4e7d1dd4"
+          },
+          "p3_handoff_manifest_sha256": "68a17a973e7105fab14a36426fb34c93308064f78941fede33c00ccee6020b95",
+          "feedback_distribution_manifest": {
+            "accepted_feedback_ids": [
+              "fb-p6-e90970879325ca68",
+              "fb-p8-f4f737fb8fc66cb8"
+            ],
+            "rejected_feedback_ids": [],
+            "reserved_feedback_ids": [],
+            "activated_feedback_ids": []
+          },
+          "phase09_delivery_manifest": {
+            "producer_id": "PHASE09_RELEASE",
+            "module_ids": [
+              "P9.S9.M01",
+              "P9.S9.M02",
+              "P9.S9.M03",
+              "P9.S9.M04",
+              "P9.S9.M05",
+              "P9.S9.M06",
+              "P9.S9.M07",
+              "P9.S10.M01",
+              "P9.S10.M02",
+              "P9.S10.M03",
+              "P9.S10.M04"
+            ],
+            "source_tree_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "s9_wheel_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "s10_wheel_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "consumer_receipts": [
+              {
+                "consumer_id": "PHASE09_RELEASE",
+                "source_contract_name": "P9_FOUNDATION_EXPERIMENT_BUNDLE_V1",
+                "source_contract_version": "1.0.0",
+                "receipt_ref": {
+                  "artifact_id": "consumer-receipt-foundation",
+                  "artifact_role": "consumer_receipt",
+                  "schema_name": "consumer_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S9.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/consumer-receipt-foundation"
+                },
+                "accepted_count": 1,
+                "rejected_count": 0,
+                "reserved_count": 0
+              },
+              {
+                "consumer_id": "PHASE09_RELEASE",
+                "source_contract_name": "P9_BACKTEST_METRICS_BUNDLE_V1",
+                "source_contract_version": "1.0.0",
+                "receipt_ref": {
+                  "artifact_id": "consumer-receipt-backtest-metrics",
+                  "artifact_role": "consumer_receipt",
+                  "schema_name": "consumer_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S9.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/consumer-receipt-backtest-metrics"
+                },
+                "accepted_count": 1,
+                "rejected_count": 0,
+                "reserved_count": 0
+              },
+              {
+                "consumer_id": "PHASE09_RELEASE",
+                "source_contract_name": "P9_ROBUSTNESS_STRESS_BUNDLE_V1",
+                "source_contract_version": "1.0.0",
+                "receipt_ref": {
+                  "artifact_id": "consumer-receipt-robustness-stress",
+                  "artifact_role": "consumer_receipt",
+                  "schema_name": "consumer_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S9.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/consumer-receipt-robustness-stress"
+                },
+                "accepted_count": 1,
+                "rejected_count": 0,
+                "reserved_count": 0
+              },
+              {
+                "consumer_id": "PHASE09_RELEASE",
+                "source_contract_name": "P9_PROSPECTIVE_ATTRIBUTION_BUNDLE_V1",
+                "source_contract_version": "1.0.0",
+                "receipt_ref": {
+                  "artifact_id": "consumer-receipt-prospective-attribution",
+                  "artifact_role": "consumer_receipt",
+                  "schema_name": "consumer_receipt",
+                  "schema_version": "1.0.0",
+                  "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "producer_module_id": "P9.S9.M01",
+                  "run_id": "run-1",
+                  "cycle": {
+                    "cycle_id": "cycle-5",
+                    "ordinal": 5
+                  },
+                  "available_at": "2026-08-03T17:00:00Z",
+                  "location": "artifact://run-1/consumer-receipt-prospective-attribution"
+                },
+                "accepted_count": 1,
+                "rejected_count": 0,
+                "reserved_count": 0
+              }
+            ],
+            "build_environment": {
+              "python_version": "3.13.5",
+              "platform": "linux-x86_64",
+              "pydantic_version": "2.13.4",
+              "s9_distribution_version": "0.1.0rc1",
+              "s10_distribution_version": "0.1.0rc1",
+              "dependency_lock_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "test_summary": {
+              "total": 1,
+              "passed": 1,
+              "failed": 0,
+              "line_coverage_percent": 100.0,
+              "branch_coverage_percent": 100.0,
+              "report_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          },
+          "reason_codes": [],
+          "limitations": []
+        },
+        "diagnostics": {
+          "warnings": [],
+          "counters": [
+            [
+              "upstream_receipt_count",
+              9
+            ],
+            [
+              "consumer_receipt_count",
+              4
+            ],
+            [
+              "release_artifact_count",
+              6
+            ]
+          ],
+          "scalars": [],
+          "trace": [
+            "release candidate created before S10 envelope sealing",
+            "P0 authorization remained pending",
+            "feedback activation remained prohibited"
+          ]
+        },
+        "evidence_refs": [],
+        "reason_codes": [],
+        "output_sha256": "cf61a6a111ae910a5adb4ec250ffcf1c0bb0aedd2a3b9953c3b90db4033e256b"
+      },
+      "subphase_state": "P9_RELEASE_READY",
+      "created_at": "2026-08-03T18:00:00Z"
+    },
+    "payload_sha256": "b2d02cf14440174f0732a2dfaee8995510b3edebe754f66890bc05601cda4a0d"
+  },
+  "publication_manifest": {
+    "release_id": "p9-release-51c65a69142b6f953111cf5b",
+    "all_subphase_receipts": [
+      {
+        "subphase_id": "P9.S1",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "receipt-p9-s1",
+          "artifact_role": "subphase_execution_receipt",
+          "schema_name": "subphase_execution_receipt",
+          "schema_version": "1.0.0",
+          "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "producer_module_id": "P9.S1.M01",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T17:00:00Z",
+          "location": "artifact://run-1/receipt-p9-s1"
+        },
+        "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "limitations": []
+      },
+      {
+        "subphase_id": "P9.S10",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "p9-s10-receipt-b2d02cf14440174f0732a2df",
+          "artifact_role": "p9_s10_subphase_execution_receipt",
+          "schema_name": "S10ExecutionEnvelope",
+          "schema_version": "1.0.0",
+          "schema_sha256": "244c75a11f891c6132fe98ae0f86168e7a1804b4682e8ecbacc92400a9e72d08",
+          "payload_sha256": "b2d02cf14440174f0732a2dfaee8995510b3edebe754f66890bc05601cda4a0d",
+          "producer_module_id": "P9.S10.M04",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T18:00:00Z",
+          "location": "memory://p9/s10/b2d02cf14440174f0732a2dfaee8995510b3edebe754f66890bc05601cda4a0d"
+        },
+        "output_sha256": "b2d02cf14440174f0732a2dfaee8995510b3edebe754f66890bc05601cda4a0d",
+        "limitations": []
+      },
+      {
+        "subphase_id": "P9.S2",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "receipt-p9-s2",
+          "artifact_role": "subphase_execution_receipt",
+          "schema_name": "subphase_execution_receipt",
+          "schema_version": "1.0.0",
+          "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "producer_module_id": "P9.S2.M01",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T17:00:00Z",
+          "location": "artifact://run-1/receipt-p9-s2"
+        },
+        "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "limitations": []
+      },
+      {
+        "subphase_id": "P9.S3",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "receipt-p9-s3",
+          "artifact_role": "subphase_execution_receipt",
+          "schema_name": "subphase_execution_receipt",
+          "schema_version": "1.0.0",
+          "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "producer_module_id": "P9.S3.M01",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T17:00:00Z",
+          "location": "artifact://run-1/receipt-p9-s3"
+        },
+        "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "limitations": []
+      },
+      {
+        "subphase_id": "P9.S4",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "receipt-p9-s4",
+          "artifact_role": "subphase_execution_receipt",
+          "schema_name": "subphase_execution_receipt",
+          "schema_version": "1.0.0",
+          "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "producer_module_id": "P9.S4.M01",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T17:00:00Z",
+          "location": "artifact://run-1/receipt-p9-s4"
+        },
+        "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "limitations": []
+      },
+      {
+        "subphase_id": "P9.S5",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "receipt-p9-s5",
+          "artifact_role": "subphase_execution_receipt",
+          "schema_name": "subphase_execution_receipt",
+          "schema_version": "1.0.0",
+          "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "producer_module_id": "P9.S5.M01",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T17:00:00Z",
+          "location": "artifact://run-1/receipt-p9-s5"
+        },
+        "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "limitations": []
+      },
+      {
+        "subphase_id": "P9.S6",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "receipt-p9-s6",
+          "artifact_role": "subphase_execution_receipt",
+          "schema_name": "subphase_execution_receipt",
+          "schema_version": "1.0.0",
+          "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "producer_module_id": "P9.S6.M01",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T17:00:00Z",
+          "location": "artifact://run-1/receipt-p9-s6"
+        },
+        "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "limitations": []
+      },
+      {
+        "subphase_id": "P9.S7",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "receipt-p9-s7",
+          "artifact_role": "subphase_execution_receipt",
+          "schema_name": "subphase_execution_receipt",
+          "schema_version": "1.0.0",
+          "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "producer_module_id": "P9.S7.M01",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T17:00:00Z",
+          "location": "artifact://run-1/receipt-p9-s7"
+        },
+        "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "limitations": []
+      },
+      {
+        "subphase_id": "P9.S8",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "receipt-p9-s8",
+          "artifact_role": "subphase_execution_receipt",
+          "schema_name": "subphase_execution_receipt",
+          "schema_version": "1.0.0",
+          "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "producer_module_id": "P9.S8.M01",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T17:00:00Z",
+          "location": "artifact://run-1/receipt-p9-s8"
+        },
+        "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "limitations": []
+      },
+      {
+        "subphase_id": "P9.S9",
+        "status": "SUCCESS",
+        "receipt_ref": {
+          "artifact_id": "receipt-p9-s9",
+          "artifact_role": "subphase_execution_receipt",
+          "schema_name": "subphase_execution_receipt",
+          "schema_version": "1.0.0",
+          "schema_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "producer_module_id": "P9.S9.M01",
+          "run_id": "run-1",
+          "cycle": {
+            "cycle_id": "cycle-5",
+            "ordinal": 5
+          },
+          "available_at": "2026-08-03T17:00:00Z",
+          "location": "artifact://run-1/receipt-p9-s9"
+        },
+        "output_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "limitations": []
+      }
+    ],
+    "s10_execution_sha256": "b2d02cf14440174f0732a2dfaee8995510b3edebe754f66890bc05601cda4a0d",
+    "candidate_release_manifest_sha256": "5c65006eaa1f941805b546ad84ade514088e5533d79a66d6397f48e71ff37226",
+    "publication_sha256": "195cb489d673e12de312ab6370ba64cd7fbed0fe432225ee4c4196924f1d354a"
+  },
+  "delivery_sha256": "0d63e467437d0a8ee00780076e3993a30e1298bc739f5b2628af82fa5067e19f"
+}

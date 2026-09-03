@@ -1,0 +1,171 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: representation_policy_registry
+type: object
+properties:
+  artifact_id:
+    type: string
+  artifact_name:
+    type: string
+  schema_version:
+    type: string
+  producer_phase:
+    type: string
+  producer_module_id:
+    type: string
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  record_count:
+    type: integer
+    minimum: 0
+  grain:
+    type: array
+    items:
+      type: string
+  lineage_id:
+    type: string
+  execution_status:
+    type: string
+  quality_status:
+    type: string
+  metadata:
+    type: object
+  alias_of:
+    type:
+    - string
+    - 'null'
+  records:
+    type: array
+    items:
+      type: object
+      properties:
+        fold_mode:
+          enum:
+          - expanding
+          - rolling
+        min_train_timestamps:
+          type: integer
+        validation_timestamps:
+          type: integer
+        step_timestamps:
+          type: integer
+        max_outer_folds:
+          type: integer
+        rolling_train_timestamps:
+          type:
+          - integer
+          - 'null'
+        min_train_rows:
+          type: integer
+        min_features:
+          type: integer
+        pca_variance_threshold:
+          type: number
+        max_components:
+          type: integer
+        sparse_pca_enabled:
+          type: boolean
+        sparse_alpha:
+          type: number
+        sparse_ridge_alpha:
+          type: number
+        sparse_max_iter:
+          type: integer
+        sparse_tol:
+          type: number
+        random_state:
+          type: integer
+        encoder_requested:
+          type: boolean
+        encoder_min_train_rows:
+          type: integer
+        encoder_min_modalities:
+          type: integer
+        encoder_max_epochs:
+          type: integer
+        encoder_patience:
+          type: integer
+        encoder_learning_rate:
+          type: number
+        encoder_weight_decay:
+          type: number
+        encoder_huber_delta:
+          type: number
+        encoder_configurations:
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            type: object
+            required:
+            - config_id
+            - bottleneck_ratio
+            - corruption_rate
+            - modality_dropout
+            properties:
+              config_id:
+                type: string
+              bottleneck_ratio:
+                type: number
+              corruption_rate:
+                type: number
+              modality_dropout:
+                type: number
+            additionalProperties: false
+      required:
+      - fold_mode
+      - min_train_timestamps
+      - validation_timestamps
+      - step_timestamps
+      - max_outer_folds
+      - rolling_train_timestamps
+      - min_train_rows
+      - min_features
+      - pca_variance_threshold
+      - max_components
+      - sparse_pca_enabled
+      - sparse_alpha
+      - sparse_ridge_alpha
+      - sparse_max_iter
+      - sparse_tol
+      - random_state
+      - encoder_requested
+      - encoder_min_train_rows
+      - encoder_min_modalities
+      - encoder_max_epochs
+      - encoder_patience
+      - encoder_learning_rate
+      - encoder_weight_decay
+      - encoder_huber_delta
+      - encoder_configurations
+      additionalProperties: false
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- record_count
+- grain
+- lineage_id
+- execution_status
+- quality_status
+- metadata
+- alias_of
+- records
+additionalProperties: false

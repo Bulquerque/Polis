@@ -1,0 +1,42 @@
+module_id: P0.S3.M02
+module_name: lineage_integrity_checker
+function: Validate structural contract lineage and, when runtime provenance metadata is present, artifact producer/parent
+  lineage and cycles.
+inputs: &id001
+- artifact_manifest_all_phases
+- validated_module_registry
+- contract_registry
+outputs: &id002
+- lineage_integrity_report
+validations:
+- lineage_id_present
+- output_points_to_producer
+fail_fast_conditions:
+- lineage_integrity_checker_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S1.M03
+    - P0.S2.M01
+    artifacts: *id001
+    phase_inputs:
+    - artifact_manifest_all_phases
+  emits_to:
+    modules:
+    - P0.S3.M03
+    - P0.S4.M05
+    artifacts: *id002
+    phase_outputs:
+    - lineage_integrity_report
+phase: P0
+subphase: P0.S3
+rc: RC4.1
+notes: Canonical P0.S3 module contract; public IDs, IO names and cross-subphase connections remain backward compatible.

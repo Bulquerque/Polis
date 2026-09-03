@@ -1,0 +1,90 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Temporal resolution report
+type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    type: string
+    minLength: 1
+  artifact_name:
+    type: string
+    minLength: 1
+  schema_id:
+    type: string
+    minLength: 1
+  schema_version:
+    type: string
+    minLength: 1
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+    minLength: 1
+  cycle_id:
+    type: string
+    minLength: 1
+  as_of_time:
+    type: string
+    format: date-time
+  decision_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+    minLength: 1
+  lineage_id:
+    type: string
+    minLength: 1
+  producer_module_id:
+    type: string
+    pattern: ^P4\.S2\.M0[1-4]$
+  content_hash:
+    type: string
+    pattern: ^[a-f0-9]{64}$
+  status:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        source_record_id:
+          type: string
+        artifact_name:
+          type: string
+        status:
+          type: string
+        available_at:
+          type: string
+          format: date-time
+        availability_resolution:
+          type: string
+        warnings:
+          type: array
+          items:
+            type: string
+      required:
+      - source_record_id
+      - artifact_name
+      - status
+      - available_at
+      - availability_resolution
+      - warnings
+required:
+- artifact_id
+- artifact_name
+- schema_id
+- schema_version
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- decision_time
+- pipeline_version
+- lineage_id
+- producer_module_id
+- content_hash
+- status
+- records

@@ -1,0 +1,44 @@
+artifact: underlying_forecast_panel
+grain:
+- date
+- underlying
+- forecast_model_version
+required_fields:
+- date
+- as_of_date
+- available_at
+- underlying
+- forecast_model_version
+- feature_set_id
+- expected_return_d
+- expected_return_w
+- expected_return_m
+- return_distribution_id
+- volatility_forecast
+- risk_score
+- tail_risk_score
+- drawdown_risk_score
+- correlation_structure_id
+- beta_dynamic
+- crowding_score
+- forecast_confidence
+- regime_context
+- regime_probability
+- ood_score
+- drift_safety_flag
+- lineage_id
+- pipeline_version
+forbidden_fields:
+- signal_direction
+- final_underlying_signal
+- buy_signal
+- sell_signal
+- neutral_signal
+- trade_decision
+- candidate_id
+- rank_score
+- portfolio_weight
+- target
+- future_return
+- realized_pnl
+schema_version: v14.1-rc4.1

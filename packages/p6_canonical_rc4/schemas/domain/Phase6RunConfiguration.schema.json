@@ -1,0 +1,1034 @@
+{
+  "$defs": {
+    "ArchiveMode": {
+      "enum": [
+        "GRID_ARCHIVE",
+        "CVT_ARCHIVE",
+        "CLUSTER_ARCHIVE"
+      ],
+      "title": "ArchiveMode",
+      "type": "string"
+    },
+    "GenerationBudget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_candidates_before_dedup": {
+          "default": 500,
+          "maximum": 100000,
+          "minimum": 1,
+          "title": "Max Candidates Before Dedup",
+          "type": "integer"
+        },
+        "max_candidates_per_template": {
+          "default": 20,
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Max Candidates Per Template",
+          "type": "integer"
+        },
+        "max_candidates_published": {
+          "default": 100,
+          "maximum": 10000,
+          "minimum": 1,
+          "title": "Max Candidates Published",
+          "type": "integer"
+        },
+        "max_contracts_considered": {
+          "default": 24,
+          "maximum": 500,
+          "minimum": 2,
+          "title": "Max Contracts Considered",
+          "type": "integer"
+        },
+        "max_expirations": {
+          "default": 1,
+          "maximum": 2,
+          "minimum": 1,
+          "title": "Max Expirations",
+          "type": "integer"
+        },
+        "max_legs": {
+          "default": 4,
+          "maximum": 6,
+          "minimum": 1,
+          "title": "Max Legs",
+          "type": "integer"
+        },
+        "max_memory_mb": {
+          "default": 512,
+          "maximum": 65536,
+          "minimum": 64,
+          "title": "Max Memory Mb",
+          "type": "integer"
+        },
+        "max_mutations": {
+          "default": 64,
+          "maximum": 10000,
+          "minimum": 0,
+          "title": "Max Mutations",
+          "type": "integer"
+        },
+        "max_quantity": {
+          "default": 2,
+          "maximum": 10,
+          "minimum": 1,
+          "title": "Max Quantity",
+          "type": "integer"
+        },
+        "max_solver_nodes": {
+          "default": 2000,
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Max Solver Nodes",
+          "type": "integer"
+        },
+        "max_solver_seconds": {
+          "default": 2,
+          "maximum": 3600,
+          "minimum": 0,
+          "title": "Max Solver Seconds",
+          "type": "integer"
+        },
+        "max_templates": {
+          "default": 16,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Max Templates",
+          "type": "integer"
+        }
+      },
+      "title": "GenerationBudget",
+      "type": "object"
+    },
+    "MutationOperator": {
+      "enum": [
+        "SHIFT_CENTER",
+        "MOVE_STRIKE",
+        "WIDEN_LEFT_WING",
+        "WIDEN_RIGHT_WING",
+        "NARROW_LEFT_WING",
+        "NARROW_RIGHT_WING",
+        "CHANGE_QUANTITY",
+        "ADD_PROTECTION",
+        "REMOVE_REDUNDANT_LEG",
+        "REPLACE_LEG",
+        "CHANGE_EXPIRATION",
+        "ADD_UNDERLYING",
+        "REMOVE_UNDERLYING",
+        "SPLIT_QUANTITY",
+        "MERGE_IDENTICAL_LEGS"
+      ],
+      "title": "MutationOperator",
+      "type": "string"
+    },
+    "MutationPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_underlying_overlay": {
+          "default": true,
+          "title": "Allow Underlying Overlay",
+          "type": "boolean"
+        },
+        "enabled_operators": {
+          "default": [
+            "MOVE_STRIKE",
+            "CHANGE_QUANTITY",
+            "ADD_UNDERLYING",
+            "REMOVE_REDUNDANT_LEG"
+          ],
+          "items": {
+            "$ref": "#/$defs/MutationOperator"
+          },
+          "title": "Enabled Operators",
+          "type": "array"
+        },
+        "max_applications_per_candidate": {
+          "default": 2,
+          "maximum": 10,
+          "minimum": 0,
+          "title": "Max Applications Per Candidate",
+          "type": "integer"
+        },
+        "max_children_per_parent": {
+          "default": 4,
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Max Children Per Parent",
+          "type": "integer"
+        },
+        "overlay_quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "maximum": 2.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.25",
+          "title": "Overlay Quantity"
+        },
+        "policy_version": {
+          "default": "wave2-mutation-v1",
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "require_distinct_economic_fingerprint": {
+          "default": true,
+          "title": "Require Distinct Economic Fingerprint",
+          "type": "boolean"
+        }
+      },
+      "title": "MutationPolicy",
+      "type": "object"
+    },
+    "ObjectiveFamily": {
+      "enum": [
+        "DIRECTIONAL_UP",
+        "DIRECTIONAL_DOWN",
+        "RANGE",
+        "LONG_VOLATILITY",
+        "SHORT_VOLATILITY_DEFINED_RISK",
+        "POSITIVE_CONVEXITY",
+        "TAIL_HEDGE",
+        "INCOME_DEFINED_RISK",
+        "SKEW_RELATIVE_VALUE",
+        "TERM_STRUCTURE",
+        "EVENT",
+        "PORTFOLIO_HEDGE",
+        "HYBRID"
+      ],
+      "title": "ObjectiveFamily",
+      "type": "string"
+    },
+    "OperationalMode": {
+      "enum": [
+        "TEMPLATE_ONLY",
+        "TEMPLATE_MUTATION",
+        "INVERSE_DESIGN",
+        "QUALITY_DIVERSITY",
+        "CHALLENGER"
+      ],
+      "title": "OperationalMode",
+      "type": "string"
+    },
+    "P5CompatibilityPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_abstained_beliefs": {
+          "default": false,
+          "title": "Allow Abstained Beliefs",
+          "type": "boolean"
+        },
+        "horizon_time_basis": {
+          "default": "CALENDAR_DAYS",
+          "enum": [
+            "CALENDAR_DAYS",
+            "TRADING_DAYS_WEEKDAY"
+          ],
+          "title": "Horizon Time Basis",
+          "type": "string"
+        },
+        "max_distribution_scenarios": {
+          "default": 101,
+          "maximum": 1001,
+          "minimum": 1,
+          "title": "Max Distribution Scenarios",
+          "type": "integer"
+        },
+        "maximum_expiration_gap_days": {
+          "default": 45,
+          "maximum": 3650,
+          "minimum": 0,
+          "title": "Maximum Expiration Gap Days",
+          "type": "integer"
+        },
+        "option_expiration_selection": {
+          "default": "FIRST_ON_OR_AFTER",
+          "enum": [
+            "EXACT",
+            "FIRST_ON_OR_AFTER",
+            "NEAREST"
+          ],
+          "title": "Option Expiration Selection",
+          "type": "string"
+        },
+        "policy_version": {
+          "default": "p5-rc34-native-v2",
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "preferred_horizon_days": {
+          "anyOf": [
+            {
+              "maximum": 3650,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Preferred Horizon Days"
+        },
+        "require_exact_option_horizon_match": {
+          "default": false,
+          "title": "Require Exact Option Horizon Match",
+          "type": "boolean"
+        }
+      },
+      "title": "P5CompatibilityPolicy",
+      "type": "object"
+    },
+    "PricingPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "dividend_yield": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Dividend Yield"
+        },
+        "fee_per_leg": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Fee Per Leg"
+        },
+        "greek_method": {
+          "default": "BLACK_SCHOLES_MERTON",
+          "title": "Greek Method",
+          "type": "string"
+        },
+        "pathwise_method": {
+          "default": "BLACK_SCHOLES_PROXY",
+          "title": "Pathwise Method",
+          "type": "string"
+        },
+        "risk_free_rate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.05",
+          "title": "Risk Free Rate"
+        },
+        "slippage_fraction_of_spread": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.25",
+          "title": "Slippage Fraction Of Spread"
+        }
+      },
+      "title": "PricingPolicy",
+      "type": "object"
+    },
+    "PublicationPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_mode": {
+          "$ref": "#/$defs/ArchiveMode",
+          "default": "GRID_ARCHIVE"
+        },
+        "include_solver_alternatives": {
+          "default": true,
+          "title": "Include Solver Alternatives",
+          "type": "boolean"
+        },
+        "publish_legacy_p7_projection": {
+          "default": true,
+          "title": "Publish Legacy P7 Projection",
+          "type": "boolean"
+        },
+        "representatives_per_niche": {
+          "default": 2,
+          "maximum": 20,
+          "minimum": 1,
+          "title": "Representatives Per Niche",
+          "type": "integer"
+        }
+      },
+      "title": "PublicationPolicy",
+      "type": "object"
+    },
+    "RiskPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_degraded_liquidity": {
+          "default": false,
+          "title": "Allow Degraded Liquidity",
+          "type": "boolean"
+        },
+        "ambiguity_probability_shift": {
+          "anyOf": [
+            {
+              "maximum": 0.5,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.1",
+          "title": "Ambiguity Probability Shift"
+        },
+        "maximum_entry_cost": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum Entry Cost"
+        },
+        "maximum_loss_limit": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum Loss Limit"
+        },
+        "maximum_relative_spread": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "1",
+          "title": "Maximum Relative Spread"
+        },
+        "minimum_liquidity_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Minimum Liquidity Score"
+        },
+        "require_complete_liquidity_metrics": {
+          "default": true,
+          "title": "Require Complete Liquidity Metrics",
+          "type": "boolean"
+        },
+        "require_defined_risk": {
+          "default": true,
+          "title": "Require Defined Risk",
+          "type": "boolean"
+        },
+        "require_margin_estimate": {
+          "default": true,
+          "title": "Require Margin Estimate",
+          "type": "boolean"
+        }
+      },
+      "title": "RiskPolicy",
+      "type": "object"
+    },
+    "SolverPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "beam_depth": {
+          "default": 4,
+          "maximum": 6,
+          "minimum": 1,
+          "title": "Beam Depth",
+          "type": "integer"
+        },
+        "beam_width": {
+          "default": 20,
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Beam Width",
+          "type": "integer"
+        },
+        "complexity_penalty": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.01",
+          "title": "Complexity Penalty"
+        },
+        "continuous_iterations": {
+          "default": 80,
+          "maximum": 10000,
+          "minimum": 1,
+          "title": "Continuous Iterations",
+          "type": "integer"
+        },
+        "continuous_step_size": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "maximum": 1.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.05",
+          "title": "Continuous Step Size"
+        },
+        "evolutionary_generations": {
+          "default": 10,
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Evolutionary Generations",
+          "type": "integer"
+        },
+        "evolutionary_population": {
+          "default": 20,
+          "maximum": 1000,
+          "minimum": 2,
+          "title": "Evolutionary Population",
+          "type": "integer"
+        },
+        "l1_penalty": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.001",
+          "title": "L1 Penalty"
+        },
+        "local_search_iterations": {
+          "default": 50,
+          "maximum": 10000,
+          "minimum": 1,
+          "title": "Local Search Iterations",
+          "type": "integer"
+        },
+        "maximum_basis_size": {
+          "default": 12,
+          "maximum": 100,
+          "minimum": 2,
+          "title": "Maximum Basis Size",
+          "type": "integer"
+        },
+        "maximum_solutions_per_target": {
+          "default": 5,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Maximum Solutions Per Target",
+          "type": "integer"
+        },
+        "policy_version": {
+          "default": "wave2-solver-v1",
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "portfolio_mode": {
+          "$ref": "#/$defs/SolverPortfolioMode",
+          "default": "HYBRID"
+        }
+      },
+      "title": "SolverPolicy",
+      "type": "object"
+    },
+    "SolverPortfolioMode": {
+      "enum": [
+        "EXACT_FIRST",
+        "BEAM_FIRST",
+        "HYBRID",
+        "CHALLENGER"
+      ],
+      "title": "SolverPortfolioMode",
+      "type": "string"
+    },
+    "StrategyPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_american_options": {
+          "default": false,
+          "title": "Allow American Options",
+          "type": "boolean"
+        },
+        "allow_cash_secured_short_put": {
+          "default": false,
+          "title": "Allow Cash Secured Short Put",
+          "type": "boolean"
+        },
+        "allow_long_underlying": {
+          "default": true,
+          "title": "Allow Long Underlying",
+          "type": "boolean"
+        },
+        "allow_short_underlying": {
+          "default": false,
+          "title": "Allow Short Underlying",
+          "type": "boolean"
+        },
+        "enabled_templates": {
+          "default": [
+            "LONG_UNDERLYING",
+            "LONG_CALL",
+            "LONG_PUT",
+            "BULL_CALL_DEBIT",
+            "BEAR_PUT_DEBIT",
+            "BULL_PUT_CREDIT",
+            "BEAR_CALL_CREDIT",
+            "LONG_STRADDLE",
+            "LONG_STRANGLE",
+            "LONG_CALL_BUTTERFLY",
+            "LONG_CALL_CONDOR",
+            "IRON_BUTTERFLY",
+            "IRON_CONDOR",
+            "COLLAR",
+            "RISK_REVERSAL_DEFINED_RISK",
+            "PROTECTED_RATIO_CALL"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "title": "Enabled Templates",
+          "type": "array"
+        },
+        "policy_version": {
+          "default": "wave2-strategy-v1",
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "title": "StrategyPolicy",
+      "type": "object"
+    },
+    "TargetPayoffMode": {
+      "enum": [
+        "SCENARIO_WEIGHTED",
+        "TAIL_HEDGE",
+        "RANGE_EXPRESSION",
+        "EXPECTED_UTILITY",
+        "TARGET_DISTRIBUTION",
+        "BELIEF_RATIO",
+        "USER_POLICY"
+      ],
+      "title": "TargetPayoffMode",
+      "type": "string"
+    },
+    "TargetPayoffPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "clipping_multiple": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "maximum": 100.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "3",
+          "title": "Clipping Multiple"
+        },
+        "confidence_shrinkage": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.5",
+          "title": "Confidence Shrinkage"
+        },
+        "epsilon": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.000001",
+          "title": "Epsilon"
+        },
+        "minimum_confidence": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.1",
+          "title": "Minimum Confidence"
+        },
+        "modes": {
+          "default": [
+            "SCENARIO_WEIGHTED",
+            "TAIL_HEDGE",
+            "RANGE_EXPRESSION"
+          ],
+          "items": {
+            "$ref": "#/$defs/TargetPayoffMode"
+          },
+          "title": "Modes",
+          "type": "array"
+        },
+        "objective_families": {
+          "default": [
+            "DIRECTIONAL_UP",
+            "DIRECTIONAL_DOWN",
+            "RANGE",
+            "LONG_VOLATILITY",
+            "TAIL_HEDGE"
+          ],
+          "items": {
+            "$ref": "#/$defs/ObjectiveFamily"
+          },
+          "title": "Objective Families",
+          "type": "array"
+        },
+        "policy_version": {
+          "default": "wave2-target-v1",
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "risk_aversion": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "1",
+          "title": "Risk Aversion"
+        },
+        "smoothing_strength": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.2",
+          "title": "Smoothing Strength"
+        },
+        "tail_probability": {
+          "anyOf": [
+            {
+              "exclusiveMaximum": 1.0,
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0.2",
+          "title": "Tail Probability"
+        },
+        "target_notional": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "1000",
+          "title": "Target Notional"
+        }
+      },
+      "title": "TargetPayoffPolicy",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "budgets": {
+      "$ref": "#/$defs/GenerationBudget",
+      "default": {
+        "max_candidates_before_dedup": 500,
+        "max_candidates_per_template": 20,
+        "max_candidates_published": 100,
+        "max_contracts_considered": 24,
+        "max_expirations": 1,
+        "max_legs": 4,
+        "max_memory_mb": 512,
+        "max_mutations": 64,
+        "max_quantity": 2,
+        "max_solver_nodes": 2000,
+        "max_solver_seconds": 2,
+        "max_templates": 16
+      }
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "mutation": {
+      "$ref": "#/$defs/MutationPolicy",
+      "default": {
+        "allow_underlying_overlay": true,
+        "enabled_operators": [
+          "MOVE_STRIKE",
+          "CHANGE_QUANTITY",
+          "ADD_UNDERLYING",
+          "REMOVE_REDUNDANT_LEG"
+        ],
+        "max_applications_per_candidate": 2,
+        "max_children_per_parent": 4,
+        "overlay_quantity": "0.25",
+        "policy_version": "wave2-mutation-v1",
+        "require_distinct_economic_fingerprint": true
+      }
+    },
+    "operational_mode": {
+      "$ref": "#/$defs/OperationalMode",
+      "default": "TEMPLATE_ONLY"
+    },
+    "p5": {
+      "$ref": "#/$defs/P5CompatibilityPolicy",
+      "default": {
+        "allow_abstained_beliefs": false,
+        "horizon_time_basis": "CALENDAR_DAYS",
+        "max_distribution_scenarios": 101,
+        "maximum_expiration_gap_days": 45,
+        "option_expiration_selection": "FIRST_ON_OR_AFTER",
+        "policy_version": "p5-rc34-native-v2",
+        "preferred_horizon_days": null,
+        "require_exact_option_horizon_match": false
+      }
+    },
+    "pricing": {
+      "$ref": "#/$defs/PricingPolicy",
+      "default": {
+        "dividend_yield": "0",
+        "fee_per_leg": "0",
+        "greek_method": "BLACK_SCHOLES_MERTON",
+        "pathwise_method": "BLACK_SCHOLES_PROXY",
+        "risk_free_rate": "0.05",
+        "slippage_fraction_of_spread": "0.25"
+      }
+    },
+    "publication": {
+      "$ref": "#/$defs/PublicationPolicy",
+      "default": {
+        "archive_mode": "GRID_ARCHIVE",
+        "include_solver_alternatives": true,
+        "publish_legacy_p7_projection": true,
+        "representatives_per_niche": 2
+      }
+    },
+    "risk": {
+      "$ref": "#/$defs/RiskPolicy",
+      "default": {
+        "allow_degraded_liquidity": false,
+        "ambiguity_probability_shift": "0.1",
+        "maximum_entry_cost": null,
+        "maximum_loss_limit": null,
+        "maximum_relative_spread": "1",
+        "minimum_liquidity_score": "0",
+        "require_complete_liquidity_metrics": true,
+        "require_defined_risk": true,
+        "require_margin_estimate": true
+      }
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "seed": {
+      "default": 7,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "solver": {
+      "$ref": "#/$defs/SolverPolicy",
+      "default": {
+        "beam_depth": 4,
+        "beam_width": 20,
+        "complexity_penalty": "0.01",
+        "continuous_iterations": 80,
+        "continuous_step_size": "0.05",
+        "evolutionary_generations": 10,
+        "evolutionary_population": 20,
+        "l1_penalty": "0.001",
+        "local_search_iterations": 50,
+        "maximum_basis_size": 12,
+        "maximum_solutions_per_target": 5,
+        "policy_version": "wave2-solver-v1",
+        "portfolio_mode": "HYBRID"
+      }
+    },
+    "strategy": {
+      "$ref": "#/$defs/StrategyPolicy",
+      "default": {
+        "allow_american_options": false,
+        "allow_cash_secured_short_put": false,
+        "allow_long_underlying": true,
+        "allow_short_underlying": false,
+        "enabled_templates": [
+          "LONG_UNDERLYING",
+          "LONG_CALL",
+          "LONG_PUT",
+          "BULL_CALL_DEBIT",
+          "BEAR_PUT_DEBIT",
+          "BULL_PUT_CREDIT",
+          "BEAR_CALL_CREDIT",
+          "LONG_STRADDLE",
+          "LONG_STRANGLE",
+          "LONG_CALL_BUTTERFLY",
+          "LONG_CALL_CONDOR",
+          "IRON_BUTTERFLY",
+          "IRON_CONDOR",
+          "COLLAR",
+          "RISK_REVERSAL_DEFINED_RISK",
+          "PROTECTED_RATIO_CALL"
+        ],
+        "policy_version": "wave2-strategy-v1"
+      }
+    },
+    "target_payoff": {
+      "$ref": "#/$defs/TargetPayoffPolicy",
+      "default": {
+        "clipping_multiple": "3",
+        "confidence_shrinkage": "0.5",
+        "epsilon": "0.000001",
+        "minimum_confidence": "0.1",
+        "modes": [
+          "SCENARIO_WEIGHTED",
+          "TAIL_HEDGE",
+          "RANGE_EXPRESSION"
+        ],
+        "objective_families": [
+          "DIRECTIONAL_UP",
+          "DIRECTIONAL_DOWN",
+          "RANGE",
+          "LONG_VOLATILITY",
+          "TAIL_HEDGE"
+        ],
+        "policy_version": "wave2-target-v1",
+        "risk_aversion": "1",
+        "smoothing_strength": "0.2",
+        "tail_probability": "0.2",
+        "target_notional": "1000"
+      }
+    }
+  },
+  "required": [
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "created_at",
+    "available_at"
+  ],
+  "title": "Phase6RunConfiguration",
+  "type": "object"
+}

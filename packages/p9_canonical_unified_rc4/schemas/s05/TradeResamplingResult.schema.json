@@ -1,0 +1,191 @@
+{
+  "$defs": {
+    "S5State": {
+      "enum": [
+        "SUCCESS",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "PARTIAL_METRIC_COVERAGE",
+        "INSUFFICIENT_EVIDENCE",
+        "INSUFFICIENT_HISTORY",
+        "INSUFFICIENT_TRADES",
+        "INSUFFICIENT_VALID_REPLICATES",
+        "IRREGULAR_TIME_UNSUPPORTED",
+        "TRIAL_FAMILY_INCOMPLETE",
+        "EFFECTIVE_TRIAL_COUNT_UNRESOLVED",
+        "METRIC_VERSION_MISMATCH",
+        "ROBUST",
+        "PROVISIONALLY_ROBUST",
+        "FRAGILE",
+        "BACKTEST_OVERFIT_RISK",
+        "REGIME_DEPENDENT",
+        "SELECTION_BIAS_UNRESOLVED",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S5State",
+      "type": "string"
+    },
+    "TradeCluster": {
+      "additionalProperties": false,
+      "properties": {
+        "closed_at": {
+          "format": "date-time",
+          "title": "Closed At",
+          "type": "string"
+        },
+        "cluster_id": {
+          "minimum": 1,
+          "title": "Cluster Id",
+          "type": "integer"
+        },
+        "gross_pnl": {
+          "title": "Gross Pnl",
+          "type": "number"
+        },
+        "net_pnl": {
+          "title": "Net Pnl",
+          "type": "number"
+        },
+        "opened_at": {
+          "format": "date-time",
+          "title": "Opened At",
+          "type": "string"
+        },
+        "total_cost": {
+          "minimum": 0,
+          "title": "Total Cost",
+          "type": "number"
+        },
+        "trade_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Trade Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "cluster_id",
+        "trade_ids",
+        "opened_at",
+        "closed_at",
+        "gross_pnl",
+        "net_pnl",
+        "total_cost"
+      ],
+      "title": "TradeCluster",
+      "type": "object"
+    },
+    "TradeReplicateSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "gross_pnl": {
+          "title": "Gross Pnl",
+          "type": "number"
+        },
+        "net_pnl": {
+          "title": "Net Pnl",
+          "type": "number"
+        },
+        "replicate_id": {
+          "minimum": 1,
+          "title": "Replicate Id",
+          "type": "integer"
+        },
+        "sampled_cluster_ids": {
+          "items": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "title": "Sampled Cluster Ids",
+          "type": "array"
+        },
+        "total_cost": {
+          "minimum": 0,
+          "title": "Total Cost",
+          "type": "number"
+        },
+        "trade_count": {
+          "minimum": 0,
+          "title": "Trade Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "replicate_id",
+        "sampled_cluster_ids",
+        "trade_count",
+        "gross_pnl",
+        "net_pnl",
+        "total_cost"
+      ],
+      "title": "TradeReplicateSummary",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clusters": {
+      "items": {
+        "$ref": "#/$defs/TradeCluster"
+      },
+      "title": "Clusters",
+      "type": "array"
+    },
+    "cost_hhi": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Cost Hhi",
+      "type": "number"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "pnl_hhi": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Pnl Hhi",
+      "type": "number"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "replicates": {
+      "items": {
+        "$ref": "#/$defs/TradeReplicateSummary"
+      },
+      "title": "Replicates",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S5State"
+    }
+  },
+  "required": [
+    "status",
+    "clusters",
+    "replicates",
+    "pnl_hhi",
+    "cost_hhi"
+  ],
+  "title": "TradeResamplingResult",
+  "type": "object"
+}

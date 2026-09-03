@@ -1,0 +1,8 @@
+comparisons:
+  A: standard_search_rag_baseline
+  B: synthetic_society_baseline
+  C: synthetic_society_plus_single_retro_change_candidate
+final_holdout_blind: true
+same_downstream_seeds: true
+one_retro_change_per_experiment: true
+rule: evaluation is external/downstream; P3 does not own portfolio or execution

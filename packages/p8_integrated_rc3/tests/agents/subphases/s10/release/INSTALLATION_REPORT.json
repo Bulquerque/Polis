@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "wheel_file": "quant_pipeline_p8_s10_audit_release-0.1.0-py3-none-any.whl",
+  "wheel_sha256": "491f3a20b16817d8137ef297565e46a0b90a17a9e5aa615248b07a89ecf25ed2",
+  "installed_outside_source_tree": true,
+  "fixture_execution": "PASS",
+  "cli_export_schemas": "PASS",
+  "pip_check": "PASS",
+  "namespace_coexistence": {
+    "s9_then_s10": "PASS",
+    "s10_then_s9": "PASS",
+    "s9_module": "quant_pipeline.phase_08_portfolio_control.subphases.s09_runtime_assurance",
+    "s10_module": "quant_pipeline.phase_08_portfolio_control.subphases.s10_audit_release"
+  },
+  "environment_note": "The isolated virtual environments received exact local copies of the Pydantic runtime packages because network/package-index installation was not required for validation."
+}

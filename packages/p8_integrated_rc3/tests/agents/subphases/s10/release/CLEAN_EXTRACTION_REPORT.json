@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "preliminary_zip": "P8_S10_AUDIT_RELEASE_PRELIM.zip",
+  "tests_passed": 70,
+  "tests_failed": 0,
+  "structure_gate": "PASS",
+  "fixture_replay": "PASS",
+  "schema_validation": "PASS",
+  "note": "A preliminary deterministic ZIP was extracted into a fresh directory and validated before the final seal."
+}

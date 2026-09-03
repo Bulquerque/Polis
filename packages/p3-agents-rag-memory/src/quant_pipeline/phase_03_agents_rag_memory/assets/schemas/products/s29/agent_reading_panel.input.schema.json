@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.quant.local/p3/s29/input/agent-reading-panel/1.0.0",
+  "$defs": {
+    "ClaimRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "minLength": 1,
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "belief_update_id": {
+          "minLength": 1,
+          "title": "Belief Update Id",
+          "type": "string"
+        },
+        "person_id": {
+          "minLength": 1,
+          "title": "Person Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "underlying_id": {
+          "minLength": 1,
+          "title": "Underlying Id",
+          "type": "string"
+        },
+        "proposition_id": {
+          "minLength": 1,
+          "title": "Proposition Id",
+          "type": "string"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "claim_type": {
+          "minLength": 1,
+          "pattern": "^[a-z0-9][a-z0-9_.-]*$",
+          "title": "Claim Type",
+          "type": "string"
+        },
+        "statement_summary": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Statement Summary",
+          "type": "string"
+        },
+        "relation": {
+          "$ref": "#/$defs/EvidenceRelation"
+        },
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "belief_update_id",
+        "person_id",
+        "run_id",
+        "cycle_id",
+        "created_at",
+        "underlying_id",
+        "proposition_id",
+        "horizon",
+        "claim_type",
+        "statement_summary",
+        "relation",
+        "evidence_refs",
+        "lineage_id"
+      ],
+      "title": "ClaimRecord",
+      "type": "object"
+    },
+    "EvidenceRelation": {
+      "enum": [
+        "SUPPORTS",
+        "OPPOSES",
+        "CONTEXT_ONLY"
+      ],
+      "title": "EvidenceRelation",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/ClaimRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "created_at",
+    "lineage_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "records"
+  ],
+  "title": "AgentReadingPanel",
+  "type": "object"
+}

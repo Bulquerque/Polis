@@ -1,0 +1,20 @@
+module_id: P5.S7.M03
+name: resolver_specific_ood_representation_shift_engine
+subphase_id: P5.S7
+required_inputs:
+- authorized_consumer_view_registry
+optional_inputs:
+- drift_safety_report
+- representation_quality_report
+- feature_transform_state_manifest
+- qualified_resolver_registry
+- covariance_forecast_registry
+outputs:
+- ood_drift_diagnostics_panel
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

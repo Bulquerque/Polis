@@ -1,0 +1,58 @@
+registry_id: external_data_source_registry_v1
+status: proposal_only_not_authorized
+documentary_g0_status: closed
+implementation_status: not_authorized
+primary_source:
+  source_id: london_strategic_edge
+  provider: London Strategic Edge
+  source_type: api_and_download
+  role: primary_market_data
+  phase_owner: phase_01_ingestion
+  direct_consumer_phases: [phase_01_ingestion]
+  base_url_env: LSE_BASE_URL
+  credential_env: LSE_API_KEY
+  required_metadata: [dataset_id, asset_class, symbol_original, timezone, frequency, retrieved_at, available_from, available_until, schema_version, content_hash]
+  promotion_gate: phase_02_quality_pit
+fallbacks:
+  - source_id: fmp
+    role: market_data_fallback
+    credential_env: FMP_API_KEY
+    phase_owner: phase_01_ingestion
+  - source_id: finnhub
+    role: market_data_fallback
+    credential_env: FINNHUB_API_KEY
+    phase_owner: phase_01_ingestion
+  - source_id: alpaca
+    role: market_data_fallback
+    credential_envs: [ALPACA_KEY_ID, ALPACA_SECRET_KEY]
+    phase_owner: phase_01_ingestion
+  - source_id: alpha_vantage
+    role: market_data_and_macro_fallback
+    credential_env: ALPHA_VANTAGE_API_KEY
+    phase_owner: phase_01_ingestion
+  - source_id: marketstack
+    role: market_data_fallback
+    credential_env: MARKETSTACK_API_KEY
+    phase_owner: phase_01_ingestion
+  - source_id: fred
+    role: macro_fallback
+    credential_env: FRED_API_KEY
+    phase_owner: phase_01_ingestion
+  - source_id: eia
+    role: energy_macro_fallback
+    credential_env: EIA_API_KEY
+    phase_owner: phase_01_ingestion
+  - source_id: marketaux
+    role: research_context
+    credential_env: MARKETAUX_API_KEY
+    phase_owner: phase_01_ingestion
+  - source_id: reddit
+    role: research_context
+    credential_envs: [REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET]
+    phase_owner: phase_01_ingestion
+rules:
+  - fallback_requires_explicit_reason
+  - fallback_payload_is_a_new_raw_snapshot
+  - no_cross_provider_series_mixing_before_phase_02_validation
+  - credentials_never_enter_artifacts
+  - direct_external_access_outside_phase_01_forbidden

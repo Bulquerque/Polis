@@ -1,0 +1,84 @@
+{
+  "$defs": {
+    "QualificationStatus": {
+      "enum": [
+        "QUALIFIED_LOCAL",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM",
+        "FAILED"
+      ],
+      "title": "QualificationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "chunk_count": {
+      "minimum": 0,
+      "title": "Chunk Count",
+      "type": "integer"
+    },
+    "content_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "lexical_ready": {
+      "title": "Lexical Ready",
+      "type": "boolean"
+    },
+    "point_in_time_filter_ready": {
+      "title": "Point In Time Filter Ready",
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "reranker_ready": {
+      "title": "Reranker Ready",
+      "type": "boolean"
+    },
+    "schema_id": {
+      "const": "corpus_index_readiness_report.s35.v1",
+      "default": "corpus_index_readiness_report.s35.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_ready": {
+      "title": "Semantic Ready",
+      "type": "boolean"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/QualificationStatus"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "status",
+    "lexical_ready",
+    "semantic_ready",
+    "reranker_ready",
+    "point_in_time_filter_ready",
+    "chunk_count",
+    "content_hash"
+  ],
+  "title": "CorpusIndexReadinessReport",
+  "type": "object"
+}

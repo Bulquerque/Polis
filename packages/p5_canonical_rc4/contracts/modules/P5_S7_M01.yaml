@@ -1,0 +1,16 @@
+module_id: P5.S7.M01
+name: rolling_volatility_regime_transition_baseline
+subphase_id: P5.S7
+required_inputs:
+- authorized_consumer_view_registry
+optional_inputs:
+- p4_perspective_context
+outputs:
+- regime_probability_member_panel
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

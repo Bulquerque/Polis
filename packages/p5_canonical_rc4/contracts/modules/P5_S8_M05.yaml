@@ -1,0 +1,25 @@
+module_id: P5.S8.M05
+name: sparse_ensemble_selection_uncertainty_confidence_engine
+subphase_id: P5.S8
+required_inputs:
+- calibrated_forecast_member_panel
+- ensemble_candidate_panel
+- forecast_scoring_panel
+optional_inputs:
+- resolver_diversity_panel
+- regime_ood_surprise_panel
+- forecast_calibration_diagnostics
+- forecast_conformal_report
+- resolver_context_router_panel
+- oof_validation_observation_panel
+outputs:
+- ensemble_forecast_panel
+- forecast_confidence_panel
+- ensemble_selection_report
+allowed_actions:
+- RUN
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

@@ -1,0 +1,11 @@
+policy_id: p7_ranking_v1
+score_round_digits: 12
+max_group_size: 1000
+sort_keys:
+  - pareto_tier
+  - diversity_adjusted_score
+  - score_confidence
+  - robustness_stage
+  - execution_quality_stage
+  - leg_count
+  - candidate_id

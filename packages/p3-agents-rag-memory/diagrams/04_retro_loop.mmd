@@ -1,0 +1,8 @@
+flowchart LR
+ P3[P3 evidence export] --> P9[P9 evaluate and diagnose]
+ P9 --> EXP[One-change experiment]
+ EXP --> STAT[OOS and statistical robustness]
+ STAT --> DEC{Promote?}
+ DEC -->|yes| PATCH[Promoted patch N+1]
+ DEC -->|no| MEM[Rejected experiment memory]
+ PATCH -. next cycle only .-> P3

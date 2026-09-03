@@ -1,0 +1,32 @@
+registry_id: phase_registry_v14_1_rc4_1
+phases:
+- phase_id: P0
+  package_name: phase_00_zero_trust_guardian_agent_package_RC4_1
+  plane: zero_trust_control
+- phase_id: P1
+  package_name: phase_01_ingestion_agent_package_RC4_1
+  plane: economic_pipeline
+- phase_id: P2
+  package_name: phase_02_quality_pit_agent_package_RC4_1
+  plane: economic_pipeline
+- phase_id: P3
+  package_name: phase_03_agents_rag_memory_agent_package_RC4_1
+  plane: economic_pipeline
+- phase_id: P4
+  package_name: phase_04_feature_base_agent_package_RC4_1
+  plane: economic_pipeline
+- phase_id: P5
+  package_name: phase_05_underlying_forecasts_agent_package_RC4_1
+  plane: economic_pipeline
+- phase_id: P6
+  package_name: phase_06_candidate_generation_agent_package_RC4_1
+  plane: economic_pipeline
+- phase_id: P7
+  package_name: phase_07_ranking_agent_package_RC4_1
+  plane: economic_pipeline
+- phase_id: P8
+  package_name: phase_08_portfolio_backtest_agent_package_RC4_1
+  plane: economic_pipeline
+- phase_id: P9
+  package_name: phase_09_audit_learning_agent_package_RC4_1
+  plane: economic_pipeline

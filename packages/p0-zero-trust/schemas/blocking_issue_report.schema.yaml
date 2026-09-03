@@ -1,0 +1,47 @@
+schema_id: blocking_issue_report.v2
+artifact_name: blocking_issue_report
+schema_version: v14.1-rc4.1
+compatibility: backward_compatible_with_v1_consumers
+type: object
+additionalProperties: true
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- source_panel_lineage_id
+- owner
+- action
+- issue_count
+- issues
+- owner_groups
+- condition_summary
+- priority_summary
+- blocking_errors_have_owner
+- blocking_errors_have_action
+- impact_based_blocking
+- external_dispatch_performed
+- status
+- readiness_blocking
+- release_blocking
+properties:
+  artifact_id: {type: string, pattern: '^blocking-issue-report-[0-9a-f]{12}$'}
+  created_at: {type: string}
+  pipeline_version: {type: string, const: V14.1-RC4.1}
+  lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  source_panel_lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  owner: {type: string}
+  action: {type: string}
+  issue_count: {type: integer, minimum: 0}
+  issues: {type: array}
+  owner_groups: {type: array}
+  condition_summary: {type: object}
+  priority_summary: {type: object}
+  blocking_errors_have_owner: {type: boolean, const: true}
+  blocking_errors_have_action: {type: boolean, const: true}
+  impact_based_blocking: {type: boolean, const: true}
+  external_dispatch_performed: {type: boolean, const: false}
+  status: {type: string, enum: [PASS, BLOCKED]}
+  readiness_blocking: {type: boolean}
+  release_blocking: {type: boolean}
+forbidden_fields: [future_return, target, candidate_score, trade_decision, rank_score, portfolio_weight, realized_pnl]

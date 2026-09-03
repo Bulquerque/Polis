@@ -1,0 +1,25 @@
+subphase: P4.S9
+required_inputs:
+- underlying_feature_matrix_raw
+- underlying_feature_matrix_selected
+- underlying_feature_factors_pca
+- underlying_feature_embeddings
+- feature_selection_report
+- feature_transform_state_manifest
+- causal_transform_fit_state_manifest
+- normalization_neutralization_fit_state_manifest
+- feature_diversity_redundancy_report
+- pca_fit_state_manifest
+- encoder_fit_state_manifest
+- representation_quality_report
+- representation_fold_plan
+- s9_policy_registry
+- research_attempt_event_log
+optional_inputs:
+- phase5_consumption_receipt
+rules:
+- all_required_inputs_same_run_cycle_as_of
+- content_hash_validated
+- no_forbidden_fields
+- phase5_receipt_optional_and_post_handoff
+- encoder_artifact_may_be_explicitly_skipped

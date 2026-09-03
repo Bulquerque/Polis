@@ -1,0 +1,6 @@
+policy_id: p7_diversity_v1
+cluster_threshold: 0.90
+density_top_k: 10
+penalty_lambda: 0.15
+max_penalty_fraction: 0.20
+score_scale: 1.0

@@ -1,0 +1,15 @@
+spec_id: ST12_EMERGENCE_VECTOR_EXACTNESS
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Canonical compact vector is exact, interpretable and per underlying/as_of_time
+required_cases:
+- family_exactness
+- tag_projection_min_n
+- no_target_fields
+- coverage_metrics
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

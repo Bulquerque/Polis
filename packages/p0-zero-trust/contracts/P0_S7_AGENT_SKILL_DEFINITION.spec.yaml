@@ -1,0 +1,17 @@
+spec_id: p0-s7-agent-skill-definition
+spec_version: v1
+required_fields:
+  - skill_id
+  - phase_scope
+  - module_scope
+  - permissions
+  - allowed_paths
+optional_fields:
+  - skill_version
+  - capabilities
+  - cross_phase_scope
+rules:
+  module_scope_must_belong_to_phase_scope: true
+  cross_phase_scope_default: false
+  permissions_monotonic: true
+  paths_repository_relative: true

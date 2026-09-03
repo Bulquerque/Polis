@@ -1,0 +1,38 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/get_document/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "document_id": {
+      "minLength": 1,
+      "title": "Document Id",
+      "type": "string"
+    },
+    "include_full_text": {
+      "default": false,
+      "title": "Include Full Text",
+      "type": "boolean"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "section_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Section Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "research_mode",
+    "document_id"
+  ],
+  "title": "GetDocumentRequest",
+  "type": "object"
+}

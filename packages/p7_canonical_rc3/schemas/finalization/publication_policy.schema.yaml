@@ -1,0 +1,32 @@
+additionalProperties: false
+properties:
+  policy_id:
+    title: Policy Id
+    type: string
+  contract_version:
+    title: Contract Version
+    type: string
+  semantic_version:
+    title: Semantic Version
+    type: string
+  consumer_phase:
+    title: Consumer Phase
+    type: string
+  legacy_projection_mode:
+    title: Legacy Projection Mode
+    type: string
+  required_reference_fields:
+    items:
+      type: string
+    title: Required Reference Fields
+    type: array
+required:
+- policy_id
+- contract_version
+- semantic_version
+- consumer_phase
+- legacy_projection_mode
+- required_reference_fields
+title: PublicationPolicy
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

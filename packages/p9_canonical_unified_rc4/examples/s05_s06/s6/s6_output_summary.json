@@ -1,0 +1,20 @@
+{
+  "bundle_id": "run-1:P9.S6:c7d1392ae43b9017",
+  "bundle_sha256": "c7d1392ae43b9017e618c6835a6d69e2b3d55512a2017f3ea671756c3a2eb8b9",
+  "s5_bundle_sha256": "a30f47b26b39a6b7e1e66a75b4c2c260ebe52ee88b40314614debbe115eafea4",
+  "s5_qualification_status": "BACKTEST_OVERFIT_RISK",
+  "s6_validation_status": "VALIDATED",
+  "module_statuses": {
+    "P9.S6.M01": "COMMITTED",
+    "P9.S6.M02": "SUCCESS",
+    "P9.S6.M03": "CONSTRAINT_DISCONTINUITY_FOUND",
+    "P9.S6.M04": "QUALIFIED",
+    "P9.S6.M05": "QUALIFIED",
+    "P9.S6.M06": "QUALIFIED_WITH_LIMITATIONS",
+    "P9.S6.M07": "STRESS_RESILIENT",
+    "P9.S6.M08": "VALIDATED"
+  },
+  "scenario_count": 1,
+  "capacity_break_even_aum": null,
+  "reverse_stress_distance": 0.6642034546170249
+}

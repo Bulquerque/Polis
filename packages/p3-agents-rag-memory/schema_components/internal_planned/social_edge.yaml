@@ -1,0 +1,48 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: social_edge
+status: planned_internal_schema
+type: object
+required:
+- edge_id
+- source_person_id
+- target_person_id
+- relationship_type
+- trust
+- domain_trust
+- influence
+- interaction_frequency
+- origin
+- valid_from
+- lineage_id
+properties:
+  edge_id:
+    type: string
+  source_person_id:
+    type: string
+  target_person_id:
+    type: string
+  relationship_type:
+    type: string
+  trust: &id001
+    type: number
+    minimum: 0
+    maximum: 1
+  domain_trust:
+    type: object
+    additionalProperties:
+      type: number
+      minimum: 0
+      maximum: 1
+  influence: *id001
+  interaction_frequency: *id001
+  origin:
+    type: string
+    enum:
+    - personality_creator_initial_graph
+    - emergent_relationship_tool
+  valid_from:
+    type: string
+    format: date-time
+  lineage_id:
+    type: string
+additionalProperties: false

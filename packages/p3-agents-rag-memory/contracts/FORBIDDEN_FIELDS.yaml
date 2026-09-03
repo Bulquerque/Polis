@@ -1,0 +1,7 @@
+forbidden_fields:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal

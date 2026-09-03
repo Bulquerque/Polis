@@ -1,0 +1,51 @@
+module_id: P2.S2.M02
+module_name: identifier_key_harmonizer
+phase: phase_02_quality_pit
+subphase: P2.S2
+rc: RC4.1
+function: Harmonizar identificadores, tickers e contract_key determinístico sem instrumento
+  sintético.
+inputs: &id001
+- pit_normalized_raw_bundle
+outputs: &id002
+- identifier_harmonized_bundle
+validations:
+- contract_key_deterministic
+- no_synthetic_instrument
+fail_fast_conditions:
+- identifier_key_harmonizer_schema_violation
+- identifier_key_harmonizer_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P2.S2.M01
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P2.S3.M01
+    - P2.S3.M02
+    - P2.S3.M03
+    - P2.S3.M04
+    - P2.S3.M05
+    - P2.S4.M01
+    - P2.S4.M02
+    - P2.S5.M01
+    artifacts: *id002
+    phase_outputs: []
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

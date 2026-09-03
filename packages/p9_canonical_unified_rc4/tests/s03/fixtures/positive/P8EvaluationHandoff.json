@@ -1,0 +1,84 @@
+{
+  "capability": "PRODUCTION",
+  "cash_entries": [
+    {
+      "amount": "-21",
+      "category": "FILL",
+      "entry_id": "cash-1",
+      "event_time": "2020-01-11T00:00:00Z",
+      "related_fill_id": "fill-1",
+      "related_lifecycle_id": null
+    }
+  ],
+  "cycle_id": "cycle-fixture",
+  "end_cash": "79",
+  "fills": [
+    {
+      "available_at": "2020-01-11T00:00:00Z",
+      "fee": "1",
+      "fill_id": "fill-1",
+      "fill_time": "2020-01-11T00:00:00Z",
+      "instrument_id": "ABC",
+      "order_id": "order-1",
+      "price": "10",
+      "quantity": "2",
+      "side": "BUY"
+    }
+  ],
+  "final_positions": [
+    {
+      "instrument_id": "ABC",
+      "market_value": "22",
+      "quantity": "2"
+    }
+  ],
+  "fold_id": "outer_000",
+  "handoff_id": "handoff:fixture:outer_000",
+  "lifecycle_events": [],
+  "orders": [
+    {
+      "available_at": "2020-01-11T00:00:00Z",
+      "candidate_id": "candidate-1",
+      "decision_time": "2020-01-11T00:00:00Z",
+      "instrument_id": "ABC",
+      "order_id": "order-1",
+      "quantity": "2",
+      "side": "BUY",
+      "status": "FILLED"
+    }
+  ],
+  "p6_candidate_ids": [
+    "candidate-1"
+  ],
+  "p7_terminal_records": [
+    {
+      "candidate_id": "candidate-1",
+      "reason_codes": [],
+      "state": "RANKED"
+    }
+  ],
+  "p8_terminal_records": [
+    {
+      "candidate_id": "candidate-1",
+      "reason_codes": [],
+      "state": "EXECUTED"
+    }
+  ],
+  "replay_sha256": "1091f7d5e027f8a2f97871c78bdddef47582378d0bd14e777c9393ede5f8b317",
+  "required_lifecycle_supported": true,
+  "run_id": "run-fixture",
+  "schema_version": "1.0.0",
+  "start_cash": "100",
+  "trial_id": "trial-fixture",
+  "valuations": [
+    {
+      "cash": "79",
+      "costs": "1",
+      "gross_pnl": "2",
+      "market_value": "22",
+      "nav": "101",
+      "net_pnl": "1",
+      "valuation_time": "2020-01-12T00:00:00Z"
+    }
+  ]
+}

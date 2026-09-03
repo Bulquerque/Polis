@@ -1,0 +1,39 @@
+schema_id: p3.research_tools.s33.artifact_schema_bindings.v1
+schema_version: 1.0.0
+bindings:
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.boundary_preflight.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.boundary_preflight.v1.schema.json
+  sha256: 485fed382601acf1615b57a2901de8f3ee784f55a29b0d105e78056e616f2426
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.data_boundary_bundle.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.data_boundary_bundle.v1.schema.json
+  sha256: 58449ca033b5d3ca84b4a7f44db51390b3158a96afdf773d44cd3a0c6b14625f
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.entity_resolution_policy.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.entity_resolution_policy.v1.schema.json
+  sha256: d1b78f072d550ffea98aa1da780d6e8cf1c5d2f1fe08375d7c857e3bca0251b7
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.entity_resolution_qualification.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.entity_resolution_qualification.v1.schema.json
+  sha256: d09af99cac18a8df125eccf8a2bfb097959cbbf370ef9013fdbdc440906fd438
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.phase1_custody_qualification.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.phase1_custody_qualification.v1.schema.json
+  sha256: ffe5219cc9117f97e9fa4d604a3795deed079aeb28725047e5393cf9b7ea5c62
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.phase1_raw_evidence_index.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.phase1_raw_evidence_index.v1.schema.json
+  sha256: ec2425ec3ed1f217c40fb733ff9a7da55e8198d2afe646817295fd300e08803d
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.phase2_view_manifest.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.phase2_view_manifest.v1.schema.json
+  sha256: 81bc282c35f88c7d3e7667cae1cd4a5bd59ef311d00b4dba2e52d1824a7765a6
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.phase2_view_readiness.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.phase2_view_readiness.v1.schema.json
+  sha256: 86345a263b7f6a4a5ea019cd59fcf3949a002260c246879410ad03384f4f86f4
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.pit_boundary_qualification.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.pit_boundary_qualification.v1.schema.json
+  sha256: 98eb3842f7313259e9e9eeb5df320cf51ec0a0e630ac8caa30bb61fb3fbb949a
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.pit_visibility_policy.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.pit_visibility_policy.v1.schema.json
+  sha256: a29bcd1c2de214523014b22fd8fb79de3d29af4a1381b1f02f3e57bbf968fbf8
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.temporal_entity_resolution_index.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.temporal_entity_resolution_index.v1.schema.json
+  sha256: 6dc176fbe510a2a677958cb45555b1301367e0267072d7a831b072a194d0d026
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.vintage_policy_registry.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/artifacts/p3.research_tools.vintage_policy_registry.v1.schema.json
+  sha256: cd4cbd2c5956ba405ebe39127012bcec30106cc88c4a499b430d4a3c9e91b3b3

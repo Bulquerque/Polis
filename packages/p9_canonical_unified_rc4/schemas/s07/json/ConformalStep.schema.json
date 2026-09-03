@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "event_id": {
+      "minLength": 1,
+      "title": "Event Id",
+      "type": "string"
+    },
+    "group_id": {
+      "minLength": 1,
+      "title": "Group Id",
+      "type": "string"
+    },
+    "alpha_before": {
+      "title": "Alpha Before",
+      "type": "number"
+    },
+    "error_indicator": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Error Indicator",
+      "type": "integer"
+    },
+    "alpha_after": {
+      "title": "Alpha After",
+      "type": "number"
+    },
+    "nonconformity_score": {
+      "minimum": 0.0,
+      "title": "Nonconformity Score",
+      "type": "number"
+    },
+    "calibration_quantile": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Calibration Quantile"
+    },
+    "interval_width": {
+      "minimum": 0.0,
+      "title": "Interval Width",
+      "type": "number"
+    }
+  },
+  "required": [
+    "event_id",
+    "group_id",
+    "alpha_before",
+    "error_indicator",
+    "alpha_after",
+    "nonconformity_score",
+    "calibration_quantile",
+    "interval_width"
+  ],
+  "title": "ConformalStep",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:ConformalStep:1.0.0"
+}

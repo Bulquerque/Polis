@@ -1,0 +1,19 @@
+module_id: P9.CL1.M03
+module_name: common_random_numbers_pairing_specifier
+authority_phase: P9
+status: planned_cross_phase_blueprint
+inputs:
+- ablation_evaluation_spec
+- p9_evaluation_evidence_bundle
+outputs:
+- paired_experiment_design_spec
+forbidden_actions:
+- mutate_current_cycle
+- change_person_genome_directly
+- promote_without_statistical_evidence
+tests_required:
+- schema
+- lineage
+- blind_holdout
+- one_change
+- result_finalization

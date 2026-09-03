@@ -1,0 +1,195 @@
+{
+  "$defs": {
+    "S5State": {
+      "enum": [
+        "SUCCESS",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "PARTIAL_METRIC_COVERAGE",
+        "INSUFFICIENT_EVIDENCE",
+        "INSUFFICIENT_HISTORY",
+        "INSUFFICIENT_TRADES",
+        "INSUFFICIENT_VALID_REPLICATES",
+        "IRREGULAR_TIME_UNSUPPORTED",
+        "TRIAL_FAMILY_INCOMPLETE",
+        "EFFECTIVE_TRIAL_COUNT_UNRESOLVED",
+        "METRIC_VERSION_MISMATCH",
+        "ROBUST",
+        "PROVISIONALLY_ROBUST",
+        "FRAGILE",
+        "BACKTEST_OVERFIT_RISK",
+        "REGIME_DEPENDENT",
+        "SELECTION_BIAS_UNRESOLVED",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S5State",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "autocorrelation_adjusted_annualized_sharpe": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Autocorrelation Adjusted Annualized Sharpe"
+    },
+    "benchmark_annualized_sharpe": {
+      "title": "Benchmark Annualized Sharpe",
+      "type": "number"
+    },
+    "deflated_sharpe_ratio": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Deflated Sharpe Ratio"
+    },
+    "effective_trial_count": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Effective Trial Count"
+    },
+    "expected_max_annualized_sharpe": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Expected Max Annualized Sharpe"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "minimum_track_record_observations": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Minimum Track Record Observations"
+    },
+    "observation_count": {
+      "minimum": 1,
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "observed_annualized_sharpe": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Observed Annualized Sharpe"
+    },
+    "pearson_kurtosis": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Pearson Kurtosis"
+    },
+    "probabilistic_sharpe_ratio": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Probabilistic Sharpe Ratio"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "skewness": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Skewness"
+    },
+    "status": {
+      "$ref": "#/$defs/S5State"
+    },
+    "target_series_id": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Target Series Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "target_series_id",
+    "observation_count",
+    "observed_annualized_sharpe",
+    "autocorrelation_adjusted_annualized_sharpe",
+    "probabilistic_sharpe_ratio",
+    "deflated_sharpe_ratio",
+    "benchmark_annualized_sharpe",
+    "expected_max_annualized_sharpe",
+    "skewness"
+  ],
+  "title": "SharpeInferenceResult",
+  "type": "object"
+}

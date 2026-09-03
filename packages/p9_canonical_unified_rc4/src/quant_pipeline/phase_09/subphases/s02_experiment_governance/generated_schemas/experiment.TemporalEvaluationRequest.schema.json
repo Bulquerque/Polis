@@ -1,0 +1,38 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "embargo_required": {
+      "default": true,
+      "title": "Embargo Required",
+      "type": "boolean"
+    },
+    "final_holdout_required": {
+      "default": true,
+      "title": "Final Holdout Required",
+      "type": "boolean"
+    },
+    "inner_fold_count": {
+      "maximum": 64,
+      "minimum": 1,
+      "title": "Inner Fold Count",
+      "type": "integer"
+    },
+    "outer_fold_count": {
+      "maximum": 64,
+      "minimum": 1,
+      "title": "Outer Fold Count",
+      "type": "integer"
+    },
+    "purge_required": {
+      "default": true,
+      "title": "Purge Required",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "outer_fold_count",
+    "inner_fold_count"
+  ],
+  "title": "TemporalEvaluationRequest",
+  "type": "object"
+}

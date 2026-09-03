@@ -1,0 +1,46 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cost_units": {
+      "minimum": 0.0,
+      "title": "Cost Units",
+      "type": "number"
+    },
+    "deterministic": {
+      "default": true,
+      "title": "Deterministic",
+      "type": "boolean"
+    },
+    "internal_subquery_count": {
+      "minimum": 0,
+      "title": "Internal Subquery Count",
+      "type": "integer"
+    },
+    "records_returned": {
+      "minimum": 0,
+      "title": "Records Returned",
+      "type": "integer"
+    },
+    "records_scanned": {
+      "minimum": 0,
+      "title": "Records Scanned",
+      "type": "integer"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "cost_units",
+    "internal_subquery_count",
+    "records_scanned",
+    "records_returned"
+  ],
+  "title": "ExecutionReport",
+  "type": "object"
+}

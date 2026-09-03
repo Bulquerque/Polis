@@ -1,0 +1,262 @@
+{
+  "$defs": {
+    "ExperimentSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "activated_at": {
+          "format": "date-time",
+          "title": "Activated At",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "development_dataset_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Development Dataset Ids",
+          "type": "array"
+        },
+        "diagnostic_metric_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+            "type": "string"
+          },
+          "title": "Diagnostic Metric Ids",
+          "type": "array"
+        },
+        "evaluation_dataset_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evaluation Dataset Ids",
+          "type": "array"
+        },
+        "experiment_id": {
+          "pattern": "^exp-[a-z0-9][a-z0-9._-]{2,127}$",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "final_holdout_dataset_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Final Holdout Dataset Ids",
+          "type": "array"
+        },
+        "hard_guardrail_metric_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+            "type": "string"
+          },
+          "title": "Hard Guardrail Metric Ids",
+          "type": "array"
+        },
+        "hypothesis": {
+          "minLength": 1,
+          "title": "Hypothesis",
+          "type": "string"
+        },
+        "non_goals": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Non Goals",
+          "type": "array"
+        },
+        "primary_metric_id": {
+          "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+          "title": "Primary Metric Id",
+          "type": "string"
+        },
+        "requested_max_configurations": {
+          "minimum": 1,
+          "title": "Requested Max Configurations",
+          "type": "integer"
+        },
+        "requested_seed_count": {
+          "maximum": 128,
+          "minimum": 1,
+          "title": "Requested Seed Count",
+          "type": "integer"
+        },
+        "required_capability_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required Capability Ids",
+          "type": "array"
+        },
+        "search_strategy": {
+          "$ref": "#/$defs/SearchStrategy"
+        },
+        "target_module_ids": {
+          "items": {
+            "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+            "type": "string"
+          },
+          "title": "Target Module Ids",
+          "type": "array"
+        },
+        "temporal_evaluation": {
+          "$ref": "#/$defs/TemporalEvaluationRequest"
+        }
+      },
+      "required": [
+        "experiment_id",
+        "created_at",
+        "activated_at",
+        "hypothesis",
+        "primary_metric_id",
+        "hard_guardrail_metric_ids",
+        "target_module_ids",
+        "development_dataset_ids",
+        "evaluation_dataset_ids",
+        "final_holdout_dataset_ids",
+        "search_strategy",
+        "requested_max_configurations",
+        "requested_seed_count",
+        "temporal_evaluation"
+      ],
+      "title": "ExperimentSpecification",
+      "type": "object"
+    },
+    "PromotionPolicyReference": {
+      "additionalProperties": false,
+      "properties": {
+        "hard_guardrails_non_compensable": {
+          "default": true,
+          "title": "Hard Guardrails Non Compensable",
+          "type": "boolean"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Policy Sha256",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "policy_sha256"
+      ],
+      "title": "PromotionPolicyReference",
+      "type": "object"
+    },
+    "SearchStrategy": {
+      "enum": [
+        "GRID",
+        "RANDOM",
+        "SUCCESSIVE_HALVING",
+        "HYPERBAND",
+        "BOHB"
+      ],
+      "title": "SearchStrategy",
+      "type": "string"
+    },
+    "TemporalEvaluationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "embargo_required": {
+          "default": true,
+          "title": "Embargo Required",
+          "type": "boolean"
+        },
+        "final_holdout_required": {
+          "default": true,
+          "title": "Final Holdout Required",
+          "type": "boolean"
+        },
+        "inner_fold_count": {
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Inner Fold Count",
+          "type": "integer"
+        },
+        "outer_fold_count": {
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Outer Fold Count",
+          "type": "integer"
+        },
+        "purge_required": {
+          "default": true,
+          "title": "Purge Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "outer_fold_count",
+        "inner_fold_count"
+      ],
+      "title": "TemporalEvaluationRequest",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "capability_registry_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Capability Registry Sha256",
+      "type": "string"
+    },
+    "cohort_id": {
+      "minLength": 1,
+      "title": "Cohort Id",
+      "type": "string"
+    },
+    "cohort_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Cohort Sha256",
+      "type": "string"
+    },
+    "metric_registry_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Metric Registry Sha256",
+      "type": "string"
+    },
+    "promotion_policy": {
+      "$ref": "#/$defs/PromotionPolicyReference"
+    },
+    "specification": {
+      "$ref": "#/$defs/ExperimentSpecification"
+    },
+    "specification_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Specification Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "specification",
+    "cohort_id",
+    "cohort_sha256",
+    "metric_registry_sha256",
+    "capability_registry_sha256",
+    "promotion_policy",
+    "specification_sha256"
+  ],
+  "title": "ValidatedExperimentSpecification",
+  "type": "object"
+}

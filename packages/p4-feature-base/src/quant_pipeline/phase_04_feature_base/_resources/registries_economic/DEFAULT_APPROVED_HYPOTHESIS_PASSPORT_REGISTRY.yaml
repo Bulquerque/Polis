@@ -1,0 +1,430 @@
+artifact_id: p4-s5-foundational-registry
+schema_version: p4.s5.registry.v1
+pipeline_version: V14.5-RC1
+run_id: REPLACE_AT_RUNTIME
+cycle_id: REPLACE_AT_RUNTIME
+as_of_time: '2000-01-01T00:00:00Z'
+lineage_id: p4-s5-foundational-theory-first
+records:
+- hypothesis_id: H01
+  observer_id: momentum.time_series
+  module_id: P4.S5.M01
+  feature_id: perspective.momentum.time_series
+  phenomenon_id: momentum
+  perspective_id: absolute_persistence
+  parameterization_id: H01.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - price.log_return_1
+  enabled: true
+  parameters:
+    window: 21
+    exclude_entities:
+    - BENCHMARK
+- hypothesis_id: H02
+  observer_id: momentum.cross_sectional_rank
+  module_id: P4.S5.M01
+  feature_id: perspective.momentum.cross_sectional_rank
+  phenomenon_id: momentum
+  perspective_id: relative_persistence
+  parameterization_id: H02.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - price.log_return_1
+  enabled: true
+  parameters:
+    window: 21
+    exclude_entities:
+    - BENCHMARK
+- hypothesis_id: H03
+  observer_id: momentum.residual
+  module_id: P4.S5.M01
+  feature_id: perspective.momentum.residual
+  phenomenon_id: momentum
+  perspective_id: residual_persistence
+  parameterization_id: H03.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - cross_asset.residual_return
+  enabled: true
+  parameters:
+    window: 21
+    exclude_entities:
+    - BENCHMARK
+- hypothesis_id: H04
+  observer_id: momentum.volume_confirmed
+  module_id: P4.S5.M01
+  feature_id: perspective.momentum.volume_confirmed
+  phenomenon_id: momentum
+  perspective_id: volume_confirmation
+  parameterization_id: H04.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - price.simple_return_1
+  - liquidity.relative_volume
+  enabled: true
+  parameters:
+    window: 21
+    volume_cap: 3.0
+    exclude_entities:
+    - BENCHMARK
+- hypothesis_id: H05
+  observer_id: reversion.short_term
+  module_id: P4.S5.M02
+  feature_id: perspective.reversion.short_term
+  phenomenon_id: reversion
+  perspective_id: short_pressure_reversal
+  parameterization_id: H05.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - price.simple_return_1
+  enabled: true
+  parameters:
+    window: 5
+- hypothesis_id: H06
+  observer_id: reversion.robust_deviation
+  module_id: P4.S5.M02
+  feature_id: perspective.reversion.robust_deviation
+  phenomenon_id: reversion
+  perspective_id: robust_state_deviation
+  parameterization_id: H06.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - price.log_return_1
+  enabled: true
+  parameters:
+    window: 21
+- hypothesis_id: H07
+  observer_id: reversion.residual
+  module_id: P4.S5.M02
+  feature_id: perspective.reversion.residual
+  phenomenon_id: reversion
+  perspective_id: residual_reversal
+  parameterization_id: H07.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - cross_asset.residual_return
+  enabled: true
+  parameters:
+    window: 5
+- hypothesis_id: H08
+  observer_id: risk.multiscale
+  module_id: P4.S5.M03
+  feature_id: perspective.risk.multiscale
+  phenomenon_id: risk
+  perspective_id: multiscale_volatility
+  parameterization_id: H08.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - risk.realized_volatility_5
+  - risk.realized_volatility
+  enabled: true
+  parameters: {}
+- hypothesis_id: H09
+  observer_id: risk.downside
+  module_id: P4.S5.M03
+  feature_id: perspective.risk.downside
+  phenomenon_id: risk
+  perspective_id: downside_semivariance
+  parameterization_id: H09.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - risk.downside_semivariance
+  enabled: true
+  parameters: {}
+- hypothesis_id: H10
+  observer_id: risk.drawdown_stress
+  module_id: P4.S5.M03
+  feature_id: perspective.risk.drawdown_stress
+  phenomenon_id: risk
+  perspective_id: path_dependent_stress
+  parameterization_id: H10.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - risk.drawdown
+  - risk.drawdown_duration
+  enabled: true
+  parameters: {}
+- hypothesis_id: H11
+  observer_id: risk.implied_uncertainty
+  module_id: P4.S5.M03
+  feature_id: perspective.risk.implied_uncertainty
+  phenomenon_id: risk
+  perspective_id: option_implied_uncertainty
+  parameterization_id: H11.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - options.variance_risk_premium
+  - options.implied_volatility_skew_proxy
+  enabled: true
+  parameters: {}
+- hypothesis_id: H12
+  observer_id: liquidity.participation
+  module_id: P4.S5.M04
+  feature_id: perspective.liquidity.participation
+  phenomenon_id: liquidity
+  perspective_id: participation
+  parameterization_id: H12.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - liquidity.turnover
+  - liquidity.relative_volume
+  enabled: true
+  parameters: {}
+- hypothesis_id: H13
+  observer_id: liquidity.price_impact
+  module_id: P4.S5.M04
+  feature_id: perspective.liquidity.price_impact
+  phenomenon_id: liquidity
+  perspective_id: price_impact
+  parameterization_id: H13.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - liquidity.amihud
+  - liquidity.relative_spread
+  - liquidity.stale_frequency
+  enabled: true
+  parameters: {}
+- hypothesis_id: H14
+  observer_id: liquidity.attention_crowding
+  module_id: P4.S5.M04
+  feature_id: perspective.liquidity.attention_crowding
+  phenomenon_id: liquidity
+  perspective_id: attention_crowding_proxy
+  parameterization_id: H14.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - liquidity.relative_volume
+  - social.evidence_count
+  - options.open_interest_concentration
+  enabled: true
+  parameters: {}
+- hypothesis_id: H15
+  observer_id: structure.systematic_exposure
+  module_id: P4.S5.M05
+  feature_id: perspective.structure.systematic_exposure
+  phenomenon_id: structure
+  perspective_id: systematic_exposure
+  parameterization_id: H15.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - cross_asset.beta
+  - cross_asset.correlation
+  enabled: true
+  parameters: {}
+- hypothesis_id: H16
+  observer_id: structure.common_mode_proxy
+  module_id: P4.S5.M05
+  feature_id: perspective.structure.common_mode_proxy
+  phenomenon_id: structure
+  perspective_id: common_mode_proxy
+  parameterization_id: H16.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - cross_asset.correlation
+  - cross_asset.dispersion
+  enabled: true
+  parameters: {}
+- hypothesis_id: H17
+  observer_id: structure.contagion_pressure_proxy
+  module_id: P4.S5.M05
+  feature_id: perspective.structure.contagion_pressure_proxy
+  phenomenon_id: structure
+  perspective_id: contagion_pressure_proxy
+  parameterization_id: H17.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - cross_asset.correlation
+  - risk.realized_volatility
+  enabled: true
+  parameters: {}
+- hypothesis_id: H18
+  observer_id: macro.growth_state
+  module_id: P4.S5.M06
+  feature_id: perspective.macro.growth_state
+  phenomenon_id: macro
+  perspective_id: growth_state
+  parameterization_id: H18.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - macro.change_1.macro.growth
+  - macro.acceleration.macro.growth
+  enabled: true
+  parameters: {}
+- hypothesis_id: H19
+  observer_id: macro.inflation_state
+  module_id: P4.S5.M06
+  feature_id: perspective.macro.inflation_state
+  phenomenon_id: macro
+  perspective_id: inflation_state
+  parameterization_id: H19.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - macro.change_1.macro.inflation
+  - macro.acceleration.macro.inflation
+  enabled: true
+  parameters: {}
+- hypothesis_id: H20
+  observer_id: macro.surprise_state
+  module_id: P4.S5.M06
+  feature_id: perspective.macro.surprise_state
+  phenomenon_id: macro
+  perspective_id: macro_surprise
+  parameterization_id: H20.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - macro.surprise
+  enabled: true
+  parameters: {}
+- hypothesis_id: H21
+  observer_id: event.surprise_state
+  module_id: P4.S5.M07
+  feature_id: perspective.event.surprise_state
+  phenomenon_id: events
+  perspective_id: event_surprise
+  parameterization_id: H21.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - macro.surprise
+  enabled: true
+  parameters: {}
+- hypothesis_id: H22
+  observer_id: event.proximity_state
+  module_id: P4.S5.M07
+  feature_id: perspective.event.proximity_state
+  phenomenon_id: events
+  perspective_id: event_proximity
+  parameterization_id: H22.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - event.time_distance
+  enabled: true
+  parameters:
+    half_life_days: 10.0
+- hypothesis_id: H23
+  observer_id: narrative.information_state
+  module_id: P4.S5.M08
+  feature_id: perspective.narrative.information_state
+  phenomenon_id: narrative
+  perspective_id: quality_weighted_information
+  parameterization_id: H23.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - social.evidence_quality_weighted_balance
+  - social.evidence_count
+  enabled: true
+  parameters: {}
+- hypothesis_id: H24
+  observer_id: narrative.disagreement_state
+  module_id: P4.S5.M08
+  feature_id: perspective.narrative.disagreement_state
+  phenomenon_id: narrative
+  perspective_id: disagreement
+  parameterization_id: H24.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - social.disagreement_state
+  enabled: true
+  parameters: {}
+- hypothesis_id: H25
+  observer_id: narrative.shift_state
+  module_id: P4.S5.M08
+  feature_id: perspective.narrative.shift_state
+  phenomenon_id: narrative
+  perspective_id: narrative_change
+  parameterization_id: H25.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - social.narrative_shift.social.feature.sentiment
+  enabled: true
+  parameters: {}
+- hypothesis_id: H26
+  observer_id: fundamental.value_state
+  module_id: P4.S5.M09
+  feature_id: perspective.fundamental.value_state
+  phenomenon_id: fundamentals
+  perspective_id: value
+  parameterization_id: H26.primary
+  horizon_group: LONG
+  source_feature_ids:
+  - fundamental.book_to_market
+  - fundamental.earnings_yield
+  enabled: true
+  parameters: {}
+- hypothesis_id: H27
+  observer_id: fundamental.profitability_state
+  module_id: P4.S5.M09
+  feature_id: perspective.fundamental.profitability_state
+  phenomenon_id: fundamentals
+  perspective_id: profitability
+  parameterization_id: H27.primary
+  horizon_group: LONG
+  source_feature_ids:
+  - fundamental.gross_profitability
+  - fundamental.operating_profitability
+  enabled: true
+  parameters: {}
+- hypothesis_id: H28
+  observer_id: fundamental.investment_state
+  module_id: P4.S5.M09
+  feature_id: perspective.fundamental.investment_state
+  phenomenon_id: fundamentals
+  perspective_id: investment
+  parameterization_id: H28.primary
+  horizon_group: LONG
+  source_feature_ids:
+  - fundamental.asset_growth
+  enabled: true
+  parameters: {}
+- hypothesis_id: H29
+  observer_id: fundamental.accrual_quality_state
+  module_id: P4.S5.M09
+  feature_id: perspective.fundamental.accrual_quality_state
+  phenomenon_id: fundamentals
+  perspective_id: accrual_quality
+  parameterization_id: H29.primary
+  horizon_group: LONG
+  source_feature_ids:
+  - fundamental.accruals
+  enabled: true
+  parameters: {}
+- hypothesis_id: H30
+  observer_id: carry.curve_slope_state
+  module_id: P4.S5.M10
+  feature_id: perspective.carry.curve_slope_state
+  phenomenon_id: carry
+  perspective_id: curve_slope
+  parameterization_id: H30.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - macro.level.curve.long_rate
+  - macro.level.curve.short_rate
+  enabled: true
+  parameters:
+    convention_id: YIELD_LONG_MINUS_SHORT
+- hypothesis_id: H31
+  observer_id: carry.basis_state
+  module_id: P4.S5.M10
+  feature_id: perspective.carry.basis_state
+  phenomenon_id: carry
+  perspective_id: basis
+  parameterization_id: H31.primary
+  horizon_group: MEDIUM
+  source_feature_ids:
+  - macro.level.futures_basis
+  enabled: true
+  parameters:
+    convention_id: ANNUALIZED_BASIS
+- hypothesis_id: H32
+  observer_id: carry.option_term_state
+  module_id: P4.S5.M10
+  feature_id: perspective.carry.option_term_state
+  phenomenon_id: carry
+  perspective_id: option_term_structure
+  parameterization_id: H32.primary
+  horizon_group: SHORT
+  source_feature_ids:
+  - options.implied_volatility_term_slope
+  enabled: true
+  parameters:
+    convention_id: LONG_IV_MINUS_SHORT_IV

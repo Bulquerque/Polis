@@ -1,0 +1,4 @@
+minimum_repeated_interactions: 3
+minimum_mutual_relevance: 0.5
+retro_named_edge_forbidden: true
+requires_social_tool_entitlement: true

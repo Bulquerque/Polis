@@ -1,0 +1,54 @@
+module_id: P2.S3.M05
+module_name: underlying_panel_cleaner
+phase: phase_02_quality_pit
+subphase: P2.S3
+rc: RC4.1
+function: Limpar painel de underlyings usando corporate actions e calendário já limpos.
+inputs: &id001
+- identifier_harmonized_bundle
+- source_quality_panel
+- clean_calendar_panel
+- clean_corporate_actions_panel
+outputs: &id002
+- clean_underlying_panel
+validations:
+- underlying_date_unique
+- price_non_negative
+- corporate_actions_applied_pit
+fail_fast_conditions:
+- underlying_panel_cleaner_schema_violation
+- underlying_panel_cleaner_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P2.S2.M02
+    - P2.S1.M03
+    - P2.S3.M03
+    - P2.S3.M04
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P2.S3.M06
+    - P2.S4.M03
+    - P2.S6.M01
+    - P2.S6.M02
+    artifacts: *id002
+    phase_outputs:
+    - clean_underlying_panel
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

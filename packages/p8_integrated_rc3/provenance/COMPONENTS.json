@@ -1,0 +1,30 @@
+{
+  "release": "0.3.0rc3",
+  "components": [
+    {
+      "scope": "S1-S2",
+      "file": "P8_AGENT1_S1_S2_INTEGRATED_V1(1).zip",
+      "sha256": "79ab633e3f8a3ea42937f73f877a1b48aefc536fe41de7688a16f8593fa4f02e"
+    },
+    {
+      "scope": "S3-S4",
+      "file": "P8_AGENT_2_S3_S4_INTEGRATED_V1(1).zip",
+      "sha256": "c0335526db36695d1affb77987d8240f3a2b5cd091fb24e86be65933c23764d3"
+    },
+    {
+      "scope": "S5-S6",
+      "file": "P8_AGENT_3_INTEGRATED_S5_S6_V1_FINAL(1).zip",
+      "sha256": "bbb9d41fccff396dcd708ac443ff7129f3353b1fbbc7dad2dc668283ed6003d8"
+    },
+    {
+      "scope": "S7-S8",
+      "file": "P8_AGENT_4_COMPLETE_CONSOLIDATED_V1_2_0(1).zip",
+      "sha256": "16e99029d9ba282ba874e85fecccb6cc059f0203d61c89466ee44217cdab8b11"
+    },
+    {
+      "scope": "S9-S10",
+      "file": "P8_AGENT5_S9_S10_UNIFIED_V1(1).zip",
+      "sha256": "ffd392256ee8032263dc4617a6b822cfc8aa43d8151b4101447a9f0f0235a61a"
+    }
+  ]
+}

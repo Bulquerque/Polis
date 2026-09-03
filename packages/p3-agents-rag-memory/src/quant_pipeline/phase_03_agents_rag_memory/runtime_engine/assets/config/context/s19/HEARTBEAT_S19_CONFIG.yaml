@@ -1,0 +1,11 @@
+schema_version: heartbeat_config.v2
+config_version: p3.s19.heartbeat.v1
+coverage_period: CALENDAR_MONTH_UTC
+minimum_cycles_per_person_per_calendar_month: 1
+event_activation_satisfies_heartbeat: true
+schedule_policy: EVENT_FIRST_PRIORITY_SCORE_SEEDED_SHA256_HEARTBEAT_PERSON
+heartbeat_priority: 0
+heartbeat_seed_namespace: p3.s19.heartbeat.v1
+heartbeat_schedule_offset_seconds: 0
+include_disabled_people: false
+verify_input_content_hashes: true

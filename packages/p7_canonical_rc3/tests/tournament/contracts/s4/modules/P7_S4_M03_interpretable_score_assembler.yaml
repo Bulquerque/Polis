@@ -1,0 +1,16 @@
+module_id: P7.S4.M03
+owner: TOURNAMENT
+purpose: Combine heads into an interpretable score without LTR or ranking.
+inputs:
+  - scoring_head_panel
+  - scoring_policy_receipt
+  - pareto_frontier_panel
+outputs:
+  - interpretable_score_panel
+invariants:
+  - head contribution sum equals base_score
+  - penalties and confidence adjustment remain separate
+  - confidence adjustment is non-positive
+  - final score is finite and bounded
+  - candidate order is not changed semantically
+failure_scope: CANDIDATE_LEVEL

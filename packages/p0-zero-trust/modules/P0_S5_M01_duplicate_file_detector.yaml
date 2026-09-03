@@ -1,0 +1,39 @@
+module_id: P0.S5.M01
+module_name: duplicate_file_detector
+function: Executar duplicate file detector da Fase 0, mantendo controle Zero Trust
+  técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- source_tree_manifest
+- file_hash_manifest
+outputs: &id002
+- duplicate_file_report
+validations:
+- duplicate_hashes_detected
+- schemas_duplicate_check
+fail_fast_conditions:
+- duplicate_file_detector_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - source_tree_manifest
+    - file_hash_manifest
+  emits_to:
+    modules:
+    - P0.S5.M06
+    artifacts: *id002
+    phase_outputs:
+    - duplicate_file_report
+phase: P0
+subphase: P0.S5
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

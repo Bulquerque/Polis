@@ -1,0 +1,21 @@
+module_id: P5.S5.M02
+name: evt_pot_expected_shortfall_resolvers
+subphase_id: P5.S5
+required_inputs:
+- qualified_resolver_registry
+- oof_validation_observation_panel
+optional_inputs:
+- return_member_forecast_panel_linear
+- return_member_forecast_panel_state_space
+- return_member_forecast_panel_tabular
+- return_member_forecast_panel_temporal
+- return_member_forecast_panel_foundation
+outputs:
+- tail_member_forecast_panel_evt
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

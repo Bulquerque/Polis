@@ -1,0 +1,15 @@
+algorithm: sha256
+required_for:
+- all_artifacts
+- schemas
+- contracts
+- release_files
+fail_on:
+- missing_hash
+- hash_mismatch
+- raw_overwrite
+canonical_algorithm: sha256
+allowed_algorithms:
+- sha256
+streaming_required: true
+canonical_paths_required: true

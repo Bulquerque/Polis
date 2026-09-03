@@ -1,0 +1,239 @@
+$defs:
+  HeadStatus:
+    enum:
+    - AVAILABLE
+    - PENALIZED
+    - RENORMALIZED
+    - UNAVAILABLE
+    - BLOCKED
+    title: HeadStatus
+    type: string
+  MetricScoreComponent:
+    additionalProperties: false
+    properties:
+      metric_id:
+        title: Metric Id
+        type: string
+      source_kind:
+        enum:
+        - COMPARABLE
+        - FACTOR_ADJUSTED
+        - MISSING_PENALTY
+        title: Source Kind
+        type: string
+      raw_directed_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Raw Directed Value
+      transformed_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Transformed Value
+      normalized_value:
+        anyOf:
+        - maximum: 1
+          minimum: 0
+          type: number
+        - type: 'null'
+        title: Normalized Value
+      metric_weight:
+        exclusiveMinimum: 0
+        minimum: 0
+        title: Metric Weight
+        type: number
+      contribution:
+        minimum: 0
+        title: Contribution
+        type: number
+      status:
+        enum:
+        - AVAILABLE
+        - PENALIZED
+        - RENORMALIZED
+        - UNAVAILABLE
+        - BLOCKED
+        title: Status
+        type: string
+      reason_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        title: Reason Code
+    required:
+    - metric_id
+    - source_kind
+    - raw_directed_value
+    - transformed_value
+    - normalized_value
+    - metric_weight
+    - contribution
+    - status
+    - reason_code
+    title: MetricScoreComponent
+    type: object
+  MissingHeadAction:
+    enum:
+    - BLOCK
+    - PENALIZE
+    - RENORMALIZE_ALLOWED
+    title: MissingHeadAction
+    type: string
+  ScoringHeadRecord:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        title: Candidate Id
+        type: string
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      policy_id:
+        title: Policy Id
+        type: string
+      policy_version:
+        title: Policy Version
+        type: string
+      rule_id:
+        title: Rule Id
+        type: string
+      head_id:
+        title: Head Id
+        type: string
+      head_weight:
+        exclusiveMinimum: 0
+        minimum: 0
+        title: Head Weight
+        type: number
+      missing_head_action:
+        $ref: '#/$defs/MissingHeadAction'
+      missing_head_penalty:
+        maximum: 1
+        minimum: 0
+        title: Missing Head Penalty
+        type: number
+      head_status:
+        $ref: '#/$defs/HeadStatus'
+      head_score:
+        anyOf:
+        - maximum: 1
+          minimum: 0
+          type: number
+        - type: 'null'
+        title: Head Score
+      effective_metric_weight:
+        minimum: 0
+        title: Effective Metric Weight
+        type: number
+      expected_metric_count:
+        minimum: 1
+        title: Expected Metric Count
+        type: integer
+      available_metric_count:
+        minimum: 0
+        title: Available Metric Count
+        type: integer
+      stages:
+        items:
+          $ref: '#/$defs/MetricScoreComponent'
+        title: Components
+        type: array
+      reason_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        title: Reason Code
+      lineage_id:
+        title: Lineage Id
+        type: string
+    required:
+    - candidate_id
+    - comparison_group_id
+    - policy_id
+    - policy_version
+    - rule_id
+    - head_id
+    - head_weight
+    - missing_head_action
+    - missing_head_penalty
+    - head_status
+    - head_score
+    - effective_metric_weight
+    - expected_metric_count
+    - available_metric_count
+    - stages
+    - reason_code
+    - lineage_id
+    title: ScoringHeadRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/ScoringHeadRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: scoring_head_panel envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s4/scoring_head_panel/1.0.0

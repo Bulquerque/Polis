@@ -1,0 +1,51 @@
+{
+  "schema_id": "warmup_checkpoint_plan.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "p3-s10-checkpoint-plan-run-s9-001-0bee2f64fc1ed112",
+  "module_id": "P3.S10.M02",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "as_of": "2026-01-01T00:00:00Z",
+  "evaluation_start": "2026-01-01T00:00:00Z",
+  "mode": "GENESIS_ONLY",
+  "status": "READY",
+  "schedule_hash": "b90b4ab72e2d8adb0a6e96b4541d58ba70210849c6d5217e6b54c5e80b895fb0",
+  "checkpoint_config_hash": "43526ac62646a8d99f2b738251db775f5872335a7f020ff4763ceb8d9ccffcc7",
+  "checkpoints": [
+    {
+      "checkpoint_id": "s10-checkpoint-741757eb81800577d637",
+      "sequence_number": 1,
+      "after_schedule_sequence_number": 0,
+      "logical_time": "2025-12-31T23:59:59.999999Z",
+      "reason": "GENESIS",
+      "previous_checkpoint_id": null,
+      "required_state_families": [
+        "person_state",
+        "belief_state",
+        "memory_state",
+        "social_graph",
+        "pending_stimuli",
+        "belief_commitments",
+        "replay_cursor",
+        "resource_refs",
+        "policy_refs",
+        "audit_refs"
+      ],
+      "final": true
+    }
+  ],
+  "final_checkpoint_id": "s10-checkpoint-741757eb81800577d637",
+  "final_checkpoint_time": "2025-12-31T23:59:59.999999Z",
+  "resume_supported": true,
+  "plan_hash": "0bee2f64fc1ed112688c78d458965443879abe9f1742ba3bc6c321f883ed46d0",
+  "lineage": {
+    "lineage_id": "s10-checkpoint-lineage-0bee2f64fc1ed112",
+    "schedule_artifact_id": "p3-s10-schedule-run-s9-001-b90b4ab72e2d8adb",
+    "schedule_hash": "b90b4ab72e2d8adb0a6e96b4541d58ba70210849c6d5217e6b54c5e80b895fb0",
+    "checkpoint_config_hash": "43526ac62646a8d99f2b738251db775f5872335a7f020ff4763ceb8d9ccffcc7",
+    "source_lineage_ids": [
+      "s10-schedule-lineage-b90b4ab72e2d8adb"
+    ]
+  },
+  "issues": []
+}

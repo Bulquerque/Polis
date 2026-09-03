@@ -1,0 +1,124 @@
+{
+  "compatibility_bundle": "P5_P9_P0_P4_COMPAT_RC3_HARDENED_6",
+  "compatibility_scope": [
+    "P0 control-plane reports and dashboard normalization",
+    "P1/P2/P4 manifest and lineage fingerprints",
+    "P3 process-isolated evidence, belief feedback and contextual memory",
+    "P5/P7 legacy feedback consumers",
+    "P6 P0-governed feedback boundary",
+    "P8 native evidence publisher and P0-authorized feedback materializer"
+  ],
+  "parent_release": "P9_CANONICAL_UNIFIED_RC2",
+  "parent_source_authorities": [
+    {
+      "role": "foundation_experiment_s01_s02",
+      "sha256": "6896f5aae2cf638badcf74d3933a7cc858008b1149c448db98166e0fee65b3f8"
+    },
+    {
+      "role": "backtest_metrics_s03_s04",
+      "sha256": "339d3f67dd23fdf76734473b86db699f8fbbeb5dcb09f0129a5d3120be69321f"
+    },
+    {
+      "role": "robustness_stress_s05_s06",
+      "sha256": "4243f1ce17f2a3fbd02254ba6797dab6afb9adac37c8d841363e288692388ae1"
+    },
+    {
+      "role": "prospective_attribution_s07_s08",
+      "sha256": "1a9b2a8bef2b950ed1642b3cc5517f9494e5cd6055db7f02b9d372183a10b6f1"
+    },
+    {
+      "role": "promotion_memory_release_s09_s10",
+      "sha256": "975586dabf7dc3ddf972a48d43c3c043af1c07f2cc549c0a2966c6cf4100dff5"
+    }
+  ],
+  "policy": "single_runtime_authority_per_subphase_with_isolated_external_boundaries",
+  "project_version": "0.1.0rc4.post2",
+  "qualified_phase_snapshots": [
+    {
+      "fingerprint_sha256": "d54d29df40b77f99d330f681e1f4e37bc1ed33a73dce558b9c9961abc1fdf602",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "package_name": "phase-00-zero-trust",
+      "package_version": "RC4.1",
+      "phase_id": "P0",
+      "state": "COMPATIBLE"
+    },
+    {
+      "fingerprint_sha256": "fd43b7d048662a95424434c234efc5a3de9818d387781ebb975daa1617ecff10",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "package_name": "phase-01-ingestion",
+      "package_version": "RC4.1",
+      "phase_id": "P1",
+      "state": "COMPATIBLE"
+    },
+    {
+      "fingerprint_sha256": "5bb0365a1ddab473ae98db2333a2e4f52fdd88ab974d23393d3227930931b22a",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "package_name": "phase-02-quality-pit",
+      "package_version": "RC4.1",
+      "phase_id": "P2",
+      "state": "COMPATIBLE"
+    },
+    {
+      "fingerprint_sha256": "06c88d8f710171c1d81580e44157b0db7d27d18fbf5e80cdc3420eb6126c9c77",
+      "fingerprint_subject": "PACKAGE_MANIFEST.json",
+      "package_name": "quant-pipeline-p3",
+      "package_version": "1.0.0",
+      "phase_id": "P3",
+      "state": "COMPATIBLE_PROCESS_ISOLATED"
+    },
+    {
+      "fingerprint_sha256": "5e8c57495dc6bee0ac15f5bbdd927a9744e4f07e69607abff4c2438d1e46d928",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "package_name": "phase-04-feature-base",
+      "package_version": "RC4.1",
+      "phase_id": "P4",
+      "state": "COMPATIBLE"
+    },
+    {
+      "fingerprint_sha256": "8a782c3200cd8e7febe8dcbf5a20bc893bda7184086618ca4b9c5d1f88ffc966",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "package_name": "phase-05-underlying-forecasts",
+      "package_version": "RC4.1",
+      "phase_id": "P5",
+      "state": "COMPATIBLE"
+    },
+    {
+      "fingerprint_sha256": "96b8bb6aedf8b27b4b179d921cf0a5d2f8ab5c40b08eb69b56feb7be28a59351",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "package_name": "phase-06-candidate-generation",
+      "package_version": "RC4.1",
+      "phase_id": "P6",
+      "state": "COMPATIBLE_GOVERNED"
+    },
+    {
+      "fingerprint_sha256": "2a3f67d20d6725aba0336fd356489416d964a0375429d5d8ebb9953944afcc38",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "package_name": "phase-07-ranking",
+      "package_version": "RC4.1",
+      "phase_id": "P7",
+      "state": "COMPATIBLE"
+    },
+    {
+      "fingerprint_sha256": "43000c3033d3a2902c9904b11c4fbab2e1fb98d6702bffec9c10e37ca84d93eb",
+      "fingerprint_subject": "registries/modules.json",
+      "package_name": "quant-pipeline-phase-08",
+      "package_version": "0.3.0rc3",
+      "phase_id": "P8",
+      "state": "COMPATIBLE_LIMITED"
+    }
+  ],
+  "release": "P9_CANONICAL_UNIFIED_RC4",
+  "scientific_runtime": {
+    "compatibility_package": "quant_pipeline.phase_09.compatibility",
+    "external_static_imports_allowed": false,
+    "module_count": 70,
+    "subphase_count": 10
+  },
+  "selection": {
+    "P9.S1-P9.S2": "foundation_experiment_s01_s02",
+    "P9.S3-P9.S4": "backtest_metrics_s03_s04",
+    "P9.S5-P9.S6": "robustness_stress_s05_s06",
+    "P9.S7-P9.S8": "prospective_attribution_s07_s08",
+    "P9.S9-P9.S10": "promotion_memory_release_s09_s10"
+  }
+}

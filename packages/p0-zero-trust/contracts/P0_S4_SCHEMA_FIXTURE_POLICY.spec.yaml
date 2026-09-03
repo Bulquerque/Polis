@@ -1,0 +1,18 @@
+spec_id: p0_s4_schema_fixture_policy.v2
+subphase: P0.S4
+minimum_coverage:
+  every_registered_schema:
+    - valid
+    - invalid
+recommended_negative_classes:
+  - missing_required_field
+  - wrong_type
+  - unknown_field
+  - invalid_enum
+  - invalid_pattern
+  - temporal_invariant
+principles:
+  - schema validation must fail closed on unsupported critical semantics
+  - fixture_id is globally unique within a schema-test run
+  - schema paths must remain inside the repository root
+  - a declared schema hash, when present, must match material bytes

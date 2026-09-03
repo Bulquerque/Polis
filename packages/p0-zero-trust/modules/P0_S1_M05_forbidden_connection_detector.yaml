@@ -1,0 +1,42 @@
+module_id: P0.S1.M05
+module_name: forbidden_connection_detector
+function: Executar forbidden connection detector da Fase 0, mantendo controle Zero
+  Trust técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- validated_connection_matrix
+- forbidden_connection_matrix_yaml
+- module_io_matrix_all_phases
+outputs: &id002
+- forbidden_connection_report
+validations:
+- no_forbidden_economic_connection
+- phase0_not_economic_input
+fail_fast_conditions:
+- forbidden_connection_detector_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S1.M04
+    artifacts: *id001
+    phase_inputs:
+    - forbidden_connection_matrix_yaml
+    - module_io_matrix_all_phases
+  emits_to:
+    modules:
+    - P0.S6.M03
+    - P0.S8.M03
+    artifacts: *id002
+    phase_outputs:
+    - forbidden_connection_report
+phase: P0
+subphase: P0.S1
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

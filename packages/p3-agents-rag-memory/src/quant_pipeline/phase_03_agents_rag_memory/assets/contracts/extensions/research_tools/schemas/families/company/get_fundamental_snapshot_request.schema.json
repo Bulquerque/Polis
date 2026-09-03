@@ -1,0 +1,60 @@
+{
+  "$defs": {
+    "CompanyMode": {
+      "enum": [
+        "QUICK_CHECK",
+        "STANDARD_REVIEW",
+        "DEEP_QUALITATIVE",
+        "ACCOUNTING_QUALITY",
+        "FORENSIC"
+      ],
+      "title": "CompanyMode",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entity_id": {
+      "minLength": 1,
+      "title": "Entity Id",
+      "type": "string"
+    },
+    "formula_ids": {
+      "default": [
+        "revenue_growth",
+        "operating_margin",
+        "cash_conversion",
+        "net_debt_to_ebitda"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Formula Ids",
+      "type": "array"
+    },
+    "periods": {
+      "default": 5,
+      "maximum": 20,
+      "minimum": 2,
+      "title": "Periods",
+      "type": "integer"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/CompanyMode",
+      "default": "QUICK_CHECK"
+    },
+    "view_id": {
+      "default": "financial_statements",
+      "minLength": 1,
+      "title": "View Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "entity_id"
+  ],
+  "title": "GetFundamentalSnapshotRequest",
+  "type": "object"
+}

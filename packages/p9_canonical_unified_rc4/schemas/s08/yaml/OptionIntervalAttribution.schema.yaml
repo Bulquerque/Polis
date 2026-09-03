@@ -1,0 +1,83 @@
+$defs:
+  AttributionQuality:
+    enum:
+    - QUALIFIED
+    - LIMITED
+    - INSUFFICIENT_EVIDENCE
+    - NOT_IDENTIFIABLE
+    - INVALID
+    title: AttributionQuality
+    type: string
+additionalProperties: false
+properties:
+  position_id:
+    minLength: 1
+    title: Position Id
+    type: string
+  full_repricing_pnl:
+    title: Full Repricing Pnl
+    type: number
+  delta_pnl:
+    title: Delta Pnl
+    type: number
+  gamma_pnl:
+    title: Gamma Pnl
+    type: number
+  vega_pnl:
+    title: Vega Pnl
+    type: number
+  theta_pnl:
+    title: Theta Pnl
+    type: number
+  rho_pnl:
+    title: Rho Pnl
+    type: number
+  skew_pnl:
+    title: Skew Pnl
+    type: number
+  term_structure_pnl:
+    title: Term Structure Pnl
+    type: number
+  cross_greek_pnl:
+    title: Cross Greek Pnl
+    type: number
+  lifecycle_pnl:
+    title: Lifecycle Pnl
+    type: number
+  explained_pnl:
+    title: Explained Pnl
+    type: number
+  residual_pnl:
+    title: Residual Pnl
+    type: number
+  residual_material:
+    title: Residual Material
+    type: boolean
+  quality:
+    $ref: '#/$defs/AttributionQuality'
+  reason_codes:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Reason Codes
+    type: array
+required:
+- position_id
+- full_repricing_pnl
+- delta_pnl
+- gamma_pnl
+- vega_pnl
+- theta_pnl
+- rho_pnl
+- skew_pnl
+- term_structure_pnl
+- cross_greek_pnl
+- lifecycle_pnl
+- explained_pnl
+- residual_pnl
+- residual_material
+- quality
+title: OptionIntervalAttribution
+type: object
+$id: urn:inferencia:p9:s8:OptionIntervalAttribution:1.0.0

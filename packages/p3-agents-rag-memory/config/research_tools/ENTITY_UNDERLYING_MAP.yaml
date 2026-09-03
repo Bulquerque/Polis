@@ -1,0 +1,6 @@
+schema_id: p3.research_tools.entity_underlying_map.v1
+schema_version: 1.0.0
+fuzzy_matching_enabled: false
+minimum_probabilistic_confidence: 0.95
+identifier_namespaces: [ENTITY_ID, INSTRUMENT_ID, TICKER, VENUE, CNPJ, CIK, ISIN, FIGI]
+records: []

@@ -1,0 +1,14 @@
+subphase: P3.S14
+modules:
+- module_id: P3.S14.M01
+  required_cases:
+  - formula_configured
+  - audit_not_exposed
+  - budget_present
+- module_id: P3.S14.M02
+  required_cases:
+  - person_partitioning
+  - future_memory_excluded
+canonical_module_order:
+- P3.S14.M01
+- P3.S14.M02

@@ -1,0 +1,9 @@
+as_of: '2026-07-27T12:00:00Z'
+evaluation_start: '2026-07-28T00:00:00Z'
+evaluation_end: '2026-08-04T00:00:00Z'
+warmup_start: '2026-07-01T00:00:00Z'
+warmup_end: '2026-07-27T23:59:59Z'
+timezone: UTC
+boundary_rule: available_at_equal_as_of_allowed
+warmup_end_strictly_before_evaluation: true
+final_holdout_blind: true

@@ -1,0 +1,253 @@
+{
+  "$defs": {
+    "MetricEstimate": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_mean": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bootstrap Mean"
+        },
+        "bootstrap_median": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bootstrap Median"
+        },
+        "confidence_interval_high": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Confidence Interval High"
+        },
+        "confidence_interval_low": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Confidence Interval Low"
+        },
+        "invalid_replicates": {
+          "minimum": 0,
+          "title": "Invalid Replicates",
+          "type": "integer"
+        },
+        "lower_confidence_bound": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Lower Confidence Bound"
+        },
+        "metric_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_name": {
+          "$ref": "#/$defs/MetricName"
+        },
+        "observed_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observed Value"
+        },
+        "probability_above_threshold": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Probability Above Threshold"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "standard_error": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Standard Error"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        },
+        "valid_replicates": {
+          "minimum": 0,
+          "title": "Valid Replicates",
+          "type": "integer"
+        },
+        "worst_quantile": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Worst Quantile"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_name",
+        "observed_value",
+        "bootstrap_mean",
+        "bootstrap_median",
+        "confidence_interval_low",
+        "confidence_interval_high",
+        "lower_confidence_bound",
+        "worst_quantile",
+        "probability_above_threshold",
+        "valid_replicates",
+        "invalid_replicates",
+        "status"
+      ],
+      "title": "MetricEstimate",
+      "type": "object"
+    },
+    "MetricName": {
+      "enum": [
+        "ANNUALIZED_RETURN",
+        "VOLATILITY",
+        "SHARPE",
+        "CUMULATIVE_RETURN",
+        "CAGR",
+        "MAX_DRAWDOWN",
+        "SORTINO",
+        "CALMAR",
+        "EXPECTED_SHORTFALL",
+        "ALPHA",
+        "BETA",
+        "INFORMATION_RATIO",
+        "COMPETITION_SCORE"
+      ],
+      "title": "MetricName",
+      "type": "string"
+    },
+    "S5State": {
+      "enum": [
+        "SUCCESS",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "PARTIAL_METRIC_COVERAGE",
+        "INSUFFICIENT_EVIDENCE",
+        "INSUFFICIENT_HISTORY",
+        "INSUFFICIENT_TRADES",
+        "INSUFFICIENT_VALID_REPLICATES",
+        "IRREGULAR_TIME_UNSUPPORTED",
+        "TRIAL_FAMILY_INCOMPLETE",
+        "EFFECTIVE_TRIAL_COUNT_UNRESOLVED",
+        "METRIC_VERSION_MISMATCH",
+        "ROBUST",
+        "PROVISIONALLY_ROBUST",
+        "FRAGILE",
+        "BACKTEST_OVERFIT_RISK",
+        "REGIME_DEPENDENT",
+        "SELECTION_BIAS_UNRESOLVED",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S5State",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "estimates": {
+      "items": {
+        "$ref": "#/$defs/MetricEstimate"
+      },
+      "title": "Estimates",
+      "type": "array"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "metric_registry_version": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Metric Registry Version",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S5State"
+    }
+  },
+  "required": [
+    "status",
+    "metric_registry_version",
+    "estimates"
+  ],
+  "title": "MetricDistributionResult",
+  "type": "object"
+}

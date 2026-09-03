@@ -1,0 +1,968 @@
+schema_id: p3.research_tools.module_registry.s32_s40.v1
+schema_version: 1.0.0
+contract_version: 1.0.0
+subphase_count: 9
+module_count: 47
+legacy_module_count_preserved: 81
+total_logical_p3_module_count: 128
+modules:
+- module_id: P3.S32.M01
+  subphase_id: P3.S32
+  module_name: canonical_research_tool_catalog_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s32.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S32_M01_canonical_research_tool_catalog_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M01_canonical_research_tool_catalog_builder.py
+  inputs:
+  - research_tool_catalog_config
+  - provider_transport_bindings_config
+  - schema_bundle_manifest
+  - extension_contract_version
+  optional_inputs: []
+  outputs:
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+  owner_agent: 1
+- module_id: P3.S32.M02
+  subphase_id: P3.S32
+  module_name: research_mode_contract_registry_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s32.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S32_M02_research_mode_contract_registry_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M02_research_mode_contract_registry_builder.py
+  inputs:
+  - canonical_tool_operation_registry
+  - operation_mode_registry_config
+  - research_capability_taxonomy_config
+  optional_inputs: []
+  outputs:
+  - research_mode_registry
+  - operation_mode_matrix
+  owner_agent: 1
+- module_id: P3.S32.M03
+  subphase_id: P3.S32
+  module_name: legacy_tool_plane_compatibility_overlay_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s32.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S32_M03_legacy_tool_plane_compatibility_overlay_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M03_legacy_tool_plane_compatibility_overlay_builder.py
+  inputs:
+  - tool_registry
+  - mcp_gateway_policy
+  - provider_adapter_registry_config
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+  - compatibility_alias_config
+  optional_inputs: []
+  outputs:
+  - extended_tool_registry_overlay
+  - provider_transport_overlay
+  - compatibility_alias_registry
+  - legacy_contract_projection_report
+  owner_agent: 1
+- module_id: P3.S32.M04
+  subphase_id: P3.S32
+  module_name: extension_snapshot_manifest_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s32.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S32_M04_extension_snapshot_manifest_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S32_M04_extension_snapshot_manifest_builder.py
+  inputs:
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - operation_mode_matrix
+  - provider_transport_overlay
+  - compatibility_alias_registry
+  - schema_bundle_manifest
+  - prompt_descriptor_template_manifest
+  - extension_config_manifest
+  optional_inputs: []
+  outputs:
+  - research_tool_extension_snapshot
+  - research_tool_contract_pack_manifest
+  owner_agent: 1
+- module_id: P3.S33.M01
+  subphase_id: P3.S33
+  module_name: phase2_research_view_manifest_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s33.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S33_M01_phase2_research_view_manifest_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M01_phase2_research_view_manifest_builder.py
+  inputs:
+  - quality_report_phase_2
+  - phase3_handoff_manifest
+  - phase4_handoff_manifest
+  - phase6_handoff_manifest
+  - clean_context_source_panel
+  - clean_document_panel
+  - clean_event_reference_panel
+  - source_quality_panel
+  - clean_underlying_panel
+  - clean_underlying_trade_panel
+  - clean_benchmark_panel
+  - clean_calendar_panel
+  - clean_corporate_actions_panel
+  - clean_macro_br_panel
+  - clean_macro_us_panel
+  - clean_option_contract_panel
+  - clean_option_quotes_panel
+  - clean_cost_reference_panel
+  - clean_liquidity_reference_panel
+  - canonical_tool_operation_registry
+  - research_tool_extension_snapshot
+  optional_inputs:
+  - phase3_handoff_manifest
+  - phase4_handoff_manifest
+  - phase6_handoff_manifest
+  - clean_context_source_panel
+  - clean_document_panel
+  - clean_event_reference_panel
+  - source_quality_panel
+  - clean_underlying_panel
+  - clean_underlying_trade_panel
+  - clean_benchmark_panel
+  - clean_calendar_panel
+  - clean_corporate_actions_panel
+  - clean_macro_br_panel
+  - clean_macro_us_panel
+  - clean_option_contract_panel
+  - clean_option_quotes_panel
+  - clean_cost_reference_panel
+  - clean_liquidity_reference_panel
+  outputs:
+  - phase2_research_view_manifest
+  - phase2_research_view_readiness_report
+  owner_agent: 1
+- module_id: P3.S33.M02
+  subphase_id: P3.S33
+  module_name: phase1_raw_evidence_reference_index_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s33.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S33_M02_phase1_raw_evidence_reference_index_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M02_phase1_raw_evidence_reference_index_builder.py
+  inputs:
+  - handoff_manifest_to_phase_2
+  - source_registry
+  - raw_file_inventory
+  - source_snapshot_registry
+  - raw_readability_report
+  - raw_schema_hint_report
+  - ingestion_error_report
+  - phase2_research_view_manifest
+  - quality_report_phase_2
+  optional_inputs:
+  - handoff_manifest_to_phase_2
+  - source_registry
+  - raw_file_inventory
+  - raw_readability_report
+  - raw_schema_hint_report
+  - ingestion_error_report
+  - quality_report_phase_2
+  outputs:
+  - phase1_raw_evidence_reference_index
+  - phase1_custody_qualification_report
+  owner_agent: 1
+- module_id: P3.S33.M03
+  subphase_id: P3.S33
+  module_name: temporal_visibility_vintage_firewall_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s33.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S33_M03_temporal_visibility_vintage_firewall_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M03_temporal_visibility_vintage_firewall_builder.py
+  inputs:
+  - phase3_run_snapshot
+  - research_tool_extension_snapshot
+  - phase2_research_view_manifest
+  - phase1_raw_evidence_reference_index
+  - evaluation_window_config
+  - pit_data_view_policy_config
+  - calendar_timezone_policy_config
+  - vintage_policy_config
+  optional_inputs: []
+  outputs:
+  - pit_visibility_policy
+  - vintage_policy_registry
+  - pit_boundary_qualification_report
+  owner_agent: 1
+- module_id: P3.S33.M04
+  subphase_id: P3.S33
+  module_name: temporal_entity_instrument_resolver_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s33.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S33_M04_temporal_entity_instrument_resolver_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M04_temporal_entity_instrument_resolver_builder.py
+  inputs:
+  - entity_underlying_map_config
+  - clean_underlying_panel
+  - clean_option_contract_panel
+  - clean_document_panel
+  - clean_event_reference_panel
+  - clean_corporate_actions_panel
+  - phase2_research_view_manifest
+  - pit_visibility_policy
+  optional_inputs:
+  - clean_underlying_panel
+  - clean_option_contract_panel
+  - clean_document_panel
+  - clean_event_reference_panel
+  - clean_corporate_actions_panel
+  outputs:
+  - temporal_entity_resolution_index
+  - entity_resolution_policy
+  - entity_resolution_qualification_report
+  owner_agent: 1
+- module_id: P3.S33.M05
+  subphase_id: P3.S33
+  module_name: research_data_boundary_bundle_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s33.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S33_M05_research_data_boundary_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M05_research_data_boundary_bundle_builder.py
+  inputs:
+  - phase2_research_view_manifest
+  - phase2_research_view_readiness_report
+  - phase1_raw_evidence_reference_index
+  - phase1_custody_qualification_report
+  - pit_visibility_policy
+  - vintage_policy_registry
+  - pit_boundary_qualification_report
+  - temporal_entity_resolution_index
+  - entity_resolution_policy
+  - research_tool_extension_snapshot
+  optional_inputs: []
+  outputs:
+  - research_data_boundary_bundle
+  - research_boundary_preflight_report
+  owner_agent: 1
+- module_id: P3.S34.M01
+  subphase_id: P3.S34
+  module_name: research_capability_taxonomy_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s34.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S34_M01_research_capability_taxonomy_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M01_research_capability_taxonomy_builder.py
+  inputs:
+  - research_capability_taxonomy_config
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - person_schema_policy
+  optional_inputs: []
+  outputs:
+  - research_capability_taxonomy
+  - capability_operation_requirement_matrix
+  owner_agent: 1
+- module_id: P3.S34.M02
+  subphase_id: P3.S34
+  module_name: person_research_capability_profiler
+  status: implemented_qualified_internal
+  contract_version: p3.s34.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S34_M02_person_research_capability_profiler.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M02_person_research_capability_profiler.py
+  inputs:
+  - person_seed_panel
+  - validated_population_manifest
+  - person_schema_policy
+  - research_capability_taxonomy
+  - capability_profile_policy_config
+  - phase3_run_snapshot
+  optional_inputs: []
+  outputs:
+  - person_research_capability_panel
+  - person_research_resource_panel
+  - capability_profile_coverage_report
+  owner_agent: 1
+- module_id: P3.S34.M03
+  subphase_id: P3.S34
+  module_name: research_plan_template_registry_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s34.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S34_M03_research_plan_template_registry_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M03_research_plan_template_registry_builder.py
+  inputs:
+  - research_plan_registry_config
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - research_capability_taxonomy
+  - phase2_research_view_readiness_report
+  optional_inputs: []
+  outputs:
+  - research_plan_registry
+  - research_plan_dependency_matrix
+  - research_plan_readiness_report
+  owner_agent: 1
+- module_id: P3.S34.M04
+  subphase_id: P3.S34
+  module_name: effective_entitlement_overlay_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s34.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S34_M04_effective_entitlement_overlay_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M04_effective_entitlement_overlay_builder.py
+  inputs:
+  - person_tool_entitlement_panel
+  - person_research_capability_panel
+  - person_research_resource_panel
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - research_plan_registry
+  - phase2_research_view_readiness_report
+  - provider_transport_overlay
+  - research_entitlement_policy_config
+  - mcp_gateway_policy
+  - phase3_run_snapshot
+  optional_inputs: []
+  outputs:
+  - extended_person_tool_entitlement_panel
+  - entitlement_resolution_audit
+  owner_agent: 1
+- module_id: P3.S34.M05
+  subphase_id: P3.S34
+  module_name: person_context_tool_descriptor_overlay_builder
+  status: implemented_qualified_internal
+  contract_version: p3.s34.contracts.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S34_M05_person_context_tool_descriptor_overlay_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M05_person_context_tool_descriptor_overlay_builder.py
+  inputs:
+  - validated_person_context_bundle
+  - extended_person_tool_entitlement_panel
+  - person_research_capability_panel
+  - research_plan_registry
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - person_seed_panel
+  - phase3_run_snapshot
+  - cognition_config
+  - context_tool_descriptor_policy_config
+  optional_inputs: []
+  outputs:
+  - extended_validated_person_context_bundle
+  - context_projection_audit
+  owner_agent: 1
+- module_id: P3.S35.M01
+  subphase_id: P3.S35
+  module_name: corpus_snapshot_index_loader
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s35.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S35_M01_corpus_snapshot_index_loader.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S35_M01_corpus_snapshot_index_loader.py
+  inputs:
+  - retrieval_index_manifest
+  - phase3_run_snapshot
+  optional_inputs:
+  - document_metadata
+  outputs:
+  - corpus_index_snapshot
+  - corpus_index_readiness_report
+  owner_agent: 2
+- module_id: P3.S35.M02
+  subphase_id: P3.S35
+  module_name: hybrid_retrieval_policy_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s35.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S35_M02_hybrid_retrieval_policy_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S35_M02_hybrid_retrieval_policy_builder.py
+  inputs:
+  - corpus_index_snapshot
+  - corpus_index_readiness_report
+  optional_inputs:
+  - retrieval_policy_config
+  outputs:
+  - corpus_retrieval_policy
+  - corpus_internal_work_budget
+  owner_agent: 2
+- module_id: P3.S35.M03
+  subphase_id: P3.S35
+  module_name: document_version_provenance_handler_bundle_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s35.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S35_M03_document_version_provenance_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S35_M03_document_version_provenance_handler_bundle_builder.py
+  inputs:
+  - corpus_index_snapshot
+  - corpus_index_readiness_report
+  optional_inputs:
+  - corpus_capabilities
+  outputs:
+  - corpus_document_handler_bundle
+  - corpus_document_operation_qualification
+  owner_agent: 2
+- module_id: P3.S35.M04
+  subphase_id: P3.S35
+  module_name: counterevidence_timeline_handler_bundle_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s35.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S35_M04_counterevidence_timeline_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S35_M04_counterevidence_timeline_handler_bundle_builder.py
+  inputs:
+  - corpus_index_snapshot
+  - corpus_index_readiness_report
+  optional_inputs:
+  - corpus_capabilities
+  outputs:
+  - corpus_reasoning_handler_bundle
+  - corpus_reasoning_operation_qualification
+  owner_agent: 2
+- module_id: P3.S35.M05
+  subphase_id: P3.S35
+  module_name: corpus_tool_bundle_qualification_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s35.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S35_M05_corpus_tool_bundle_qualification_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S35_M05_corpus_tool_bundle_qualification_builder.py
+  inputs:
+  - corpus_index_snapshot
+  - corpus_index_readiness_report
+  - corpus_retrieval_policy
+  - corpus_internal_work_budget
+  - corpus_document_handler_bundle
+  - corpus_reasoning_handler_bundle
+  - corpus_document_operation_qualification
+  - corpus_reasoning_operation_qualification
+  optional_inputs: []
+  outputs:
+  - corpus_tool_handler_bundle
+  - corpus_operation_mode_qualification
+  - corpus_tool_readiness_report
+  owner_agent: 2
+- module_id: P3.S36.M01
+  subphase_id: P3.S36
+  module_name: market_view_binding_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s36.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S36_M01_market_view_binding_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S36_M01_market_view_binding_builder.py
+  inputs:
+  - research_data_boundary_bundle
+  optional_inputs: []
+  outputs:
+  - market_view_binding
+  - options_view_binding
+  - market_view_readiness_report
+  - options_view_readiness_report
+  owner_agent: 2
+- module_id: P3.S36.M02
+  subphase_id: P3.S36
+  module_name: market_snapshot_history_liquidity_handler_bundle_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s36.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S36_M02_market_snapshot_history_liquidity_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S36_M02_market_snapshot_history_liquidity_handler_bundle_builder.py
+  inputs:
+  - market_view_binding
+  - market_view_readiness_report
+  optional_inputs: []
+  outputs:
+  - market_observation_handler_bundle
+  - market_observation_operation_qualification
+  owner_agent: 2
+- module_id: P3.S36.M03
+  subphase_id: P3.S36
+  module_name: corporate_action_cross_asset_handler_bundle_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s36.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S36_M03_corporate_action_cross_asset_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S36_M03_corporate_action_cross_asset_handler_bundle_builder.py
+  inputs:
+  - market_view_binding
+  - market_view_readiness_report
+  optional_inputs: []
+  outputs:
+  - market_structural_handler_bundle
+  - market_structural_operation_qualification
+  owner_agent: 2
+- module_id: P3.S36.M04
+  subphase_id: P3.S36
+  module_name: option_contract_chain_handler_bundle_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s36.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S36_M04_option_contract_chain_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S36_M04_option_contract_chain_handler_bundle_builder.py
+  inputs:
+  - options_view_binding
+  - options_view_readiness_report
+  optional_inputs: []
+  outputs:
+  - options_chain_handler_bundle
+  - options_chain_operation_qualification
+  owner_agent: 2
+- module_id: P3.S36.M05
+  subphase_id: P3.S36
+  module_name: option_surface_diagnostic_handler_bundle_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s36.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S36_M05_option_surface_diagnostic_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S36_M05_option_surface_diagnostic_handler_bundle_builder.py
+  inputs:
+  - options_view_binding
+  - options_view_readiness_report
+  optional_inputs:
+  - surface_capabilities
+  outputs:
+  - options_surface_handler_bundle
+  - options_surface_operation_qualification
+  owner_agent: 2
+- module_id: P3.S36.M06
+  subphase_id: P3.S36
+  module_name: market_derivatives_tool_bundle_qualification_builder
+  status: implemented_qualified_local
+  contract_version: p3.research_tools.s36.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S36_M06_market_derivatives_tool_bundle_qualification_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S36_M06_market_derivatives_tool_bundle_qualification_builder.py
+  inputs:
+  - market_observation_handler_bundle
+  - market_structural_handler_bundle
+  - options_chain_handler_bundle
+  - options_surface_handler_bundle
+  - market_observation_operation_qualification
+  - market_structural_operation_qualification
+  - options_chain_operation_qualification
+  - options_surface_operation_qualification
+  optional_inputs: []
+  outputs:
+  - market_tool_handler_bundle
+  - options_tool_handler_bundle
+  - market_derivatives_operation_mode_qualification
+  - market_derivatives_tool_readiness_report
+  owner_agent: 2
+- module_id: P3.S37.M01
+  subphase_id: P3.S37
+  module_name: macro_series_release_catalog_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S37_M01_macro_series_release_catalog_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S37_M01_macro_series_release_catalog_builder.py
+  inputs:
+  - research_data_boundary_bundle
+  - macro_series_metadata_registry
+  - macro_asset_context_registry
+  optional_inputs:
+  - macro_series_metadata_registry
+  - macro_asset_context_registry
+  outputs:
+  - macro_series_release_catalog
+  - macro_view_readiness_report
+  - macro_asset_context_config_snapshot
+  owner_agent: 2
+- module_id: P3.S37.M02
+  subphase_id: P3.S37
+  module_name: macro_observation_vintage_handler_bundle_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S37_M02_macro_observation_vintage_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S37_M02_macro_observation_vintage_handler_bundle_builder.py
+  inputs:
+  - macro_series_release_catalog
+  - macro_view_readiness_report
+  optional_inputs: []
+  outputs:
+  - macro_observation_handler_bundle
+  - macro_observation_operation_mode_qualification
+  owner_agent: 2
+- module_id: P3.S37.M03
+  subphase_id: P3.S37
+  module_name: macro_comparison_asset_context_handler_bundle_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S37_M03_macro_comparison_asset_context_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S37_M03_macro_comparison_asset_context_handler_bundle_builder.py
+  inputs:
+  - macro_series_release_catalog
+  - macro_view_readiness_report
+  - macro_asset_context_config_snapshot
+  optional_inputs: []
+  outputs:
+  - macro_context_handler_bundle
+  - macro_context_operation_mode_qualification
+  owner_agent: 2
+- module_id: P3.S37.M04
+  subphase_id: P3.S37
+  module_name: macro_tool_bundle_vintage_qualification_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S37_M04_macro_tool_bundle_vintage_qualification_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S37_M04_macro_tool_bundle_vintage_qualification_builder.py
+  inputs:
+  - macro_observation_handler_bundle
+  - macro_observation_operation_mode_qualification
+  - macro_context_handler_bundle
+  - macro_context_operation_mode_qualification
+  optional_inputs: []
+  outputs:
+  - macro_tool_handler_bundle
+  - macro_operation_mode_qualification
+  - macro_tool_readiness_report
+  owner_agent: 2
+- module_id: P3.S38.M01
+  subphase_id: P3.S38
+  module_name: company_operation_readiness_gate_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S38_M01_company_operation_readiness_gate_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S38_M01_company_operation_readiness_gate_builder.py
+  inputs:
+  - research_tool_extension_snapshot
+  - tool_operation_registry
+  - research_mode_registry
+  - research_data_boundary_bundle
+  - phase2_research_view_manifest
+  - company_readiness_policy_config
+  optional_inputs: []
+  outputs:
+  - company_operation_readiness_panel
+  - company_data_gap_report
+  owner_agent: 3
+- module_id: P3.S38.M02
+  subphase_id: P3.S38
+  module_name: company_profile_filing_xbrl_handler_bundle_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S38_M02_company_profile_filing_xbrl_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S38_M02_company_profile_filing_xbrl_handler_bundle_builder.py
+  inputs:
+  - company_operation_readiness_panel
+  - research_data_boundary_bundle
+  - temporal_entity_resolution_service
+  - company_profile_policy_config
+  optional_inputs: []
+  outputs:
+  - company_profile_filing_handler_bundle
+  - company_profile_handler_qualification_report
+  owner_agent: 3
+- module_id: P3.S38.M03
+  subphase_id: P3.S38
+  module_name: as_reported_financial_statement_handler_bundle_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S38_M03_as_reported_financial_statement_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S38_M03_as_reported_financial_statement_handler_bundle_builder.py
+  inputs:
+  - company_operation_readiness_panel
+  - research_data_boundary_bundle
+  - company_statement_policy_config
+  - statement_concept_mapping_registry
+  optional_inputs: []
+  outputs:
+  - financial_statement_handler_bundle
+  - statement_semantics_manifest
+  owner_agent: 3
+- module_id: P3.S38.M04
+  subphase_id: P3.S38
+  module_name: earnings_quality_capital_allocation_handler_bundle_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S38_M04_earnings_quality_capital_allocation_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S38_M04_earnings_quality_capital_allocation_handler_bundle_builder.py
+  inputs:
+  - financial_statement_handler_bundle
+  - research_data_boundary_bundle
+  - company_formula_registry
+  - company_operation_readiness_panel
+  optional_inputs: []
+  outputs:
+  - earnings_quality_capital_allocation_handler_bundle
+  - company_formula_registry_manifest
+  owner_agent: 3
+- module_id: P3.S38.M05
+  subphase_id: P3.S38
+  module_name: guidance_peers_valuation_handler_bundle_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S38_M05_guidance_peers_valuation_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S38_M05_guidance_peers_valuation_handler_bundle_builder.py
+  inputs:
+  - company_operation_readiness_panel
+  - research_data_boundary_bundle
+  - guidance_policy_config
+  - peer_authority_policy_config
+  - valuation_method_registry
+  - company_profile_filing_handler_bundle
+  - financial_statement_handler_bundle
+  optional_inputs: []
+  outputs:
+  - guidance_peers_valuation_handler_bundle
+  - valuation_method_registry_manifest
+  owner_agent: 3
+- module_id: P3.S38.M06
+  subphase_id: P3.S38
+  module_name: company_tool_bundle_branch_qualification_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S38_M06_company_tool_bundle_branch_qualification_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S38_M06_company_tool_bundle_branch_qualification_builder.py
+  inputs:
+  - company_profile_filing_handler_bundle
+  - financial_statement_handler_bundle
+  - earnings_quality_capital_allocation_handler_bundle
+  - guidance_peers_valuation_handler_bundle
+  - company_operation_readiness_panel
+  - company_contract_test_report
+  - company_leakage_test_report
+  optional_inputs: []
+  outputs:
+  - company_tool_handler_bundle
+  - company_operation_mode_qualification
+  - company_qualification_evidence_package
+  owner_agent: 3
+- module_id: P3.S39.M01
+  subphase_id: P3.S39
+  module_name: return_risk_volatility_handler_bundle_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S39_M01_return_risk_volatility_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S39_M01_return_risk_volatility_handler_bundle_builder.py
+  inputs:
+  - research_data_boundary_bundle
+  - quant_method_policy_config
+  - frequency_annualization_registry
+  - tool_operation_registry
+  - research_mode_registry
+  optional_inputs: []
+  outputs:
+  - return_risk_volatility_handler_bundle
+  - return_volatility_method_manifest
+  owner_agent: 3
+- module_id: P3.S39.M02
+  subphase_id: P3.S39
+  module_name: dependence_entropy_handler_bundle_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S39_M02_dependence_entropy_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S39_M02_dependence_entropy_handler_bundle_builder.py
+  inputs:
+  - research_data_boundary_bundle
+  - dependence_method_policy_config
+  - entropy_discretization_registry
+  - tool_operation_registry
+  - research_mode_registry
+  optional_inputs: []
+  outputs:
+  - dependence_entropy_handler_bundle
+  - dependence_entropy_method_manifest
+  owner_agent: 3
+- module_id: P3.S39.M03
+  subphase_id: P3.S39
+  module_name: event_window_scenario_handler_bundle_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S39_M03_event_window_scenario_handler_bundle_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S39_M03_event_window_scenario_handler_bundle_builder.py
+  inputs:
+  - research_data_boundary_bundle
+  - event_scenario_method_policy_config
+  - tool_operation_registry
+  - research_mode_registry
+  optional_inputs: []
+  outputs:
+  - event_window_scenario_handler_bundle
+  - event_scenario_method_manifest
+  owner_agent: 3
+- module_id: P3.S39.M04
+  subphase_id: P3.S39
+  module_name: quant_tool_bundle_method_qualification_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S39_M04_quant_tool_bundle_method_qualification_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S39_M04_quant_tool_bundle_method_qualification_builder.py
+  inputs:
+  - return_risk_volatility_handler_bundle
+  - dependence_entropy_handler_bundle
+  - event_window_scenario_handler_bundle
+  - quant_contract_test_report
+  - quant_property_test_report
+  - quant_leakage_test_report
+  optional_inputs: []
+  outputs:
+  - quant_tool_handler_bundle
+  - quant_operation_mode_qualification
+  - quant_qualification_evidence_package
+  owner_agent: 3
+- module_id: P3.S40.M01
+  subphase_id: P3.S40
+  module_name: internal_handler_registry_assembler
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S40_M01_internal_handler_registry_assembler.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S40_M01_internal_handler_registry_assembler.py
+  inputs:
+  - canonical_tool_operation_registry
+  - compatibility_alias_registry
+  - research_data_boundary_bundle
+  - corpus_index_snapshot
+  - corpus_retrieval_policy
+  - corpus_internal_work_budget
+  - corpus_tool_handler_bundle
+  - corpus_operation_mode_qualification
+  - corpus_tool_readiness_report
+  - market_tool_handler_bundle
+  - options_tool_handler_bundle
+  - market_derivatives_operation_mode_qualification
+  - market_derivatives_tool_readiness_report
+  - macro_series_release_catalog
+  - macro_asset_context_config_snapshot
+  - macro_tool_handler_bundle
+  - macro_operation_mode_qualification
+  - macro_tool_readiness_report
+  - company_operation_readiness_panel
+  - company_tool_handler_bundle
+  - company_operation_mode_qualification
+  - company_qualification_evidence_package
+  - quant_tool_handler_bundle
+  - quant_operation_mode_qualification
+  - quant_qualification_evidence_package
+  optional_inputs: []
+  outputs:
+  - internal_handler_registry
+  - handler_registry_completeness_report
+  owner_agent: 3
+- module_id: P3.S40.M02
+  subphase_id: P3.S40
+  module_name: composite_tool_gateway_runtime_factory
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S40_M02_composite_tool_gateway_runtime_factory.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S40_M02_composite_tool_gateway_runtime_factory.py
+  inputs:
+  - internal_handler_registry
+  - handler_registry_completeness_report
+  - research_tool_extension_snapshot
+  optional_inputs: []
+  outputs:
+  - composite_tool_gateway_binding_manifest
+  - gateway_runtime_readiness_report
+  owner_agent: 3
+- module_id: P3.S40.M03
+  subphase_id: P3.S40
+  module_name: s21_runtime_binding_preflight_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S40_M03_s21_runtime_binding_preflight_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S40_M03_s21_runtime_binding_preflight_builder.py
+  inputs:
+  - internal_handler_registry
+  - handler_registry_completeness_report
+  - composite_tool_gateway_binding_manifest
+  - gateway_runtime_readiness_report
+  - provider_adapter_registry_config
+  - mcp_gateway_policy
+  - extended_person_tool_entitlement_panel
+  - extended_validated_person_context_bundle
+  - canonical_tool_operation_registry
+  - research_tool_extension_snapshot
+  optional_inputs: []
+  outputs:
+  - s21_research_tool_runtime_binding_manifest
+  - s21_runtime_preflight_report
+  owner_agent: 3
+- module_id: P3.S40.M04
+  subphase_id: P3.S40
+  module_name: tool_execution_evidence_envelope_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S40_M04_tool_execution_evidence_envelope_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S40_M04_tool_execution_evidence_envelope_builder.py
+  inputs:
+  - raw_tool_result_panel
+  - tool_call_audit_panel
+  - retrieval_evidence_map
+  - phase3_run_snapshot
+  optional_inputs: []
+  outputs:
+  - research_tool_result_envelope_panel
+  - research_tool_evidence_map
+  - extended_retrieval_evidence_map
+  - research_tool_execution_trace_panel
+  owner_agent: 3
+- module_id: P3.S40.M05
+  subphase_id: P3.S40
+  module_name: operation_mode_qualification_leakage_runner
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S40_M05_operation_mode_qualification_leakage_runner.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S40_M05_operation_mode_qualification_leakage_runner.py
+  inputs:
+  - corpus_operation_mode_qualification
+  - market_derivatives_operation_mode_qualification
+  - macro_operation_mode_qualification
+  - company_operation_mode_qualification
+  - quant_operation_mode_qualification
+  - s21_runtime_preflight_report
+  - handler_registry_completeness_report
+  - integration_test_receipts
+  - leakage_test_receipts
+  - replay_test_receipts
+  optional_inputs: []
+  outputs:
+  - operation_mode_qualification_matrix
+  - research_tool_leakage_report
+  - qualification_evidence_manifest
+  owner_agent: 3
+- module_id: P3.S40.M06
+  subphase_id: P3.S40
+  module_name: research_process_panel_p4_handoff_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S40_M06_research_process_panel_p4_handoff_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S40_M06_research_process_panel_p4_handoff_builder.py
+  inputs:
+  - validated_tool_result_panel
+  - tool_call_audit_panel
+  - research_tool_result_envelope_panel
+  - evidence_bound_belief_update_panel
+  - phase3_run_snapshot
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  optional_inputs: []
+  outputs:
+  - research_process_panel
+  - phase4_research_process_handoff_manifest
+  - p4_research_handoff_compatibility_report
+  owner_agent: 3
+- module_id: P3.S40.M07
+  subphase_id: P3.S40
+  module_name: p9_research_tool_learning_evidence_builder
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S40_M07_p9_research_tool_learning_evidence_builder.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S40_M07_p9_research_tool_learning_evidence_builder.py
+  inputs:
+  - research_process_panel
+  - belief_outcome_commitment_log
+  - research_tool_execution_trace_panel
+  - phase3_run_snapshot
+  - model_knowledge_cutoff_report
+  optional_inputs: []
+  outputs:
+  - p9_research_tool_learning_evidence
+  - p9_research_tool_learning_handoff_manifest
+  - p9_consumer_compatibility_report
+  owner_agent: 3
+- module_id: P3.S40.M08
+  subphase_id: P3.S40
+  module_name: research_tool_extension_release_gate
+  status: implemented_local_qualification_required
+  contract_version: p3.research.tools.module.v1
+  contract_path: contracts/extensions/research_tools/modules/P3_S40_M08_research_tool_extension_release_gate.yaml
+  implementation_path: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S40_M08_research_tool_extension_release_gate.py
+  inputs:
+  - handler_registry_completeness_report
+  - s21_runtime_preflight_report
+  - operation_mode_qualification_matrix
+  - research_tool_leakage_report
+  - qualification_evidence_manifest
+  - phase4_research_process_handoff_manifest
+  - p4_research_handoff_compatibility_report
+  - p9_research_tool_learning_handoff_manifest
+  - p9_consumer_compatibility_report
+  - contract_test_report
+  - schema_test_report
+  - code_quality_report
+  - hash_integrity_report
+  - rollback_report
+  optional_inputs: []
+  outputs:
+  - research_tool_extension_release_gate
+  - research_tool_extension_evidence_package
+  - research_tool_extension_blocking_issue_panel
+  owner_agent: 3

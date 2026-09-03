@@ -1,0 +1,39 @@
+registry_id: p7_foundation_module_registry_v1
+owner: FOUNDATION
+subphases:
+- P7.S1
+- P7.S2
+modules:
+- module_id: P7.S1.M01
+  module_name: phase6_handoff_contract_validator
+  subphase: P7.S1
+  contract_path: modules/P7_S1_M01_phase6_handoff_contract_validator.yaml
+- module_id: P7.S1.M02
+  module_name: candidate_artifact_reconciliation_engine
+  subphase: P7.S1
+  contract_path: modules/P7_S1_M02_candidate_artifact_reconciliation_engine.yaml
+- module_id: P7.S1.M03
+  module_name: temporal_integrity_and_forbidden_field_firewall
+  subphase: P7.S1
+  contract_path: modules/P7_S1_M03_temporal_integrity_and_forbidden_field_firewall.yaml
+- module_id: P7.S1.M04
+  module_name: promoted_ranking_feedback_loader
+  subphase: P7.S1
+  contract_path: modules/P7_S1_M04_promoted_ranking_feedback_loader.yaml
+- module_id: P7.S2.M01
+  module_name: eligibility_policy_engine
+  subphase: P7.S2
+  contract_path: modules/P7_S2_M01_eligibility_policy_engine.yaml
+- module_id: P7.S2.M02
+  module_name: comparison_group_builder
+  subphase: P7.S2
+  contract_path: modules/P7_S2_M02_comparison_group_builder.yaml
+- module_id: P7.S2.M03
+  module_name: metric_semantics_router
+  subphase: P7.S2
+  contract_path: modules/P7_S2_M03_metric_semantics_router.yaml
+- module_id: P7.S2.M04
+  module_name: runtime_foundation_handoff_publisher
+  subphase: P7.S2
+  contract_path: modules/P7_S2_M04_runtime_foundation_handoff_publisher.yaml
+registry_version: 2.0.0

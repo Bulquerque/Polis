@@ -1,0 +1,162 @@
+module_id: P3.S34.M03
+module_name: research_plan_template_registry_builder
+phase: phase_03_agents_rag_memory
+subphase: P3.S34
+status: implemented_qualified_internal
+function: Validar planos de pesquisa como DAGs limitados a cinco chamadas visíveis e resolver readiness por operação.
+inputs: &id001
+- research_plan_registry_config
+- canonical_tool_operation_registry
+- research_mode_registry
+- research_capability_taxonomy
+- phase2_research_view_readiness_report
+outputs: &id002
+- research_plan_registry
+- research_plan_dependency_matrix
+- research_plan_readiness_report
+validations:
+- strict_input_contracts
+- deterministic_outputs
+- content_hash_and_lineage
+- ex_ante_only
+- consumer_schema_validation
+invariants:
+- read_only
+- no_network_access
+- no_direct_P3_to_P5
+- no_modification_of_P3_S1_to_S33
+- no_wall_clock_semantics
+- maximum_five_visible_calls
+non_responsibilities:
+- Não executar ferramentas de domínio, não calcular resultados futuros, não produzir sinal, feature, portfólio ou backtest.
+fail_fast_conditions:
+- schema_violation
+- forbidden_future_attribute
+- unknown_operation_or_mode
+- consumer_projection_invalid
+- token_budget_violation
+forbidden_fields:
+- future_return
+- target
+- label
+- prediction
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- performance
+- pnl
+- buy_sell_signal
+- recommendation
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - P3.S7
+    - P3.S15
+    - P3.S16
+    - P3.S20
+    - P3.S21
+    - P3.S32
+    - P3.S33
+  emits_to:
+    modules:
+    - P3.S40
+    - P3.S21
+    artifacts: *id002
+    phase_outputs: []
+tests_required:
+- happy_path
+- negative_contract
+- determinism
+- ex_ante_integrity
+- consumer_compatibility
+- budget_limits
+definition_of_done:
+- required_tests_implemented_and_passing
+- outputs_match_generated_schemas
+- no_undeclared_side_effects
+- contracts_docs_tests_updated_together
+- existing_p3_tests_remain_green
+contract_version: p3.s34.contracts.v1
+owner_prompt: subphases/extensions/research_tools/P3_S34_research_capability_depth_planning.md
+implementation_boundary:
+  owns:
+  - Validar planos de pesquisa como DAGs limitados a cinco chamadas visíveis e resolver readiness por operação.
+  must_not_absorb:
+  - domain_tool_execution
+  - downstream_modeling
+  - retro_outcome_learning
+  state_mutation_policy: outputs_only
+observability_requirements:
+  events:
+  - module_started
+  - input_contract_validated
+  - module_succeeded
+  - module_failed
+  dimensions:
+  - module_id
+  - contract_version
+  - lineage_id
+  - content_hash
+  metrics:
+  - duration_ms
+  - input_record_count
+  - output_record_count
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - storage_paths
+  - raw_bytes
+  - private_payloads
+debugging_contract:
+  triage_order:
+  - validate_required_inputs
+  - validate_schema_version
+  - validate_forbidden_attributes
+  - validate_capability_and_mode_refs
+  - validate_output_schema
+  error_codes:
+  - P3RT-CONTRACT-3400
+  - P3RT-DATA-3410
+  - P3RT-UPSTREAM-3420
+  - P3RT-AUTH-3430
+  - P3RT-BUDGET-3440
+  fallback_policy: fail_closed_no_silent_fallback
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - documentation
+  contract_change_requires:
+  - schema_update
+  - fixtures_update
+  - consumer_tests_update
+  - version_review
+review_checklist:
+- single_responsibility
+- input_output_match
+- no_forbidden_authority
+- deterministic
+- strict_models
+- negative_tests_present
+rc: S34-V1
+forbidden_connections:
+- any_undeclared_connection
+- network_access
+- direct_P3_to_P5_P6_P7_P8
+- modification_of_P3_S1_to_S33
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S34_M03_research_plan_template_registry_builder.py
+unit_test_target: tests/phase_specific/research_tools/test_p3_s34_m03_plans.py
+integration_test_target: tests/phase_specific/research_tools/test_p3_s34_integration.py
+implementation_status: QUALIFIED_LOCAL_PENDING_TEST_RUN
+production_promotion_allowed: false
+qualification_scope: LOCAL_CAPABILITY_AND_S21_PROJECTION_ONLY; P0_PENDING
+documentation_refs:
+- docs/research_tools/P3_S34_IMPLEMENTATION.md
+- docs/research_tools/P3_S34_COMPATIBILITY.md
+- docs/research_tools/P3_S34_TESTING.md
+required_inputs: *id001
+optional_inputs: []

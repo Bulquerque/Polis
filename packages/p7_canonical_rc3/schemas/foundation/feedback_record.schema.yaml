@@ -1,0 +1,91 @@
+$defs:
+  FeedbackAdjustment:
+    additionalProperties: false
+    properties:
+      adjustment_type:
+        enum:
+        - ELIGIBILITY_THRESHOLD
+        - MODEL_ELIGIBILITY
+        - POLICY_PARAMETER_BOUND
+        - DEPRECATION_NOTICE
+        title: Adjustment Type
+        type: string
+      parameter:
+        title: Parameter
+        type: string
+      value:
+        $ref: '#/$defs/JsonValue'
+    required:
+    - adjustment_type
+    - parameter
+    - value
+    title: FeedbackAdjustment
+    type: object
+  JsonValue: {}
+additionalProperties: false
+properties:
+  feedback_id:
+    title: Feedback Id
+    type: string
+  source_cycle_id:
+    title: Source Cycle Id
+    type: string
+  source_cycle_sequence:
+    minimum: 0
+    title: Source Cycle Sequence
+    type: integer
+  target_cycle_id:
+    title: Target Cycle Id
+    type: string
+  target_cycle_sequence:
+    minimum: 0
+    title: Target Cycle Sequence
+    type: integer
+  promotion_status:
+    enum:
+    - PROMOTED
+    - DRAFT
+    - REJECTED
+    title: Promotion Status
+    type: string
+  scope:
+    additionalProperties:
+      $ref: '#/$defs/JsonValue'
+    title: Scope
+    type: object
+  evidence_ids:
+    items:
+      type: string
+    title: Evidence Ids
+    type: array
+  valid_from_cycle_sequence:
+    minimum: 0
+    title: Valid From Cycle Sequence
+    type: integer
+  expires_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Expires At
+  adjustments:
+    default: []
+    items:
+      $ref: '#/$defs/FeedbackAdjustment'
+    title: Adjustments
+    type: array
+required:
+- feedback_id
+- source_cycle_id
+- source_cycle_sequence
+- target_cycle_id
+- target_cycle_sequence
+- promotion_status
+- scope
+- evidence_ids
+- valid_from_cycle_sequence
+title: FeedbackRecord
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/feedback_record/2.0.0

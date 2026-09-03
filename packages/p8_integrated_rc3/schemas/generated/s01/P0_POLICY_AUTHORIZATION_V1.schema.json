@@ -1,0 +1,160 @@
+{
+  "$defs": {
+    "AllowedValuesAuthorizationBound": {
+      "additionalProperties": false,
+      "properties": {
+        "field_name": {
+          "minLength": 1,
+          "title": "Field Name",
+          "type": "string"
+        },
+        "allowed_values": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Allowed Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "field_name",
+        "allowed_values"
+      ],
+      "title": "AllowedValuesAuthorizationBound",
+      "type": "object"
+    },
+    "FeedbackEffectType": {
+      "enum": [
+        "OPTIMIZER_ELIGIBILITY_FEEDBACK",
+        "RISK_LIMIT_POLICY_FEEDBACK",
+        "TURNOVER_POLICY_FEEDBACK",
+        "LIQUIDITY_HAIRCUT_FEEDBACK",
+        "MARGIN_BUFFER_FEEDBACK",
+        "EXECUTION_POLICY_FEEDBACK",
+        "RUNTIME_FALLBACK_POLICY_FEEDBACK",
+        "MODEL_DEPRECATION_FEEDBACK"
+      ],
+      "title": "FeedbackEffectType",
+      "type": "string"
+    },
+    "NumericAuthorizationBound": {
+      "additionalProperties": false,
+      "properties": {
+        "field_name": {
+          "minLength": 1,
+          "title": "Field Name",
+          "type": "string"
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum"
+        }
+      },
+      "required": [
+        "field_name"
+      ],
+      "title": "NumericAuthorizationBound",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "authorization_id": {
+      "minLength": 1,
+      "title": "Authorization Id",
+      "type": "string"
+    },
+    "feedback_id": {
+      "minLength": 1,
+      "title": "Feedback Id",
+      "type": "string"
+    },
+    "target_policy_id": {
+      "minLength": 1,
+      "title": "Target Policy Id",
+      "type": "string"
+    },
+    "effect_type": {
+      "$ref": "#/$defs/FeedbackEffectType"
+    },
+    "valid_from_sequence": {
+      "minimum": 0,
+      "title": "Valid From Sequence",
+      "type": "integer"
+    },
+    "expires_after_sequence": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expires After Sequence"
+    },
+    "numeric_bounds": {
+      "items": {
+        "$ref": "#/$defs/NumericAuthorizationBound"
+      },
+      "title": "Numeric Bounds",
+      "type": "array"
+    },
+    "allowed_values": {
+      "items": {
+        "$ref": "#/$defs/AllowedValuesAuthorizationBound"
+      },
+      "title": "Allowed Values",
+      "type": "array"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "authorization_id",
+    "feedback_id",
+    "target_policy_id",
+    "effect_type",
+    "valid_from_sequence",
+    "available_at"
+  ],
+  "title": "P0PolicyAuthorizationV1",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P0_POLICY_AUTHORIZATION_V1.schema.json"
+}

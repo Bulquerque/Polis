@@ -1,0 +1,30 @@
+authority_id: P3_FINAL_PERSON_SCHEMA_AUTHORITY_V1
+authority_version: 1.0.0
+canonical_schema: schemas/person_profile.schema.yaml
+canonical_schema_sha256: e76ca9efeb5d6127b24d7cc068ad1524eaf37460ecf8d844fb7cfd1cd9093630
+canonical_profile_fields:
+- person_id
+- structural_profile
+- decision_profile
+- resources
+- cognitive_capabilities
+- objective_weights
+- tags
+- lineage_id
+derived_runtime_views:
+  current_person_state_panel:
+  - status
+  - attention
+  - fatigue
+  - last_updated_at
+  social_node:
+  - economic_role
+  - role_family
+  - institution_type
+  - geography
+  - tags
+  - capabilities
+  - resources
+alias_policy: ACTIVE_ALIASES_FORBIDDEN
+migration_alias_registry: config/population/DEPRECATED_TAG_ALIASES.yaml
+schema_change_policy: NEW_VERSION_AND_EXPLICIT_MIGRATION_REQUIRED

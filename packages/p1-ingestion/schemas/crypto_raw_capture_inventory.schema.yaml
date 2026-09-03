@@ -1,0 +1,29 @@
+artifact: crypto_raw_capture_inventory
+schema_version: v14.1-rc4.1
+phase: phase_01_ingestion
+grain:
+- artifact_id
+- created_at
+required_fields:
+- artifact_id
+- created_at
+- lineage_id
+- pipeline_version
+optional_fields: []
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+quality_checks:
+- required_fields_present
+- lineage_required
+- pipeline_version_required
+- primary_key_unique_when_applicable
+notes:
+- Generated/updated during RC4.1 module-contract correction.

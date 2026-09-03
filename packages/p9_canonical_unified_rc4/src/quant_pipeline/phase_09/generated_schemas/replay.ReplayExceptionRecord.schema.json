@@ -1,0 +1,46 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "event_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Event Id"
+    },
+    "message": {
+      "minLength": 1,
+      "title": "Message",
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^P9_[A-Z0-9_]+$",
+      "title": "Reason Code",
+      "type": "string"
+    },
+    "sequence": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Sequence"
+    }
+  },
+  "required": [
+    "event_id",
+    "sequence",
+    "reason_code",
+    "message"
+  ],
+  "title": "ReplayExceptionRecord",
+  "type": "object"
+}

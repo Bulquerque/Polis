@@ -1,0 +1,1397 @@
+{
+  "schema_version": "1.0.0",
+  "tokens": [
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_CANDIDATE_UNIVERSE_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_COMPONENT_NOT_CONSUMED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_COMPONENT_OOF_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_COMPONENT_SAMPLE_INSUFFICIENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_COUNTERFACTUAL_MODEL_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_COUNTERFACTUAL_MODEL_ONLY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_COUNTERFACTUAL_NOT_IDENTIFIABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_COUNTERFACTUAL_SAMPLE_INSUFFICIENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_DOMINANCE_DIRECTION_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_DOUBLE_COUNT_DETECTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_DUAL_BOOK_RECONCILIATION_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_FALSE_ABSTENTION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_FORECAST_NOT_IDENTIFIABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_LIFECYCLE_DEVIATION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_NO_FILL_UNVALUED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_OPTION_RESIDUAL_MATERIAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_OPTION_SAMPLE_EMPTY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_PAYOFF_FIDELITY_LOW"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_PAYOFF_SCENARIOS_INSUFFICIENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_PROPENSITY_BELOW_MINIMUM"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_PROPENSITY_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_RANKING_OUTCOME_UNOBSERVABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_RECONCILIATION_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_RESIDUAL_MATERIAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_ROOT_CAUSE_UNSUPPORTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_SUPPORT_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_SYNTHESIS_REGRET_NOT_IDENTIFIABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_VIEW_COLLINEARITY_UNRESOLVED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_ATTRIBUTION_VOL_SURFACE_UNAVAILABLE"
+    },
+    {
+      "kind": "contract_name",
+      "token": "P9_BACKTEST_METRICS_BUNDLE_V1"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_BLOCK_EXCEEDS_SAMPLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_BLOCK_LENGTH_FALLBACK"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_COVARIANCE_PRESERVATION_WEAK"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_INDEX_PANEL_LENGTH_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_INSUFFICIENT_OBSERVATIONS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_INSUFFICIENT_TRADES"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_INSUFFICIENT_VALID_REPLICATES"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_MATERIALIZATION_BUDGET_EXCEEDED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_METRIC_REPLICATE_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_METRIC_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_METRIC_VERSION_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_OVERLAP_METADATA_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_REGIME_COVERAGE_LOW"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_TIME_INDEX_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_TRADE_CLUSTER_EMPTY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_TRADE_COST_CONCENTRATED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_BOOTSTRAP_TRADE_PNL_CONCENTRATED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_CYCLE_UPSTREAM_BLOCKED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_ACTIVATION_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_ATOMIC_GROUP_REJECTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_AUTHORIZATION_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_CRITICAL_GUARDRAIL_REGRESSION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_DUPLICATE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_EFFECTIVENESS_INVALID_INPUT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_EFFECTIVENESS_PARTIAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_EFFECT_UNCERTAIN"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_EXPIRED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_INTERVENTION_CONFOUNDED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_METRIC_POLICY_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_NOT_IN_ACCEPTED_PARTITION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_NO_ACTIONABLE_EVIDENCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_OUTCOME_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_OUTCOME_NOT_MATURED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_POLICY_VERSION_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_REVERTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_SAME_CYCLE_REJECTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_SAMPLE_INSUFFICIENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_SCHEMA_MAJOR_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_TARGET_CAPABILITY_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_FEEDBACK_TARGET_MISSING"
+    },
+    {
+      "kind": "contract_name",
+      "token": "P9_FOUNDATION_EXPERIMENT_BUNDLE_V1"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LEADERBOARD_DUPLICATE_SUBMISSION_ID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LEADERBOARD_SUBMISSION_HISTORY_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LINEAGE_REFERENCE_UNRESOLVED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_ALPHA_DECAY_MATERIAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_CAPACITY_CONTRACTION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_CHALLENGER_SUPERIOR_EVIDENCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_COMMON_SNAPSHOT_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_COMPARISON_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_CONFORMAL_CAPABILITY_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_CONFORMAL_COVERAGE_COLLAPSE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_CONFORMAL_GROUP_INSUFFICIENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_CONFORMAL_INTERVAL_UNUSABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_COST_MODEL_MISS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_DATA_QUALITY_DEGRADATION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_DRIFT_MATERIAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_DRIFT_SAMPLE_INSUFFICIENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_DRIFT_SINGLE_CHANNEL_UNCONFIRMED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_EXECUTION_BENCHMARK_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_HARD_RISK_BREACH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_POINT_FORECAST_NOT_PROBABILISTIC"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_POLICY_NOT_IN_OFFLINE_MODEL_SET"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_POLICY_STATE_CONTAMINATION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_PREQUENTIAL_DUPLICATE_CONFLICT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_REALITY_GAP_COHORT_UNMATCHED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_REALITY_GAP_MATERIAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_ROLLBACK_EVIDENCE_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_SCORING_POLICY_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_SEQUENTIAL_LOSS_BOUND_VIOLATION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_SHADOW_EVIDENCE_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_UNAUTHORIZED_DEPLOYMENT_STAGE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_LIVE_ZERO_PROBABILITY_CONTRADICTION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MATURITY_NOT_REACHED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MEMORY_ACTIVE_ITEM_LIMIT_EXCEEDED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MEMORY_ASSET_SPECIFIC_FUTURE_RETURN"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MEMORY_DIRECT_PATCH_INSTRUCTION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MEMORY_FUTURE_OUTCOME_IDENTIFIER"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MEMORY_IMMATURE_CLAIMS_SKIPPED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MEMORY_NORMALIZATION_REQUIRED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MEMORY_PRIVATE_LEADERBOARD_DATA"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MEMORY_PROMOTED_PARAMETER"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MEMORY_SUPERSESSION_CYCLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_MODERN_FEEDBACK"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_BOOTSTRAP_PROBABILITY_LOW"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_COHORT_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_DSR_BELOW_POLICY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_DSR_NOT_IDENTIFIABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_MULTIPLE_TESTING_UNRESOLVED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_PBO_HIGH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_PBO_NOT_APPLICABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_PSR_INSUFFICIENT_SAMPLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_RANK_INSTABILITY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_REALITY_CHECK_NOT_APPLICABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_SHARPE_CONFIGURATION_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_SHARPE_ZERO_VARIANCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_TARGET_CONFIGURATION_CONTEXT_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_TARGET_CONFIGURATION_TRIAL_FAMILY_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_TARGET_METRIC_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_TARGET_SERIES_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_TRIAL_FAMILY_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_OVERFIT_WORST_FOLD_FAILURE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_P3_CONTEXT_EMPTY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_P3_CONTEXT_TEMPORAL_LEAKAGE_BLOCKED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_PROMOTION_CHAMPION_CHALLENGER_COMPARISON_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_PROMOTION_CRITICAL_GATE_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_PROMOTION_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_PROMOTION_NO_CONFIGURATION_PASSES_HARD_GATES"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_PROMOTION_RECOMMENDATION_COMPILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_PROMOTION_REQUIRED_GATE_MISSING"
+    },
+    {
+      "kind": "contract_name",
+      "token": "P9_PROSPECTIVE_ATTRIBUTION_BUNDLE_V1"
+    },
+    {
+      "kind": "state_label",
+      "token": "P9_RELEASE_INVALID"
+    },
+    {
+      "kind": "state_label",
+      "token": "P9_RELEASE_PENDING_EVIDENCE"
+    },
+    {
+      "kind": "state_label",
+      "token": "P9_RELEASE_READY"
+    },
+    {
+      "kind": "state_label",
+      "token": "P9_RELEASE_READY_NO_PROMOTION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_RELEASE_REQUIRED_OUTPUT_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_RELEASE_S9_OUTPUT_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_RELEASE_S9_SCHEMA_UNSUPPORTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_RELEASE_UPSTREAM_RECEIPT_INVALID"
+    },
+    {
+      "kind": "contract_name",
+      "token": "P9_RESEARCH_CONTEXT_HANDOFF_V1"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_COHORT_INSUFFICIENT_SAMPLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_COHORT_POLICY_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_COMMITMENT_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_EXECUTED_OUTCOME_NOT_YET_AVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_HANDOFF_CLOCK_INCONSISTENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_HANDOFF_HASH_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_HANDOFF_LEGACY_LIMITED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_HANDOFF_P8_NATIVE_LIMITED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_HANDOFF_REJECTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_HANDOFF_SCHEMA_INCOMPATIBLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_HOLDOUT_ACCESSED_EARLY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_LINEAGE_BLOCKED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_LINEAGE_CYCLE_DETECTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_LINEAGE_HASH_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_LINEAGE_PARENT_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_LINEAGE_VERSION_AMBIGUOUS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_MARK_COVERAGE_LIMITED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_MARK_NO_QUOTE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_MARK_STALE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_OUTCOME_CENSORED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_OUTCOME_DATA_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_OUTCOME_LIFECYCLE_UNRESOLVED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_OUTCOME_NOT_ELIGIBLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_OUTCOME_NOT_MATURED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_OUTCOME_PARTIAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_OUTCOME_POLICY_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_BLOCKED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_CASH_DIVERGENCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_CHECKPOINT_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_DUPLICATE_EVENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_EVENT_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_EVENT_ORDER_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_EVENT_STREAM_HASH_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_INPUT_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_MARGIN_DIVERGENCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_PNL_DIVERGENCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S1_REPLAY_POSITION_DIVERGENCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_BUDGET_BLOCKED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_BUDGET_BOHB_CAPABILITY_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_BUDGET_EXCEEDS_CAPACITY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_BUDGET_MEMORY_CAPACITY_EXCEEDED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_CONFIGURATION_CATALOG_BLOCKED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_CONFIG_ID_COLLISION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_CONFIG_NO_BUDGET"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_CONFIG_NO_VALID_PROPOSALS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_CONFIG_STRATEGY_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_EARLY_STOP_INVALID_SIGNAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_EARLY_STOP_REQUIRED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_FIDELITY_ECONOMICALLY_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_FIDELITY_FULL_LEVEL_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_FIDELITY_LEVELS_INSUFFICIENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_PARAMETER_ALIAS_AMBIGUOUS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_PARAMETER_CAPABILITY_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_PARAMETER_CONTRACT_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_PARAMETER_DEPRECATION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_PARAMETER_DEPRECATION_UNREGISTERED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_PARAMETER_DUPLICATE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_PARAMETER_REGISTRY_BLOCKED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_PARAMETER_REPLACEMENT_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_RESOURCE_LIMITED_PLAN_DISALLOWED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_S1_NOT_QUALIFIED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SEARCH_SPACE_BLOCKED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_BOUND_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_BOUND_OUTSIDE_SCHEMA"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_CARDINALITY_EXCESSIVE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_CONDITION_CYCLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_EMPTY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_GRID_REQUIRES_FINITE_DOMAINS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_PARAMETER_UNKNOWN"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_SCALE_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_SCHEMA_BOUNDS_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_TYPE_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPACE_VALUE_OUTSIDE_SCHEMA"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_BOHB_CAPABILITY_RESERVED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_CAPABILITY_OWNER_NOT_TARGETED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_CAPABILITY_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_CAPABILITY_UNKNOWN"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_DEVELOPMENT_EVALUATION_OVERLAP"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_FINAL_HOLDOUT_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_GUARDRAIL_NOT_ELIGIBLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_HARD_GUARDRAILS_COMPENSABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_HOLDOUT_LEAKAGE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_METRIC_UNKNOWN"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_NOT_VALIDATED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_PRIMARY_METRIC_NOT_TUNABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_SEARCH_STRATEGY_UNSUPPORTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_SPEC_TARGET_UNKNOWN"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_TRIAL_BUDGET_INSUFFICIENT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_TRIAL_BUDGET_RECONCILIATION_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_TRIAL_NO_CONFIGURATIONS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_TRIAL_PARALLELISM_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_TRIAL_RESOURCE_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S2_TRIAL_WORKER_LABEL_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_ACCOUNTING_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_AGGREGATION_COHORT_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_BACKTEST_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_CANDIDATE_CONSERVATION_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_COHORT_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_COMPARISON_NOT_IDENTIFIABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_DUPLICATE_RECORD_ID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_EMBARGO_POLICY_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_HOLDOUT_OVERLAP"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_INSUFFICIENT_CONFIGURATIONS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_INSUFFICIENT_FOLD_COVERAGE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_LABEL_OVERLAP_PURGED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_LEGACY_ADAPTER_USED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_LEGACY_P8_NOT_QUALIFIABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_LIFECYCLE_UNSUPPORTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_METRIC_INPUT_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_METRIC_NOT_COMPARABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_METRIC_PARITY_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_METRIC_POLICY_UNKNOWN"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_ORDER_FILL_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_PHASE_CAPABILITY_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_PHASE_CONTRACT_REJECTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_PIT_AVAILABILITY_VIOLATION"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_POSITION_RECONCILIATION_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_PROVISIONAL_ONLY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_PURGE_POLICY_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_REGIME_LABEL_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_REPLAY_DIVERGED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_SPLIT_EMPTY"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_TEMPORAL_PLAN_INFEASIBLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_TOTAL_CPU_BUDGET_EXCEEDED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_TRIAL_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_TRIAL_MEMORY_LIMIT_EXCEEDED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_TRIAL_RESOURCE_EXHAUSTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_TRIAL_WORKER_LABEL_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_WEIGHT_POLICY_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S3_WINDOW_ORDER_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_BACKTEST_NOT_QUALIFIED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_BENCHMARK_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_CAPACITY_MODEL_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_CASH_FLOW_POLICY_UNKNOWN"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_DISTRIBUTION_METRIC_UNDEFINED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_EXECUTION_CONTEXT_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_FACTOR_ALIGNMENT_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_FACTOR_DATA_UNAVAILABLE"
+    },
+    {
+      "kind": "artifact_role",
+      "token": "P9_S4_FACTOR_MODELS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_INSUFFICIENT_SAMPLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_INSUFFICIENT_TRACK_RECORD"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_IRREGULAR_FREQUENCY_UNRESOLVED"
+    },
+    {
+      "kind": "artifact_role",
+      "token": "P9_S4_M01_RETURN_COUNT"
+    },
+    {
+      "kind": "artifact_role",
+      "token": "P9_S4_M02_ROLLING_RECORD_COUNT"
+    },
+    {
+      "kind": "artifact_role",
+      "token": "P9_S4_METRICS"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_METRIC_RECONCILIATION_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_METRIC_REGISTRY_DRIFT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_NAV_NOT_RECONCILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_OPEN_EPISODE_CENSORED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_PARAMETRIC_ASSUMPTION_LIMITED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_QUALIFICATION_HASH_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_REGRESSION_SINGULAR"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_RETURN_SERIES_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_RISK_FREE_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_SUBPHASE_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_TAIL_SAMPLE_INSUFFICIENT"
+    },
+    {
+      "kind": "contract_name",
+      "token": "P9_S4_TO_S5_EVIDENCE_V2"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_UNIT_CONFLICT"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_WEALTH_PATH_INVALID"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_S4_ZERO_RISK_DENOMINATOR"
+    },
+    {
+      "kind": "contract_name",
+      "token": "P9_S6_TO_S7_STRESS_CAPACITY_V2"
+    },
+    {
+      "kind": "contract_name",
+      "token": "P9_S7_PROSPECTIVE_MONITORING_BUNDLE_V1"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_BASELINE_ALREADY_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_BREAK_EVEN_AUM_NOT_IDENTIFIED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_CAPACITY_EXTRAPOLATION_MATERIAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_CAPACITY_LIMITED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_CAPACITY_MONOTONICITY_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_CONSTRAINT_DISCONTINUITY_FOUND"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_DRO_BASELINE_MISMATCH"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_DRO_MONOTONICITY_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_DRO_RADIUS_UNCALIBRATED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_DRO_SCENARIO_BUDGET_EXCEEDED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_DRO_SOLVER_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_EVALUATION_BUDGET_EXCEEDED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_EVIDENCE_CLASS_MIXED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_EVT_FIT_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_EVT_INSUFFICIENT_EXCEEDANCES"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_EVT_RESIDUAL_DEPENDENCE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_EVT_TAIL_INDEX_INVALID_FOR_ES"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_EVT_THRESHOLD_UNSTABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_EXTRAPOLATION_UNQUALIFIED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_HISTORICAL_MAPPING_INCOMPLETE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_MATERIAL_RISK_UNCOVERED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_MODELLED_PNL_SHARE_MATERIAL"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_NETWORK_AMPLIFICATION_UNSTABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_RECOVERY_PATH_MISSING"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_REVERSE_BREAKPOINT_TOO_CLOSE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_REVERSE_FORWARD_VERIFICATION_FAILED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_REVERSE_SEARCH_NOT_CONVERGED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_SCENARIO_COVERAGE_GAP"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_SCENARIO_DUPLICATE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_SCENARIO_FUTURE_TIMESTAMP"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_SCENARIO_NOT_COMMITTED"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_SCENARIO_POST_OUTCOME"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_STRESS_SPECIALIST_CAPABILITY_UNAVAILABLE"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_TEMPORAL_INFORMATION_SET_AFTER_DECISION"
+    },
+    {
+      "kind": "contract",
+      "token": "P9_TO_P8_PROMOTED_FEEDBACK_V1"
+    },
+    {
+      "kind": "reason_code",
+      "token": "P9_TRIAL_CANCELLED_UPSTREAM"
+    }
+  ]
+}

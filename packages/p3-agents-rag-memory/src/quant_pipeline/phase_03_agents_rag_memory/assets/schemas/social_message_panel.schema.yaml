@@ -1,0 +1,265 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  AttentionSource:
+    enum:
+    - STATE_VALUE
+    - CONFIG_DEFAULT
+    title: AttentionSource
+    type: string
+  AvailabilitySource:
+    enum:
+    - STATE_VALUE
+    - CONFIG_DEFAULT
+    title: AvailabilitySource
+    type: string
+  ChannelVisibility:
+    enum:
+    - DECLARED
+    - HIDDEN
+    title: ChannelVisibility
+    type: string
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  RejectedSocialIntentRecord:
+    additionalProperties: false
+    properties:
+      intent_id:
+        minLength: 1
+        title: Intent Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      sender_person_id:
+        minLength: 1
+        title: Sender Person Id
+        type: string
+      recipient_person_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Recipient Person Id
+      reason_codes:
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - intent_id
+    - cognition_transaction_id
+    - sender_person_id
+    - reason_codes
+    title: RejectedSocialIntentRecord
+    type: object
+  SocialMessageRecord:
+    additionalProperties: false
+    properties:
+      message_id:
+        minLength: 1
+        title: Message Id
+        type: string
+      run_id:
+        minLength: 1
+        title: Run Id
+        type: string
+      source_cycle_id:
+        minLength: 1
+        title: Source Cycle Id
+        type: string
+      target_cycle_id:
+        minLength: 1
+        title: Target Cycle Id
+        type: string
+      intent_id:
+        minLength: 1
+        title: Intent Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      sender_person_id:
+        minLength: 1
+        title: Sender Person Id
+        type: string
+      recipient_person_id:
+        minLength: 1
+        title: Recipient Person Id
+        type: string
+      message_type:
+        minLength: 1
+        title: Message Type
+        type: string
+      summary:
+        minLength: 1
+        title: Summary
+        type: string
+      claim_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Claim Refs
+        type: array
+      evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Evidence Refs
+        type: array
+      requested_action:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Requested Action
+      relationship_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Relationship Id
+      relationship_strength:
+        maximum: 1.0
+        minimum: 0.0
+        title: Relationship Strength
+        type: number
+      channel_id:
+        minLength: 1
+        title: Channel Id
+        type: string
+      channel_visibility:
+        $ref: '#/$defs/ChannelVisibility'
+      recipient_attention_score:
+        maximum: 1.0
+        minimum: 0.0
+        title: Recipient Attention Score
+        type: number
+      attention_source:
+        $ref: '#/$defs/AttentionSource'
+      recipient_availability_score:
+        maximum: 1.0
+        minimum: 0.0
+        title: Recipient Availability Score
+        type: number
+      availability_source:
+        $ref: '#/$defs/AvailabilitySource'
+      created_at:
+        format: date-time
+        title: Created At
+        type: string
+      idempotency_key:
+        minLength: 1
+        title: Idempotency Key
+        type: string
+      routing_reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Routing Reason Codes
+        type: array
+    required:
+    - message_id
+    - run_id
+    - source_cycle_id
+    - target_cycle_id
+    - intent_id
+    - cognition_transaction_id
+    - sender_person_id
+    - recipient_person_id
+    - message_type
+    - summary
+    - relationship_strength
+    - channel_id
+    - channel_visibility
+    - recipient_attention_score
+    - attention_source
+    - recipient_availability_score
+    - availability_source
+    - created_at
+    - idempotency_key
+    title: SocialMessageRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s24.v1
+    default: p3.s24.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+  records:
+    items:
+      $ref: '#/$defs/SocialMessageRecord'
+    title: Records
+    type: array
+  rejections:
+    default: []
+    items:
+      $ref: '#/$defs/RejectedSocialIntentRecord'
+    title: Rejections
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- status
+- records
+- lineage
+title: SocialMessagePanel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: social_message_panel
+schema_id: social_message_panel.p3.s24.v1
+status: implemented_internal_schema
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

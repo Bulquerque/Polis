@@ -1,0 +1,10 @@
+additionalProperties: false
+properties:
+  reconciliation_tolerance:
+    default: 1.0e-08
+    minimum: 0.0
+    title: Reconciliation Tolerance
+    type: number
+title: PortfolioAttributionPolicy
+type: object
+$id: urn:inferencia:p9:s8:PortfolioAttributionPolicy:1.0.0

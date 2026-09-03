@@ -1,0 +1,110 @@
+$defs:
+  ArtifactRef:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_type:
+        minLength: 1
+        title: Artifact Type
+        type: string
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+      schema_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Id
+      schema_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Version
+    required:
+    - artifact_id
+    - artifact_type
+    - content_hash
+    title: ArtifactRef
+    type: object
+additionalProperties: false
+properties:
+  schema_id:
+    const: active_retro_policy_patch.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    title: Schema Version
+    type: string
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  snapshot_id:
+    minLength: 1
+    title: Snapshot Id
+    type: string
+  status:
+    enum:
+    - NO_PATCH
+    - VALID_PATCH
+    title: Status
+    type: string
+  patch_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Patch Hash
+    type: string
+  effective_from:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Effective From
+  prompt_policy_ref:
+    anyOf:
+    - $ref: '#/$defs/ArtifactRef'
+    - type: 'null'
+    default: null
+  retrieval_policy_ref:
+    anyOf:
+    - $ref: '#/$defs/ArtifactRef'
+    - type: 'null'
+    default: null
+  tool_policy_ref:
+    anyOf:
+    - $ref: '#/$defs/ArtifactRef'
+    - type: 'null'
+    default: null
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+required:
+- schema_id
+- schema_version
+- artifact_id
+- run_id
+- snapshot_id
+- status
+- patch_hash
+- lineage_id
+title: RetroPolicyPatchView
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: active_retro_policy_patch_s11_view
+schema_id: active_retro_policy_patch.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

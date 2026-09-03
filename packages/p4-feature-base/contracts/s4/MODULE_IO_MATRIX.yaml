@@ -1,0 +1,84 @@
+phase: P4
+scope: P4.S4
+version: V14.9-RC1
+module_io_matrix:
+- module_id: P4.S4.M01
+  module_name: price_return_observations
+  subphase: P4.S4
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - price_return_atomic_panel
+  module_contract: contracts/modules/P4_S4_M01_price_return_observations.yaml
+  execution_stage: build
+- module_id: P4.S4.M02
+  module_name: volume_liquidity_microstructure_observations
+  subphase: P4.S4
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - liquidity_microstructure_atomic_panel
+  module_contract: contracts/modules/P4_S4_M02_volume_liquidity_microstructure_observations.yaml
+  execution_stage: build
+- module_id: P4.S4.M03
+  module_name: realized_risk_tail_observations
+  subphase: P4.S4
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - risk_tail_atomic_panel
+  module_contract: contracts/modules/P4_S4_M03_realized_risk_tail_observations.yaml
+  execution_stage: build
+- module_id: P4.S4.M04
+  module_name: benchmark_cross_asset_observations
+  subphase: P4.S4
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - benchmark_cross_asset_atomic_panel
+  module_contract: contracts/modules/P4_S4_M04_benchmark_cross_asset_observations.yaml
+  execution_stage: build
+- module_id: P4.S4.M05
+  module_name: underlying_option_state_observations
+  subphase: P4.S4
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - underlying_option_state_atomic_panel
+  module_contract: contracts/modules/P4_S4_M05_underlying_option_state_observations.yaml
+  execution_stage: build
+- module_id: P4.S4.M06
+  module_name: macro_event_calendar_observations
+  subphase: P4.S4
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - macro_event_calendar_atomic_panel
+  module_contract: contracts/modules/P4_S4_M06_macro_event_calendar_observations.yaml
+  execution_stage: build
+- module_id: P4.S4.M07
+  module_name: social_evidence_context_observations
+  subphase: P4.S4
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - social_evidence_context_atomic_panel
+  module_contract: contracts/modules/P4_S4_M07_social_evidence_context_observations.yaml
+  execution_stage: build
+- module_id: P4.S4.M08
+  module_name: fundamental_accounting_quality_observations
+  subphase: P4.S4
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - fundamental_accounting_atomic_panel
+  module_contract: contracts/modules/P4_S4_M08_fundamental_accounting_quality_observations.yaml
+  execution_stage: build

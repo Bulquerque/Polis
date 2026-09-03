@@ -1,0 +1,82 @@
+{
+  "inline_exact_sha256": {
+    "improved": {
+      "hash": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "ok": true
+    },
+    "original": {
+      "error": "ContractValidationError: raw source hash does not match frozen provenance",
+      "ok": false
+    }
+  },
+  "invalid_json_fail_soft": {
+    "improved": {
+      "hint": "not_applicable",
+      "ok": true,
+      "readability": "unreadable"
+    },
+    "original": {
+      "error": "ContractValidationError: schema hints require readable raw artifacts",
+      "ok": false
+    }
+  },
+  "multi_capture_same_source": {
+    "improved": {
+      "captures": [
+        "capture-fa93a0ee3cf7bb4addb4",
+        "capture-f021e0f915cf081f0dae"
+      ],
+      "count": 2,
+      "ok": true
+    },
+    "original": {
+      "error": "ContractValidationError: source_id must be unique in aggregate",
+      "ok": false
+    }
+  },
+  "nested_secret_rejected": {
+    "improved": {
+      "error": "ContractValidationError: credential material must not be present in source definitions: ['api_source_definitions.sources.0.credentials.api_key']",
+      "ok": true
+    },
+    "original": {
+      "accepted_secret": true,
+      "ok": false
+    }
+  },
+  "no_artifact_root_chain": {
+    "improved": {
+      "ok": true,
+      "size": 3
+    },
+    "original": {
+      "error": "ContractValidationError: file size must be positive",
+      "ok": false
+    }
+  },
+  "p2_multi_snapshot": {
+    "improved": {
+      "count": 2,
+      "matched": 2,
+      "ok": true
+    },
+    "original": {
+      "error": "ContractValidationError: hashes_match violation",
+      "ok": false
+    }
+  },
+  "run_id_full_pipeline": {
+    "improved": {
+      "available": "2026-01-03T00:00:00Z",
+      "ok": true,
+      "reference": "2026-01-01",
+      "run_id": "RUN-EXPECTED"
+    },
+    "original": {
+      "available": "2026-01-03T00:00:00Z",
+      "ok": false,
+      "reference": "2026-01-03T00:00:00Z",
+      "run_id": "run-fixture"
+    }
+  }
+}

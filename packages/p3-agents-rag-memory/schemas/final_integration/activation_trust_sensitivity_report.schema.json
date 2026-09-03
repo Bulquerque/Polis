@@ -1,0 +1,94 @@
+{
+  "$defs": {
+    "StressScenario": {
+      "additionalProperties": false,
+      "properties": {
+        "observed": {
+          "title": "Observed",
+          "type": "number"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "scenario": {
+          "enum": [
+            "STARVATION",
+            "RUNAWAY_FEEDBACK",
+            "ARTIFICIAL_POLARIZATION",
+            "FROZEN_RELATIONSHIPS",
+            "VOLATILE_RELATIONSHIPS"
+          ],
+          "title": "Scenario",
+          "type": "string"
+        },
+        "threshold": {
+          "title": "Threshold",
+          "type": "number"
+        }
+      },
+      "required": [
+        "scenario",
+        "threshold",
+        "observed",
+        "passed"
+      ],
+      "title": "StressScenario",
+      "type": "object"
+    }
+  },
+  "$id": "p3://schemas/final_integration/activation_trust_sensitivity_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "experiment_id": {
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    },
+    "report_hash": {
+      "title": "Report Hash",
+      "type": "string"
+    },
+    "report_version": {
+      "default": "p3.activation-trust-sensitivity.v2",
+      "title": "Report Version",
+      "type": "string"
+    },
+    "scenarios": {
+      "items": {
+        "$ref": "#/$defs/StressScenario"
+      },
+      "maxItems": 5,
+      "minItems": 5,
+      "title": "Scenarios",
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "experiment_id",
+    "scenarios",
+    "status",
+    "report_hash"
+  ],
+  "title": "ActivationTrustSensitivityReport",
+  "type": "object"
+}

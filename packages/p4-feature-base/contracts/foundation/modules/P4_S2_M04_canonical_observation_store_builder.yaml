@@ -1,0 +1,60 @@
+phase: P4
+subphase: P4.S2
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- no_hidden_global_state
+- no_future_targets
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+observability:
+- module_started
+- input_validated
+- module_succeeded
+- module_failed
+- input_record_count
+- output_record_count
+- warning_count
+- duration_ms
+production_promotion_allowed: false
+module_id: P4.S2.M04
+module_name: canonical_observation_store_builder
+function: Build deterministic typed long-form canonical observations and a storage
+  manifest.
+inputs:
+- quality_enriched_observation_bundle
+outputs:
+- canonical_observation_panel
+- canonical_store_manifest
+validations:
+- canonical grain unique
+- typed values finite
+- selected vintages only
+- long format preserved
+- semantic fingerprint deterministic
+- aliases not materialized here
+fail_fast_conditions:
+- P4_S2_M04_INPUT_INVALID
+- P4_S2_M04_TEMPORAL_VIOLATION
+- P4_S2_M04_OUTPUT_INVALID
+- P4_S2_M04_FORBIDDEN_FIELD
+tests_required:
+- happy_path
+- schema_negative
+- temporal_adversarial
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S2_M04_canonical_observation_store_builder.py

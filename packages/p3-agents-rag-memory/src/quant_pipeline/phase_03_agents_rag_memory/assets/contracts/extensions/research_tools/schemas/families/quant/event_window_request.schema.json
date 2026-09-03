@@ -1,0 +1,110 @@
+{
+  "$defs": {
+    "EventAdjustment": {
+      "enum": [
+        "NONE",
+        "BENCHMARK"
+      ],
+      "title": "EventAdjustment",
+      "type": "string"
+    },
+    "QuantMode": {
+      "enum": [
+        "BASIC",
+        "ROBUST",
+        "STABILITY"
+      ],
+      "title": "QuantMode",
+      "type": "string"
+    },
+    "ReturnKind": {
+      "enum": [
+        "SIMPLE",
+        "LOG"
+      ],
+      "title": "ReturnKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "adjustment": {
+      "$ref": "#/$defs/EventAdjustment",
+      "default": "NONE"
+    },
+    "benchmark_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Benchmark Id"
+    },
+    "benchmark_view_id": {
+      "default": "market_prices",
+      "minLength": 1,
+      "title": "Benchmark View Id",
+      "type": "string"
+    },
+    "event_id": {
+      "minLength": 1,
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_view_id": {
+      "default": "events",
+      "minLength": 1,
+      "title": "Event View Id",
+      "type": "string"
+    },
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "market_view_id": {
+      "default": "market_prices",
+      "minLength": 1,
+      "title": "Market View Id",
+      "type": "string"
+    },
+    "placebo_offsets": {
+      "default": [],
+      "items": {
+        "type": "integer"
+      },
+      "title": "Placebo Offsets",
+      "type": "array"
+    },
+    "post_window": {
+      "default": 1,
+      "minimum": 0,
+      "title": "Post Window",
+      "type": "integer"
+    },
+    "pre_window": {
+      "default": 1,
+      "minimum": 0,
+      "title": "Pre Window",
+      "type": "integer"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/QuantMode",
+      "default": "BASIC"
+    },
+    "return_kind": {
+      "$ref": "#/$defs/ReturnKind",
+      "default": "SIMPLE"
+    }
+  },
+  "required": [
+    "event_id",
+    "instrument_id"
+  ],
+  "title": "EventWindowRequest",
+  "type": "object"
+}

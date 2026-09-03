@@ -1,0 +1,8 @@
+........................................................................ [ 60%]
+...............................................                          [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.5-final-0 ________________
+
+Coverage JSON written to file release/coverage.json
+Required test coverage of 92.0% reached. Total coverage: 99.53%
+119 passed in 2.35s

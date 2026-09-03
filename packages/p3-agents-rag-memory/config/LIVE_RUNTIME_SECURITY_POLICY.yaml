@@ -1,0 +1,40 @@
+policy_id: P3_LIVE_RUNTIME_SECURITY_V2
+version: 2.0.0
+egress:
+  allowed_schemes: [https]
+  allowed_ports: [443]
+  dns_resolution_required: true
+  all_a_aaaa_answers_must_be_public: true
+  redirect_revalidation_required: true
+  dns_rebinding_revalidation_required: true
+  private_networks_forbidden: true
+  metadata_services_forbidden: true
+  url_credentials_forbidden: true
+  allowlist_required: true
+circuit_breaker:
+  persistent_shared_state_required: true
+  failure_threshold: 3
+  recovery_timeout_seconds: 30
+  half_open_success_threshold: 1
+content_security:
+  retrieved_documents_untrusted: true
+  tool_results_untrusted: true
+  prompt_injection_scan_required: true
+  tool_output_instructions_blocked: true
+  secret_scan_required: true
+audit:
+  hmac_or_signature_required: true
+  key_id_required: true
+  append_only_backend_required: true
+events:
+  transactional_idempotency_ledger_required: true
+  unique_idempotency_key_required: true
+  duplicate_conflict_fail_closed: true
+checkpoint:
+  complete_reference_seal_required: true
+  dereference_and_hash_validation_required: true
+qualification:
+  required_live_receipts: [MCP, NEO4J, OBJECT_STORAGE, LLM]
+  full_81_module_trace_required: true
+  p2_p4_p9_receipts_required: true
+  reference_modes_forbidden: true

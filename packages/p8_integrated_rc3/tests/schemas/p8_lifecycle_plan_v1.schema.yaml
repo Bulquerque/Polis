@@ -1,0 +1,106 @@
+$defs:
+  LifecycleAction:
+    enum:
+    - HOLD
+    - CLOSE
+    - ROLL
+    - EXERCISE
+    - ALLOW_ASSIGNMENT
+    - PREVENT_ASSIGNMENT
+    - CASH_SETTLE
+    - PHYSICAL_SETTLE
+    - UNSUPPORTED
+    title: LifecycleAction
+    type: string
+  LifecycleLegDecision:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      leg_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Leg Id
+        type: string
+      instrument_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Instrument Id
+        type: string
+      action:
+        $ref: '#/$defs/LifecycleAction'
+      quantity:
+        title: Quantity
+        type: number
+      effective_at:
+        format: date-time
+        title: Effective At
+        type: string
+      reason_codes:
+        default: []
+        items:
+          maxLength: 180
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - candidate_id
+    - leg_id
+    - instrument_id
+    - action
+    - quantity
+    - effective_at
+    title: LifecycleLegDecision
+    type: object
+  LifecycleStatus:
+    enum:
+    - SUPPORTED
+    - BLOCKED
+    - NO_ACTION_VALID
+    title: LifecycleStatus
+    type: string
+additionalProperties: false
+properties:
+  status:
+    $ref: '#/$defs/LifecycleStatus'
+  decisions:
+    items:
+      $ref: '#/$defs/LifecycleLegDecision'
+    title: Decisions
+    type: array
+  unsupported_candidate_ids:
+    default: []
+    items:
+      maxLength: 180
+      minLength: 1
+      pattern: ^[A-Za-z0-9_.:\-/]+$
+      type: string
+    title: Unsupported Candidate Ids
+    type: array
+  plan_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Plan Hash
+    type: string
+  reason_codes:
+    default: []
+    items:
+      maxLength: 180
+      minLength: 1
+      pattern: ^[A-Za-z0-9_.:\-/]+$
+      type: string
+    title: Reason Codes
+    type: array
+required:
+- status
+- decisions
+- plan_hash
+title: LifecyclePlan
+type: object

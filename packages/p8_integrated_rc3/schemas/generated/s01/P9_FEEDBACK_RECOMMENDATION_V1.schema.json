@@ -1,0 +1,74 @@
+{
+  "$defs": {
+    "FeedbackEffectType": {
+      "enum": [
+        "OPTIMIZER_ELIGIBILITY_FEEDBACK",
+        "RISK_LIMIT_POLICY_FEEDBACK",
+        "TURNOVER_POLICY_FEEDBACK",
+        "LIQUIDITY_HAIRCUT_FEEDBACK",
+        "MARGIN_BUFFER_FEEDBACK",
+        "EXECUTION_POLICY_FEEDBACK",
+        "RUNTIME_FALLBACK_POLICY_FEEDBACK",
+        "MODEL_DEPRECATION_FEEDBACK"
+      ],
+      "title": "FeedbackEffectType",
+      "type": "string"
+    },
+    "FeedbackRecommendationStatus": {
+      "enum": [
+        "PROMOTED",
+        "REJECTED",
+        "RESEARCH_ONLY"
+      ],
+      "title": "FeedbackRecommendationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "recommendation_id": {
+      "minLength": 1,
+      "title": "Recommendation Id",
+      "type": "string"
+    },
+    "feedback_id": {
+      "minLength": 1,
+      "title": "Feedback Id",
+      "type": "string"
+    },
+    "target_policy_id": {
+      "minLength": 1,
+      "title": "Target Policy Id",
+      "type": "string"
+    },
+    "effect_type": {
+      "$ref": "#/$defs/FeedbackEffectType"
+    },
+    "status": {
+      "$ref": "#/$defs/FeedbackRecommendationStatus"
+    },
+    "source_cycle_sequence": {
+      "minimum": 0,
+      "title": "Source Cycle Sequence",
+      "type": "integer"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "recommendation_id",
+    "feedback_id",
+    "target_policy_id",
+    "effect_type",
+    "status",
+    "source_cycle_sequence",
+    "available_at"
+  ],
+  "title": "P9FeedbackRecommendationV1",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P9_FEEDBACK_RECOMMENDATION_V1.schema.json"
+}

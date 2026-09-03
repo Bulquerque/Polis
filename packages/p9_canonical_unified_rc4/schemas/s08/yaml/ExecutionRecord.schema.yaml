@@ -1,0 +1,102 @@
+$defs:
+  EvidenceClass:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED_NOT_EXECUTED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceClass
+    type: string
+  OrderSide:
+    enum:
+    - BUY
+    - SELL
+    title: OrderSide
+    type: string
+additionalProperties: false
+properties:
+  order_id:
+    minLength: 1
+    title: Order Id
+    type: string
+  side:
+    $ref: '#/$defs/OrderSide'
+  target_quantity:
+    minimum: 0.0
+    title: Target Quantity
+    type: number
+  ordered_quantity:
+    minimum: 0.0
+    title: Ordered Quantity
+    type: number
+  filled_quantity:
+    minimum: 0.0
+    title: Filled Quantity
+    type: number
+  decision_price:
+    exclusiveMinimum: 0.0
+    title: Decision Price
+    type: number
+  arrival_price:
+    exclusiveMinimum: 0.0
+    title: Arrival Price
+    type: number
+  average_fill_price:
+    anyOf:
+    - exclusiveMinimum: 0.0
+      type: number
+    - type: 'null'
+    default: null
+    title: Average Fill Price
+  evaluation_price:
+    exclusiveMinimum: 0.0
+    title: Evaluation Price
+    type: number
+  fees:
+    default: 0.0
+    minimum: 0.0
+    title: Fees
+    type: number
+  borrow_cost:
+    default: 0.0
+    minimum: 0.0
+    title: Borrow Cost
+    type: number
+  financing_cost:
+    default: 0.0
+    minimum: 0.0
+    title: Financing Cost
+    type: number
+  estimated_slippage_cost:
+    anyOf:
+    - minimum: 0.0
+      type: number
+    - type: 'null'
+    default: null
+    title: Estimated Slippage Cost
+  combo_execution:
+    default: false
+    title: Combo Execution
+    type: boolean
+  legging_cost:
+    default: 0.0
+    minimum: 0.0
+    title: Legging Cost
+    type: number
+  evidence_class:
+    $ref: '#/$defs/EvidenceClass'
+required:
+- order_id
+- side
+- target_quantity
+- ordered_quantity
+- filled_quantity
+- decision_price
+- arrival_price
+- evaluation_price
+- evidence_class
+title: ExecutionRecord
+type: object
+$id: urn:inferencia:p9:s8:ExecutionRecord:1.0.0

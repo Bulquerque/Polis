@@ -1,0 +1,13 @@
+subphase: P3.S10
+modules:
+- module_id: P3.S10.M01
+  required_cases:
+  - schedule_order
+  - heartbeat_coverage
+- module_id: P3.S10.M02
+  required_cases:
+  - checkpoint_order
+  - final_before_evaluation
+canonical_module_order:
+- P3.S10.M01
+- P3.S10.M02

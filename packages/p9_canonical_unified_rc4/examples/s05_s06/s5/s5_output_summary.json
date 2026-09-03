@@ -1,0 +1,7 @@
+{
+  "bundle_id": "example-run:P9.S5:3a5c8684f3575ff7",
+  "bundle_sha256": "3a5c8684f3575ff7cdec18136bc322d6bc6b242323abfe234096f8f397fbaf37",
+  "qualification": "BACKTEST_OVERFIT_RISK",
+  "module_receipt_count": 8,
+  "bootstrap_replicates": 80
+}

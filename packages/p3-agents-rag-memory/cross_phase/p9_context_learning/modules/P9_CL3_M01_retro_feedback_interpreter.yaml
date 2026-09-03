@@ -1,0 +1,19 @@
+module_id: P9.CL3.M01
+module_name: retro_feedback_interpreter
+authority_phase: P9
+status: planned_cross_phase_blueprint
+inputs:
+- p9_candidate_evaluation_result
+- prior_retro_experiment_memory
+outputs:
+- retro_diagnosis
+forbidden_actions:
+- mutate_current_cycle
+- change_person_genome_directly
+- promote_without_statistical_evidence
+tests_required:
+- schema
+- lineage
+- blind_holdout
+- one_change
+- result_finalization

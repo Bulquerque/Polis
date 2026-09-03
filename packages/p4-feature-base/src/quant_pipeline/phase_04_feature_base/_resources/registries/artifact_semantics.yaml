@@ -1,0 +1,661 @@
+registry_id: p4_s2_artifact_semantics_v1
+version: 1.0.0
+defaults:
+  timezone: UTC
+  date_only_reference_policy: start_of_day
+  date_only_event_policy: start_of_day
+  date_only_available_policy: end_of_day
+  strict_available_at: true
+artifacts:
+  clean_underlying_panel:
+    modality: MARKET
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    - canonical_instrument_id
+    reference_fields:
+    - reference_time
+    - date
+    - session_date
+    event_fields:
+    - event_time
+    - timestamp
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - venue
+    - currency
+    - calendar_id
+    - source_id
+    required_value_fields:
+    - open
+    - high
+    - low
+    - close
+    - volume
+    - financial_volume
+    - adjustment_factor
+    - is_trading_day
+    optional_value_fields:
+    - ask
+    - bid
+    - log_return
+    - quality_flag
+    - return
+    - shares_outstanding
+    - vwap
+  clean_underlying_trade_panel:
+    modality: MARKET_TRADE
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    - canonical_instrument_id
+    reference_fields:
+    - reference_time
+    - date
+    - session_date
+    event_fields:
+    - trade_time
+    - event_time
+    - timestamp
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - venue
+    - currency
+    - trade_id
+    - source_id
+    optional_value_fields:
+    - price
+    - size
+    - quantity
+    - side
+    - notional
+  clean_macro_br_panel:
+    modality: MACRO_BR
+    entity_type: MACRO_SERIES
+    identity_fields:
+    - entity_id
+    - series_id
+    - indicator_id
+    reference_fields:
+    - reference_time
+    - observation_date
+    - period_end
+    - date
+    event_fields:
+    - event_time
+    published_fields:
+    - published_at
+    - publication_time
+    - release_time
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    revision_key_fields:
+    - series_id
+    - reference_time
+    dimension_fields:
+    - country
+    - event_id
+    - frequency
+    - seasonal_adjustment
+    - series_id
+    - unit
+    - units
+    - value_role
+    optional_value_fields:
+    - value
+    - observation_value
+    - surprise
+    - revision_value
+  clean_macro_us_panel:
+    modality: MACRO_US
+    entity_type: MACRO_SERIES
+    identity_fields:
+    - entity_id
+    - series_id
+    - indicator_id
+    reference_fields:
+    - reference_time
+    - observation_date
+    - period_end
+    - date
+    event_fields:
+    - event_time
+    published_fields:
+    - published_at
+    - publication_time
+    - release_time
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    revision_key_fields:
+    - series_id
+    - reference_time
+    dimension_fields:
+    - country
+    - event_id
+    - frequency
+    - seasonal_adjustment
+    - series_id
+    - unit
+    - units
+    - value_role
+    optional_value_fields:
+    - value
+    - observation_value
+    - surprise
+    - revision_value
+  clean_benchmark_panel:
+    modality: BENCHMARK
+    entity_type: BENCHMARK
+    identity_fields:
+    - entity_id
+    - benchmark_id
+    - benchmark
+    - underlying
+    reference_fields:
+    - reference_time
+    - date
+    - session_date
+    event_fields:
+    - event_time
+    - timestamp
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - venue
+    - currency
+    - source_id
+    optional_value_fields:
+    - open
+    - high
+    - low
+    - close
+    - return
+    - volume
+    - financial_volume
+  clean_calendar_panel:
+    modality: CALENDAR
+    entity_type: CALENDAR
+    identity_fields:
+    - calendar_id
+    - venue
+    - exchange
+    - source_id
+    reference_fields:
+    - reference_time
+    - date
+    - session_date
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - calendar_id
+    - venue
+    - exchange
+    - holiday_code
+    required_value_fields:
+    - is_trading_day
+    optional_value_fields:
+    - session_open
+    - session_close
+    - break_start
+    - break_end
+    - early_close
+    - holiday_code
+    allow_created_at_availability_fallback: true
+  clean_corporate_actions_panel:
+    modality: CORPORATE_ACTION
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    - canonical_instrument_id
+    reference_fields:
+    - reference_time
+    - effective_date
+    - ex_date
+    - date
+    event_fields:
+    - effective_time
+    - effective_date
+    - ex_date
+    published_fields:
+    - announcement_time
+    - announced_at
+    - published_at
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - action_id
+    - action_type
+    - ex_date
+    - record_date
+    - payment_date
+    optional_value_fields:
+    - adjustment_factor
+    - cash_amount
+    - ratio
+    - action_type
+    allow_created_at_availability_fallback: true
+  clean_option_contract_panel:
+    modality: OPTION_CONTRACT
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    - canonical_underlying_id
+    reference_fields:
+    - reference_time
+    - date
+    event_fields:
+    - event_time
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - contract_key
+    - option_id
+    - strike
+    - expiry
+    - option_type
+    - venue
+    - multiplier
+    optional_value_fields:
+    - strike
+    - multiplier
+    - open_interest
+    allow_created_at_availability_fallback: true
+  clean_option_quotes_panel:
+    modality: OPTION_QUOTE
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    - canonical_underlying_id
+    reference_fields:
+    - reference_time
+    - date
+    event_fields:
+    - quote_time
+    - event_time
+    - timestamp
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - contract_key
+    - option_id
+    - strike
+    - expiry
+    - option_type
+    - venue
+    optional_value_fields:
+    - ask
+    - bid
+    - delta
+    - dividend_yield
+    - gamma
+    - implied_volatility
+    - last
+    - mid
+    - open_interest
+    - risk_free_rate
+    - theta
+    - vega
+    - volume
+  clean_event_reference_panel:
+    modality: EVENT
+    entity_type: EVENT
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    - event_id
+    reference_fields:
+    - reference_time
+    - date
+    event_fields:
+    - event_time
+    - effective_time
+    published_fields:
+    - announcement_time
+    - published_at
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - event_id
+    - event_type
+    - source_id
+    optional_value_fields:
+    - event_type
+    - importance
+    - surprise
+  clean_context_source_panel:
+    modality: CONTEXT_SOURCE
+    entity_type: SOURCE
+    identity_fields:
+    - entity_id
+    - source_id
+    reference_fields:
+    - reference_time
+    - date
+    event_fields:
+    - event_time
+    published_fields:
+    - published_at
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - source_id
+    - source_type
+    - language
+    optional_value_fields:
+    - quality_score
+    - quality_status
+    - critical
+  clean_document_panel:
+    modality: DOCUMENT
+    entity_type: DOCUMENT
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    - document_id
+    reference_fields:
+    - reference_time
+    - reference_date
+    - date
+    event_fields:
+    - event_time
+    published_fields:
+    - published_at
+    - publication_time
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - document_id
+    - document_type
+    - source_id
+    - language
+    optional_value_fields:
+    - source_quality_score
+    - cleaning_status
+    - document_type
+  source_quality_panel:
+    modality: SOURCE_QUALITY
+    entity_type: SOURCE
+    identity_fields:
+    - entity_id
+    - source_id
+    reference_fields:
+    - reference_time
+    - date
+    available_fields:
+    - available_at
+    - declared_available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - source_id
+    - source_type
+    optional_value_fields:
+    - quality_score
+    - quality_status
+    - critical
+    - error_flag
+    - warning_flag
+  clean_liquidity_reference_panel:
+    modality: LIQUIDITY_REFERENCE
+    entity_type: INSTRUMENT
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    - contract_key
+    - option_id
+    reference_fields:
+    - reference_time
+    - date
+    event_fields:
+    - event_time
+    - timestamp
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - contract_key
+    - option_id
+    - venue
+    optional_value_fields:
+    - spread
+    - relative_spread
+    - volume
+    - open_interest
+    - depth
+    - liquidity_score
+    allow_created_at_availability_fallback: true
+  clean_fundamental_panel:
+    modality: FUNDAMENTAL
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    - canonical_instrument_id
+    reference_fields:
+    - reference_time
+    - fiscal_period_end
+    - period_end
+    - date
+    event_fields:
+    - filing_time
+    - event_time
+    published_fields:
+    - filed_at
+    - published_at
+    - publication_time
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    revision_key_fields:
+    - underlying
+    - fiscal_period_end
+    - statement_type
+    dimension_fields:
+    - statement_type
+    - fiscal_period
+    - currency
+    - accounting_standard
+    optional_value_fields:
+    - book_equity
+    - capital_expenditure
+    - debt
+    - gross_profit
+    - market_cap
+    - net_income
+    - operating_cash_flow
+    - operating_income
+    - revenue
+    - shares_outstanding
+    - total_accruals
+    - total_assets
+    - total_equity
+  clean_curve_term_structure_panel:
+    modality: TERM_STRUCTURE
+    entity_type: CURVE
+    identity_fields:
+    - entity_id
+    - curve_id
+    - underlying_id
+    - underlying
+    reference_fields:
+    - reference_time
+    - date
+    event_fields:
+    - event_time
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - curve_id
+    - tenor
+    - maturity
+    - instrument_type
+    - currency
+    optional_value_fields:
+    - rate
+    - yield
+    - price
+    - implied_rate
+    - basis
+    - carry
+    - roll_down
+  social_feature_panel:
+    modality: SOCIAL_FEATURE
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    reference_fields:
+    - reference_time
+    - reference_date
+    - date
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - social_feature_id
+    - feature_name
+    - feature_type
+    required_value_fields:
+    - feature_value
+    optional_value_fields:
+    - source_quality_score
+    - evidence_count
+    - agent_agreement_score
+    - agent_disagreement_score
+  evidence_tag_panel:
+    modality: EVIDENCE
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    reference_fields:
+    - reference_time
+    - date
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - proposition_id
+    - horizon
+    - claim_id
+    - evidence_id
+    optional_value_fields:
+    - evidence_weight
+    - evidence_direction
+    - evidence_type
+  agent_disagreement_panel:
+    modality: DISAGREEMENT
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    reference_fields:
+    - reference_time
+    - date
+    - as_of_date
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - proposition_id
+    - horizon
+    optional_value_fields:
+    - effective_sample_size
+    - disagreement_score
+    - polarization_score
+    - entropy
+  context_memory_feature_panel:
+    modality: CONTEXT_MEMORY
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    reference_fields:
+    - reference_time
+    - date
+    - as_of_date
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - proposition_id
+    - horizon
+    - context_memory_feature_id
+    optional_value_fields:
+    - feature_value
+    - memory_strength
+    - persistence
+  hypothesis_registry:
+    modality: HYPOTHESIS
+    entity_type: UNDERLYING
+    identity_fields:
+    - entity_id
+    - underlying_id
+    - underlying
+    reference_fields:
+    - reference_time
+    - created_at
+    published_fields:
+    - created_at
+    available_fields:
+    - available_at
+    ingested_fields:
+    - ingested_at
+    dimension_fields:
+    - hypothesis_id
+    optional_value_fields:
+    - evidence_count
+    - source_quality_score
+    allow_created_at_availability_fallback: true

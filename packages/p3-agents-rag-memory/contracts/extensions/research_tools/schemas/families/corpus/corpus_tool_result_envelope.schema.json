@@ -1,0 +1,524 @@
+{
+  "$defs": {
+    "CorpusEvidenceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "chunk_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Chunk Id"
+        },
+        "content_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "document_id": {
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "lineage_refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Lineage Refs",
+          "type": "array"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "source_quality": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Source Quality",
+          "type": "number"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "source_id",
+        "document_id",
+        "available_at",
+        "content_hash",
+        "source_quality"
+      ],
+      "title": "CorpusEvidenceRef",
+      "type": "object"
+    },
+    "CorpusMode": {
+      "enum": [
+        "LOOKUP",
+        "STANDARD",
+        "TRIANGULATED",
+        "FORENSIC"
+      ],
+      "title": "CorpusMode",
+      "type": "string"
+    },
+    "CoverageReport": {
+      "additionalProperties": false,
+      "properties": {
+        "duplicate_records_removed": {
+          "minimum": 0,
+          "title": "Duplicate Records Removed",
+          "type": "integer"
+        },
+        "missing_dimensions": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Dimensions",
+          "type": "array"
+        },
+        "records_returned": {
+          "minimum": 0,
+          "title": "Records Returned",
+          "type": "integer"
+        },
+        "records_scanned": {
+          "minimum": 0,
+          "title": "Records Scanned",
+          "type": "integer"
+        },
+        "records_visible": {
+          "minimum": 0,
+          "title": "Records Visible",
+          "type": "integer"
+        },
+        "score": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Score",
+          "type": "number"
+        },
+        "source_families": {
+          "minimum": 0,
+          "title": "Source Families",
+          "type": "integer"
+        },
+        "truncated": {
+          "default": false,
+          "title": "Truncated",
+          "type": "boolean"
+        },
+        "unique_documents": {
+          "minimum": 0,
+          "title": "Unique Documents",
+          "type": "integer"
+        },
+        "unique_sources": {
+          "minimum": 0,
+          "title": "Unique Sources",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "records_scanned",
+        "records_visible",
+        "records_returned",
+        "unique_documents",
+        "unique_sources",
+        "source_families",
+        "duplicate_records_removed",
+        "score"
+      ],
+      "title": "CoverageReport",
+      "type": "object"
+    },
+    "ExecutionReport": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic": {
+          "title": "Deterministic",
+          "type": "boolean"
+        },
+        "executed_mode": {
+          "$ref": "#/$defs/CorpusMode"
+        },
+        "handler_id": {
+          "minLength": 1,
+          "title": "Handler Id",
+          "type": "string"
+        },
+        "handler_version": {
+          "minLength": 1,
+          "title": "Handler Version",
+          "type": "string"
+        },
+        "internal_subqueries": {
+          "minimum": 0,
+          "title": "Internal Subqueries",
+          "type": "integer"
+        },
+        "internal_work_units": {
+          "minimum": 0,
+          "title": "Internal Work Units",
+          "type": "integer"
+        },
+        "requested_mode": {
+          "$ref": "#/$defs/CorpusMode"
+        },
+        "seed": {
+          "minimum": 0,
+          "title": "Seed",
+          "type": "integer"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "handler_id",
+        "handler_version",
+        "requested_mode",
+        "executed_mode",
+        "internal_subqueries",
+        "internal_work_units",
+        "deterministic",
+        "seed"
+      ],
+      "title": "ExecutionReport",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "OutcomeStatus": {
+      "enum": [
+        "PASS",
+        "EMPTY_VALID",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM"
+      ],
+      "title": "OutcomeStatus",
+      "type": "string"
+    },
+    "PitQueryProof": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "earliest_available_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Earliest Available At"
+        },
+        "input_hashes": {
+          "items": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "title": "Input Hashes",
+          "type": "array"
+        },
+        "latest_available_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latest Available At"
+        },
+        "proof_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Proof Hash",
+          "type": "string"
+        },
+        "records_rejected_filter": {
+          "minimum": 0,
+          "title": "Records Rejected Filter",
+          "type": "integer"
+        },
+        "records_rejected_future": {
+          "minimum": 0,
+          "title": "Records Rejected Future",
+          "type": "integer"
+        },
+        "records_scanned": {
+          "minimum": 0,
+          "title": "Records Scanned",
+          "type": "integer"
+        },
+        "records_visible": {
+          "minimum": 0,
+          "title": "Records Visible",
+          "type": "integer"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "decision_time",
+        "records_scanned",
+        "records_visible",
+        "records_rejected_future",
+        "records_rejected_filter",
+        "snapshot_id",
+        "input_hashes",
+        "proof_hash"
+      ],
+      "title": "PitQueryProof",
+      "type": "object"
+    },
+    "ProvenanceEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "relation": {
+          "enum": [
+            "WAS_DERIVED_FROM",
+            "WAS_ATTRIBUTED_TO",
+            "WAS_GENERATED_BY"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "source_node_id": {
+          "minLength": 1,
+          "title": "Source Node Id",
+          "type": "string"
+        },
+        "target_node_id": {
+          "minLength": 1,
+          "title": "Target Node Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_node_id",
+        "target_node_id",
+        "relation"
+      ],
+      "title": "ProvenanceEdge",
+      "type": "object"
+    },
+    "ProvenanceNode": {
+      "additionalProperties": false,
+      "properties": {
+        "content_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Content Hash"
+        },
+        "metadata": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Metadata",
+          "type": "object"
+        },
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "node_type": {
+          "enum": [
+            "SOURCE",
+            "P1_ARTIFACT",
+            "P2_RECORD",
+            "P3_CHUNK",
+            "P3_RESULT"
+          ],
+          "title": "Node Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "node_type"
+      ],
+      "title": "ProvenanceNode",
+      "type": "object"
+    },
+    "ProvenanceResult": {
+      "additionalProperties": false,
+      "properties": {
+        "complete_to_p1": {
+          "title": "Complete To P1",
+          "type": "boolean"
+        },
+        "edges": {
+          "items": {
+            "$ref": "#/$defs/ProvenanceEdge"
+          },
+          "title": "Edges",
+          "type": "array"
+        },
+        "nodes": {
+          "items": {
+            "$ref": "#/$defs/ProvenanceNode"
+          },
+          "title": "Nodes",
+          "type": "array"
+        },
+        "subject_id": {
+          "minLength": 1,
+          "title": "Subject Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "subject_id",
+        "nodes",
+        "edges",
+        "complete_to_p1"
+      ],
+      "title": "ProvenanceResult",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "coverage": {
+      "$ref": "#/$defs/CoverageReport"
+    },
+    "downgrade_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Downgrade Reason"
+    },
+    "envelope_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Envelope Version",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "$ref": "#/$defs/CorpusEvidenceRef"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "executed_mode": {
+      "$ref": "#/$defs/CorpusMode"
+    },
+    "execution": {
+      "$ref": "#/$defs/ExecutionReport"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "outcome_status": {
+      "$ref": "#/$defs/OutcomeStatus"
+    },
+    "pit_proof": {
+      "$ref": "#/$defs/PitQueryProof"
+    },
+    "provenance": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ProvenanceResult"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "records": {
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "request_id": {
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "requested_mode": {
+      "$ref": "#/$defs/CorpusMode"
+    },
+    "result_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Result Hash",
+      "type": "string"
+    },
+    "tool_id": {
+      "const": "research.corpus.v1",
+      "default": "research.corpus.v1",
+      "title": "Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "operation_id",
+    "request_id",
+    "outcome_status",
+    "requested_mode",
+    "executed_mode",
+    "records",
+    "evidence_refs",
+    "coverage",
+    "pit_proof",
+    "execution",
+    "result_hash"
+  ],
+  "title": "CorpusToolResultEnvelope",
+  "type": "object"
+}

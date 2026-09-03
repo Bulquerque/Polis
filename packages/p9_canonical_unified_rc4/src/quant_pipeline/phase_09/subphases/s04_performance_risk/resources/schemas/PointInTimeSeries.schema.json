@@ -1,0 +1,64 @@
+{
+  "$defs": {
+    "SeriesPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "timestamp",
+        "value",
+        "available_at"
+      ],
+      "title": "SeriesPoint",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/PointInTimeSeries.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "points": {
+      "items": {
+        "$ref": "#/$defs/SeriesPoint"
+      },
+      "title": "Points",
+      "type": "array"
+    },
+    "series_id": {
+      "title": "Series Id",
+      "type": "string"
+    },
+    "series_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Series Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "series_id",
+    "series_version",
+    "points",
+    "content_sha256"
+  ],
+  "title": "PointInTimeSeries",
+  "type": "object"
+}

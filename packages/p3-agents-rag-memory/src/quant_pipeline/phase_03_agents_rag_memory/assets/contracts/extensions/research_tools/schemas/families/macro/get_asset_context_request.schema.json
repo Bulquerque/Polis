@@ -1,0 +1,53 @@
+{
+  "$defs": {
+    "MacroMode": {
+      "enum": [
+        "LOOKUP",
+        "CONTEXT",
+        "VINTAGE_ANALYSIS"
+      ],
+      "title": "MacroMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "asset_id": {
+      "minLength": 1,
+      "title": "Asset Id",
+      "type": "string"
+    },
+    "families": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Families",
+      "type": "array"
+    },
+    "max_factors": {
+      "default": 20,
+      "maximum": 100,
+      "minimum": 1,
+      "title": "Max Factors",
+      "type": "integer"
+    },
+    "regions": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Regions",
+      "type": "array"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/MacroMode",
+      "default": "CONTEXT"
+    }
+  },
+  "required": [
+    "asset_id"
+  ],
+  "title": "GetAssetContextRequest",
+  "type": "object"
+}

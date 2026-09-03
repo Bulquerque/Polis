@@ -1,0 +1,61 @@
+{
+  "module_id": "P3.S30.M03",
+  "module_name": "hypothesis_registry_builder",
+  "phase": "phase_03_agents_rag_memory",
+  "subphase": "P3.S30",
+  "implementation_status": "IMPLEMENTED_QUALIFIED_INTERNAL",
+  "outputs": {
+    "hypothesis_registry": {
+      "artifact_id": "hypothesis-registry-d09a3c5de9e296dee0d6",
+      "created_at": "2024-01-31T20:05:00Z",
+      "lineage_id": "lineage-hypothesis-registry-136fdc2d730e570537dd0e8a",
+      "pipeline_version": "V14.1-RC4.1",
+      "run_id": "run-s30-fixture",
+      "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:05:00Z",
+      "schema_id": "p3.s30.hypothesis_registry.semantic",
+      "schema_version": "1.0.0",
+      "quality_status": "PASS",
+      "quality_reasons": [],
+      "records": [
+        {
+          "hypothesis_id": "hypothesis-2cddd95b6f85cfde19ec",
+          "artifact_id": "hypothesis-2cddd95b6f85cfde19ec",
+          "created_at": "2024-01-31T20:05:00Z",
+      "as_of_time": "2024-01-31T20:05:00Z",
+          "matures_at": "2024-02-21T20:05:00Z",
+          "underlying_id": "PETR4",
+          "proposition_id": "directional_outlook",
+          "horizon": "21d",
+          "hypothesis_text": "For PETR4 over 21d, the society has a falsifiable directional-outlook hypothesis supported by the recorded evidence.",
+          "supporting_evidence_refs": [
+            "evidence-001"
+          ],
+          "opposing_evidence_refs": [
+            "evidence-002"
+          ],
+          "context_evidence_refs": [],
+          "evidence_count": 2,
+          "source_quality_score": 0.865,
+          "falsification_criterion": "The hypothesis is weakened if realized_direction_bucket fails the pre-registered directional criterion for PETR4 over 21d.",
+          "required_observable": "realized_direction_bucket",
+          "quality_status": "PASS",
+          "quality_reasons": [],
+          "lineage_id": "lineage-hypothesis-2cddd95b6f85cfde19ec6750",
+          "pipeline_version": "V14.1-RC4.1"
+        }
+      ]
+    }
+  },
+  "observability": {
+    "events": [
+      "module_started",
+      "input_contract_validated",
+      "module_succeeded"
+    ],
+    "duration_ms": 0.934156,
+    "output_record_count": 1,
+    "warning_count": 0,
+    "error_count": 0
+  }
+}

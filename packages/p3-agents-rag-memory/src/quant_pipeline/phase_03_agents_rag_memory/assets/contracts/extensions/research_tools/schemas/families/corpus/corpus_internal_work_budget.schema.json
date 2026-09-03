@@ -1,0 +1,73 @@
+{
+  "$defs": {
+    "CorpusMode": {
+      "enum": [
+        "LOOKUP",
+        "STANDARD",
+        "TRIANGULATED",
+        "FORENSIC"
+      ],
+      "title": "CorpusMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "content_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "corpus_internal_work_budget.s35.v1",
+      "default": "corpus_internal_work_budget.s35.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "subqueries_by_mode": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/CorpusMode"
+      },
+      "title": "Subqueries By Mode",
+      "type": "object"
+    },
+    "visible_s21_call_cost": {
+      "const": 1,
+      "default": 1,
+      "title": "Visible S21 Call Cost",
+      "type": "integer"
+    },
+    "work_units_by_mode": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/CorpusMode"
+      },
+      "title": "Work Units By Mode",
+      "type": "object"
+    }
+  },
+  "required": [
+    "policy_id",
+    "work_units_by_mode",
+    "subqueries_by_mode",
+    "content_hash"
+  ],
+  "title": "CorpusInternalWorkBudget",
+  "type": "object"
+}

@@ -1,0 +1,354 @@
+{
+  "$defs": {
+    "CostPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "annualized_volatility": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Annualized Volatility"
+        },
+        "borrow_bps": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Borrow Bps"
+        },
+        "currency": {
+          "default": "USD",
+          "title": "Currency",
+          "type": "string"
+        },
+        "delay_bps": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Delay Bps"
+        },
+        "fee_per_unit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Fee Per Unit"
+        },
+        "impact_coefficient": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Impact Coefficient"
+        },
+        "legging_bps": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Legging Bps"
+        },
+        "minimum_fee": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Minimum Fee"
+        },
+        "opportunity_bps": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Opportunity Bps"
+        },
+        "slippage_bps": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Slippage Bps"
+        }
+      },
+      "required": [
+        "fee_per_unit",
+        "minimum_fee",
+        "slippage_bps",
+        "impact_coefficient",
+        "annualized_volatility",
+        "delay_bps",
+        "opportunity_bps",
+        "legging_bps",
+        "borrow_bps"
+      ],
+      "title": "CostPolicy",
+      "type": "object"
+    },
+    "ExecutionModelPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "aggressive_slippage_bps": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Aggressive Slippage Bps"
+        },
+        "fee_per_unit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Fee Per Unit"
+        },
+        "latency_milliseconds": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Latency Milliseconds",
+          "type": "integer"
+        },
+        "passive_fill_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "1",
+          "title": "Passive Fill Fraction"
+        },
+        "queue_ahead_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Queue Ahead Quantity"
+        }
+      },
+      "title": "ExecutionModelPolicy",
+      "type": "object"
+    },
+    "IntentPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "zero_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Zero Tolerance"
+        }
+      },
+      "title": "IntentPolicy",
+      "type": "object"
+    },
+    "OrderType": {
+      "enum": [
+        "MARKET",
+        "LIMIT",
+        "STOP",
+        "STOP_LIMIT"
+      ],
+      "title": "OrderType",
+      "type": "string"
+    },
+    "RoutingPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "default_order_type": {
+          "$ref": "#/$defs/OrderType",
+          "default": "LIMIT"
+        },
+        "default_tif": {
+          "$ref": "#/$defs/TimeInForce",
+          "default": "DAY"
+        },
+        "default_venue": {
+          "title": "Default Venue",
+          "type": "string"
+        },
+        "max_slice_quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Slice Quantity"
+        },
+        "order_lifetime_seconds": {
+          "default": 300,
+          "exclusiveMinimum": 0,
+          "title": "Order Lifetime Seconds",
+          "type": "integer"
+        },
+        "slice_interval_seconds": {
+          "default": 1,
+          "minimum": 0,
+          "title": "Slice Interval Seconds",
+          "type": "integer"
+        },
+        "use_market_for_critical": {
+          "default": false,
+          "title": "Use Market For Critical",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "default_venue",
+        "max_slice_quantity"
+      ],
+      "title": "RoutingPolicy",
+      "type": "object"
+    },
+    "StructurePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "prefer_combo": {
+          "default": true,
+          "title": "Prefer Combo",
+          "type": "boolean"
+        },
+        "require_unwind_for_legging": {
+          "default": true,
+          "title": "Require Unwind For Legging",
+          "type": "boolean"
+        }
+      },
+      "title": "StructurePolicy",
+      "type": "object"
+    },
+    "TimeInForce": {
+      "enum": [
+        "DAY",
+        "GTC",
+        "IOC",
+        "FOK",
+        "OPG",
+        "CLS"
+      ],
+      "title": "TimeInForce",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cost": {
+      "$ref": "#/$defs/CostPolicy"
+    },
+    "execution": {
+      "$ref": "#/$defs/ExecutionModelPolicy"
+    },
+    "intent": {
+      "$ref": "#/$defs/IntentPolicy"
+    },
+    "routing": {
+      "$ref": "#/$defs/RoutingPolicy"
+    },
+    "structure": {
+      "$ref": "#/$defs/StructurePolicy"
+    }
+  },
+  "required": [
+    "intent",
+    "structure",
+    "routing",
+    "cost",
+    "execution"
+  ],
+  "title": "S7PolicyBundle",
+  "type": "object"
+}

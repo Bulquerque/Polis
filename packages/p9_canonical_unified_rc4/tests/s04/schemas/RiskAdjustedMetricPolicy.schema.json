@@ -1,0 +1,56 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/RiskAdjustedMetricPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "autocorrelation_max_lag": {
+      "default": 10,
+      "minimum": 0,
+      "title": "Autocorrelation Max Lag",
+      "type": "integer"
+    },
+    "mar_per_period": {
+      "default": 0.0,
+      "title": "Mar Per Period",
+      "type": "number"
+    },
+    "minimum_observations": {
+      "default": 20,
+      "minimum": 2,
+      "title": "Minimum Observations",
+      "type": "integer"
+    },
+    "omega_threshold_per_period": {
+      "default": 0.0,
+      "title": "Omega Threshold Per Period",
+      "type": "number"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "probabilistic_sharpe_benchmark": {
+      "default": 0.0,
+      "title": "Probabilistic Sharpe Benchmark",
+      "type": "number"
+    },
+    "psr_confidence_level": {
+      "default": 0.95,
+      "exclusiveMaximum": 1,
+      "exclusiveMinimum": 0.5,
+      "title": "Psr Confidence Level",
+      "type": "number"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version"
+  ],
+  "title": "RiskAdjustedMetricPolicy",
+  "type": "object"
+}

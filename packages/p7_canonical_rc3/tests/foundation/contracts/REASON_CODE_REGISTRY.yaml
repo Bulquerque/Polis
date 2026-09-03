@@ -1,0 +1,194 @@
+registry_id: p7_foundation_reason_codes_v1
+codes:
+- code: P7_P6_MANIFEST_INVALID
+  owner_module: P7.S1.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: p6 manifest invalid
+- code: P7_P6_HASH_MISMATCH
+  owner_module: P7.S1.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: p6 hash mismatch
+- code: P7_P6_SCHEMA_INCOMPATIBLE
+  owner_module: P7.S1.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: p6 schema incompatible
+- code: P7_P6_CLOCK_MISMATCH
+  owner_module: P7.S1.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: p6 clock mismatch
+- code: P7_P6_ARTIFACT_UNDECLARED
+  owner_module: P7.S1.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: p6 artifact undeclared
+- code: P7_CANDIDATE_PRIMARY_DUPLICATE
+  owner_module: P7.S1.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: candidate primary duplicate
+- code: P7_CANDIDATE_MANDATORY_RECORD_MISSING
+  owner_module: P7.S1.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: candidate mandatory record missing
+- code: P7_ORPHAN_CHILD_RECORD
+  owner_module: P7.S1.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: orphan child record
+- code: P7_CANDIDATE_ID_MISMATCH
+  owner_module: P7.S1.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: candidate id mismatch
+- code: P7_CAPABILITY_STATUS_INCONSISTENT
+  owner_module: P7.S1.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: capability status inconsistent
+- code: P7_FUTURE_INFORMATION
+  owner_module: P7.S1.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: future information
+- code: P7_FORBIDDEN_FIELD
+  owner_module: P7.S1.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: forbidden field
+- code: P7_NAIVE_TIMESTAMP
+  owner_module: P7.S1.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: naive timestamp
+- code: P7_NONFINITE_WIRE_VALUE
+  owner_module: P7.S1.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: nonfinite wire value
+- code: P7_MODEL_AFTER_DECISION
+  owner_module: P7.S1.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: model after decision
+- code: P7_INPUT_MUTATION_DETECTED
+  owner_module: P7.S1.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: input mutation detected
+- code: P7_FEEDBACK_CURRENT_CYCLE
+  owner_module: P7.S1.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: feedback current cycle
+- code: P7_FEEDBACK_NOT_PROMOTED
+  owner_module: P7.S1.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: feedback not promoted
+- code: P7_FEEDBACK_SCOPE_MISMATCH
+  owner_module: P7.S1.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: feedback scope mismatch
+- code: P7_FEEDBACK_EVIDENCE_MISSING
+  owner_module: P7.S1.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: feedback evidence missing
+- code: P7_FEEDBACK_EXPIRED
+  owner_module: P7.S1.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: feedback expired
+- code: P7_FEEDBACK_DUPLICATE
+  owner_module: P7.S1.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: feedback duplicate
+- code: P7_ELIGIBILITY_POLICY_INVALID
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: eligibility policy invalid
+- code: P7_OBJECTIVE_FAMILY_UNSUPPORTED
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: objective family unsupported
+- code: P7_DEFINED_RISK_REQUIRED
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: defined risk required
+- code: P7_REQUIRED_METRIC_UNAVAILABLE
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: required metric unavailable
+- code: P7_SCENARIO_COVERAGE_INSUFFICIENT
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: scenario coverage insufficient
+- code: P7_STRATEGY_CLASS_DISABLED
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: strategy class disabled
+- code: P7_COMPARISON_KEY_MISSING
+  owner_module: P7.S2.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: comparison key missing
+- code: P7_COMPARISON_GROUP_POLICY_INVALID
+  owner_module: P7.S2.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: comparison group policy invalid
+- code: P7_CURRENCY_SCOPE_MISMATCH
+  owner_module: P7.S2.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: currency scope mismatch
+- code: P7_HORIZON_UNSUPPORTED
+  owner_module: P7.S2.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: horizon unsupported
+- code: P7_CAPITAL_RISK_BUCKET_UNRESOLVED
+  owner_module: P7.S2.M02
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: capital risk bucket unresolved
+- code: P7_METRIC_SEMANTICS_UNKNOWN
+  owner_module: P7.S2.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: metric semantics unknown
+- code: P7_METRIC_UNIT_INCOMPATIBLE
+  owner_module: P7.S2.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: metric unit incompatible
+- code: P7_METRIC_DIRECTION_UNDEFINED
+  owner_module: P7.S2.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: metric direction undefined
+- code: P7_REQUIRED_METRIC_ROUTE_MISSING
+  owner_module: P7.S2.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: required metric route missing
+- code: P7_METRIC_ROUTE_DUPLICATE
+  owner_module: P7.S2.M03
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: metric route duplicate
+- code: P7_STAGE1_HANDOFF_INCOMPLETE
+  owner_module: P7.S2.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: foundation handoff incomplete
+- code: P7_STAGE1_HANDOFF_HASH_MISMATCH
+  owner_module: P7.S2.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: foundation handoff hash mismatch
+- code: P7_STAGE1_HANDOFF_GRAIN_MISMATCH
+  owner_module: P7.S2.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: foundation handoff grain mismatch
+- code: P7_STAGE1_HANDOFF_NONDETERMINISTIC
+  owner_module: P7.S2.M04
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: foundation handoff nondeterministic
+- code: P7_S2_INPUT_INVALID
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: S2 input artifact or record is invalid
+- code: P7_S2_INPUT_MUTATION_DETECTED
+  owner_module: P7.S2
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: S2 module mutated an immutable input
+- code: P7_CURRENCY_UNSUPPORTED
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: candidate currency is outside the active policy
+- code: P7_CALENDAR_UNSUPPORTED
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: candidate calendar is outside the active policy
+- code: P7_MARKET_SNAPSHOT_STALE
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: market snapshot exceeds the permitted age
+- code: P7_DUPLICATE_NON_REPRESENTATIVE
+  owner_module: P7.S2.M01
+  severity: FATAL_OR_BLOCKING_BY_POLICY
+  meaning: candidate is not the canonical representative of an equivalence cluster

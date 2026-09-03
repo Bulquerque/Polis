@@ -1,0 +1,26 @@
+{
+  "schema_version": "p3.s26.next_belief_state_panel.v2",
+  "run_id": "run_s26",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "lineage_id": "lin_beliefs",
+  "records": [
+    {
+      "person_id": "p1",
+      "underlying_id": "PETR4",
+      "proposition_id": "prop_oil_up",
+      "horizon": "1w",
+      "prior_value": 0.1,
+      "new_value": 0.4,
+      "delta": 0.3,
+      "confidence": 0.8,
+      "uncertainty": 0.2,
+      "changed_at": "2026-01-15T10:00:00Z",
+      "commitment_id": "commit_1",
+      "evidence_refs": [
+        "ev_belief"
+      ],
+      "lineage_id": "lin_belief_1"
+    }
+  ]
+}

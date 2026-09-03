@@ -1,0 +1,4 @@
+policy_id: p7_thesis_v1
+max_nearest_alternatives: 3
+structured_evidence_only: true
+llm_authoritative: false

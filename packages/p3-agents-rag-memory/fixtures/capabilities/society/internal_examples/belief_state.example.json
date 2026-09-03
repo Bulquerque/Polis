@@ -1,0 +1,27 @@
+{
+  "belief_id": "BEL_001",
+  "person_id": "PERSON_001",
+  "subject": "NVDA demand outlook",
+  "proposition": "AI accelerator demand remains above prior expectation",
+  "direction": "positive",
+  "strength": 0.73,
+  "confidence": 0.64,
+  "uncertainty": 0.31,
+  "horizon": "63d",
+  "supporting_evidence_refs": [
+    "EV_101",
+    "EV_104"
+  ],
+  "opposing_evidence_refs": [
+    "EV_109"
+  ],
+  "source_dependency_refs": [
+    "SRC_20"
+  ],
+  "formed_at": "2026-01-01T00:00:00Z",
+  "updated_at": "2026-01-05T12:00:00Z",
+  "lineage_id": "LIN_BEL_001",
+  "underlying_id": "NVDA",
+  "proposition_id": "directional_outlook",
+  "direction_score": 0.5
+}

@@ -1,0 +1,35 @@
+module_id: P4.S3.M01
+module_name: phenomenon_perspective_registry
+phase: P4
+subphase: P4.S3
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: phenomenon perspective registry
+inputs:
+- observer_change_proposal_registry
+outputs:
+- feature_observer_registry
+- feature_parameter_policy_registry
+- foundational_hypothesis_core_registry
+- observer_change_review_registry
+invariants:
+- point_in_time_integrity
+- only_approved_observers_executed
+- deterministic_replay
+- no_target_or_future_return
+forbidden_fields:
+- target
+- label
+- future_return
+- prediction
+- candidate_id
+- rank_score
+- realized_pnl
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- budget_negative
+- numeric_oracle
+- replay
+production_promotion_allowed: false

@@ -1,0 +1,100 @@
+{
+  "$defs": {
+    "CapabilityStatus": {
+      "enum": [
+        "AVAILABLE",
+        "DEGRADED",
+        "LIMITED",
+        "UNAVAILABLE",
+        "SKIPPED_CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "CapabilityStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "availability_status": {
+      "$ref": "#/$defs/CapabilityStatus"
+    },
+    "available_time_definition": {
+      "minLength": 1,
+      "title": "Available Time Definition",
+      "type": "string"
+    },
+    "capability_requirements": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Capability Requirements",
+      "type": "array"
+    },
+    "economic_definition": {
+      "minLength": 1,
+      "title": "Economic Definition",
+      "type": "string"
+    },
+    "event_time_definition": {
+      "minLength": 1,
+      "title": "Event Time Definition",
+      "type": "string"
+    },
+    "horizon": {
+      "minLength": 1,
+      "title": "Horizon",
+      "type": "string"
+    },
+    "minimum_history": {
+      "minimum": 8,
+      "title": "Minimum History",
+      "type": "integer"
+    },
+    "sign_convention": {
+      "minLength": 1,
+      "title": "Sign Convention",
+      "type": "string"
+    },
+    "target_family": {
+      "minLength": 1,
+      "title": "Target Family",
+      "type": "string"
+    },
+    "target_id": {
+      "minLength": 1,
+      "title": "Target Id",
+      "type": "string"
+    },
+    "trading_calendar_id": {
+      "minLength": 1,
+      "title": "Trading Calendar Id",
+      "type": "string"
+    },
+    "transformation": {
+      "minLength": 1,
+      "title": "Transformation",
+      "type": "string"
+    },
+    "units": {
+      "minLength": 1,
+      "title": "Units",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_id",
+    "target_family",
+    "economic_definition",
+    "transformation",
+    "units",
+    "sign_convention",
+    "event_time_definition",
+    "available_time_definition",
+    "horizon",
+    "trading_calendar_id",
+    "minimum_history",
+    "availability_status"
+  ],
+  "title": "TargetDefinition",
+  "type": "object"
+}

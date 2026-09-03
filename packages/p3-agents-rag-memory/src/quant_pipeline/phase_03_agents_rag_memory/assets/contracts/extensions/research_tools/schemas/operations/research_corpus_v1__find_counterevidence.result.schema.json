@@ -1,0 +1,94 @@
+{
+  "$defs": {
+    "EvidenceRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "record_id": {
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "subject_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subject Id"
+        },
+        "values": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Values",
+          "type": "object"
+        }
+      },
+      "required": [
+        "record_id",
+        "source_id",
+        "available_at"
+      ],
+      "title": "EvidenceRecord",
+      "type": "object"
+    },
+    "JsonValue": {}
+  },
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/find_counterevidence/result/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "counterevidence_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Counterevidence Count",
+      "type": "integer"
+    },
+    "proposition_hash": {
+      "minLength": 1,
+      "title": "Proposition Hash",
+      "type": "string"
+    },
+    "records": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/EvidenceRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "truncated": {
+      "default": false,
+      "title": "Truncated",
+      "type": "boolean"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "proposition_hash"
+  ],
+  "title": "FindCounterevidenceResult",
+  "type": "object"
+}

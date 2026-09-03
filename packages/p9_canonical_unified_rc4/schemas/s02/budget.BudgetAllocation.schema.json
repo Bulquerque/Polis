@@ -1,0 +1,33 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "configuration_slots": {
+      "minimum": 0,
+      "title": "Configuration Slots",
+      "type": "integer"
+    },
+    "cpu_seconds_reserved": {
+      "minimum": 0,
+      "title": "Cpu Seconds Reserved",
+      "type": "integer"
+    },
+    "stage": {
+      "minLength": 1,
+      "title": "Stage",
+      "type": "string"
+    },
+    "trial_execution_slots": {
+      "minimum": 0,
+      "title": "Trial Execution Slots",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "stage",
+    "configuration_slots",
+    "trial_execution_slots",
+    "cpu_seconds_reserved"
+  ],
+  "title": "BudgetAllocation",
+  "type": "object"
+}

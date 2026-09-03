@@ -1,0 +1,6 @@
+dashboard_payloads:
+- dashboard_phase_payload
+- phase_health_panel
+- global_control_tower_payload
+- dashboard_export_manifest
+forbidden_use: dashboard_payload_must_not_be_used_as_economic_signal

@@ -1,0 +1,49 @@
+{
+  "$defs": {
+    "SearchSpaceConstraintEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "child_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Child Parameter Id",
+          "type": "string"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "child_parameter_id"
+      ],
+      "title": "SearchSpaceConstraintEdge",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "edges": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/SearchSpaceConstraintEdge"
+      },
+      "title": "Edges",
+      "type": "array"
+    },
+    "parameter_order": {
+      "items": {
+        "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+        "type": "string"
+      },
+      "title": "Parameter Order",
+      "type": "array"
+    }
+  },
+  "required": [
+    "parameter_order"
+  ],
+  "title": "SearchSpaceConstraintGraph",
+  "type": "object"
+}

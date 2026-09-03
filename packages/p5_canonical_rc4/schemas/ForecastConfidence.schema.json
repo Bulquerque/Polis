@@ -1,0 +1,241 @@
+{
+  "$defs": {
+    "CalibrationStatus": {
+      "enum": [
+        "CALIBRATED",
+        "PARTIALLY_CALIBRATED",
+        "UNCALIBRATED",
+        "UNAVAILABLE"
+      ],
+      "title": "CalibrationStatus",
+      "type": "string"
+    },
+    "ForecastConfidenceRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "abstained": {
+          "title": "Abstained",
+          "type": "boolean"
+        },
+        "calibration_component": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Calibration Component"
+        },
+        "calibration_status": {
+          "$ref": "#/$defs/CalibrationStatus"
+        },
+        "calibration_version": {
+          "minLength": 1,
+          "title": "Calibration Version",
+          "type": "string"
+        },
+        "confidence_method": {
+          "minLength": 1,
+          "title": "Confidence Method",
+          "type": "string"
+        },
+        "data_quality_component": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Data Quality Component"
+        },
+        "ensemble_disagreement_component": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ensemble Disagreement Component"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "model_stability_component": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Stability Component"
+        },
+        "ood_component": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ood Component"
+        },
+        "overall_confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Overall Confidence",
+          "type": "number"
+        },
+        "regime_uncertainty_component": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Regime Uncertainty Component"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "underlying": {
+          "minLength": 1,
+          "title": "Underlying",
+          "type": "string"
+        }
+      },
+      "required": [
+        "underlying",
+        "target_id",
+        "horizon",
+        "overall_confidence",
+        "confidence_method",
+        "calibration_version",
+        "calibration_status",
+        "abstained",
+        "lineage_id"
+      ],
+      "title": "ForecastConfidenceRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "artifact_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Artifact Sha256",
+      "type": "string"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "producer_module_id": {
+      "pattern": "^P5\\.S[1-9]\\.M\\d{2}$",
+      "title": "Producer Module Id",
+      "type": "string"
+    },
+    "producer_phase": {
+      "default": "P5",
+      "pattern": "^P5$",
+      "title": "Producer Phase",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/ForecastConfidenceRecord"
+      },
+      "minItems": 1,
+      "title": "Records",
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "2.0.0",
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_sha256",
+    "producer_module_id",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "created_at",
+    "available_at",
+    "lineage_id",
+    "records"
+  ],
+  "title": "ForecastConfidence",
+  "type": "object"
+}

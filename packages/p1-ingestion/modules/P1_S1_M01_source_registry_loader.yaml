@@ -1,0 +1,53 @@
+module_id: P1.S1.M01
+module_name: source_registry_loader
+phase: phase_01_ingestion
+subphase: P1.S1
+rc: RC4.1
+function: Carregar source_registry_config, api_source_definitions e manual_source_definitions
+  em catálogo único de fontes permitidas.
+inputs: &id001
+- source_registry_config
+- api_source_definitions
+- manual_source_definitions
+outputs: &id002
+- source_registry
+validations:
+- source_id_unique
+- source_type_allowed
+- manual_and_api_sources_explicit
+fail_fast_conditions:
+- source_registry_loader_schema_violation
+- source_registry_loader_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - source_registry_config
+    - api_source_definitions
+    - manual_source_definitions
+  emits_to:
+    modules:
+    - P1.S1.M02
+    - P1.S1.M03
+    - P1.S5.M01
+    - P1.S5.M02
+    - P1.S5.M04
+    artifacts: *id002
+    phase_outputs:
+    - source_registry
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

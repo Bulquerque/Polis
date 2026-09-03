@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "ActivationCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "operator": {
+          "$ref": "#/$defs/ConditionOperator"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "operator",
+        "values"
+      ],
+      "title": "ActivationCondition",
+      "type": "object"
+    },
+    "ConditionOperator": {
+      "enum": [
+        "EQUALS",
+        "NOT_EQUALS",
+        "IN",
+        "NOT_IN"
+      ],
+      "title": "ConditionOperator",
+      "type": "string"
+    },
+    "ParameterKind": {
+      "enum": [
+        "INTEGER",
+        "FLOAT",
+        "CATEGORICAL",
+        "BOOLEAN"
+      ],
+      "title": "ParameterKind",
+      "type": "string"
+    },
+    "ParameterScale": {
+      "enum": [
+        "LINEAR",
+        "LOG"
+      ],
+      "title": "ParameterScale",
+      "type": "string"
+    },
+    "SearchDomain": {
+      "additionalProperties": false,
+      "properties": {
+        "active_when": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ActivationCondition"
+          },
+          "title": "Active When",
+          "type": "array"
+        },
+        "discrete_values": {
+          "default": [],
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Discrete Values",
+          "type": "array"
+        },
+        "grid_points": {
+          "anyOf": [
+            {
+              "maximum": 10000,
+              "minimum": 2,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Grid Points"
+        },
+        "kind": {
+          "$ref": "#/$defs/ParameterKind"
+        },
+        "lower": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parameter Id",
+          "type": "string"
+        },
+        "scale": {
+          "$ref": "#/$defs/ParameterScale",
+          "default": "LINEAR"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        }
+      },
+      "required": [
+        "parameter_id",
+        "kind"
+      ],
+      "title": "SearchDomain",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "declaration_id": {
+      "minLength": 1,
+      "title": "Declaration Id",
+      "type": "string"
+    },
+    "domains": {
+      "items": {
+        "$ref": "#/$defs/SearchDomain"
+      },
+      "title": "Domains",
+      "type": "array"
+    },
+    "maximum_allowed_upper_bound": {
+      "default": 100000000,
+      "minimum": 1,
+      "title": "Maximum Allowed Upper Bound",
+      "type": "integer"
+    },
+    "maximum_exact_cardinality": {
+      "default": 100000,
+      "minimum": 1,
+      "title": "Maximum Exact Cardinality",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "declaration_id",
+    "domains"
+  ],
+  "title": "SearchSpaceDeclaration",
+  "type": "object"
+}

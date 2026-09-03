@@ -1,0 +1,32 @@
+module_id: P7.S1.M02
+module_name: candidate_artifact_reconciliation_engine
+owner: FOUNDATION
+subphase: P7.S1
+purpose: Reconstruct each candidate across mandatory and optional P6 records and expose
+  orphans, duplicates and missing relations.
+inputs:
+- verified_p6_artifact_index
+outputs:
+- validated_strategy_candidate_bundle
+- candidate_reconciliation_report
+- orphan_record_report
+failure_model: phase_fatal_and_candidate_level_as_documented
+reason_codes:
+- P7_CANDIDATE_PRIMARY_DUPLICATE
+- P7_CANDIDATE_MANDATORY_RECORD_MISSING
+- P7_ORPHAN_CHILD_RECORD
+- P7_CANDIDATE_ID_MISMATCH
+- P7_CAPABILITY_STATUS_INCONSISTENT
+implementation_rules:
+- thin_wrapper
+- typed_boundary
+- immutable_inputs
+- structured_receipt
+- no_economic_defaults
+- no_cross_subphase_private_import
+tests:
+- unit
+- contract
+- adversarial
+- property_or_metamorphic
+- deterministic_replay

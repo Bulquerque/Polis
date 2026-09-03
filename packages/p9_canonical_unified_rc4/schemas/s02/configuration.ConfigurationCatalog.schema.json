@@ -1,0 +1,167 @@
+{
+  "$defs": {
+    "CatalogState": {
+      "enum": [
+        "CATALOG_READY",
+        "CATALOG_WITH_EQUIVALENCES",
+        "IDENTITY_COLLISION",
+        "LINEAGE_INVALID"
+      ],
+      "title": "CatalogState",
+      "type": "string"
+    },
+    "ConfigurationRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "active_parameter_ids": {
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Active Parameter Ids",
+          "type": "array"
+        },
+        "assignments": {
+          "items": {
+            "$ref": "#/$defs/ParameterAssignment"
+          },
+          "title": "Assignments",
+          "type": "array"
+        },
+        "boundary_parameter_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Boundary Parameter Ids",
+          "type": "array"
+        },
+        "configuration_id": {
+          "pattern": "^cfg-[0-9a-f]{64}$",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "identity_preimage_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Identity Preimage Sha256",
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "source_index": {
+          "minimum": 0,
+          "title": "Source Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "configuration_id",
+        "experiment_id",
+        "assignments",
+        "active_parameter_ids",
+        "source",
+        "source_index",
+        "identity_preimage_sha256"
+      ],
+      "title": "ConfigurationRecord",
+      "type": "object"
+    },
+    "ParameterAssignment": {
+      "additionalProperties": false,
+      "properties": {
+        "parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parameter Id",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "parameter_id",
+        "value"
+      ],
+      "title": "ParameterAssignment",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "catalog_id": {
+      "minLength": 1,
+      "title": "Catalog Id",
+      "type": "string"
+    },
+    "catalog_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Catalog Sha256",
+      "type": "string"
+    },
+    "configurations": {
+      "items": {
+        "$ref": "#/$defs/ConfigurationRecord"
+      },
+      "title": "Configurations",
+      "type": "array"
+    },
+    "experiment_id": {
+      "minLength": 1,
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/CatalogState"
+    }
+  },
+  "required": [
+    "catalog_id",
+    "experiment_id",
+    "state",
+    "configurations",
+    "catalog_sha256"
+  ],
+  "title": "ConfigurationCatalog",
+  "type": "object"
+}

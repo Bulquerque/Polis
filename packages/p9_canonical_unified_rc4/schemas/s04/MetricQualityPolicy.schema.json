@@ -1,0 +1,38 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/MetricQualityPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "money_tolerance": {
+      "default": 1e-06,
+      "minimum": 0,
+      "title": "Money Tolerance",
+      "type": "number"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "require_all_core_metrics_qualified": {
+      "default": false,
+      "title": "Require All Core Metrics Qualified",
+      "type": "boolean"
+    },
+    "require_factor_panel": {
+      "default": false,
+      "title": "Require Factor Panel",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version"
+  ],
+  "title": "MetricQualityPolicy",
+  "type": "object"
+}

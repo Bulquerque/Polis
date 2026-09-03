@@ -1,0 +1,10 @@
+subphase: P3.S25
+bindings:
+  relationship_update_config: RELATIONSHIP_UPDATE_CONFIG.yaml
+  relationship_formation_config: RELATIONSHIP_FORMATION_CONFIG.yaml
+  social_graph_config: SOCIAL_GRAPH_CONFIG.yaml
+rules:
+  - configuration_is_loaded_once_by_composition_root
+  - configuration_is_frozen_for_the_cycle
+  - modules_do_not_read_environment_or_files_directly
+  - retro_patch_can_change_only_allowlisted_general_parameters

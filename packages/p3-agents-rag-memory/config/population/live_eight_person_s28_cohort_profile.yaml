@@ -1,0 +1,48 @@
+profile_id: P3_LIVE_EIGHT_PERSON_S28_COHORT_V1
+mode: laboratory_only
+candidate_indexes: [0, 1, 2, 3, 4, 5, 6, 7]
+target_population_size: 8
+required_role_families: [corporate_actors, market_participants, policy_institutions, real_economy]
+missing_coverage_cells:
+  - role:corporate_actors
+  - role:market_participants
+  - role:policy_institutions
+  - role:real_economy
+  - tag:analytical:bin:medium
+  - tag:analytical:bin:high
+  - tag:institutional_data_access:bin:medium
+  - tag:institutional_data_access:bin:high
+  - tag:quantitative_background:bin:medium
+  - tag:quantitative_background:bin:high
+  - pair:analytical_quantitative
+  - pair:analytical_institutional
+coverage:
+  tag_coverage_requirements:
+    - {tag_id: analytical, required_bin_ids: [medium, high]}
+    - {tag_id: institutional_data_access, required_bin_ids: [medium, high]}
+    - {tag_id: quantitative_background, required_bin_ids: [medium, high]}
+  pairwise_tag_cells:
+    - {cell_id: analytical_quantitative, left_tag_id: analytical, right_tag_id: quantitative_background, left_min_effective_value: 0.50, right_min_effective_value: 0.50}
+    - {cell_id: analytical_institutional, left_tag_id: analytical, right_tag_id: institutional_data_access, left_min_effective_value: 0.50, right_min_effective_value: 0.50}
+  minimum_tag_coverage_ratio: 1.0
+  minimum_role_coverage_ratio: 1.0
+  minimum_density_sufficiency_ratio: 0.0
+  density_radius: 10.0
+  minimum_novelty_rounds: 1
+  patience_rounds: 1
+representation:
+  target_role_family_shares:
+    corporate_actors: 0.25
+    market_participants: 0.25
+    policy_institutions: 0.25
+    real_economy: 0.25
+  minimum_population_size: 8
+  min_effective_population: 8.0
+  max_single_person_weight: 0.125
+  minimum_overall_coverage_ratio: 1.0
+  minimum_tag_coverage_ratio: 1.0
+  minimum_role_coverage_ratio: 1.0
+  minimum_density_sufficiency_ratio: 0.0
+social_graph:
+  minimum_bridge_pairs_between_role_families: 0
+  maximum_hub_share: 0.25

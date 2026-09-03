@@ -1,0 +1,14 @@
+spec_id: ST01_EXTERNAL_CONTRACT_COMPATIBILITY
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: P2→P3 and P3→P4 schemas remain compatible and forbidden authority is absent
+required_cases:
+- external_schema_byte_compatibility
+- six_official_outputs
+- forbidden_fields_scan
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

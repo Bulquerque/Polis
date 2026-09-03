@@ -1,0 +1,206 @@
+{
+  "$defs": {
+    "CostComponents": {
+      "additionalProperties": false,
+      "properties": {
+        "borrow": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Borrow"
+        },
+        "delay": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Delay"
+        },
+        "fees": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Fees"
+        },
+        "legging": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Legging"
+        },
+        "market_impact": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Market Impact"
+        },
+        "opportunity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Opportunity"
+        },
+        "slippage": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Slippage"
+        },
+        "spread": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Spread"
+        }
+      },
+      "required": [
+        "fees",
+        "spread",
+        "slippage",
+        "market_impact",
+        "delay",
+        "opportunity",
+        "legging",
+        "borrow"
+      ],
+      "title": "CostComponents",
+      "type": "object"
+    },
+    "CostQuality": {
+      "enum": [
+        "QUALIFIED",
+        "DEGRADED",
+        "UNAVAILABLE"
+      ],
+      "title": "CostQuality",
+      "type": "string"
+    },
+    "PretradeCostEstimate": {
+      "additionalProperties": false,
+      "properties": {
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumptions",
+          "type": "array"
+        },
+        "components": {
+          "$ref": "#/$defs/CostComponents"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "quality": {
+          "$ref": "#/$defs/CostQuality"
+        },
+        "total_cost": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Total Cost"
+        }
+      },
+      "required": [
+        "order_id",
+        "currency",
+        "quality",
+        "components",
+        "total_cost",
+        "assumptions"
+      ],
+      "title": "PretradeCostEstimate",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "estimates": {
+      "items": {
+        "$ref": "#/$defs/PretradeCostEstimate"
+      },
+      "title": "Estimates",
+      "type": "array"
+    }
+  },
+  "required": [
+    "estimates",
+    "content_sha256"
+  ],
+  "title": "PretradeCostBundle",
+  "type": "object"
+}

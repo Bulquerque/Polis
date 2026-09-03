@@ -1,0 +1,15 @@
+subphase: P3.S3
+modules:
+- module_id: P3.S3.M01
+  required_cases:
+  - unpromoted_patch_fails
+  - same_cycle_patch_fails
+  - incompatible_target_fails
+- module_id: P3.S3.M02
+  required_cases:
+  - unmatured_feedback_fails
+  - commit_hash_mismatch_fails
+  - future_outcome_fails
+canonical_module_order:
+- P3.S3.M01
+- P3.S3.M02

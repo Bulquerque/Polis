@@ -1,0 +1,92 @@
+{
+  "schema_id": "canonical_cycle_pipeline_config.v2",
+  "schema_version": "2.0.0",
+  "initialization_module_ranges": [
+    "P3.S12-P3.S16"
+  ],
+  "cycle_kernel_module_ranges": [
+    "P3.S17-P3.S26"
+  ],
+  "kernel_contract_version": "cycle-kernel.v1",
+  "accepted_kernel_versions": [
+    "cycle-kernel.v1"
+  ],
+  "warmup_mode_overrides": [
+    "disable_official_handoffs",
+    "disable_p9_exports",
+    "keep_pit_and_authority_rules"
+  ],
+  "required_trace_fields": [
+    "cycle_id",
+    "module_id",
+    "input_hashes",
+    "output_hashes",
+    "as_of_time"
+  ],
+  "foundation_resource_manifest": {
+    "schema_id": "p3_foundation_resource_manifest.v1",
+    "schema_version": "1.0.0",
+    "artifact_id": "foundation-resources-fixture",
+    "run_id": "run-s9-001",
+    "snapshot_id": "snapshot-s9-001",
+    "rag_index_ref": {
+      "artifact_id": "rag-1",
+      "artifact_type": "rag_index",
+      "content_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "rag_index.v1",
+      "schema_version": "1.0.0"
+    },
+    "graph_rag_ref": {
+      "artifact_id": "graph-rag-1",
+      "artifact_type": "graph_rag",
+      "content_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+      "schema_id": "graph_rag.v1",
+      "schema_version": "1.0.0"
+    },
+    "memory_policy_ref": {
+      "artifact_id": "memory-policy-1",
+      "artifact_type": "memory_policy",
+      "content_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+      "schema_id": "memory_policy.v1",
+      "schema_version": "1.0.0"
+    },
+    "tool_registry_ref": {
+      "artifact_id": "tool-registry-1",
+      "artifact_type": "tool_registry",
+      "content_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+      "schema_id": "tool_registry.v1",
+      "schema_version": "1.0.0"
+    },
+    "entitlement_ref": {
+      "artifact_id": "entitlement-1",
+      "artifact_type": "tool_entitlement",
+      "content_hash": "5555555555555555555555555555555555555555555555555555555555555555",
+      "schema_id": "tool_entitlement.v1",
+      "schema_version": "1.0.0"
+    },
+    "gateway_policy_ref": {
+      "artifact_id": "gateway-1",
+      "artifact_type": "gateway_policy",
+      "content_hash": "6666666666666666666666666666666666666666666666666666666666666666",
+      "schema_id": "gateway_policy.v1",
+      "schema_version": "1.0.0"
+    },
+    "prompt_bundle_ref": {
+      "artifact_id": "prompts-1",
+      "artifact_type": "prompt_bundle",
+      "content_hash": "7777777777777777777777777777777777777777777777777777777777777777",
+      "schema_id": "prompt_bundle.v1",
+      "schema_version": "1.0.0"
+    },
+    "model_registry_ref": {
+      "artifact_id": "models-1",
+      "artifact_type": "model_registry",
+      "content_hash": "8888888888888888888888888888888888888888888888888888888888888888",
+      "schema_id": "model_registry.v1",
+      "schema_version": "1.0.0"
+    },
+    "manifest_hash": "9999999999999999999999999999999999999999999999999999999999999999",
+    "status": "READY",
+    "degraded_capabilities": []
+  }
+}

@@ -1,0 +1,73 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: approved_hypothesis_passport_registry
+type: object
+required:
+- artifact_id
+- schema_version
+- pipeline_version
+- run_id
+- cycle_id
+- as_of_time
+- lineage_id
+- records
+properties:
+  artifact_id:
+    type: string
+  schema_version:
+    const: p4.s5.registry.v1
+  pipeline_version:
+    type: string
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  lineage_id:
+    type: string
+  records:
+    type: array
+    minItems: 1
+    maxItems: 32
+    items:
+      type: object
+      additionalProperties: false
+      required:
+      - hypothesis_id
+      - observer_id
+      - module_id
+      - feature_id
+      - phenomenon_id
+      - perspective_id
+      - parameterization_id
+      - horizon_group
+      - source_feature_ids
+      - enabled
+      - parameters
+      properties:
+        hypothesis_id:
+          type: string
+        observer_id:
+          type: string
+        module_id:
+          type: string
+        feature_id:
+          type: string
+        phenomenon_id:
+          type: string
+        perspective_id:
+          type: string
+        parameterization_id:
+          type: string
+        horizon_group:
+          type: string
+        source_feature_ids:
+          type: array
+          items:
+            type: string
+        enabled:
+          type: boolean
+        parameters:
+          type: object
+additionalProperties: false

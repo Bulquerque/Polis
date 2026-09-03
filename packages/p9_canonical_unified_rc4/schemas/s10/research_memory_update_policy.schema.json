@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "forbidden_text_fragments": {
+      "default": [
+        "private leaderboard",
+        "future return",
+        "direct code patch",
+        "promoted parameter"
+      ],
+      "items": {
+        "maxLength": 256,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Forbidden Text Fragments",
+      "type": "array"
+    },
+    "maximum_active_items": {
+      "default": 10000,
+      "minimum": 1,
+      "title": "Maximum Active Items",
+      "type": "integer"
+    },
+    "maximum_p3_items": {
+      "default": 64,
+      "minimum": 0,
+      "title": "Maximum P3 Items",
+      "type": "integer"
+    },
+    "p3_schema_version": {
+      "default": "1.0.0",
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "P3 Schema Version",
+      "type": "string"
+    },
+    "policy_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id"
+  ],
+  "title": "ResearchMemoryUpdatePolicy",
+  "type": "object"
+}

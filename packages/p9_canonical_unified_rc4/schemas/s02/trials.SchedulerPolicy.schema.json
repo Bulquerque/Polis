@@ -1,0 +1,61 @@
+{
+  "$defs": {
+    "TrialState": {
+      "enum": [
+        "PLANNED",
+        "RESERVED",
+        "RUNNING",
+        "COMPLETED",
+        "INVALID",
+        "INFEASIBLE",
+        "EARLY_STOPPED",
+        "RESOURCE_EXHAUSTED",
+        "FAILED",
+        "QUARANTINED",
+        "CANCELLED_UPSTREAM"
+      ],
+      "title": "TrialState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_every_completed_trials": {
+      "minimum": 1,
+      "title": "Checkpoint Every Completed Trials",
+      "type": "integer"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Policy Sha256",
+      "type": "string"
+    },
+    "retry_limit": {
+      "maximum": 10,
+      "minimum": 0,
+      "title": "Retry Limit",
+      "type": "integer"
+    },
+    "retryable_terminal_states": {
+      "items": {
+        "$ref": "#/$defs/TrialState"
+      },
+      "title": "Retryable Terminal States",
+      "type": "array"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_sha256",
+    "retry_limit",
+    "retryable_terminal_states",
+    "checkpoint_every_completed_trials"
+  ],
+  "title": "SchedulerPolicy",
+  "type": "object"
+}

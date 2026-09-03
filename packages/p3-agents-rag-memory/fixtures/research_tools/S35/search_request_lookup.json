@@ -1,0 +1,14 @@
+{
+  "filters": {
+    "available_from": null,
+    "available_to": null,
+    "document_ids": [],
+    "document_types": [],
+    "entity_ids": [],
+    "source_ids": [],
+    "underlying_ids": []
+  },
+  "max_results": 5,
+  "query": "debt refinancing risk",
+  "research_mode": "LOOKUP"
+}

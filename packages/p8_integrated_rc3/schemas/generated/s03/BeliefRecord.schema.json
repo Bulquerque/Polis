@@ -1,0 +1,524 @@
+{
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "default": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "content_sha256"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "DistributionType": {
+      "enum": [
+        "PARAMETRIC",
+        "MIXTURE",
+        "QUANTILE",
+        "EMPIRICAL",
+        "PATH"
+      ],
+      "title": "DistributionType",
+      "type": "string"
+    },
+    "EmpiricalPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "empirical",
+          "default": "empirical",
+          "title": "Kind",
+          "type": "string"
+        },
+        "probabilities": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Probabilities"
+        },
+        "samples": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Samples",
+          "type": "array"
+        }
+      },
+      "required": [
+        "samples"
+      ],
+      "title": "EmpiricalPayload",
+      "type": "object"
+    },
+    "HorizonSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "unit": {
+          "$ref": "#/$defs/HorizonUnit"
+        },
+        "value": {
+          "exclusiveMinimum": 0,
+          "title": "Value",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "title": "HorizonSpec",
+      "type": "object"
+    },
+    "HorizonUnit": {
+      "enum": [
+        "HOURS",
+        "CALENDAR_DAYS",
+        "TRADING_SESSIONS"
+      ],
+      "title": "HorizonUnit",
+      "type": "string"
+    },
+    "MixtureComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Covariance",
+          "type": "array"
+        },
+        "degrees_freedom": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Degrees Freedom"
+        },
+        "family": {
+          "enum": [
+            "NORMAL",
+            "STUDENT_T"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "mean": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Mean",
+          "type": "array"
+        },
+        "weight": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "weight",
+        "family",
+        "mean",
+        "covariance"
+      ],
+      "title": "MixtureComponent",
+      "type": "object"
+    },
+    "MixturePayload": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "items": {
+            "$ref": "#/$defs/MixtureComponent"
+          },
+          "minItems": 2,
+          "title": "Components",
+          "type": "array"
+        },
+        "kind": {
+          "const": "mixture",
+          "default": "mixture",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "components"
+      ],
+      "title": "MixturePayload",
+      "type": "object"
+    },
+    "ParametricPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Covariance",
+          "type": "array"
+        },
+        "degrees_freedom": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Degrees Freedom"
+        },
+        "family": {
+          "enum": [
+            "NORMAL",
+            "STUDENT_T"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "kind": {
+          "const": "parametric",
+          "default": "parametric",
+          "title": "Kind",
+          "type": "string"
+        },
+        "mean": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Mean",
+          "type": "array"
+        }
+      },
+      "required": [
+        "family",
+        "mean",
+        "covariance"
+      ],
+      "title": "ParametricPayload",
+      "type": "object"
+    },
+    "PathPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "path",
+          "default": "path",
+          "title": "Kind",
+          "type": "string"
+        },
+        "paths": {
+          "items": {
+            "items": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "title": "Paths",
+          "type": "array"
+        },
+        "probabilities": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Probabilities"
+        },
+        "step_labels": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Step Labels",
+          "type": "array"
+        }
+      },
+      "required": [
+        "paths",
+        "step_labels"
+      ],
+      "title": "PathPayload",
+      "type": "object"
+    },
+    "ProbabilityMeasure": {
+      "enum": [
+        "PHYSICAL",
+        "RISK_NEUTRAL",
+        "STRESS_WEIGHT"
+      ],
+      "title": "ProbabilityMeasure",
+      "type": "string"
+    },
+    "QuantilePayload": {
+      "additionalProperties": false,
+      "properties": {
+        "gaussian_copula_correlation": {
+          "anyOf": [
+            {
+              "items": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gaussian Copula Correlation"
+        },
+        "kind": {
+          "const": "quantile",
+          "default": "quantile",
+          "title": "Kind",
+          "type": "string"
+        },
+        "levels": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Levels",
+          "type": "array"
+        },
+        "values": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "levels",
+        "values"
+      ],
+      "title": "QuantilePayload",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "belief_state_id": {
+      "title": "Belief State Id",
+      "type": "string"
+    },
+    "calibration_score": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Calibration Score"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "disagreement_score": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Disagreement Score"
+    },
+    "distribution_type": {
+      "$ref": "#/$defs/DistributionType"
+    },
+    "evaluation_horizon": {
+      "$ref": "#/$defs/HorizonSpec"
+    },
+    "expiration_horizon": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/HorizonSpec"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "factor_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Factor Ids",
+      "type": "array"
+    },
+    "forecast_horizon": {
+      "$ref": "#/$defs/HorizonSpec"
+    },
+    "holding_horizon": {
+      "$ref": "#/$defs/HorizonSpec"
+    },
+    "ood_score": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ood Score"
+    },
+    "payload": {
+      "discriminator": {
+        "mapping": {
+          "empirical": "#/$defs/EmpiricalPayload",
+          "mixture": "#/$defs/MixturePayload",
+          "parametric": "#/$defs/ParametricPayload",
+          "path": "#/$defs/PathPayload",
+          "quantile": "#/$defs/QuantilePayload"
+        },
+        "propertyName": "kind"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/$defs/ParametricPayload"
+        },
+        {
+          "$ref": "#/$defs/MixturePayload"
+        },
+        {
+          "$ref": "#/$defs/QuantilePayload"
+        },
+        {
+          "$ref": "#/$defs/EmpiricalPayload"
+        },
+        {
+          "$ref": "#/$defs/PathPayload"
+        }
+      ],
+      "title": "Payload"
+    },
+    "probability_measure": {
+      "$ref": "#/$defs/ProbabilityMeasure"
+    },
+    "regime_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Regime Id"
+    },
+    "source_ref": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "target_id": {
+      "title": "Target Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "belief_state_id",
+    "target_id",
+    "factor_ids",
+    "distribution_type",
+    "probability_measure",
+    "forecast_horizon",
+    "holding_horizon",
+    "evaluation_horizon",
+    "payload",
+    "available_at",
+    "decision_time",
+    "source_ref"
+  ],
+  "title": "BeliefRecord",
+  "type": "object"
+}

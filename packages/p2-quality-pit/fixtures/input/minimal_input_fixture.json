@@ -1,0 +1,15 @@
+{
+  "fixture_kind": "input",
+  "phase": "phase_02_quality_pit",
+  "pipeline_version": "V14.1-RC4.1",
+  "required_inputs": [
+    "handoff_manifest_to_phase_2",
+    "source_registry",
+    "raw_file_inventory",
+    "source_snapshot_registry",
+    "raw_readability_report",
+    "raw_schema_hint_report",
+    "ingestion_error_report"
+  ],
+  "optional_feedback_inputs": []
+}

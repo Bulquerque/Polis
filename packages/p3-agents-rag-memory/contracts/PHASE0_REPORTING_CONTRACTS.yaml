@@ -1,0 +1,16 @@
+phase: P3 Reformed Plan
+required_status: PLANNED_UNTIL_IMPLEMENTED_AND_QUALIFIED
+required_evidence_blocks:
+- structure_validation
+- contract_validation
+- schema_and_fixture_validation
+- same_cycle_dag_validation
+- temporal_edge_validation
+- module_and_subphase_test_evidence
+- pit_and_cutoff_supertest_evidence
+- external_handoff_witness
+- known_limitations
+forbidden_claims:
+- runtime_operational_without_execution_evidence
+- production_ready_without_p0_gate
+- statistical_superiority_without_blind_holdout

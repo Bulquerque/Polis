@@ -1,0 +1,87 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "target_id": {
+      "minLength": 1,
+      "title": "Target Id",
+      "type": "string"
+    },
+    "horizon_id": {
+      "minLength": 1,
+      "title": "Horizon Id",
+      "type": "string"
+    },
+    "observation_count": {
+      "minimum": 0,
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "mean_score_by_name": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "type": "number"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Mean Score By Name",
+      "type": "array"
+    },
+    "empirical_coverage": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Empirical Coverage"
+    },
+    "mean_interval_width": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Mean Interval Width"
+    },
+    "abstention_rate": {
+      "title": "Abstention Rate",
+      "type": "number"
+    },
+    "calibration_qualified": {
+      "title": "Calibration Qualified",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "policy_id",
+    "target_id",
+    "horizon_id",
+    "observation_count",
+    "mean_score_by_name",
+    "abstention_rate",
+    "calibration_qualified"
+  ],
+  "title": "ReliabilitySummary",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:ReliabilitySummary:1.0.0"
+}

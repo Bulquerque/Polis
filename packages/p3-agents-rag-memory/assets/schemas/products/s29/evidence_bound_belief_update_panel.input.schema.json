@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.quant.local/p3/s29/input/evidence-bound-belief-update-panel/1.0.0",
+  "$defs": {
+    "BeliefUpdateRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "belief_update_id": {
+          "minLength": 1,
+          "title": "Belief Update Id",
+          "type": "string"
+        },
+        "person_id": {
+          "minLength": 1,
+          "title": "Person Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "underlying_id": {
+          "minLength": 1,
+          "title": "Underlying Id",
+          "type": "string"
+        },
+        "proposition_id": {
+          "minLength": 1,
+          "title": "Proposition Id",
+          "type": "string"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "prior_value": {
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Prior Value",
+          "type": "number"
+        },
+        "new_value": {
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "New Value",
+          "type": "number"
+        },
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "supporting_evidence_refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Supporting Evidence Refs",
+          "type": "array"
+        },
+        "opposing_evidence_refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Opposing Evidence Refs",
+          "type": "array"
+        },
+        "context_evidence_refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Context Evidence Refs",
+          "type": "array"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "belief_update_id",
+        "person_id",
+        "run_id",
+        "cycle_id",
+        "as_of_time",
+        "underlying_id",
+        "proposition_id",
+        "horizon",
+        "prior_value",
+        "new_value",
+        "confidence",
+        "lineage_id"
+      ],
+      "title": "BeliefUpdateRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/BeliefUpdateRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "created_at",
+    "lineage_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "records"
+  ],
+  "title": "EvidenceBoundBeliefUpdatePanel",
+  "type": "object"
+}

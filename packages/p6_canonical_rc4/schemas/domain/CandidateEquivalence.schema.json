@@ -1,0 +1,52 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "economic_fingerprint": {
+      "title": "Economic Fingerprint",
+      "type": "string"
+    },
+    "equivalence_cluster_id": {
+      "title": "Equivalence Cluster Id",
+      "type": "string"
+    },
+    "leg_shape_fingerprint": {
+      "title": "Leg Shape Fingerprint",
+      "type": "string"
+    },
+    "payoff_fingerprint": {
+      "title": "Payoff Fingerprint",
+      "type": "string"
+    },
+    "relative_scale": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Relative Scale"
+    },
+    "representative": {
+      "default": false,
+      "title": "Representative",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "leg_shape_fingerprint",
+    "payoff_fingerprint",
+    "economic_fingerprint",
+    "equivalence_cluster_id",
+    "relative_scale"
+  ],
+  "title": "CandidateEquivalence",
+  "type": "object"
+}

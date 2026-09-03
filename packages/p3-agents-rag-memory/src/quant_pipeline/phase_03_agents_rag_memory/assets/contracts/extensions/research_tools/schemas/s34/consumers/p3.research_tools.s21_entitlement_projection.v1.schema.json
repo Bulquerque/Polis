@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "ArtifactStatus": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED",
+        "FAILED",
+        "EMPTY_VALID"
+      ],
+      "title": "ArtifactStatus",
+      "type": "string"
+    },
+    "JsonValue": {},
+    "LineageRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "minLength": 1,
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "source_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Artifact Ids",
+          "type": "array"
+        },
+        "source_hashes": {
+          "additionalProperties": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Source Hashes",
+          "type": "object"
+        }
+      },
+      "required": [
+        "lineage_id",
+        "producer_module_id"
+      ],
+      "title": "LineageRecord",
+      "type": "object"
+    },
+    "PersonToolEntitlementRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "budget_calls_per_cycle": {
+          "minimum": 0,
+          "title": "Budget Calls Per Cycle",
+          "type": "integer"
+        },
+        "credential_handle": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Credential Handle"
+        },
+        "entitlement_version": {
+          "minLength": 1,
+          "title": "Entitlement Version",
+          "type": "string"
+        },
+        "operations": {
+          "items": {
+            "$ref": "#/$defs/ToolOperationEntitlement"
+          },
+          "title": "Operations",
+          "type": "array"
+        },
+        "person_id": {
+          "minLength": 1,
+          "title": "Person Id",
+          "type": "string"
+        },
+        "provider_id": {
+          "minLength": 1,
+          "title": "Provider Id",
+          "type": "string"
+        },
+        "tool_id": {
+          "minLength": 1,
+          "title": "Tool Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "person_id",
+        "tool_id",
+        "provider_id",
+        "budget_calls_per_cycle",
+        "operations",
+        "entitlement_version"
+      ],
+      "title": "PersonToolEntitlementRecord",
+      "type": "object"
+    },
+    "ToolOperationEntitlement": {
+      "additionalProperties": false,
+      "properties": {
+        "arguments_schema": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Arguments Schema",
+          "type": "object"
+        },
+        "operation_id": {
+          "minLength": 1,
+          "title": "Operation Id",
+          "type": "string"
+        },
+        "point_in_time_safe": {
+          "default": true,
+          "title": "Point In Time Safe",
+          "type": "boolean"
+        },
+        "read_only": {
+          "default": true,
+          "title": "Read Only",
+          "type": "boolean"
+        },
+        "result_schema": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Result Schema",
+          "type": "object"
+        }
+      },
+      "required": [
+        "operation_id",
+        "arguments_schema",
+        "result_schema"
+      ],
+      "title": "ToolOperationEntitlement",
+      "type": "object"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.s21_entitlement_projection.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "lineage": {
+      "$ref": "#/$defs/LineageRecord"
+    },
+    "reason_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason Code"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/PersonToolEntitlementRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "p3.s21.v1",
+      "default": "p3.s21.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/ArtifactStatus",
+      "default": "READY"
+    }
+  },
+  "required": [
+    "records",
+    "lineage"
+  ],
+  "title": "PersonToolEntitlementPanel",
+  "type": "object"
+}

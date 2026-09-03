@@ -1,0 +1,633 @@
+{
+  "module_results": [
+    {
+      "module_id": "P7.S3.M01",
+      "output_artifact_ids": {
+        "comparable_candidate_metric_panel": "comparable_candidate_metric_panel:a290801a9eb7a1459dc15856",
+        "metric_semantics_audit_report": "metric_semantics_audit_report:7c82e8908af1991ed508baca"
+      },
+      "status": "PASS"
+    },
+    {
+      "module_id": "P7.S3.M02",
+      "output_artifact_ids": {
+        "factor_adjusted_metric_panel": "factor_adjusted_metric_panel:6a6e4ac5177bf2cf1a1466c7",
+        "factor_adjustment_audit_report": "factor_adjustment_audit_report:04783ec7b51a8a8320063932",
+        "factor_exposure_panel": "factor_exposure_panel:abf899e741922b69510f04eb"
+      },
+      "status": "PASS"
+    },
+    {
+      "module_id": "P7.S3.M03",
+      "output_artifact_ids": {
+        "dominance_relation_panel": "dominance_relation_panel:b04af6c74c74cf793a0d816e",
+        "dominance_survivor_panel": "dominance_survivor_panel:73869577389096b9ae9e71ff",
+        "dominated_candidate_panel": "dominated_candidate_panel:440c52a49a617efa84f12d1d"
+      },
+      "status": "PASS"
+    },
+    {
+      "module_id": "P7.S3.M04",
+      "output_artifact_ids": {
+        "pareto_frontier_audit_report": "pareto_frontier_audit_report:18f4d6ed561f2c9846de82a1",
+        "pareto_frontier_panel": "pareto_frontier_panel:ba84a44614afda7461a88cff"
+      },
+      "status": "PASS"
+    }
+  ],
+  "outputs": {
+    "comparable_candidate_metric_panel": {
+      "artifact_id": "comparable_candidate_metric_panel:a290801a9eb7a1459dc15856",
+      "artifact_name": "comparable_candidate_metric_panel",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "a290801a9eb7a1459dc1585614d528270c2ad0523a196b11d31e987b7eb6189a",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "4901185eaa7d4f939f9d4062026ded31705259abbc4cb20e2272c0b8dcdf7b56",
+      "producer_module_id": "P7.S3.M01",
+      "producer_phase": "P7",
+      "record_count": 9,
+      "records": [
+        {
+          "candidate_id": "A",
+          "canonical_units": "currency",
+          "canonical_value": 12.0,
+          "comparison_group_id": "group-1",
+          "comparison_status": "AVAILABLE",
+          "directed_value": 12.0,
+          "direction": "MAXIMIZE",
+          "lineage_id": "metric:A:expected_net_payoff",
+          "metric_id": "expected_net_payoff",
+          "missingness_status": "AVAILABLE",
+          "raw_value": 12.0,
+          "reason_code": null,
+          "semantic_version": "1.0.0",
+          "source_artifact_id": "p6:strategy-risk-panel",
+          "source_available_at": "2026-01-02T15:00:00Z"
+        },
+        {
+          "candidate_id": "A",
+          "canonical_units": "currency_loss",
+          "canonical_value": 5.0,
+          "comparison_group_id": "group-1",
+          "comparison_status": "AVAILABLE",
+          "directed_value": -5.0,
+          "direction": "MINIMIZE",
+          "lineage_id": "metric:A:expected_shortfall",
+          "metric_id": "expected_shortfall",
+          "missingness_status": "AVAILABLE",
+          "raw_value": 5.0,
+          "reason_code": null,
+          "semantic_version": "1.0.0",
+          "source_artifact_id": "p6:strategy-risk-panel",
+          "source_available_at": "2026-01-02T15:00:00Z"
+        },
+        {
+          "candidate_id": "A",
+          "canonical_units": "normalized_score",
+          "canonical_value": 0.8,
+          "comparison_group_id": "group-1",
+          "comparison_status": "AVAILABLE",
+          "directed_value": 0.8,
+          "direction": "MAXIMIZE",
+          "lineage_id": "metric:A:liquidity_quality",
+          "metric_id": "liquidity_quality",
+          "missingness_status": "AVAILABLE",
+          "raw_value": 0.8,
+          "reason_code": null,
+          "semantic_version": "1.0.0",
+          "source_artifact_id": "p6:strategy-risk-panel",
+          "source_available_at": "2026-01-02T15:00:00Z"
+        },
+        {
+          "candidate_id": "B",
+          "canonical_units": "currency",
+          "canonical_value": 10.0,
+          "comparison_group_id": "group-1",
+          "comparison_status": "AVAILABLE",
+          "directed_value": 10.0,
+          "direction": "MAXIMIZE",
+          "lineage_id": "metric:B:expected_net_payoff",
+          "metric_id": "expected_net_payoff",
+          "missingness_status": "AVAILABLE",
+          "raw_value": 10.0,
+          "reason_code": null,
+          "semantic_version": "1.0.0",
+          "source_artifact_id": "p6:strategy-risk-panel",
+          "source_available_at": "2026-01-02T15:00:00Z"
+        },
+        {
+          "candidate_id": "B",
+          "canonical_units": "currency_loss",
+          "canonical_value": 6.0,
+          "comparison_group_id": "group-1",
+          "comparison_status": "AVAILABLE",
+          "directed_value": -6.0,
+          "direction": "MINIMIZE",
+          "lineage_id": "metric:B:expected_shortfall",
+          "metric_id": "expected_shortfall",
+          "missingness_status": "AVAILABLE",
+          "raw_value": 6.0,
+          "reason_code": null,
+          "semantic_version": "1.0.0",
+          "source_artifact_id": "p6:strategy-risk-panel",
+          "source_available_at": "2026-01-02T15:00:00Z"
+        },
+        {
+          "candidate_id": "B",
+          "canonical_units": "normalized_score",
+          "canonical_value": 0.7,
+          "comparison_group_id": "group-1",
+          "comparison_status": "AVAILABLE",
+          "directed_value": 0.7,
+          "direction": "MAXIMIZE",
+          "lineage_id": "metric:B:liquidity_quality",
+          "metric_id": "liquidity_quality",
+          "missingness_status": "AVAILABLE",
+          "raw_value": 0.7,
+          "reason_code": null,
+          "semantic_version": "1.0.0",
+          "source_artifact_id": "p6:strategy-risk-panel",
+          "source_available_at": "2026-01-02T15:00:00Z"
+        },
+        {
+          "candidate_id": "C",
+          "canonical_units": "currency",
+          "canonical_value": 15.0,
+          "comparison_group_id": "group-1",
+          "comparison_status": "AVAILABLE",
+          "directed_value": 15.0,
+          "direction": "MAXIMIZE",
+          "lineage_id": "metric:C:expected_net_payoff",
+          "metric_id": "expected_net_payoff",
+          "missingness_status": "AVAILABLE",
+          "raw_value": 15.0,
+          "reason_code": null,
+          "semantic_version": "1.0.0",
+          "source_artifact_id": "p6:strategy-risk-panel",
+          "source_available_at": "2026-01-02T15:00:00Z"
+        },
+        {
+          "candidate_id": "C",
+          "canonical_units": "currency_loss",
+          "canonical_value": 9.0,
+          "comparison_group_id": "group-1",
+          "comparison_status": "AVAILABLE",
+          "directed_value": -9.0,
+          "direction": "MINIMIZE",
+          "lineage_id": "metric:C:expected_shortfall",
+          "metric_id": "expected_shortfall",
+          "missingness_status": "AVAILABLE",
+          "raw_value": 9.0,
+          "reason_code": null,
+          "semantic_version": "1.0.0",
+          "source_artifact_id": "p6:strategy-risk-panel",
+          "source_available_at": "2026-01-02T15:00:00Z"
+        },
+        {
+          "candidate_id": "C",
+          "canonical_units": "normalized_score",
+          "canonical_value": 0.9,
+          "comparison_group_id": "group-1",
+          "comparison_status": "AVAILABLE",
+          "directed_value": 0.9,
+          "direction": "MAXIMIZE",
+          "lineage_id": "metric:C:liquidity_quality",
+          "metric_id": "liquidity_quality",
+          "missingness_status": "AVAILABLE",
+          "raw_value": 0.9,
+          "reason_code": null,
+          "semantic_version": "1.0.0",
+          "source_artifact_id": "p6:strategy-risk-panel",
+          "source_available_at": "2026-01-02T15:00:00Z"
+        }
+      ],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    },
+    "dominance_relation_panel": {
+      "artifact_id": "dominance_relation_panel:b04af6c74c74cf793a0d816e",
+      "artifact_name": "dominance_relation_panel",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "b04af6c74c74cf793a0d816e13589a45e0ebf6e5c8cdee75ca021f9dec5ea563",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "24490c9025ec0c4c7c73519e9a6ca386941c6b0fe1dc5dd6d5f78b250713c1db",
+      "producer_module_id": "P7.S3.M03",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "comparison_group_id": "group-1",
+          "dominated_candidate_id": "B",
+          "dominator_candidate_id": "A",
+          "evidence": [
+            {
+              "dominated_value": 10.0,
+              "dominator_value": 12.0,
+              "materially_better": true,
+              "metric_id": "expected_net_payoff",
+              "tolerance": 0.0
+            },
+            {
+              "dominated_value": -6.0,
+              "dominator_value": -5.0,
+              "materially_better": true,
+              "metric_id": "expected_shortfall",
+              "tolerance": 0.0
+            },
+            {
+              "dominated_value": 0.7,
+              "dominator_value": 0.8,
+              "materially_better": true,
+              "metric_id": "liquidity_quality",
+              "tolerance": 1e-12
+            }
+          ],
+          "policy_id": "p7-s3-policy-v1",
+          "relation_hash": "7ad844a277b01fb69b766d0c734f57cdfe43bffabf9d20e9c64788e73bfbdd24"
+        }
+      ],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    },
+    "dominance_survivor_panel": {
+      "artifact_id": "dominance_survivor_panel:73869577389096b9ae9e71ff",
+      "artifact_name": "dominance_survivor_panel",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "73869577389096b9ae9e71ff93fde52dacb4bde8e77e253818eb42b14bb3510f",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "24490c9025ec0c4c7c73519e9a6ca386941c6b0fe1dc5dd6d5f78b250713c1db",
+      "producer_module_id": "P7.S3.M03",
+      "producer_phase": "P7",
+      "record_count": 2,
+      "records": [
+        {
+          "candidate_id": "A",
+          "comparison_group_id": "group-1",
+          "eligible_for_pareto": true,
+          "lineage_id": "candidate:A",
+          "reason_code": null,
+          "status": "SURVIVOR"
+        },
+        {
+          "candidate_id": "C",
+          "comparison_group_id": "group-1",
+          "eligible_for_pareto": true,
+          "lineage_id": "candidate:C",
+          "reason_code": null,
+          "status": "SURVIVOR"
+        }
+      ],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    },
+    "dominated_candidate_panel": {
+      "artifact_id": "dominated_candidate_panel:440c52a49a617efa84f12d1d",
+      "artifact_name": "dominated_candidate_panel",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "440c52a49a617efa84f12d1d6d0f5f6ea5b4f10ad0c06af5938d63af8b94ca23",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "24490c9025ec0c4c7c73519e9a6ca386941c6b0fe1dc5dd6d5f78b250713c1db",
+      "producer_module_id": "P7.S3.M03",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "candidate_id": "B",
+          "comparison_group_id": "group-1",
+          "dominator_candidate_ids": [
+            "A"
+          ],
+          "incoming_relation_count": 1,
+          "lineage_id": "candidate:B",
+          "status": "DOMINATED"
+        }
+      ],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    },
+    "factor_adjusted_metric_panel": {
+      "artifact_id": "factor_adjusted_metric_panel:6a6e4ac5177bf2cf1a1466c7",
+      "artifact_name": "factor_adjusted_metric_panel",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "6a6e4ac5177bf2cf1a1466c78e04d163a883d41e413c8095b501ceb9f955d43a",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "447633d2d6c857145d3d8686f0285f40eb53693cdd12b015d024e0e9fc82fdeb",
+      "producer_module_id": "P7.S3.M02",
+      "producer_phase": "P7",
+      "record_count": 9,
+      "records": [
+        {
+          "adjusted_directed_value": 12.0,
+          "adjusted_raw_value": 12.0,
+          "adjustment_model_id": null,
+          "adjustment_status": "BYPASS",
+          "candidate_id": "A",
+          "comparison_group_id": "group-1",
+          "directed_value": 12.0,
+          "intercept": 0.0,
+          "lineage_id": "metric:A:expected_net_payoff",
+          "metric_id": "expected_net_payoff",
+          "raw_value": 12.0,
+          "reason_code": "P7_S3_FACTOR_EXPOSURE_BYPASS",
+          "total_factor_contribution": null
+        },
+        {
+          "adjusted_directed_value": -5.0,
+          "adjusted_raw_value": 5.0,
+          "adjustment_model_id": null,
+          "adjustment_status": "NOT_APPLICABLE",
+          "candidate_id": "A",
+          "comparison_group_id": "group-1",
+          "directed_value": -5.0,
+          "intercept": null,
+          "lineage_id": "metric:A:expected_shortfall",
+          "metric_id": "expected_shortfall",
+          "raw_value": 5.0,
+          "reason_code": null,
+          "total_factor_contribution": null
+        },
+        {
+          "adjusted_directed_value": 0.8,
+          "adjusted_raw_value": 0.8,
+          "adjustment_model_id": null,
+          "adjustment_status": "NOT_APPLICABLE",
+          "candidate_id": "A",
+          "comparison_group_id": "group-1",
+          "directed_value": 0.8,
+          "intercept": null,
+          "lineage_id": "metric:A:liquidity_quality",
+          "metric_id": "liquidity_quality",
+          "raw_value": 0.8,
+          "reason_code": null,
+          "total_factor_contribution": null
+        },
+        {
+          "adjusted_directed_value": 10.0,
+          "adjusted_raw_value": 10.0,
+          "adjustment_model_id": null,
+          "adjustment_status": "BYPASS",
+          "candidate_id": "B",
+          "comparison_group_id": "group-1",
+          "directed_value": 10.0,
+          "intercept": 0.0,
+          "lineage_id": "metric:B:expected_net_payoff",
+          "metric_id": "expected_net_payoff",
+          "raw_value": 10.0,
+          "reason_code": "P7_S3_FACTOR_EXPOSURE_BYPASS",
+          "total_factor_contribution": null
+        },
+        {
+          "adjusted_directed_value": -6.0,
+          "adjusted_raw_value": 6.0,
+          "adjustment_model_id": null,
+          "adjustment_status": "NOT_APPLICABLE",
+          "candidate_id": "B",
+          "comparison_group_id": "group-1",
+          "directed_value": -6.0,
+          "intercept": null,
+          "lineage_id": "metric:B:expected_shortfall",
+          "metric_id": "expected_shortfall",
+          "raw_value": 6.0,
+          "reason_code": null,
+          "total_factor_contribution": null
+        },
+        {
+          "adjusted_directed_value": 0.7,
+          "adjusted_raw_value": 0.7,
+          "adjustment_model_id": null,
+          "adjustment_status": "NOT_APPLICABLE",
+          "candidate_id": "B",
+          "comparison_group_id": "group-1",
+          "directed_value": 0.7,
+          "intercept": null,
+          "lineage_id": "metric:B:liquidity_quality",
+          "metric_id": "liquidity_quality",
+          "raw_value": 0.7,
+          "reason_code": null,
+          "total_factor_contribution": null
+        },
+        {
+          "adjusted_directed_value": 15.0,
+          "adjusted_raw_value": 15.0,
+          "adjustment_model_id": null,
+          "adjustment_status": "BYPASS",
+          "candidate_id": "C",
+          "comparison_group_id": "group-1",
+          "directed_value": 15.0,
+          "intercept": 0.0,
+          "lineage_id": "metric:C:expected_net_payoff",
+          "metric_id": "expected_net_payoff",
+          "raw_value": 15.0,
+          "reason_code": "P7_S3_FACTOR_EXPOSURE_BYPASS",
+          "total_factor_contribution": null
+        },
+        {
+          "adjusted_directed_value": -9.0,
+          "adjusted_raw_value": 9.0,
+          "adjustment_model_id": null,
+          "adjustment_status": "NOT_APPLICABLE",
+          "candidate_id": "C",
+          "comparison_group_id": "group-1",
+          "directed_value": -9.0,
+          "intercept": null,
+          "lineage_id": "metric:C:expected_shortfall",
+          "metric_id": "expected_shortfall",
+          "raw_value": 9.0,
+          "reason_code": null,
+          "total_factor_contribution": null
+        },
+        {
+          "adjusted_directed_value": 0.9,
+          "adjusted_raw_value": 0.9,
+          "adjustment_model_id": null,
+          "adjustment_status": "NOT_APPLICABLE",
+          "candidate_id": "C",
+          "comparison_group_id": "group-1",
+          "directed_value": 0.9,
+          "intercept": null,
+          "lineage_id": "metric:C:liquidity_quality",
+          "metric_id": "liquidity_quality",
+          "raw_value": 0.9,
+          "reason_code": null,
+          "total_factor_contribution": null
+        }
+      ],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    },
+    "factor_adjustment_audit_report": {
+      "artifact_id": "factor_adjustment_audit_report:04783ec7b51a8a8320063932",
+      "artifact_name": "factor_adjustment_audit_report",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "04783ec7b51a8a8320063932ca88bb56194dc27c37332104d381784582a50685",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "447633d2d6c857145d3d8686f0285f40eb53693cdd12b015d024e0e9fc82fdeb",
+      "producer_module_id": "P7.S3.M02",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "adjusted_candidate_count": 0,
+          "blocked_candidate_count": 0,
+          "bypassed_candidate_count": 3,
+          "conservation_max_abs_error": 0.0,
+          "mode": "BYPASS",
+          "model_id": null,
+          "model_status": "BYPASS",
+          "policy_id": "p7-s3-policy-v1",
+          "reason_counts": {
+            "P7_S3_FACTOR_EXPOSURE_BYPASS": 3
+          },
+          "target_metric_id": "expected_net_payoff",
+          "unavailable_candidate_count": 0
+        }
+      ],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    },
+    "factor_exposure_panel": {
+      "artifact_id": "factor_exposure_panel:abf899e741922b69510f04eb",
+      "artifact_name": "factor_exposure_panel",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "abf899e741922b69510f04ebcf2597a7d7a4047cb1cb5884f09816a8311acf8d",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "447633d2d6c857145d3d8686f0285f40eb53693cdd12b015d024e0e9fc82fdeb",
+      "producer_module_id": "P7.S3.M02",
+      "producer_phase": "P7",
+      "record_count": 0,
+      "records": [],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    },
+    "metric_semantics_audit_report": {
+      "artifact_id": "metric_semantics_audit_report:7c82e8908af1991ed508baca",
+      "artifact_name": "metric_semantics_audit_report",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "7c82e8908af1991ed508baca8f6ad74e119717b17b0fb86d39d0e2c42633e78e",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "4901185eaa7d4f939f9d4062026ded31705259abbc4cb20e2272c0b8dcdf7b56",
+      "producer_module_id": "P7.S3.M01",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "blocked_metric_count": 0,
+          "candidate_count": 3,
+          "converted_metric_count": 0,
+          "duplicate_grain_count": 0,
+          "forbidden_field_scan_passed": true,
+          "output_metric_count": 9,
+          "policy_id": "p7-s3-policy-v1",
+          "reason_counts": {},
+          "source_metric_count": 9,
+          "unavailable_metric_count": 0
+        }
+      ],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    },
+    "pareto_frontier_audit_report": {
+      "artifact_id": "pareto_frontier_audit_report:18f4d6ed561f2c9846de82a1",
+      "artifact_name": "pareto_frontier_audit_report",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "18f4d6ed561f2c9846de82a171c0e0b0f58d4d96be63d76233b221a5a5602223",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "979a9bb7f59d1607c6e224e082bab29bf5e2979a2771d80f5aa87c528b69f8d9",
+      "producer_module_id": "P7.S3.M04",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "candidate_count": 3,
+          "diagnostics": [
+            {
+              "candidate_count": 3,
+              "comparable_candidate_count": 3,
+              "comparison_group_id": "group-1",
+              "incomparable_candidate_count": 0,
+              "layer_count": 2,
+              "pair_comparisons": 3,
+              "relation_count": 1
+            }
+          ],
+          "exact_algorithm": true,
+          "frontier_count": 2,
+          "group_count": 1,
+          "incomparable_count": 0,
+          "permutation_invariant_serialization": true,
+          "policy_id": "p7-s3-policy-v1"
+        }
+      ],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    },
+    "pareto_frontier_panel": {
+      "artifact_id": "pareto_frontier_panel:ba84a44614afda7461a88cff",
+      "artifact_name": "pareto_frontier_panel",
+      "available_at": "2026-01-02T15:00:00Z",
+      "content_sha256": "ba84a44614afda7461a88cff5e88d31d3b47ee8b6fb85a6f26a48aafd435bc2f",
+      "created_at": "2026-01-02T15:00:00Z",
+      "cycle_id": "cycle-fixture-001",
+      "decision_time": "2026-01-02T15:00:00Z",
+      "lineage_id": "979a9bb7f59d1607c6e224e082bab29bf5e2979a2771d80f5aa87c528b69f8d9",
+      "producer_module_id": "P7.S3.M04",
+      "producer_phase": "P7",
+      "record_count": 3,
+      "records": [
+        {
+          "candidate_id": "A",
+          "comparison_group_id": "group-1",
+          "dominated_by_count": 0,
+          "frontier_layer": 0,
+          "frontier_status": "FRONTIER",
+          "lineage_id": "candidate:A",
+          "metric_vector_hash": "c59a341fd8d50f866bd1ef5fd26fa27908a08ac172a4e824f1d25df08e27d468",
+          "policy_id": "p7-s3-policy-v1"
+        },
+        {
+          "candidate_id": "C",
+          "comparison_group_id": "group-1",
+          "dominated_by_count": 0,
+          "frontier_layer": 0,
+          "frontier_status": "FRONTIER",
+          "lineage_id": "candidate:C",
+          "metric_vector_hash": "96cad2b99e71b5d808992a9c911fadcce2a5767251609a46f33afbad1430b430",
+          "policy_id": "p7-s3-policy-v1"
+        },
+        {
+          "candidate_id": "B",
+          "comparison_group_id": "group-1",
+          "dominated_by_count": 1,
+          "frontier_layer": 1,
+          "frontier_status": "DOMINATED_LAYER",
+          "lineage_id": "candidate:B",
+          "metric_vector_hash": "3fa92038021a14f72c42d427a9703753f1c552b4029b25a2b5732e8ccb540556",
+          "policy_id": "p7-s3-policy-v1"
+        }
+      ],
+      "run_id": "run-fixture-001",
+      "schema_version": "1.0.0"
+    }
+  },
+  "phase": "P7",
+  "status": "PASS",
+  "subphase": "P7.S3"
+}

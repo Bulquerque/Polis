@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CanonicalInstrumentReference",
+  "type": "object",
+  "required": ["canonical_instrument_id", "native_instrument_id", "country", "venue", "currency", "asset_class", "source_id", "lineage_id"],
+  "properties": {
+    "canonical_instrument_id": {"type": "string", "minLength": 3},
+    "native_instrument_id": {"type": "string", "minLength": 1},
+    "native_symbol": {"type": ["string", "null"]},
+    "country": {"enum": ["BR", "US", "INTERNATIONAL"]},
+    "venue": {"type": "string", "minLength": 1},
+    "currency": {"type": "string", "minLength": 3, "maxLength": 3},
+    "asset_class": {"type": "string", "minLength": 1},
+    "instrument_type": {"type": "string", "minLength": 1},
+    "underlying_canonical_id": {"type": ["string", "null"]},
+    "strike": {"type": ["number", "null"]},
+    "expiration": {"type": ["string", "null"]},
+    "option_type": {"type": ["string", "null"]},
+    "exercise_style": {"type": ["string", "null"]},
+    "contract_multiplier": {"type": ["number", "null"]},
+    "quotation_factor": {"type": ["number", "null"]},
+    "valid_from": {"type": ["string", "null"]},
+    "valid_until": {"type": ["string", "null"]},
+    "source_id": {"type": "string", "minLength": 1},
+    "source_artifact_id": {"type": ["string", "null"]},
+    "source_reference_date": {"type": ["string", "null"]},
+    "lineage_id": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

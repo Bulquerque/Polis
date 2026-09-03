@@ -1,0 +1,8 @@
+{
+  "pipeline_version": "V14.1-RC4.1",
+  "fixture_kind": "output",
+  "release_gate_report": {
+    "release_id": "RC4.1",
+    "decision": "PASS"
+  }
+}

@@ -1,0 +1,1588 @@
+$defs:
+  Availability:
+    enum:
+    - AVAILABLE
+    - LIMITED
+    - UNAVAILABLE
+    - RESEARCH_ONLY
+    title: Availability
+    type: string
+  BinaryProbabilityForecast:
+    additionalProperties: false
+    properties:
+      kind:
+        const: BINARY_PROBABILITY
+        default: BINARY_PROBABILITY
+        title: Kind
+        type: string
+      probability:
+        maximum: 1.0
+        minimum: 0.0
+        title: Probability
+        type: number
+    required:
+    - probability
+    title: BinaryProbabilityForecast
+    type: object
+  BundleHeader:
+    additionalProperties: false
+    properties:
+      contract_name:
+        const: P9_S7_PROSPECTIVE_MONITORING_BUNDLE_V1
+        default: P9_S7_PROSPECTIVE_MONITORING_BUNDLE_V1
+        title: Contract Name
+        type: string
+      contract_version:
+        const: 1.0.0
+        default: 1.0.0
+        title: Contract Version
+        type: string
+      run_id:
+        minLength: 1
+        title: Run Id
+        type: string
+      cycle_id:
+        minLength: 1
+        title: Cycle Id
+        type: string
+      created_at:
+        format: date-time
+        title: Created At
+        type: string
+    required:
+    - run_id
+    - cycle_id
+    - created_at
+    title: BundleHeader
+    type: object
+  CalibrationBin:
+    additionalProperties: false
+    properties:
+      policy_id:
+        minLength: 1
+        title: Policy Id
+        type: string
+      lower_edge:
+        title: Lower Edge
+        type: number
+      upper_edge:
+        title: Upper Edge
+        type: number
+      observation_count:
+        minimum: 0
+        title: Observation Count
+        type: integer
+      mean_prediction:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Mean Prediction
+      observed_frequency:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Observed Frequency
+      qualified:
+        title: Qualified
+        type: boolean
+    required:
+    - policy_id
+    - lower_edge
+    - upper_edge
+    - observation_count
+    - qualified
+    title: CalibrationBin
+    type: object
+  ChannelDriftEvent:
+    additionalProperties: false
+    properties:
+      channel_id:
+        minLength: 1
+        title: Channel Id
+        type: string
+      channel_kind:
+        $ref: '#/$defs/DriftChannelKind'
+      observation_count:
+        minimum: 0
+        title: Observation Count
+        type: integer
+      estimated_change_time:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        title: Estimated Change Time
+      severity:
+        minimum: 0.0
+        title: Severity
+        type: number
+      alerted:
+        title: Alerted
+        type: boolean
+      hard_breach:
+        title: Hard Breach
+        type: boolean
+      detector_evidence:
+        items:
+          $ref: '#/$defs/DetectorEvidence'
+        title: Detector Evidence
+        type: array
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - channel_id
+    - channel_kind
+    - observation_count
+    - estimated_change_time
+    - severity
+    - alerted
+    - hard_breach
+    - detector_evidence
+    title: ChannelDriftEvent
+    type: object
+  ComparisonState:
+    enum:
+    - CHAMPION_SUPERIOR
+    - CHALLENGER_SUPERIOR
+    - STATISTICALLY_INDISTINGUISHABLE
+    - INSUFFICIENT_EVIDENCE
+    - COMPARISON_INVALID
+    title: ComparisonState
+    type: string
+  ConformalGroupSummary:
+    additionalProperties: false
+    properties:
+      group_id:
+        minLength: 1
+        title: Group Id
+        type: string
+      observation_count:
+        minimum: 0
+        title: Observation Count
+        type: integer
+      empirical_coverage:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Empirical Coverage
+      target_coverage:
+        title: Target Coverage
+        type: number
+      coverage_regret:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Coverage Regret
+      mean_interval_width:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Mean Interval Width
+      recommended_miscoverage:
+        title: Recommended Miscoverage
+        type: number
+      quality_state:
+        minLength: 1
+        title: Quality State
+        type: string
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - group_id
+    - observation_count
+    - empirical_coverage
+    - target_coverage
+    - coverage_regret
+    - mean_interval_width
+    - recommended_miscoverage
+    - quality_state
+    title: ConformalGroupSummary
+    type: object
+  ConformalMonitoringResult:
+    additionalProperties: false
+    properties:
+      availability:
+        $ref: '#/$defs/Availability'
+      steps:
+        items:
+          $ref: '#/$defs/ConformalStep'
+        title: Steps
+        type: array
+      summaries:
+        items:
+          $ref: '#/$defs/ConformalGroupSummary'
+        title: Summaries
+        type: array
+      result_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Result Sha256
+        type: string
+      limitations:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Limitations
+        type: array
+    required:
+    - availability
+    - steps
+    - summaries
+    - result_sha256
+    title: ConformalMonitoringResult
+    type: object
+  ConformalStep:
+    additionalProperties: false
+    properties:
+      event_id:
+        minLength: 1
+        title: Event Id
+        type: string
+      group_id:
+        minLength: 1
+        title: Group Id
+        type: string
+      alpha_before:
+        title: Alpha Before
+        type: number
+      error_indicator:
+        maximum: 1
+        minimum: 0
+        title: Error Indicator
+        type: integer
+      alpha_after:
+        title: Alpha After
+        type: number
+      nonconformity_score:
+        minimum: 0.0
+        title: Nonconformity Score
+        type: number
+      calibration_quantile:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Calibration Quantile
+      interval_width:
+        minimum: 0.0
+        title: Interval Width
+        type: number
+    required:
+    - event_id
+    - group_id
+    - alpha_before
+    - error_indicator
+    - alpha_after
+    - nonconformity_score
+    - calibration_quantile
+    - interval_width
+    title: ConformalStep
+    type: object
+  CrossChannelAgreement:
+    additionalProperties: false
+    properties:
+      alerted_channel_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Alerted Channel Ids
+        type: array
+      confirmed:
+        title: Confirmed
+        type: boolean
+      hard_breach_present:
+        title: Hard Breach Present
+        type: boolean
+      agreement_ratio:
+        maximum: 1.0
+        minimum: 0.0
+        title: Agreement Ratio
+        type: number
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - alerted_channel_ids
+    - confirmed
+    - hard_breach_present
+    - agreement_ratio
+    title: CrossChannelAgreement
+    type: object
+  DecisionKind:
+    enum:
+    - ACTION
+    - NO_ACTION
+    - ABSTAIN
+    title: DecisionKind
+    type: string
+  DecisionTraceItem:
+    additionalProperties: false
+    properties:
+      rule_id:
+        minLength: 1
+        title: Rule Id
+        type: string
+      triggered:
+        title: Triggered
+        type: boolean
+      observed_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Observed Value
+      threshold_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Threshold Value
+      reason_code:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Reason Code
+    required:
+    - rule_id
+    - triggered
+    title: DecisionTraceItem
+    type: object
+  DeploymentStage:
+    enum:
+    - SHADOW_ONLY
+    - PAPER_EXECUTION
+    - LIMITED_CAPITAL
+    - FULL_PRODUCTION
+    - QUARANTINED
+    title: DeploymentStage
+    type: string
+  DetectorEvidence:
+    additionalProperties: false
+    properties:
+      detector_name:
+        minLength: 1
+        title: Detector Name
+        type: string
+      statistic:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Statistic
+      threshold:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Threshold
+      alerted:
+        title: Alerted
+        type: boolean
+      details:
+        default: []
+        items:
+          maxItems: 2
+          minItems: 2
+          prefixItems:
+          - minLength: 1
+            type: string
+          - type: number
+          type: array
+        title: Details
+        type: array
+    required:
+    - detector_name
+    - statistic
+    - threshold
+    - alerted
+    title: DetectorEvidence
+    type: object
+  DriftChannelKind:
+    enum:
+    - INPUT
+    - MISSINGNESS
+    - FORECAST_RESIDUAL
+    - CALIBRATION
+    - PNL
+    - COST
+    - LIQUIDITY
+    - FACTOR_EXPOSURE
+    - POLICY_ACTION
+    title: DriftChannelKind
+    type: string
+  DriftQualificationResult:
+    additionalProperties: false
+    properties:
+      channel_events:
+        items:
+          $ref: '#/$defs/ChannelDriftEvent'
+        title: Channel Events
+        type: array
+      agreement:
+        $ref: '#/$defs/CrossChannelAgreement'
+      result_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Result Sha256
+        type: string
+    required:
+    - channel_events
+    - agreement
+    - result_sha256
+    title: DriftQualificationResult
+    type: object
+  EvidenceClass:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED_NOT_EXECUTED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceClass
+    type: string
+  ExecutionStage:
+    enum:
+    - BACKTEST
+    - SHADOW
+    - PAPER
+    - LIVE
+    title: ExecutionStage
+    type: string
+  IntegrityEnvelope:
+    additionalProperties: false
+    properties:
+      algorithm:
+        const: SHA-256
+        default: SHA-256
+        title: Algorithm
+        type: string
+      canonicalization_version:
+        const: JCS-LIKE-JSON-UTF8-V1
+        default: JCS-LIKE-JSON-UTF8-V1
+        title: Canonicalization Version
+        type: string
+      payload_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Payload Sha256
+        type: string
+    required:
+    - payload_sha256
+    title: IntegrityEnvelope
+    type: object
+  IntervalForecast:
+    additionalProperties: false
+    properties:
+      kind:
+        const: INTERVAL
+        default: INTERVAL
+        title: Kind
+        type: string
+      lower:
+        title: Lower
+        type: number
+      upper:
+        title: Upper
+        type: number
+      nominal_coverage:
+        exclusiveMaximum: 1.0
+        exclusiveMinimum: 0.0
+        title: Nominal Coverage
+        type: number
+    required:
+    - lower
+    - upper
+    - nominal_coverage
+    title: IntervalForecast
+    type: object
+  LiveHealthState:
+    enum:
+    - HEALTHY
+    - WATCH
+    - DEGRADED
+    - REQUALIFICATION_REQUIRED
+    - ROLLBACK_RECOMMENDED
+    - QUARANTINE_RECOMMENDED
+    - INSUFFICIENT_LIVE_EVIDENCE
+    title: LiveHealthState
+    type: string
+  MaturityQueueItem:
+    additionalProperties: false
+    properties:
+      prediction_event_id:
+        minLength: 1
+        title: Prediction Event Id
+        type: string
+      issued_at:
+        format: date-time
+        title: Issued At
+        type: string
+      maturity_state:
+        $ref: '#/$defs/MaturityState'
+      latest_outcome_available_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        title: Latest Outcome Available At
+    required:
+    - prediction_event_id
+    - issued_at
+    - maturity_state
+    title: MaturityQueueItem
+    type: object
+  MaturityState:
+    enum:
+    - NOT_MATURED
+    - PARTIALLY_MATURED
+    - MATURED
+    - SETTLED
+    - CENSORED
+    - UNOBSERVABLE
+    title: MaturityState
+    type: string
+  ModuleExecutionReceipt:
+    additionalProperties: false
+    properties:
+      module_id:
+        pattern: ^P9\.S7\.M0[1-8]$
+        title: Module Id
+        type: string
+      status:
+        $ref: '#/$defs/ModuleStatus'
+      input_artifact_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Input Artifact Ids
+        type: array
+      output_artifact_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Output Artifact Ids
+        type: array
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+      limitations:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Limitations
+        type: array
+      started_at:
+        format: date-time
+        title: Started At
+        type: string
+      completed_at:
+        format: date-time
+        title: Completed At
+        type: string
+      diagnostics_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Diagnostics Sha256
+        type: string
+      integrity:
+        $ref: '#/$defs/IntegrityEnvelope'
+    required:
+    - module_id
+    - status
+    - input_artifact_ids
+    - output_artifact_ids
+    - started_at
+    - completed_at
+    - diagnostics_sha256
+    - integrity
+    title: ModuleExecutionReceipt
+    type: object
+  ModuleStatus:
+    enum:
+    - SUCCESS
+    - LIMITED
+    - UNAVAILABLE
+    - INSUFFICIENT_EVIDENCE
+    - INVALID
+    - FAILED
+    title: ModuleStatus
+    type: string
+  NormalForecast:
+    additionalProperties: false
+    properties:
+      kind:
+        const: NORMAL
+        default: NORMAL
+        title: Kind
+        type: string
+      mean:
+        title: Mean
+        type: number
+      standard_deviation:
+        exclusiveMinimum: 0.0
+        title: Standard Deviation
+        type: number
+    required:
+    - mean
+    - standard_deviation
+    title: NormalForecast
+    type: object
+  OnlineScoreRecord:
+    additionalProperties: false
+    properties:
+      prediction_event_id:
+        minLength: 1
+        title: Prediction Event Id
+        type: string
+      cohort_id:
+        minLength: 1
+        title: Cohort Id
+        type: string
+      policy_id:
+        minLength: 1
+        title: Policy Id
+        type: string
+      target_id:
+        minLength: 1
+        title: Target Id
+        type: string
+      horizon_id:
+        minLength: 1
+        title: Horizon Id
+        type: string
+      score_name:
+        minLength: 1
+        title: Score Name
+        type: string
+      score_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Score Value
+      quality_state:
+        minLength: 1
+        title: Quality State
+        type: string
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - prediction_event_id
+    - cohort_id
+    - policy_id
+    - target_id
+    - horizon_id
+    - score_name
+    - score_value
+    - quality_state
+    title: OnlineScoreRecord
+    type: object
+  OnlineScoringResult:
+    additionalProperties: false
+    properties:
+      score_records:
+        items:
+          $ref: '#/$defs/OnlineScoreRecord'
+        title: Score Records
+        type: array
+      calibration_bins:
+        items:
+          $ref: '#/$defs/CalibrationBin'
+        title: Calibration Bins
+        type: array
+      summaries:
+        items:
+          $ref: '#/$defs/ReliabilitySummary'
+        title: Summaries
+        type: array
+      score_panel_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Score Panel Sha256
+        type: string
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - score_records
+    - calibration_bins
+    - summaries
+    - score_panel_sha256
+    title: OnlineScoringResult
+    type: object
+  OutcomeEvent:
+    additionalProperties: false
+    properties:
+      outcome_id:
+        minLength: 1
+        title: Outcome Id
+        type: string
+      prediction_event_id:
+        minLength: 1
+        title: Prediction Event Id
+        type: string
+      observed_at:
+        format: date-time
+        title: Observed At
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      maturity_state:
+        $ref: '#/$defs/MaturityState'
+      evidence_class:
+        $ref: '#/$defs/EvidenceClass'
+      value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Value
+      vintage_id:
+        minLength: 1
+        title: Vintage Id
+        type: string
+      supersedes_outcome_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Supersedes Outcome Id
+    required:
+    - outcome_id
+    - prediction_event_id
+    - observed_at
+    - available_at
+    - maturity_state
+    - evidence_class
+    - value
+    - vintage_id
+    title: OutcomeEvent
+    type: object
+  PairwiseRealityGap:
+    additionalProperties: false
+    properties:
+      decision_id:
+        minLength: 1
+        title: Decision Id
+        type: string
+      policy_id:
+        minLength: 1
+        title: Policy Id
+        type: string
+      earlier_stage:
+        $ref: '#/$defs/ExecutionStage'
+      later_stage:
+        $ref: '#/$defs/ExecutionStage'
+      forecast_gap:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Forecast Gap
+      signal_gap:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Signal Gap
+      order_quantity_gap:
+        title: Order Quantity Gap
+        type: number
+      fill_rate_earlier:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Fill Rate Earlier
+      fill_rate_later:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Fill Rate Later
+      fill_rate_gap:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Fill Rate Gap
+      slippage_bps_earlier:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Slippage Bps Earlier
+      slippage_bps_later:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Slippage Bps Later
+      slippage_gap_bps:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Slippage Gap Bps
+      fee_gap:
+        title: Fee Gap
+        type: number
+      margin_gap:
+        title: Margin Gap
+        type: number
+      pnl_gap:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Pnl Gap
+    required:
+    - decision_id
+    - policy_id
+    - earlier_stage
+    - later_stage
+    - forecast_gap
+    - signal_gap
+    - order_quantity_gap
+    - fill_rate_earlier
+    - fill_rate_later
+    - fill_rate_gap
+    - slippage_bps_earlier
+    - slippage_bps_later
+    - slippage_gap_bps
+    - fee_gap
+    - margin_gap
+    - pnl_gap
+    title: PairwiseRealityGap
+    type: object
+  PointForecast:
+    additionalProperties: false
+    properties:
+      kind:
+        const: POINT
+        default: POINT
+        title: Kind
+        type: string
+      value:
+        title: Value
+        type: number
+    required:
+    - value
+    title: PointForecast
+    type: object
+  PolicyComparison:
+    additionalProperties: false
+    properties:
+      champion_policy_id:
+        minLength: 1
+        title: Champion Policy Id
+        type: string
+      challenger_policy_id:
+        minLength: 1
+        title: Challenger Policy Id
+        type: string
+      state:
+        $ref: '#/$defs/ComparisonState'
+      sample_count:
+        minimum: 0
+        title: Sample Count
+        type: integer
+      mean_loss_difference:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Mean Loss Difference
+      lower_bound:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Lower Bound
+      upper_bound:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Upper Bound
+      path:
+        items:
+          $ref: '#/$defs/TimeUniformPoint'
+        title: Path
+        type: array
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - champion_policy_id
+    - challenger_policy_id
+    - state
+    - sample_count
+    - mean_loss_difference
+    - lower_bound
+    - upper_bound
+    - path
+    title: PolicyComparison
+    type: object
+  PolicyRole:
+    enum:
+    - CHAMPION
+    - CHALLENGER
+    title: PolicyRole
+    type: string
+  PredictionEvent:
+    additionalProperties: false
+    properties:
+      event_id:
+        minLength: 1
+        title: Event Id
+        type: string
+      cohort_id:
+        minLength: 1
+        title: Cohort Id
+        type: string
+      policy_id:
+        minLength: 1
+        title: Policy Id
+        type: string
+      policy_version:
+        minLength: 1
+        title: Policy Version
+        type: string
+      target_id:
+        minLength: 1
+        title: Target Id
+        type: string
+      horizon_id:
+        minLength: 1
+        title: Horizon Id
+        type: string
+      issued_at:
+        format: date-time
+        title: Issued At
+        type: string
+      information_set_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Information Set Hash
+        type: string
+      forecast:
+        discriminator:
+          mapping:
+            BINARY_PROBABILITY: '#/$defs/BinaryProbabilityForecast'
+            INTERVAL: '#/$defs/IntervalForecast'
+            NORMAL: '#/$defs/NormalForecast'
+            POINT: '#/$defs/PointForecast'
+            QUANTILES: '#/$defs/QuantileForecast'
+          propertyName: kind
+        oneOf:
+        - $ref: '#/$defs/PointForecast'
+        - $ref: '#/$defs/BinaryProbabilityForecast'
+        - $ref: '#/$defs/NormalForecast'
+        - $ref: '#/$defs/QuantileForecast'
+        - $ref: '#/$defs/IntervalForecast'
+        title: Forecast
+      decision_kind:
+        $ref: '#/$defs/DecisionKind'
+      action_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Action Id
+      regime_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Regime Id
+      ood_bucket:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Ood Bucket
+      confidence_bucket:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Confidence Bucket
+    required:
+    - event_id
+    - cohort_id
+    - policy_id
+    - policy_version
+    - target_id
+    - horizon_id
+    - issued_at
+    - information_set_hash
+    - forecast
+    - decision_kind
+    title: PredictionEvent
+    type: object
+  PrequentialRecord:
+    additionalProperties: false
+    properties:
+      prediction:
+        $ref: '#/$defs/PredictionEvent'
+      outcomes:
+        default: []
+        items:
+          $ref: '#/$defs/OutcomeEvent'
+        title: Outcomes
+        type: array
+      active_outcome_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Active Outcome Id
+      record_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Record Sha256
+        type: string
+    required:
+    - prediction
+    - record_sha256
+    title: PrequentialRecord
+    type: object
+  PrequentialStreamResult:
+    additionalProperties: false
+    properties:
+      records:
+        items:
+          $ref: '#/$defs/PrequentialRecord'
+        title: Records
+        type: array
+      maturity_queue:
+        items:
+          $ref: '#/$defs/MaturityQueueItem'
+        title: Maturity Queue
+        type: array
+      receipt:
+        $ref: '#/$defs/StreamIntegrityReceipt'
+    required:
+    - records
+    - maturity_queue
+    - receipt
+    title: PrequentialStreamResult
+    type: object
+  QuantileForecast:
+    additionalProperties: false
+    properties:
+      kind:
+        const: QUANTILES
+        default: QUANTILES
+        title: Kind
+        type: string
+      points:
+        items:
+          $ref: '#/$defs/QuantilePoint'
+        title: Points
+        type: array
+    required:
+    - points
+    title: QuantileForecast
+    type: object
+  QuantilePoint:
+    additionalProperties: false
+    properties:
+      quantile:
+        exclusiveMaximum: 1.0
+        exclusiveMinimum: 0.0
+        title: Quantile
+        type: number
+      value:
+        title: Value
+        type: number
+    required:
+    - quantile
+    - value
+    title: QuantilePoint
+    type: object
+  RealityGapResult:
+    additionalProperties: false
+    properties:
+      gaps:
+        items:
+          $ref: '#/$defs/PairwiseRealityGap'
+        title: Gaps
+        type: array
+      matched_live_pair_count:
+        minimum: 0
+        title: Matched Live Pair Count
+        type: integer
+      mean_abs_fill_rate_gap:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Mean Abs Fill Rate Gap
+      mean_abs_slippage_gap_bps:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Mean Abs Slippage Gap Bps
+      mean_abs_pnl_gap:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Mean Abs Pnl Gap
+      state:
+        $ref: '#/$defs/TransportabilityState'
+      reason_codes:
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+      result_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Result Sha256
+        type: string
+    required:
+    - gaps
+    - matched_live_pair_count
+    - mean_abs_fill_rate_gap
+    - mean_abs_slippage_gap_bps
+    - mean_abs_pnl_gap
+    - state
+    - reason_codes
+    - result_sha256
+    title: RealityGapResult
+    type: object
+  ReliabilitySummary:
+    additionalProperties: false
+    properties:
+      policy_id:
+        minLength: 1
+        title: Policy Id
+        type: string
+      target_id:
+        minLength: 1
+        title: Target Id
+        type: string
+      horizon_id:
+        minLength: 1
+        title: Horizon Id
+        type: string
+      observation_count:
+        minimum: 0
+        title: Observation Count
+        type: integer
+      mean_score_by_name:
+        items:
+          maxItems: 2
+          minItems: 2
+          prefixItems:
+          - minLength: 1
+            type: string
+          - type: number
+          type: array
+        title: Mean Score By Name
+        type: array
+      empirical_coverage:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Empirical Coverage
+      mean_interval_width:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Mean Interval Width
+      abstention_rate:
+        title: Abstention Rate
+        type: number
+      calibration_qualified:
+        title: Calibration Qualified
+        type: boolean
+    required:
+    - policy_id
+    - target_id
+    - horizon_id
+    - observation_count
+    - mean_score_by_name
+    - abstention_rate
+    - calibration_qualified
+    title: ReliabilitySummary
+    type: object
+  RollbackRecommendation:
+    additionalProperties: false
+    properties:
+      state:
+        $ref: '#/$defs/LiveHealthState'
+      decision_trace:
+        items:
+          $ref: '#/$defs/DecisionTraceItem'
+        title: Decision Trace
+        type: array
+      reason_codes:
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+      recommendation_only:
+        default: true
+        title: Recommendation Only
+        type: boolean
+      p0_authorization_required:
+        default: true
+        title: P0 Authorization Required
+        type: boolean
+      result_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Result Sha256
+        type: string
+    required:
+    - state
+    - decision_trace
+    - reason_codes
+    - result_sha256
+    title: RollbackRecommendation
+    type: object
+  S7SubphaseExecutionReceipt:
+    additionalProperties: false
+    properties:
+      subphase_id:
+        const: P9.S7
+        default: P9.S7
+        title: Subphase Id
+        type: string
+      expected_module_ids:
+        items:
+          pattern: ^P9\.S7\.M0[1-8]$
+          type: string
+        title: Expected Module Ids
+        type: array
+      module_receipts:
+        items:
+          $ref: '#/$defs/ModuleExecutionReceipt'
+        title: Module Receipts
+        type: array
+      status:
+        $ref: '#/$defs/ModuleStatus'
+      output_artifact_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Output Artifact Ids
+        type: array
+      integrity:
+        $ref: '#/$defs/IntegrityEnvelope'
+    required:
+    - expected_module_ids
+    - module_receipts
+    - status
+    - output_artifact_ids
+    - integrity
+    title: S7SubphaseExecutionReceipt
+    type: object
+  SequentialModelSet:
+    additionalProperties: false
+    properties:
+      champion_policy_id:
+        minLength: 1
+        title: Champion Policy Id
+        type: string
+      retained_policy_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Retained Policy Ids
+        type: array
+      comparisons:
+        items:
+          $ref: '#/$defs/PolicyComparison'
+        title: Comparisons
+        type: array
+      result_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Result Sha256
+        type: string
+      method:
+        default: BONFERRONI_NORMAL_MIXTURE_CS_V1
+        title: Method
+        type: string
+      assumptions:
+        default:
+        - paired loss differences are conditionally bounded
+        - comparison family is fixed before outcomes
+        items:
+          type: string
+        title: Assumptions
+        type: array
+    required:
+    - champion_policy_id
+    - retained_policy_ids
+    - comparisons
+    - result_sha256
+    title: SequentialModelSet
+    type: object
+  ShadowComparabilityReceipt:
+    additionalProperties: false
+    properties:
+      comparable_cohort_count:
+        minimum: 0
+        title: Comparable Cohort Count
+        type: integer
+      incomplete_cohort_count:
+        minimum: 0
+        title: Incomplete Cohort Count
+        type: integer
+      policy_ids:
+        items:
+          minLength: 1
+          type: string
+        title: Policy Ids
+        type: array
+      common_snapshot_verified:
+        title: Common Snapshot Verified
+        type: boolean
+      isolation_verified:
+        title: Isolation Verified
+        type: boolean
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+      receipt_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Receipt Sha256
+        type: string
+    required:
+    - comparable_cohort_count
+    - incomplete_cohort_count
+    - policy_ids
+    - common_snapshot_verified
+    - isolation_verified
+    - receipt_sha256
+    title: ShadowComparabilityReceipt
+    type: object
+  ShadowExecutionPlan:
+    additionalProperties: false
+    properties:
+      entries:
+        items:
+          $ref: '#/$defs/ShadowPlanEntry'
+        title: Entries
+        type: array
+      plan_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Plan Sha256
+        type: string
+    required:
+    - entries
+    - plan_sha256
+    title: ShadowExecutionPlan
+    type: object
+  ShadowPlanEntry:
+    additionalProperties: false
+    properties:
+      cohort_id:
+        minLength: 1
+        title: Cohort Id
+        type: string
+      prediction_event_id:
+        minLength: 1
+        title: Prediction Event Id
+        type: string
+      policy_id:
+        minLength: 1
+        title: Policy Id
+        type: string
+      policy_version:
+        minLength: 1
+        title: Policy Version
+        type: string
+      role:
+        $ref: '#/$defs/PolicyRole'
+      information_set_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Information Set Hash
+        type: string
+      stage:
+        $ref: '#/$defs/DeploymentStage'
+      resource_budget_units:
+        exclusiveMinimum: 0
+        title: Resource Budget Units
+        type: integer
+      seed_entropy:
+        minimum: 0
+        title: Seed Entropy
+        type: integer
+    required:
+    - cohort_id
+    - prediction_event_id
+    - policy_id
+    - policy_version
+    - role
+    - information_set_hash
+    - stage
+    - resource_budget_units
+    - seed_entropy
+    title: ShadowPlanEntry
+    type: object
+  StreamIntegrityReceipt:
+    additionalProperties: false
+    properties:
+      record_count:
+        minimum: 0
+        title: Record Count
+        type: integer
+      pending_count:
+        minimum: 0
+        title: Pending Count
+        type: integer
+      matured_count:
+        minimum: 0
+        title: Matured Count
+        type: integer
+      no_action_count:
+        minimum: 0
+        title: No Action Count
+        type: integer
+      stream_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Stream Sha256
+        type: string
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - record_count
+    - pending_count
+    - matured_count
+    - no_action_count
+    - stream_sha256
+    title: StreamIntegrityReceipt
+    type: object
+  TimeUniformPoint:
+    additionalProperties: false
+    properties:
+      sample_count:
+        minimum: 1
+        title: Sample Count
+        type: integer
+      mean_loss_difference:
+        title: Mean Loss Difference
+        type: number
+      lower_bound:
+        title: Lower Bound
+        type: number
+      upper_bound:
+        title: Upper Bound
+        type: number
+    required:
+    - sample_count
+    - mean_loss_difference
+    - lower_bound
+    - upper_bound
+    title: TimeUniformPoint
+    type: object
+  TransportabilityState:
+    enum:
+    - TRANSPORTABLE
+    - TRANSPORTABLE_WITH_LIMITATIONS
+    - SIMULATION_BIAS_DETECTED
+    - EXECUTION_MODEL_MISSPECIFIED
+    - SHADOW_EVIDENCE_INSUFFICIENT
+    - NOT_TRANSPORTABLE
+    title: TransportabilityState
+    type: string
+additionalProperties: false
+properties:
+  header:
+    $ref: '#/$defs/BundleHeader'
+  upstream_bundle_sha256s:
+    maxItems: 3
+    minItems: 3
+    prefixItems:
+    - type: string
+    - type: string
+    - type: string
+    title: Upstream Bundle Sha256S
+    type: array
+  prequential_stream:
+    $ref: '#/$defs/PrequentialStreamResult'
+  shadow_plan:
+    $ref: '#/$defs/ShadowExecutionPlan'
+  shadow_comparability:
+    $ref: '#/$defs/ShadowComparabilityReceipt'
+  online_scoring:
+    $ref: '#/$defs/OnlineScoringResult'
+  conformal_monitoring:
+    $ref: '#/$defs/ConformalMonitoringResult'
+  drift_qualification:
+    $ref: '#/$defs/DriftQualificationResult'
+  sequential_model_set:
+    $ref: '#/$defs/SequentialModelSet'
+  rollback_recommendation:
+    $ref: '#/$defs/RollbackRecommendation'
+  reality_gap:
+    $ref: '#/$defs/RealityGapResult'
+  module_receipts:
+    items:
+      $ref: '#/$defs/ModuleExecutionReceipt'
+    title: Module Receipts
+    type: array
+  subphase_receipt:
+    $ref: '#/$defs/S7SubphaseExecutionReceipt'
+  limitations:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Limitations
+    type: array
+required:
+- header
+- upstream_bundle_sha256s
+- prequential_stream
+- shadow_plan
+- shadow_comparability
+- online_scoring
+- conformal_monitoring
+- drift_qualification
+- sequential_model_set
+- rollback_recommendation
+- reality_gap
+- module_receipts
+- subphase_receipt
+title: ProspectiveMonitoringPayload
+type: object
+$id: urn:inferencia:p9:s7:ProspectiveMonitoringPayload:1.0.0

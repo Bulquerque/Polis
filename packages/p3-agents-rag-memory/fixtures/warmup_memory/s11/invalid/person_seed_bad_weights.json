@@ -1,0 +1,29 @@
+{
+  "schema_id": "person_seed_panel.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "person-seed-panel-001",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "population_hash": "f1a7212ba343f7fd15ab02f53d27347d6674a6c70fb2c544b287ab862fb11e43",
+  "persons": [
+    {
+      "person_id": "person-001",
+      "representation_weight": 0.9,
+      "deterministic_seed": 1001,
+      "structural_profile_hash": "a1fc3c4d8913e093f8f88df4242eae272f62a93d3c4645af2ceda313b36c29b3"
+    },
+    {
+      "person_id": "person-002",
+      "representation_weight": 0.35,
+      "deterministic_seed": 1002,
+      "structural_profile_hash": "0d3eb7dd3ccd3e4bfdae741b6bb8ef68b752cb426aa77dc161ebc0837f077a31"
+    },
+    {
+      "person_id": "person-003",
+      "representation_weight": 0.25,
+      "deterministic_seed": 1003,
+      "structural_profile_hash": "cf88f4bb3d96dd036f9953491a5cf1827d919ee5290bc0c6ba5c1dbeb4d34f59"
+    }
+  ],
+  "lineage_id": "lineage-person-seeds-001"
+}

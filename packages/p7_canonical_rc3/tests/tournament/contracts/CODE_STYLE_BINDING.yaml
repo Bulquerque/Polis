@@ -1,0 +1,14 @@
+policy_id: p7_tournament_integrated_code_style_v1
+inherits: p7_engineering_quality_v1_2
+limits:
+  max_python_file_lines: 350
+  max_function_lines: 60
+  max_class_lines: 180
+  max_cyclomatic_complexity: 10
+requirements:
+  - explicit module registry
+  - no dynamic imports
+  - immutable artifact publication
+  - strict typed boundaries
+  - no economic defaults for missing values
+  - no final ranking or portfolio logic

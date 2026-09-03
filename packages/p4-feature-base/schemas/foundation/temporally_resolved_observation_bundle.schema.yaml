@@ -1,0 +1,162 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Temporally resolved observation bundle
+type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    type: string
+    minLength: 1
+  artifact_name:
+    type: string
+    minLength: 1
+  schema_id:
+    type: string
+    minLength: 1
+  schema_version:
+    type: string
+    minLength: 1
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+    minLength: 1
+  cycle_id:
+    type: string
+    minLength: 1
+  as_of_time:
+    type: string
+    format: date-time
+  decision_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+    minLength: 1
+  lineage_id:
+    type: string
+    minLength: 1
+  producer_module_id:
+    type: string
+    pattern: ^P4\.S2\.M0[1-4]$
+  content_hash:
+    type: string
+    pattern: ^[a-f0-9]{64}$
+  status:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        source_record_id:
+          type: string
+        source_artifact_name:
+          type: string
+        source_artifact_id:
+          type: string
+        source_record_index:
+          type: integer
+          minimum: 0
+        source_modality:
+          type: string
+        entity_type_hint:
+          type: string
+        event_time: &id001
+          type:
+          - string
+          - 'null'
+          format: date-time
+        event_time_source:
+          type:
+          - string
+          - 'null'
+        event_time_precision:
+          type:
+          - string
+          - 'null'
+        reference_time: *id001
+        reference_time_source:
+          type:
+          - string
+          - 'null'
+        reference_time_precision:
+          type:
+          - string
+          - 'null'
+        published_at: *id001
+        published_at_source:
+          type:
+          - string
+          - 'null'
+        available_at:
+          type: string
+          format: date-time
+        available_at_source:
+          type: string
+        ingested_at: *id001
+        ingested_at_source:
+          type:
+          - string
+          - 'null'
+        decision_time:
+          type: string
+          format: date-time
+        calculation_time:
+          type: string
+          format: date-time
+        original_timezone:
+          type: string
+        vintage_id:
+          type:
+          - string
+          - 'null'
+        stable_sequence: {}
+        source_lineage_id:
+          type: string
+        temporal_status:
+          type: string
+          enum:
+          - VALIDATED
+          - DEGRADED
+        warnings:
+          type: array
+          items:
+            type: string
+        payload:
+          type: object
+      required:
+      - source_record_id
+      - source_artifact_name
+      - source_artifact_id
+      - source_record_index
+      - source_modality
+      - entity_type_hint
+      - available_at
+      - available_at_source
+      - decision_time
+      - calculation_time
+      - original_timezone
+      - source_lineage_id
+      - temporal_status
+      - warnings
+      - payload
+  temporal_policy_version:
+    type: string
+required:
+- artifact_id
+- artifact_name
+- schema_id
+- schema_version
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- decision_time
+- pipeline_version
+- lineage_id
+- producer_module_id
+- content_hash
+- status
+- records

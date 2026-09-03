@@ -1,0 +1,121 @@
+{
+  "belief_distribution_panel": {
+    "artifact_id": "belief-distribution-fixture",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-belief-panel",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s29-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:00:00Z",
+    "records": [
+      {
+        "run_id": "run-s29-fixture",
+        "cycle_id": "cycle-2024-01",
+        "as_of_time": "2024-01-31T20:00:00Z",
+        "underlying_id": "PETR4",
+        "proposition_id": "earnings_direction",
+        "horizon": "30d",
+        "negative_mass": 0.25,
+        "neutral_mass": 0.25,
+        "positive_mass": 0.5,
+        "belief_mean": 0.25,
+        "belief_variance": 0.36,
+        "normalized_entropy": 0.946394630357,
+        "polarization": 0.4,
+        "effective_sample_size": 18.5,
+        "population_size": 24,
+        "coverage_ratio": 0.92,
+        "source_quality_score": 0.84,
+        "formula_id": "p3.s27.belief_distribution",
+        "formula_version": "1.0.0",
+        "lineage_id": "lineage-belief-petr4"
+      },
+      {
+        "run_id": "run-s29-fixture",
+        "cycle_id": "cycle-2024-01",
+        "as_of_time": "2024-01-31T20:00:00Z",
+        "underlying_id": "VALE3",
+        "proposition_id": "earnings_direction",
+        "horizon": "30d",
+        "negative_mass": 0.0,
+        "neutral_mass": 0.0,
+        "positive_mass": 1.0,
+        "belief_mean": 0.8,
+        "belief_variance": 0.0,
+        "normalized_entropy": 0.0,
+        "polarization": 0.0,
+        "effective_sample_size": 20.0,
+        "population_size": 24,
+        "coverage_ratio": 0.95,
+        "source_quality_score": 0.9,
+        "formula_id": "p3.s27.belief_distribution",
+        "formula_version": "1.0.0",
+        "lineage_id": "lineage-belief-vale3"
+      }
+    ]
+  },
+  "validated_society_state_panel": {
+    "artifact_id": "society-state-fixture",
+    "created_at": "2024-01-31T20:05:00Z",
+    "lineage_id": "lineage-society-panel",
+    "pipeline_version": "V14.1-RC4.1",
+    "run_id": "run-s29-fixture",
+    "cycle_id": "cycle-2024-01",
+    "as_of_time": "2024-01-31T20:00:00Z",
+    "records": [
+      {
+        "run_id": "run-s29-fixture",
+        "cycle_id": "cycle-2024-01",
+        "as_of_time": "2024-01-31T20:00:00Z",
+        "underlying_id": "PETR4",
+        "proposition_id": "earnings_direction",
+        "horizon": "30d",
+        "confidence_dispersion": 0.35,
+        "evidence_diversity": 0.72,
+        "attention_concentration": 0.55,
+        "information_asymmetry": 0.42,
+        "coverage_ratio": 0.9,
+        "source_quality_score": 0.8,
+        "quality_status": "PASS",
+        "quality_reasons": [],
+        "lineage_id": "lineage-society-petr4"
+      },
+      {
+        "run_id": "run-s29-fixture",
+        "cycle_id": "cycle-2024-01",
+        "as_of_time": "2024-01-31T20:00:00Z",
+        "underlying_id": "VALE3",
+        "proposition_id": "earnings_direction",
+        "horizon": "30d",
+        "confidence_dispersion": 0.0,
+        "evidence_diversity": 0.0,
+        "attention_concentration": 0.35,
+        "information_asymmetry": 0.1,
+        "coverage_ratio": 0.95,
+        "source_quality_score": 0.9,
+        "quality_status": "PASS",
+        "quality_reasons": [],
+        "lineage_id": "lineage-society-vale3"
+      }
+    ]
+  },
+  "aggregation_semantics_config": {
+    "formula_id": "s29.disagreement.composite",
+    "formula_version": "1.0.0",
+    "variance_cap": 1.0,
+    "min_effective_sample_size": 3.0,
+    "min_coverage_ratio": 0.6,
+    "min_source_quality_score": 0.5,
+    "weights": {
+      "direction_entropy": 0.3,
+      "belief_variance": 0.2,
+      "polarization": 0.2,
+      "confidence_dispersion": 0.15,
+      "evidence_diversity": 0.15
+    },
+    "blocked_quality_statuses": [
+      "BLOCKED"
+    ],
+    "output_precision": 12
+  }
+}

@@ -1,0 +1,14 @@
+schema_id: p3.s37.macro_tool_catalog.v1
+schema_version: 1.0.0
+tools:
+  - tool_id: macro.observation.v1
+    provider_id: internal_research
+    transport: ARTIFACT_QUERY
+    read_only: true
+    point_in_time_safe: true
+    operations:
+      - search_series
+      - get_observations
+      - get_release_snapshot
+      - compare_series
+      - get_asset_context

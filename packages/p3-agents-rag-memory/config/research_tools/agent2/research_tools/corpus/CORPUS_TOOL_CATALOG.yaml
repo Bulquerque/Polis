@@ -1,0 +1,47 @@
+schema_id: p3.s35.corpus_tool_catalog.v1
+schema_version: 1.0.0
+tool_id: research.corpus.v1
+tool_version: 1.0.0
+provider_independent: true
+read_only: true
+point_in_time_required: true
+default_provider_id: internal_research
+operations:
+  - operation_id: search
+    handler_id: p3.s35.search
+    request_model: SearchCorpusRequest
+    result_model: CorpusToolResultEnvelope
+    modes: [LOOKUP, STANDARD, TRIANGULATED, FORENSIC]
+  - operation_id: get_document
+    handler_id: p3.s35.get_document
+    request_model: GetDocumentRequest
+    result_model: CorpusToolResultEnvelope
+    modes: [LOOKUP, STANDARD, TRIANGULATED, FORENSIC]
+  - operation_id: compare_versions
+    handler_id: p3.s35.compare_versions
+    request_model: CompareVersionsRequest
+    result_model: CorpusToolResultEnvelope
+    modes: [STANDARD, TRIANGULATED, FORENSIC]
+  - operation_id: find_counterevidence
+    handler_id: p3.s35.find_counterevidence
+    request_model: FindCounterevidenceRequest
+    result_model: CorpusToolResultEnvelope
+    modes: [STANDARD, TRIANGULATED, FORENSIC]
+  - operation_id: build_timeline
+    handler_id: p3.s35.build_timeline
+    request_model: BuildTimelineRequest
+    result_model: CorpusToolResultEnvelope
+    modes: [LOOKUP, STANDARD, TRIANGULATED]
+  - operation_id: inspect_provenance
+    handler_id: p3.s35.inspect_provenance
+    request_model: InspectProvenanceRequest
+    result_model: CorpusToolResultEnvelope
+    modes: [LOOKUP, STANDARD, TRIANGULATED, FORENSIC]
+forbidden_authorities:
+  - signal_generation
+  - trade_decision
+  - candidate_ranking
+  - feature_selection
+  - model_selection
+  - backtest
+  - portfolio_optimization

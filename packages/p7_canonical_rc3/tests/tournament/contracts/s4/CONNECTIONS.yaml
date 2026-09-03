@@ -1,0 +1,18 @@
+registry_id: p7_s4_connections_v1
+allowed:
+  - from: P7.S3
+    to: P7.S4
+    via: typed_artifacts
+  - from: P7.S2
+    to: P7.S4
+    via: candidate_groups_and_scoring_policy
+  - from: P7.S4
+    to: P7.LEARNING
+    via: interpretable_tournament_handoff_manifest
+forbidden:
+  - P7.S4_to_P6_private_code
+  - P7.S4_to_P8_private_code
+  - P7.S4_to_P9_current_cycle_outcomes
+  - P7.S4_to_LTR_runtime
+  - cross_group_normalization
+  - hidden_economic_defaults

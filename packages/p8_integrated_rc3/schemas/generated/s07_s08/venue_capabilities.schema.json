@@ -1,0 +1,101 @@
+{
+  "$defs": {
+    "OrderType": {
+      "enum": [
+        "MARKET",
+        "LIMIT",
+        "STOP",
+        "STOP_LIMIT"
+      ],
+      "title": "OrderType",
+      "type": "string"
+    },
+    "SecurityType": {
+      "enum": [
+        "EQUITY",
+        "OPTION",
+        "FUTURE",
+        "ETF",
+        "CRYPTO"
+      ],
+      "title": "SecurityType",
+      "type": "string"
+    },
+    "TimeInForce": {
+      "enum": [
+        "DAY",
+        "GTC",
+        "IOC",
+        "FOK",
+        "OPG",
+        "CLS"
+      ],
+      "title": "TimeInForce",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "max_combo_legs": {
+      "default": 4,
+      "minimum": 2,
+      "title": "Max Combo Legs",
+      "type": "integer"
+    },
+    "min_combo_legs": {
+      "default": 2,
+      "minimum": 2,
+      "title": "Min Combo Legs",
+      "type": "integer"
+    },
+    "supported_order_types": {
+      "items": {
+        "$ref": "#/$defs/OrderType"
+      },
+      "title": "Supported Order Types",
+      "type": "array"
+    },
+    "supported_security_types": {
+      "items": {
+        "$ref": "#/$defs/SecurityType"
+      },
+      "title": "Supported Security Types",
+      "type": "array"
+    },
+    "supported_tifs": {
+      "items": {
+        "$ref": "#/$defs/TimeInForce"
+      },
+      "title": "Supported Tifs",
+      "type": "array"
+    },
+    "supports_combo": {
+      "title": "Supports Combo",
+      "type": "boolean"
+    },
+    "supports_fractional": {
+      "default": false,
+      "title": "Supports Fractional",
+      "type": "boolean"
+    },
+    "supports_replace": {
+      "default": true,
+      "title": "Supports Replace",
+      "type": "boolean"
+    },
+    "venue": {
+      "minLength": 1,
+      "title": "Venue",
+      "type": "string"
+    }
+  },
+  "required": [
+    "venue",
+    "supports_combo",
+    "supported_security_types",
+    "supported_order_types",
+    "supported_tifs"
+  ],
+  "title": "VenueCapabilities",
+  "type": "object"
+}

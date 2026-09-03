@@ -1,0 +1,6 @@
+accuracy:
+  market_participants: forecast_accuracy
+  information_actors: information_accuracy
+  policy_institutions: information_accuracy
+  corporate_actors: information_accuracy
+  real_economy: operational_continuity

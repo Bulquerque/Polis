@@ -1,0 +1,229 @@
+{
+  "clean_context_source_panel": {
+    "artifact_id": "ctx-1",
+    "created_at": "2026-07-27T23:00:00Z",
+    "lineage_id": "lin-ctx-1",
+    "pipeline_version": "V14.1-RC4.1",
+    "source_id": "s1",
+    "available_at": "2026-07-27T10:00:00Z",
+    "records": [
+      {
+        "artifact_id": "ctx-1",
+        "source_id": "s1",
+        "available_at": "2026-07-27T10:00:00Z",
+        "lineage_id": "lin-ctx-1"
+      }
+    ]
+  },
+  "clean_document_panel": {
+    "artifact_id": "clean-document-panel-f5f3b3aeb6fd",
+    "created_at": "2026-07-27T23:00:00Z",
+    "lineage_id": "lin-d1",
+    "pipeline_version": "V14.1-RC4.1",
+    "document_id": "d1",
+    "source_id": "s1",
+    "source_name": "Official",
+    "document_type": "filing",
+    "document_title": "D1",
+    "document_text_or_path": "content",
+    "reference_date": "2026-07-26",
+    "available_at": "2026-07-27T10:00:00Z",
+    "ingested_at": "2026-07-27T10:01:00Z",
+    "source_quality_score": 0.95,
+    "language": "en",
+    "cleaning_status": "clean",
+    "records": [
+      {
+        "document_id": "d1",
+        "source_id": "s1",
+        "source_name": "Official",
+        "document_type": "filing",
+        "document_title": "D1",
+        "document_text_or_path": "content",
+        "reference_date": "2026-07-26",
+        "available_at": "2026-07-27T10:00:00Z",
+        "ingested_at": "2026-07-27T10:01:00Z",
+        "source_quality_score": 0.95,
+        "language": "en",
+        "cleaning_status": "clean",
+        "lineage_id": "lin-d1"
+      }
+    ]
+  },
+  "clean_event_reference_panel": {
+    "artifact_id": "clean-event-reference-panel-995b829efbc3",
+    "created_at": "2026-07-27T23:00:00Z",
+    "lineage_id": "lin-e1",
+    "pipeline_version": "V14.1-RC4.1",
+    "event_id": "e1",
+    "source_id": "s1",
+    "available_at": "2026-07-27T10:00:00Z",
+    "records": [
+      {
+        "event_id": "e1",
+        "source_id": "s1",
+        "available_at": "2026-07-27T10:00:00Z",
+        "lineage_id": "lin-e1"
+      }
+    ]
+  },
+  "source_quality_panel": {
+    "artifact_id": "source-quality-panel-1e53ca7581ae",
+    "created_at": "2026-07-27T23:00:00Z",
+    "lineage_id": "lin-q1",
+    "pipeline_version": "V14.1-RC4.1",
+    "source_id": "s1",
+    "source_name": "Official",
+    "source_type": "official",
+    "quality_score": 0.95,
+    "quality_status": "PASS",
+    "quality_reasons": [],
+    "readability_status": "readable",
+    "error_flag": false,
+    "warning_flag": false,
+    "declared_available_at": "2026-07-27T10:00:00Z",
+    "records": [
+      {
+        "source_id": "s1",
+        "source_name": "Official",
+        "source_type": "official",
+        "quality_score": 0.95,
+        "quality_status": "PASS",
+        "quality_reasons": [],
+        "readability_status": "readable",
+        "error_flag": false,
+        "warning_flag": false,
+        "declared_available_at": "2026-07-27T10:00:00Z",
+        "lineage_id": "lin-q1"
+      }
+    ]
+  },
+  "context_handoff_manifest": {
+    "artifact_id": "context-handoff-006e9827c239",
+    "created_at": "2026-07-27T23:00:00Z",
+    "lineage_id": "lineage-context-handoff-006e9827c239",
+    "pipeline_version": "V14.1-RC4.1",
+    "artifact_ids": [
+      "ctx-1",
+      "clean-document-panel-f5f3b3aeb6fd",
+      "clean-event-reference-panel-995b829efbc3",
+      "source-quality-panel-1e53ca7581ae",
+      "quality-report-1",
+      "clean_underlying_panel-acc0c3c15bac",
+      "clean_underlying_trade_panel-281cb90728b2",
+      "clean_macro_br_panel-649aa916367d",
+      "clean_macro_us_panel-726221acae95",
+      "clean_benchmark_panel-02b1eaf55ded",
+      "clean_calendar_panel-58898fbe6143",
+      "clean_corporate_actions_panel-4d804fc5f8c2",
+      "clean_option_quotes_panel-31b682205268",
+      "clean_option_contract_panel-1acb877db6e5",
+      "clean_cost_reference_panel-c388d7463743",
+      "clean_liquidity_reference_panel-e55e80a17263"
+    ],
+    "target_artifact_ids": [
+      "ctx-1",
+      "clean-document-panel-f5f3b3aeb6fd",
+      "clean-event-reference-panel-995b829efbc3",
+      "source-quality-panel-1e53ca7581ae"
+    ],
+    "artifact_refs": [
+      {
+        "artifact_name": "clean_context_source_panel",
+        "artifact_id": "ctx-1",
+        "schema_version": null,
+        "content_hash": "b05cca02e13840dea0cd3d988fb1cf2fd1bd2ae37d4172543c69e8e53bf846e0",
+        "lineage_id": "lin-ctx-1"
+      },
+      {
+        "artifact_name": "clean_document_panel",
+        "artifact_id": "clean-document-panel-f5f3b3aeb6fd",
+        "schema_version": null,
+        "content_hash": "11640db698780cac094c57522eb4805f02a2884e7f09dc8caa86cae9819d6d2a",
+        "lineage_id": "lin-d1"
+      },
+      {
+        "artifact_name": "clean_event_reference_panel",
+        "artifact_id": "clean-event-reference-panel-995b829efbc3",
+        "schema_version": null,
+        "content_hash": "14f6637e458c4a0f3efcd9d374c026579eed40c325cca9d7f277a205e1e56e8f",
+        "lineage_id": "lin-e1"
+      },
+      {
+        "artifact_name": "source_quality_panel",
+        "artifact_id": "source-quality-panel-1e53ca7581ae",
+        "schema_version": null,
+        "content_hash": "5fc9ea938ab2499c0b3290bf960cd82ef23bdd38b109f293cd4bbefe1903cb58",
+        "lineage_id": "lin-q1"
+      }
+    ],
+    "target_phase": "phase_03_agents_rag_memory",
+    "quality_status": "PASS",
+    "target_readiness": {},
+    "no_hidden_bundle": true
+  },
+  "phase3_handoff_manifest": {
+    "handoff_id": "handoff-phase_03_agents_rag_memory-bc80b3012b55eb5cc800",
+    "created_at": "2026-07-27T23:00:00Z",
+    "target_phase": "phase_03_agents_rag_memory",
+    "artifact_ids": [
+      "ctx-1",
+      "clean-document-panel-f5f3b3aeb6fd",
+      "clean-event-reference-panel-995b829efbc3",
+      "source-quality-panel-1e53ca7581ae",
+      "quality-report-1",
+      "clean_underlying_panel-acc0c3c15bac",
+      "clean_underlying_trade_panel-281cb90728b2",
+      "clean_macro_br_panel-649aa916367d",
+      "clean_macro_us_panel-726221acae95",
+      "clean_benchmark_panel-02b1eaf55ded",
+      "clean_calendar_panel-58898fbe6143",
+      "clean_corporate_actions_panel-4d804fc5f8c2",
+      "clean_option_quotes_panel-31b682205268",
+      "clean_option_contract_panel-1acb877db6e5",
+      "clean_cost_reference_panel-c388d7463743",
+      "clean_liquidity_reference_panel-e55e80a17263"
+    ],
+    "target_artifact_ids": [
+      "ctx-1",
+      "clean-document-panel-f5f3b3aeb6fd",
+      "clean-event-reference-panel-995b829efbc3",
+      "source-quality-panel-1e53ca7581ae"
+    ],
+    "artifact_refs": [
+      {
+        "artifact_name": "clean_context_source_panel",
+        "artifact_id": "ctx-1",
+        "schema_version": null,
+        "content_hash": "b05cca02e13840dea0cd3d988fb1cf2fd1bd2ae37d4172543c69e8e53bf846e0",
+        "lineage_id": "lin-ctx-1"
+      },
+      {
+        "artifact_name": "clean_document_panel",
+        "artifact_id": "clean-document-panel-f5f3b3aeb6fd",
+        "schema_version": null,
+        "content_hash": "11640db698780cac094c57522eb4805f02a2884e7f09dc8caa86cae9819d6d2a",
+        "lineage_id": "lin-d1"
+      },
+      {
+        "artifact_name": "clean_event_reference_panel",
+        "artifact_id": "clean-event-reference-panel-995b829efbc3",
+        "schema_version": null,
+        "content_hash": "14f6637e458c4a0f3efcd9d374c026579eed40c325cca9d7f277a205e1e56e8f",
+        "lineage_id": "lin-e1"
+      },
+      {
+        "artifact_name": "source_quality_panel",
+        "artifact_id": "source-quality-panel-1e53ca7581ae",
+        "schema_version": null,
+        "content_hash": "5fc9ea938ab2499c0b3290bf960cd82ef23bdd38b109f293cd4bbefe1903cb58",
+        "lineage_id": "lin-q1"
+      }
+    ],
+    "lineage_id": "lineage-handoff-1c149c47b507061e18fd",
+    "pipeline_version": "V14.1-RC4.1",
+    "quality_status": "PASS",
+    "target_readiness": {},
+    "no_hidden_bundle": true
+  }
+}

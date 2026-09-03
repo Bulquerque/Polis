@@ -1,0 +1,108 @@
+{
+  "$defs": {
+    "MinimumSamplePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum_regression_observations": {
+          "default": 30,
+          "minimum": 3,
+          "title": "Minimum Regression Observations",
+          "type": "integer"
+        },
+        "minimum_return_observations": {
+          "default": 20,
+          "minimum": 2,
+          "title": "Minimum Return Observations",
+          "type": "integer"
+        },
+        "minimum_rolling_observations": {
+          "default": 20,
+          "minimum": 2,
+          "title": "Minimum Rolling Observations",
+          "type": "integer"
+        },
+        "minimum_tail_observations": {
+          "default": 50,
+          "minimum": 5,
+          "title": "Minimum Tail Observations",
+          "type": "integer"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version"
+      ],
+      "title": "MinimumSamplePolicy",
+      "type": "object"
+    },
+    "ParametricTailModel": {
+      "enum": [
+        "NONE",
+        "NORMAL"
+      ],
+      "title": "ParametricTailModel",
+      "type": "string"
+    },
+    "QuantileMethod": {
+      "enum": [
+        "linear",
+        "inverted_cdf",
+        "median_unbiased"
+      ],
+      "title": "QuantileMethod",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/TailRiskPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "confidence_levels": {
+      "default": [
+        0.95,
+        0.99
+      ],
+      "items": {
+        "type": "number"
+      },
+      "title": "Confidence Levels",
+      "type": "array"
+    },
+    "minimum_samples": {
+      "$ref": "#/$defs/MinimumSamplePolicy"
+    },
+    "parametric_model": {
+      "$ref": "#/$defs/ParametricTailModel",
+      "default": "NORMAL"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "quantile_method": {
+      "$ref": "#/$defs/QuantileMethod",
+      "default": "linear"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version",
+    "minimum_samples"
+  ],
+  "title": "TailRiskPolicy",
+  "type": "object"
+}

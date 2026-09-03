@@ -1,0 +1,70 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "name": "numpy",
+      "scope": "required",
+      "type": "library",
+      "version": ">=1.26,<3"
+    },
+    {
+      "name": "pydantic",
+      "scope": "required",
+      "type": "library",
+      "version": ">=2,<3"
+    },
+    {
+      "name": "PyYAML",
+      "scope": "required",
+      "type": "library",
+      "version": ">=6,<7"
+    },
+    {
+      "name": "jsonschema",
+      "scope": "required",
+      "type": "library",
+      "version": ">=4,<5"
+    },
+    {
+      "name": "pytest",
+      "scope": "optional",
+      "type": "library",
+      "version": ">=8,<10"
+    },
+    {
+      "name": "coverage",
+      "scope": "optional",
+      "type": "library",
+      "version": ">=7,<8"
+    },
+    {
+      "name": "hypothesis",
+      "scope": "optional",
+      "type": "library",
+      "version": ">=6,<7"
+    },
+    {
+      "name": "ruff",
+      "scope": "optional",
+      "type": "library",
+      "version": ">=0.12,<1"
+    },
+    {
+      "name": "mypy",
+      "scope": "optional",
+      "type": "library",
+      "version": ">=1.18,<2"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "quant-pipeline-p7-strategy-tournament",
+      "type": "application",
+      "version": "2.3.1rc3"
+    },
+    "timestamp": "2026-08-02T21:49:42.278718Z"
+  },
+  "serialNumber": "urn:uuid:p7-2.3.1rc3-p5-p6-compatible",
+  "specVersion": "1.5",
+  "version": 1
+}

@@ -1,0 +1,48 @@
+module_id: P0.S5.M06
+module_name: code_style_quality_reporter
+function: Executar code style quality reporter da Fase 0, mantendo controle Zero Trust
+  técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- duplicate_file_report
+- monolith_report
+- forbidden_import_report
+- hidden_global_state_report
+- module_contract_coverage_report
+outputs: &id002
+- code_quality_report
+validations:
+- quality_status_computed
+- blocking_quality_issue_marked
+fail_fast_conditions:
+- code_style_quality_reporter_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S5.M01
+    - P0.S5.M02
+    - P0.S5.M03
+    - P0.S5.M04
+    - P0.S5.M05
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S4.M05
+    - P0.S6.M02
+    - P0.S8.M03
+    - P0.S9.M01
+    artifacts: *id002
+    phase_outputs:
+    - code_quality_report
+phase: P0
+subphase: P0.S5
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

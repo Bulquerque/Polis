@@ -1,0 +1,26 @@
+schema_version: p4.contract-authority.v1
+phase: P4
+canonical_root: contracts/modules
+mirror_roots:
+  - path: contracts/foundation/modules
+    role: GENERATED_PARTIAL_MIRROR
+historical_roots:
+  - path: docs/baseline_v14_7/contracts/modules
+    role: HISTORICAL_ONLY
+mirror_policy:
+  editable: false
+  generated_from_canonical: true
+  byte_identity_required: true
+  semantic_identity_required: true
+compatibility_aliases:
+  - alias_stem: P4_S1_M01_phase2_feature_intake_validator
+    module_id: P4.S1.M01
+    source_path: src/quant_pipeline/phase_04_feature_base/modules/P4_S1_M01_phase2_feature_intake_validator.py
+    canonical_source_path: src/quant_pipeline/phase_04_feature_base/modules/P4_S1_M01_phase2_handoff_validator.py
+    canonical_filename: P4_S1_M01_phase2_handoff_validator.py
+    generated_at: 2026-07-31T16:04:00Z
+    generated_by: P4.S1.M01.phase2_handoff_validator
+    requirements_covered:
+      - P4.S1.M01
+      - P2.S6.M02->P4.S1.M01
+    validation_result: PASS

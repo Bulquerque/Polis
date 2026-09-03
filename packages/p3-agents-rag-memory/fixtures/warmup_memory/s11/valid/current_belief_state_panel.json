@@ -1,0 +1,15 @@
+{
+  "schema_id": "current_belief_state_panel.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "current-belief-667d0b9af3b207fc26db",
+  "module_id": "P3.S11.M03",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "cycle_id": "live-cycle-0001",
+  "cycle_number": 1,
+  "as_of_time": "2026-01-01T00:00:00Z",
+  "source_state_hash": "0387b4ccd5b3f91aa936caa1a463621ce0d8f0326e31bbe760bededad0c0cefa",
+  "records": [],
+  "content_hash": "bd23650197fe968530e9f3137d8e7a26b6fbea7c4fcd0fb77675fe1e526e0f0c",
+  "lineage_id": "lineage-current-state-69a95b11e4b81115704f"
+}

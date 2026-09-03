@@ -1,0 +1,170 @@
+module_id: P3.S33.M04
+module_name: temporal_entity_instrument_resolver_builder
+phase: phase_03_agents_rag_memory
+subphase: P3.S33
+status: implemented_qualified_internal
+function: Construir resolução temporal determinística de entidades, instrumentos e aliases.
+inputs: &id001
+- entity_underlying_map_config
+- clean_underlying_panel
+- clean_option_contract_panel
+- clean_document_panel
+- clean_event_reference_panel
+- clean_corporate_actions_panel
+- phase2_research_view_manifest
+- pit_visibility_policy
+outputs: &id002
+- temporal_entity_resolution_index
+- entity_resolution_policy
+- entity_resolution_qualification_report
+validations:
+- strict_input_contracts
+- deterministic_outputs
+- content_hash_and_lineage
+- point_in_time_fail_closed
+- no_hidden_payload
+invariants:
+- read_only
+- no_network_access
+- no_direct_P3_to_P5
+- no_modification_of_P3_S1_to_S32
+- no_wall_clock_semantics
+non_responsibilities:
+- Não executar ferramentas de domínio, não rerankear, não calcular features, sinais, portfólio ou backtest.
+fail_fast_conditions:
+- schema_violation
+- duplicate_identifier
+- hash_mismatch
+- naive_datetime
+- snapshot_conflict
+forbidden_fields:
+- future_return
+- target
+- label
+- prediction
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- performance
+- pnl
+- buy_sell_signal
+- recommendation
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - P1
+    - P2
+    - P3.S32
+  emits_to:
+    modules:
+    - P3.S34
+    - P3.S35
+    - P3.S36
+    - P3.S37
+    - P3.S38
+    - P3.S39
+    - P3.S40
+    artifacts: *id002
+    phase_outputs: []
+tests_required:
+- happy_path
+- negative_contract
+- determinism
+- point_in_time
+- compatibility
+definition_of_done:
+- required_tests_implemented_and_passing
+- outputs_match_generated_schemas
+- no_undeclared_side_effects
+- contracts_docs_tests_updated_together
+- existing_p3_tests_remain_green
+contract_version: p3.s33.contracts.v1
+owner_prompt: subphases/extensions/research_tools/P3_S33_point_in_time_data_boundary_provenance.md
+implementation_boundary:
+  owns:
+  - Construir resolução temporal determinística de entidades, instrumentos e aliases.
+  must_not_absorb:
+  - domain_tool_execution
+  - downstream_modeling
+  state_mutation_policy: outputs_only
+observability_requirements:
+  events:
+  - module_started
+  - input_contract_validated
+  - module_succeeded
+  - module_failed
+  dimensions:
+  - module_id
+  - contract_version
+  - lineage_id
+  - content_hash
+  metrics:
+  - duration_ms
+  - input_record_count
+  - output_record_count
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - storage_paths
+  - raw_bytes
+  - private_payloads
+debugging_contract:
+  triage_order:
+  - validate_required_inputs
+  - validate_schema_version
+  - validate_hash_and_lineage
+  - validate_temporal_invariants
+  - validate_output_schema
+  error_codes:
+  - P3RT-CONTRACT-0001
+  - P3RT-PIT-0001
+  - P3RT-DATA-0001
+  - P3RT-UPSTREAM-0001
+  fallback_policy: fail_closed_no_silent_fallback
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - documentation
+  contract_change_requires:
+  - schema_update
+  - fixtures_update
+  - consumer_tests_update
+  - version_review
+review_checklist:
+- single_responsibility
+- input_output_match
+- no_forbidden_authority
+- deterministic
+- strict_models
+- negative_tests_present
+rc: S33-V1
+forbidden_connections:
+- any_undeclared_connection
+- network_access
+- direct_P3_to_P5_P6_P7_P8
+- modification_of_P3_S1_to_S32
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M04_temporal_entity_instrument_resolver_builder.py
+unit_test_target: tests/phase_specific/research_tools/test_p3_s33_m04_entity_resolution.py
+integration_test_target: tests/phase_specific/research_tools/test_p3_s33_integration.py
+implementation_status: QUALIFIED_LOCAL_PENDING_TEST_RUN
+production_promotion_allowed: false
+qualification_scope: LOCAL_BOUNDARY_AND_PIT_ONLY; P0_PENDING
+documentation_refs:
+- docs/research_tools/P3_S33_IMPLEMENTATION.md
+- docs/research_tools/P3_S33_PIT_PROVENANCE.md
+- docs/research_tools/P3_S33_TESTING.md
+required_inputs:
+- entity_underlying_map_config
+- phase2_research_view_manifest
+- pit_visibility_policy
+optional_inputs:
+- clean_underlying_panel
+- clean_option_contract_panel
+- clean_document_panel
+- clean_event_reference_panel
+- clean_corporate_actions_panel

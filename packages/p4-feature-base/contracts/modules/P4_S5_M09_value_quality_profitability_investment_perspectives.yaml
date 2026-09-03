@@ -1,0 +1,41 @@
+module_id: P4.S5.M09
+module_name: value_quality_profitability_investment_perspectives
+phase: P4
+subphase: P4.S5
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: Construct value_quality_profitability_investment_perspective_panel from
+  approved atomic observations without targets.
+inputs:
+- fundamental_accounting_atomic_panel
+- approved_hypothesis_passport_registry
+outputs:
+- value_quality_profitability_investment_perspective_panel
+invariants:
+- point_in_time_integrity
+- approved_hypotheses_only
+- no_target_or_prediction
+- lineage_all_dependencies
+- deterministic_replay
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+fail_fast_conditions:
+- P4_S5_M09_UNKNOWN_OBSERVER
+- P4_S5_M09_ATOMIC_SCHEMA_INVALID
+- P4_S5_M09_OUTPUT_INVALID
+tests_required:
+- happy_path
+- schema_negative
+- point_in_time
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+production_promotion_allowed: false

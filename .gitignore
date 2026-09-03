@@ -1,0 +1,37 @@
+# Secrets and local runtime files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python/runtime artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.venv/
+venv/
+
+# Editor and interrupted-command leftovers
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# Local provider captures and logs
+logs/
+artifacts/
+data/raw/
+
+# Reproducible release build products
+reports/release/*.zip

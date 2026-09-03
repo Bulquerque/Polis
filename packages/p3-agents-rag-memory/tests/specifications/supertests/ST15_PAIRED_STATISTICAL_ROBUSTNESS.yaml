@@ -1,0 +1,15 @@
+spec_id: ST15_PAIRED_STATISTICAL_ROBUSTNESS
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Baseline/candidate comparison uses common random numbers and dependent-data inference
+required_cases:
+- paired_design
+- block_or_stationary_bootstrap
+- walk_forward
+- confidence_intervals
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

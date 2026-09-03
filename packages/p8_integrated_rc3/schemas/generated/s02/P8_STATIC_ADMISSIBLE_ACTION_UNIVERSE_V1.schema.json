@@ -1,0 +1,166 @@
+{
+  "$defs": {
+    "StaticActionDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/StaticActionState"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "representative_candidate_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Representative Candidate Id"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "state"
+      ],
+      "title": "StaticActionDecision",
+      "type": "object"
+    },
+    "StaticActionState": {
+      "enum": [
+        "FORWARD_TO_RISK",
+        "EXACT_REDUNDANT",
+        "P7_TERMINAL_PRESERVED",
+        "INVALID_STATIC_CONTRACT",
+        "STATIC_CAPABILITY_UNSUPPORTED",
+        "REFERENCE_UNRESOLVED"
+      ],
+      "title": "StaticActionState",
+      "type": "string"
+    },
+    "StaticUniverseConservationProof": {
+      "additionalProperties": false,
+      "properties": {
+        "input_candidate_count": {
+          "minimum": 0,
+          "title": "Input Candidate Count",
+          "type": "integer"
+        },
+        "decision_count": {
+          "minimum": 0,
+          "title": "Decision Count",
+          "type": "integer"
+        },
+        "forwarded_count": {
+          "minimum": 0,
+          "title": "Forwarded Count",
+          "type": "integer"
+        },
+        "terminal_preserved_count": {
+          "minimum": 0,
+          "title": "Terminal Preserved Count",
+          "type": "integer"
+        },
+        "excluded_count": {
+          "minimum": 0,
+          "title": "Excluded Count",
+          "type": "integer"
+        },
+        "input_ids_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Ids Hash",
+          "type": "string"
+        },
+        "decision_ids_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Decision Ids Hash",
+          "type": "string"
+        },
+        "equation_valid": {
+          "title": "Equation Valid",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "input_candidate_count",
+        "decision_count",
+        "forwarded_count",
+        "terminal_preserved_count",
+        "excluded_count",
+        "input_ids_hash",
+        "decision_ids_hash",
+        "equation_valid"
+      ],
+      "title": "StaticUniverseConservationProof",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "P8_STATIC_ADMISSIBLE_ACTION_UNIVERSE_V1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "forwarded_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Forwarded Candidate Ids",
+      "type": "array"
+    },
+    "decisions": {
+      "items": {
+        "$ref": "#/$defs/StaticActionDecision"
+      },
+      "title": "Decisions",
+      "type": "array"
+    },
+    "proof": {
+      "$ref": "#/$defs/StaticUniverseConservationProof"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "schema_version",
+    "snapshot_id",
+    "forwarded_candidate_ids",
+    "decisions",
+    "proof",
+    "content_sha256"
+  ],
+  "title": "StaticAdmissibleActionUniverse",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P8_STATIC_ADMISSIBLE_ACTION_UNIVERSE_V1.schema.json"
+}

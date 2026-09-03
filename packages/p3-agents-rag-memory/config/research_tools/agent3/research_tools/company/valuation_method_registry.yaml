@@ -1,0 +1,10 @@
+version: 1.0.0
+methods:
+- OBSERVED_MULTIPLES
+- HISTORICAL_BAND
+- PEER_BAND
+- SCENARIO_DCF
+- REVERSE_DCF
+explicit_assumptions_required: true
+target_price_authority: false
+investment_recommendation_authority: false

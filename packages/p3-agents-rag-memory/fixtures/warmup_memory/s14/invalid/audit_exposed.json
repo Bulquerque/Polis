@@ -1,0 +1,78 @@
+{
+  "schema_id": "memory_access_config_s14.v1",
+  "schema_version": "1.0.0",
+  "policy_version": "memory-access-policy.1.0.0",
+  "formula_id": "memory-retrievability-linear-v1",
+  "formula_version": "1.0.0",
+  "factor_weights": {
+    "relevance": 0.35,
+    "recency": 0.2,
+    "importance": 0.2,
+    "repetition": 0.1,
+    "significance": 0.15
+  },
+  "budgets": {
+    "top_k_default": 12,
+    "top_k_min": 1,
+    "top_k_max": 50,
+    "max_context_tokens": 2048,
+    "max_per_source": 3,
+    "max_social_visible": 4
+  },
+  "type_policies": [
+    {
+      "memory_type": "EPISODIC",
+      "enabled": true,
+      "half_life_days": 30,
+      "max_per_query": 6
+    },
+    {
+      "memory_type": "SEMANTIC",
+      "enabled": true,
+      "half_life_days": 180,
+      "max_per_query": 8
+    },
+    {
+      "memory_type": "PROCEDURAL",
+      "enabled": true,
+      "half_life_days": 365,
+      "max_per_query": 4
+    },
+    {
+      "memory_type": "SOCIAL",
+      "enabled": true,
+      "half_life_days": 90,
+      "max_per_query": 4
+    }
+  ],
+  "scope_policies": [
+    {
+      "visibility_scope": "SELF",
+      "retrievable": true,
+      "requires_relationship": false,
+      "audit_only": false
+    },
+    {
+      "visibility_scope": "SOCIAL_VISIBLE",
+      "retrievable": true,
+      "requires_relationship": true,
+      "audit_only": false
+    },
+    {
+      "visibility_scope": "PUBLIC",
+      "retrievable": true,
+      "requires_relationship": false,
+      "audit_only": false
+    },
+    {
+      "visibility_scope": "AUDIT_ONLY",
+      "retrievable": true,
+      "requires_relationship": false,
+      "audit_only": true
+    }
+  ],
+  "pit_filter_required": true,
+  "audit_memory_separate": true,
+  "same_cycle_back_edge_forbidden": true,
+  "future_record_policy": "EXCLUDE_AND_REPORT"
+}

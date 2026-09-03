@@ -1,0 +1,10 @@
+reports:
+- code_quality_report
+- duplicate_file_report
+- monolith_report
+- forbidden_import_report
+- hidden_global_state_report
+fail_on:
+- forbidden_import
+- critical_monolith
+- hidden_global_state

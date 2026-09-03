@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "deterministic_seed": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Deterministic Seed",
+      "type": "integer"
+    },
+    "person_id": {
+      "minLength": 1,
+      "title": "Person Id",
+      "type": "string"
+    },
+    "request_id": {
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_id",
+    "person_id",
+    "decision_time",
+    "snapshot_id"
+  ],
+  "title": "QuantCallContext",
+  "type": "object"
+}

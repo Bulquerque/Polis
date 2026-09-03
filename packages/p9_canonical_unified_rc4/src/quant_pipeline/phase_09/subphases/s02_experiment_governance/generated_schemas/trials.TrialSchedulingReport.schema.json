@@ -1,0 +1,44 @@
+{
+  "$defs": {
+    "TrialPlanState": {
+      "enum": [
+        "PLAN_READY",
+        "PLAN_READY_LIMITED",
+        "NO_TRIALS_VALID",
+        "SCHEDULER_INFEASIBLE",
+        "BUNDLE_INVALID"
+      ],
+      "title": "TrialPlanState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/TrialPlanState"
+    }
+  },
+  "required": [
+    "state"
+  ],
+  "title": "TrialSchedulingReport",
+  "type": "object"
+}

@@ -1,0 +1,353 @@
+{
+  "release": "0.3.0rc3",
+  "modules": [
+    {
+      "module_id": "P8.S1.M01",
+      "name": "phase7_handoff_contract_validator",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s01_boundary/modules/m01_phase7_handoff_contract_validator.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S1.M02",
+      "name": "terminal_candidate_conservation_reconciler",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s01_boundary/modules/m02_terminal_candidate_conservation_reconciler.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S1.M03",
+      "name": "immutable_upstream_reference_resolver",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s01_boundary/modules/m03_immutable_upstream_reference_resolver.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S1.M04",
+      "name": "promoted_portfolio_feedback_loader",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s01_boundary/modules/m04_promoted_portfolio_feedback_loader.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S1.M05",
+      "name": "current_portfolio_and_account_state_loader",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s01_boundary/modules/m05_current_portfolio_and_account_state_loader.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S1.M06",
+      "name": "point_in_time_decision_snapshot_builder",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s01_boundary/modules/m06_point_in_time_decision_snapshot_builder.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S2.M01",
+      "name": "candidate_intent_normalizer",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s02_candidate_context/modules/m01_candidate_intent_normalizer.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S2.M02",
+      "name": "shared_exposure_graph_builder",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s02_candidate_context/modules/m02_shared_exposure_graph_builder.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S2.M03",
+      "name": "payoff_redundancy_and_equivalence_grouper",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s02_candidate_context/modules/m03_payoff_redundancy_and_equivalence_grouper.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S2.M04",
+      "name": "leg_level_canonicalization_and_netting_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s02_candidate_context/modules/m04_leg_level_canonicalization_and_netting_engine.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S2.M05",
+      "name": "admissible_portfolio_action_universe_builder",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s02_candidate_context/modules/m05_admissible_portfolio_action_universe_builder.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S2.M06",
+      "name": "p7_ordinal_preference_compiler",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s02_candidate_context/modules/m06_p7_ordinal_preference_compiler.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S3.M01",
+      "name": "predictive_distribution_and_horizon_resolver",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/scenario_engineering/modules/distribution_resolver.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S3.M02",
+      "name": "contextual_scenario_materialization_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/scenario_engineering/modules/scenario_materializer.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S3.M03",
+      "name": "scenario_calibration_and_quality_gate",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/scenario_engineering/modules/quality_gate.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S3.M04",
+      "name": "tail_stress_and_reverse_stress_factory",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/scenario_engineering/modules/stress_factory.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S3.M05",
+      "name": "decision_aware_scenario_reduction_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/scenario_engineering/modules/scenario_reduction.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S3.M06",
+      "name": "ambiguity_and_actionability_compiler",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/scenario_engineering/modules/ambiguity_compiler.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S4.M01",
+      "name": "candidate_scenario_pnl_cube_builder",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/risk_state/modules/pnl_cube.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S4.M02",
+      "name": "dependence_and_tail_comovement_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/risk_state/modules/dependence.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S4.M03",
+      "name": "aggregate_greek_and_path_exposure_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/risk_state/modules/greek_path.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S4.M04",
+      "name": "liquidity_capacity_and_execution_risk_state_builder",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/risk_state/modules/liquidity.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S4.M05",
+      "name": "margin_collateral_funding_and_capital_state_builder",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/risk_state/modules/margin_funding.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S4.M06",
+      "name": "joint_portfolio_risk_state_reconciler",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/risk_state/modules/reconciler.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S5.M01",
+      "name": "portfolio_objective_policy_compiler",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s05_optimization/modules/objective_compiler.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S5.M02",
+      "name": "hard_constraint_compiler",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s05_optimization/modules/constraint_compiler.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S5.M03",
+      "name": "deterministic_constrained_baseline_optimizer",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s05_optimization/modules/baseline_optimizer.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S5.M04",
+      "name": "robust_ambiguity_aware_optimizer",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s05_optimization/modules/robust_optimizer.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S5.M05",
+      "name": "discrete_lot_rounding_and_constraint_repair",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s05_optimization/modules/discrete_repair.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S5.M06",
+      "name": "turnover_no_trade_and_rebalance_policy",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s05_optimization/modules/rebalance_policy.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S5.M07",
+      "name": "model_predictive_control_and_target_publisher",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s05_optimization/modules/mpc_publisher.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S6.M01",
+      "name": "portfolio_risk_limit_gate",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s06_risk_lifecycle/modules/risk_gate.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S6.M02",
+      "name": "hedge_planning_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s06_risk_lifecycle/modules/hedge_planner.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S6.M03",
+      "name": "option_lifecycle_policy_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s06_risk_lifecycle/modules/lifecycle_engine.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S6.M04",
+      "name": "stress_margin_call_and_forced_liquidation_planner",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s06_risk_lifecycle/modules/emergency_planner.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S6.M05",
+      "name": "executable_target_finalizer",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/s06_risk_lifecycle/modules/finalizer.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S7.M01",
+      "name": "target_to_order_intent_builder",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s07_execution/m01_intents.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S7.M02",
+      "name": "combo_versus_legging_planner",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s07_execution/m02_structure.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S7.M03",
+      "name": "venue_order_type_and_slicing_policy",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s07_execution/m03_routing.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S7.M04",
+      "name": "transaction_cost_slippage_and_impact_estimator",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s07_execution/m04_costs.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S7.M05",
+      "name": "event_driven_execution_and_fill_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s07_execution/m05_engine.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S7.M06",
+      "name": "execution_reconciliation_and_receipt_builder",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s07_execution/m06_reconciliation.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S8.M01",
+      "name": "event_clock_and_queue_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s08_stateful_engine/m01_timeline.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S8.M02",
+      "name": "order_fill_state_transition_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s08_stateful_engine/m02_execution_state.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S8.M03",
+      "name": "position_and_option_lifecycle_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s08_stateful_engine/m03_positions.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S8.M04",
+      "name": "cash_margin_collateral_accounting_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s08_stateful_engine/m04_accounting.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S8.M05",
+      "name": "valuation_nav_and_pnl_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s08_stateful_engine/m05_valuation.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S8.M06",
+      "name": "management_rebalance_and_no_trade_controller",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s08_stateful_engine/m06_management.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S8.M07",
+      "name": "replay_checkpoint_and_portfolio_state_publisher",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s08_stateful_engine/m07_checkpoint.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S9.M01",
+      "name": "runtime_distribution_shift_and_regime_monitor",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s09_runtime_assurance/shift_monitor.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S9.M02",
+      "name": "live_constraint_and_state_invariant_monitor",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s09_runtime_assurance/invariant_monitor.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S9.M03",
+      "name": "safety_supervisor_and_fallback_controller",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s09_runtime_assurance/safety_supervisor.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S9.M04",
+      "name": "shadow_champion_challenger_disagreement_engine",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s09_runtime_assurance/shadow_evaluator.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S9.M05",
+      "name": "bounded_runtime_adaptation_and_evidence_publisher",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s09_runtime_assurance/bounded_adaptation.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S10.M01",
+      "name": "independent_accounting_and_conservation_auditor",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s10_audit_release/independent_auditor.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S10.M02",
+      "name": "backtest_execution_qualification_gate",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s10_audit_release/qualification_gate.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S10.M03",
+      "name": "phase9_evidence_bundle_builder",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s10_audit_release/p9_handoff_builder.py",
+      "exists": true
+    },
+    {
+      "module_id": "P8.S10.M04",
+      "name": "deterministic_release_manifest_and_receipt_publisher",
+      "source": "src/quant_pipeline/phase_08_portfolio_control/subphases/s10_audit_release/release_publisher.py",
+      "exists": true
+    }
+  ]
+}

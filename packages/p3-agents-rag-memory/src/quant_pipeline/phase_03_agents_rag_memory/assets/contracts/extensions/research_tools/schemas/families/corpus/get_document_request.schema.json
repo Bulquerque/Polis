@@ -1,0 +1,36 @@
+{
+  "$defs": {
+    "CorpusMode": {
+      "enum": [
+        "LOOKUP",
+        "STANDARD",
+        "TRIANGULATED",
+        "FORENSIC"
+      ],
+      "title": "CorpusMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "document_id": {
+      "minLength": 1,
+      "title": "Document Id",
+      "type": "string"
+    },
+    "include_content": {
+      "default": true,
+      "title": "Include Content",
+      "type": "boolean"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/CorpusMode",
+      "default": "LOOKUP"
+    }
+  },
+  "required": [
+    "document_id"
+  ],
+  "title": "GetDocumentRequest",
+  "type": "object"
+}

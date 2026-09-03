@@ -1,0 +1,81 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "clipping_count": {
+      "minimum": 0,
+      "title": "Clipping Count",
+      "type": "integer"
+    },
+    "confidence_shrinkage": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Confidence Shrinkage"
+    },
+    "finite": {
+      "title": "Finite",
+      "type": "boolean"
+    },
+    "raw_range": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Raw Range"
+    },
+    "regularized_range": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Regularized Range"
+    },
+    "smoothing_strength": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Smoothing Strength"
+    },
+    "target_payoff_id": {
+      "title": "Target Payoff Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_payoff_id",
+    "raw_range",
+    "regularized_range",
+    "clipping_count",
+    "smoothing_strength",
+    "confidence_shrinkage",
+    "finite"
+  ],
+  "title": "TargetPayoffRegularizationReport",
+  "type": "object"
+}

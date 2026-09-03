@@ -1,0 +1,55 @@
+module_id: P4.S6.M01
+module_name: multi_view_alignment
+phase: P4
+subphase: P4.S6
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: multi view alignment
+inputs:
+- momentum_perspective_panel
+- reversion_relative_value_perspective_panel
+- risk_uncertainty_stress_perspective_panel
+- liquidity_attention_crowding_perspective_panel
+- structure_contagion_breadth_perspective_panel
+- macro_cycle_regime_state_perspective_panel
+- event_surprise_seasonality_perspective_panel
+- narrative_evidence_disagreement_perspective_panel
+- value_quality_profitability_investment_perspective_panel
+- carry_curve_basis_perspective_panel
+- approved_hypothesis_passport_registry
+- alignment_policy_registry
+outputs:
+- aligned_perspective_panel
+validations:
+- backward_only_alignment
+- staleness_by_horizon
+- explicit_missing_records
+- broadcast_only_by_registry
+- max_output_budget
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- single_responsibility
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- buy_sell_signal
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- missing_view
+- lineage
+- replay
+- metamorphic
+production_promotion_allowed: false

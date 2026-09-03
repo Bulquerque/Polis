@@ -1,0 +1,39 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: retro_experiment_record
+status: planned_internal_schema
+type: object
+required:
+- experiment_id
+- proposal_id
+- baseline_version
+- candidate_version
+- change_type
+- status
+- evaluation_summary
+- lesson
+properties:
+  experiment_id:
+    type: string
+  proposal_id:
+    type: string
+  baseline_version:
+    type: string
+  candidate_version:
+    type: string
+  change_type:
+    type: string
+    enum:
+    - prompt_update
+    - tool_update
+  status:
+    type: string
+    enum:
+    - PLANNED
+    - RUNNING
+    - PROMOTED
+    - REJECTED
+  evaluation_summary:
+    type: object
+  lesson:
+    type: string
+additionalProperties: true

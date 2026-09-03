@@ -1,0 +1,127 @@
+$defs:
+  PublicationPolicy:
+    additionalProperties: false
+    properties:
+      policy_id:
+        title: Policy Id
+        type: string
+      contract_version:
+        title: Contract Version
+        type: string
+      semantic_version:
+        title: Semantic Version
+        type: string
+      consumer_phase:
+        title: Consumer Phase
+        type: string
+      legacy_projection_mode:
+        title: Legacy Projection Mode
+        type: string
+      required_reference_fields:
+        items:
+          type: string
+        title: Required Reference Fields
+        type: array
+    required:
+    - policy_id
+    - contract_version
+    - semantic_version
+    - consumer_phase
+    - legacy_projection_mode
+    - required_reference_fields
+    title: PublicationPolicy
+    type: object
+  RankingPolicy:
+    additionalProperties: false
+    properties:
+      policy_id:
+        title: Policy Id
+        type: string
+      score_round_digits:
+        maximum: 15
+        minimum: 0
+        title: Score Round Digits
+        type: integer
+      max_group_size:
+        minimum: 1
+        title: Max Group Size
+        type: integer
+      sort_keys:
+        items:
+          type: string
+        title: Sort Keys
+        type: array
+    required:
+    - policy_id
+    - score_round_digits
+    - max_group_size
+    - sort_keys
+    title: RankingPolicy
+    type: object
+  RuntimeConfig:
+    additionalProperties: false
+    properties:
+      trace_id:
+        title: Trace Id
+        type: string
+      run_id:
+        title: Run Id
+        type: string
+      run_timestamp:
+        format: date-time
+        title: Run Timestamp
+        type: string
+    required:
+    - trace_id
+    - run_id
+    - run_timestamp
+    title: RuntimeConfig
+    type: object
+  ThesisPolicy:
+    additionalProperties: false
+    properties:
+      policy_id:
+        title: Policy Id
+        type: string
+      max_nearest_alternatives:
+        maximum: 20
+        minimum: 0
+        title: Max Nearest Alternatives
+        type: integer
+      structured_evidence_only:
+        title: Structured Evidence Only
+        type: boolean
+      llm_authoritative:
+        title: Llm Authoritative
+        type: boolean
+    required:
+    - policy_id
+    - max_nearest_alternatives
+    - structured_evidence_only
+    - llm_authoritative
+    title: ThesisPolicy
+    type: object
+additionalProperties: false
+properties:
+  runtime:
+    $ref: '#/$defs/RuntimeConfig'
+  ranking:
+    $ref: '#/$defs/RankingPolicy'
+  thesis:
+    $ref: '#/$defs/ThesisPolicy'
+  publication:
+    $ref: '#/$defs/PublicationPolicy'
+  forbidden_fields:
+    items:
+      type: string
+    title: Forbidden Fields
+    type: array
+required:
+- runtime
+- ranking
+- thesis
+- publication
+- forbidden_fields
+title: S8Config
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

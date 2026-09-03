@@ -1,0 +1,33 @@
+schema_id: p3.research_tools.s33.module_registry.v1
+schema_version: 1.0.0
+modules:
+- module_id: P3.S33.M01
+  module_name: phase2_research_view_manifest_builder
+  subphase: P3.S33
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M01_phase2_research_view_manifest_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S33_M01_phase2_research_view_manifest_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S33.M02
+  module_name: phase1_raw_evidence_reference_index_builder
+  subphase: P3.S33
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M02_phase1_raw_evidence_reference_index_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S33_M02_phase1_raw_evidence_reference_index_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S33.M03
+  module_name: temporal_visibility_vintage_firewall_builder
+  subphase: P3.S33
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M03_temporal_visibility_vintage_firewall_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S33_M03_temporal_visibility_vintage_firewall_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S33.M04
+  module_name: temporal_entity_instrument_resolver_builder
+  subphase: P3.S33
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M04_temporal_entity_instrument_resolver_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S33_M04_temporal_entity_instrument_resolver_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL
+- module_id: P3.S33.M05
+  module_name: research_data_boundary_bundle_builder
+  subphase: P3.S33
+  implementation: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S33_M05_research_data_boundary_bundle_builder.py
+  contract: contracts/extensions/research_tools/modules/P3_S33_M05_research_data_boundary_bundle_builder.yaml
+  status: IMPLEMENTED_QUALIFIED_INTERNAL

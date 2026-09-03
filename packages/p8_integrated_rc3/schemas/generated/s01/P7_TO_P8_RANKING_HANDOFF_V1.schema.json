@@ -1,0 +1,462 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "relationship_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relationship Type"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_version",
+        "contract_version",
+        "content_sha256",
+        "available_at"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "ComparisonGroupRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "objective_family": {
+          "minLength": 1,
+          "title": "Objective Family",
+          "type": "string"
+        },
+        "underlying_scope": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Underlying Scope",
+          "type": "array"
+        },
+        "horizon_scope": {
+          "minLength": 1,
+          "title": "Horizon Scope",
+          "type": "string"
+        },
+        "capital_at_risk_bucket": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Capital At Risk Bucket"
+        },
+        "liquidity_bucket": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Liquidity Bucket"
+        },
+        "member_candidate_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Member Candidate Ids",
+          "type": "array"
+        },
+        "comparability_policy_id": {
+          "minLength": 1,
+          "title": "Comparability Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "comparison_group_id",
+        "objective_family",
+        "horizon_scope",
+        "member_candidate_ids",
+        "comparability_policy_id"
+      ],
+      "title": "ComparisonGroupRecord",
+      "type": "object"
+    },
+    "ConfidenceState": {
+      "enum": [
+        "CALIBRATED",
+        "UNCALIBRATED",
+        "UNAVAILABLE"
+      ],
+      "title": "ConfidenceState",
+      "type": "string"
+    },
+    "P7TerminalCandidateRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "terminal_state": {
+          "$ref": "#/$defs/P7TerminalState"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "missing_evidence_refs": {
+          "items": {
+            "$ref": "#/$defs/ArtifactReference"
+          },
+          "title": "Missing Evidence Refs",
+          "type": "array"
+        },
+        "p6_economic_package_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "candidate_id",
+        "terminal_state",
+        "reason_codes"
+      ],
+      "title": "P7TerminalCandidateRecord",
+      "type": "object"
+    },
+    "P7TerminalState": {
+      "enum": [
+        "ELIGIBILITY_BLOCKED",
+        "SAFETY_BLOCKED",
+        "ABSTAINED"
+      ],
+      "title": "P7TerminalState",
+      "type": "string"
+    },
+    "RankedCandidateRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "canonical_candidate_id": {
+          "minLength": 1,
+          "title": "Canonical Candidate Id",
+          "type": "string"
+        },
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "rank": {
+          "minimum": 1,
+          "title": "Rank",
+          "type": "integer"
+        },
+        "rank_tier": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rank Tier"
+        },
+        "score_semantics": {
+          "$ref": "#/$defs/ScoreSemantics",
+          "default": "ORDINAL"
+        },
+        "score_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score Value"
+        },
+        "confidence_state": {
+          "$ref": "#/$defs/ConfidenceState",
+          "default": "UNAVAILABLE"
+        },
+        "confidence_calibration_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "p6_economic_package_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "decision_trace_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "thesis_card_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "score_decomposition_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "candidate_id",
+        "canonical_candidate_id",
+        "comparison_group_id",
+        "rank",
+        "p6_economic_package_ref",
+        "decision_trace_ref"
+      ],
+      "title": "RankedCandidateRecord",
+      "type": "object"
+    },
+    "ScoreSemantics": {
+      "enum": [
+        "ORDINAL",
+        "CARDINAL_WITHIN_GROUP",
+        "CALIBRATED_UTILITY"
+      ],
+      "title": "ScoreSemantics",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "handoff_id": {
+      "minLength": 1,
+      "title": "Handoff Id",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "P7_TO_P8_RANKING_HANDOFF_V1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "producer_phase": {
+      "const": "P7",
+      "title": "Producer Phase",
+      "type": "string"
+    },
+    "producer_release": {
+      "minLength": 1,
+      "title": "Producer Release",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "market_cutoff_at": {
+      "format": "date-time",
+      "title": "Market Cutoff At",
+      "type": "string"
+    },
+    "computed_at": {
+      "format": "date-time",
+      "title": "Computed At",
+      "type": "string"
+    },
+    "recorded_at": {
+      "format": "date-time",
+      "title": "Recorded At",
+      "type": "string"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "received_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Received Candidate Ids",
+      "type": "array"
+    },
+    "ranked": {
+      "items": {
+        "$ref": "#/$defs/RankedCandidateRecord"
+      },
+      "title": "Ranked",
+      "type": "array"
+    },
+    "eligibility_blocked": {
+      "items": {
+        "$ref": "#/$defs/P7TerminalCandidateRecord"
+      },
+      "title": "Eligibility Blocked",
+      "type": "array"
+    },
+    "safety_blocked": {
+      "items": {
+        "$ref": "#/$defs/P7TerminalCandidateRecord"
+      },
+      "title": "Safety Blocked",
+      "type": "array"
+    },
+    "abstained": {
+      "items": {
+        "$ref": "#/$defs/P7TerminalCandidateRecord"
+      },
+      "title": "Abstained",
+      "type": "array"
+    },
+    "comparison_groups": {
+      "items": {
+        "$ref": "#/$defs/ComparisonGroupRecord"
+      },
+      "title": "Comparison Groups",
+      "type": "array"
+    },
+    "artifact_refs": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "Artifact Refs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "contract_version",
+    "schema_version",
+    "producer_phase",
+    "producer_release",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "market_cutoff_at",
+    "computed_at",
+    "recorded_at",
+    "available_at",
+    "content_sha256",
+    "received_candidate_ids"
+  ],
+  "title": "P7RankingHandoffV1",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P7_TO_P8_RANKING_HANDOFF_V1.schema.json"
+}

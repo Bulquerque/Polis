@@ -1,0 +1,17 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: person_tag_assignment
+status: planned_internal_schema
+type: object
+required:
+- tag_id
+- intensity
+- confidence
+properties:
+  tag_id:
+    type: string
+  intensity: &id001
+    type: number
+    minimum: 0
+    maximum: 1
+  confidence: *id001
+additionalProperties: false

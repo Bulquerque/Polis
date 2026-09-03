@@ -1,0 +1,79 @@
+{
+  "$defs": {
+    "CashCategory": {
+      "enum": [
+        "FILL",
+        "DEPOSIT",
+        "WITHDRAWAL",
+        "INTEREST",
+        "FINANCING",
+        "BORROW",
+        "LIFECYCLE",
+        "OTHER_FEE"
+      ],
+      "title": "CashCategory",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/CashLedgerEntry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Amount"
+    },
+    "category": {
+      "$ref": "#/$defs/CashCategory"
+    },
+    "entry_id": {
+      "title": "Entry Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "related_fill_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Related Fill Id"
+    },
+    "related_lifecycle_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Related Lifecycle Id"
+    }
+  },
+  "required": [
+    "entry_id",
+    "event_time",
+    "amount",
+    "category"
+  ],
+  "title": "CashLedgerEntry",
+  "type": "object"
+}

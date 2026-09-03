@@ -1,0 +1,6 @@
+max_provider_attempts: 3
+max_schema_repair_attempts: 1
+initial_backoff_seconds: 0.5
+maximum_backoff_seconds: 4.0
+retryable_status_codes: [408, 429, 500, 502, 503, 504]
+failure_policy: fail_closed_no_fake_candidates

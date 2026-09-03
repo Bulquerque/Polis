@@ -1,0 +1,60 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/FactorCoefficient.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "estimate": {
+      "title": "Estimate",
+      "type": "number"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "p_value": {
+      "anyOf": [
+        {
+          "ge": 0,
+          "le": 1,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "P Value"
+    },
+    "standard_error": {
+      "anyOf": [
+        {
+          "ge": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Standard Error"
+    },
+    "t_statistic": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "T Statistic"
+    }
+  },
+  "required": [
+    "name",
+    "estimate"
+  ],
+  "title": "FactorCoefficient",
+  "type": "object"
+}

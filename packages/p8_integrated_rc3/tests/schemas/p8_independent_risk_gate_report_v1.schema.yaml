@@ -1,0 +1,204 @@
+$defs:
+  ExposureLimitResult:
+    additionalProperties: false
+    properties:
+      exposure_type:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Exposure Type
+        type: string
+      bucket_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Bucket Id
+        type: string
+      horizon_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Horizon Id
+        type: string
+      value:
+        title: Value
+        type: number
+      minimum:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Minimum
+      maximum:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Maximum
+      available:
+        default: true
+        title: Available
+        type: boolean
+      feasible:
+        title: Feasible
+        type: boolean
+      reason_codes:
+        default: []
+        items:
+          maxLength: 180
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - exposure_type
+    - bucket_id
+    - horizon_id
+    - value
+    - feasible
+    title: ExposureLimitResult
+    type: object
+  HorizonRiskMetrics:
+    additionalProperties: false
+    properties:
+      horizon_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Horizon Id
+        type: string
+      capital:
+        minimum: 0
+        title: Capital
+        type: number
+      margin:
+        minimum: 0
+        title: Margin
+        type: number
+      maximum_loss:
+        minimum: 0
+        title: Maximum Loss
+        type: number
+      cvar:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Cvar
+      maximum_stress_loss:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Maximum Stress Loss
+      capital_limit:
+        minimum: 0
+        title: Capital Limit
+        type: number
+      margin_limit:
+        minimum: 0
+        title: Margin Limit
+        type: number
+      maximum_loss_limit:
+        minimum: 0
+        title: Maximum Loss Limit
+        type: number
+      cvar_limit:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Cvar Limit
+      feasible:
+        title: Feasible
+        type: boolean
+      reason_codes:
+        default: []
+        items:
+          maxLength: 180
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - horizon_id
+    - capital
+    - margin
+    - maximum_loss
+    - capital_limit
+    - margin_limit
+    - maximum_loss_limit
+    - feasible
+    title: HorizonRiskMetrics
+    type: object
+  RiskGateStatus:
+    enum:
+    - APPROVED
+    - PARTIALLY_APPROVED
+    - RISK_BLOCKED
+    - NO_ACTION_VALID
+    - INFEASIBLE_INPUT
+    title: RiskGateStatus
+    type: string
+additionalProperties: false
+properties:
+  status:
+    $ref: '#/$defs/RiskGateStatus'
+  horizon_metrics:
+    items:
+      $ref: '#/$defs/HorizonRiskMetrics'
+    title: Horizon Metrics
+    type: array
+  exposure_limits:
+    items:
+      $ref: '#/$defs/ExposureLimitResult'
+    title: Exposure Limits
+    type: array
+  optimizer_claimed_feasible:
+    title: Optimizer Claimed Feasible
+    type: boolean
+  independently_feasible:
+    title: Independently Feasible
+    type: boolean
+  maximum_optimizer_risk_discrepancy:
+    minimum: 0
+    title: Maximum Optimizer Risk Discrepancy
+    type: number
+  decision_snapshot_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Decision Snapshot Hash
+    type: string
+  target_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Target Hash
+    type: string
+  report_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Report Hash
+    type: string
+  reason_codes:
+    default: []
+    items:
+      maxLength: 180
+      minLength: 1
+      pattern: ^[A-Za-z0-9_.:\-/]+$
+      type: string
+    title: Reason Codes
+    type: array
+required:
+- status
+- horizon_metrics
+- exposure_limits
+- optimizer_claimed_feasible
+- independently_feasible
+- maximum_optimizer_risk_discrepancy
+- decision_snapshot_hash
+- target_hash
+- report_hash
+title: IndependentRiskGateReport
+type: object

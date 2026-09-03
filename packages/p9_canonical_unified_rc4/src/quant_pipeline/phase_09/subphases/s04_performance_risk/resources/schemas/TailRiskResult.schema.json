@@ -1,0 +1,586 @@
+{
+  "$defs": {
+    "DiagnosticRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "observed": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed"
+        },
+        "severity": {
+          "pattern": "^(INFO|WARNING|ERROR|BLOCKER)$",
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "severity"
+      ],
+      "title": "DiagnosticRecord",
+      "type": "object"
+    },
+    "GrossNet": {
+      "enum": [
+        "GROSS",
+        "NET",
+        "ACTIVE",
+        "EXCESS",
+        "NOT_APPLICABLE"
+      ],
+      "title": "GrossNet",
+      "type": "string"
+    },
+    "MetricRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "annualization_periods": {
+          "anyOf": [
+            {
+              "gt": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annualization Periods"
+        },
+        "gross_net": {
+          "$ref": "#/$defs/GrossNet",
+          "default": "NOT_APPLICABLE"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "sample_count": {
+          "minimum": 0,
+          "title": "Sample Count",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "unit": {
+          "$ref": "#/$defs/Unit"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_version",
+        "producer_module_id",
+        "value",
+        "unit",
+        "status",
+        "sample_count",
+        "method"
+      ],
+      "title": "MetricRecord",
+      "type": "object"
+    },
+    "MetricStatus": {
+      "enum": [
+        "QUALIFIED",
+        "LIMITED",
+        "UNAVAILABLE",
+        "INSUFFICIENT_SAMPLE",
+        "UNDEFINED",
+        "INVALID"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "QualifiedBacktestIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "handoff_id": {
+          "title": "Handoff Id",
+          "type": "string"
+        },
+        "handoff_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Handoff Sha256",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trial_id": {
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trial_id",
+        "fold_id",
+        "configuration_id",
+        "handoff_id",
+        "handoff_sha256"
+      ],
+      "title": "QualifiedBacktestIdentity",
+      "type": "object"
+    },
+    "ScenarioPnlRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_class": {
+          "title": "Evidence Class",
+          "type": "string"
+        },
+        "pnl_fraction": {
+          "title": "Pnl Fraction",
+          "type": "number"
+        },
+        "scenario_id": {
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "scenario_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Scenario Version",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "scenario_version",
+        "timestamp",
+        "pnl_fraction",
+        "evidence_class"
+      ],
+      "title": "ScenarioPnlRecord",
+      "type": "object"
+    },
+    "TailEstimate": {
+      "additionalProperties": false,
+      "properties": {
+        "breach_count": {
+          "minimum": 0,
+          "title": "Breach Count",
+          "type": "integer"
+        },
+        "confidence_level": {
+          "exclusiveMaximum": 1,
+          "exclusiveMinimum": 0.5,
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "expected_shortfall": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Shortfall"
+        },
+        "gross_net": {
+          "title": "Gross Net",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "value_at_risk": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value At Risk"
+        }
+      },
+      "required": [
+        "gross_net",
+        "method",
+        "confidence_level",
+        "value_at_risk",
+        "expected_shortfall",
+        "breach_count",
+        "observation_count",
+        "status"
+      ],
+      "title": "TailEstimate",
+      "type": "object"
+    },
+    "TailMethodDiagnostics": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "parametric_model": {
+          "title": "Parametric Model",
+          "type": "string"
+        },
+        "quantile_method": {
+          "title": "Quantile Method",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "quantile_method",
+        "parametric_model"
+      ],
+      "title": "TailMethodDiagnostics",
+      "type": "object"
+    },
+    "TailRiskMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "estimates": {
+          "items": {
+            "$ref": "#/$defs/TailEstimate"
+          },
+          "title": "Estimates",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "scenario_losses": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ScenarioPnlRecord"
+          },
+          "title": "Scenario Losses",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "estimates"
+      ],
+      "title": "TailRiskMetricPanel",
+      "type": "object"
+    },
+    "Unit": {
+      "enum": [
+        "DECIMAL_RETURN",
+        "ANNUALIZED_DECIMAL",
+        "RATIO",
+        "PROBABILITY",
+        "MONEY",
+        "BPS",
+        "COUNT",
+        "SECONDS",
+        "FRACTION",
+        "COEFFICIENT"
+      ],
+      "title": "Unit",
+      "type": "string"
+    },
+    "VaRBreachPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "breaches": {
+          "items": {
+            "$ref": "#/$defs/VaRBreachRecord"
+          },
+          "title": "Breaches",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "breaches"
+      ],
+      "title": "VaRBreachPanel",
+      "type": "object"
+    },
+    "VaRBreachRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence_level": {
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "gross_net": {
+          "title": "Gross Net",
+          "type": "string"
+        },
+        "loss": {
+          "title": "Loss",
+          "type": "number"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        },
+        "value_at_risk": {
+          "title": "Value At Risk",
+          "type": "number"
+        }
+      },
+      "required": [
+        "timestamp",
+        "gross_net",
+        "confidence_level",
+        "method",
+        "loss",
+        "value_at_risk"
+      ],
+      "title": "VaRBreachRecord",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/TailRiskResult.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "breaches": {
+      "$ref": "#/$defs/VaRBreachPanel"
+    },
+    "diagnostics": {
+      "$ref": "#/$defs/TailMethodDiagnostics"
+    },
+    "metrics": {
+      "$ref": "#/$defs/TailRiskMetricPanel"
+    }
+  },
+  "required": [
+    "metrics",
+    "breaches",
+    "diagnostics"
+  ],
+  "title": "TailRiskResult",
+  "type": "object"
+}

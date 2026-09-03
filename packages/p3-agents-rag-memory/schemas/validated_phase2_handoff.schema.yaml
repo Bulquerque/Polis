@@ -1,0 +1,290 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s1:validated-phase2-handoff:v2
+title: validated_phase2_handoff
+artifact_name: validated_phase2_handoff
+schema_id: validated_phase2_handoff.v2
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required:
+- schema_version
+- contract_version
+- handoff_id
+- source_pipeline_version
+- target_phase
+- validation_status
+- artifacts
+- manifests
+- record_index
+- cross_artifact_checks
+- issues
+- schema_authority
+- lineage_id
+- content_hash
+properties:
+  schema_version:
+    const: v14.1-rc4.1
+  contract_version:
+    const: p3.s1.validated_phase2_handoff.v2
+  handoff_id:
+    type: string
+    minLength: 1
+  source_pipeline_version:
+    type: string
+    minLength: 1
+  target_phase:
+    const: phase_03_agents_rag_memory
+  validation_status:
+    enum:
+    - READY
+    - DEGRADED
+  artifacts:
+    type: array
+    minItems: 4
+    maxItems: 4
+    items:
+      $ref: '#/$defs/artifact_reference'
+  manifests:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      $ref: '#/$defs/manifest_reference'
+  record_index:
+    type: array
+    items:
+      $ref: '#/$defs/record_index_entry'
+  cross_artifact_checks:
+    type: object
+    additionalProperties: false
+    required:
+    - six_required_artifacts_present
+    - schema_versions_compatible
+    - manifest_artifact_ids_match
+    - manifest_hashes_match_when_declared
+    - artifact_ids_unique
+    - source_quality_references_closed
+    - input_immutability_preserved
+    properties:
+      six_required_artifacts_present:
+        const: true
+      schema_versions_compatible:
+        const: true
+      manifest_artifact_ids_match:
+        const: true
+      manifest_hashes_match_when_declared:
+        const: true
+      artifact_ids_unique:
+        const: true
+      source_quality_references_closed:
+        const: true
+      input_immutability_preserved:
+        const: true
+  issues:
+    type: array
+    items:
+      $ref: '#/$defs/issue'
+  lineage_id:
+    type: string
+    minLength: 1
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  schema_authority:
+    type: object
+    additionalProperties: false
+    required:
+    - mode
+    - records
+    - aggregate_sha256
+    properties:
+      mode:
+        enum:
+        - GLOBAL_REPOSITORY
+        - LOCAL_MIRROR
+      records:
+        type: array
+        minItems: 6
+        maxItems: 6
+        items:
+          type: object
+          additionalProperties: false
+          required:
+          - artifact_name
+          - path
+          - sha256
+          - authority
+          properties:
+            artifact_name:
+              type: string
+            path:
+              type: string
+            sha256:
+              type: string
+              pattern: ^[0-9a-f]{64}$
+            authority:
+              type: string
+      aggregate_sha256:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+$defs:
+  artifact_reference:
+    type: object
+    additionalProperties: false
+    required:
+    - artifact_name
+    - artifact_id
+    - schema_id
+    - schema_version
+    - schema_binding
+    - content_hash
+    - lineage_id
+    - pipeline_version
+    - grain
+    - row_count
+    - validation_status
+    - schema_sha256
+    - schema_authority
+    - schema_authority_path
+    properties:
+      artifact_name:
+        enum:
+        - clean_context_source_panel
+        - clean_document_panel
+        - clean_event_reference_panel
+        - source_quality_panel
+      artifact_id:
+        type: string
+        minLength: 1
+      schema_id:
+        type: string
+        minLength: 1
+      schema_version:
+        type: string
+        minLength: 1
+      schema_binding:
+        const: EXTERNAL_AUTHORITY
+      content_hash:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+      lineage_id:
+        type: string
+        minLength: 1
+      pipeline_version:
+        type: string
+        minLength: 1
+      grain:
+        type: array
+        items:
+          type: string
+          minLength: 1
+        uniqueItems: true
+      row_count:
+        type: integer
+        minimum: 0
+      validation_status:
+        const: READY
+      schema_sha256:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+      schema_authority:
+        type: string
+        minLength: 1
+      schema_authority_path:
+        type: string
+        minLength: 1
+  manifest_reference:
+    type: object
+    additionalProperties: false
+    required:
+    - artifact_name
+    - artifact_id
+    - content_hash
+    - lineage_id
+    - pipeline_version
+    properties:
+      artifact_name:
+        enum:
+        - context_handoff_manifest
+        - phase3_handoff_manifest
+      artifact_id:
+        type: string
+        minLength: 1
+      content_hash:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+      lineage_id:
+        type: string
+        minLength: 1
+      pipeline_version:
+        type: string
+        minLength: 1
+  record_index_entry:
+    type: object
+    additionalProperties: false
+    required:
+    - artifact_name
+    - record_id
+    - source_id
+    - position
+    - lineage_id
+    - available_at
+    properties:
+      artifact_name:
+        enum:
+        - clean_context_source_panel
+        - clean_document_panel
+        - clean_event_reference_panel
+      record_id:
+        type: string
+        minLength: 1
+      source_id:
+        type:
+        - string
+        - 'null'
+      position:
+        type: integer
+        minimum: 0
+      lineage_id:
+        type:
+        - string
+        - 'null'
+      available_at:
+        type:
+        - string
+        - 'null'
+  issue:
+    type: object
+    additionalProperties: false
+    required:
+    - code
+    - severity
+    - message
+    - artifact_name
+    - record_id
+    - field
+    properties:
+      code:
+        type: string
+        minLength: 1
+      severity:
+        enum:
+        - INFO
+        - WARNING
+        - ERROR
+        - BLOCKING
+      message:
+        type: string
+        minLength: 1
+      artifact_name:
+        type:
+        - string
+        - 'null'
+      record_id:
+        type:
+        - string
+        - 'null'
+      field:
+        type:
+        - string
+        - 'null'

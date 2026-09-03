@@ -1,0 +1,79 @@
+{
+  "$defs": {
+    "CohortPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_evidence_classes": {
+          "items": {
+            "$ref": "#/$defs/EvidenceClass"
+          },
+          "title": "Allowed Evidence Classes",
+          "type": "array"
+        },
+        "allowed_target_types": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Allowed Target Types",
+          "type": "array"
+        },
+        "include_abstentions": {
+          "default": true,
+          "title": "Include Abstentions",
+          "type": "boolean"
+        },
+        "minimum_sample": {
+          "minimum": 1,
+          "title": "Minimum Sample",
+          "type": "integer"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "require_complete_lineage": {
+          "default": true,
+          "title": "Require Complete Lineage",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "policy_id",
+        "allowed_target_types",
+        "allowed_evidence_classes",
+        "minimum_sample"
+      ],
+      "title": "CohortPolicy",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "policies": {
+      "items": {
+        "$ref": "#/$defs/CohortPolicy"
+      },
+      "title": "Policies",
+      "type": "array"
+    }
+  },
+  "required": [
+    "policies"
+  ],
+  "title": "CohortPolicyRegistry",
+  "type": "object"
+}

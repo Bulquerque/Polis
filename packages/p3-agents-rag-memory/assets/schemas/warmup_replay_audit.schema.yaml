@@ -1,0 +1,346 @@
+$defs:
+  ArtifactRef:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_type:
+        minLength: 1
+        title: Artifact Type
+        type: string
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+      schema_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Id
+      schema_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Version
+    required:
+    - artifact_id
+    - artifact_type
+    - content_hash
+    title: ArtifactRef
+    type: object
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    title: ArtifactStatus
+    type: string
+  CheckpointRecord:
+    additionalProperties: false
+    properties:
+      checkpoint_id:
+        minLength: 1
+        title: Checkpoint Id
+        type: string
+      checkpoint_ref:
+        $ref: '#/$defs/ArtifactRef'
+      after_schedule_sequence_number:
+        minimum: 0
+        title: After Schedule Sequence Number
+        type: integer
+      logical_time:
+        format: date-time
+        title: Logical Time
+        type: string
+      state_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: State Hash
+        type: string
+      previous_checkpoint_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        title: Previous Checkpoint Id
+      final:
+        title: Final
+        type: boolean
+    required:
+    - checkpoint_id
+    - checkpoint_ref
+    - after_schedule_sequence_number
+    - logical_time
+    - state_hash
+    - previous_checkpoint_id
+    - final
+    title: CheckpointRecord
+    type: object
+  ModuleTraceEntry:
+    additionalProperties: false
+    properties:
+      cycle_id:
+        minLength: 1
+        title: Cycle Id
+        type: string
+      module_id:
+        pattern: ^P3\.S(?:1[7-9]|2[0-6])\.M\d{2}$
+        title: Module Id
+        type: string
+      input_hashes:
+        items:
+          pattern: ^[0-9a-f]{64}$
+          type: string
+        title: Input Hashes
+        type: array
+      output_hashes:
+        items:
+          pattern: ^[0-9a-f]{64}$
+          type: string
+        title: Output Hashes
+        type: array
+      as_of_time:
+        format: date-time
+        title: As Of Time
+        type: string
+      status:
+        enum:
+        - SUCCEEDED
+        - DEGRADED
+        title: Status
+        type: string
+    required:
+    - cycle_id
+    - module_id
+    - input_hashes
+    - output_hashes
+    - as_of_time
+    - status
+    title: ModuleTraceEntry
+    type: object
+  ReplayInvocationMode:
+    enum:
+    - GENESIS_ONLY
+    - HISTORICAL_REPLAY
+    - RESUME_REPLAY
+    title: ReplayInvocationMode
+    type: string
+  ReplayItemAudit:
+    additionalProperties: false
+    properties:
+      schedule_item_id:
+        minLength: 1
+        title: Schedule Item Id
+        type: string
+      sequence_number:
+        exclusiveMinimum: 0
+        title: Sequence Number
+        type: integer
+      request_id:
+        minLength: 1
+        title: Request Id
+        type: string
+      logical_time:
+        format: date-time
+        title: Logical Time
+        type: string
+      status:
+        enum:
+        - SUCCEEDED
+        - DEGRADED
+        title: Status
+        type: string
+      prior_state_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Prior State Hash
+        type: string
+      next_state_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Next State Hash
+        type: string
+      module_trace:
+        items:
+          $ref: '#/$defs/ModuleTraceEntry'
+        title: Module Trace
+        type: array
+      tool_audits:
+        items:
+          $ref: '#/$defs/ToolAuditEntry'
+        title: Tool Audits
+        type: array
+    required:
+    - schedule_item_id
+    - sequence_number
+    - request_id
+    - logical_time
+    - status
+    - prior_state_hash
+    - next_state_hash
+    - module_trace
+    - tool_audits
+    title: ReplayItemAudit
+    type: object
+  ToolAuditEntry:
+    additionalProperties: false
+    properties:
+      tool_call_id:
+        minLength: 1
+        title: Tool Call Id
+        type: string
+      tool_id:
+        minLength: 1
+        title: Tool Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      status:
+        enum:
+        - SUCCEEDED
+        - FAILED
+        - REJECTED
+        title: Status
+        type: string
+      request_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Request Hash
+        type: string
+      result_hash:
+        anyOf:
+        - pattern: ^[0-9a-f]{64}$
+          type: string
+        - type: 'null'
+        default: null
+        title: Result Hash
+    required:
+    - tool_call_id
+    - tool_id
+    - person_id
+    - available_at
+    - status
+    - request_hash
+    title: ToolAuditEntry
+    type: object
+additionalProperties: false
+properties:
+  schema_id:
+    const: warmup_replay_audit.v2
+    default: warmup_replay_audit.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    default: 2.0.0
+    title: Schema Version
+    type: string
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  module_id:
+    const: P3.S11.M01
+    default: P3.S11.M01
+    title: Module Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  snapshot_id:
+    minLength: 1
+    title: Snapshot Id
+    type: string
+  invocation_mode:
+    $ref: '#/$defs/ReplayInvocationMode'
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+  schedule_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Schedule Hash
+    type: string
+  checkpoint_plan_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Checkpoint Plan Hash
+    type: string
+  kernel_contract_version:
+    minLength: 1
+    title: Kernel Contract Version
+    type: string
+  resource_manifest_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Resource Manifest Hash
+    type: string
+  resume_source_checkpoint_id:
+    anyOf:
+    - minLength: 1
+      type: string
+    - type: 'null'
+    title: Resume Source Checkpoint Id
+  item_audits:
+    items:
+      $ref: '#/$defs/ReplayItemAudit'
+    title: Item Audits
+    type: array
+  checkpoints:
+    items:
+      $ref: '#/$defs/CheckpointRecord'
+    title: Checkpoints
+    type: array
+  terminal_checkpoint_id:
+    minLength: 1
+    title: Terminal Checkpoint Id
+    type: string
+  terminal_state_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Terminal State Hash
+    type: string
+  metrics:
+    additionalProperties: true
+    title: Metrics
+    type: object
+  issues:
+    items:
+      additionalProperties: true
+      type: object
+    title: Issues
+    type: array
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+required:
+- artifact_id
+- run_id
+- snapshot_id
+- invocation_mode
+- status
+- schedule_hash
+- checkpoint_plan_hash
+- kernel_contract_version
+- resource_manifest_hash
+- resume_source_checkpoint_id
+- item_audits
+- checkpoints
+- terminal_checkpoint_id
+- terminal_state_hash
+- metrics
+- issues
+- lineage_id
+title: WarmupReplayAudit
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: warmup_replay_audit
+schema_id: warmup_replay_audit.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

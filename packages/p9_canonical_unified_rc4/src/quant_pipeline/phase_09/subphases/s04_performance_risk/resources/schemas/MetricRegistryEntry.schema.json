@@ -1,0 +1,40 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/MetricRegistryEntry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_gross_net": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Gross Net",
+      "type": "array"
+    },
+    "metric_pattern": {
+      "title": "Metric Pattern",
+      "type": "string"
+    },
+    "metric_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Metric Version",
+      "type": "string"
+    },
+    "producer_module_id": {
+      "title": "Producer Module Id",
+      "type": "string"
+    },
+    "unit": {
+      "title": "Unit",
+      "type": "string"
+    }
+  },
+  "required": [
+    "metric_pattern",
+    "metric_version",
+    "producer_module_id",
+    "unit",
+    "allowed_gross_net"
+  ],
+  "title": "MetricRegistryEntry",
+  "type": "object"
+}

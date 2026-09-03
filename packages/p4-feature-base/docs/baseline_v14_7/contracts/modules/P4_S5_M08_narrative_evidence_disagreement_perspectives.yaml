@@ -1,0 +1,97 @@
+module_id: P4.S5.M08
+module_name: narrative_evidence_disagreement_perspectives
+phase: phase_04_feature_base
+subphase: P4.S5
+contract_version: p4.v14.9-rc1.module.v1
+status: DOCUMENTED_NOT_IMPLEMENTED
+function: Construir views de consenso, polarização, contradição, novidade, diversidade
+  de hipóteses e visão minoritária.
+inputs:
+- narrative_atomic_bundle
+- approved_hypothesis_passport_registry
+outputs:
+- narrative_evidence_disagreement_perspective_panel
+validations:
+- sentiment_not_substitute_for_evidence
+- disagreement_preserved
+- minority_view_not_silently_removed
+- family_inputs_minimal
+- only_approved_hypotheses_materialized
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- single_responsibility
+- no_hidden_global_state
+- deterministic_replay_when_seeded
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- buy_sell_signal
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- execution_fill
+- position_size
+non_responsibilities:
+- no_prediction_or_target_learning
+- no_candidate_generation
+- no_ranking_or_portfolio_authority
+- no_same_cycle_p9_back_edge
+fail_fast_conditions:
+- P4_S5_M08_INPUT_INVALID
+- P4_S5_M08_TEMPORAL_VIOLATION
+- P4_S5_M08_OUTPUT_INVALID
+- P4_S5_M08_FORBIDDEN_FIELD
+- P4_S5_M08_UNDECLARED_DEPENDENCY
+observability_requirements:
+  events:
+  - module_started
+  - input_contract_validated
+  - module_succeeded
+  - module_failed
+  dimensions:
+  - run_id
+  - cycle_id
+  - module_id
+  - as_of_time
+  - contract_version
+  - lineage_id
+  metrics:
+  - duration_ms
+  - input_record_count
+  - output_record_count
+  - warning_count
+  - error_count
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- forbidden_field_negative
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle_when_applicable
+definition_of_done:
+- implementation_matches_contract
+- outputs_match_schemas
+- tests_pass
+- observability_present
+- documentation_contracts_tests_updated_together
+- qualification_status_not_overclaimed
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M08_narrative_evidence_disagreement_perspectives.py
+unit_test_target: tests/p4_s5/test_p4_s5_m08_narrative_evidence_disagreement_perspectives.py
+qualification_policy: LOCAL_THEN_CROSS_PHASE_THEN_P0
+production_promotion_allowed: false
+execution_stage: build
+shared_contract_mutation: FORBIDDEN_USE_CHANGE_REQUEST
+quality_profile: P4_CLEAN_CODE_V1
+review_requirements:
+- module_self_review
+- cross_agent_contract_review
+- integration_lead_merge_review

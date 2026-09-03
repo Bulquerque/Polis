@@ -1,0 +1,1021 @@
+{
+  "$defs": {
+    "ActionabilityPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "degraded_quality_floor": {
+          "default": 0.55,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Degraded Quality Floor",
+          "type": "number"
+        },
+        "max_ambiguity_radius": {
+          "default": 0.35,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Max Ambiguity Radius",
+          "type": "number"
+        },
+        "max_liquidity_haircut": {
+          "default": 0.75,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Max Liquidity Haircut",
+          "type": "number"
+        },
+        "max_margin_buffer": {
+          "default": 0.5,
+          "minimum": 0.0,
+          "title": "Max Margin Buffer",
+          "type": "number"
+        },
+        "no_new_risk_floor": {
+          "default": 0.25,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "No New Risk Floor",
+          "type": "number"
+        },
+        "nominal_quality_floor": {
+          "default": 0.8,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Nominal Quality Floor",
+          "type": "number"
+        }
+      },
+      "title": "ActionabilityPolicy",
+      "type": "object"
+    },
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "default": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "content_sha256"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "BeliefRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "belief_state_id": {
+          "title": "Belief State Id",
+          "type": "string"
+        },
+        "calibration_score": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Calibration Score"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "disagreement_score": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Disagreement Score"
+        },
+        "distribution_type": {
+          "$ref": "#/$defs/DistributionType"
+        },
+        "evaluation_horizon": {
+          "$ref": "#/$defs/HorizonSpec"
+        },
+        "expiration_horizon": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HorizonSpec"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "factor_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Factor Ids",
+          "type": "array"
+        },
+        "forecast_horizon": {
+          "$ref": "#/$defs/HorizonSpec"
+        },
+        "holding_horizon": {
+          "$ref": "#/$defs/HorizonSpec"
+        },
+        "ood_score": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ood Score"
+        },
+        "payload": {
+          "discriminator": {
+            "mapping": {
+              "empirical": "#/$defs/EmpiricalPayload",
+              "mixture": "#/$defs/MixturePayload",
+              "parametric": "#/$defs/ParametricPayload",
+              "path": "#/$defs/PathPayload",
+              "quantile": "#/$defs/QuantilePayload"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ParametricPayload"
+            },
+            {
+              "$ref": "#/$defs/MixturePayload"
+            },
+            {
+              "$ref": "#/$defs/QuantilePayload"
+            },
+            {
+              "$ref": "#/$defs/EmpiricalPayload"
+            },
+            {
+              "$ref": "#/$defs/PathPayload"
+            }
+          ],
+          "title": "Payload"
+        },
+        "probability_measure": {
+          "$ref": "#/$defs/ProbabilityMeasure"
+        },
+        "regime_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Regime Id"
+        },
+        "source_ref": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "belief_state_id",
+        "target_id",
+        "factor_ids",
+        "distribution_type",
+        "probability_measure",
+        "forecast_horizon",
+        "holding_horizon",
+        "evaluation_horizon",
+        "payload",
+        "available_at",
+        "decision_time",
+        "source_ref"
+      ],
+      "title": "BeliefRecord",
+      "type": "object"
+    },
+    "DistributionType": {
+      "enum": [
+        "PARAMETRIC",
+        "MIXTURE",
+        "QUANTILE",
+        "EMPIRICAL",
+        "PATH"
+      ],
+      "title": "DistributionType",
+      "type": "string"
+    },
+    "EmpiricalPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "empirical",
+          "default": "empirical",
+          "title": "Kind",
+          "type": "string"
+        },
+        "probabilities": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Probabilities"
+        },
+        "samples": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Samples",
+          "type": "array"
+        }
+      },
+      "required": [
+        "samples"
+      ],
+      "title": "EmpiricalPayload",
+      "type": "object"
+    },
+    "HistoricalScenarioPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "factor_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Factor Ids",
+          "type": "array"
+        },
+        "probabilities": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Probabilities"
+        },
+        "sample_available_at": {
+          "items": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "title": "Sample Available At",
+          "type": "array"
+        },
+        "samples": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Samples",
+          "type": "array"
+        }
+      },
+      "required": [
+        "factor_ids",
+        "samples",
+        "sample_available_at",
+        "decision_time"
+      ],
+      "title": "HistoricalScenarioPanel",
+      "type": "object"
+    },
+    "HorizonSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "unit": {
+          "$ref": "#/$defs/HorizonUnit"
+        },
+        "value": {
+          "exclusiveMinimum": 0,
+          "title": "Value",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "title": "HorizonSpec",
+      "type": "object"
+    },
+    "HorizonUnit": {
+      "enum": [
+        "HOURS",
+        "CALENDAR_DAYS",
+        "TRADING_SESSIONS"
+      ],
+      "title": "HorizonUnit",
+      "type": "string"
+    },
+    "MixtureComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Covariance",
+          "type": "array"
+        },
+        "degrees_freedom": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Degrees Freedom"
+        },
+        "family": {
+          "enum": [
+            "NORMAL",
+            "STUDENT_T"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "mean": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Mean",
+          "type": "array"
+        },
+        "weight": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "weight",
+        "family",
+        "mean",
+        "covariance"
+      ],
+      "title": "MixtureComponent",
+      "type": "object"
+    },
+    "MixturePayload": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "items": {
+            "$ref": "#/$defs/MixtureComponent"
+          },
+          "minItems": 2,
+          "title": "Components",
+          "type": "array"
+        },
+        "kind": {
+          "const": "mixture",
+          "default": "mixture",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "components"
+      ],
+      "title": "MixturePayload",
+      "type": "object"
+    },
+    "ParametricPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Covariance",
+          "type": "array"
+        },
+        "degrees_freedom": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Degrees Freedom"
+        },
+        "family": {
+          "enum": [
+            "NORMAL",
+            "STUDENT_T"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "kind": {
+          "const": "parametric",
+          "default": "parametric",
+          "title": "Kind",
+          "type": "string"
+        },
+        "mean": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Mean",
+          "type": "array"
+        }
+      },
+      "required": [
+        "family",
+        "mean",
+        "covariance"
+      ],
+      "title": "ParametricPayload",
+      "type": "object"
+    },
+    "PathPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "path",
+          "default": "path",
+          "title": "Kind",
+          "type": "string"
+        },
+        "paths": {
+          "items": {
+            "items": {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "title": "Paths",
+          "type": "array"
+        },
+        "probabilities": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Probabilities"
+        },
+        "step_labels": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Step Labels",
+          "type": "array"
+        }
+      },
+      "required": [
+        "paths",
+        "step_labels"
+      ],
+      "title": "PathPayload",
+      "type": "object"
+    },
+    "ProbabilityMeasure": {
+      "enum": [
+        "PHYSICAL",
+        "RISK_NEUTRAL",
+        "STRESS_WEIGHT"
+      ],
+      "title": "ProbabilityMeasure",
+      "type": "string"
+    },
+    "QualityPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance_relative_error_max": {
+          "default": 0.5,
+          "minimum": 0.0,
+          "title": "Covariance Relative Error Max",
+          "type": "number"
+        },
+        "mean_relative_error_max": {
+          "default": 0.35,
+          "minimum": 0.0,
+          "title": "Mean Relative Error Max",
+          "type": "number"
+        },
+        "minimum_realized_samples": {
+          "default": 30,
+          "minimum": 5,
+          "title": "Minimum Realized Samples",
+          "type": "integer"
+        },
+        "quantile_absolute_error_max": {
+          "default": 0.2,
+          "minimum": 0.0,
+          "title": "Quantile Absolute Error Max",
+          "type": "number"
+        },
+        "require_paths_for_families": {
+          "default": [
+            "CALENDAR",
+            "PATH_DEPENDENT"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "title": "Require Paths For Families",
+          "type": "array"
+        },
+        "tail_quantile_error_max": {
+          "default": 0.35,
+          "minimum": 0.0,
+          "title": "Tail Quantile Error Max",
+          "type": "number"
+        }
+      },
+      "title": "QualityPolicy",
+      "type": "object"
+    },
+    "QuantilePayload": {
+      "additionalProperties": false,
+      "properties": {
+        "gaussian_copula_correlation": {
+          "anyOf": [
+            {
+              "items": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gaussian Copula Correlation"
+        },
+        "kind": {
+          "const": "quantile",
+          "default": "quantile",
+          "title": "Kind",
+          "type": "string"
+        },
+        "levels": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Levels",
+          "type": "array"
+        },
+        "values": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "levels",
+        "values"
+      ],
+      "title": "QuantilePayload",
+      "type": "object"
+    },
+    "RealizedSamplePanel": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "factor_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Factor Ids",
+          "type": "array"
+        },
+        "samples": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Samples",
+          "type": "array"
+        }
+      },
+      "required": [
+        "factor_ids",
+        "samples",
+        "available_at",
+        "decision_time"
+      ],
+      "title": "RealizedSamplePanel",
+      "type": "object"
+    },
+    "ReductionPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance_error_max": {
+          "default": 0.25,
+          "minimum": 0.0,
+          "title": "Covariance Error Max",
+          "type": "number"
+        },
+        "first_action_tolerance": {
+          "default": 1e-08,
+          "minimum": 0.0,
+          "title": "First Action Tolerance",
+          "type": "number"
+        },
+        "max_pairwise_elements": {
+          "default": 4000000,
+          "minimum": 10000,
+          "title": "Max Pairwise Elements",
+          "type": "integer"
+        },
+        "mean_error_max": {
+          "default": 0.15,
+          "minimum": 0.0,
+          "title": "Mean Error Max",
+          "type": "number"
+        },
+        "preserve_tail_count": {
+          "default": 4,
+          "minimum": 0,
+          "title": "Preserve Tail Count",
+          "type": "integer"
+        },
+        "tail_error_max": {
+          "default": 0.2,
+          "minimum": 0.0,
+          "title": "Tail Error Max",
+          "type": "number"
+        },
+        "target_count": {
+          "default": 64,
+          "minimum": 2,
+          "title": "Target Count",
+          "type": "integer"
+        }
+      },
+      "title": "ReductionPolicy",
+      "type": "object"
+    },
+    "ScenarioPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "historical_weight": {
+          "default": 0.0,
+          "exclusiveMaximum": 1.0,
+          "minimum": 0.0,
+          "title": "Historical Weight",
+          "type": "number"
+        },
+        "probability_tolerance": {
+          "default": 1e-10,
+          "exclusiveMinimum": 0.0,
+          "title": "Probability Tolerance",
+          "type": "number"
+        },
+        "quantile_epsilon": {
+          "default": 1e-08,
+          "exclusiveMaximum": 0.1,
+          "exclusiveMinimum": 0.0,
+          "title": "Quantile Epsilon",
+          "type": "number"
+        },
+        "sampling_method": {
+          "default": "PSEUDO_RANDOM",
+          "enum": [
+            "PSEUDO_RANDOM",
+            "SOBOL"
+          ],
+          "title": "Sampling Method",
+          "type": "string"
+        },
+        "scenario_count": {
+          "default": 256,
+          "maximum": 100000,
+          "minimum": 16,
+          "title": "Scenario Count",
+          "type": "integer"
+        },
+        "seed_entropy": {
+          "default": 20260803,
+          "minimum": 0,
+          "title": "Seed Entropy",
+          "type": "integer"
+        }
+      },
+      "title": "ScenarioPolicy",
+      "type": "object"
+    },
+    "StressPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "reverse_stress_max_iterations": {
+          "default": 64,
+          "maximum": 512,
+          "minimum": 8,
+          "title": "Reverse Stress Max Iterations",
+          "type": "integer"
+        },
+        "reverse_stress_max_multiplier": {
+          "default": 64.0,
+          "exclusiveMinimum": 1.0,
+          "title": "Reverse Stress Max Multiplier",
+          "type": "number"
+        },
+        "reverse_stress_tolerance": {
+          "default": 0.0001,
+          "exclusiveMinimum": 0.0,
+          "title": "Reverse Stress Tolerance",
+          "type": "number"
+        },
+        "templates": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/StressTemplate"
+          },
+          "title": "Templates",
+          "type": "array"
+        }
+      },
+      "title": "StressPolicy",
+      "type": "object"
+    },
+    "StressTemplate": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_shocks": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Factor Shocks",
+          "type": "object"
+        },
+        "mode": {
+          "default": "ADDITIVE",
+          "enum": [
+            "ADDITIVE",
+            "MULTIPLICATIVE"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "severity": {
+          "default": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Severity",
+          "type": "number"
+        },
+        "stress_id": {
+          "title": "Stress Id",
+          "type": "string"
+        },
+        "tags": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "stress_id",
+        "factor_shocks"
+      ],
+      "title": "StressTemplate",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actionability_policy": {
+      "$ref": "#/$defs/ActionabilityPolicy",
+      "default": {
+        "degraded_quality_floor": 0.55,
+        "max_ambiguity_radius": 0.35,
+        "max_liquidity_haircut": 0.75,
+        "max_margin_buffer": 0.5,
+        "no_new_risk_floor": 0.25,
+        "nominal_quality_floor": 0.8
+      }
+    },
+    "belief": {
+      "$ref": "#/$defs/BeliefRecord"
+    },
+    "cycle_id": {
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "historical_scenarios": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/HistoricalScenarioPanel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "ordinal_risk_cap": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ordinal Risk Cap"
+    },
+    "quality_policy": {
+      "$ref": "#/$defs/QualityPolicy",
+      "default": {
+        "covariance_relative_error_max": 0.5,
+        "mean_relative_error_max": 0.35,
+        "minimum_realized_samples": 30,
+        "quantile_absolute_error_max": 0.2,
+        "require_paths_for_families": [
+          "CALENDAR",
+          "PATH_DEPENDENT"
+        ],
+        "tail_quantile_error_max": 0.35
+      }
+    },
+    "realized_samples": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/RealizedSamplePanel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "reduction_policy": {
+      "$ref": "#/$defs/ReductionPolicy",
+      "default": {
+        "covariance_error_max": 0.25,
+        "first_action_tolerance": 1e-08,
+        "max_pairwise_elements": 4000000,
+        "mean_error_max": 0.15,
+        "preserve_tail_count": 4,
+        "tail_error_max": 0.2,
+        "target_count": 64
+      }
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "scenario_policy": {
+      "$ref": "#/$defs/ScenarioPolicy",
+      "default": {
+        "historical_weight": 0.0,
+        "probability_tolerance": 1e-10,
+        "quantile_epsilon": 1e-08,
+        "sampling_method": "PSEUDO_RANDOM",
+        "scenario_count": 256,
+        "seed_entropy": 20260803
+      }
+    },
+    "strategy_families": {
+      "default": [
+        "LINEAR"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "title": "Strategy Families",
+      "type": "array"
+    },
+    "stress_policy": {
+      "$ref": "#/$defs/StressPolicy",
+      "default": {
+        "reverse_stress_max_iterations": 64,
+        "reverse_stress_max_multiplier": 64.0,
+        "reverse_stress_tolerance": 0.0001,
+        "templates": []
+      }
+    }
+  },
+  "required": [
+    "run_id",
+    "cycle_id",
+    "belief"
+  ],
+  "title": "S3Request",
+  "type": "object"
+}

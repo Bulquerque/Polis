@@ -1,0 +1,18 @@
+module_id: P9.CL3.M03
+module_name: mutation_taxonomy_router
+authority_phase: P9
+status: planned_cross_phase_blueprint
+inputs:
+- textual_gradient_report
+outputs:
+- targeted_mutation_class
+forbidden_actions:
+- mutate_current_cycle
+- change_person_genome_directly
+- promote_without_statistical_evidence
+tests_required:
+- schema
+- lineage
+- blind_holdout
+- one_change
+- result_finalization

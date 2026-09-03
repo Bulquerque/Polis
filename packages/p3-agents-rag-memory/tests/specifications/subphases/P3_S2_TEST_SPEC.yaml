@@ -1,0 +1,21 @@
+subphase: P3.S2
+modules:
+- module_id: P3.S2.M01
+  required_cases:
+  - future_available_at_fails
+  - timezone_boundary
+  - equal_boundary_passes
+- module_id: P3.S2.M02
+  required_cases:
+  - snapshot_hash_stable
+  - missing_config_hash_fails
+  - adapter_version_recorded
+- module_id: P3.S2.M03
+  required_cases:
+  - unknown_cutoff_risk
+  - qualification_unknown_fails_closed
+  - post_cutoff_clean_classification
+canonical_module_order:
+- P3.S2.M01
+- P3.S2.M02
+- P3.S2.M03

@@ -1,0 +1,16 @@
+spec_id: ST20_P0_RELEASE_EVIDENCE
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: No operational claim is accepted without complete P0 evidence
+required_cases:
+- clean_package
+- manifest_hashes
+- test_evidence
+- known_limitations
+- qualification_status
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

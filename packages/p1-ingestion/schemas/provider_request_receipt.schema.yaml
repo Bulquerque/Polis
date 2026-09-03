@@ -1,0 +1,13 @@
+schema_id: provider_request_receipt.v1
+schema_version: v14.1-rc4.1
+release_version: V14.1-RC4.1
+type: object
+required: [schema_id, schema_version, release_version, url, source_id, retrieved_at, response_status]
+properties:
+  schema_id: {const: provider_request_receipt.v1}
+  schema_version: {const: v14.1-rc4.1}
+  release_version: {const: V14.1-RC4.1}
+  url: {type: string}
+  source_id: {type: string}
+  retrieved_at: {type: string}
+  response_status: {type: integer}

@@ -1,0 +1,36 @@
+schema_id: p3.s35.corpus_retrieval_policy_config.v1
+schema_version: 1.0.0
+lexical:
+  algorithm: BM25_V1
+  k1: 1.5
+  b: 0.75
+fusion:
+  algorithm: RRF_V1
+  constant: 60
+deduplication:
+  by_content_hash: true
+point_in_time:
+  filter_before_scoring: true
+  missing_available_at: reject
+modes:
+  LOOKUP:
+    max_results: 5
+    max_internal_subqueries: 1
+    max_internal_work_units: 3
+  STANDARD:
+    max_results: 15
+    max_internal_subqueries: 2
+    max_internal_work_units: 8
+  TRIANGULATED:
+    max_results: 30
+    max_internal_subqueries: 4
+    max_internal_work_units: 20
+    minimum_source_families: 2
+    counterevidence_required: true
+  FORENSIC:
+    max_results: 50
+    max_internal_subqueries: 5
+    max_internal_work_units: 35
+    minimum_source_families: 2
+    counterevidence_required: true
+    version_graph_required: true

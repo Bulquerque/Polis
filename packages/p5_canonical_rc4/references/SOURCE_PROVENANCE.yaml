@@ -1,0 +1,13 @@
+package_version: P5-RC34.1-CONTRACT-CLOSURE-RC4
+package_id: P5_INTEGRATED_RC34_INTEGRATION_HARDENED
+baseline_ancestry:
+  - P5_INTEGRATED_RC23_P4_V14_9_NATIVE_FINAL
+  - P5_INTEGRATED_RC25_WAVES_1_3_COMPLETE
+  - P5_INTEGRATED_RC29_WAVES_0_3
+source_policy:
+  p4_boundary: locked_reference_and_runtime_validation
+  p6_handoff: local_contract_validation_with_real_receipts_external
+  p7_boundary: P7_consumes_P6_candidates_not_raw_P5_forecasts
+implemented_waves: [0, 1, 2, 3, 4, 5, 6, 7]
+pending_waves: []
+production_promotion_allowed: false

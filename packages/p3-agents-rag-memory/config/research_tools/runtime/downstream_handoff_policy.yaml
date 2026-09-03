@@ -1,0 +1,18 @@
+policy_id: p3.s40.downstream.handoff.v2
+global_contract_baseline: v14.1-rc4.1
+P4:
+  mode: CANDIDATE_SUPPLEMENTAL_NOT_WIRED
+  producer_status: PRODUCER_READY_CONSUMER_NOT_YET_WIRED
+  direct_edge_materialized: false
+  governance_note: phase_03_to_04 does not yet list the supplemental research-process artifacts
+  raw_document_payload_allowed: false
+P9:
+  mode: LOCAL_DEFERRED_EVIDENCE
+  producer_status: DEFERRED_BY_GOVERNANCE
+  direct_connection: FORBIDDEN_UNDER_RC4_1
+  direct_edge_materialized: false
+  feedback_timing: N_PLUS_1_ONLY
+  governance_note: global RC4.1 explicitly forbids direct phase_03 to phase_09 connections
+P5:
+  direct_connection: FORBIDDEN
+promotion_authority: P0_ONLY

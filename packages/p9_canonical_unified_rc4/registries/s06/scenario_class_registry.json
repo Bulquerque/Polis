@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_classes": [
+    "HISTORICAL_REPLAY",
+    "HYPOTHETICAL_SCENARIO",
+    "UNIVARIATE_SENSITIVITY",
+    "MULTIVARIATE_STRESS",
+    "REVERSE_STRESS",
+    "LIQUIDITY_STRESS",
+    "MARGIN_STRESS",
+    "EXECUTION_STRESS",
+    "MODEL_STRESS",
+    "SYSTEMIC_STRESS"
+  ]
+}

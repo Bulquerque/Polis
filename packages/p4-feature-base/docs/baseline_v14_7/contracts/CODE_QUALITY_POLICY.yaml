@@ -1,0 +1,49 @@
+policy_id: P4_CLEAN_CODE_V1
+version: V14.6-RC1
+authority: P0_AND_P4_CONTRACT_FREEZE
+limits:
+  python_file_lines: 350
+  function_lines: 60
+  wrapper_lines: 40
+  class_lines: 180
+  cyclomatic_complexity_target: 10
+  public_function_arguments_target: 7
+  max_nested_blocks: 4
+mandatory:
+- typed_public_interfaces
+- immutable_execution_context
+- domain_error_codes
+- single_producer_per_artifact
+- deterministic_order_before_hash_or_serialization
+- no_silent_defaults_for_time_lineage_or_missingness
+- no_forward_phase_imports
+- no_network_in_unit_tests
+- numeric_or_metamorphic_oracle_for_math
+- cross_agent_communication_through_artifacts_only
+forbidden:
+- generic_utils_or_helpers_module
+- mutable_global_state
+- catch_all_exception_without_domain_translation
+- business_math_in_module_wrapper
+- hidden_cache_without_snapshot_and_fit_state
+- implicit_dataframe_index_contract
+- same_cycle_p9_back_edge
+- runtime_contract_mutation
+dependency_layers:
+- contracts_and_models
+- domain_functions
+- domain_services
+- adapters
+- module_wrappers
+- runner
+quality_gates:
+- static_parse
+- ruff
+- mypy_strict
+- unit_tests
+- property_tests
+- temporal_leakage_tests
+- subphase_mini_run
+- cross_agent_fixture_contract_tests
+- cross_phase_handoff_tests
+- p0_qualification

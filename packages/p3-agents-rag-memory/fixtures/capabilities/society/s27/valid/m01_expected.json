@@ -1,0 +1,71 @@
+{
+  "belief_distribution_panel": {
+    "schema_version": "p3.s27.v1",
+    "run_id": "run-s27-001",
+    "cycle_id": 7,
+    "as_of_time": "2026-06-10T00:00:00Z",
+    "lineage_id": "lin_ed71a3b45bdb0b4e790a4194",
+    "formula_version": "p3.s27.formulas.v1",
+    "records": [
+      {
+        "underlying_id": "PETR4",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "as_of_time": "2026-06-10T00:00:00Z",
+        "formula_version": "p3.s27.formulas.v1",
+        "status": "DEGRADED",
+        "active_person_count": 3,
+        "population_size": 3,
+        "population_coverage_ratio": 1.0,
+        "weight_coverage_ratio": 1.0,
+        "effective_n": 2.9696969696969693,
+        "belief_mean": -0.00714285714285715,
+        "belief_variance": 0.19209183673469388,
+        "belief_entropy": 0.9952325573220987,
+        "belief_polarization": 0.3492063492063492,
+        "bullish_share": 0.28571428571428575,
+        "neutral_share": 0.35714285714285715,
+        "bearish_share": 0.35714285714285715,
+        "belief_update_velocity_per_day": 0.7222222222222222,
+        "belief_reversal_rate": 1.0,
+        "dynamics_coverage_ratio": 0.6428571428571429,
+        "input_lineage_ids": [
+          "lin-1",
+          "lin-2",
+          "lin-3",
+          "lin-beliefs",
+          "lin-population",
+          "lin-stimuli"
+        ]
+      },
+      {
+        "underlying_id": "VALE3",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "as_of_time": "2026-06-10T00:00:00Z",
+        "formula_version": "p3.s27.formulas.v1",
+        "status": "NO_COVERAGE",
+        "active_person_count": 0,
+        "population_size": 3,
+        "population_coverage_ratio": 0.0,
+        "weight_coverage_ratio": 0.0,
+        "effective_n": 0.0,
+        "belief_mean": null,
+        "belief_variance": null,
+        "belief_entropy": null,
+        "belief_polarization": null,
+        "bullish_share": null,
+        "neutral_share": null,
+        "bearish_share": null,
+        "belief_update_velocity_per_day": null,
+        "belief_reversal_rate": null,
+        "dynamics_coverage_ratio": 0.0,
+        "input_lineage_ids": [
+          "lin-beliefs",
+          "lin-population",
+          "lin-stimuli"
+        ]
+      }
+    ]
+  }
+}

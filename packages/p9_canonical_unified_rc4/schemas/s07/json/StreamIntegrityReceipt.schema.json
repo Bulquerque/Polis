@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "record_count": {
+      "minimum": 0,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "pending_count": {
+      "minimum": 0,
+      "title": "Pending Count",
+      "type": "integer"
+    },
+    "matured_count": {
+      "minimum": 0,
+      "title": "Matured Count",
+      "type": "integer"
+    },
+    "no_action_count": {
+      "minimum": 0,
+      "title": "No Action Count",
+      "type": "integer"
+    },
+    "stream_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Stream Sha256",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "record_count",
+    "pending_count",
+    "matured_count",
+    "no_action_count",
+    "stream_sha256"
+  ],
+  "title": "StreamIntegrityReceipt",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:StreamIntegrityReceipt:1.0.0"
+}

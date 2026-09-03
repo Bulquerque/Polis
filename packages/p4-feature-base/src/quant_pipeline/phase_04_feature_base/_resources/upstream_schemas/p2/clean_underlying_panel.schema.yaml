@@ -1,0 +1,30 @@
+artifact: clean_underlying_panel
+grain:
+- date
+- underlying
+required_fields:
+- date
+- as_of_date
+- available_at
+- underlying
+- open
+- high
+- low
+- close
+- volume
+- financial_volume
+- adjustment_factor
+- is_trading_day
+- source_id
+- lineage_id
+- quality_flag
+- pipeline_version
+forbidden_fields:
+- future_return
+- target
+- label
+- prediction
+- rank_score
+- candidate_id
+- portfolio_weight
+schema_version: v14.1-rc4.1

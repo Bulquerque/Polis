@@ -1,0 +1,159 @@
+{
+  "$defs": {
+    "FxRate": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "functional_currency": {
+          "minLength": 1,
+          "title": "Functional Currency",
+          "type": "string"
+        },
+        "rate": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Rate"
+        }
+      },
+      "required": [
+        "currency",
+        "functional_currency",
+        "rate",
+        "available_at"
+      ],
+      "title": "FxRate",
+      "type": "object"
+    },
+    "MarkRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "mark_id": {
+          "minLength": 1,
+          "title": "Mark Id",
+          "type": "string"
+        },
+        "mark_type": {
+          "$ref": "#/$defs/MarkType"
+        },
+        "model_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Ref"
+        },
+        "price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Price"
+        }
+      },
+      "required": [
+        "mark_id",
+        "instrument_id",
+        "mark_type",
+        "price",
+        "event_time",
+        "available_at"
+      ],
+      "title": "MarkRecord",
+      "type": "object"
+    },
+    "MarkType": {
+      "enum": [
+        "BID",
+        "ASK",
+        "MID",
+        "LAST",
+        "SETTLEMENT",
+        "MODEL",
+        "STALE",
+        "UNAVAILABLE"
+      ],
+      "title": "MarkType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "fx_rates": {
+      "items": {
+        "$ref": "#/$defs/FxRate"
+      },
+      "title": "Fx Rates",
+      "type": "array"
+    },
+    "marks": {
+      "items": {
+        "$ref": "#/$defs/MarkRecord"
+      },
+      "title": "Marks",
+      "type": "array"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "valuation_time": {
+      "format": "date-time",
+      "title": "Valuation Time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "valuation_time",
+    "marks",
+    "fx_rates"
+  ],
+  "title": "MarkSnapshot",
+  "type": "object"
+}

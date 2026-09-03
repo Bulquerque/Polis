@@ -1,0 +1,140 @@
+{
+  "$defs": {
+    "CandidateMarginState": {
+      "additionalProperties": false,
+      "properties": {
+        "borrow_available": {
+          "title": "Borrow Available",
+          "type": "boolean"
+        },
+        "candidate_id": {
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "capital_capacity_units": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Capital Capacity Units"
+        },
+        "capital_required_per_unit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Capital Required Per Unit"
+        },
+        "fidelity": {
+          "$ref": "#/$defs/MarginFidelity"
+        },
+        "margin_per_unit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Margin Per Unit"
+        },
+        "quality": {
+          "$ref": "#/$defs/ComponentQuality"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "borrow_available",
+        "fidelity",
+        "quality"
+      ],
+      "title": "CandidateMarginState",
+      "type": "object"
+    },
+    "ComponentQuality": {
+      "enum": [
+        "FULLY_QUALIFIED",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQuality",
+      "type": "string"
+    },
+    "MarginFidelity": {
+      "enum": [
+        "EXACT_BROKER_MODEL",
+        "SPAN_LIKE_MODEL",
+        "CONSERVATIVE_RULE_BASED",
+        "UNAVAILABLE"
+      ],
+      "title": "MarginFidelity",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/MarginFundingSummary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_states": {
+      "items": {
+        "$ref": "#/$defs/CandidateMarginState"
+      },
+      "title": "Candidate States",
+      "type": "array"
+    },
+    "content_sha256": {
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "eligible_collateral": {
+      "title": "Eligible Collateral",
+      "type": "number"
+    },
+    "free_cash_after_buffer": {
+      "title": "Free Cash After Buffer",
+      "type": "number"
+    },
+    "margin_headroom": {
+      "title": "Margin Headroom",
+      "type": "number"
+    },
+    "portfolio_margin_current": {
+      "title": "Portfolio Margin Current",
+      "type": "number"
+    }
+  },
+  "required": [
+    "candidate_states",
+    "portfolio_margin_current",
+    "margin_headroom",
+    "free_cash_after_buffer",
+    "eligible_collateral",
+    "content_sha256"
+  ],
+  "title": "MarginFundingSummary",
+  "type": "object"
+}

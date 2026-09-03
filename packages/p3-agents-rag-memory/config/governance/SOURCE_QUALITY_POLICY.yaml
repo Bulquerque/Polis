@@ -1,0 +1,7 @@
+invalid_statuses:
+- invalid
+- corrupt
+- untraceable
+low_quality_action: propagate_flag
+usable_with_warning_action: allow_with_quality_metadata
+recompute_quality: false

@@ -1,0 +1,50 @@
+{
+  "$defs": {
+    "CapabilityState": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "RESERVED",
+        "UNAVAILABLE"
+      ],
+      "title": "CapabilityState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "capability_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Capability Id"
+    },
+    "capability_state": {
+      "$ref": "#/$defs/CapabilityState"
+    },
+    "owner_module_id": {
+      "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+      "title": "Owner Module Id",
+      "type": "string"
+    },
+    "parameter_id": {
+      "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+      "title": "Parameter Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parameter_id",
+    "owner_module_id",
+    "capability_id",
+    "capability_state"
+  ],
+  "title": "ParameterAuthorityBinding",
+  "type": "object"
+}

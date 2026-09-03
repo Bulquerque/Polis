@@ -1,0 +1,622 @@
+{
+  "$defs": {
+    "AccountCode": {
+      "enum": [
+        "CASH_AVAILABLE",
+        "COLLATERAL_RESTRICTED",
+        "LONG_POSITION_BASIS",
+        "SHORT_POSITION_BASIS",
+        "OPTION_PREMIUM_BASIS",
+        "FEES_EXPENSE",
+        "BORROW_EXPENSE",
+        "REALIZED_PNL",
+        "OPENING_EQUITY",
+        "EXTERNAL_FLOW_EQUITY",
+        "SETTLEMENT_CLEARING"
+      ],
+      "title": "AccountCode",
+      "type": "string"
+    },
+    "CashLedgerEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "balance_after": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Balance After"
+        },
+        "category": {
+          "minLength": 1,
+          "title": "Category",
+          "type": "string"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Delta"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_time",
+        "currency",
+        "delta",
+        "balance_after",
+        "category"
+      ],
+      "title": "CashLedgerEntry",
+      "type": "object"
+    },
+    "CollateralLedgerEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "available_cash_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Available Cash Delta"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "restricted_balance_after": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Restricted Balance After"
+        },
+        "restricted_collateral_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Restricted Collateral Delta"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_time",
+        "currency",
+        "available_cash_delta",
+        "restricted_collateral_delta",
+        "restricted_balance_after"
+      ],
+      "title": "CollateralLedgerEntry",
+      "type": "object"
+    },
+    "CostLedgerEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Amount"
+        },
+        "cost_type": {
+          "minLength": 1,
+          "title": "Cost Type",
+          "type": "string"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_time",
+        "currency",
+        "cost_type",
+        "amount"
+      ],
+      "title": "CostLedgerEntry",
+      "type": "object"
+    },
+    "CurrencyAccountStateFinal": {
+      "additionalProperties": false,
+      "properties": {
+        "cash_available": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cash Available"
+        },
+        "collateral_restricted": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Collateral Restricted"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "liabilities": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Liabilities"
+        },
+        "margin_used": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Used"
+        }
+      },
+      "required": [
+        "currency",
+        "cash_available",
+        "collateral_restricted",
+        "liabilities",
+        "margin_used"
+      ],
+      "title": "CurrencyAccountStateFinal",
+      "type": "object"
+    },
+    "JournalEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "entry_id": {
+          "minLength": 1,
+          "title": "Entry Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "postings": {
+          "items": {
+            "$ref": "#/$defs/JournalPosting"
+          },
+          "title": "Postings",
+          "type": "array"
+        },
+        "source_event_id": {
+          "minLength": 1,
+          "title": "Source Event Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entry_id",
+        "source_event_id",
+        "event_time",
+        "description",
+        "postings"
+      ],
+      "title": "JournalEntry",
+      "type": "object"
+    },
+    "JournalPosting": {
+      "additionalProperties": false,
+      "properties": {
+        "account_code": {
+          "$ref": "#/$defs/AccountCode"
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Amount"
+        },
+        "candidate_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Candidate Id"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "entry_id": {
+          "minLength": 1,
+          "title": "Entry Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "instrument_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instrument Id"
+        },
+        "posting_id": {
+          "minLength": 1,
+          "title": "Posting Id",
+          "type": "string"
+        },
+        "side": {
+          "$ref": "#/$defs/JournalSide"
+        }
+      },
+      "required": [
+        "posting_id",
+        "entry_id",
+        "event_time",
+        "currency",
+        "account_code",
+        "side",
+        "amount"
+      ],
+      "title": "JournalPosting",
+      "type": "object"
+    },
+    "JournalSide": {
+      "enum": [
+        "DEBIT",
+        "CREDIT"
+      ],
+      "title": "JournalSide",
+      "type": "string"
+    },
+    "MarginLedgerEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "margin_used_after": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Used After"
+        },
+        "reason_code": {
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_time",
+        "currency",
+        "margin_used_after",
+        "reason_code"
+      ],
+      "title": "MarginLedgerEntry",
+      "type": "object"
+    },
+    "PremiumLedgerEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "premium_cash_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Premium Cash Delta"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_time",
+        "instrument_id",
+        "currency",
+        "premium_cash_delta"
+      ],
+      "title": "PremiumLedgerEntry",
+      "type": "object"
+    },
+    "RealizedPnLEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Amount"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_time",
+        "instrument_id",
+        "currency",
+        "amount"
+      ],
+      "title": "RealizedPnLEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "accounts": {
+      "items": {
+        "$ref": "#/$defs/CurrencyAccountStateFinal"
+      },
+      "title": "Accounts",
+      "type": "array"
+    },
+    "balanced": {
+      "title": "Balanced",
+      "type": "boolean"
+    },
+    "cash_ledger": {
+      "items": {
+        "$ref": "#/$defs/CashLedgerEntry"
+      },
+      "title": "Cash Ledger",
+      "type": "array"
+    },
+    "collateral_ledger": {
+      "items": {
+        "$ref": "#/$defs/CollateralLedgerEntry"
+      },
+      "title": "Collateral Ledger",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "cost_ledger": {
+      "items": {
+        "$ref": "#/$defs/CostLedgerEntry"
+      },
+      "title": "Cost Ledger",
+      "type": "array"
+    },
+    "external_flow_delta": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "External Flow Delta"
+    },
+    "journal_entries": {
+      "items": {
+        "$ref": "#/$defs/JournalEntry"
+      },
+      "title": "Journal Entries",
+      "type": "array"
+    },
+    "margin_ledger": {
+      "items": {
+        "$ref": "#/$defs/MarginLedgerEntry"
+      },
+      "title": "Margin Ledger",
+      "type": "array"
+    },
+    "premium_ledger": {
+      "items": {
+        "$ref": "#/$defs/PremiumLedgerEntry"
+      },
+      "title": "Premium Ledger",
+      "type": "array"
+    },
+    "realized_pnl_ledger": {
+      "items": {
+        "$ref": "#/$defs/RealizedPnLEntry"
+      },
+      "title": "Realized Pnl Ledger",
+      "type": "array"
+    }
+  },
+  "required": [
+    "accounts",
+    "journal_entries",
+    "cash_ledger",
+    "premium_ledger",
+    "cost_ledger",
+    "margin_ledger",
+    "collateral_ledger",
+    "realized_pnl_ledger",
+    "balanced",
+    "external_flow_delta",
+    "content_sha256"
+  ],
+  "title": "AccountingBundle",
+  "type": "object"
+}

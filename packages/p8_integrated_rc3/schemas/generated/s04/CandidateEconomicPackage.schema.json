@@ -1,0 +1,464 @@
+{
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "default": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "content_sha256"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "EuropeanOptionLeg": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_multiplier": {
+          "default": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Contract Multiplier",
+          "type": "number"
+        },
+        "currency": {
+          "maxLength": 3,
+          "minLength": 3,
+          "title": "Currency",
+          "type": "string"
+        },
+        "dividend_yield": {
+          "default": 0.0,
+          "title": "Dividend Yield",
+          "type": "number"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "EUROPEAN_OPTION",
+          "default": "EUROPEAN_OPTION",
+          "title": "Kind",
+          "type": "string"
+        },
+        "leg_id": {
+          "minLength": 1,
+          "title": "Leg Id",
+          "type": "string"
+        },
+        "option_type": {
+          "$ref": "#/$defs/OptionType"
+        },
+        "provided_greeks_per_unit": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GreekVector"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "quantity_per_unit": {
+          "title": "Quantity Per Unit",
+          "type": "number"
+        },
+        "rate_factor_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rate Factor Id"
+        },
+        "risk_free_rate": {
+          "title": "Risk Free Rate",
+          "type": "number"
+        },
+        "spot": {
+          "exclusiveMinimum": 0.0,
+          "title": "Spot",
+          "type": "number"
+        },
+        "strike": {
+          "exclusiveMinimum": 0.0,
+          "title": "Strike",
+          "type": "number"
+        },
+        "time_to_expiry_years": {
+          "exclusiveMinimum": 0.0,
+          "title": "Time To Expiry Years",
+          "type": "number"
+        },
+        "underlying_factor_id": {
+          "minLength": 1,
+          "title": "Underlying Factor Id",
+          "type": "string"
+        },
+        "volatility": {
+          "exclusiveMinimum": 0.0,
+          "title": "Volatility",
+          "type": "number"
+        },
+        "volatility_factor_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Volatility Factor Id"
+        }
+      },
+      "required": [
+        "leg_id",
+        "instrument_id",
+        "underlying_factor_id",
+        "option_type",
+        "quantity_per_unit",
+        "spot",
+        "strike",
+        "volatility",
+        "risk_free_rate",
+        "time_to_expiry_years",
+        "currency"
+      ],
+      "title": "EuropeanOptionLeg",
+      "type": "object"
+    },
+    "GreekVector": {
+      "additionalProperties": false,
+      "properties": {
+        "charm": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Charm"
+        },
+        "delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Delta"
+        },
+        "gamma": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gamma"
+        },
+        "rho": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rho"
+        },
+        "theta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Theta"
+        },
+        "unit_description": {
+          "default": "PER_CANDIDATE_UNIT",
+          "title": "Unit Description",
+          "type": "string"
+        },
+        "vanna": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Vanna"
+        },
+        "vega": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Vega"
+        },
+        "volga": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Volga"
+        }
+      },
+      "title": "GreekVector",
+      "type": "object"
+    },
+    "LinearLeg": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "maxLength": 3,
+          "minLength": 3,
+          "title": "Currency",
+          "type": "string"
+        },
+        "factor_id": {
+          "minLength": 1,
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "greeks_per_unit": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GreekVector"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "LINEAR",
+          "default": "LINEAR",
+          "title": "Kind",
+          "type": "string"
+        },
+        "leg_id": {
+          "minLength": 1,
+          "title": "Leg Id",
+          "type": "string"
+        },
+        "pnl_per_factor_unit": {
+          "title": "Pnl Per Factor Unit",
+          "type": "number"
+        },
+        "quantity_per_unit": {
+          "title": "Quantity Per Unit",
+          "type": "number"
+        }
+      },
+      "required": [
+        "leg_id",
+        "instrument_id",
+        "factor_id",
+        "quantity_per_unit",
+        "pnl_per_factor_unit",
+        "currency"
+      ],
+      "title": "LinearLeg",
+      "type": "object"
+    },
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/CandidateEconomicPackage.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "canonical_candidate_id": {
+      "minLength": 1,
+      "title": "Canonical Candidate Id",
+      "type": "string"
+    },
+    "currency": {
+      "maxLength": 3,
+      "minLength": 3,
+      "title": "Currency",
+      "type": "string"
+    },
+    "entry_cash_flow_per_unit": {
+      "default": 0.0,
+      "title": "Entry Cash Flow Per Unit",
+      "type": "number"
+    },
+    "gross_notional_per_unit": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Gross Notional Per Unit"
+    },
+    "legs": {
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "EUROPEAN_OPTION": "#/$defs/EuropeanOptionLeg",
+            "LINEAR": "#/$defs/LinearLeg"
+          },
+          "propertyName": "kind"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/LinearLeg"
+          },
+          {
+            "$ref": "#/$defs/EuropeanOptionLeg"
+          }
+        ]
+      },
+      "minItems": 1,
+      "title": "Legs",
+      "type": "array"
+    },
+    "margin_offset_group": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Margin Offset Group"
+    },
+    "maximum_loss_per_unit": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maximum Loss Per Unit"
+    },
+    "maximum_loss_proof_status": {
+      "default": "UNAVAILABLE",
+      "enum": [
+        "PROVEN",
+        "DEGRADED",
+        "UNAVAILABLE"
+      ],
+      "title": "Maximum Loss Proof Status",
+      "type": "string"
+    },
+    "required_capabilities": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Required Capabilities",
+      "type": "array"
+    },
+    "source_ref": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "strategy_family": {
+      "minLength": 1,
+      "title": "Strategy Family",
+      "type": "string"
+    },
+    "unit_definition": {
+      "minLength": 1,
+      "title": "Unit Definition",
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "canonical_candidate_id",
+    "strategy_family",
+    "currency",
+    "unit_definition",
+    "legs",
+    "source_ref"
+  ],
+  "title": "CandidateEconomicPackage",
+  "type": "object"
+}

@@ -1,0 +1,1687 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_role": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Artifact Role",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "cycle": {
+          "$ref": "#/$defs/CycleRef"
+        },
+        "location": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Location",
+          "type": "string"
+        },
+        "payload_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Payload Sha256",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "run_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Schema Name",
+          "type": "string"
+        },
+        "schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Schema Sha256",
+          "type": "string"
+        },
+        "schema_version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_role",
+        "schema_name",
+        "schema_version",
+        "schema_sha256",
+        "payload_sha256",
+        "producer_module_id",
+        "run_id",
+        "cycle",
+        "available_at",
+        "location"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "CategoricalChangeBounds": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_values": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Allowed Values",
+          "type": "array"
+        },
+        "parameter_name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Parameter Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameter_name",
+        "allowed_values"
+      ],
+      "title": "CategoricalChangeBounds",
+      "type": "object"
+    },
+    "ChangeOrigin": {
+      "enum": [
+        "PRECOMMITTED",
+        "INDEPENDENT_EVIDENCE",
+        "PUBLIC_SCORE_REACTION",
+        "UNKNOWN"
+      ],
+      "title": "ChangeOrigin",
+      "type": "string"
+    },
+    "CompetitionObjectiveSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_deployment_stages": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Allowed Deployment Stages",
+          "type": "array"
+        },
+        "committed_at": {
+          "format": "date-time",
+          "title": "Committed At",
+          "type": "string"
+        },
+        "evaluation_started_at": {
+          "format": "date-time",
+          "title": "Evaluation Started At",
+          "type": "string"
+        },
+        "frontier_axes": {
+          "items": {
+            "$ref": "#/$defs/FrontierAxis"
+          },
+          "title": "Frontier Axes",
+          "type": "array"
+        },
+        "hard_gates": {
+          "items": {
+            "$ref": "#/$defs/HardGateRule"
+          },
+          "title": "Hard Gates",
+          "type": "array"
+        },
+        "maximum_complexity_increase_without_material_gain": {
+          "minimum": 0.0,
+          "title": "Maximum Complexity Increase Without Material Gain",
+          "type": "number"
+        },
+        "maximum_pbo": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Maximum Pbo",
+          "type": "number"
+        },
+        "minimum_dsr": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Minimum Dsr",
+          "type": "number"
+        },
+        "minimum_effect_size": {
+          "minimum": 0.0,
+          "title": "Minimum Effect Size",
+          "type": "number"
+        },
+        "minimum_probability_of_superiority": {
+          "maximum": 1.0,
+          "minimum": 0.5,
+          "title": "Minimum Probability Of Superiority",
+          "type": "number"
+        },
+        "policy_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "primary_direction": {
+          "$ref": "#/$defs/OptimizationDirection"
+        },
+        "primary_score_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Primary Score Id",
+          "type": "string"
+        },
+        "primary_score_version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Primary Score Version",
+          "type": "string"
+        },
+        "soft_penalties": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/SoftPenaltyRule"
+          },
+          "title": "Soft Penalties",
+          "type": "array"
+        },
+        "supported_metric_versions": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Supported Metric Versions",
+          "type": "array"
+        },
+        "tie_breakers": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/TieBreakerRule"
+          },
+          "title": "Tie Breakers",
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "primary_score_id",
+        "primary_score_version",
+        "primary_direction",
+        "hard_gates",
+        "frontier_axes",
+        "minimum_effect_size",
+        "minimum_probability_of_superiority",
+        "maximum_pbo",
+        "minimum_dsr",
+        "maximum_complexity_increase_without_material_gain",
+        "allowed_deployment_stages",
+        "committed_at",
+        "evaluation_started_at",
+        "supported_metric_versions"
+      ],
+      "title": "CompetitionObjectiveSpec",
+      "type": "object"
+    },
+    "ConfigurationEvaluationCard": {
+      "additionalProperties": false,
+      "properties": {
+        "capacity_feasible": {
+          "default": true,
+          "title": "Capacity Feasible",
+          "type": "boolean"
+        },
+        "cohort_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "complexity_score": {
+          "minimum": 0.0,
+          "title": "Complexity Score",
+          "type": "number"
+        },
+        "configuration_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "contamination_state": {
+          "$ref": "#/$defs/ContaminationState",
+          "default": "UNKNOWN"
+        },
+        "critical_regime_failures": {
+          "default": [],
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Critical Regime Failures",
+          "type": "array"
+        },
+        "dsr": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Dsr",
+          "type": "number"
+        },
+        "gates": {
+          "items": {
+            "$ref": "#/$defs/GateObservation"
+          },
+          "title": "Gates",
+          "type": "array"
+        },
+        "live_degradation_detected": {
+          "default": false,
+          "title": "Live Degradation Detected",
+          "type": "boolean"
+        },
+        "live_evidence_available": {
+          "default": false,
+          "title": "Live Evidence Available",
+          "type": "boolean"
+        },
+        "metrics": {
+          "items": {
+            "$ref": "#/$defs/MetricValue"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "model_confidence_set_member": {
+          "title": "Model Confidence Set Member",
+          "type": "boolean"
+        },
+        "parameters": {
+          "items": {
+            "$ref": "#/$defs/ParameterValue"
+          },
+          "title": "Parameters",
+          "type": "array"
+        },
+        "pbo": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Pbo",
+          "type": "number"
+        },
+        "stress_resilient": {
+          "default": true,
+          "title": "Stress Resilient",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "configuration_id",
+        "cohort_id",
+        "parameters",
+        "metrics",
+        "gates",
+        "model_confidence_set_member",
+        "complexity_score",
+        "pbo",
+        "dsr"
+      ],
+      "title": "ConfigurationEvaluationCard",
+      "type": "object"
+    },
+    "ContaminationState": {
+      "enum": [
+        "CLEAN",
+        "LIMITED_USE",
+        "CONTAMINATED",
+        "UNKNOWN"
+      ],
+      "title": "ContaminationState",
+      "type": "string"
+    },
+    "CycleRef": {
+      "additionalProperties": false,
+      "properties": {
+        "cycle_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "ordinal": {
+          "minimum": 0,
+          "title": "Ordinal",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cycle_id",
+        "ordinal"
+      ],
+      "title": "CycleRef",
+      "type": "object"
+    },
+    "EvidenceQuality": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceQuality",
+      "type": "string"
+    },
+    "EvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "evidence_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "quality": {
+          "$ref": "#/$defs/EvidenceQuality"
+        },
+        "summary": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "artifact_ref",
+        "quality",
+        "summary"
+      ],
+      "title": "EvidenceReference",
+      "type": "object"
+    },
+    "FeedbackActivationLedgerEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "feedback_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/FeedbackValidationState"
+        },
+        "target_cycle": {
+          "$ref": "#/$defs/CycleRef"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "state",
+        "target_cycle"
+      ],
+      "title": "FeedbackActivationLedgerEntry",
+      "type": "object"
+    },
+    "FeedbackEffectType": {
+      "enum": [
+        "RESEARCH_REQUEST",
+        "POLICY_BOUND_CHANGE",
+        "ELIGIBILITY_REVIEW",
+        "CALIBRATION_REVIEW",
+        "CAPABILITY_REQUIREMENT",
+        "DEPRECATION_CANDIDATE"
+      ],
+      "title": "FeedbackEffectType",
+      "type": "string"
+    },
+    "FeedbackEffectivenessRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "effectiveness_score": {
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Effectiveness Score",
+          "type": "number"
+        },
+        "regressive": {
+          "title": "Regressive",
+          "type": "boolean"
+        },
+        "target_phase": {
+          "$ref": "#/$defs/FeedbackPhase"
+        },
+        "target_policy_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_phase",
+        "target_policy_id",
+        "effectiveness_score",
+        "regressive"
+      ],
+      "title": "FeedbackEffectivenessRecord",
+      "type": "object"
+    },
+    "FeedbackPhase": {
+      "enum": [
+        "P5",
+        "P6",
+        "P7",
+        "P8"
+      ],
+      "title": "FeedbackPhase",
+      "type": "string"
+    },
+    "FeedbackPolicyRegistry": {
+      "additionalProperties": false,
+      "properties": {
+        "registry_version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Registry Version",
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/FeedbackPolicyTarget"
+          },
+          "title": "Targets",
+          "type": "array"
+        }
+      },
+      "required": [
+        "registry_version",
+        "targets"
+      ],
+      "title": "FeedbackPolicyRegistry",
+      "type": "object"
+    },
+    "FeedbackPolicyTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_feedback_types": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Allowed Feedback Types",
+          "type": "array"
+        },
+        "categorical_bounds": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CategoricalChangeBounds"
+          },
+          "title": "Categorical Bounds",
+          "type": "array"
+        },
+        "numeric_bounds": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/NumericChangeBounds"
+          },
+          "title": "Numeric Bounds",
+          "type": "array"
+        },
+        "requires_p0_authorization_for": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FeedbackEffectType"
+          },
+          "title": "Requires P0 Authorization For",
+          "type": "array"
+        },
+        "target_phase": {
+          "$ref": "#/$defs/FeedbackPhase"
+        },
+        "target_policy_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        },
+        "target_policy_version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Target Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_phase",
+        "target_policy_id",
+        "target_policy_version",
+        "allowed_feedback_types"
+      ],
+      "title": "FeedbackPolicyTarget",
+      "type": "object"
+    },
+    "FeedbackValidationState": {
+      "enum": [
+        "VALIDATED_PENDING_P0",
+        "VALIDATED_FOR_FUTURE_CYCLE",
+        "NO_FEEDBACK_TO_ACTIVATE",
+        "REJECTED_SAME_CYCLE",
+        "REJECTED_SCHEMA_INCOMPATIBLE",
+        "REJECTED_TARGET_MISSING",
+        "REJECTED_DUPLICATE",
+        "REJECTED_EXPIRED",
+        "RESERVED_CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "FeedbackValidationState",
+      "type": "string"
+    },
+    "FrontierAxis": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "$ref": "#/$defs/OptimizationDirection"
+        },
+        "epsilon": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Epsilon",
+          "type": "number"
+        },
+        "metric_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Metric Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_id",
+        "direction"
+      ],
+      "title": "FrontierAxis",
+      "type": "object"
+    },
+    "GateObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "gate_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Gate Id",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/GateState"
+        }
+      },
+      "required": [
+        "gate_id",
+        "state"
+      ],
+      "title": "GateObservation",
+      "type": "object"
+    },
+    "GateSeverity": {
+      "enum": [
+        "INFO",
+        "WARNING",
+        "BLOCKING",
+        "CRITICAL"
+      ],
+      "title": "GateSeverity",
+      "type": "string"
+    },
+    "GateState": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_LIMITATIONS",
+        "FAIL",
+        "NOT_AVAILABLE",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "title": "GateState",
+      "type": "string"
+    },
+    "HardGateRule": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_states": {
+          "default": [
+            "PASS",
+            "PASS_WITH_LIMITATIONS"
+          ],
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Accepted States",
+          "type": "array"
+        },
+        "gate_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Gate Id",
+          "type": "string"
+        },
+        "missing_is_failure": {
+          "default": true,
+          "title": "Missing Is Failure",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "gate_id"
+      ],
+      "title": "HardGateRule",
+      "type": "object"
+    },
+    "LeaderboardPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "base_submission_cost": {
+          "exclusiveMinimum": 0.0,
+          "title": "Base Submission Cost",
+          "type": "number"
+        },
+        "change_magnitude_weight": {
+          "minimum": 0.0,
+          "title": "Change Magnitude Weight",
+          "type": "number"
+        },
+        "contamination_threshold": {
+          "exclusiveMinimum": 0.0,
+          "title": "Contamination Threshold",
+          "type": "number"
+        },
+        "information_budget": {
+          "exclusiveMinimum": 0.0,
+          "title": "Information Budget",
+          "type": "number"
+        },
+        "limited_use_threshold": {
+          "exclusiveMinimum": 0.0,
+          "title": "Limited Use Threshold",
+          "type": "number"
+        },
+        "maximum_submissions": {
+          "minimum": 1,
+          "title": "Maximum Submissions",
+          "type": "integer"
+        },
+        "policy_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "public_reaction_penalty": {
+          "minimum": 0.0,
+          "title": "Public Reaction Penalty",
+          "type": "number"
+        },
+        "uncommitted_penalty": {
+          "minimum": 0.0,
+          "title": "Uncommitted Penalty",
+          "type": "number"
+        }
+      },
+      "required": [
+        "policy_id",
+        "maximum_submissions",
+        "information_budget",
+        "base_submission_cost",
+        "uncommitted_penalty",
+        "public_reaction_penalty",
+        "change_magnitude_weight",
+        "contamination_threshold",
+        "limited_use_threshold"
+      ],
+      "title": "LeaderboardPolicy",
+      "type": "object"
+    },
+    "MetricValue": {
+      "additionalProperties": false,
+      "properties": {
+        "metric_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_version": {
+          "default": "1.0.0",
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "unit": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric_id",
+        "value",
+        "unit"
+      ],
+      "title": "MetricValue",
+      "type": "object"
+    },
+    "NumericChangeBounds": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum"
+        },
+        "maximum_absolute_delta": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum Absolute Delta"
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum"
+        },
+        "parameter_name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Parameter Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameter_name"
+      ],
+      "title": "NumericChangeBounds",
+      "type": "object"
+    },
+    "OptimizationDirection": {
+      "enum": [
+        "MAXIMIZE",
+        "MINIMIZE"
+      ],
+      "title": "OptimizationDirection",
+      "type": "string"
+    },
+    "PairwiseComparisonEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "anytime_valid_state": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Anytime Valid State"
+        },
+        "challenger_configuration_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Challenger Configuration Id",
+          "type": "string"
+        },
+        "champion_configuration_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Champion Configuration Id",
+          "type": "string"
+        },
+        "cohort_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "effect_lower_bound": {
+          "title": "Effect Lower Bound",
+          "type": "number"
+        },
+        "effect_size": {
+          "title": "Effect Size",
+          "type": "number"
+        },
+        "effect_upper_bound": {
+          "title": "Effect Upper Bound",
+          "type": "number"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "live_comparison_available": {
+          "default": false,
+          "title": "Live Comparison Available",
+          "type": "boolean"
+        },
+        "live_degradation_detected": {
+          "default": false,
+          "title": "Live Degradation Detected",
+          "type": "boolean"
+        },
+        "live_effect_size": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Live Effect Size"
+        },
+        "paired_bootstrap_available": {
+          "title": "Paired Bootstrap Available",
+          "type": "boolean"
+        },
+        "probability_of_superiority": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Probability Of Superiority",
+          "type": "number"
+        }
+      },
+      "required": [
+        "champion_configuration_id",
+        "challenger_configuration_id",
+        "cohort_id",
+        "effect_size",
+        "effect_lower_bound",
+        "effect_upper_bound",
+        "probability_of_superiority",
+        "paired_bootstrap_available"
+      ],
+      "title": "PairwiseComparisonEvidence",
+      "type": "object"
+    },
+    "ParameterDimension": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_categories": {
+          "default": [],
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Allowed Categories",
+          "type": "array"
+        },
+        "name": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "numeric_maximum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numeric Maximum"
+        },
+        "numeric_minimum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numeric Minimum"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "ParameterDimension",
+      "type": "object"
+    },
+    "ParameterSpaceRegistry": {
+      "additionalProperties": false,
+      "properties": {
+        "dimensions": {
+          "items": {
+            "$ref": "#/$defs/ParameterDimension"
+          },
+          "title": "Dimensions",
+          "type": "array"
+        },
+        "schema_version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "dimensions"
+      ],
+      "title": "ParameterSpaceRegistry",
+      "type": "object"
+    },
+    "ParameterValue": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "title": "ParameterValue",
+      "type": "object"
+    },
+    "PromotionGateReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "cycle": {
+          "$ref": "#/$defs/CycleRef"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "gate_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Gate Id",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "producer_module_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "receipt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Receipt Sha256",
+          "type": "string"
+        },
+        "run_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/GateSeverity"
+        },
+        "source_bundle_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Bundle Sha256",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/GateState"
+        },
+        "subject_configuration_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Subject Configuration Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "gate_id",
+        "run_id",
+        "cycle",
+        "subject_configuration_ids",
+        "source_bundle_sha256",
+        "producer_module_id",
+        "state",
+        "severity",
+        "receipt_sha256"
+      ],
+      "title": "PromotionGateReceipt",
+      "type": "object"
+    },
+    "PromotionSourceContext": {
+      "additionalProperties": false,
+      "properties": {
+        "attribution_bundle_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Attribution Bundle Sha256",
+          "type": "string"
+        },
+        "configuration_ids": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Configuration Ids",
+          "type": "array"
+        },
+        "context_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Context Sha256",
+          "type": "string"
+        },
+        "contract_name": {
+          "default": "CONTRACT_P9_S8_TO_S9_PROMOTION_EVIDENCE_V2",
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Contract Name",
+          "type": "string"
+        },
+        "contract_version": {
+          "default": "2.0.0",
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "cycle": {
+          "$ref": "#/$defs/CycleRef"
+        },
+        "run_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle",
+        "attribution_bundle_sha256",
+        "configuration_ids",
+        "context_sha256"
+      ],
+      "title": "PromotionSourceContext",
+      "type": "object"
+    },
+    "RootCauseEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "atomic_group_id": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Atomic Group Id"
+        },
+        "categorical_change_bounds": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CategoricalChangeBounds"
+          },
+          "title": "Categorical Change Bounds",
+          "type": "array"
+        },
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "economic_materiality": {
+          "minimum": 0.0,
+          "title": "Economic Materiality",
+          "type": "number"
+        },
+        "effect_type": {
+          "$ref": "#/$defs/FeedbackEffectType"
+        },
+        "evidence_quality": {
+          "$ref": "#/$defs/EvidenceQuality"
+        },
+        "evidence_refs": {
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "feedback_type": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Feedback Type",
+          "type": "string"
+        },
+        "numeric_change_bounds": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/NumericChangeBounds"
+          },
+          "title": "Numeric Change Bounds",
+          "type": "array"
+        },
+        "root_cause_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Root Cause Id",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        },
+        "target_phase": {
+          "$ref": "#/$defs/FeedbackPhase"
+        },
+        "target_policy_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "root_cause_id",
+        "target_phase",
+        "target_policy_id",
+        "feedback_type",
+        "effect_type",
+        "summary",
+        "evidence_refs",
+        "evidence_quality",
+        "confidence",
+        "economic_materiality"
+      ],
+      "title": "RootCauseEvidence",
+      "type": "object"
+    },
+    "SoftPenaltyRule": {
+      "additionalProperties": false,
+      "properties": {
+        "cap": {
+          "default": 10.0,
+          "minimum": 0.0,
+          "title": "Cap",
+          "type": "number"
+        },
+        "direction": {
+          "$ref": "#/$defs/OptimizationDirection"
+        },
+        "metric_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "reference_value": {
+          "title": "Reference Value",
+          "type": "number"
+        },
+        "scale": {
+          "exclusiveMinimum": 0.0,
+          "title": "Scale",
+          "type": "number"
+        },
+        "weight": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 100.0,
+          "title": "Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric_id",
+        "direction",
+        "weight",
+        "reference_value",
+        "scale"
+      ],
+      "title": "SoftPenaltyRule",
+      "type": "object"
+    },
+    "SubmissionChange": {
+      "additionalProperties": false,
+      "properties": {
+        "normalized_magnitude": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Normalized Magnitude",
+          "type": "number"
+        },
+        "origin": {
+          "$ref": "#/$defs/ChangeOrigin"
+        },
+        "parameter_name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Parameter Name",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameter_name",
+        "normalized_magnitude",
+        "origin",
+        "rationale"
+      ],
+      "title": "SubmissionChange",
+      "type": "object"
+    },
+    "SubmissionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "changes_after_parent": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/SubmissionChange"
+          },
+          "title": "Changes After Parent",
+          "type": "array"
+        },
+        "configuration_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "hypothesis_committed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Hypothesis Committed At"
+        },
+        "hypothesis_text_hash": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Hypothesis Text Hash"
+        },
+        "parent_submission_id": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Submission Id"
+        },
+        "public_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Public Score"
+        },
+        "submission_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Submission Id",
+          "type": "string"
+        },
+        "submitted_at": {
+          "format": "date-time",
+          "title": "Submitted At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "submission_id",
+        "configuration_id",
+        "submitted_at",
+        "hypothesis_committed_at",
+        "hypothesis_text_hash",
+        "public_score"
+      ],
+      "title": "SubmissionRecord",
+      "type": "object"
+    },
+    "TargetCapabilitySnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_contract_major": {
+          "minimum": 1,
+          "title": "Accepted Contract Major",
+          "type": "integer"
+        },
+        "available": {
+          "title": "Available",
+          "type": "boolean"
+        },
+        "target_phase": {
+          "$ref": "#/$defs/FeedbackPhase"
+        },
+        "target_policy_id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        },
+        "target_policy_version": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Target Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_phase",
+        "target_policy_id",
+        "target_policy_version",
+        "available",
+        "accepted_contract_major"
+      ],
+      "title": "TargetCapabilitySnapshot",
+      "type": "object"
+    },
+    "TieBreakerRule": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "$ref": "#/$defs/OptimizationDirection"
+        },
+        "metric_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "priority": {
+          "minimum": 1,
+          "title": "Priority",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "metric_id",
+        "direction",
+        "priority"
+      ],
+      "title": "TieBreakerRule",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "challenger_configuration_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Challenger Configuration Ids",
+      "type": "array"
+    },
+    "champion_configuration_id": {
+      "title": "Champion Configuration Id",
+      "type": "string"
+    },
+    "configurations": {
+      "items": {
+        "$ref": "#/$defs/ConfigurationEvaluationCard"
+      },
+      "title": "Configurations",
+      "type": "array"
+    },
+    "feedback_policy_registry": {
+      "$ref": "#/$defs/FeedbackPolicyRegistry"
+    },
+    "leaderboard_policy": {
+      "$ref": "#/$defs/LeaderboardPolicy"
+    },
+    "model_confidence_set_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Model Confidence Set Ids",
+      "type": "array"
+    },
+    "objective_spec": {
+      "$ref": "#/$defs/CompetitionObjectiveSpec"
+    },
+    "pairwise_evidence": {
+      "items": {
+        "$ref": "#/$defs/PairwiseComparisonEvidence"
+      },
+      "title": "Pairwise Evidence",
+      "type": "array"
+    },
+    "parameter_space": {
+      "$ref": "#/$defs/ParameterSpaceRegistry"
+    },
+    "previous_activation_ledger": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/FeedbackActivationLedgerEntry"
+      },
+      "title": "Previous Activation Ledger",
+      "type": "array"
+    },
+    "previous_feedback_effectiveness": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/FeedbackEffectivenessRecord"
+      },
+      "title": "Previous Feedback Effectiveness",
+      "type": "array"
+    },
+    "promotion_gate_receipts": {
+      "items": {
+        "$ref": "#/$defs/PromotionGateReceipt"
+      },
+      "title": "Promotion Gate Receipts",
+      "type": "array"
+    },
+    "root_causes": {
+      "items": {
+        "$ref": "#/$defs/RootCauseEvidence"
+      },
+      "title": "Root Causes",
+      "type": "array"
+    },
+    "source_context": {
+      "$ref": "#/$defs/PromotionSourceContext"
+    },
+    "submission_ledger": {
+      "items": {
+        "$ref": "#/$defs/SubmissionRecord"
+      },
+      "title": "Submission Ledger",
+      "type": "array"
+    },
+    "target_capabilities": {
+      "items": {
+        "$ref": "#/$defs/TargetCapabilitySnapshot"
+      },
+      "title": "Target Capabilities",
+      "type": "array"
+    },
+    "upstream_bundle_refs": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "Upstream Bundle Refs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "upstream_bundle_refs",
+    "source_context",
+    "objective_spec",
+    "configurations",
+    "parameter_space",
+    "model_confidence_set_ids",
+    "submission_ledger",
+    "leaderboard_policy",
+    "champion_configuration_id",
+    "challenger_configuration_ids",
+    "pairwise_evidence",
+    "promotion_gate_receipts",
+    "root_causes",
+    "feedback_policy_registry",
+    "target_capabilities"
+  ],
+  "title": "PromotionEvidenceInputBundle",
+  "type": "object"
+}

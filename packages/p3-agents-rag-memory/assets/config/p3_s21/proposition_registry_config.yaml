@@ -1,0 +1,21 @@
+schema_version: p3.s21.v1
+registry_version: 1.0.0
+propositions:
+  - proposition_id: directional_outlook
+    value_type: DIRECTIONAL_SCORE
+    allowed_horizons: [1d, 1w]
+    direction_mapping:
+      DOWN: -1.0
+      FLAT: 0.0
+      UP: 1.0
+    regime_labels: []
+  - proposition_id: volatility_outlook
+    value_type: VOLATILITY_LEVEL
+    allowed_horizons: [1d, 1w]
+    direction_mapping: {}
+    regime_labels: []
+  - proposition_id: regime_outlook
+    value_type: REGIME_PROBABILITIES
+    allowed_horizons: [1w]
+    direction_mapping: {}
+    regime_labels: [RISK_ON, NEUTRAL, RISK_OFF]

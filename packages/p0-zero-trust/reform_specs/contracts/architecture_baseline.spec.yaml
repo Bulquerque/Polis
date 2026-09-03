@@ -1,0 +1,26 @@
+schema_id: architecture_baseline.v1
+artifact_name: architecture_baseline
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- baseline_id
+- pipeline_version
+- rc
+- canonical_authorities
+- registries
+- planes
+- matrix
+- policy
+properties:
+  baseline_id: {type: string, minLength: 1}
+  pipeline_version: {type: string, const: V14.1-RC4.1}
+  rc: {type: string, const: RC4.1}
+  canonical_authorities:
+    type: array
+    minItems: 1
+    items: {type: string, minLength: 1}
+  registries: {type: object}
+  planes: {type: object}
+  matrix: {type: object}
+  policy: {type: object}

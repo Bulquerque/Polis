@@ -1,0 +1,55 @@
+{
+  "$defs": {
+    "DriftChannelKind": {
+      "enum": [
+        "INPUT",
+        "MISSINGNESS",
+        "FORECAST_RESIDUAL",
+        "CALIBRATION",
+        "PNL",
+        "COST",
+        "LIQUIDITY",
+        "FACTOR_EXPOSURE",
+        "POLICY_ACTION"
+      ],
+      "title": "DriftChannelKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channel_id": {
+      "minLength": 1,
+      "title": "Channel Id",
+      "type": "string"
+    },
+    "channel_kind": {
+      "$ref": "#/$defs/DriftChannelKind"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Value"
+    }
+  },
+  "required": [
+    "channel_id",
+    "channel_kind",
+    "observed_at",
+    "value"
+  ],
+  "title": "DriftObservation",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:DriftObservation:1.0.0"
+}

@@ -1,0 +1,24 @@
+spec_id: zero_trust_evidence_requirements.v2
+subphase: P0.S4
+default_required:
+  - global_test_report
+  - hash_integrity_report
+  - lineage_integrity_report
+  - code_quality_report
+extended_supported:
+  architecture:
+    - forbidden_connection_report
+  contract:
+    - io_compatibility_report
+    - forbidden_field_report
+  schema:
+    - schema_compatibility_report
+  integrity:
+    - artifact_format_validation_report
+    - artifact_integrity_report
+    - immutability_report
+principles:
+  - qualification evidence is not required by P0.S4.M05 to avoid a dependency cycle
+  - every evidence record is content-addressed and lineage-addressed
+  - required evidence policy may be expanded by versioned configuration
+  - missing required evidence fails closed

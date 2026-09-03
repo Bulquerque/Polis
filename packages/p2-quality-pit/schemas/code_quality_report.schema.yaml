@@ -1,0 +1,21 @@
+schema_id: code_quality_report.v1
+artifact_name: code_quality_report
+schema_version: v14.1-rc4.1
+required_fields:
+- phase_id
+- critical_findings
+- warnings
+- status
+- created_at
+- artifact_id
+- lineage_id
+- pipeline_version
+forbidden_fields:
+- future_return
+- target
+- signal_direction
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision

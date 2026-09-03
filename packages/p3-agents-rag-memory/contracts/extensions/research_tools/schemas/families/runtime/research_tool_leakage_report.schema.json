@@ -1,0 +1,122 @@
+{
+  "$defs": {
+    "RegistryStatus": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED",
+        "FAILED"
+      ],
+      "title": "RegistryStatus",
+      "type": "string"
+    },
+    "S40Lineage": {
+      "additionalProperties": false,
+      "properties": {
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "pattern": "^P3\\.S40\\.M\\d{2}$",
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "source_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Artifact Ids",
+          "type": "array"
+        },
+        "source_hashes": {
+          "additionalProperties": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Source Hashes",
+          "type": "object"
+        },
+        "transformation_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Transformation Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "lineage_id",
+        "producer_module_id"
+      ],
+      "title": "S40Lineage",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "failed_test_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Failed Test Ids",
+      "type": "array"
+    },
+    "invariants": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Invariants",
+      "type": "array"
+    },
+    "lineage": {
+      "$ref": "#/$defs/S40Lineage"
+    },
+    "report_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Report Hash",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "p3.s40.v1",
+      "default": "p3.s40.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/RegistryStatus"
+    },
+    "tests_passed": {
+      "minimum": 0,
+      "title": "Tests Passed",
+      "type": "integer"
+    },
+    "tests_run": {
+      "minimum": 0,
+      "title": "Tests Run",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "status",
+    "tests_run",
+    "tests_passed",
+    "invariants",
+    "lineage",
+    "report_hash"
+  ],
+  "title": "ResearchToolLeakageReport",
+  "type": "object"
+}

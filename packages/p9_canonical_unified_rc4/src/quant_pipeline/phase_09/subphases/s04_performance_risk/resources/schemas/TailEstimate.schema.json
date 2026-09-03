@@ -1,0 +1,77 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/TailEstimate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "breach_count": {
+      "minimum": 0,
+      "title": "Breach Count",
+      "type": "integer"
+    },
+    "confidence_level": {
+      "exclusiveMaximum": 1,
+      "exclusiveMinimum": 0.5,
+      "title": "Confidence Level",
+      "type": "number"
+    },
+    "expected_shortfall": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Expected Shortfall"
+    },
+    "gross_net": {
+      "title": "Gross Net",
+      "type": "string"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "method": {
+      "title": "Method",
+      "type": "string"
+    },
+    "observation_count": {
+      "minimum": 0,
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "status": {
+      "title": "Status",
+      "type": "string"
+    },
+    "value_at_risk": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Value At Risk"
+    }
+  },
+  "required": [
+    "gross_net",
+    "method",
+    "confidence_level",
+    "value_at_risk",
+    "expected_shortfall",
+    "breach_count",
+    "observation_count",
+    "status"
+  ],
+  "title": "TailEstimate",
+  "type": "object"
+}

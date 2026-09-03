@@ -1,0 +1,4 @@
+version: v1
+unresolved_policy: preserve_unresolved_never_use_chunk_id
+canonical_id_field: underlying_id
+mappings: []

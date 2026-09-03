@@ -1,0 +1,15 @@
+module_id: P5.S4.M04
+name: ml_neural_volatility_resolvers
+subphase_id: P5.S4
+required_inputs:
+- qualified_resolver_registry
+optional_inputs: []
+outputs:
+- volatility_member_forecast_panel_ml_neural
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: OPTIONAL

@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "PropositionDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_context_only": {
+          "default": false,
+          "title": "Allow Context Only",
+          "type": "boolean"
+        },
+        "allowed_horizons": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Allowed Horizons",
+          "type": "array"
+        },
+        "falsification_template": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Falsification Template",
+          "type": "string"
+        },
+        "maturity_days": {
+          "exclusiveMinimum": 0,
+          "maximum": 3650,
+          "title": "Maturity Days",
+          "type": "integer"
+        },
+        "minimum_evidence_count": {
+          "default": 1,
+          "minimum": 0,
+          "title": "Minimum Evidence Count",
+          "type": "integer"
+        },
+        "proposition_id": {
+          "minLength": 1,
+          "title": "Proposition Id",
+          "type": "string"
+        },
+        "required_observable": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Required Observable",
+          "type": "string"
+        },
+        "statement_template": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Statement Template",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "proposition_id",
+        "title",
+        "statement_template",
+        "falsification_template",
+        "required_observable",
+        "allowed_horizons",
+        "maturity_days"
+      ],
+      "title": "PropositionDefinition",
+      "type": "object"
+    }
+  },
+  "$id": "https://example.invalid/p3/s30/proposition_registry_config.input.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "propositions": {
+      "items": {
+        "$ref": "#/$defs/PropositionDefinition"
+      },
+      "minItems": 1,
+      "title": "Propositions",
+      "type": "array"
+    },
+    "registry_id": {
+      "minLength": 1,
+      "title": "Registry Id",
+      "type": "string"
+    },
+    "registry_version": {
+      "minLength": 1,
+      "title": "Registry Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_id",
+    "registry_version",
+    "propositions"
+  ],
+  "title": "PropositionRegistryConfig",
+  "type": "object"
+}

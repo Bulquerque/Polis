@@ -1,0 +1,15 @@
+schema_id: p3.s37.asset_macro_context_registry.v1
+schema_version: 1.0.0
+records:
+  - asset_id: PETR4
+    factor_id: crude_oil_prices
+    family: COMMODITIES
+    series_ids: [DCOILBRENTEU]
+    relationship_type: REVENUE_EXPOSURE
+    rationale: Crude oil prices are an ex-ante economic exposure for an integrated oil producer.
+    region: GLOBAL
+    source_id: governed_reference
+    available_at: '2024-01-01T00:00:00Z'
+    valid_from: '2024-01-01'
+    valid_to: null
+    lineage_id: asset-context-petr4-oil-v1

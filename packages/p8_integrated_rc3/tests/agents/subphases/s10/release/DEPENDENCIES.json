@@ -1,0 +1,70 @@
+{
+  "python": {
+    "constraint": ">=3.11",
+    "validated_version": "3.13.5"
+  },
+  "runtime": [
+    {
+      "name": "pydantic",
+      "constraint": ">=2.10,<3",
+      "validated_version": "2.13.4"
+    },
+    {
+      "name": "pydantic-core",
+      "transitive": true,
+      "validated_version": "2.46.4"
+    },
+    {
+      "name": "annotated-types",
+      "transitive": true,
+      "validated_version": "0.7.0"
+    },
+    {
+      "name": "typing-extensions",
+      "transitive": true,
+      "validated_version": "4.15.0"
+    },
+    {
+      "name": "typing-inspection",
+      "transitive": true,
+      "validated_version": "0.4.2"
+    }
+  ],
+  "standard_library": [
+    "argparse",
+    "collections",
+    "datetime",
+    "decimal",
+    "enum",
+    "hashlib",
+    "itertools",
+    "json",
+    "math",
+    "pathlib",
+    "statistics",
+    "typing"
+  ],
+  "test_only": [
+    {
+      "name": "pytest",
+      "validated_version": "9.0.2"
+    },
+    {
+      "name": "coverage",
+      "validated_version": "7.13.3"
+    },
+    {
+      "name": "jsonschema",
+      "validated_version": "4.26.0"
+    }
+  ],
+  "not_runtime_dependencies": [
+    "numpy",
+    "pandas",
+    "scipy",
+    "broker APIs",
+    "market data APIs",
+    "P8.S7/S8 implementation internals",
+    "P8.S9 implementation internals"
+  ]
+}

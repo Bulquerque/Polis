@@ -1,0 +1,69 @@
+{
+  "$defs": {
+    "CapabilityState": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "RESERVED",
+        "UNAVAILABLE"
+      ],
+      "title": "CapabilityState",
+      "type": "string"
+    },
+    "SearchStrategy": {
+      "enum": [
+        "GRID",
+        "RANDOM",
+        "SUCCESSIVE_HALVING",
+        "HYPERBAND",
+        "BOHB"
+      ],
+      "title": "SearchStrategy",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "capability_id": {
+      "minLength": 1,
+      "title": "Capability Id",
+      "type": "string"
+    },
+    "limitation": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Limitation"
+    },
+    "owner_module_id": {
+      "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+      "title": "Owner Module Id",
+      "type": "string"
+    },
+    "state": {
+      "$ref": "#/$defs/CapabilityState"
+    },
+    "supported_strategy_ids": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/SearchStrategy"
+      },
+      "title": "Supported Strategy Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "capability_id",
+    "owner_module_id",
+    "state"
+  ],
+  "title": "CapabilityBinding",
+  "type": "object"
+}

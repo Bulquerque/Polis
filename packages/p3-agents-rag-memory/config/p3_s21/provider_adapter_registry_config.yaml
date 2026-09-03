@@ -1,0 +1,18 @@
+schema_version: p3.s21.v1
+providers:
+  - provider_id: scripted_replay
+    model_id: p3-s21-fixture-v1
+    enabled: true
+    supports_structured_output: true
+    supports_seed: true
+    max_context_tokens: 8192
+    max_output_tokens: 2048
+    knowledge_cutoff: null
+    release_date: null
+    priority: 0
+tool_providers:
+  - provider_id: in_memory_replay
+    enabled: true
+    max_concurrency: 2
+selected_provider_id: scripted_replay
+selected_model_id: p3-s21-fixture-v1

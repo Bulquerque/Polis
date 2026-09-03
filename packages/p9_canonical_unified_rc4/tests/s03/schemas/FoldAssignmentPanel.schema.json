@@ -1,0 +1,78 @@
+{
+  "$defs": {
+    "FoldAssignment": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": {
+          "title": "Entity Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "record_id": {
+          "title": "Record Id",
+          "type": "string"
+        },
+        "role": {
+          "$ref": "#/$defs/SampleRole"
+        }
+      },
+      "required": [
+        "fold_id",
+        "record_id",
+        "entity_id",
+        "role"
+      ],
+      "title": "FoldAssignment",
+      "type": "object"
+    },
+    "SampleRole": {
+      "enum": [
+        "TRAIN",
+        "TUNING",
+        "TEST",
+        "EXCLUDED"
+      ],
+      "title": "SampleRole",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/FoldAssignmentPanel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignments": {
+      "items": {
+        "$ref": "#/$defs/FoldAssignment"
+      },
+      "title": "Assignments",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "plan_id": {
+      "title": "Plan Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "plan_id",
+    "assignments",
+    "content_sha256"
+  ],
+  "title": "FoldAssignmentPanel",
+  "type": "object"
+}

@@ -1,0 +1,114 @@
+{
+  "metrics": [
+    {
+      "direction": "MAXIMIZE",
+      "metric_id": "expected_net_payoff",
+      "missingness_policy": "BLOCK",
+      "semantic_version": "2.3.0",
+      "source_paths": [
+        "risk.expected_net_payoff"
+      ],
+      "transformation_policy": "IDENTITY",
+      "units": "currency",
+      "value_type": "NUMBER"
+    },
+    {
+      "direction": "MINIMIZE",
+      "metric_id": "expected_shortfall",
+      "missingness_policy": "BLOCK",
+      "semantic_version": "2.3.0",
+      "source_paths": [
+        "risk.expected_shortfall"
+      ],
+      "transformation_policy": "IDENTITY",
+      "units": "currency",
+      "value_type": "NUMBER"
+    },
+    {
+      "direction": "MINIMIZE",
+      "metric_id": "maximum_loss",
+      "missingness_policy": "BLOCK",
+      "semantic_version": "2.3.0",
+      "source_paths": [
+        "risk.maximum_loss"
+      ],
+      "transformation_policy": "IDENTITY",
+      "units": "currency",
+      "value_type": "NUMBER"
+    },
+    {
+      "direction": "MAXIMIZE",
+      "metric_id": "probability_of_profit",
+      "missingness_policy": "BLOCK",
+      "semantic_version": "2.3.0",
+      "source_paths": [
+        "risk.probability_of_profit"
+      ],
+      "transformation_policy": "IDENTITY",
+      "units": "probability",
+      "value_type": "NUMBER"
+    },
+    {
+      "direction": "MAXIMIZE",
+      "metric_id": "return_on_max_loss",
+      "missingness_policy": "ALLOW_UNAVAILABLE",
+      "semantic_version": "2.3.0",
+      "source_paths": [
+        "risk.return_on_max_loss"
+      ],
+      "transformation_policy": "IDENTITY",
+      "units": "ratio",
+      "value_type": "NUMBER"
+    },
+    {
+      "direction": "MINIMIZE",
+      "metric_id": "entry_cost",
+      "missingness_policy": "BLOCK",
+      "semantic_version": "2.3.0",
+      "source_paths": [
+        "cost_liquidity.entry_cost"
+      ],
+      "transformation_policy": "IDENTITY",
+      "units": "currency",
+      "value_type": "NUMBER"
+    },
+    {
+      "direction": "MAXIMIZE",
+      "metric_id": "liquidity_score",
+      "missingness_policy": "BLOCK",
+      "semantic_version": "2.3.0",
+      "source_paths": [
+        "cost_liquidity.liquidity_score"
+      ],
+      "transformation_policy": "IDENTITY",
+      "units": "normalized_score",
+      "value_type": "NUMBER"
+    },
+    {
+      "direction": "MINIMIZE",
+      "metric_id": "payoff_fit_error",
+      "missingness_policy": "ALLOW_UNAVAILABLE",
+      "semantic_version": "2.3.0",
+      "source_paths": [
+        "risk.payoff_fit_error"
+      ],
+      "transformation_policy": "IDENTITY",
+      "units": "squared_error",
+      "value_type": "NUMBER"
+    },
+    {
+      "direction": "MAXIMIZE",
+      "metric_id": "worst_ambiguity_utility",
+      "missingness_policy": "ALLOW_UNAVAILABLE",
+      "semantic_version": "2.3.0",
+      "source_paths": [
+        "risk.worst_ambiguity_utility"
+      ],
+      "transformation_policy": "IDENTITY",
+      "units": "utility",
+      "value_type": "NUMBER"
+    }
+  ],
+  "registry_id": "p7_metric_semantics_registry",
+  "registry_version": "2.3.0"
+}

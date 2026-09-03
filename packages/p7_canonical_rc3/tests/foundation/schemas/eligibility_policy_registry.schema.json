@@ -1,0 +1,169 @@
+{
+  "$defs": {
+    "EligibilityPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_calendars": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Calendars",
+          "type": "array"
+        },
+        "allowed_currencies": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Currencies",
+          "type": "array"
+        },
+        "allowed_objective_families": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Objective Families",
+          "type": "array"
+        },
+        "defined_risk_required": {
+          "default": true,
+          "title": "Defined Risk Required",
+          "type": "boolean"
+        },
+        "disabled_strategy_classes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Disabled Strategy Classes",
+          "type": "array"
+        },
+        "feedback_mutable_parameters": {
+          "default": [
+            "min_scenario_count",
+            "max_snapshot_age_seconds"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "title": "Feedback Mutable Parameters",
+          "type": "array"
+        },
+        "max_snapshot_age_seconds": {
+          "default": 86400,
+          "minimum": 0,
+          "title": "Max Snapshot Age Seconds",
+          "type": "integer"
+        },
+        "min_scenario_count": {
+          "default": 1,
+          "minimum": 0,
+          "title": "Min Scenario Count",
+          "type": "integer"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "representative_only": {
+          "default": true,
+          "title": "Representative Only",
+          "type": "boolean"
+        },
+        "require_calendar_id": {
+          "default": false,
+          "title": "Require Calendar Id",
+          "type": "boolean"
+        },
+        "require_maximum_loss_proven": {
+          "default": true,
+          "title": "Require Maximum Loss Proven",
+          "type": "boolean"
+        },
+        "required_candidate_paths": {
+          "default": [
+            "candidate.candidate_id",
+            "candidate.currency"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Candidate Paths",
+          "type": "array"
+        },
+        "required_metric_paths_by_objective": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Required Metric Paths By Objective",
+          "type": "object"
+        },
+        "required_sections": {
+          "default": [
+            "candidate",
+            "legs",
+            "payoffs",
+            "scenario_evaluations",
+            "risk",
+            "cost_liquidity",
+            "lineage",
+            "market_snapshot",
+            "generation_trace"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Sections",
+          "type": "array"
+        },
+        "version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "version",
+        "allowed_objective_families"
+      ],
+      "title": "EligibilityPolicy",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "active_policy_id": {
+      "title": "Active Policy Id",
+      "type": "string"
+    },
+    "policies": {
+      "items": {
+        "$ref": "#/$defs/EligibilityPolicy"
+      },
+      "title": "Policies",
+      "type": "array"
+    },
+    "registry_id": {
+      "title": "Registry Id",
+      "type": "string"
+    },
+    "registry_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "title": "Registry Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_id",
+    "registry_version",
+    "active_policy_id",
+    "policies"
+  ],
+  "title": "EligibilityPolicyRegistry",
+  "type": "object"
+}

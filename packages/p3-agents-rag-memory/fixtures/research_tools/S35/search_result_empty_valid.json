@@ -1,0 +1,53 @@
+{
+  "coverage": {
+    "duplicate_records_removed": 0,
+    "missing_dimensions": [],
+    "records_returned": 0,
+    "records_scanned": 4,
+    "records_visible": 4,
+    "score": 0.0,
+    "source_families": 1,
+    "truncated": false,
+    "unique_documents": 1,
+    "unique_sources": 1
+  },
+  "downgrade_reason": null,
+  "envelope_version": "1.0.0",
+  "evidence_refs": [],
+  "executed_mode": "LOOKUP",
+  "execution": {
+    "deterministic": true,
+    "executed_mode": "LOOKUP",
+    "handler_id": "p3.s35.search",
+    "handler_version": "1.0.0",
+    "internal_subqueries": 1,
+    "internal_work_units": 2,
+    "requested_mode": "LOOKUP",
+    "seed": 7,
+    "warnings": []
+  },
+  "operation_id": "search",
+  "outcome_status": "EMPTY_VALID",
+  "pit_proof": {
+    "decision_time": "2024-01-10T12:00:00Z",
+    "earliest_available_at": "2024-01-02T10:00:00Z",
+    "input_hashes": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    ],
+    "latest_available_at": "2024-01-06T09:00:00Z",
+    "proof_hash": "2e3c23f532b4b9f0a81beada6836f9225e095e2bdeeec92cdcb1b447babf7bcc",
+    "records_rejected_filter": 0,
+    "records_rejected_future": 0,
+    "records_scanned": 4,
+    "records_visible": 4,
+    "snapshot_id": "snapshot_20240110"
+  },
+  "provenance": null,
+  "records": [],
+  "request_id": "request_1",
+  "requested_mode": "LOOKUP",
+  "result_hash": "c46fb4a602dae7a151ca582d0540ea1db3ff1ff1706667187277fda92358c24a",
+  "tool_id": "research.corpus.v1"
+}

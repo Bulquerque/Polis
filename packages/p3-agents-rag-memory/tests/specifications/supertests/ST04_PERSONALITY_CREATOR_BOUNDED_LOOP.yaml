@@ -1,0 +1,15 @@
+spec_id: ST04_PERSONALITY_CREATOR_BOUNDED_LOOP
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Coverage→density generation is bounded and reproducible
+required_cases:
+- fixed_tag_registry
+- marginal_coverage
+- epsilon_patience_max_rounds
+- population_freeze
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

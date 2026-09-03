@@ -1,0 +1,67 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: feature_observer_registry
+type: object
+additionalProperties: true
+properties:
+  artifact_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+  lineage_id:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: true
+      properties:
+        observer_id:
+          type: string
+        phenomenon_id:
+          type: string
+        perspective_id:
+          type: string
+        source_modalities:
+          type: array
+          items:
+            type: string
+        inputs:
+          type: array
+        operators:
+          type: array
+        horizon_group:
+          type: string
+        rationale:
+          type: string
+        failure_modes:
+          type: array
+        contract_version:
+          type: string
+      required:
+      - observer_id
+      - phenomenon_id
+      - perspective_id
+      - source_modalities
+      - operators
+      - horizon_group
+      - rationale
+      - contract_version
+required:
+- artifact_id
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- pipeline_version
+- lineage_id
+- records

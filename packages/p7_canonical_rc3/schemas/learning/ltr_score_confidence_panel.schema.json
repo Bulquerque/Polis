@@ -1,0 +1,201 @@
+{
+  "$id": "ltr_score_confidence_panel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "ltr_score_confidence_panel"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "aggregation_method": {
+            "const": "MIN_AVAILABLE_REQUIRED_COMPONENTS_WITH_COVERAGE_GATE"
+          },
+          "calibration_evidence_stage": {
+            "anyOf": [
+              {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "candidate_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "comparison_group_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "component_coverage": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "component_reason_codes": {
+            "additionalProperties": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "confidence_policy_version": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "confidence_status": {
+            "enum": [
+              "CALIBRATED",
+              "UNAVAILABLE"
+            ]
+          },
+          "data_quality_stage": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "fold_stability_stage": {
+            "anyOf": [
+              {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lineage_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "missing_components": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "ood_stage": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "overall_confidence": {
+            "anyOf": [
+              {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required_components": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "candidate_id",
+          "comparison_group_id",
+          "calibration_evidence_stage",
+          "fold_stability_stage",
+          "data_quality_stage",
+          "ood_stage",
+          "overall_confidence",
+          "confidence_status",
+          "confidence_policy_version",
+          "lineage_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

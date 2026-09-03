@@ -1,0 +1,13 @@
+schema_version: p3.s21.v1
+config_version: s23-state-change-v1
+average_calendar_days_per_month: 30.4375
+slow_max_delta_per_month: 0.01
+medium_max_delta_per_month: 0.05
+fast_max_delta_per_cycle: 0.25
+knowledge_gain_rate: 0.04
+attention_gain_per_bound_update: 0.08
+confidence_alignment_rate: 0.5
+uncertainty_alignment_rate: 0.5
+tool_proficiency_requires_executed_call: true
+tool_proficiency_without_audit_policy: PRESERVE
+numeric_tolerance: 1.0e-12

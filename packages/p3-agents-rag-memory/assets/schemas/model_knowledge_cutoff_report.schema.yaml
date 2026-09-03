@@ -1,0 +1,221 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s2:model-knowledge-cutoff-report:v2
+title: model_knowledge_cutoff_report
+artifact_name: model_knowledge_cutoff_report
+schema_id: model_knowledge_cutoff_report.v2
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required:
+- schema_version
+- contract_version
+- validation_status
+- snapshot_id
+- evaluation_window
+- policy
+- models
+- overall_risk
+- overall_disposition
+- absolute_cleanliness_claimed
+- canary_evidence
+- issues
+- lineage_id
+- content_hash
+properties:
+  schema_version:
+    const: v14.1-rc4.1
+  contract_version:
+    const: p3.s2.model_knowledge_cutoff_report.v2
+  validation_status:
+    enum:
+    - READY
+    - DEGRADED
+  snapshot_id:
+    type: string
+    pattern: ^p3-snapshot-[0-9a-f]{24}$
+  evaluation_window:
+    type: object
+    additionalProperties: false
+    required:
+    - as_of
+    - evaluation_start
+    - evaluation_end
+    - final_holdout_blind
+    properties:
+      as_of:
+        type: string
+        format: date-time
+      evaluation_start:
+        type:
+        - string
+        - 'null'
+        format: date-time
+      evaluation_end:
+        type:
+        - string
+        - 'null'
+        format: date-time
+      final_holdout_blind:
+        type: boolean
+  policy:
+    type: object
+    additionalProperties: false
+    required:
+    - version
+    - post_cutoff_preferred
+    - never_claim_clean_when_unknown
+    - qualification_unknown_action
+    properties:
+      version:
+        type: string
+        minLength: 1
+      post_cutoff_preferred:
+        const: false
+      never_claim_clean_when_unknown:
+        const: true
+      qualification_unknown_action:
+        const: fail_closed
+  models:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required:
+      - provider_id
+      - model_id
+      - model_version
+      - adapter_id
+      - adapter_version
+      - release_date
+      - declared_knowledge_cutoff
+      - training_data_cutoff
+      - canary_test_status
+      - risk_class
+      - qualification_disposition
+      - rationale
+      - evidence_refs
+      properties:
+        provider_id:
+          type: string
+          minLength: 1
+        model_id:
+          type: string
+          minLength: 1
+        model_version:
+          type: string
+          minLength: 1
+        adapter_id:
+          type: string
+          minLength: 1
+        adapter_version:
+          type: string
+          minLength: 1
+        release_date:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        declared_knowledge_cutoff:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        training_data_cutoff:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        canary_test_status:
+          type: string
+          minLength: 1
+        risk_class:
+          enum:
+          - LOWER_RISK_KNOWN_PRE_AS_OF
+          - RELEASE_AFTER_AS_OF
+          - TRAINING_CUTOFF_AFTER_AS_OF
+          - KNOWLEDGE_CUTOFF_AFTER_AS_OF
+          - UNKNOWN_CUTOFF
+          - CANARY_CONTAMINATION_DETECTED
+          - UNQUALIFIED_METADATA
+        qualification_disposition:
+          enum:
+          - ALLOWED_WITH_DISCLOSURE
+          - ALLOWED_FOR_DEVELOPMENT
+          - BLOCKED_FOR_QUALIFICATION
+          - BLOCKED
+        rationale:
+          type: string
+          minLength: 1
+        evidence_refs:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+  overall_risk:
+    enum:
+    - LOWER_RISK_KNOWN_PRE_AS_OF
+    - RELEASE_AFTER_AS_OF
+    - TRAINING_CUTOFF_AFTER_AS_OF
+    - KNOWLEDGE_CUTOFF_AFTER_AS_OF
+    - UNKNOWN_CUTOFF
+    - CANARY_CONTAMINATION_DETECTED
+    - UNQUALIFIED_METADATA
+    - NO_MODELS_DECLARED
+  overall_disposition:
+    enum:
+    - ALLOWED_WITH_DISCLOSURE
+    - ALLOWED_FOR_DEVELOPMENT
+    - BLOCKED_FOR_QUALIFICATION
+    - BLOCKED
+  absolute_cleanliness_claimed:
+    const: false
+  issues:
+    type: array
+    items:
+      $ref: '#/$defs/issue'
+  lineage_id:
+    type: string
+    minLength: 1
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  canary_evidence:
+    type: array
+    items:
+      type: object
+$defs:
+  issue:
+    type: object
+    additionalProperties: false
+    required:
+    - code
+    - severity
+    - message
+    - artifact_name
+    - record_id
+    - field
+    properties:
+      code:
+        type: string
+        minLength: 1
+      severity:
+        enum:
+        - INFO
+        - WARNING
+        - ERROR
+        - BLOCKING
+      message:
+        type: string
+        minLength: 1
+      artifact_name:
+        type:
+        - string
+        - 'null'
+      record_id:
+        type:
+        - string
+        - 'null'
+      field:
+        type:
+        - string
+        - 'null'

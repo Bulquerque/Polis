@@ -1,0 +1,82 @@
+version: V14.6-RC1
+views:
+- view_id: TABULAR_INTERPRETABLE
+  shape: row_per_entity_time
+  content:
+  - selected interpretable features
+  - missingness masks
+  - quality states
+  intended_consumers:
+  - linear_regularized
+  - tree_ensembles
+  - general_tabular_models
+- view_id: CROSS_SECTIONAL_RANKED
+  shape: time_x_entity_x_feature
+  content:
+  - ranks
+  - neutralized values
+  - universe masks
+  intended_consumers:
+  - cross_sectional_models
+  - ranking_oriented_forecasters
+- view_id: SEQUENCE_MULTI_HORIZON
+  shape: entity_x_time_x_feature
+  content:
+  - causal sequences
+  - age of information
+  - horizon masks
+  intended_consumers:
+  - temporal_convolution
+  - recurrent_models
+  - sequence_transformers
+- view_id: GRAPH_RELATIONAL
+  shape: time_graph
+  content:
+  - node features
+  - edge states
+  - connectedness
+  - lineage
+  intended_consumers:
+  - graph_models
+  - network_risk_models
+- view_id: TAIL_RISK_SPECIALIST
+  shape: row_or_sequence
+  content:
+  - downside
+  - tail
+  - jump
+  - systemic stress
+  - options risk state
+  intended_consumers:
+  - quantile_models
+  - distributional_models
+  - tail_forecasters
+- view_id: REGIME_CONTEXT
+  shape: time_context
+  content:
+  - macro state
+  - system state
+  - distance/OOD descriptors
+  intended_consumers:
+  - gated_models
+  - mixture_of_experts
+  - regime_conditioned_models
+- view_id: LATENT_FAMILY
+  shape: row_per_entity_time
+  content:
+  - family PCA
+  - optional encoder embeddings
+  - quality report
+  intended_consumers:
+  - compact_tabular
+  - multi_task_models
+- view_id: SPARSE_MODALITY_AWARE
+  shape: row_or_sequence_with_masks
+  content:
+  - available modality blocks
+  - missing view masks
+  - source quality
+  intended_consumers:
+  - missingness_aware_models
+  - modality_gated_models
+rule: P4 packages views; P5 owns model choice and supervised evaluation.

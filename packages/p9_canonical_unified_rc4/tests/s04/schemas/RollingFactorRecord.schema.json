@@ -1,0 +1,124 @@
+{
+  "$defs": {
+    "FactorCoefficient": {
+      "additionalProperties": false,
+      "properties": {
+        "estimate": {
+          "title": "Estimate",
+          "type": "number"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "p_value": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P Value"
+        },
+        "standard_error": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Standard Error"
+        },
+        "t_statistic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "T Statistic"
+        }
+      },
+      "required": [
+        "name",
+        "estimate"
+      ],
+      "title": "FactorCoefficient",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/RollingFactorRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "coefficients": {
+      "items": {
+        "$ref": "#/$defs/FactorCoefficient"
+      },
+      "title": "Coefficients",
+      "type": "array"
+    },
+    "end_timestamp": {
+      "format": "date-time",
+      "title": "End Timestamp",
+      "type": "string"
+    },
+    "factor_model_id": {
+      "title": "Factor Model Id",
+      "type": "string"
+    },
+    "factor_model_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Factor Model Version",
+      "type": "string"
+    },
+    "gross_net": {
+      "title": "Gross Net",
+      "type": "string"
+    },
+    "observation_count": {
+      "minimum": 0,
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "r_squared": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "R Squared"
+    },
+    "status": {
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "factor_model_id",
+    "factor_model_version",
+    "gross_net",
+    "end_timestamp",
+    "observation_count",
+    "coefficients",
+    "r_squared",
+    "status"
+  ],
+  "title": "RollingFactorRecord",
+  "type": "object"
+}

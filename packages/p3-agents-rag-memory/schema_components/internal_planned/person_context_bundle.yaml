@@ -1,0 +1,17 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: artifact_bundle
+status: planned_internal_schema
+type: object
+required:
+- schema_version
+- items
+- lineage_id
+properties:
+  schema_version:
+    type: string
+  items:
+    type: array
+    items: {}
+  lineage_id:
+    type: string
+additionalProperties: false

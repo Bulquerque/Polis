@@ -1,0 +1,56 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_worker_labels": {
+      "default": [
+        "cpu"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Available Worker Labels",
+      "type": "array"
+    },
+    "max_memory_mb_per_trial": {
+      "minimum": 128,
+      "title": "Max Memory Mb Per Trial",
+      "type": "integer"
+    },
+    "max_parallel_trials": {
+      "minimum": 1,
+      "title": "Max Parallel Trials",
+      "type": "integer"
+    },
+    "max_total_cpu_seconds": {
+      "minimum": 1,
+      "title": "Max Total Cpu Seconds",
+      "type": "integer"
+    },
+    "max_wall_clock_seconds": {
+      "minimum": 1,
+      "title": "Max Wall Clock Seconds",
+      "type": "integer"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "snapshot_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Snapshot Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "snapshot_sha256",
+    "max_parallel_trials",
+    "max_total_cpu_seconds",
+    "max_wall_clock_seconds",
+    "max_memory_mb_per_trial"
+  ],
+  "title": "ResourceCapacitySnapshot",
+  "type": "object"
+}

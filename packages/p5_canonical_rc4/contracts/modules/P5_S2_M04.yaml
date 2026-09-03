@@ -1,0 +1,23 @@
+module_id: P5.S2.M04
+name: model_training_representation_ablation_orchestrator
+subphase_id: P5.S2
+required_inputs:
+- resolver_spec_registry
+- resolver_view_binding_registry
+- training_target_panel
+- authorized_consumer_view_registry
+- temporal_evaluation_plan
+optional_inputs:
+- representation_quality_report
+outputs:
+- trained_resolver_registry
+- resolver_training_run_report
+- resolver_validation_result_panel
+- representation_downstream_ablation_report
+- oof_validation_observation_panel
+allowed_actions:
+- FIT
+allowed_modes:
+- OFFLINE_TRAINING
+- INTEGRATION_REPLAY
+capability: CORE

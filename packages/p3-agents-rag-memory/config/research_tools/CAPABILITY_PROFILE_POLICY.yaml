@@ -1,0 +1,110 @@
+schema_id: p3.research_tools.capability_profile_policy.v1
+schema_version: 1.0.0
+policy_version: 1.0.0
+forbidden_source_fields:
+- performance
+- pnl
+- realized_pnl
+- realized_return
+- future_return
+- forward_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+- outcome
+- target
+level_thresholds:
+  NONE: 0.0
+  BASIC: 0.2
+  STANDARD: 0.45
+  ADVANCED: 0.7
+  SPECIALIST: 0.88
+capability_rules:
+- capability_id: document_search
+  source_capability_weights: {research: 0.55, tool_use: 0.30, verbal: 0.15}
+  role_adjustments: {researcher: 0.10, fundamental_analyst: 0.15, portfolio_manager: 0.05}
+  default_score: 0.1
+- capability_id: source_evaluation
+  source_capability_weights: {research: 0.45, verbal: 0.30, tool_use: 0.20, quantitative: 0.05}
+  role_adjustments: {researcher: 0.10, fundamental_analyst: 0.15}
+  default_score: 0.1
+- capability_id: counterevidence_search
+  source_capability_weights: {research: 0.50, verbal: 0.25, tool_use: 0.20}
+  role_adjustments: {researcher: 0.10, fundamental_analyst: 0.10}
+  default_score: 0.05
+- capability_id: cross_source_validation
+  source_capability_weights: {research: 0.45, tool_use: 0.30, quantitative: 0.15}
+  role_adjustments: {researcher: 0.10, fundamental_analyst: 0.10}
+  default_score: 0.05
+- capability_id: version_comparison
+  source_capability_weights: {research: 0.40, tool_use: 0.30, verbal: 0.15, quantitative: 0.10}
+  role_adjustments: {fundamental_analyst: 0.10, forensic_accountant: 0.20}
+  default_score: 0.05
+- capability_id: forensic_review
+  source_capability_weights: {research: 0.30, quantitative: 0.30, verbal: 0.20, tool_use: 0.10}
+  role_adjustments: {forensic_accountant: 0.30, fundamental_analyst: 0.10}
+  default_score: 0.0
+- capability_id: market_analysis
+  source_capability_weights: {quantitative: 0.50, research: 0.25, tool_use: 0.15}
+  role_adjustments: {portfolio_manager: 0.15, trader: 0.15, quant_researcher: 0.15}
+  default_score: 0.1
+- capability_id: liquidity_analysis
+  source_capability_weights: {quantitative: 0.55, research: 0.15, tool_use: 0.15}
+  role_adjustments: {trader: 0.20, quant_researcher: 0.10}
+  default_score: 0.05
+- capability_id: options_analysis
+  source_capability_weights: {quantitative: 0.50, coding: 0.20, research: 0.15, tool_use: 0.10}
+  role_adjustments: {derivatives_analyst: 0.25, quant_researcher: 0.10}
+  default_score: 0.0
+- capability_id: macro_analysis
+  source_capability_weights: {quantitative: 0.40, research: 0.35, verbal: 0.10}
+  role_adjustments: {macroeconomist: 0.25, portfolio_manager: 0.10}
+  default_score: 0.05
+- capability_id: qualitative_company_analysis
+  source_capability_weights: {research: 0.45, verbal: 0.30, quantitative: 0.10}
+  role_adjustments: {fundamental_analyst: 0.20, portfolio_manager: 0.05}
+  default_score: 0.1
+- capability_id: financial_statement_analysis
+  source_capability_weights: {quantitative: 0.40, research: 0.30, verbal: 0.10}
+  role_adjustments: {fundamental_analyst: 0.20, forensic_accountant: 0.20}
+  default_score: 0.05
+- capability_id: accounting_quality_analysis
+  source_capability_weights: {quantitative: 0.45, research: 0.30, verbal: 0.10}
+  role_adjustments: {forensic_accountant: 0.30, fundamental_analyst: 0.10}
+  default_score: 0.0
+- capability_id: valuation
+  source_capability_weights: {quantitative: 0.50, research: 0.25, coding: 0.05}
+  role_adjustments: {fundamental_analyst: 0.20, portfolio_manager: 0.10}
+  default_score: 0.05
+- capability_id: quantitative_statistics
+  source_capability_weights: {quantitative: 0.65, coding: 0.20, tool_use: 0.10}
+  role_adjustments: {quant_researcher: 0.20, data_scientist: 0.15}
+  default_score: 0.05
+access_rules:
+- capability_id: public_data_access
+  accepted_data_classes: [PUBLIC, REGULATORY, MARKET_DELAYED, MACRO_PUBLIC]
+  accepted_resource_labels: [public_data, internet_public, regulatory_access]
+  score_when_matched: 1.0
+  default_score: 0.5
+- capability_id: professional_data_access
+  accepted_data_classes: [PROFESSIONAL, PREMIUM, MARKET_REALTIME, INSTITUTIONAL]
+  accepted_resource_labels: [professional_data, premium_data, terminal_access, institutional_access]
+  accepted_institutions: [asset_manager, hedge_fund, bank, broker_dealer, research_house]
+  score_when_matched: 1.0
+  default_score: 0.0
+resource_rules:
+- resource_id: research_time
+  source_capability_keys: [research_time]
+  accepted_resource_labels: [low_research_time, medium_research_time, high_research_time]
+  default_score: 0.2
+  numeric_limit_by_label: {low_research_time: 1, medium_research_time: 3, high_research_time: 5}
+- resource_id: computational_access
+  source_capability_keys: [computational_access]
+  accepted_resource_labels: [limited_compute, standard_compute, high_compute]
+  default_score: 0.2
+  numeric_limit_by_label: {limited_compute: 1, standard_compute: 5, high_compute: 20}
+max_calls_per_cycle: 5
+max_cost_units_per_cycle: 100
+minimum_population_coverage: 1.0

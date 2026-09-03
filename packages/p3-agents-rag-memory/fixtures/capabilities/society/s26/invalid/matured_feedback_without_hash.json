@@ -1,0 +1,26 @@
+{
+  "schema_version": "p3.s26.active_belief_feedback_bundle.v2",
+  "run_id": "run_s26",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "lineage_id": "lin_feedback",
+  "items": [
+    {
+      "feedback_id": "fb_1",
+      "commitment_id": "commit_prior",
+      "observer_person_id": "p1",
+      "counterparty_person_id": "p2",
+      "relationship_type": "peer",
+      "domain": "market_knowledge",
+      "outcome_alignment": 0.8,
+      "reliability": 0.9,
+      "status": "MATURED",
+      "matured_at": "2026-01-15T11:00:00Z",
+      "effective_cycle": 4,
+      "evidence_refs": [
+        "ev_fb"
+      ],
+      "lineage_id": "lin_fb"
+    }
+  ]
+}

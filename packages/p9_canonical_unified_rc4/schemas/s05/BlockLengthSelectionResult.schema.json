@@ -1,0 +1,145 @@
+{
+  "$defs": {
+    "BlockLengthEstimate": {
+      "additionalProperties": false,
+      "properties": {
+        "circular_raw": {
+          "minimum": 0,
+          "title": "Circular Raw",
+          "type": "number"
+        },
+        "circular_selected": {
+          "minimum": 1,
+          "title": "Circular Selected",
+          "type": "integer"
+        },
+        "dependence_horizon": {
+          "minimum": 1,
+          "title": "Dependence Horizon",
+          "type": "integer"
+        },
+        "moving_selected": {
+          "minimum": 1,
+          "title": "Moving Selected",
+          "type": "integer"
+        },
+        "series_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Series Id",
+          "type": "string"
+        },
+        "stationary_raw": {
+          "minimum": 0,
+          "title": "Stationary Raw",
+          "type": "number"
+        },
+        "stationary_selected": {
+          "minimum": 1,
+          "title": "Stationary Selected",
+          "type": "integer"
+        },
+        "used_fallback": {
+          "title": "Used Fallback",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "series_id",
+        "stationary_raw",
+        "circular_raw",
+        "moving_selected",
+        "stationary_selected",
+        "circular_selected",
+        "dependence_horizon",
+        "used_fallback"
+      ],
+      "title": "BlockLengthEstimate",
+      "type": "object"
+    },
+    "S5State": {
+      "enum": [
+        "SUCCESS",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "PARTIAL_METRIC_COVERAGE",
+        "INSUFFICIENT_EVIDENCE",
+        "INSUFFICIENT_HISTORY",
+        "INSUFFICIENT_TRADES",
+        "INSUFFICIENT_VALID_REPLICATES",
+        "IRREGULAR_TIME_UNSUPPORTED",
+        "TRIAL_FAMILY_INCOMPLETE",
+        "EFFECTIVE_TRIAL_COUNT_UNRESOLVED",
+        "METRIC_VERSION_MISMATCH",
+        "ROBUST",
+        "PROVISIONALLY_ROBUST",
+        "FRAGILE",
+        "BACKTEST_OVERFIT_RISK",
+        "REGIME_DEPENDENT",
+        "SELECTION_BIAS_UNRESOLVED",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S5State",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "estimates": {
+      "items": {
+        "$ref": "#/$defs/BlockLengthEstimate"
+      },
+      "title": "Estimates",
+      "type": "array"
+    },
+    "joint_circular_block_length": {
+      "minimum": 1,
+      "title": "Joint Circular Block Length",
+      "type": "integer"
+    },
+    "joint_moving_block_length": {
+      "minimum": 1,
+      "title": "Joint Moving Block Length",
+      "type": "integer"
+    },
+    "joint_stationary_block_length": {
+      "minimum": 1,
+      "title": "Joint Stationary Block Length",
+      "type": "integer"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S5State"
+    }
+  },
+  "required": [
+    "status",
+    "estimates",
+    "joint_moving_block_length",
+    "joint_stationary_block_length",
+    "joint_circular_block_length"
+  ],
+  "title": "BlockLengthSelectionResult",
+  "type": "object"
+}

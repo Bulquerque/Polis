@@ -1,0 +1,8 @@
+schema_version: p3.s24.v1
+policy_version: s24-social-tool-audit-v1
+social_operation_prefixes:
+- social_
+- message_
+- communication_
+hidden_channels_forbidden: true
+audit_scope: REQUEST_LEVEL_ONLY

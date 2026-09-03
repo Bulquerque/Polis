@@ -1,0 +1,58 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "configuration_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Configuration Hash",
+      "type": "string"
+    },
+    "model_registry_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Model Registry Hash",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "pipeline_version",
+    "configuration_hash",
+    "model_registry_hash",
+    "lineage_id"
+  ],
+  "title": "Phase3RunSnapshot",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

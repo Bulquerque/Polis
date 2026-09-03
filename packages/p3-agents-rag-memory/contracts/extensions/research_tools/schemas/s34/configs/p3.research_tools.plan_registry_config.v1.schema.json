@@ -1,0 +1,175 @@
+{
+  "$defs": {
+    "PlanNodeConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "downgrade_policy": {
+          "default": "ALLOW",
+          "enum": [
+            "ALLOW",
+            "BLOCK",
+            "SKIP_OPTIONAL"
+          ],
+          "title": "Downgrade Policy",
+          "type": "string"
+        },
+        "node_id": {
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "operation_id": {
+          "minLength": 1,
+          "title": "Operation Id",
+          "type": "string"
+        },
+        "predecessors": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Predecessors",
+          "type": "array"
+        },
+        "priority": {
+          "default": 100,
+          "maximum": 10000,
+          "minimum": 0,
+          "title": "Priority",
+          "type": "integer"
+        },
+        "requested_mode": {
+          "minLength": 1,
+          "title": "Requested Mode",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "stop_conditions": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Stop Conditions",
+          "type": "array"
+        },
+        "tool_id": {
+          "minLength": 1,
+          "title": "Tool Id",
+          "type": "string"
+        },
+        "visible_call_cost": {
+          "default": 1,
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Visible Call Cost",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "node_id",
+        "tool_id",
+        "operation_id",
+        "requested_mode"
+      ],
+      "title": "PlanNodeConfig",
+      "type": "object"
+    },
+    "ResearchPlanConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "continuation_allowed": {
+          "default": true,
+          "title": "Continuation Allowed",
+          "type": "boolean"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "maximum_visible_calls_per_cycle": {
+          "default": 5,
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Maximum Visible Calls Per Cycle",
+          "type": "integer"
+        },
+        "nodes": {
+          "items": {
+            "$ref": "#/$defs/PlanNodeConfig"
+          },
+          "title": "Nodes",
+          "type": "array"
+        },
+        "plan_id": {
+          "minLength": 1,
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "subject_kinds": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Subject Kinds",
+          "type": "array"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "title",
+        "description",
+        "subject_kinds",
+        "nodes"
+      ],
+      "title": "ResearchPlanConfig",
+      "type": "object"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.plan_registry_config.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "plans": {
+      "items": {
+        "$ref": "#/$defs/ResearchPlanConfig"
+      },
+      "title": "Plans",
+      "type": "array"
+    },
+    "registry_version": {
+      "default": "1.0.0",
+      "minLength": 1,
+      "title": "Registry Version",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "p3.research_tools.plan_registry_config.v1",
+      "default": "p3.research_tools.plan_registry_config.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "plans"
+  ],
+  "title": "ResearchPlanRegistryConfig",
+  "type": "object"
+}

@@ -1,0 +1,94 @@
+{
+  "$defs": {
+    "Side": {
+      "enum": [
+        "BUY",
+        "SELL"
+      ],
+      "title": "Side",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/FillRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "fee": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Fee"
+    },
+    "fill_id": {
+      "title": "Fill Id",
+      "type": "string"
+    },
+    "fill_time": {
+      "format": "date-time",
+      "title": "Fill Time",
+      "type": "string"
+    },
+    "instrument_id": {
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "order_id": {
+      "title": "Order Id",
+      "type": "string"
+    },
+    "price": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Price"
+    },
+    "quantity": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Quantity"
+    },
+    "side": {
+      "$ref": "#/$defs/Side"
+    }
+  },
+  "required": [
+    "fill_id",
+    "order_id",
+    "instrument_id",
+    "side",
+    "quantity",
+    "price",
+    "fee",
+    "fill_time",
+    "available_at"
+  ],
+  "title": "FillRecord",
+  "type": "object"
+}

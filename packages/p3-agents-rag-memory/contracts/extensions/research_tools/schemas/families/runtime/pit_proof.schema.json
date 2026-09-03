@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "input_hashes": {
+      "default": [],
+      "items": {
+        "pattern": "^[a-f0-9]{64}$",
+        "type": "string"
+      },
+      "title": "Input Hashes",
+      "type": "array"
+    },
+    "latest_available_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latest Available At"
+    },
+    "p1_snapshot_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "P1 Snapshot Id"
+    },
+    "p2_snapshot_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "P2 Snapshot Id"
+    },
+    "proof_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Proof Hash",
+      "type": "string"
+    },
+    "records_rejected_future": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Records Rejected Future",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "decision_time",
+    "proof_hash"
+  ],
+  "title": "PitProof",
+  "type": "object"
+}

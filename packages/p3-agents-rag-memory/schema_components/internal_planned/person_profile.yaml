@@ -1,0 +1,184 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: person_profile
+status: planned_internal_schema
+type: object
+required:
+- person_id
+- representation_weight
+- identity
+- resources
+- cognitive_capabilities
+- decision_profile
+- objective_weights
+- tags
+- creator_provenance
+- lineage_id
+properties:
+  person_id:
+    type: string
+  representation_weight:
+    type: number
+    exclusiveMinimum: 0
+    maximum: 1
+  identity:
+    type: object
+    required:
+    - life_stage
+    - education_level
+    - occupation
+    - economic_role
+    - economic_role_family
+    - economic_sector
+    - experience_band
+    properties:
+      life_stage:
+        type: string
+      education_level:
+        type: string
+      occupation:
+        type: string
+      economic_role:
+        type: string
+      economic_role_family:
+        type: string
+        enum:
+        - market_participants
+        - corporate_actors
+        - information_actors
+        - policy_institutions
+        - real_economy
+      economic_sector:
+        type: string
+      institution_id:
+        type:
+        - string
+        - 'null'
+      geography_region:
+        type:
+        - string
+        - 'null'
+      experience_band:
+        type: string
+    additionalProperties: false
+  resources:
+    type: object
+    required:
+    - income_band
+    - wealth_band
+    - available_capital_band
+    - liquidity_need
+    - research_time_budget
+    - information_access_level
+    - research_budget_level
+    - computational_access_level
+    - network_access_level
+    properties:
+      income_band:
+        type: string
+      wealth_band:
+        type: string
+      available_capital_band:
+        type: string
+      liquidity_need: &id001
+        type: number
+        minimum: 0
+        maximum: 1
+      research_time_budget: *id001
+      information_access_level: *id001
+      research_budget_level: *id001
+      computational_access_level: *id001
+      network_access_level: *id001
+    additionalProperties: false
+  cognitive_capabilities:
+    type: object
+    required:
+    - attention_capacity
+    - working_memory_capacity
+    - numerical_reasoning
+    - verbal_reasoning
+    - financial_literacy
+    - statistical_literacy
+    - research_skill
+    - source_evaluation_skill
+    - learning_rate
+    - uncertainty_reasoning
+    - planning_depth
+    properties:
+      attention_capacity: *id001
+      working_memory_capacity: *id001
+      numerical_reasoning: *id001
+      verbal_reasoning: *id001
+      financial_literacy: *id001
+      statistical_literacy: *id001
+      research_skill: *id001
+      source_evaluation_skill: *id001
+      learning_rate: *id001
+      uncertainty_reasoning: *id001
+      planning_depth: *id001
+    additionalProperties: false
+  decision_profile:
+    type: object
+    required:
+    - risk_tolerance
+    - loss_sensitivity
+    - patience
+    - impulsivity
+    - baseline_confidence
+    - curiosity
+    - cognitive_flexibility
+    - social_susceptibility
+    - need_for_certainty
+    - persistence
+    - novelty_seeking
+    properties:
+      risk_tolerance: *id001
+      loss_sensitivity: *id001
+      patience: *id001
+      impulsivity: *id001
+      baseline_confidence: *id001
+      curiosity: *id001
+      cognitive_flexibility: *id001
+      social_susceptibility: *id001
+      need_for_certainty: *id001
+      persistence: *id001
+      novelty_seeking: *id001
+    additionalProperties: false
+  objective_weights:
+    type: object
+    minProperties: 1
+    additionalProperties:
+      type: number
+      minimum: 0
+      maximum: 1
+  tags:
+    type: array
+    items:
+      $ref: person_tag_assignment.yaml
+    minItems: 1
+  creator_provenance:
+    type: object
+    required:
+    - creator_run_id
+    - generation_round
+    - mode
+    - prompt_version
+    - seed
+    properties:
+      creator_run_id:
+        type: string
+      generation_round:
+        type: integer
+        minimum: 1
+      mode:
+        type: string
+        enum:
+        - coverage
+        - density
+      prompt_version:
+        type: string
+      seed:
+        type: integer
+    additionalProperties: false
+  lineage_id:
+    type: string
+additionalProperties: false

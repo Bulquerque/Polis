@@ -1,0 +1,108 @@
+$defs:
+  QuantityPath:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      quantities_by_horizon:
+        items:
+          type: number
+        title: Quantities By Horizon
+        type: array
+    required:
+    - candidate_id
+    - quantities_by_horizon
+    title: QuantityPath
+    type: object
+  RebalanceAction:
+    enum:
+    - REBALANCE
+    - PARTIAL_REBALANCE
+    - HOLD
+    - CLOSE_ONLY
+    - RISK_REDUCTION_ONLY
+    - NO_ACTION_VALID
+    title: RebalanceAction
+    type: string
+  TargetAction:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      current_quantity:
+        title: Current Quantity
+        type: number
+      target_quantity:
+        title: Target Quantity
+        type: number
+      delta_quantity:
+        title: Delta Quantity
+        type: number
+    required:
+    - candidate_id
+    - current_quantity
+    - target_quantity
+    - delta_quantity
+    title: TargetAction
+    type: object
+additionalProperties: false
+properties:
+  decision_snapshot_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Decision Snapshot Hash
+    type: string
+  action:
+    $ref: '#/$defs/RebalanceAction'
+  first_actions:
+    items:
+      $ref: '#/$defs/TargetAction'
+    title: First Actions
+    type: array
+  future_plan:
+    items:
+      $ref: '#/$defs/QuantityPath'
+    title: Future Plan
+    type: array
+  valid_from:
+    format: date-time
+    title: Valid From
+    type: string
+  valid_until:
+    format: date-time
+    title: Valid Until
+    type: string
+  reoptimization_triggers:
+    items:
+      maxLength: 160
+      minLength: 1
+      pattern: ^[A-Za-z0-9_.:\-/]+$
+      type: string
+    title: Reoptimization Triggers
+    type: array
+  first_action_only:
+    default: true
+    title: First Action Only
+    type: boolean
+  plan_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Plan Hash
+    type: string
+required:
+- decision_snapshot_hash
+- action
+- first_actions
+- future_plan
+- valid_from
+- valid_until
+- reoptimization_triggers
+- plan_hash
+title: MPCControlPlan
+type: object

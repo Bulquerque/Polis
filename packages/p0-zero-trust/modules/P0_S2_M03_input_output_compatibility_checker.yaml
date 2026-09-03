@@ -1,0 +1,42 @@
+module_id: P0.S2.M03
+module_name: input_output_compatibility_checker
+function: Executar input output compatibility checker da Fase 0, mantendo controle
+  Zero Trust técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- contract_registry
+- schema_registry
+- validated_connection_matrix
+outputs: &id002
+- io_compatibility_report
+- schema_compatibility_report
+validations:
+- output_covers_required_input
+- optional_feedback_not_blocking
+fail_fast_conditions:
+- input_output_compatibility_checker_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S1.M04
+    - P0.S2.M01
+    - P0.S2.M02
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S6.M03
+    artifacts: *id002
+    phase_outputs:
+    - schema_compatibility_report
+phase: P0
+subphase: P0.S2
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

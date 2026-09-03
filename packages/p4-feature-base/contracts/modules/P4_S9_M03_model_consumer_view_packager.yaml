@@ -1,0 +1,51 @@
+module_id: P4.S9.M03
+module_name: model_consumer_view_packager
+phase: P4
+subphase: P4.S9
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: model consumer view packager
+inputs:
+- underlying_feature_matrix_selected
+- underlying_feature_factors_pca
+- underlying_feature_embeddings
+- representation_fold_plan
+- p4_quality_gate_decision
+- s9_policy_registry
+outputs:
+- model_consumer_view_manifest
+- model_consumer_view_bundle
+validations:
+- no_prediction_fields
+- no_payload_duplication
+- missingness_preserved
+- unavailable_views_explicit
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- no_hidden_global_state
+- no_supervised_metrics
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+- sharpe
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- hash_negative
+- forbidden_field_negative
+- replay
+- metamorphic_or_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M03_model_consumer_view_packager.py
+qualification_policy: LOCAL_THEN_CROSS_PHASE_THEN_P0
+production_promotion_allowed: false

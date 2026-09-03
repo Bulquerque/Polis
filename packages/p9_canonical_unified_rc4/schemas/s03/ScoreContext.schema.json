@@ -1,0 +1,209 @@
+{
+  "$defs": {
+    "CompetitionScoreRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "items": {
+            "$ref": "#/$defs/ScoreComponentRecord"
+          },
+          "title": "Components",
+          "type": "array"
+        },
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_version": {
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Policy Sha256",
+          "type": "string"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Score"
+        },
+        "trial_id": {
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_version",
+        "trial_id",
+        "fold_id",
+        "configuration_id",
+        "score",
+        "components",
+        "observation_count",
+        "policy_sha256",
+        "content_sha256"
+      ],
+      "title": "CompetitionScoreRecord",
+      "type": "object"
+    },
+    "ScoreComponentRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "component_id": {
+          "title": "Component Id",
+          "type": "string"
+        },
+        "contribution": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contribution"
+        },
+        "effective_weight": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Effective Weight"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Raw Value"
+        },
+        "transformed_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Transformed Value"
+        }
+      },
+      "required": [
+        "component_id",
+        "raw_value",
+        "transformed_value",
+        "effective_weight",
+        "contribution"
+      ],
+      "title": "ScoreComponentRecord",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/ScoreContext.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cohort_id": {
+      "title": "Cohort Id",
+      "type": "string"
+    },
+    "liquidity_bucket": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Liquidity Bucket"
+    },
+    "regime_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Regime Id"
+    },
+    "score": {
+      "$ref": "#/$defs/CompetitionScoreRecord"
+    },
+    "strategy_family": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Strategy Family"
+    },
+    "underlying_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Underlying Id"
+    }
+  },
+  "required": [
+    "score",
+    "cohort_id"
+  ],
+  "title": "ScoreContext",
+  "type": "object"
+}

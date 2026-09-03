@@ -1,0 +1,87 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: P2 capability matrix
+type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    type: string
+    minLength: 1
+  artifact_name:
+    type: string
+    minLength: 1
+  schema_id:
+    type: string
+    minLength: 1
+  schema_version:
+    type: string
+    minLength: 1
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+    minLength: 1
+  cycle_id:
+    type: string
+    minLength: 1
+  as_of_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+    minLength: 1
+  lineage_id:
+    type: string
+    minLength: 1
+  producer_module_id:
+    type: string
+    pattern: ^P4\.S1\.M0[1-4]$
+  content_hash:
+    type: string
+    pattern: ^[a-f0-9]{64}$
+  status:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        capability:
+          type: string
+        artifact_name:
+          type: string
+        status:
+          type: string
+          enum:
+          - AVAILABLE
+          - UNAVAILABLE_UPSTREAM
+          - DEGRADED
+          - BLOCKED
+        reason:
+          type:
+          - string
+          - 'null'
+        required:
+          type: boolean
+      required:
+      - capability
+      - artifact_name
+      - status
+      - reason
+      - required
+required:
+- artifact_id
+- artifact_name
+- schema_id
+- schema_version
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- pipeline_version
+- lineage_id
+- producer_module_id
+- content_hash
+- status
+- records

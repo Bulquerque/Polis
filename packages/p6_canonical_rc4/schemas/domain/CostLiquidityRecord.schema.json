@@ -1,0 +1,153 @@
+{
+  "$defs": {
+    "CalculationStatus": {
+      "enum": [
+        "AVAILABLE",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "BLOCKED"
+      ],
+      "title": "CalculationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "atomic_combo_available": {
+      "title": "Atomic Combo Available",
+      "type": "boolean"
+    },
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "conservative_entry_cost": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Conservative Entry Cost"
+    },
+    "fee_estimate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Fee Estimate"
+    },
+    "legging_required": {
+      "title": "Legging Required",
+      "type": "boolean"
+    },
+    "legging_risk_proxy": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Legging Risk Proxy"
+    },
+    "maximum_relative_spread": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Maximum Relative Spread"
+    },
+    "quoted_cost": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Quoted Cost"
+    },
+    "slippage_estimate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Slippage Estimate"
+    },
+    "status": {
+      "$ref": "#/$defs/CalculationStatus"
+    },
+    "stress_entry_cost": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Stress Entry Cost"
+    },
+    "weakest_leg_liquidity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Weakest Leg Liquidity"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "quoted_cost",
+    "conservative_entry_cost",
+    "stress_entry_cost",
+    "fee_estimate",
+    "slippage_estimate",
+    "weakest_leg_liquidity",
+    "maximum_relative_spread",
+    "atomic_combo_available",
+    "legging_required",
+    "legging_risk_proxy",
+    "status"
+  ],
+  "title": "CostLiquidityRecord",
+  "type": "object"
+}

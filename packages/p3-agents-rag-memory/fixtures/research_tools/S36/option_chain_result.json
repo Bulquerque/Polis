@@ -1,0 +1,92 @@
+{
+  "coverage": {
+    "missing_dimensions": [],
+    "records_rejected_filter": 0,
+    "records_rejected_future": 0,
+    "records_rejected_missing_time": 0,
+    "records_returned": 1,
+    "records_scanned": 2,
+    "records_visible": 2,
+    "score": 0.75,
+    "truncated": false,
+    "unique_sources": 1
+  },
+  "downgrade_reason": null,
+  "envelope_version": "1.0.0",
+  "evidence_refs": [
+    {
+      "available_at": "2024-01-02T00:00:00Z",
+      "evidence_id": "evidence_8fd41010729b75e10280cca7",
+      "lineage_id": "lineage_contract_fixture",
+      "record_hash": "5c301226aae4ace73df16ad9e89d50fc4de0a90b151a4be8ea67a9a493c6ce1e",
+      "record_key": "ACME3|2024-02-16|CALL|100|2024-01-02|B3",
+      "source_id": "B3",
+      "view_name": "clean_option_contract_panel"
+    },
+    {
+      "available_at": "2024-01-10T17:00:00Z",
+      "evidence_id": "evidence_d6b841edb40c07c2e3d1c238",
+      "lineage_id": "lineage_quote_fixture",
+      "record_hash": "5f0a71f07c6bc3310bdce95fa063c34218bd5424a61d3e4b1ab8478fa8b693ca",
+      "record_key": "ACME3|2024-02-16|CALL|100|2024-01-10|B3",
+      "source_id": "B3",
+      "view_name": "clean_option_quotes_panel"
+    }
+  ],
+  "executed_mode": "CHAIN_DIAGNOSTIC",
+  "execution": {
+    "deterministic": true,
+    "executed_mode": "CHAIN_DIAGNOSTIC",
+    "handler_id": "p3.s36.options.get_chain_snapshot",
+    "handler_version": "1.0.0",
+    "internal_work_units": 1,
+    "requested_mode": "CHAIN_DIAGNOSTIC",
+    "seed": 7,
+    "warnings": []
+  },
+  "operation_id": "get_chain_snapshot",
+  "outcome_status": "PASS",
+  "pit_proof": {
+    "decision_time": "2024-01-10T18:00:00Z",
+    "earliest_available_at": "2024-01-02T00:00:00Z",
+    "input_hashes": [
+      "a02a344d7aa17207ec68c9af7aa133fab4b434185981e866ffffbf0e5854042d",
+      "cc3feea15ab7e44615fdaa714eb9f4cd4c428369db4b77977d8fb900b5acfa1e"
+    ],
+    "latest_available_at": "2024-01-10T17:00:00Z",
+    "proof_hash": "2d61c3d06a89b51576842f21edb113082cec67c94ada4bcfdb1bdbf79d19f518",
+    "records_rejected_filter": 0,
+    "records_rejected_future": 0,
+    "records_rejected_missing_time": 0,
+    "records_scanned": 2,
+    "records_visible": 2,
+    "snapshot_id": "snapshot_20240110"
+  },
+  "records": [
+    {
+      "ask": 8.1,
+      "available_at": "2024-01-10T17:00:00Z",
+      "bid": 7.9,
+      "contract_key": "ACME3|2024-02-16|CALL|100",
+      "execution_status": "EXECUTABLE",
+      "expiration_date": "2024-02-16",
+      "financial_volume": 800.0,
+      "implied_volatility": 0.3,
+      "last_price": 8.0,
+      "lineage_id": "lineage_quote_fixture",
+      "mid": 8.0,
+      "observation_date": "2024-01-10",
+      "open_interest": 1000.0,
+      "option_type": "CALL",
+      "quality_flag": "PASS",
+      "source_id": "B3",
+      "strike": 100.0,
+      "underlying": "ACME3",
+      "volume": 100.0
+    }
+  ],
+  "request_id": "request_fixture",
+  "requested_mode": "CHAIN_DIAGNOSTIC",
+  "result_hash": "e896d0d630276b55c2183e8e94b7118bf23d7684aed4774bdbea41c4fc037bfe",
+  "tool_id": "options.observation.v1"
+}

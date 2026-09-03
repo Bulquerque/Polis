@@ -1,0 +1,20 @@
+release: P6-RC6.2-P5-V2-CLOSURE-RC4
+capability_status: AVAILABLE
+solvers:
+- solver: CONTINUOUS_RELAXATION
+  implemented: true
+  status_semantics: FEASIBLE_OR_TIMEOUT
+- solver: MIXED_INTEGER_BRANCH_AND_BOUND
+  implemented: true
+  backend: BOUNDED_ENUMERATION_CPU
+  status_semantics: OPTIMAL_WITHIN_BOUNDED_NEIGHBORHOOD_OR_TIMEOUT
+- solver: BEAM_SEARCH
+  implemented: true
+  deterministic: true
+- solver: LOCAL_SEARCH
+  implemented: true
+  deterministic: true
+- solver: EVOLUTIONARY_CHALLENGER
+  implemented: true
+  non_blocking: true
+  seeded: true

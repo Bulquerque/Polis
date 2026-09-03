@@ -1,0 +1,15 @@
+config_id: retro_patch_compatibility_config.v2
+allowed_change_types:
+- prompt_update
+- tool_update
+- retrieval_policy_update
+promoted_status_required: true
+same_cycle_forbidden: true
+allow_partial_activation: false
+target_versions:
+  prompt_policy: 1.0.0
+  tool_registry: 1.0.0
+  retrieval_policy: 1.0.0
+supported_version_range_syntax:
+- exact
+- comma_comparators

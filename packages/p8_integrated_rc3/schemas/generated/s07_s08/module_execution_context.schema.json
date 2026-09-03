@@ -1,0 +1,66 @@
+{
+  "$defs": {
+    "ExecutionMode": {
+      "enum": [
+        "BACKTEST",
+        "SHADOW",
+        "LIVE"
+      ],
+      "title": "ExecutionMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "deterministic_seed": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Deterministic Seed",
+      "type": "integer"
+    },
+    "market_cutoff_at": {
+      "format": "date-time",
+      "title": "Market Cutoff At",
+      "type": "string"
+    },
+    "mode": {
+      "$ref": "#/$defs/ExecutionMode",
+      "default": "BACKTEST"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "trace_id": {
+      "minLength": 1,
+      "title": "Trace Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "market_cutoff_at",
+    "trace_id",
+    "policy_version"
+  ],
+  "title": "ModuleExecutionContext",
+  "type": "object"
+}

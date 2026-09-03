@@ -1,0 +1,22 @@
+module_id: P5.S2.M03
+name: resolver_spec_bias_view_registry_builder
+subphase_id: P5.S2
+required_inputs:
+- authorized_consumer_view_registry
+- resolver_view_compatibility_matrix
+- temporal_evaluation_plan
+- target_definition_registry
+optional_inputs:
+- hypothesis_target_mapping
+- optional_resolver_feedback_context
+outputs:
+- resolver_spec_registry
+- resolver_bias_registry
+- resolver_view_binding_registry
+allowed_actions:
+- RUN
+allowed_modes:
+- OFFLINE_TRAINING
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

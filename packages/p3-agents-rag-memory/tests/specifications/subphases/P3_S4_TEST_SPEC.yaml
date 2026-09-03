@@ -1,0 +1,14 @@
+subphase: P3.S4
+modules:
+- module_id: P3.S4.M01
+  required_cases:
+  - duplicate_tag_fails
+  - unregistered_tag_fails
+- module_id: P3.S4.M02
+  required_cases:
+  - nonfinancial_roles_supported
+  - weights_policy_present
+  - finance_only_objectives_fail
+canonical_module_order:
+- P3.S4.M01
+- P3.S4.M02

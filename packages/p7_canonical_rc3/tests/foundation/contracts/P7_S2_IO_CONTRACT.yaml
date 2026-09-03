@@ -1,0 +1,58 @@
+contract_id: P7.S2.IO
+contract_version: 2.0.0
+semantic_version: 2.0.0
+producer_phase: P7
+subphase: P7.S2
+owner: FOUNDATION
+inputs:
+  temporally_safe_candidate_bundle:
+    envelope_schema: schemas/artifact_envelope.schema.json
+    record_schema: schemas/candidate_bundle_record.schema.json
+    grain: one_record_per_candidate
+    producer_module: P7.S1.M03
+  ranking_feedback_context:
+    envelope_schema: schemas/artifact_envelope.schema.json
+    record_schema: schemas/feedback_record.schema.json
+    grain: one_record_per_promoted_feedback_item
+    producer_module: P7.S1.M04
+  eligibility_policy_registry:
+    schema: schemas/eligibility_policy_registry.schema.json
+  comparison_group_policy:
+    schema: schemas/comparison_group_policy_registry.schema.json
+  metric_semantics_registry:
+    schema: schemas/metric_semantics_registry.schema.json
+  objective_family_registry:
+    schema: schemas/objective_family_registry.schema.json
+outputs:
+  eligible_strategy_candidate_panel:
+    envelope_schema: schemas/artifact_envelope.schema.json
+    record_schema: schemas/eligibility_candidate_record.schema.json
+    grain: one_record_per_candidate
+  eligibility_blocked_candidate_panel:
+    envelope_schema: schemas/artifact_envelope.schema.json
+    record_schema: schemas/eligibility_candidate_record.schema.json
+    grain: one_record_per_candidate
+  eligibility_decision_panel:
+    envelope_schema: schemas/artifact_envelope.schema.json
+    record_schema: schemas/eligibility_decision_record.schema.json
+    grain: one_record_per_candidate
+  candidate_comparison_group_panel:
+    envelope_schema: schemas/artifact_envelope.schema.json
+    record_schema: schemas/comparison_group_record.schema.json
+    grain: one_record_per_candidate
+  candidate_metric_route_panel:
+    envelope_schema: schemas/artifact_envelope.schema.json
+    record_schema: schemas/metric_route_record.schema.json
+    grain: one_record_per_candidate_metric
+  runtime_foundation_handoff_manifest:
+    envelope_schema: schemas/artifact_envelope.schema.json
+    record_schema: schemas/foundation_handoff_record.schema.json
+    grain: one_record_per_phase_handoff
+invariants:
+  - every_input_candidate_has_exactly_one_eligibility_decision
+  - eligible_and_blocked_sets_are_disjoint
+  - eligible_union_blocked_equals_input_universe
+  - comparison_groups_cover_exactly_eligible_candidates
+  - metric_routes_reference_only_eligible_candidates
+  - query_id_equals_comparison_group_id
+  - no_ranking_or_score_is_computed_in_P7.S2

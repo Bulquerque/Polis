@@ -1,0 +1,51 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "record_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Record Hash",
+      "type": "string"
+    },
+    "record_key": {
+      "minLength": 1,
+      "title": "Record Key",
+      "type": "string"
+    },
+    "source_id": {
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "view_name": {
+      "minLength": 1,
+      "title": "View Name",
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "view_name",
+    "record_key",
+    "source_id",
+    "lineage_id",
+    "available_at",
+    "record_hash"
+  ],
+  "title": "MarketEvidenceRef",
+  "type": "object"
+}

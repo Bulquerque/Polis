@@ -1,0 +1,27 @@
+artifact: source_snapshot_registry
+schema_version: v14.1-rc4.1
+required_fields:
+- source_id
+- ingestion_run_id
+- raw_artifact_id
+- raw_artifact_path
+- file_hash
+- file_size_bytes
+- ingested_at
+- declared_available_at
+- readability_status
+- lineage_id
+- pipeline_version
+- artifact_id
+- created_at
+optional_fields: []
+forbidden_fields:
+- feature
+- target
+- prediction
+quality_checks:
+- required_fields_present
+- lineage_required
+- pipeline_version_required
+- forbidden_fields_absent
+notes: []

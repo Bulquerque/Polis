@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "ArtifactStatus": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED",
+        "FAILED",
+        "EMPTY_VALID"
+      ],
+      "title": "ArtifactStatus",
+      "type": "string"
+    },
+    "LineageRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "minLength": 1,
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "source_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Artifact Ids",
+          "type": "array"
+        },
+        "source_hashes": {
+          "additionalProperties": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "propertyNames": {
+            "minLength": 1
+          },
+          "title": "Source Hashes",
+          "type": "object"
+        }
+      },
+      "required": [
+        "lineage_id",
+        "producer_module_id"
+      ],
+      "title": "LineageRecord",
+      "type": "object"
+    },
+    "PersonContextRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "activation_id": {
+          "minLength": 1,
+          "title": "Activation Id",
+          "type": "string"
+        },
+        "allowed_tool_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Allowed Tool Ids",
+          "type": "array"
+        },
+        "as_of": {
+          "format": "date-time",
+          "title": "As Of",
+          "type": "string"
+        },
+        "cognition_transaction_id": {
+          "minLength": 1,
+          "title": "Cognition Transaction Id",
+          "type": "string"
+        },
+        "context_token_count": {
+          "minimum": 0,
+          "title": "Context Token Count",
+          "type": "integer"
+        },
+        "context_token_limit": {
+          "exclusiveMinimum": 0,
+          "title": "Context Token Limit",
+          "type": "integer"
+        },
+        "current_belief_summary": {
+          "default": "",
+          "title": "Current Belief Summary",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "lineage": {
+          "$ref": "#/$defs/LineageRecord"
+        },
+        "person_id": {
+          "minLength": 1,
+          "title": "Person Id",
+          "type": "string"
+        },
+        "personality_summary": {
+          "minLength": 1,
+          "title": "Personality Summary",
+          "type": "string"
+        },
+        "prompt_context": {
+          "minLength": 1,
+          "title": "Prompt Context",
+          "type": "string"
+        },
+        "retrieved_evidence_refs": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Retrieved Evidence Refs",
+          "type": "array"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "seed": {
+          "minimum": 0,
+          "title": "Seed",
+          "type": "integer"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "tool_budget": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Tool Budget",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "activation_id",
+        "cognition_transaction_id",
+        "person_id",
+        "snapshot_id",
+        "as_of",
+        "seed",
+        "personality_summary",
+        "prompt_context",
+        "context_token_count",
+        "context_token_limit",
+        "lineage"
+      ],
+      "title": "PersonContextRecord",
+      "type": "object"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.s21_context_projection.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "$ref": "#/$defs/PersonContextRecord"
+      },
+      "title": "Items",
+      "type": "array"
+    },
+    "lineage": {
+      "$ref": "#/$defs/LineageRecord"
+    },
+    "schema_version": {
+      "const": "p3.s21.v1",
+      "default": "p3.s21.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/ArtifactStatus",
+      "default": "READY"
+    }
+  },
+  "required": [
+    "items",
+    "lineage"
+  ],
+  "title": "ValidatedPersonContextBundle",
+  "type": "object"
+}

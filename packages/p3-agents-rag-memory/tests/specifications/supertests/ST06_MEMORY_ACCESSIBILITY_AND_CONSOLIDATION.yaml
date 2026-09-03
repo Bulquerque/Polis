@@ -1,0 +1,14 @@
+spec_id: ST06_MEMORY_ACCESSIBILITY_AND_CONSOLIDATION
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Agent-accessible memory differs from audit memory and cannot use future outcomes
+required_cases:
+- retrieval_decay
+- consolidation_lineage
+- future_outcome_block
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

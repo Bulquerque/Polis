@@ -1,0 +1,24 @@
+{
+  "archive_cells": 8,
+  "candidate_count": 12,
+  "candidate_ids": [
+    "candidate-04fca26420ca1a90f8434bff",
+    "candidate-1cc7b738427c8285438312b4",
+    "candidate-2a85430213f82ccfefb3794f",
+    "candidate-301d15472c1dbd105ccfecda",
+    "candidate-3274f2cb0731495b319bd2eb",
+    "candidate-3aa24f8dbbaff9de2daadfd8",
+    "candidate-40454bcd56b7e9063d47748a",
+    "candidate-895fc42b32e67f3e98116e41",
+    "candidate-9b0006b43dacf35458152014",
+    "candidate-ae3d6035a13d98e7c641454b",
+    "candidate-c9543679a6662c8c03ecd127",
+    "candidate-e1997cc9d1c3548db24cbd56"
+  ],
+  "manifest_hash": "0d36aad06745bee18680118d2b47acc0a0f8cbb95391e0daeffb308cca8ff6b3",
+  "operational_mode": "TEMPLATE_ONLY",
+  "production_promotion_allowed": false,
+  "qualified_count": 16,
+  "raw_candidate_count": 16,
+  "target_release": "P6-RC6.1-P5-RC34-HARDENED"
+}

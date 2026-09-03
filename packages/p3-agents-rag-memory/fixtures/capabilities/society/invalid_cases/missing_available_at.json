@@ -1,0 +1,4 @@
+{
+  "expected_failure": "point_in_time_contract",
+  "stimulus_id": "invalid-no-available-at"
+}

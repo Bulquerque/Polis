@@ -1,0 +1,240 @@
+{
+  "$defs": {
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    },
+    "SeedPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "default": "PCG64",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Algorithm",
+          "type": "string"
+        },
+        "derivation_version": {
+          "default": "seedsequence-v1",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Derivation Version",
+          "type": "string"
+        },
+        "root_entropy": {
+          "minimum": 0,
+          "title": "Root Entropy",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "root_entropy"
+      ],
+      "title": "SeedPolicy",
+      "type": "object"
+    },
+    "TradeEpisode": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "closed_at": {
+          "format": "date-time",
+          "title": "Closed At",
+          "type": "string"
+        },
+        "gross_pnl": {
+          "title": "Gross Pnl",
+          "type": "number"
+        },
+        "instrument_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Instrument Ids",
+          "type": "array"
+        },
+        "net_pnl": {
+          "title": "Net Pnl",
+          "type": "number"
+        },
+        "opened_at": {
+          "format": "date-time",
+          "title": "Opened At",
+          "type": "string"
+        },
+        "total_cost": {
+          "minimum": 0,
+          "title": "Total Cost",
+          "type": "number"
+        },
+        "trade_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Trade Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trade_id",
+        "candidate_id",
+        "opened_at",
+        "closed_at",
+        "instrument_ids",
+        "gross_pnl",
+        "net_pnl",
+        "total_cost"
+      ],
+      "title": "TradeEpisode",
+      "type": "object"
+    },
+    "TradeEpisodePanel": {
+      "additionalProperties": false,
+      "properties": {
+        "episodes": {
+          "items": {
+            "$ref": "#/$defs/TradeEpisode"
+          },
+          "title": "Episodes",
+          "type": "array"
+        },
+        "panel_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Panel Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "episodes"
+      ],
+      "title": "TradeEpisodePanel",
+      "type": "object"
+    },
+    "TradeResamplingPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "cluster_block_length": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Cluster Block Length",
+          "type": "integer"
+        },
+        "concentration_warning_hhi": {
+          "default": 0.25,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Concentration Warning Hhi",
+          "type": "number"
+        },
+        "minimum_trade_count": {
+          "default": 10,
+          "minimum": 1,
+          "title": "Minimum Trade Count",
+          "type": "integer"
+        },
+        "replicate_count": {
+          "default": 1000,
+          "minimum": 1,
+          "title": "Replicate Count",
+          "type": "integer"
+        }
+      },
+      "title": "TradeResamplingPolicy",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "policy": {
+      "$ref": "#/$defs/TradeResamplingPolicy",
+      "default": {
+        "cluster_block_length": 1,
+        "concentration_warning_hhi": 0.25,
+        "minimum_trade_count": 10,
+        "replicate_count": 1000
+      }
+    },
+    "seed_policy": {
+      "$ref": "#/$defs/SeedPolicy"
+    },
+    "trades": {
+      "$ref": "#/$defs/TradeEpisodePanel"
+    }
+  },
+  "required": [
+    "context",
+    "trades",
+    "seed_policy"
+  ],
+  "title": "TradeResamplingRequest",
+  "type": "object"
+}

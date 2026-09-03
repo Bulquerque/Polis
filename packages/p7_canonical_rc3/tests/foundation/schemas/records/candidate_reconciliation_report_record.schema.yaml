@@ -1,0 +1,11 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p7:s1:candidate-reconciliation-report-record:2.0.0
+type: object
+additionalProperties: false
+required: [status, candidate_count, artifact_count, mandatory_relation_count, orphan_count]
+properties:
+  status: {const: PASS}
+  candidate_count: {type: integer, minimum: 0}
+  artifact_count: {type: integer, minimum: 0}
+  mandatory_relation_count: {type: integer, minimum: 0}
+  orphan_count: {const: 0}

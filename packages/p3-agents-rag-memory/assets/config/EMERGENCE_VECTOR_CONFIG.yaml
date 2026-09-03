@@ -1,0 +1,44 @@
+vector_id: P3_UNDERLYING_SOCIETY_VECTOR_V1
+key:
+- underlying
+- as_of_time
+principle: compact_interpretable_families_not_unbounded_feature_explosion
+required_metrics:
+  belief:
+  - belief_mean
+  - belief_variance
+  - belief_entropy
+  - belief_polarization
+  - bullish_share
+  - bearish_share
+  dynamics:
+  - belief_update_velocity
+  - belief_reversal_rate
+  attention:
+  - attention_intensity
+  - attention_concentration
+  social:
+  - cascade_size
+  - cascade_depth
+  - social_contagion
+  - influence_concentration
+  information:
+  - information_asymmetry
+  - expert_nonexpert_divergence
+  - institutional_disagreement
+  tag_projection:
+  - top_tag_divergence
+  - top_tag_conditioned_shift
+  - active_tag_projection_count
+  coverage:
+  - active_person_count
+  - population_coverage_ratio
+  - belief_coverage_ratio
+forbidden_direct_targets:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+extension_rule: new metrics require schema version, ablation rationale, and P0/P9 review; no silent proliferation

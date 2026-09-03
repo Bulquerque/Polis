@@ -1,0 +1,27 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "basis_id": {
+      "title": "Basis Id",
+      "type": "string"
+    },
+    "quantity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Quantity"
+    }
+  },
+  "required": [
+    "basis_id",
+    "quantity"
+  ],
+  "title": "SolverQuantity",
+  "type": "object"
+}

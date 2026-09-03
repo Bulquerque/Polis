@@ -1,0 +1,21 @@
+module_id: P5.S1.M05
+name: phase5_consumption_receipt_builder
+subphase_id: P5.S1
+required_inputs:
+- validated_p4_contract_bundle
+- validated_p4_artifact_catalog
+- authorized_consumer_view_registry
+- resolver_view_compatibility_matrix
+- p4_degraded_mode_report
+optional_inputs: []
+outputs:
+- phase5_consumption_receipt
+- p5_p4_contract_acknowledgement
+allowed_actions:
+- RUN
+allowed_modes:
+- OFFLINE_TRAINING
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

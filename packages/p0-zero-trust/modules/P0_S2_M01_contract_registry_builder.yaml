@@ -1,0 +1,41 @@
+module_id: P0.S2.M01
+module_name: contract_registry_builder
+function: Executar contract registry builder da Fase 0, mantendo controle Zero Trust
+  técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- contracts_all_phases
+- global_contracts
+outputs: &id002
+- contract_registry
+validations:
+- contract_has_source_target
+- shared_artifacts_have_schema
+fail_fast_conditions:
+- contract_registry_builder_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - contracts_all_phases
+    - global_contracts
+  emits_to:
+    modules:
+    - P0.S2.M03
+    - P0.S3.M02
+    - P0.S4.M02
+    - P0.S8.M01
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S2
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

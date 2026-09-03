@@ -1,0 +1,813 @@
+$defs:
+  ArtifactEnvelope:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Artifact Id
+        type: string
+      artifact_type:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Artifact Type
+        type: string
+      schema_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Schema Version
+        type: string
+      contract_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Contract Version
+        type: string
+      producer_phase:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Producer Phase
+        type: string
+      producer_module:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Producer Module
+        type: string
+      producer_release:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Producer Release
+        type: string
+      pipeline_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Pipeline Version
+        type: string
+      run_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Run Id
+        type: string
+      cycle_id:
+        minimum: 0
+        title: Cycle Id
+        type: integer
+      decision_time:
+        format: date-time
+        title: Decision Time
+        type: string
+      market_cutoff_at:
+        format: date-time
+        title: Market Cutoff At
+        type: string
+      computed_at:
+        format: date-time
+        title: Computed At
+        type: string
+      recorded_at:
+        format: date-time
+        title: Recorded At
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      content_sha256:
+        pattern: ^[a-f0-9]{64}$
+        title: Content Sha256
+        type: string
+      lineage_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Lineage Id
+        type: string
+    required:
+    - artifact_id
+    - artifact_type
+    - schema_version
+    - contract_version
+    - producer_phase
+    - producer_module
+    - producer_release
+    - pipeline_version
+    - run_id
+    - cycle_id
+    - decision_time
+    - market_cutoff_at
+    - computed_at
+    - recorded_at
+    - available_at
+    - content_sha256
+    - lineage_id
+    title: ArtifactEnvelope
+    type: object
+  ComparisonState:
+    enum:
+    - BENIGN
+    - MATERIAL
+    - UNSAFE
+    - NOT_RUN
+    title: ComparisonState
+    type: string
+  CompiledConstraintSet:
+    additionalProperties: false
+    properties:
+      candidate_ids:
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Candidate Ids
+        type: array
+      horizon_ids:
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Horizon Ids
+        type: array
+      candidate_bounds:
+        items:
+          maxItems: 2
+          minItems: 2
+          prefixItems:
+          - type: number
+          - type: number
+          type: array
+        title: Candidate Bounds
+        type: array
+      quantity_increments:
+        items:
+          type: number
+        title: Quantity Increments
+        type: array
+      capital_limits:
+        items:
+          type: number
+        title: Capital Limits
+        type: array
+      margin_limits:
+        items:
+          type: number
+        title: Margin Limits
+        type: array
+      maximum_loss_limits:
+        items:
+          type: number
+        title: Maximum Loss Limits
+        type: array
+      liquidity_caps:
+        items:
+          items:
+            type: number
+          type: array
+        title: Liquidity Caps
+        type: array
+      maximum_turnover:
+        title: Maximum Turnover
+        type: number
+      maximum_cvar:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Maximum Cvar
+      constraint_count:
+        minimum: 0
+        title: Constraint Count
+        type: integer
+      conflicts:
+        default: []
+        items:
+          $ref: '#/$defs/ConstraintConflict'
+        title: Conflicts
+        type: array
+      constraint_hash:
+        pattern: ^[a-f0-9]{64}$
+        title: Constraint Hash
+        type: string
+    required:
+    - candidate_ids
+    - horizon_ids
+    - candidate_bounds
+    - quantity_increments
+    - capital_limits
+    - margin_limits
+    - maximum_loss_limits
+    - liquidity_caps
+    - maximum_turnover
+    - maximum_cvar
+    - constraint_count
+    - constraint_hash
+    title: CompiledConstraintSet
+    type: object
+  CompiledPortfolioObjective:
+    additionalProperties: false
+    properties:
+      candidate_ids:
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Candidate Ids
+        type: array
+      horizon_ids:
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Horizon Ids
+        type: array
+      expected_pnl_by_horizon_candidate:
+        items:
+          items:
+            type: number
+          type: array
+        title: Expected Pnl By Horizon Candidate
+        type: array
+      transaction_cost_by_candidate:
+        items:
+          type: number
+        title: Transaction Cost By Candidate
+        type: array
+      funding_cost_by_horizon_candidate:
+        items:
+          items:
+            type: number
+          type: array
+        title: Funding Cost By Horizon Candidate
+        type: array
+      components:
+        items:
+          $ref: '#/$defs/ObjectiveComponent'
+        title: Components
+        type: array
+      ordinal_penalty_count:
+        minimum: 0
+        title: Ordinal Penalty Count
+        type: integer
+      objective_hash:
+        pattern: ^[a-f0-9]{64}$
+        title: Objective Hash
+        type: string
+    required:
+    - candidate_ids
+    - horizon_ids
+    - expected_pnl_by_horizon_candidate
+    - transaction_cost_by_candidate
+    - funding_cost_by_horizon_candidate
+    - components
+    - ordinal_penalty_count
+    - objective_hash
+    title: CompiledPortfolioObjective
+    type: object
+  ConstraintConflict:
+    additionalProperties: false
+    properties:
+      conflict_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Conflict Id
+        type: string
+      reason_code:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Reason Code
+        type: string
+      candidate_id:
+        anyOf:
+        - maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        - type: 'null'
+        default: null
+        title: Candidate Id
+      detail:
+        title: Detail
+        type: string
+    required:
+    - conflict_id
+    - reason_code
+    - detail
+    title: ConstraintConflict
+    type: object
+  ConstraintSlack:
+    additionalProperties: false
+    properties:
+      constraint_name:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Constraint Name
+        type: string
+      slack:
+        title: Slack
+        type: number
+    required:
+    - constraint_name
+    - slack
+    title: ConstraintSlack
+    type: object
+  ContinuousTargetSolution:
+    additionalProperties: false
+    properties:
+      status:
+        $ref: '#/$defs/SolverStatus'
+      quantities:
+        items:
+          $ref: '#/$defs/QuantityPath'
+        title: Quantities
+        type: array
+      objective_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Objective Value
+      solver_name:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Solver Name
+        type: string
+      solver_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Solver Version
+        type: string
+      iterations:
+        anyOf:
+        - minimum: 0
+          type: integer
+        - type: 'null'
+        default: null
+        title: Iterations
+      message:
+        title: Message
+        type: string
+      solution_hash:
+        pattern: ^[a-f0-9]{64}$
+        title: Solution Hash
+        type: string
+      validation:
+        $ref: '#/$defs/SolutionValidationReport'
+    required:
+    - status
+    - quantities
+    - objective_value
+    - solver_name
+    - solver_version
+    - message
+    - solution_hash
+    - validation
+    title: ContinuousTargetSolution
+    type: object
+  DiscreteStatus:
+    enum:
+    - FEASIBLE_ROUNDED
+    - FEASIBLE_REOPTIMIZED
+    - INFEASIBLE_AFTER_ROUNDING
+    - NO_ACTION_VALID
+    title: DiscreteStatus
+    type: string
+  DiscreteTargetPositionPanel:
+    additionalProperties: false
+    properties:
+      status:
+        $ref: '#/$defs/DiscreteStatus'
+      quantities:
+        items:
+          $ref: '#/$defs/QuantityPath'
+        title: Quantities
+        type: array
+      changes:
+        items:
+          $ref: '#/$defs/RoundingChange'
+        title: Changes
+        type: array
+      objective_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Objective Value
+      validation:
+        $ref: '#/$defs/SolutionValidationReport'
+      discrete_hash:
+        pattern: ^[a-f0-9]{64}$
+        title: Discrete Hash
+        type: string
+      reason_codes:
+        default: []
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - status
+    - quantities
+    - changes
+    - objective_value
+    - validation
+    - discrete_hash
+    title: DiscreteTargetPositionPanel
+    type: object
+  MPCControlPlan:
+    additionalProperties: false
+    properties:
+      decision_snapshot_hash:
+        pattern: ^[a-f0-9]{64}$
+        title: Decision Snapshot Hash
+        type: string
+      action:
+        $ref: '#/$defs/RebalanceAction'
+      first_actions:
+        items:
+          $ref: '#/$defs/TargetAction'
+        title: First Actions
+        type: array
+      future_plan:
+        items:
+          $ref: '#/$defs/QuantityPath'
+        title: Future Plan
+        type: array
+      valid_from:
+        format: date-time
+        title: Valid From
+        type: string
+      valid_until:
+        format: date-time
+        title: Valid Until
+        type: string
+      reoptimization_triggers:
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reoptimization Triggers
+        type: array
+      first_action_only:
+        default: true
+        title: First Action Only
+        type: boolean
+      plan_hash:
+        pattern: ^[a-f0-9]{64}$
+        title: Plan Hash
+        type: string
+    required:
+    - decision_snapshot_hash
+    - action
+    - first_actions
+    - future_plan
+    - valid_from
+    - valid_until
+    - reoptimization_triggers
+    - plan_hash
+    title: MPCControlPlan
+    type: object
+  MarginalTradeBenefitReport:
+    additionalProperties: false
+    properties:
+      hold_objective:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Hold Objective
+      target_objective:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Target Objective
+      objective_improvement:
+        title: Objective Improvement
+        type: number
+      total_first_action_quantity_change:
+        minimum: 0
+        title: Total First Action Quantity Change
+        type: number
+    required:
+    - hold_objective
+    - target_objective
+    - objective_improvement
+    - total_first_action_quantity_change
+    title: MarginalTradeBenefitReport
+    type: object
+  ObjectiveComponent:
+    additionalProperties: false
+    properties:
+      component_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Component Id
+        type: string
+      component_type:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Component Type
+        type: string
+      weight:
+        title: Weight
+        type: number
+      unit:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Unit
+        type: string
+      direction:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Direction
+        type: string
+    required:
+    - component_id
+    - component_type
+    - weight
+    - unit
+    - direction
+    title: ObjectiveComponent
+    type: object
+  QuantityPath:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      quantities_by_horizon:
+        items:
+          type: number
+        title: Quantities By Horizon
+        type: array
+    required:
+    - candidate_id
+    - quantities_by_horizon
+    title: QuantityPath
+    type: object
+  RebalanceAction:
+    enum:
+    - REBALANCE
+    - PARTIAL_REBALANCE
+    - HOLD
+    - CLOSE_ONLY
+    - RISK_REDUCTION_ONLY
+    - NO_ACTION_VALID
+    title: RebalanceAction
+    type: string
+  RebalanceDecisionPanel:
+    additionalProperties: false
+    properties:
+      action:
+        $ref: '#/$defs/RebalanceAction'
+      benefit:
+        $ref: '#/$defs/MarginalTradeBenefitReport'
+      reason_codes:
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - action
+    - benefit
+    - reason_codes
+    title: RebalanceDecisionPanel
+    type: object
+  RobustComparisonReport:
+    additionalProperties: false
+    properties:
+      state:
+        $ref: '#/$defs/ComparisonState'
+      maximum_quantity_difference:
+        minimum: 0
+        title: Maximum Quantity Difference
+        type: number
+      nominal_objective:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Nominal Objective
+      robust_objective:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Robust Objective
+      input_hashes_equal:
+        title: Input Hashes Equal
+        type: boolean
+      execution_capability:
+        default: false
+        title: Execution Capability
+        type: boolean
+      reason_codes:
+        default: []
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - state
+    - maximum_quantity_difference
+    - nominal_objective
+    - robust_objective
+    - input_hashes_equal
+    title: RobustComparisonReport
+    type: object
+  RobustTargetSolution:
+    additionalProperties: false
+    properties:
+      solution:
+        anyOf:
+        - $ref: '#/$defs/ContinuousTargetSolution'
+        - type: 'null'
+      comparison:
+        $ref: '#/$defs/RobustComparisonReport'
+    required:
+    - solution
+    - comparison
+    title: RobustTargetSolution
+    type: object
+  RoundingChange:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      horizon_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Horizon Id
+        type: string
+      continuous_quantity:
+        title: Continuous Quantity
+        type: number
+      discrete_quantity:
+        title: Discrete Quantity
+        type: number
+    required:
+    - candidate_id
+    - horizon_id
+    - continuous_quantity
+    - discrete_quantity
+    title: RoundingChange
+    type: object
+  S5ResultPayload:
+    additionalProperties: false
+    properties:
+      compiled_objective:
+        $ref: '#/$defs/CompiledPortfolioObjective'
+      compiled_constraints:
+        $ref: '#/$defs/CompiledConstraintSet'
+      nominal_solution:
+        $ref: '#/$defs/ContinuousTargetSolution'
+      robust_shadow:
+        $ref: '#/$defs/RobustTargetSolution'
+      discrete_target:
+        $ref: '#/$defs/DiscreteTargetPositionPanel'
+      rebalance_decision:
+        $ref: '#/$defs/RebalanceDecisionPanel'
+      mpc_plan:
+        $ref: '#/$defs/MPCControlPlan'
+      module_receipts:
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Module Receipts
+        type: array
+    required:
+    - compiled_objective
+    - compiled_constraints
+    - nominal_solution
+    - robust_shadow
+    - discrete_target
+    - rebalance_decision
+    - mpc_plan
+    - module_receipts
+    title: S5ResultPayload
+    type: object
+  SolutionValidationReport:
+    additionalProperties: false
+    properties:
+      feasible:
+        title: Feasible
+        type: boolean
+      objective_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Objective Value
+      maximum_inequality_violation:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Maximum Inequality Violation
+      maximum_equality_violation:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Maximum Equality Violation
+      slacks:
+        default: []
+        items:
+          $ref: '#/$defs/ConstraintSlack'
+        title: Slacks
+        type: array
+      reason_codes:
+        default: []
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - feasible
+    - objective_value
+    title: SolutionValidationReport
+    type: object
+  SolverStatus:
+    enum:
+    - OPTIMAL
+    - ACCEPTABLE_SUBOPTIMAL
+    - INFEASIBLE
+    - UNBOUNDED
+    - TIMEOUT_NO_SOLUTION
+    - SOLVER_ERROR
+    - NO_ACTION_VALID
+    title: SolverStatus
+    type: string
+  TargetAction:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      current_quantity:
+        title: Current Quantity
+        type: number
+      target_quantity:
+        title: Target Quantity
+        type: number
+      delta_quantity:
+        title: Delta Quantity
+        type: number
+    required:
+    - candidate_id
+    - current_quantity
+    - target_quantity
+    - delta_quantity
+    title: TargetAction
+    type: object
+additionalProperties: false
+properties:
+  envelope:
+    $ref: '#/$defs/ArtifactEnvelope'
+  payload:
+    $ref: '#/$defs/S5ResultPayload'
+required:
+- envelope
+- payload
+title: S5ResultBundle
+type: object

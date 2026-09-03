@@ -1,0 +1,14 @@
+scope_id,scope,hypotheses,key_literature_ids,final_architecture_decision
+F01,"Momentum, trend and persistence",H01-H04,L005;L006;L042;L069;L070,"Keep four mechanisms: absolute, relative, residual, and independently confirmed momentum. Parameter changes are robustness, not new hypotheses."
+F02,Reversion and relative value,H05-H07,L007;L008;L070,"Separate short pressure reversal, robust state deviation, and residual reversal. Pair trading remains extension-tier because formation and costs add degrees of freedom."
+F03,"Value, quality, profitability, investment",H08-H11,L009;L010;L011;L043;L071;L077,Use point-in-time accounting vintages and one primary definition per mechanism. Alternative denominators are robustness only.
+F04,"Liquidity, attention and crowding",H12-H14,L012;L025;L061;L063;L065,"Separate participation, price impact, and attention. Do not interpret volume mechanically as liquidity or alpha."
+F05,"Realized risk, tail and asymmetry",H15-H18,L013;L018;L019;L020,"Model volatility as a multiscale state and retain downside, path-dependent drawdown, and option-implied risk as distinct mechanisms."
+F06,Systematic and systemic risk,H19-H21,L014;L015;L016;L017;L035;L049,"Separate bad-market co-movement, common-mode concentration, and directional spillovers. Specialized SRISK/CoVaR approximations require their real inputs."
+F07,"Carry, curve and basis",H22-H24,L036;L071,"Use contract-aware definitions and a common economic ontology, while preserving asset-class conventions and roll mechanics."
+F08,"Macro, cycle and regime",H25-H27,L022;L023,"Use publication-time vintages, joint macro states, and surprises. Macro levels alone are not treated as stable return predictors."
+F09,Events and seasonality,H28-H29,L037;L038;L064,Separate event surprise from post-event drift; calendar effects require pre-registration and strict event-time alignment.
+F10,"Narrative, evidence and disagreement",H30-H32,L024;L025;L062;L066,"Separate direction, novelty, reach, evidence quality, disagreement, and narrative change. Never collapse all text/social signals into sentiment."
+REP,Representations and compression,PCA + optional encoder,L004;L026;L027;L028;L039;L072;L076;L078;L079,Interpretable matrices remain mandatory. Sparse PCA is champion; one shallow self-supervised encoder is an optional challenger. Predictive latent factors belong to P5.
+GOV,Research governance and multiplicity,32 foundational hypotheses,L001;L002;L040;L041;L054;L055;L069;L070;L074;L075;L080;L081;L082,"Use family budgets, complete attempt ledger, nested temporal evaluation, multiplicity-aware confirmation, and a sealed final holdout."
+MISS,Missingness and point-in-time,All families,L060,"Missingness is a state, not zero. Preserve publication, availability, revision, and ingestion timestamps."

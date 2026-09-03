@@ -1,0 +1,27 @@
+registry_id: p7_tournament_s3_s4_io_v1
+modules:
+  P7.S3.M01:
+    inputs: [runtime_foundation_handoff_manifest, eligible_strategy_candidate_panel, candidate_comparison_group_panel, candidate_metric_source_panel, ranking_policy_context, runtime_foundation_audit_report]
+    outputs: [comparable_candidate_metric_panel, metric_semantics_audit_report]
+  P7.S3.M02:
+    inputs: [comparable_candidate_metric_panel, eligible_strategy_candidate_panel, ranking_policy_context, runtime_foundation_audit_report]
+    optional_inputs: [option_factor_model_artifact]
+    outputs: [factor_exposure_panel, factor_adjusted_metric_panel, factor_adjustment_audit_report]
+  P7.S3.M03:
+    inputs: [factor_adjusted_metric_panel, comparable_candidate_metric_panel, candidate_comparison_group_panel, ranking_policy_context, runtime_foundation_audit_report]
+    outputs: [dominance_relation_panel, dominated_candidate_panel, dominance_survivor_panel]
+  P7.S3.M04:
+    inputs: [dominance_relation_panel, dominated_candidate_panel, dominance_survivor_panel, factor_adjusted_metric_panel, ranking_policy_context, runtime_foundation_audit_report]
+    outputs: [pareto_frontier_panel, pareto_frontier_audit_report]
+  P7.S4.M01:
+    inputs: [pareto_frontier_panel, factor_adjusted_metric_panel, comparable_candidate_metric_panel, candidate_comparison_group_panel, scoring_policy_context]
+    outputs: [scoring_head_input_panel, scoring_policy_receipt]
+  P7.S4.M02:
+    inputs: [scoring_head_input_panel, factor_adjusted_metric_panel, comparable_candidate_metric_panel, scoring_policy_receipt]
+    outputs: [scoring_head_panel]
+  P7.S4.M03:
+    inputs: [scoring_head_panel, scoring_policy_receipt, pareto_frontier_panel]
+    outputs: [interpretable_score_panel]
+  P7.S4.M04:
+    inputs: [interpretable_score_panel, scoring_head_panel, scoring_policy_receipt, pareto_frontier_panel, pareto_frontier_audit_report, dominated_candidate_panel, dominance_survivor_panel, dominance_relation_panel, factor_adjusted_metric_panel, factor_exposure_panel, comparable_candidate_metric_panel, metric_semantics_audit_report, factor_adjustment_audit_report]
+    outputs: [score_decomposition_panel, interpretable_tournament_audit_report, interpretable_tournament_handoff_manifest]

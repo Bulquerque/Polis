@@ -1,0 +1,84 @@
+schema_id: hidden_global_state_report.v1
+artifact_name: hidden_global_state_report
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- checked_python_file_count
+- violation_count
+- violations
+- status
+- release_blocking
+- validation_evidence_status
+- promotion_blocked
+properties:
+  artifact_id:
+    type: string
+    pattern: ^hidden-global-state-report-[0-9a-f]{12}$
+  created_at:
+    type: string
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  checked_python_file_count:
+    type: integer
+    minimum: 1
+  violation_count:
+    type: integer
+    minimum: 0
+  violations:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - path
+      - line
+      - symbol
+      - kind
+      properties:
+        path:
+          type: string
+        line:
+          type: integer
+          minimum: 1
+        symbol:
+          type: string
+        kind:
+          type: string
+          enum:
+          - MUTABLE_MODULE_GLOBAL
+          - HARDCODED_SECRET_OR_ABSOLUTE_PATH
+          - HARDCODED_SECRET
+          - HARDCODED_ABSOLUTE_PATH
+          - IMPORT_TIME_STATEFUL_OBJECT
+          - MODULE_LEVEL_MUTATION
+          - GLOBAL_STATEMENT_MUTATION
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  release_blocking:
+    type: boolean
+  validation_evidence_status:
+    type: string
+    const: domain_oracle_pass_pending_independent_judge
+  promotion_blocked:
+    type: boolean
+    const: true
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

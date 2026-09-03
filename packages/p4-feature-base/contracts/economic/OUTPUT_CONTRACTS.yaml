@@ -1,0 +1,14 @@
+phase: P4
+subphase: P4.S6
+contract_version: v14.5-rc1
+required_outputs:
+- aligned_perspective_panel
+- perspective_conflict_panel
+- interaction_feature_panel
+- horizon_feature_panel
+- horizon_feature_set_manifest
+rules:
+- long_form_preserved
+- single_authorized_producer
+- lineage_and_quality_required
+- no_normalization_selection_or_compression

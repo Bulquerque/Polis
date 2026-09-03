@@ -1,0 +1,17 @@
+{
+  "$id": "https://inferencia.local/p9/s3/DurationSpec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "seconds": {
+      "minimum": 0,
+      "title": "Seconds",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "seconds"
+  ],
+  "title": "DurationSpec",
+  "type": "object"
+}

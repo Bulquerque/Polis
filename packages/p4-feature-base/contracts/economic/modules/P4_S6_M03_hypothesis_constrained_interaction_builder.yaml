@@ -1,0 +1,45 @@
+module_id: P4.S6.M03
+module_name: hypothesis_constrained_interaction_builder
+phase: P4
+subphase: P4.S6
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: hypothesis constrained interaction builder
+inputs:
+- aligned_perspective_panel
+- approved_interaction_registry
+outputs:
+- interaction_feature_panel
+validations:
+- strong_heredity
+- whitelist_only
+- maximum_interaction_budget
+- no_cartesian_expansion
+- explicit_ratio_epsilon
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- single_responsibility
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- buy_sell_signal
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- missing_view
+- lineage
+- replay
+- metamorphic
+production_promotion_allowed: false

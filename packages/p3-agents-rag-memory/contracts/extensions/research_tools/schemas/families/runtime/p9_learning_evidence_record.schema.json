@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "belief_commitment_refs": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Belief Commitment Refs",
+      "type": "array"
+    },
+    "cognition_transaction_id": {
+      "minLength": 1,
+      "title": "Cognition Transaction Id",
+      "type": "string"
+    },
+    "cost_units": {
+      "minimum": 0.0,
+      "title": "Cost Units",
+      "type": "number"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "eligible_feedback_cycle": {
+      "const": "N_PLUS_1_ONLY",
+      "default": "N_PLUS_1_ONLY",
+      "title": "Eligible Feedback Cycle",
+      "type": "string"
+    },
+    "evidence_coverage": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Evidence Coverage",
+      "type": "number"
+    },
+    "evidence_refs": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "executed_mode": {
+      "minLength": 1,
+      "title": "Executed Mode",
+      "type": "string"
+    },
+    "known_training_cutoff": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Known Training Cutoff"
+    },
+    "learning_evidence_id": {
+      "minLength": 1,
+      "title": "Learning Evidence Id",
+      "type": "string"
+    },
+    "model_knowledge_cutoff_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Model Knowledge Cutoff Hash",
+      "type": "string"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "person_id": {
+      "minLength": 1,
+      "title": "Person Id",
+      "type": "string"
+    },
+    "requested_mode": {
+      "minLength": 1,
+      "title": "Requested Mode",
+      "type": "string"
+    },
+    "result_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Result Hash",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "source_quality_mean": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Source Quality Mean",
+      "type": "number"
+    },
+    "tool_id": {
+      "minLength": 1,
+      "title": "Tool Id",
+      "type": "string"
+    },
+    "trace_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Trace Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "learning_evidence_id",
+    "run_id",
+    "cycle_id",
+    "cognition_transaction_id",
+    "person_id",
+    "tool_id",
+    "operation_id",
+    "requested_mode",
+    "executed_mode",
+    "cost_units",
+    "evidence_coverage",
+    "source_quality_mean",
+    "belief_commitment_refs",
+    "evidence_refs",
+    "result_hash",
+    "trace_hash",
+    "model_knowledge_cutoff_hash"
+  ],
+  "title": "P9LearningEvidenceRecord",
+  "type": "object"
+}

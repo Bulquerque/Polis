@@ -1,0 +1,79 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "challenger_configuration_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Challenger Configuration Ids",
+      "type": "array"
+    },
+    "champion_configuration_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Champion Configuration Id"
+    },
+    "cohort_policy_id": {
+      "minLength": 1,
+      "title": "Cohort Policy Id",
+      "type": "string"
+    },
+    "commitment_id": {
+      "minLength": 1,
+      "title": "Commitment Id",
+      "type": "string"
+    },
+    "commitment_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Commitment Sha256",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "effective_from": {
+      "format": "date-time",
+      "title": "Effective From",
+      "type": "string"
+    },
+    "holdout_dataset_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Holdout Dataset Ids",
+      "type": "array"
+    },
+    "metric_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Metric Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "commitment_id",
+    "created_at",
+    "effective_from",
+    "metric_ids",
+    "cohort_policy_id",
+    "commitment_sha256"
+  ],
+  "title": "ResearchCommitment",
+  "type": "object"
+}

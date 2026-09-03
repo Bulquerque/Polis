@@ -1,0 +1,18 @@
+schema_id: capture_checkpoint.v1
+schema_version: v14.1-rc4.1
+release_version: V14.1-RC4.1
+type: object
+required: [schema_id, schema_version, release_version, checkpoint_id, source_id, window, next_token, snapshot_digest]
+properties:
+  schema_id: {const: capture_checkpoint.v1}
+  schema_version: {const: v14.1-rc4.1}
+  release_version: {const: V14.1-RC4.1}
+  checkpoint_id: {type: string}
+  source_id: {type: string}
+  window: {type: object}
+  next_token:
+    oneOf:
+    - {type: string}
+    - {type: object}
+    - {type: 'null'}
+  snapshot_digest: {type: string}

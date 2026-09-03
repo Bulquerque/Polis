@@ -1,0 +1,17 @@
+schema_version: activation_config.v2
+config_version: p3.s19.activation.v1
+formula_id: multiplicative_activation_v1
+formula: stimulus_intensity * relevance * tag_sensitivity * current_attention * exposure
+threshold_comparison: GREATER_THAN_OR_EQUAL
+relevance_policy: MAX_MATCH_FALLBACK_DEFAULT
+attention_policy: MAX_MATCH_FALLBACK_CURRENT
+unresolved_stimulus_policy: ALLOW_WITH_PROFILE_DEFAULT
+max_extra_activations_per_person_per_cycle: 1
+global_cap:
+  population_fraction: 0.50
+  absolute_cap: 20
+  minimum_if_candidates: 1
+candidate_sort_policy: SCORE_DESC_PRIORITY_DESC_AVAILABLE_ASC_SEEDED_SHA256
+tie_break_policy: SEEDED_SHA256_V1
+require_positive_exposure: true
+verify_input_content_hashes: true

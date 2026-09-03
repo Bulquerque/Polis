@@ -1,0 +1,1262 @@
+{
+  "$defs": {
+    "ActivationCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "operator": {
+          "$ref": "#/$defs/ConditionOperator"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "operator",
+        "values"
+      ],
+      "title": "ActivationCondition",
+      "type": "object"
+    },
+    "BudgetAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_slots": {
+          "minimum": 0,
+          "title": "Configuration Slots",
+          "type": "integer"
+        },
+        "cpu_seconds_reserved": {
+          "minimum": 0,
+          "title": "Cpu Seconds Reserved",
+          "type": "integer"
+        },
+        "stage": {
+          "minLength": 1,
+          "title": "Stage",
+          "type": "string"
+        },
+        "trial_execution_slots": {
+          "minimum": 0,
+          "title": "Trial Execution Slots",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "stage",
+        "configuration_slots",
+        "trial_execution_slots",
+        "cpu_seconds_reserved"
+      ],
+      "title": "BudgetAllocation",
+      "type": "object"
+    },
+    "BudgetState": {
+      "enum": [
+        "BUDGET_RESERVED",
+        "BUDGET_LIMITED",
+        "BUDGET_INFEASIBLE",
+        "RESOURCE_CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "BudgetState",
+      "type": "string"
+    },
+    "CatalogState": {
+      "enum": [
+        "CATALOG_READY",
+        "CATALOG_WITH_EQUIVALENCES",
+        "IDENTITY_COLLISION",
+        "LINEAGE_INVALID"
+      ],
+      "title": "CatalogState",
+      "type": "string"
+    },
+    "CompiledParameterDomain": {
+      "additionalProperties": false,
+      "properties": {
+        "active_when": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ActivationCondition"
+          },
+          "title": "Active When",
+          "type": "array"
+        },
+        "discrete_values": {
+          "default": [],
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Discrete Values",
+          "type": "array"
+        },
+        "grid_points": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Grid Points"
+        },
+        "kind": {
+          "$ref": "#/$defs/ParameterKind"
+        },
+        "lower": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parameter Id",
+          "type": "string"
+        },
+        "scale": {
+          "$ref": "#/$defs/ParameterScale"
+        },
+        "topological_index": {
+          "minimum": 0,
+          "title": "Topological Index",
+          "type": "integer"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        }
+      },
+      "required": [
+        "parameter_id",
+        "kind",
+        "scale",
+        "topological_index"
+      ],
+      "title": "CompiledParameterDomain",
+      "type": "object"
+    },
+    "CompiledSearchSpace": {
+      "additionalProperties": false,
+      "properties": {
+        "cardinality": {
+          "$ref": "#/$defs/SearchSpaceCardinalityReport"
+        },
+        "constraint_graph": {
+          "$ref": "#/$defs/SearchSpaceConstraintGraph"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "parameters": {
+          "items": {
+            "$ref": "#/$defs/CompiledParameterDomain"
+          },
+          "title": "Parameters",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "space_id": {
+          "minLength": 1,
+          "title": "Space Id",
+          "type": "string"
+        },
+        "space_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Space Sha256",
+          "type": "string"
+        },
+        "specification_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Specification Sha256",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/SearchSpaceState"
+        }
+      },
+      "required": [
+        "space_id",
+        "experiment_id",
+        "specification_sha256",
+        "state",
+        "parameters",
+        "constraint_graph",
+        "cardinality",
+        "space_sha256"
+      ],
+      "title": "CompiledSearchSpace",
+      "type": "object"
+    },
+    "ComplexityPenaltyPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "adaptive_search_depth": {
+          "minimum": 0,
+          "title": "Adaptive Search Depth",
+          "type": "integer"
+        },
+        "effective_dimension_count": {
+          "minimum": 0,
+          "title": "Effective Dimension Count",
+          "type": "integer"
+        },
+        "nominal_configuration_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nominal Configuration Count"
+        },
+        "penalty_metadata_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Penalty Metadata Sha256",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "effective_dimension_count",
+        "adaptive_search_depth",
+        "penalty_metadata_sha256"
+      ],
+      "title": "ComplexityPenaltyPolicy",
+      "type": "object"
+    },
+    "ConditionOperator": {
+      "enum": [
+        "EQUALS",
+        "NOT_EQUALS",
+        "IN",
+        "NOT_IN"
+      ],
+      "title": "ConditionOperator",
+      "type": "string"
+    },
+    "ConfigurationCatalog": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog_id": {
+          "minLength": 1,
+          "title": "Catalog Id",
+          "type": "string"
+        },
+        "catalog_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Catalog Sha256",
+          "type": "string"
+        },
+        "configurations": {
+          "items": {
+            "$ref": "#/$defs/ConfigurationRecord"
+          },
+          "title": "Configurations",
+          "type": "array"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "state": {
+          "$ref": "#/$defs/CatalogState"
+        }
+      },
+      "required": [
+        "catalog_id",
+        "experiment_id",
+        "state",
+        "configurations",
+        "catalog_sha256"
+      ],
+      "title": "ConfigurationCatalog",
+      "type": "object"
+    },
+    "ConfigurationRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "active_parameter_ids": {
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Active Parameter Ids",
+          "type": "array"
+        },
+        "assignments": {
+          "items": {
+            "$ref": "#/$defs/ParameterAssignment"
+          },
+          "title": "Assignments",
+          "type": "array"
+        },
+        "boundary_parameter_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Boundary Parameter Ids",
+          "type": "array"
+        },
+        "configuration_id": {
+          "pattern": "^cfg-[0-9a-f]{64}$",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "identity_preimage_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Identity Preimage Sha256",
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "source_index": {
+          "minimum": 0,
+          "title": "Source Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "configuration_id",
+        "experiment_id",
+        "assignments",
+        "active_parameter_ids",
+        "source",
+        "source_index",
+        "identity_preimage_sha256"
+      ],
+      "title": "ConfigurationRecord",
+      "type": "object"
+    },
+    "EarlyStoppingPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "development_only": {
+          "default": true,
+          "title": "Development Only",
+          "type": "boolean"
+        },
+        "enabled": {
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "minimum_completed_cells": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Minimum Completed Cells",
+          "type": "integer"
+        },
+        "signal_metric_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+            "type": "string"
+          },
+          "title": "Signal Metric Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "title": "EarlyStoppingPolicy",
+      "type": "object"
+    },
+    "ExperimentSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "activated_at": {
+          "format": "date-time",
+          "title": "Activated At",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "development_dataset_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Development Dataset Ids",
+          "type": "array"
+        },
+        "diagnostic_metric_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+            "type": "string"
+          },
+          "title": "Diagnostic Metric Ids",
+          "type": "array"
+        },
+        "evaluation_dataset_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evaluation Dataset Ids",
+          "type": "array"
+        },
+        "experiment_id": {
+          "pattern": "^exp-[a-z0-9][a-z0-9._-]{2,127}$",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "final_holdout_dataset_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Final Holdout Dataset Ids",
+          "type": "array"
+        },
+        "hard_guardrail_metric_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+            "type": "string"
+          },
+          "title": "Hard Guardrail Metric Ids",
+          "type": "array"
+        },
+        "hypothesis": {
+          "minLength": 1,
+          "title": "Hypothesis",
+          "type": "string"
+        },
+        "non_goals": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Non Goals",
+          "type": "array"
+        },
+        "primary_metric_id": {
+          "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+          "title": "Primary Metric Id",
+          "type": "string"
+        },
+        "requested_max_configurations": {
+          "minimum": 1,
+          "title": "Requested Max Configurations",
+          "type": "integer"
+        },
+        "requested_seed_count": {
+          "maximum": 128,
+          "minimum": 1,
+          "title": "Requested Seed Count",
+          "type": "integer"
+        },
+        "required_capability_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required Capability Ids",
+          "type": "array"
+        },
+        "search_strategy": {
+          "$ref": "#/$defs/SearchStrategy"
+        },
+        "target_module_ids": {
+          "items": {
+            "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+            "type": "string"
+          },
+          "title": "Target Module Ids",
+          "type": "array"
+        },
+        "temporal_evaluation": {
+          "$ref": "#/$defs/TemporalEvaluationRequest"
+        }
+      },
+      "required": [
+        "experiment_id",
+        "created_at",
+        "activated_at",
+        "hypothesis",
+        "primary_metric_id",
+        "hard_guardrail_metric_ids",
+        "target_module_ids",
+        "development_dataset_ids",
+        "evaluation_dataset_ids",
+        "final_holdout_dataset_ids",
+        "search_strategy",
+        "requested_max_configurations",
+        "requested_seed_count",
+        "temporal_evaluation"
+      ],
+      "title": "ExperimentSpecification",
+      "type": "object"
+    },
+    "FidelityLevel": {
+      "additionalProperties": false,
+      "properties": {
+        "fidelity_id": {
+          "minLength": 1,
+          "title": "Fidelity Id",
+          "type": "string"
+        },
+        "ordinal": {
+          "minimum": 0,
+          "title": "Ordinal",
+          "type": "integer"
+        },
+        "preserves_lifecycle": {
+          "title": "Preserves Lifecycle",
+          "type": "boolean"
+        },
+        "preserves_temporal_order": {
+          "title": "Preserves Temporal Order",
+          "type": "boolean"
+        },
+        "preserves_transaction_costs": {
+          "title": "Preserves Transaction Costs",
+          "type": "boolean"
+        },
+        "resource_fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Resource Fraction"
+        }
+      },
+      "required": [
+        "fidelity_id",
+        "ordinal",
+        "resource_fraction",
+        "preserves_transaction_costs",
+        "preserves_lifecycle",
+        "preserves_temporal_order"
+      ],
+      "title": "FidelityLevel",
+      "type": "object"
+    },
+    "ParameterAssignment": {
+      "additionalProperties": false,
+      "properties": {
+        "parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parameter Id",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "parameter_id",
+        "value"
+      ],
+      "title": "ParameterAssignment",
+      "type": "object"
+    },
+    "ParameterKind": {
+      "enum": [
+        "INTEGER",
+        "FLOAT",
+        "CATEGORICAL",
+        "BOOLEAN"
+      ],
+      "title": "ParameterKind",
+      "type": "string"
+    },
+    "ParameterScale": {
+      "enum": [
+        "LINEAR",
+        "LOG"
+      ],
+      "title": "ParameterScale",
+      "type": "string"
+    },
+    "PromotionPolicyReference": {
+      "additionalProperties": false,
+      "properties": {
+        "hard_guardrails_non_compensable": {
+          "default": true,
+          "title": "Hard Guardrails Non Compensable",
+          "type": "boolean"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Policy Sha256",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "policy_sha256"
+      ],
+      "title": "PromotionPolicyReference",
+      "type": "object"
+    },
+    "SchedulerPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoint_every_completed_trials": {
+          "minimum": 1,
+          "title": "Checkpoint Every Completed Trials",
+          "type": "integer"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Policy Sha256",
+          "type": "string"
+        },
+        "retry_limit": {
+          "maximum": 10,
+          "minimum": 0,
+          "title": "Retry Limit",
+          "type": "integer"
+        },
+        "retryable_terminal_states": {
+          "items": {
+            "$ref": "#/$defs/TrialState"
+          },
+          "title": "Retryable Terminal States",
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_sha256",
+        "retry_limit",
+        "retryable_terminal_states",
+        "checkpoint_every_completed_trials"
+      ],
+      "title": "SchedulerPolicy",
+      "type": "object"
+    },
+    "SearchBudgetPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "allocations": {
+          "items": {
+            "$ref": "#/$defs/BudgetAllocation"
+          },
+          "title": "Allocations",
+          "type": "array"
+        },
+        "complexity_penalty": {
+          "$ref": "#/$defs/ComplexityPenaltyPolicy"
+        },
+        "configuration_limit": {
+          "minimum": 0,
+          "title": "Configuration Limit",
+          "type": "integer"
+        },
+        "cpu_seconds_per_full_cell": {
+          "minimum": 1,
+          "title": "Cpu Seconds Per Full Cell",
+          "type": "integer"
+        },
+        "early_stopping": {
+          "$ref": "#/$defs/EarlyStoppingPolicy"
+        },
+        "evaluation_cell_count": {
+          "minimum": 1,
+          "title": "Evaluation Cell Count",
+          "type": "integer"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "fidelity_levels": {
+          "items": {
+            "$ref": "#/$defs/FidelityLevel"
+          },
+          "title": "Fidelity Levels",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "memory_mb_per_trial": {
+          "minimum": 128,
+          "title": "Memory Mb Per Trial",
+          "type": "integer"
+        },
+        "parallel_trial_limit": {
+          "minimum": 0,
+          "title": "Parallel Trial Limit",
+          "type": "integer"
+        },
+        "plan_id": {
+          "minLength": 1,
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "plan_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Plan Sha256",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "search_strategy": {
+          "$ref": "#/$defs/SearchStrategy"
+        },
+        "seed_count": {
+          "minimum": 1,
+          "title": "Seed Count",
+          "type": "integer"
+        },
+        "state": {
+          "$ref": "#/$defs/BudgetState"
+        },
+        "trial_execution_limit": {
+          "minimum": 0,
+          "title": "Trial Execution Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "experiment_id",
+        "state",
+        "search_strategy",
+        "configuration_limit",
+        "trial_execution_limit",
+        "parallel_trial_limit",
+        "seed_count",
+        "evaluation_cell_count",
+        "cpu_seconds_per_full_cell",
+        "memory_mb_per_trial",
+        "fidelity_levels",
+        "allocations",
+        "early_stopping",
+        "complexity_penalty",
+        "plan_sha256"
+      ],
+      "title": "SearchBudgetPlan",
+      "type": "object"
+    },
+    "SearchSpaceCardinalityReport": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary_only_parameter_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Boundary Only Parameter Ids",
+          "type": "array"
+        },
+        "conditional_parameter_count": {
+          "minimum": 0,
+          "title": "Conditional Parameter Count",
+          "type": "integer"
+        },
+        "effective_dimension_count": {
+          "minimum": 0,
+          "title": "Effective Dimension Count",
+          "type": "integer"
+        },
+        "exact_cardinality": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Exact Cardinality"
+        },
+        "finite": {
+          "title": "Finite",
+          "type": "boolean"
+        },
+        "inactive_parameter_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Inactive Parameter Ids",
+          "type": "array"
+        },
+        "upper_bound": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper Bound"
+        }
+      },
+      "required": [
+        "finite",
+        "effective_dimension_count",
+        "conditional_parameter_count"
+      ],
+      "title": "SearchSpaceCardinalityReport",
+      "type": "object"
+    },
+    "SearchSpaceConstraintEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "child_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Child Parameter Id",
+          "type": "string"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "child_parameter_id"
+      ],
+      "title": "SearchSpaceConstraintEdge",
+      "type": "object"
+    },
+    "SearchSpaceConstraintGraph": {
+      "additionalProperties": false,
+      "properties": {
+        "edges": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/SearchSpaceConstraintEdge"
+          },
+          "title": "Edges",
+          "type": "array"
+        },
+        "parameter_order": {
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Parameter Order",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parameter_order"
+      ],
+      "title": "SearchSpaceConstraintGraph",
+      "type": "object"
+    },
+    "SearchSpaceState": {
+      "enum": [
+        "SPACE_COMPILED",
+        "SPACE_COMPILED_WITH_WARNINGS",
+        "SPACE_EMPTY",
+        "SPACE_EXPLOSIVE",
+        "SPACE_INVALID"
+      ],
+      "title": "SearchSpaceState",
+      "type": "string"
+    },
+    "SearchStrategy": {
+      "enum": [
+        "GRID",
+        "RANDOM",
+        "SUCCESSIVE_HALVING",
+        "HYPERBAND",
+        "BOHB"
+      ],
+      "title": "SearchStrategy",
+      "type": "string"
+    },
+    "SeedPolicyReference": {
+      "additionalProperties": false,
+      "properties": {
+        "base_seed": {
+          "minimum": 0,
+          "title": "Base Seed",
+          "type": "integer"
+        },
+        "derivation_algorithm": {
+          "minLength": 1,
+          "title": "Derivation Algorithm",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Policy Sha256",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "base_seed",
+        "derivation_algorithm",
+        "policy_sha256"
+      ],
+      "title": "SeedPolicyReference",
+      "type": "object"
+    },
+    "TemporalEvaluationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "embargo_required": {
+          "default": true,
+          "title": "Embargo Required",
+          "type": "boolean"
+        },
+        "final_holdout_required": {
+          "default": true,
+          "title": "Final Holdout Required",
+          "type": "boolean"
+        },
+        "inner_fold_count": {
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Inner Fold Count",
+          "type": "integer"
+        },
+        "outer_fold_count": {
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Outer Fold Count",
+          "type": "integer"
+        },
+        "purge_required": {
+          "default": true,
+          "title": "Purge Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "outer_fold_count",
+        "inner_fold_count"
+      ],
+      "title": "TemporalEvaluationRequest",
+      "type": "object"
+    },
+    "TrialState": {
+      "enum": [
+        "PLANNED",
+        "RESERVED",
+        "RUNNING",
+        "COMPLETED",
+        "INVALID",
+        "INFEASIBLE",
+        "EARLY_STOPPED",
+        "RESOURCE_EXHAUSTED",
+        "FAILED",
+        "QUARANTINED",
+        "CANCELLED_UPSTREAM"
+      ],
+      "title": "TrialState",
+      "type": "string"
+    },
+    "ValidatedExperimentSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_registry_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Capability Registry Sha256",
+          "type": "string"
+        },
+        "cohort_id": {
+          "minLength": 1,
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "cohort_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Cohort Sha256",
+          "type": "string"
+        },
+        "metric_registry_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Metric Registry Sha256",
+          "type": "string"
+        },
+        "promotion_policy": {
+          "$ref": "#/$defs/PromotionPolicyReference"
+        },
+        "specification": {
+          "$ref": "#/$defs/ExperimentSpecification"
+        },
+        "specification_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Specification Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "specification",
+        "cohort_id",
+        "cohort_sha256",
+        "metric_registry_sha256",
+        "capability_registry_sha256",
+        "promotion_policy",
+        "specification_sha256"
+      ],
+      "title": "ValidatedExperimentSpecification",
+      "type": "object"
+    },
+    "WorkerCapabilitySnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "max_memory_mb_per_trial": {
+          "minimum": 128,
+          "title": "Max Memory Mb Per Trial",
+          "type": "integer"
+        },
+        "max_parallel_trials": {
+          "minimum": 1,
+          "title": "Max Parallel Trials",
+          "type": "integer"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "snapshot_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Snapshot Sha256",
+          "type": "string"
+        },
+        "worker_labels": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Worker Labels",
+          "type": "array"
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "snapshot_sha256",
+        "worker_labels",
+        "max_parallel_trials",
+        "max_memory_mb_per_trial"
+      ],
+      "title": "WorkerCapabilitySnapshot",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "budget_plan": {
+      "$ref": "#/$defs/SearchBudgetPlan"
+    },
+    "compiled_search_space": {
+      "$ref": "#/$defs/CompiledSearchSpace"
+    },
+    "configuration_catalog": {
+      "$ref": "#/$defs/ConfigurationCatalog"
+    },
+    "scheduler_policy": {
+      "$ref": "#/$defs/SchedulerPolicy"
+    },
+    "seed_policy": {
+      "$ref": "#/$defs/SeedPolicyReference"
+    },
+    "validated_specification": {
+      "$ref": "#/$defs/ValidatedExperimentSpecification"
+    },
+    "worker_capabilities": {
+      "$ref": "#/$defs/WorkerCapabilitySnapshot"
+    }
+  },
+  "required": [
+    "validated_specification",
+    "configuration_catalog",
+    "budget_plan",
+    "compiled_search_space",
+    "scheduler_policy",
+    "worker_capabilities",
+    "seed_policy"
+  ],
+  "title": "TrialSchedulingInput",
+  "type": "object"
+}

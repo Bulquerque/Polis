@@ -1,0 +1,221 @@
+schema_id: immutability_report.v1
+artifact_name: immutability_report
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- artifact_count
+- history_entry_count
+- previous_release_entry_count
+- checked_identity_count
+- finding_count
+- raw_overwrite_count
+- identity_reuse_count
+- schema_without_bump_count
+- historical_conflict_count
+- current_hash_mismatch_count
+- missing_current_hash_count
+- missing_current_file_count
+- immutable_removed_count
+- append_only_truncation_count
+- mutability_violation_count
+- legacy_identity_count
+- history_chain_failure_count
+- findings
+- status
+- severity
+- release_blocking
+- no_raw_overwrite
+- schema_change_requires_version_bump
+- artifact_identity_stable
+- immutable_artifacts_preserved
+- append_only_history_preserved
+- history_chain_valid
+- history_chain_mode
+- genesis
+- history_present
+- previous_release_present
+- paths_internal
+- validation_evidence_status
+- promotion_blocked
+properties:
+  artifact_id:
+    type: string
+    pattern: ^immutability-report-[0-9a-f]{12}$
+  created_at:
+    type: string
+    pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  artifact_count:
+    type: integer
+    minimum: 1
+  history_entry_count:
+    type: integer
+    minimum: 0
+  previous_release_entry_count:
+    type: integer
+    minimum: 0
+  checked_identity_count:
+    type: integer
+    minimum: 0
+  finding_count:
+    type: integer
+    minimum: 0
+  raw_overwrite_count:
+    type: integer
+    minimum: 0
+  identity_reuse_count:
+    type: integer
+    minimum: 0
+  schema_without_bump_count:
+    type: integer
+    minimum: 0
+  historical_conflict_count:
+    type: integer
+    minimum: 0
+  current_hash_mismatch_count:
+    type: integer
+    minimum: 0
+  missing_current_hash_count:
+    type: integer
+    minimum: 0
+  missing_current_file_count:
+    type: integer
+    minimum: 0
+  findings:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - finding_id
+      - code
+      - severity
+      - artifact_identity
+      - current_path
+      - previous_path
+      - current_hash
+      - previous_hash
+      - message
+      - release_blocking
+      properties:
+        finding_id:
+          type: string
+          pattern: ^IM-[0-9]{5}$
+        code:
+          type: string
+          enum:
+          - RAW_OVERWRITE
+          - IDENTITY_REUSE
+          - SCHEMA_VERSION_NOT_BUMPED
+          - HISTORY_RELEASE_CONFLICT
+          - CURRENT_HASH_MISMATCH
+          - CURRENT_FILE_MISSING
+          - CURRENT_HASH_MISSING
+          - IMMUTABLE_ARTIFACT_REMOVED
+          - APPEND_ONLY_HISTORY_TRUNCATED
+          - MUTABILITY_POLICY_VIOLATION
+          - HISTORY_CHAIN_BROKEN
+          - LEGACY_PATH_IDENTITY
+        severity:
+          type: string
+          enum:
+          - WARNING
+          - CRITICAL
+        artifact_identity:
+          type: string
+          minLength: 1
+        current_path:
+          type: string
+        previous_path:
+          type: string
+        current_hash:
+          type: string
+        previous_hash:
+          type: string
+        message:
+          type: string
+          minLength: 1
+        release_blocking:
+          type: boolean
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  severity:
+    type: string
+    enum:
+    - NONE
+    - WARNING
+    - CRITICAL
+  release_blocking:
+    type: boolean
+  no_raw_overwrite:
+    type: boolean
+  schema_change_requires_version_bump:
+    type: boolean
+  artifact_identity_stable:
+    type: boolean
+  history_present:
+    type: boolean
+  previous_release_present:
+    type: boolean
+  paths_internal:
+    type: boolean
+    const: true
+  validation_evidence_status:
+    type: string
+    const: domain_oracle_pass_pending_independent_judge
+  promotion_blocked:
+    type: boolean
+    const: true
+  immutable_removed_count:
+    type: integer
+    minimum: 0
+  append_only_truncation_count:
+    type: integer
+    minimum: 0
+  mutability_violation_count:
+    type: integer
+    minimum: 0
+  legacy_identity_count:
+    type: integer
+    minimum: 0
+  history_chain_failure_count:
+    type: integer
+    minimum: 0
+  immutable_artifacts_preserved:
+    type: boolean
+  append_only_history_preserved:
+    type: boolean
+  history_chain_valid:
+    type: boolean
+  genesis:
+    type: boolean
+  history_chain_mode:
+    type: string
+    enum:
+    - GENESIS
+    - LEGACY_UNCHAINED
+    - CHAINED_VALID
+    - PARTIAL_CHAIN
+    - CHAIN_LINK_MISMATCH
+    - CHAIN_HASH_MISMATCH
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

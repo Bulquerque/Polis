@@ -1,0 +1,335 @@
+$defs:
+  ArtifactReference:
+    additionalProperties: false
+    properties:
+      artifact_name:
+        title: Artifact Name
+        type: string
+      artifact_id:
+        title: Artifact Id
+        type: string
+      content_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Sha256
+        type: string
+      schema_version:
+        title: Schema Version
+        type: string
+      record_count:
+        minimum: 0
+        title: Record Count
+        type: integer
+    required:
+    - artifact_name
+    - artifact_id
+    - content_sha256
+    - schema_version
+    - record_count
+    title: ArtifactReference
+    type: object
+  StrategyReferenceRecord:
+    additionalProperties: false
+    properties:
+      cycle_id:
+        title: Cycle Id
+        type: string
+      decision_time:
+        format: date-time
+        title: Decision Time
+        type: string
+      candidate_id:
+        title: Candidate Id
+        type: string
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      candidate_identity_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Candidate Identity Hash
+        type: string
+      strategy_artifact_id:
+        title: Strategy Artifact Id
+        type: string
+      strategy_content_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Strategy Content Sha256
+        type: string
+      strategy_schema_version:
+        title: Strategy Schema Version
+        type: string
+      strategy_lineage_id:
+        title: Strategy Lineage Id
+        type: string
+      payoff_shape:
+        default: []
+        items:
+          type: number
+        title: Payoff Shape
+        type: array
+      scenario_payoff:
+        default: []
+        items:
+          type: number
+        title: Scenario Payoff
+        type: array
+      greek_vector:
+        default: []
+        items:
+          type: number
+        title: Greek Vector
+        type: array
+      leg_ids:
+        default: []
+        items:
+          type: string
+        title: Leg Ids
+        type: array
+      origin_template:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Origin Template
+      expiration_ids:
+        default: []
+        items:
+          type: string
+        title: Expiration Ids
+        type: array
+      defined_risk_status:
+        title: Defined Risk Status
+        type: string
+      execution_context_time:
+        format: date-time
+        title: Execution Context Time
+        type: string
+      context_available:
+        default: true
+        title: Context Available
+        type: boolean
+      pareto_tier:
+        anyOf:
+        - minimum: 0
+          type: integer
+        - type: 'null'
+        default: null
+        title: Pareto Tier
+      belief_reference_ids:
+        default: []
+        items:
+          type: string
+        title: Belief Reference Ids
+        type: array
+      mutation_trace:
+        default: []
+        items:
+          type: string
+        title: Mutation Trace
+        type: array
+      profit_regions:
+        default: []
+        items:
+          type: string
+        title: Profit Regions
+        type: array
+      failure_regions:
+        default: []
+        items:
+          type: string
+        title: Failure Regions
+        type: array
+      invalidation_conditions:
+        default: []
+        items:
+          type: string
+        title: Invalidation Conditions
+        type: array
+      strategy_candidate_reference:
+        anyOf:
+        - $ref: '#/$defs/ArtifactReference'
+        - type: 'null'
+        default: null
+      strategy_legs_reference:
+        anyOf:
+        - $ref: '#/$defs/ArtifactReference'
+        - type: 'null'
+        default: null
+      payoff_evaluation_reference:
+        anyOf:
+        - $ref: '#/$defs/ArtifactReference'
+        - type: 'null'
+        default: null
+      scenario_evaluation_reference:
+        anyOf:
+        - $ref: '#/$defs/ArtifactReference'
+        - type: 'null'
+        default: null
+      risk_reference:
+        anyOf:
+        - $ref: '#/$defs/ArtifactReference'
+        - type: 'null'
+        default: null
+      cost_liquidity_reference:
+        anyOf:
+        - $ref: '#/$defs/ArtifactReference'
+        - type: 'null'
+        default: null
+      greeks_reference:
+        anyOf:
+        - $ref: '#/$defs/ArtifactReference'
+        - type: 'null'
+        default: null
+      generation_trace_reference:
+        anyOf:
+        - $ref: '#/$defs/ArtifactReference'
+        - type: 'null'
+        default: null
+      legacy_underlying:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Legacy Underlying
+      legacy_instrument_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Legacy Instrument Type
+      legacy_action_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Legacy Action Type
+      legacy_reference_price:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Legacy Reference Price
+      legacy_contract_key:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Legacy Contract Key
+      legacy_expiration_date:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Legacy Expiration Date
+      legacy_strike:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Legacy Strike
+      legacy_dte:
+        anyOf:
+        - minimum: 0
+          type: integer
+        - type: 'null'
+        default: null
+        title: Legacy Dte
+      legacy_cost_estimate:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Legacy Cost Estimate
+      legacy_liquidity_score:
+        anyOf:
+        - maximum: 1
+          minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Legacy Liquidity Score
+    required:
+    - cycle_id
+    - decision_time
+    - candidate_id
+    - comparison_group_id
+    - candidate_identity_hash
+    - strategy_artifact_id
+    - strategy_content_sha256
+    - strategy_schema_version
+    - strategy_lineage_id
+    - defined_risk_status
+    - execution_context_time
+    title: StrategyReferenceRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    description: Timezone-aware UTC-compatible datetime
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/StrategyReferenceRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: StrategyReferenceArtifact
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

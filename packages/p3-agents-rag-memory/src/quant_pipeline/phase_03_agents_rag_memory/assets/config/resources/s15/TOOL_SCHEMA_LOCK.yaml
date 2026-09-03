@@ -1,0 +1,18 @@
+lock_id: P3_FINAL_TOOL_SCHEMA_LOCK_V1
+lock_version: 1.0.0
+default_decision: DENY
+deny_overrides: true
+tools:
+- tool_id: research.search_filings.v1
+  tool_version: 1.0.0
+  request_schema_sha256: e7ab5a28e2944e814ed5470424f7bebec81cb3cf04d4f65265773d28e631804d
+  response_schema_sha256: df2b285d80cfc6345e2d55968be17deaba6dcbbbeb1f37584a981948f2791f03
+  adapter_id: mcp_streamable_http
+  adapter_version: 1.28.1-v1
+- tool_id: quant.realized_volatility.v1
+  tool_version: 1.0.0
+  request_schema_sha256: d69947702c5b772bcf187b3e00458f356f6844aab6e931bbf0b4993e7725d4a9
+  response_schema_sha256: a7166f1d65c291aad28a303751971e0b0181506d1e3d9044fbd88ebfe0f82124
+  adapter_id: local_function_adapter
+  adapter_version: 1.0.0
+change_policy: TOOL_OR_SCHEMA_CHANGE_REQUIRES_NEW_VERSION_AND_REQUALIFICATION

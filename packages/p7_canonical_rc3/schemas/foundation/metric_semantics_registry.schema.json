@@ -1,0 +1,105 @@
+{
+  "$defs": {
+    "MetricDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "enum": [
+            "MAXIMIZE",
+            "MINIMIZE",
+            "NEUTRAL"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "missingness_policy": {
+          "default": "BLOCK",
+          "enum": [
+            "BLOCK",
+            "ALLOW_UNAVAILABLE",
+            "OMIT"
+          ],
+          "title": "Missingness Policy",
+          "type": "string"
+        },
+        "semantic_version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "title": "Semantic Version",
+          "type": "string"
+        },
+        "source_paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Paths",
+          "type": "array"
+        },
+        "transformation_policy": {
+          "default": "IDENTITY",
+          "enum": [
+            "IDENTITY",
+            "ABSOLUTE",
+            "LOG1P_POSITIVE",
+            "NEGATE"
+          ],
+          "title": "Transformation Policy",
+          "type": "string"
+        },
+        "units": {
+          "title": "Units",
+          "type": "string"
+        },
+        "value_type": {
+          "default": "NUMBER",
+          "enum": [
+            "NUMBER",
+            "INTEGER",
+            "BOOLEAN",
+            "STRING"
+          ],
+          "title": "Value Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_id",
+        "semantic_version",
+        "source_paths",
+        "units",
+        "direction"
+      ],
+      "title": "MetricDefinition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "metrics": {
+      "items": {
+        "$ref": "#/$defs/MetricDefinition"
+      },
+      "title": "Metrics",
+      "type": "array"
+    },
+    "registry_id": {
+      "title": "Registry Id",
+      "type": "string"
+    },
+    "registry_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "title": "Registry Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_id",
+    "registry_version",
+    "metrics"
+  ],
+  "title": "MetricSemanticsRegistry",
+  "type": "object"
+}

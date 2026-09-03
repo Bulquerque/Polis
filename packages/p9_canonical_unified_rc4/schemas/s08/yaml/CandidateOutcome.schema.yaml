@@ -1,0 +1,101 @@
+$defs:
+  EvidenceClass:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED_NOT_EXECUTED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceClass
+    type: string
+additionalProperties: false
+properties:
+  candidate_id:
+    minLength: 1
+    title: Candidate Id
+    type: string
+  selected_by_p6:
+    title: Selected By P6
+    type: boolean
+  observable:
+    title: Observable
+    type: boolean
+  realized_unit_pnl:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Realized Unit Pnl
+  estimated_price:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Estimated Price
+  actual_price:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Actual Price
+  estimated_cost:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Estimated Cost
+  actual_cost:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Actual Cost
+  estimated_liquidity:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Estimated Liquidity
+  actual_liquidity:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Actual Liquidity
+  estimated_risk:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Estimated Risk
+  actual_risk:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Actual Risk
+  maximum_loss_bound:
+    anyOf:
+    - minimum: 0.0
+      type: number
+    - type: 'null'
+    default: null
+    title: Maximum Loss Bound
+  observed_loss:
+    anyOf:
+    - minimum: 0.0
+      type: number
+    - type: 'null'
+    default: null
+    title: Observed Loss
+  evidence_class:
+    $ref: '#/$defs/EvidenceClass'
+required:
+- candidate_id
+- selected_by_p6
+- observable
+- evidence_class
+title: CandidateOutcome
+type: object
+$id: urn:inferencia:p9:s8:CandidateOutcome:1.0.0

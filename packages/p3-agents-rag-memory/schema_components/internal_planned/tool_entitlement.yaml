@@ -1,0 +1,29 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: tool_entitlement
+status: planned_internal_schema
+type: object
+required:
+- person_id
+- tool_id
+- access_level
+- proficiency
+- trust_in_tool
+- usage_cost_class
+- reason
+properties:
+  person_id:
+    type: string
+  tool_id:
+    type: string
+  access_level:
+    type: string
+  proficiency: &id001
+    type: number
+    minimum: 0
+    maximum: 1
+  trust_in_tool: *id001
+  usage_cost_class:
+    type: string
+  reason:
+    type: string
+additionalProperties: false

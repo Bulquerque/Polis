@@ -1,0 +1,737 @@
+{
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "producer_module": {
+          "minLength": 1,
+          "title": "Producer Module",
+          "type": "string"
+        },
+        "producer_phase": {
+          "minLength": 1,
+          "title": "Producer Phase",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "content_sha256",
+        "schema_version",
+        "contract_version",
+        "producer_phase",
+        "producer_module"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "AuditContext": {
+      "additionalProperties": false,
+      "properties": {
+        "audit_time": {
+          "format": "date-time",
+          "title": "Audit Time",
+          "type": "string"
+        },
+        "contract_version": {
+          "default": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "trace_id": {
+          "minLength": 1,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trace_id",
+        "decision_time",
+        "audit_time"
+      ],
+      "title": "AuditContext",
+      "type": "object"
+    },
+    "CandidateLineage": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "fill_refs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "Fill Refs",
+          "type": "array"
+        },
+        "order_refs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "Order Refs",
+          "type": "array"
+        },
+        "p4_view_refs": {
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "P4 View Refs",
+          "type": "array"
+        },
+        "p5_belief_refs": {
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "P5 Belief Refs",
+          "type": "array"
+        },
+        "p6_candidate_ref": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "p7_decision_ref": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "p8_decision_ref": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "position_refs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "Position Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "p4_view_refs",
+        "p5_belief_refs",
+        "p6_candidate_ref",
+        "p7_decision_ref",
+        "p8_decision_ref"
+      ],
+      "title": "CandidateLineage",
+      "type": "object"
+    },
+    "CycleTerminalState": {
+      "enum": [
+        "NO_ACTION_VALID",
+        "EXECUTED_VALID",
+        "PARTIALLY_EXECUTED_VALID",
+        "RISK_BLOCKED_VALID",
+        "PORTFOLIO_INFEASIBLE_VALID",
+        "EXECUTION_REJECTED_VALID",
+        "BACKTEST_INVALID",
+        "STATE_INCONSISTENT",
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "title": "CycleTerminalState",
+      "type": "string"
+    },
+    "EconomicQualification": {
+      "enum": [
+        "DEFERRED_TO_P9"
+      ],
+      "title": "EconomicQualification",
+      "type": "string"
+    },
+    "EvaluationCommitment": {
+      "additionalProperties": false,
+      "properties": {
+        "benchmarks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Benchmarks",
+          "type": "array"
+        },
+        "commitment_id": {
+          "minLength": 1,
+          "title": "Commitment Id",
+          "type": "string"
+        },
+        "committed_at": {
+          "format": "date-time",
+          "title": "Committed At",
+          "type": "string"
+        },
+        "evaluation_horizons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evaluation Horizons",
+          "type": "array"
+        },
+        "holdout_constraints": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Holdout Constraints",
+          "type": "array"
+        },
+        "metrics": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "outcome_definition": {
+          "minLength": 1,
+          "title": "Outcome Definition",
+          "type": "string"
+        },
+        "policy_hashes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Policy Hashes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "commitment_id",
+        "committed_at",
+        "outcome_definition",
+        "evaluation_horizons",
+        "metrics",
+        "benchmarks",
+        "policy_hashes",
+        "holdout_constraints"
+      ],
+      "title": "EvaluationCommitment",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNOBSERVABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "ImplementationRobustness": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "title": "ImplementationRobustness",
+      "type": "string"
+    },
+    "OutcomeEvidenceRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_refs": {
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "Artifact Refs",
+          "type": "array"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "execution_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "expected_maturity_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Maturity At"
+        },
+        "maturity_hint": {
+          "$ref": "#/$defs/OutcomeMaturityHint"
+        },
+        "model_method_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Method Id"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "candidate_id",
+        "evidence_class",
+        "maturity_hint",
+        "artifact_refs"
+      ],
+      "title": "OutcomeEvidenceRecord",
+      "type": "object"
+    },
+    "OutcomeMaturityHint": {
+      "enum": [
+        "EXPECTED_NOT_MATURED",
+        "EXPECTED_PARTIALLY_MATURED",
+        "EXPECTED_MATURED",
+        "EXPECTED_SETTLED",
+        "LIFECYCLE_DEPENDENT"
+      ],
+      "title": "OutcomeMaturityHint",
+      "type": "string"
+    },
+    "P9FullEvidenceArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "grain": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Grain",
+          "type": "array"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "type": "array"
+            }
+          ],
+          "title": "Payload"
+        },
+        "producer_module_id": {
+          "minLength": 1,
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "record_count": {
+          "minimum": 0,
+          "title": "Record Count",
+          "type": "integer"
+        },
+        "role": {
+          "enum": [
+            "nav_panel",
+            "exposure_panel",
+            "drawdown_panel",
+            "optimizer_decision_trace",
+            "portfolio_decision_panel",
+            "marking_policy_snapshot"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "schema_document": {
+          "additionalProperties": true,
+          "title": "Schema Document",
+          "type": "object"
+        },
+        "schema_name": {
+          "minLength": 1,
+          "title": "Schema Name",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "1.0.0",
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "payload",
+        "schema_name",
+        "schema_document",
+        "producer_module_id",
+        "record_count"
+      ],
+      "title": "P9FullEvidenceArtifact",
+      "type": "object"
+    },
+    "P9FullEvidenceBundle": {
+      "additionalProperties": false,
+      "properties": {
+        "drawdown_panel": {
+          "$ref": "#/$defs/P9FullEvidenceArtifact"
+        },
+        "exposure_panel": {
+          "$ref": "#/$defs/P9FullEvidenceArtifact"
+        },
+        "marking_policy_snapshot": {
+          "$ref": "#/$defs/P9FullEvidenceArtifact"
+        },
+        "nav_panel": {
+          "$ref": "#/$defs/P9FullEvidenceArtifact"
+        },
+        "optimizer_decision_trace": {
+          "$ref": "#/$defs/P9FullEvidenceArtifact"
+        },
+        "portfolio_decision_panel": {
+          "$ref": "#/$defs/P9FullEvidenceArtifact"
+        }
+      },
+      "required": [
+        "nav_panel",
+        "exposure_panel",
+        "drawdown_panel",
+        "optimizer_decision_trace",
+        "portfolio_decision_panel",
+        "marking_policy_snapshot"
+      ],
+      "title": "P9FullEvidenceBundle",
+      "type": "object"
+    },
+    "QualificationDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "$ref": "#/$defs/AuditContext"
+        },
+        "diagnostics": {
+          "$ref": "#/$defs/StatisticalDiagnostics"
+        },
+        "economic_qualification": {
+          "$ref": "#/$defs/EconomicQualification",
+          "default": "DEFERRED_TO_P9"
+        },
+        "eligible_for_p9_evaluation": {
+          "title": "Eligible For P9 Evaluation",
+          "type": "boolean"
+        },
+        "implementation_robustness": {
+          "$ref": "#/$defs/ImplementationRobustness"
+        },
+        "production_promotion_allowed": {
+          "const": false,
+          "default": false,
+          "title": "Production Promotion Allowed",
+          "type": "boolean"
+        },
+        "qualification_id": {
+          "minLength": 1,
+          "title": "Qualification Id",
+          "type": "string"
+        },
+        "reason_codes": {
+          "items": {
+            "$ref": "#/$defs/ReasonCode"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "statistical_qualification": {
+          "$ref": "#/$defs/StatisticalQualification"
+        },
+        "technical_validity": {
+          "$ref": "#/$defs/TechnicalValidity"
+        },
+        "terminal_state": {
+          "$ref": "#/$defs/CycleTerminalState"
+        }
+      },
+      "required": [
+        "qualification_id",
+        "context",
+        "terminal_state",
+        "technical_validity",
+        "implementation_robustness",
+        "statistical_qualification",
+        "diagnostics",
+        "reason_codes",
+        "eligible_for_p9_evaluation"
+      ],
+      "title": "QualificationDecision",
+      "type": "object"
+    },
+    "ReasonCode": {
+      "enum": [
+        "CANDIDATE_CONSERVATION_FAIL",
+        "ORDER_CONSERVATION_FAIL",
+        "FILL_LEDGER_MISMATCH",
+        "POSITION_RECONCILIATION_FAIL",
+        "DUAL_BOOK_RECONCILIATION_FAIL",
+        "CASH_RECONCILIATION_FAIL",
+        "MARGIN_RECONCILIATION_FAIL",
+        "COLLATERAL_RECONCILIATION_FAIL",
+        "NAV_RECONCILIATION_FAIL",
+        "PNL_RECONCILIATION_FAIL",
+        "MARK_UNAVAILABLE",
+        "REPLAY_HASH_MISMATCH",
+        "EVENT_SEQUENCE_INVALID",
+        "TECHNICAL_AUDIT_FAILED",
+        "ROBUSTNESS_EVIDENCE_MISSING",
+        "ROBUSTNESS_TEST_FAILED",
+        "STATISTICAL_SAMPLE_INSUFFICIENT",
+        "TRIAL_REGISTRY_INCOMPLETE",
+        "HOLDOUT_VIOLATED",
+        "DSR_BELOW_THRESHOLD",
+        "PBO_ABOVE_THRESHOLD",
+        "EVIDENCE_CLASS_INVALID",
+        "CANDIDATE_EVIDENCE_MISSING",
+        "LINEAGE_INCOMPLETE",
+        "EVALUATION_COMMITMENT_LATE",
+        "FILE_OUTSIDE_RELEASE_ROOT",
+        "FILE_HASH_MISMATCH",
+        "RELEASE_EVIDENCE_INCOMPLETE",
+        "PRODUCTION_PROMOTION_FORBIDDEN"
+      ],
+      "title": "ReasonCode",
+      "type": "string"
+    },
+    "StatisticalDiagnostics": {
+      "additionalProperties": false,
+      "properties": {
+        "deflated_sharpe_ratio": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Deflated Sharpe Ratio"
+        },
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "probability_backtest_overfitting": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Probability Backtest Overfitting"
+        },
+        "sharpe_ratio": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sharpe Ratio"
+        }
+      },
+      "required": [
+        "observation_count",
+        "sharpe_ratio",
+        "deflated_sharpe_ratio",
+        "probability_backtest_overfitting"
+      ],
+      "title": "StatisticalDiagnostics",
+      "type": "object"
+    },
+    "StatisticalQualification": {
+      "enum": [
+        "QUALIFIED",
+        "FAILED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_APPLICABLE"
+      ],
+      "title": "StatisticalQualification",
+      "type": "string"
+    },
+    "TechnicalValidity": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ],
+      "title": "TechnicalValidity",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "All Candidate Ids",
+      "type": "array"
+    },
+    "audit_report_ref": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "context": {
+      "$ref": "#/$defs/AuditContext"
+    },
+    "evaluation_commitment": {
+      "$ref": "#/$defs/EvaluationCommitment"
+    },
+    "evidence_records": {
+      "items": {
+        "$ref": "#/$defs/OutcomeEvidenceRecord"
+      },
+      "title": "Evidence Records",
+      "type": "array"
+    },
+    "full_evidence": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/P9FullEvidenceBundle"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "handoff_id": {
+      "minLength": 1,
+      "title": "Handoff Id",
+      "type": "string"
+    },
+    "lineage_records": {
+      "items": {
+        "$ref": "#/$defs/CandidateLineage"
+      },
+      "title": "Lineage Records",
+      "type": "array"
+    },
+    "production_promotion_allowed": {
+      "const": false,
+      "default": false,
+      "title": "Production Promotion Allowed",
+      "type": "boolean"
+    },
+    "qualification": {
+      "$ref": "#/$defs/QualificationDecision"
+    },
+    "runtime_evidence_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source_artifacts": {
+      "items": {
+        "$ref": "#/$defs/ArtifactRef"
+      },
+      "title": "Source Artifacts",
+      "type": "array"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "context",
+    "qualification",
+    "evaluation_commitment",
+    "all_candidate_ids",
+    "evidence_records",
+    "lineage_records",
+    "audit_report_ref",
+    "runtime_evidence_ref",
+    "source_artifacts"
+  ],
+  "title": "P9EvaluationHandoff",
+  "type": "object"
+}

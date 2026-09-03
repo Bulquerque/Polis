@@ -1,0 +1,121 @@
+{
+  "$defs": {
+    "VintagePolicyName": {
+      "enum": [
+        "KNOWN_AT_DECISION_TIME",
+        "ORIGINAL_RELEASE",
+        "LATEST_KNOWN_AT_DECISION_TIME"
+      ],
+      "title": "VintagePolicyName",
+      "type": "string"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.pit_query_proof.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "earliest_available_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Earliest Available At"
+    },
+    "input_hashes": {
+      "items": {
+        "pattern": "^[a-f0-9]{64}$",
+        "type": "string"
+      },
+      "title": "Input Hashes",
+      "type": "array"
+    },
+    "latest_available_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latest Available At"
+    },
+    "p1_snapshot_id": {
+      "minLength": 1,
+      "title": "P1 Snapshot Id",
+      "type": "string"
+    },
+    "p2_snapshot_id": {
+      "minLength": 1,
+      "title": "P2 Snapshot Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "proof_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Proof Hash",
+      "type": "string"
+    },
+    "records_rejected_future": {
+      "minimum": 0,
+      "title": "Records Rejected Future",
+      "type": "integer"
+    },
+    "records_rejected_missing_time": {
+      "minimum": 0,
+      "title": "Records Rejected Missing Time",
+      "type": "integer"
+    },
+    "records_scanned": {
+      "minimum": 0,
+      "title": "Records Scanned",
+      "type": "integer"
+    },
+    "records_visible": {
+      "minimum": 0,
+      "title": "Records Visible",
+      "type": "integer"
+    },
+    "request_as_of": {
+      "format": "date-time",
+      "title": "Request As Of",
+      "type": "string"
+    },
+    "vintage_policy": {
+      "$ref": "#/$defs/VintagePolicyName"
+    }
+  },
+  "required": [
+    "policy_version",
+    "decision_time",
+    "request_as_of",
+    "vintage_policy",
+    "records_scanned",
+    "records_visible",
+    "records_rejected_future",
+    "records_rejected_missing_time",
+    "p1_snapshot_id",
+    "p2_snapshot_id",
+    "input_hashes",
+    "proof_hash"
+  ],
+  "title": "PitQueryProof",
+  "type": "object"
+}

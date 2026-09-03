@@ -1,0 +1,124 @@
+{
+  "envelope": {
+    "artifact_id": "RUN1:P8.S6:AUTHORIZATION",
+    "artifact_type": "P8_EXECUTION_AUTHORIZATION_BUNDLE_V1",
+    "available_at": "2026-08-03T18:00:02Z",
+    "computed_at": "2026-08-03T18:00:02Z",
+    "content_sha256": "8f53110f0f0a7adc4cc67baaa6011503e158c7510e93c1693392c159542a71b5",
+    "contract_version": "1.0.0",
+    "cycle_id": 1,
+    "decision_time": "2026-08-03T18:00:00Z",
+    "lineage_id": "L1",
+    "market_cutoff_at": "2026-08-03T18:00:00Z",
+    "pipeline_version": "v14.1-rc4.1",
+    "producer_module": "P8.S6",
+    "producer_phase": "P8",
+    "producer_release": "0.1.0",
+    "recorded_at": "2026-08-03T18:00:02Z",
+    "run_id": "RUN1",
+    "schema_version": "1.0.0"
+  },
+  "payload": {
+    "authorized_actions": [
+      {
+        "action_type": "TARGET",
+        "authorization_id": "RUN1:P8.S6:TARGET:C1:1",
+        "candidate_id": "C1",
+        "delta_quantity": 5.0,
+        "lifecycle_action": null,
+        "reason_codes": [],
+        "target_quantity": 5.0,
+        "valid_from": "2026-08-03T18:00:02Z",
+        "valid_until": "2026-08-03T18:30:02Z"
+      }
+    ],
+    "decision_snapshot_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "emergency_plan": {
+      "estimated_total_cost": 0.0,
+      "feasibility_proven": true,
+      "plan_hash": "165be3b4920ddd003bdcea3645cce11b1c82160f4f7c545fe50f6fadcfc07b4b",
+      "reason_codes": [
+        "EMERGENCY_NOT_TRIGGERED"
+      ],
+      "status": "NOT_TRIGGERED",
+      "steps": [],
+      "total_capital_relief": 0.0,
+      "total_margin_relief": 0.0,
+      "total_maximum_loss_relief": 0.0
+    },
+    "execution_authority": true,
+    "hedge_plan": {
+      "adjustments": [],
+      "base_cvar": null,
+      "cvar_reduction": 0.0,
+      "estimated_cost": 0.0,
+      "plan_hash": "3b63c6934288ba14592a7a10105950936af0f8bec391363fadda8c11cce49596",
+      "post_hedge_cvar": null,
+      "post_hedge_risk_gate": null,
+      "reason_codes": [
+        "RISK_GATE_APPROVED"
+      ],
+      "status": "NOT_NEEDED"
+    },
+    "lifecycle_plan": {
+      "decisions": [],
+      "plan_hash": "ba52495691430bd739515e13149154deb02281c2b8dd36cfe1af1ab30c63bf9a",
+      "reason_codes": [],
+      "status": "SUPPORTED",
+      "unsupported_candidate_ids": []
+    },
+    "module_receipts": [
+      "P8.S6.M01:INDEPENDENTLY_RECALCULATED",
+      "P8.S6.M02:SEMANTICALLY_CONSUMED",
+      "P8.S6.M03:SEMANTICALLY_CONSUMED",
+      "P8.S6.M04:SEMANTICALLY_CONSUMED",
+      "P8.S6.M05:PUBLISHED"
+    ],
+    "payload_hash": "a37374086f164567ca0cf68cd65b8951c4e2198ed3eb1bede5ec2b14c9aa0cb9",
+    "reason_codes": [],
+    "risk_gate": {
+      "decision_snapshot_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "exposure_limits": [],
+      "horizon_metrics": [
+        {
+          "capital": 5.0,
+          "capital_limit": 10.0,
+          "cvar": 5.0,
+          "cvar_limit": 100.0,
+          "feasible": true,
+          "horizon_id": "H0",
+          "margin": 5.0,
+          "margin_limit": 10.0,
+          "maximum_loss": 5.0,
+          "maximum_loss_limit": 10.0,
+          "maximum_stress_loss": null,
+          "reason_codes": []
+        },
+        {
+          "capital": 5.0,
+          "capital_limit": 10.0,
+          "cvar": 2.5,
+          "cvar_limit": 100.0,
+          "feasible": true,
+          "horizon_id": "H1",
+          "margin": 5.0,
+          "margin_limit": 10.0,
+          "maximum_loss": 5.0,
+          "maximum_loss_limit": 10.0,
+          "maximum_stress_loss": null,
+          "reason_codes": []
+        }
+      ],
+      "independently_feasible": true,
+      "maximum_optimizer_risk_discrepancy": 0.0,
+      "optimizer_claimed_feasible": true,
+      "reason_codes": [],
+      "report_hash": "96471ce06e53a31a17f11110c9e8ea6807934ceb24f9bde88e1906a8e587a335",
+      "status": "APPROVED",
+      "target_hash": "5a885b68c7eb1cde82ca4ddcd819cf5782e30f5506b416830cca24e6d798c812"
+    },
+    "status": "AUTHORIZED",
+    "valid_from": "2026-08-03T18:00:02Z",
+    "valid_until": "2026-08-03T18:30:02Z"
+  }
+}

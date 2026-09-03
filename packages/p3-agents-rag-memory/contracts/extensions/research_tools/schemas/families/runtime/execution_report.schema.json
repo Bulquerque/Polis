@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cost_units": {
+      "minimum": 0.0,
+      "title": "Cost Units",
+      "type": "number"
+    },
+    "deterministic_or_seeded": {
+      "title": "Deterministic Or Seeded",
+      "type": "boolean"
+    },
+    "execution_id": {
+      "minLength": 1,
+      "title": "Execution Id",
+      "type": "string"
+    },
+    "latency_ms": {
+      "minimum": 0.0,
+      "title": "Latency Ms",
+      "type": "number"
+    },
+    "provider_id": {
+      "minLength": 1,
+      "title": "Provider Id",
+      "type": "string"
+    },
+    "request_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Request Hash",
+      "type": "string"
+    },
+    "response_hash": {
+      "anyOf": [
+        {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Response Hash"
+    },
+    "trace_id": {
+      "minLength": 1,
+      "title": "Trace Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "execution_id",
+    "provider_id",
+    "latency_ms",
+    "cost_units",
+    "deterministic_or_seeded",
+    "request_hash",
+    "trace_id"
+  ],
+  "title": "ExecutionReport",
+  "type": "object"
+}

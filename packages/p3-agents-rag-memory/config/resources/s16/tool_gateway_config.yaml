@@ -1,0 +1,54 @@
+schema_id: tool_gateway_config.s16.v2
+schema_version: 2.0.0
+run_id: run_demo_s15
+cycle_id: cycle_001
+snapshot_id: snapshot_demo_s15
+as_of_time: 2025-01-15T12:00:00Z
+execution_context: TEST
+pit_required: true
+audit_required: true
+provider_failure_policy: MATERIAL_NO_FAKE_SUCCESS
+max_calls_per_person_cycle: 5
+max_total_calls_per_run: 5000
+max_total_cost_per_run: 1000.0
+max_concurrency_per_provider: 4
+hard_timeout_ms: 60000
+approval_policy: STATE_CHANGING_FORBIDDEN
+retry:
+  max_attempts_per_call: 2
+  backoff_policy: EXPONENTIAL_FULL_JITTER
+  base_delay_ms: 250
+  max_delay_ms: 5000
+  retry_budget_per_run: 100
+  respect_retry_after: true
+cache:
+  mode: READ_THROUGH_LIVE
+  require_cache_hit_in_backtest: false
+  cache_key_version: 2.0.0
+  include_provider_fingerprint: true
+  include_request_schema_hash: true
+security:
+  credential_policy: HANDLE_ONLY
+  secret_material_forbidden: true
+  tool_annotations_untrusted: true
+  tool_result_untrusted: true
+  preserve_meta_for_host_only: true
+  expose_meta_to_model: false
+  require_output_schema_validation_when_declared: true
+  reject_unknown_output_fields: true
+  state_changing_policy: STATE_CHANGING_FORBIDDEN
+  forbidden_argument_fields:
+    - future_return
+    - candidate_score
+    - rank_score
+    - portfolio_weight
+    - trade_decision
+    - buy_sell_signal
+    - api_key
+    - access_token
+    - refresh_token
+    - password
+    - secret
+    - authorization
+accepted_protocol_versions: ["2025-11-25", "local-v1"]
+experimental_task_support: false

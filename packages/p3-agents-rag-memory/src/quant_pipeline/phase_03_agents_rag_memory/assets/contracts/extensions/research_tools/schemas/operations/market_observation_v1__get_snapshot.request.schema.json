@@ -1,0 +1,38 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_snapshot/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "fields": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Fields",
+      "type": "array"
+    },
+    "instrument_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Instrument Ids",
+      "type": "array"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "instrument_ids"
+  ],
+  "title": "MarketSnapshotRequest",
+  "type": "object"
+}

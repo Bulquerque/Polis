@@ -1,0 +1,124 @@
+{
+  "$defs": {
+    "QualificationStatus": {
+      "enum": [
+        "QUALIFIED_LOCAL",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM",
+        "FAILED"
+      ],
+      "title": "QualificationStatus",
+      "type": "string"
+    },
+    "TransportKind": {
+      "enum": [
+        "LOCAL_FUNCTION",
+        "ARTIFACT_QUERY",
+        "COMPOSITE_INTERNAL",
+        "MCP_OPTIONAL",
+        "HTTP_OPTIONAL"
+      ],
+      "title": "TransportKind",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic_or_seeded": {
+      "default": true,
+      "title": "Deterministic Or Seeded",
+      "type": "boolean"
+    },
+    "handler_id": {
+      "minLength": 1,
+      "title": "Handler Id",
+      "type": "string"
+    },
+    "handler_version": {
+      "minLength": 1,
+      "title": "Handler Version",
+      "type": "string"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "point_in_time_safe": {
+      "const": true,
+      "default": true,
+      "title": "Point In Time Safe",
+      "type": "boolean"
+    },
+    "provider_id": {
+      "default": "internal_research",
+      "minLength": 1,
+      "title": "Provider Id",
+      "type": "string"
+    },
+    "qualification_status": {
+      "$ref": "#/$defs/QualificationStatus"
+    },
+    "read_only": {
+      "const": true,
+      "default": true,
+      "title": "Read Only",
+      "type": "boolean"
+    },
+    "request_schema_ref": {
+      "minLength": 1,
+      "title": "Request Schema Ref",
+      "type": "string"
+    },
+    "required_view_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Required View Ids",
+      "type": "array"
+    },
+    "result_schema_ref": {
+      "minLength": 1,
+      "title": "Result Schema Ref",
+      "type": "string"
+    },
+    "source_bundle_id": {
+      "minLength": 1,
+      "title": "Source Bundle Id",
+      "type": "string"
+    },
+    "supported_modes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Supported Modes",
+      "type": "array"
+    },
+    "tool_id": {
+      "minLength": 1,
+      "title": "Tool Id",
+      "type": "string"
+    },
+    "transport": {
+      "$ref": "#/$defs/TransportKind"
+    }
+  },
+  "required": [
+    "tool_id",
+    "operation_id",
+    "handler_id",
+    "handler_version",
+    "transport",
+    "request_schema_ref",
+    "result_schema_ref",
+    "supported_modes",
+    "qualification_status",
+    "source_bundle_id"
+  ],
+  "title": "OperationDescriptor",
+  "type": "object"
+}

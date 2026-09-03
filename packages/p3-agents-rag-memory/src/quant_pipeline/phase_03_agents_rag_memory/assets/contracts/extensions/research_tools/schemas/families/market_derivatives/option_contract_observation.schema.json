@@ -1,0 +1,106 @@
+{
+  "$defs": {
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT",
+        "UNKNOWN"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_key": {
+      "minLength": 1,
+      "title": "Contract Key",
+      "type": "string"
+    },
+    "contract_size": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Contract Size"
+    },
+    "expiration_date": {
+      "format": "date",
+      "title": "Expiration Date",
+      "type": "string"
+    },
+    "first_seen_date": {
+      "format": "date",
+      "title": "First Seen Date",
+      "type": "string"
+    },
+    "last_seen_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Last Seen Date"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "option_id": {
+      "minLength": 1,
+      "title": "Option Id",
+      "type": "string"
+    },
+    "option_type": {
+      "$ref": "#/$defs/OptionType"
+    },
+    "quality_reasons": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Quality Reasons",
+      "type": "array"
+    },
+    "source_id": {
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "strike": {
+      "exclusiveMinimum": 0.0,
+      "title": "Strike",
+      "type": "number"
+    },
+    "underlying": {
+      "minLength": 1,
+      "title": "Underlying",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_key",
+    "option_id",
+    "underlying",
+    "option_type",
+    "strike",
+    "expiration_date",
+    "first_seen_date",
+    "source_id",
+    "lineage_id"
+  ],
+  "title": "OptionContractObservation",
+  "type": "object"
+}

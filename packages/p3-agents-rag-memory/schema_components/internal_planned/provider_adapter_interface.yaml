@@ -1,0 +1,25 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: provider_adapter_interface
+status: planned_internal_schema
+type: object
+required:
+- interface_id
+- purpose
+- required_capabilities
+- version_policy
+properties:
+  interface_id:
+    type: string
+  purpose:
+    type: string
+  required_capabilities:
+    type: array
+    items:
+      type: string
+  version_policy:
+    type: string
+  reference_provider:
+    type:
+    - string
+    - 'null'
+additionalProperties: false

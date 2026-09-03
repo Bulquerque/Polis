@@ -1,0 +1,25 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+title: Mutation Proposal
+properties:
+  mutation_id: &id001
+    type: string
+  parent_id: *id001
+  mutation_type: *id001
+  single_change_description: *id001
+  hypothesis: *id001
+  expected_failure_mode_addressed: *id001
+  parameters_frozen_except:
+    type: array
+    items: *id001
+  lineage_id: *id001
+required:
+- mutation_id
+- parent_id
+- mutation_type
+- single_change_description
+- hypothesis
+- expected_failure_mode_addressed
+- parameters_frozen_except
+- lineage_id

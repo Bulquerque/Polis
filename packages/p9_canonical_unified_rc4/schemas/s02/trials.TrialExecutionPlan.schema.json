@@ -1,0 +1,289 @@
+{
+  "$defs": {
+    "TemporalEvaluationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "embargo_required": {
+          "default": true,
+          "title": "Embargo Required",
+          "type": "boolean"
+        },
+        "final_holdout_required": {
+          "default": true,
+          "title": "Final Holdout Required",
+          "type": "boolean"
+        },
+        "inner_fold_count": {
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Inner Fold Count",
+          "type": "integer"
+        },
+        "outer_fold_count": {
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Outer Fold Count",
+          "type": "integer"
+        },
+        "purge_required": {
+          "default": true,
+          "title": "Purge Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "outer_fold_count",
+        "inner_fold_count"
+      ],
+      "title": "TemporalEvaluationRequest",
+      "type": "object"
+    },
+    "TrialExecutionSlot": {
+      "additionalProperties": false,
+      "properties": {
+        "adaptive_assignment_key": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Adaptive Assignment Key"
+        },
+        "allowed_terminal_states": {
+          "items": {
+            "$ref": "#/$defs/TrialState"
+          },
+          "title": "Allowed Terminal States",
+          "type": "array"
+        },
+        "bracket_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bracket Id"
+        },
+        "configuration_id": {
+          "anyOf": [
+            {
+              "pattern": "^cfg-[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Configuration Id"
+        },
+        "depends_on_trial_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^trial-[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Depends On Trial Ids",
+          "type": "array"
+        },
+        "evaluation_cell_id": {
+          "minLength": 1,
+          "title": "Evaluation Cell Id",
+          "type": "string"
+        },
+        "fidelity_id": {
+          "minLength": 1,
+          "title": "Fidelity Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "initial_state": {
+          "$ref": "#/$defs/TrialState",
+          "default": "PLANNED"
+        },
+        "resource_request": {
+          "$ref": "#/$defs/TrialResourceRequest"
+        },
+        "rung": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Rung",
+          "type": "integer"
+        },
+        "seed": {
+          "minimum": 0,
+          "title": "Seed",
+          "type": "integer"
+        },
+        "selection_rank": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Selection Rank"
+        },
+        "stage": {
+          "minLength": 1,
+          "title": "Stage",
+          "type": "string"
+        },
+        "trial_id": {
+          "pattern": "^trial-[0-9a-f]{64}$",
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trial_id",
+        "configuration_id",
+        "stage",
+        "evaluation_cell_id",
+        "seed",
+        "fidelity_id",
+        "resource_request",
+        "allowed_terminal_states",
+        "idempotency_key"
+      ],
+      "title": "TrialExecutionSlot",
+      "type": "object"
+    },
+    "TrialPlanState": {
+      "enum": [
+        "PLAN_READY",
+        "PLAN_READY_LIMITED",
+        "NO_TRIALS_VALID",
+        "SCHEDULER_INFEASIBLE",
+        "BUNDLE_INVALID"
+      ],
+      "title": "TrialPlanState",
+      "type": "string"
+    },
+    "TrialResourceRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "cpu_seconds": {
+          "minimum": 1,
+          "title": "Cpu Seconds",
+          "type": "integer"
+        },
+        "memory_mb": {
+          "minimum": 128,
+          "title": "Memory Mb",
+          "type": "integer"
+        },
+        "worker_labels": {
+          "default": [
+            "cpu"
+          ],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Worker Labels",
+          "type": "array"
+        }
+      },
+      "required": [
+        "cpu_seconds",
+        "memory_mb"
+      ],
+      "title": "TrialResourceRequest",
+      "type": "object"
+    },
+    "TrialState": {
+      "enum": [
+        "PLANNED",
+        "RESERVED",
+        "RUNNING",
+        "COMPLETED",
+        "INVALID",
+        "INFEASIBLE",
+        "EARLY_STOPPED",
+        "RESOURCE_EXHAUSTED",
+        "FAILED",
+        "QUARANTINED",
+        "CANCELLED_UPSTREAM"
+      ],
+      "title": "TrialState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "experiment_id": {
+      "minLength": 1,
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "title": "Plan Id",
+      "type": "string"
+    },
+    "plan_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Plan Sha256",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "slots": {
+      "items": {
+        "$ref": "#/$defs/TrialExecutionSlot"
+      },
+      "title": "Slots",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/TrialPlanState"
+    },
+    "temporal_evaluation_request": {
+      "$ref": "#/$defs/TemporalEvaluationRequest"
+    }
+  },
+  "required": [
+    "plan_id",
+    "experiment_id",
+    "state",
+    "temporal_evaluation_request",
+    "slots",
+    "plan_sha256"
+  ],
+  "title": "TrialExecutionPlan",
+  "type": "object"
+}

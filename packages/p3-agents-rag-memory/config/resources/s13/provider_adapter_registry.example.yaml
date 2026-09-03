@@ -1,0 +1,21 @@
+schema_id: provider_adapter_registry.s13.v1
+schema_version: 1.0.0
+providers:
+- provider_id: nvidia_nim_graph
+  interface_id: GraphProposalProvider
+  adapter_id: nvidia_nim_structured_graph
+  adapter_version: 1.1.0
+  status: CONFIGURED_DISCONNECTED
+  model_id: meta/llama-3.1-70b-instruct
+  model_revision: deployment-pinned
+  supports_json_schema: true
+  supports_batching: true
+  supports_temporal_metadata: false
+  supports_snapshot_pin: true
+  qualification_status: UNQUALIFIED
+  fingerprint: '0000000000000000000000000000000000000000000000000000000000000000'
+  metadata:
+    endpoint: /v1/chat/completions
+    structured_mode: guided_json
+    alternate_structured_mode: response_format_json_schema
+    secret_policy: credential_handle_only

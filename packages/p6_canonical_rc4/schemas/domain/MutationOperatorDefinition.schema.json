@@ -1,0 +1,77 @@
+{
+  "$defs": {
+    "MutationOperator": {
+      "enum": [
+        "SHIFT_CENTER",
+        "MOVE_STRIKE",
+        "WIDEN_LEFT_WING",
+        "WIDEN_RIGHT_WING",
+        "NARROW_LEFT_WING",
+        "NARROW_RIGHT_WING",
+        "CHANGE_QUANTITY",
+        "ADD_PROTECTION",
+        "REMOVE_REDUNDANT_LEG",
+        "REPLACE_LEG",
+        "CHANGE_EXPIRATION",
+        "ADD_UNDERLYING",
+        "REMOVE_UNDERLYING",
+        "SPLIT_QUANTITY",
+        "MERGE_IDENTICAL_LEGS"
+      ],
+      "title": "MutationOperator",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "allowed_templates": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Templates",
+      "type": "array"
+    },
+    "complexity_cost": {
+      "minimum": 0,
+      "title": "Complexity Cost",
+      "type": "integer"
+    },
+    "maximum_applications": {
+      "minimum": 1,
+      "title": "Maximum Applications",
+      "type": "integer"
+    },
+    "operator": {
+      "$ref": "#/$defs/MutationOperator"
+    },
+    "postconditions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Postconditions",
+      "type": "array"
+    },
+    "preconditions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Preconditions",
+      "type": "array"
+    },
+    "risk_effect": {
+      "title": "Risk Effect",
+      "type": "string"
+    }
+  },
+  "required": [
+    "operator",
+    "preconditions",
+    "postconditions",
+    "risk_effect",
+    "complexity_cost",
+    "maximum_applications"
+  ],
+  "title": "MutationOperatorDefinition",
+  "type": "object"
+}

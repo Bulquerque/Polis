@@ -1,0 +1,137 @@
+{
+  "$defs": {
+    "ManagementPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "auto_reoptimization_on_lifecycle_due": {
+          "default": true,
+          "title": "Auto Reoptimization On Lifecycle Due",
+          "type": "boolean"
+        },
+        "auto_reoptimization_on_partial_fill": {
+          "default": true,
+          "title": "Auto Reoptimization On Partial Fill",
+          "type": "boolean"
+        },
+        "auto_reoptimization_on_target_expiry": {
+          "default": true,
+          "title": "Auto Reoptimization On Target Expiry",
+          "type": "boolean"
+        },
+        "hold_on_incomplete_valuation": {
+          "default": true,
+          "title": "Hold On Incomplete Valuation",
+          "type": "boolean"
+        }
+      },
+      "title": "ManagementPolicy",
+      "type": "object"
+    },
+    "MarkSelectionPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_model": {
+          "default": true,
+          "title": "Allow Model",
+          "type": "boolean"
+        },
+        "allow_stale": {
+          "default": false,
+          "title": "Allow Stale",
+          "type": "boolean"
+        },
+        "preferred_types": {
+          "default": [
+            "MID",
+            "LAST",
+            "SETTLEMENT",
+            "MODEL",
+            "BID",
+            "ASK"
+          ],
+          "items": {
+            "$ref": "#/$defs/MarkType"
+          },
+          "title": "Preferred Types",
+          "type": "array"
+        },
+        "stale_after_seconds": {
+          "default": 300,
+          "minimum": 0,
+          "title": "Stale After Seconds",
+          "type": "integer"
+        }
+      },
+      "title": "MarkSelectionPolicy",
+      "type": "object"
+    },
+    "MarkType": {
+      "enum": [
+        "BID",
+        "ASK",
+        "MID",
+        "LAST",
+        "SETTLEMENT",
+        "MODEL",
+        "STALE",
+        "UNAVAILABLE"
+      ],
+      "title": "MarkType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "allow_equity_splits": {
+      "default": true,
+      "title": "Allow Equity Splits",
+      "type": "boolean"
+    },
+    "allow_option_contract_adjustments": {
+      "default": false,
+      "title": "Allow Option Contract Adjustments",
+      "type": "boolean"
+    },
+    "checkpoint_event_stride": {
+      "default": 1000,
+      "minimum": 1,
+      "title": "Checkpoint Event Stride",
+      "type": "integer"
+    },
+    "management": {
+      "$ref": "#/$defs/ManagementPolicy",
+      "default": {
+        "auto_reoptimization_on_lifecycle_due": true,
+        "auto_reoptimization_on_partial_fill": true,
+        "auto_reoptimization_on_target_expiry": true,
+        "hold_on_incomplete_valuation": true
+      }
+    },
+    "mark_selection": {
+      "$ref": "#/$defs/MarkSelectionPolicy",
+      "default": {
+        "allow_model": true,
+        "allow_stale": false,
+        "preferred_types": [
+          "MID",
+          "LAST",
+          "SETTLEMENT",
+          "MODEL",
+          "BID",
+          "ASK"
+        ],
+        "stale_after_seconds": 300
+      }
+    },
+    "policy_version": {
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_version"
+  ],
+  "title": "S8PolicyBundle",
+  "type": "object"
+}

@@ -1,0 +1,144 @@
+{
+  "schema_version": "resolved_external_stimulus_stream.v2",
+  "contract_version": "p3.s17.v1",
+  "run_id": "run:2026-07-27-001",
+  "cycle_id": "cycle:2026-07-27-001",
+  "target_cycle_id": "cycle:2026-07-27-001",
+  "as_of": "2026-07-27T14:00:00Z",
+  "items": [
+    {
+      "stimulus_id": "stim:b9489b957ef8b35f656b0e3a55d295f1",
+      "origin_type": "EXTERNAL_PIT_CONTEXT",
+      "record_id": "ctx:apple-filing-001",
+      "record_type": "EVENT",
+      "source_event_id": "event:apple-10q-001",
+      "causal_parent_id": null,
+      "created_cycle_id": "cycle:2026-07-27-001",
+      "target_cycle_id": "cycle:2026-07-27-001",
+      "event_time": "2026-07-27T13:00:00Z",
+      "available_at": "2026-07-27T13:05:00Z",
+      "subject": "Apple Inc. quarterly filing became available",
+      "stimulus_type": "FILING_EVENT",
+      "intensity": 0.8275,
+      "salience": 0.8275,
+      "salience_features": {
+        "source_quality": 0.95,
+        "novelty": 0.7,
+        "subject_relevance": 0.9,
+        "event_severity": 0.65,
+        "information_specificity": 0.95
+      },
+      "salience_formula_id": "stimulus_salience_v1",
+      "defaulted_components": [],
+      "entity_ids": [
+        "entity:apple-inc"
+      ],
+      "identifier_hints": [
+        {
+          "id_type": "TICKER",
+          "id_value": "AAPL",
+          "mic": "XNAS",
+          "exchange_code": "US",
+          "currency": "USD"
+        }
+      ],
+      "proposition_id": "directional_outlook",
+      "horizon": "21d",
+      "content_hash": "dc65ad9dc999cec0bcbe347e2fd46a7c3dc5f1bb970c5e1c91105b3a077567d5",
+      "evidence_refs": [
+        "evidence:apple-10q-001"
+      ],
+      "graph_evidence_refs": [
+        "evidence:entity-apple-001"
+      ],
+      "lineage_id": "lin:0a08f7e74d1497f6098e5190bc3e0b44",
+      "resolution_status": "RESOLVED_ONE",
+      "mapping_version": "entity_underlying_map.v2",
+      "resolution_method": "ENTITY_ID_EXACT+IDENTIFIER_EXACT",
+      "underlying_candidates": [
+        {
+          "underlying_id": "figi:BBG000B9XRY4",
+          "weight": 1.0,
+          "mic": "XNAS",
+          "security_type": "Common Stock",
+          "identifiers": [
+            {
+              "id_type": "TICKER",
+              "id_value": "AAPL",
+              "mic": "XNAS",
+              "exchange_code": "US",
+              "currency": "USD"
+            }
+          ]
+        }
+      ],
+      "selected_underlying_id": "figi:BBG000B9XRY4",
+      "proposition_status": "RESOLVED",
+      "warnings": []
+    },
+    {
+      "stimulus_id": "stim:b9e8793db20612b39c45d398c86537d4",
+      "origin_type": "EXTERNAL_PIT_CONTEXT",
+      "record_id": "ctx:macro-cpi-001",
+      "record_type": "EVENT",
+      "source_event_id": "event:macro-cpi-001",
+      "causal_parent_id": null,
+      "created_cycle_id": "cycle:2026-07-27-001",
+      "target_cycle_id": "cycle:2026-07-27-001",
+      "event_time": "2026-07-27T12:30:00Z",
+      "available_at": "2026-07-27T12:31:00Z",
+      "subject": "Inflation report released",
+      "stimulus_type": "MACRO_RELEASE",
+      "intensity": 0.66,
+      "salience": 0.66,
+      "salience_features": {
+        "source_quality": 0.7,
+        "novelty": 0.6,
+        "subject_relevance": 0.7,
+        "event_severity": 0.6,
+        "information_specificity": 0.7
+      },
+      "salience_formula_id": "stimulus_salience_v1",
+      "defaulted_components": [
+        "source_quality",
+        "novelty",
+        "subject_relevance",
+        "event_severity",
+        "information_specificity"
+      ],
+      "entity_ids": [],
+      "identifier_hints": [],
+      "proposition_id": "regime_outlook",
+      "horizon": "21d",
+      "content_hash": "f0221ba5c3ff268086acef1d886a26b465b3464502265b24d2e0e622dd20f1d0",
+      "evidence_refs": [
+        "evidence:macro-cpi-001"
+      ],
+      "graph_evidence_refs": [],
+      "lineage_id": "lin:f1148cd5dec576eca91079e7aa39f79d",
+      "resolution_status": "UNRESOLVED",
+      "mapping_version": "entity_underlying_map.v2",
+      "resolution_method": "NO_MATCH",
+      "underlying_candidates": [],
+      "selected_underlying_id": null,
+      "proposition_status": "RESOLVED",
+      "warnings": [
+        "UNDERLYING_UNRESOLVED"
+      ]
+    }
+  ],
+  "lineage_id": "lin:e15c9e26c1d54e8393855124cc11a77c",
+  "content_hash": "721305106ebe9e5cb75c90e2ee548f58101fb5113e3b2667d691f1557cf0f29a",
+  "status": "DEGRADED",
+  "warnings": [
+    "stim:b9e8793db20612b39c45d398c86537d4:UNDERLYING_UNRESOLVED"
+  ],
+  "metrics": {
+    "input_record_count": 2,
+    "output_record_count": 2,
+    "warning_count": 1,
+    "defaulted_component_count": 0,
+    "unresolved_count": 1,
+    "ambiguous_count": 0
+  }
+}

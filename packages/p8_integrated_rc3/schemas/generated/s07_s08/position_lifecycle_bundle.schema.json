@@ -1,0 +1,516 @@
+{
+  "$defs": {
+    "LifecycleLedgerRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "event_type": {
+          "minLength": 1,
+          "title": "Event Type",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "reason_code": {
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_time",
+        "instrument_id",
+        "event_type",
+        "reason_code"
+      ],
+      "title": "LifecycleLedgerRecord",
+      "type": "object"
+    },
+    "PhysicalPositionState": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "average_entry_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Average Entry Price"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "opened_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Opened At"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "realized_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Realized Pnl"
+        },
+        "signed_cost_basis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Cost Basis"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "as_of_time",
+        "quantity",
+        "signed_cost_basis",
+        "average_entry_price",
+        "opened_at",
+        "realized_pnl"
+      ],
+      "title": "PhysicalPositionState",
+      "type": "object"
+    },
+    "PositionTransition": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Candidate Id"
+        },
+        "cash_trade_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cash Trade Delta"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "quantity_after": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity After"
+        },
+        "quantity_before": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity Before"
+        },
+        "quantity_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity Delta"
+        },
+        "realized_pnl_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Realized Pnl Delta"
+        },
+        "signed_cost_basis_after": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Cost Basis After"
+        },
+        "signed_cost_basis_before": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Cost Basis Before"
+        },
+        "source_event_id": {
+          "minLength": 1,
+          "title": "Source Event Id",
+          "type": "string"
+        },
+        "transition_id": {
+          "minLength": 1,
+          "title": "Transition Id",
+          "type": "string"
+        },
+        "transition_type": {
+          "$ref": "#/$defs/PositionTransitionType"
+        }
+      },
+      "required": [
+        "transition_id",
+        "source_event_id",
+        "event_time",
+        "instrument_id",
+        "candidate_id",
+        "transition_type",
+        "quantity_before",
+        "quantity_delta",
+        "quantity_after",
+        "signed_cost_basis_before",
+        "signed_cost_basis_after",
+        "realized_pnl_delta",
+        "cash_trade_delta",
+        "currency"
+      ],
+      "title": "PositionTransition",
+      "type": "object"
+    },
+    "PositionTransitionType": {
+      "enum": [
+        "OPEN",
+        "INCREASE",
+        "REDUCE",
+        "CLOSE",
+        "REVERSE",
+        "REALLOCATION",
+        "CORPORATE_ACTION"
+      ],
+      "title": "PositionTransitionType",
+      "type": "string"
+    },
+    "SettlementRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "cash_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cash Delta"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "reason_code": {
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "settlement_id": {
+          "minLength": 1,
+          "title": "Settlement Id",
+          "type": "string"
+        },
+        "source_event_id": {
+          "minLength": 1,
+          "title": "Source Event Id",
+          "type": "string"
+        },
+        "underlying_instrument_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Underlying Instrument Id"
+        },
+        "underlying_quantity_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Underlying Quantity Delta"
+        }
+      },
+      "required": [
+        "settlement_id",
+        "source_event_id",
+        "event_time",
+        "currency",
+        "cash_delta",
+        "underlying_instrument_id",
+        "reason_code"
+      ],
+      "title": "SettlementRecord",
+      "type": "object"
+    },
+    "VirtualPositionState": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "average_entry_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Average Entry Price"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "opened_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Opened At"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "realized_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Realized Pnl"
+        },
+        "signed_cost_basis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Cost Basis"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "instrument_id",
+        "as_of_time",
+        "quantity",
+        "signed_cost_basis",
+        "average_entry_price",
+        "opened_at",
+        "realized_pnl"
+      ],
+      "title": "VirtualPositionState",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "lifecycle_ledger": {
+      "items": {
+        "$ref": "#/$defs/LifecycleLedgerRecord"
+      },
+      "title": "Lifecycle Ledger",
+      "type": "array"
+    },
+    "physical_positions": {
+      "items": {
+        "$ref": "#/$defs/PhysicalPositionState"
+      },
+      "title": "Physical Positions",
+      "type": "array"
+    },
+    "settlements": {
+      "items": {
+        "$ref": "#/$defs/SettlementRecord"
+      },
+      "title": "Settlements",
+      "type": "array"
+    },
+    "transitions": {
+      "items": {
+        "$ref": "#/$defs/PositionTransition"
+      },
+      "title": "Transitions",
+      "type": "array"
+    },
+    "virtual_positions": {
+      "items": {
+        "$ref": "#/$defs/VirtualPositionState"
+      },
+      "title": "Virtual Positions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "physical_positions",
+    "virtual_positions",
+    "transitions",
+    "lifecycle_ledger",
+    "settlements",
+    "content_sha256"
+  ],
+  "title": "PositionLifecycleBundle",
+  "type": "object"
+}

@@ -1,0 +1,59 @@
+registry_id: P3_PROVIDER_INTERFACE_REGISTRY_V1
+architecture: provider_agnostic_with_nvidia_first_reference_profile
+interfaces:
+- interface_id: LLMProviderAdapter
+  purpose: structured cognition/tool-calling
+  required_capabilities:
+  - structured_output
+  - tool_calling
+  - low_temperature
+  - request_audit
+- interface_id: EmbeddingProvider
+  purpose: RAG embeddings
+  required_capabilities:
+  - batch_embedding
+  - model_version_pin
+  - PIT_safe_input_only
+- interface_id: RerankerProvider
+  purpose: retrieval reranking
+  required_capabilities:
+  - query_document_scoring
+  - model_version_pin
+- interface_id: VectorStoreAdapter
+  purpose: vector persistence/retrieval
+  required_capabilities:
+  - metadata_filters
+  - available_at_filter
+  - snapshot_or_version_pin
+- interface_id: GraphStoreAdapter
+  purpose: temporal GraphRAG storage/traversal
+  required_capabilities:
+  - temporal_edges
+  - evidence_links
+  - snapshot_or_version_pin
+- interface_id: MCPGatewayAdapter
+  purpose: permissioned external/specialized tools
+  required_capabilities:
+  - entitlement_check
+  - budget_check
+  - PIT_check
+  - audit_envelope
+- interface_id: ResearchToolProvider
+  purpose: search/research/filings/news/macroeconomic research
+  required_capabilities:
+  - provenance
+  - available_at
+  - source_quality
+- interface_id: QuantToolProvider
+  purpose: specialized quantitative models such as volatility/options/event-study/statistics
+  required_capabilities:
+  - version_pin
+  - input_lineage
+  - deterministic_or_seeded_execution
+reference_profiles:
+  nvidia_first:
+    llm: NVIDIA NIM-compatible adapter
+    embeddings: NVIDIA-compatible embedding adapter
+    reranker: NVIDIA-compatible reranker adapter
+  offline_test: deterministic fixture adapters only
+rule: no module may call a vendor SDK directly outside its adapter boundary

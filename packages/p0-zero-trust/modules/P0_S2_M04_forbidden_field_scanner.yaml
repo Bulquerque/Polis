@@ -1,0 +1,39 @@
+module_id: P0.S2.M04
+module_name: forbidden_field_scanner
+function: Executar forbidden field scanner da Fase 0, mantendo controle Zero Trust
+  técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- schema_registry
+- artifact_registry
+- forbidden_fields_yaml
+outputs: &id002
+- forbidden_field_report
+validations:
+- target_not_in_inference
+- rank_score_not_before_phase7
+fail_fast_conditions:
+- forbidden_field_scanner_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S2.M02
+    artifacts: *id001
+    phase_inputs:
+    - artifact_registry
+    - forbidden_fields_yaml
+  emits_to:
+    modules: []
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S2
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

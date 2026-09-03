@@ -1,0 +1,7 @@
+{
+  "max_records": 100,
+  "research_mode": "VINTAGE_ANALYSIS",
+  "series_id": "CPIAUCSL",
+  "transformation": "LEVEL",
+  "vintage_policy": "LATEST_KNOWN_AT_DECISION_TIME"
+}

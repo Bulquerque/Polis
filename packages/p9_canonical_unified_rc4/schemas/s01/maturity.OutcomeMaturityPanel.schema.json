@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "MaturityDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "eligible": {
+          "title": "Eligible",
+          "type": "boolean"
+        },
+        "evaluation_as_of": {
+          "format": "date-time",
+          "title": "Evaluation As Of",
+          "type": "string"
+        },
+        "metric_family": {
+          "minLength": 1,
+          "title": "Metric Family",
+          "type": "string"
+        },
+        "observable": {
+          "title": "Observable",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "required_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Required At"
+        },
+        "state": {
+          "$ref": "#/$defs/MaturityState"
+        },
+        "subject_id": {
+          "minLength": 1,
+          "title": "Subject Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "subject_id",
+        "metric_family",
+        "state",
+        "required_at",
+        "evaluation_as_of",
+        "observable",
+        "eligible"
+      ],
+      "title": "MaturityDecision",
+      "type": "object"
+    },
+    "MaturityState": {
+      "enum": [
+        "NOT_MATURED",
+        "PARTIALLY_MATURED",
+        "MATURED",
+        "SETTLED",
+        "CENSORED",
+        "UNOBSERVABLE"
+      ],
+      "title": "MaturityState",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decisions": {
+      "items": {
+        "$ref": "#/$defs/MaturityDecision"
+      },
+      "title": "Decisions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "decisions"
+  ],
+  "title": "OutcomeMaturityPanel",
+  "type": "object"
+}

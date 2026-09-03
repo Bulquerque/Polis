@@ -1,0 +1,88 @@
+schema_id: hash_integrity_report.v1
+artifact_name: hash_integrity_report
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- policy_source
+- manifest_source_count
+- artifact_count
+- passed_count
+- missing_file_count
+- missing_hash_count
+- hash_mismatch_count
+- disallowed_algorithm_count
+- checks
+- status
+- severity
+- release_blocking
+- every_artifact_has_hash
+- hash_algorithm_allowed
+- all_digests_match
+- paths_internal
+- validation_evidence_status
+- promotion_blocked
+properties:
+  artifact_id: {type: string, pattern: '^hash-integrity-report-[0-9a-f]{12}$'}
+  created_at: {type: string, pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'}
+  pipeline_version: {type: string, const: V14.1-RC4.1}
+  lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  policy_source: {type: string, minLength: 1}
+  manifest_source_count: {type: integer, minimum: 1}
+  artifact_count: {type: integer, minimum: 1}
+  passed_count: {type: integer, minimum: 0}
+  missing_file_count: {type: integer, minimum: 0}
+  missing_hash_count: {type: integer, minimum: 0}
+  hash_mismatch_count: {type: integer, minimum: 0}
+  disallowed_algorithm_count: {type: integer, minimum: 0}
+  checks:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - check_id
+      - manifest_source
+      - path
+      - algorithm
+      - expected_hash
+      - actual_hash
+      - status
+      - code
+      - severity
+      - release_blocking
+      properties:
+        check_id: {type: string, pattern: '^HC-[0-9]{6}$'}
+        manifest_source: {type: string, minLength: 1}
+        path: {type: string, minLength: 1}
+        algorithm: {type: string, minLength: 1}
+        expected_hash: {type: string}
+        actual_hash: {type: string}
+        status: {type: string, enum: [PASS, FAIL]}
+        code:
+          type: string
+          enum: [PASS, MISSING_FILE, MISSING_HASH, HASH_MISMATCH, DISALLOWED_ALGORITHM]
+        severity: {type: string, enum: [NONE, CRITICAL]}
+        release_blocking: {type: boolean}
+  status: {type: string, enum: [PASS, FAIL]}
+  severity: {type: string, enum: [NONE, CRITICAL]}
+  release_blocking: {type: boolean}
+  every_artifact_has_hash: {type: boolean}
+  hash_algorithm_allowed: {type: boolean}
+  all_digests_match: {type: boolean}
+  paths_internal: {type: boolean, const: true}
+  validation_evidence_status: {type: string, const: domain_oracle_pass_pending_independent_judge}
+  promotion_blocked: {type: boolean, const: true}
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

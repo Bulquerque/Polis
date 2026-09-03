@@ -1,0 +1,17 @@
+module_id: P7.S2.M02
+module_name: comparison_group_builder
+owner: FOUNDATION
+purpose: Build deterministic economic comparison groups and query IDs.
+inputs: [eligible_strategy_candidate_panel, comparison_group_policy]
+outputs: [candidate_comparison_group_panel, comparison_group_audit]
+failure_scope: MODULE_FATAL
+reason_codes:
+  - P7_COMPARISON_KEY_MISSING
+  - P7_COMPARISON_GROUP_POLICY_INVALID
+  - P7_CURRENCY_SCOPE_MISMATCH
+  - P7_HORIZON_UNSUPPORTED
+  - P7_CAPITAL_RISK_BUCKET_UNRESOLVED
+invariants:
+  - query_id_equals_comparison_group_id
+  - input_record_order_does_not_change_groups
+  - groups_use_only_frozen_dimensions

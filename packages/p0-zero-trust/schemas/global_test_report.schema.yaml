@@ -1,0 +1,90 @@
+schema_id: global_test_report.v1
+artifact_name: global_test_report
+schema_version: v14.1-rc4.1
+type: object
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- source_lineage_ids
+- phase_reported_test_health
+- independent_controls
+- critical_tests
+- critical_failed_tests
+- phase_count
+- phases
+- phase_pass_count
+- phase_fail_count
+- phase_partial_count
+- phase_not_run_count
+- critical_tests_classified
+- phase_status_computed
+- status
+- release_blocking
+properties:
+  created_at:
+    type: string
+  critical_failed_tests:
+    type: integer
+    minimum: 0
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  release_blocking:
+    type: boolean
+  artifact_id:
+    type: string
+    pattern: ^global-test-report-[0-9a-f]{12}$
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  source_lineage_ids:
+    type: array
+    minItems: 3
+  critical_tests:
+    type: integer
+    minimum: 1
+  phase_count:
+    type: integer
+    minimum: 10
+  phases:
+    type: array
+    minItems: 10
+  critical_tests_classified:
+    type: boolean
+    const: true
+  phase_status_computed:
+    type: boolean
+    const: true
+  phase_reported_test_health:
+    type: array
+    minItems: 10
+  independent_controls:
+    type: array
+    minItems: 2
+  phase_pass_count:
+    type: integer
+    minimum: 0
+  phase_fail_count:
+    type: integer
+    minimum: 0
+  phase_partial_count:
+    type: integer
+    minimum: 0
+  phase_not_run_count:
+    type: integer
+    minimum: 0
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

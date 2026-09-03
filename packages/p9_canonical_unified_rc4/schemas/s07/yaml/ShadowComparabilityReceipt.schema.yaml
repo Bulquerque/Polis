@@ -1,0 +1,43 @@
+additionalProperties: false
+properties:
+  comparable_cohort_count:
+    minimum: 0
+    title: Comparable Cohort Count
+    type: integer
+  incomplete_cohort_count:
+    minimum: 0
+    title: Incomplete Cohort Count
+    type: integer
+  policy_ids:
+    items:
+      minLength: 1
+      type: string
+    title: Policy Ids
+    type: array
+  common_snapshot_verified:
+    title: Common Snapshot Verified
+    type: boolean
+  isolation_verified:
+    title: Isolation Verified
+    type: boolean
+  reason_codes:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Reason Codes
+    type: array
+  receipt_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Receipt Sha256
+    type: string
+required:
+- comparable_cohort_count
+- incomplete_cohort_count
+- policy_ids
+- common_snapshot_verified
+- isolation_verified
+- receipt_sha256
+title: ShadowComparabilityReceipt
+type: object
+$id: urn:inferencia:p9:s7:ShadowComparabilityReceipt:1.0.0

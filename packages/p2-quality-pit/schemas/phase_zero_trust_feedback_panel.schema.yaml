@@ -1,0 +1,19 @@
+schema_id: phase_zero_trust_feedback_panel.v1
+artifact_name: phase_zero_trust_feedback_panel
+schema_version: v14.1-rc4.1
+required_fields:
+- phase_id
+- status
+- blocking_errors
+- warnings
+- required_actions
+- created_at
+forbidden_fields:
+- future_return
+- target
+- signal_direction
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision

@@ -1,0 +1,20 @@
+additionalProperties: false
+properties:
+  kind:
+    const: NORMAL
+    default: NORMAL
+    title: Kind
+    type: string
+  mean:
+    title: Mean
+    type: number
+  standard_deviation:
+    exclusiveMinimum: 0.0
+    title: Standard Deviation
+    type: number
+required:
+- mean
+- standard_deviation
+title: NormalForecast
+type: object
+$id: urn:inferencia:p9:s7:NormalForecast:1.0.0

@@ -1,0 +1,283 @@
+{
+  "$defs": {
+    "ConstraintCliff": {
+      "additionalProperties": false,
+      "properties": {
+        "constraint_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Constraint Ids",
+          "type": "array"
+        },
+        "factor_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "left_shock": {
+          "title": "Left Shock",
+          "type": "number"
+        },
+        "relative_jump": {
+          "minimum": 0.0,
+          "title": "Relative Jump",
+          "type": "number"
+        },
+        "right_shock": {
+          "title": "Right Shock",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "left_shock",
+        "right_shock",
+        "relative_jump",
+        "constraint_ids"
+      ],
+      "title": "ConstraintCliff",
+      "type": "object"
+    },
+    "FactorSensitivity": {
+      "additionalProperties": false,
+      "properties": {
+        "curvature": {
+          "title": "Curvature",
+          "type": "number"
+        },
+        "factor_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "local_gradient": {
+          "title": "Local Gradient",
+          "type": "number"
+        },
+        "main_effect_range": {
+          "minimum": 0.0,
+          "title": "Main Effect Range",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "local_gradient",
+        "curvature",
+        "main_effect_range"
+      ],
+      "title": "FactorSensitivity",
+      "type": "object"
+    },
+    "InteractionSensitivity": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id_left": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id Left",
+          "type": "string"
+        },
+        "factor_id_right": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id Right",
+          "type": "string"
+        },
+        "interaction_coefficient": {
+          "title": "Interaction Coefficient",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id_left",
+        "factor_id_right",
+        "interaction_coefficient"
+      ],
+      "title": "InteractionSensitivity",
+      "type": "object"
+    },
+    "S6State": {
+      "enum": [
+        "SUCCESS",
+        "COMMITTED",
+        "COMMITTED_WITH_COVERAGE_GAPS",
+        "DUPLICATE_REJECTED",
+        "SUCCESS_WITH_MAPPING_LIMITATIONS",
+        "MATERIAL_EXPOSURE_UNMAPPED",
+        "LOCAL_ONLY",
+        "EXTRAPOLATION_LIMITED",
+        "CONSTRAINT_DISCONTINUITY_FOUND",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EXCEEDANCES",
+        "UNSTABLE_TAIL_INDEX",
+        "THRESHOLD_NOT_IDENTIFIED",
+        "DEPENDENCE_NOT_REMOVED",
+        "AMBIGUITY_SET_UNINFORMATIVE",
+        "SOLVER_NOT_QUALIFIED",
+        "UNBOUNDED",
+        "CAPACITY_LIMITED",
+        "BORROW_LIMITED",
+        "MARGIN_FRAGILE",
+        "NETWORK_STRESS_RESEARCH_ONLY",
+        "INSUFFICIENT_LIQUIDITY_DATA",
+        "STRESS_RESILIENT",
+        "RESILIENT_WITH_LIMITATIONS",
+        "REVERSE_STRESS_TOO_CLOSE",
+        "STRUCTURALLY_UNSAFE",
+        "NO_FAILURE_WITHIN_DOMAIN",
+        "SEARCH_NOT_CONVERGED",
+        "VALIDATED",
+        "VALIDATED_WITH_LIMITATIONS",
+        "RESEARCH_ONLY",
+        "SCENARIO_INCOMPLETE",
+        "MODEL_NOT_FIT_FOR_STRESS",
+        "UNVALIDATED",
+        "CAPABILITY_UNAVAILABLE",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S6State",
+      "type": "string"
+    },
+    "SurfacePoint": {
+      "additionalProperties": false,
+      "properties": {
+        "breached_constraint_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Breached Constraint Ids",
+          "type": "array"
+        },
+        "extrapolated": {
+          "title": "Extrapolated",
+          "type": "boolean"
+        },
+        "output_value": {
+          "title": "Output Value",
+          "type": "number"
+        },
+        "shocks": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "minLength": 1,
+                "pattern": ".*\\S.*",
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Shocks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "shocks",
+        "output_value",
+        "extrapolated",
+        "breached_constraint_ids"
+      ],
+      "title": "SurfacePoint",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cliffs": {
+      "items": {
+        "$ref": "#/$defs/ConstraintCliff"
+      },
+      "title": "Cliffs",
+      "type": "array"
+    },
+    "evaluation_count": {
+      "minimum": 1,
+      "title": "Evaluation Count",
+      "type": "integer"
+    },
+    "extrapolated_point_fraction": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Extrapolated Point Fraction",
+      "type": "number"
+    },
+    "factor_sensitivities": {
+      "items": {
+        "$ref": "#/$defs/FactorSensitivity"
+      },
+      "title": "Factor Sensitivities",
+      "type": "array"
+    },
+    "interactions": {
+      "items": {
+        "$ref": "#/$defs/InteractionSensitivity"
+      },
+      "title": "Interactions",
+      "type": "array"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Model Id",
+      "type": "string"
+    },
+    "points": {
+      "items": {
+        "$ref": "#/$defs/SurfacePoint"
+      },
+      "title": "Points",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S6State"
+    }
+  },
+  "required": [
+    "status",
+    "model_id",
+    "points",
+    "factor_sensitivities",
+    "interactions",
+    "cliffs",
+    "evaluation_count",
+    "extrapolated_point_fraction"
+  ],
+  "title": "SensitivitySurfaceResult",
+  "type": "object"
+}

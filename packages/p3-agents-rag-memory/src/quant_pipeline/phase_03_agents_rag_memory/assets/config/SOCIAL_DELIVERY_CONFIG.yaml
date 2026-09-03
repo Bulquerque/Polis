@@ -1,0 +1,4 @@
+max_messages_per_person_cycle: 5
+latency_model: relationship_and_channel_based
+undelivered_preserved: true
+social_events_target_cycle: N_plus_1

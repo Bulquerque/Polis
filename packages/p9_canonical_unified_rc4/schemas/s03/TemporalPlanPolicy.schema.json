@@ -1,0 +1,116 @@
+{
+  "$defs": {
+    "DurationSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "seconds": {
+          "minimum": 0,
+          "title": "Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "seconds"
+      ],
+      "title": "DurationSpec",
+      "type": "object"
+    },
+    "TimeWindow": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "format": "date-time",
+          "title": "End",
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "title": "Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "title": "TimeWindow",
+      "type": "object"
+    },
+    "WindowMode": {
+      "enum": [
+        "EXPANDING",
+        "ROLLING"
+      ],
+      "title": "WindowMode",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/TemporalPlanPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allow_overlapping_test_windows": {
+      "default": false,
+      "title": "Allow Overlapping Test Windows",
+      "type": "boolean"
+    },
+    "dataset_window": {
+      "$ref": "#/$defs/TimeWindow"
+    },
+    "embargo": {
+      "$ref": "#/$defs/DurationSpec"
+    },
+    "holdout": {
+      "$ref": "#/$defs/DurationSpec"
+    },
+    "initial_train": {
+      "$ref": "#/$defs/DurationSpec"
+    },
+    "max_train": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DurationSpec"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "minimum_outer_folds": {
+      "default": 2,
+      "minimum": 1,
+      "title": "Minimum Outer Folds",
+      "type": "integer"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "step": {
+      "$ref": "#/$defs/DurationSpec"
+    },
+    "test": {
+      "$ref": "#/$defs/DurationSpec"
+    },
+    "tuning": {
+      "$ref": "#/$defs/DurationSpec"
+    },
+    "window_mode": {
+      "$ref": "#/$defs/WindowMode",
+      "default": "EXPANDING"
+    }
+  },
+  "required": [
+    "policy_id",
+    "dataset_window",
+    "initial_train",
+    "tuning",
+    "test",
+    "step",
+    "embargo",
+    "holdout"
+  ],
+  "title": "TemporalPlanPolicy",
+  "type": "object"
+}

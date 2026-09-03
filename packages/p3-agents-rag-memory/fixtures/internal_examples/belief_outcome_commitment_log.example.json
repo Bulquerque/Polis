@@ -1,0 +1,14 @@
+{
+  "commitment_id": "bc-001",
+  "person_id": "PERSON_017",
+  "subject": "NVDA",
+  "proposition": "growth_above_expectations",
+  "direction": "positive",
+  "strength": 0.73,
+  "confidence": 0.64,
+  "horizon": "30d",
+  "committed_at": "2024-01-05T15:00:00Z",
+  "matures_at": "2024-02-04T15:00:00Z",
+  "commit_hash": "sha256:example",
+  "lineage_id": "lin-belief-001"
+}

@@ -1,0 +1,291 @@
+$defs:
+  FactorWeights:
+    additionalProperties: false
+    properties:
+      relevance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Relevance
+        type: number
+      recency:
+        maximum: 1.0
+        minimum: 0.0
+        title: Recency
+        type: number
+      importance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Importance
+        type: number
+      repetition:
+        maximum: 1.0
+        minimum: 0.0
+        title: Repetition
+        type: number
+      significance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Significance
+        type: number
+    required:
+    - relevance
+    - recency
+    - importance
+    - repetition
+    - significance
+    title: FactorWeights
+    type: object
+  FutureRecordPolicy:
+    enum:
+    - EXCLUDE_AND_REPORT
+    - BLOCK
+    title: FutureRecordPolicy
+    type: string
+  MemoryType:
+    enum:
+    - EPISODIC
+    - SEMANTIC
+    - PROCEDURAL
+    - SOCIAL
+    title: MemoryType
+    type: string
+  RetrievalBudget:
+    additionalProperties: false
+    properties:
+      top_k_default:
+        exclusiveMinimum: 0
+        title: Top K Default
+        type: integer
+      top_k_min:
+        exclusiveMinimum: 0
+        title: Top K Min
+        type: integer
+      top_k_max:
+        exclusiveMinimum: 0
+        title: Top K Max
+        type: integer
+      max_context_tokens:
+        exclusiveMinimum: 0
+        title: Max Context Tokens
+        type: integer
+      max_per_source:
+        exclusiveMinimum: 0
+        title: Max Per Source
+        type: integer
+      max_social_visible:
+        minimum: 0
+        title: Max Social Visible
+        type: integer
+    required:
+    - top_k_default
+    - top_k_min
+    - top_k_max
+    - max_context_tokens
+    - max_per_source
+    - max_social_visible
+    title: RetrievalBudget
+    type: object
+  ScopePolicy:
+    additionalProperties: false
+    properties:
+      visibility_scope:
+        $ref: '#/$defs/VisibilityScope'
+      retrievable:
+        title: Retrievable
+        type: boolean
+      requires_relationship:
+        title: Requires Relationship
+        type: boolean
+      audit_only:
+        title: Audit Only
+        type: boolean
+    required:
+    - visibility_scope
+    - retrievable
+    - requires_relationship
+    - audit_only
+    title: ScopePolicy
+    type: object
+  ScoreFormula:
+    additionalProperties: false
+    properties:
+      formula_id:
+        minLength: 1
+        title: Formula Id
+        type: string
+      formula_version:
+        minLength: 1
+        title: Formula Version
+        type: string
+      factors:
+        items:
+          minLength: 1
+          type: string
+        title: Factors
+        type: array
+      weights:
+        $ref: '#/$defs/FactorWeights'
+      recency_decay:
+        const: EXPONENTIAL_HALF_LIFE
+        default: EXPONENTIAL_HALF_LIFE
+        title: Recency Decay
+        type: string
+    required:
+    - formula_id
+    - formula_version
+    - factors
+    - weights
+    title: ScoreFormula
+    type: object
+  TemporalMemoryPolicy:
+    additionalProperties: false
+    properties:
+      pit_filter_required:
+        const: true
+        default: true
+        title: Pit Filter Required
+        type: boolean
+      same_cycle_back_edge_forbidden:
+        const: true
+        default: true
+        title: Same Cycle Back Edge Forbidden
+        type: boolean
+      future_record_policy:
+        $ref: '#/$defs/FutureRecordPolicy'
+    required:
+    - future_record_policy
+    title: TemporalMemoryPolicy
+    type: object
+  TypePolicy:
+    additionalProperties: false
+    properties:
+      memory_type:
+        $ref: '#/$defs/MemoryType'
+      enabled:
+        title: Enabled
+        type: boolean
+      half_life_days:
+        exclusiveMinimum: 0
+        title: Half Life Days
+        type: integer
+      max_per_query:
+        minimum: 0
+        title: Max Per Query
+        type: integer
+    required:
+    - memory_type
+    - enabled
+    - half_life_days
+    - max_per_query
+    title: TypePolicy
+    type: object
+  VisibilityScope:
+    enum:
+    - SELF
+    - SOCIAL_VISIBLE
+    - PUBLIC
+    - AUDIT_ONLY
+    title: VisibilityScope
+    type: string
+additionalProperties: false
+properties:
+  schema_id:
+    const: memory_access_policy.v2
+    default: memory_access_policy.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    default: 2.0.0
+    title: Schema Version
+    type: string
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  module_id:
+    const: P3.S14.M01
+    default: P3.S14.M01
+    title: Module Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  snapshot_id:
+    minLength: 1
+    title: Snapshot Id
+    type: string
+  as_of_time:
+    format: date-time
+    title: As Of Time
+    type: string
+  policy_id:
+    minLength: 1
+    title: Policy Id
+    type: string
+  policy_version:
+    minLength: 1
+    title: Policy Version
+    type: string
+  person_schema_policy_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Person Schema Policy Hash
+    type: string
+  score_formula:
+    $ref: '#/$defs/ScoreFormula'
+  budgets:
+    $ref: '#/$defs/RetrievalBudget'
+  type_policies:
+    items:
+      $ref: '#/$defs/TypePolicy'
+    title: Type Policies
+    type: array
+  scope_policies:
+    items:
+      $ref: '#/$defs/ScopePolicy'
+    title: Scope Policies
+    type: array
+  temporal_policy:
+    $ref: '#/$defs/TemporalMemoryPolicy'
+  audit_memory_separate:
+    const: true
+    default: true
+    title: Audit Memory Separate
+    type: boolean
+  status:
+    const: READY
+    default: READY
+    title: Status
+    type: string
+  content_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Hash
+    type: string
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+required:
+- artifact_id
+- run_id
+- snapshot_id
+- as_of_time
+- policy_id
+- policy_version
+- person_schema_policy_hash
+- score_formula
+- budgets
+- type_policies
+- scope_policies
+- temporal_policy
+- content_hash
+- lineage_id
+title: MemoryAccessPolicy
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+status: implemented_unqualified
+schema_owner: P3.S14
+artifact_name: memory_access_policy
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

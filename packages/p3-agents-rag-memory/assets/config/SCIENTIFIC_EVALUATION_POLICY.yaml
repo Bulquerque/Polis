@@ -1,0 +1,15 @@
+policy_id: P3_SCIENTIFIC_EVALUATION_V1
+version: 1.0.0
+variants:
+  - SEARCH_RAG
+  - SINGLE_AGENT
+  - SOCIETY_NO_RELATIONS
+  - SOCIETY_NO_MEMORY
+  - SOCIETY_NO_TOOLS
+  - FULL_SOCIETY
+paired_by: [fold_id, seed]
+confidence_level: 0.95
+multiple_testing: HOLM
+guardrails: [pit_integrity, authority_integrity, max_drawdown, cost, latency]
+promotion_authority: P0_P9_EXTERNAL_ONLY
+p3_self_promotion_forbidden: true

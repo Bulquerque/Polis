@@ -1,0 +1,19 @@
+contract_id: p7_s3_inputs_v1
+producer: FOUNDATION
+consumer: TOURNAMENT_P7_S3
+required_inputs:
+  - runtime_foundation_handoff_manifest
+  - eligible_strategy_candidate_panel
+  - candidate_comparison_group_panel
+  - candidate_metric_source_panel
+  - ranking_policy_context
+  - runtime_foundation_audit_report
+optional_inputs:
+  - option_factor_model_artifact
+invariants:
+  - common run_id, cycle_id and decision_time
+  - content hashes validate
+  - candidate identities reconcile exactly with comparison groups
+  - comparison groups are frozen by Foundation
+  - no outcome or future fields
+  - input available_at is not after decision_time

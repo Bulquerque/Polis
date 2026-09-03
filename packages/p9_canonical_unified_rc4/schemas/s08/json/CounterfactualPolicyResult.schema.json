@@ -1,0 +1,196 @@
+{
+  "$defs": {
+    "AttributionQuality": {
+      "enum": [
+        "QUALIFIED",
+        "LIMITED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_IDENTIFIABLE",
+        "INVALID"
+      ],
+      "title": "AttributionQuality",
+      "type": "string"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "OverlapDiagnostics": {
+      "additionalProperties": false,
+      "properties": {
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "supported_observation_count": {
+          "minimum": 0,
+          "title": "Supported Observation Count",
+          "type": "integer"
+        },
+        "minimum_logging_propensity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Logging Propensity"
+        },
+        "maximum_importance_weight": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum Importance Weight"
+        },
+        "effective_sample_size": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective Sample Size"
+        },
+        "support_qualified": {
+          "title": "Support Qualified",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "observation_count",
+        "supported_observation_count",
+        "support_qualified"
+      ],
+      "title": "OverlapDiagnostics",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "factual_mean_reward": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Factual Mean Reward"
+    },
+    "ips_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Ips Value"
+    },
+    "snips_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Snips Value"
+    },
+    "doubly_robust_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Doubly Robust Value"
+    },
+    "direct_model_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Direct Model Value"
+    },
+    "opportunity_cost_vs_factual": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Opportunity Cost Vs Factual"
+    },
+    "overlap": {
+      "$ref": "#/$defs/OverlapDiagnostics"
+    },
+    "quality": {
+      "$ref": "#/$defs/AttributionQuality"
+    },
+    "evidence_class": {
+      "$ref": "#/$defs/EvidenceClass"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "result_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Result Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "factual_mean_reward",
+    "ips_value",
+    "snips_value",
+    "doubly_robust_value",
+    "direct_model_value",
+    "opportunity_cost_vs_factual",
+    "overlap",
+    "quality",
+    "evidence_class",
+    "reason_codes",
+    "result_sha256"
+  ],
+  "title": "CounterfactualPolicyResult",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:CounterfactualPolicyResult:1.0.0"
+}

@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0.0",
+  "subphase": "P9.S9",
+  "modules": [
+    {
+      "module_id": "P9.S9.M01",
+      "name": "competition_objective_policy_builder",
+      "input": [
+        "CompetitionObjectiveSpec"
+      ],
+      "output": [
+        "CompetitionObjectivePolicy"
+      ],
+      "depends_on": [],
+      "hard_invariants": [
+        "policy committed before evaluation",
+        "hard gates non-compensable"
+      ]
+    },
+    {
+      "module_id": "P9.S9.M02",
+      "name": "robust_configuration_frontier_and_parameter_region_builder",
+      "input": [
+        "CompetitionObjectivePolicy",
+        "ConfigurationEvaluationCard",
+        "ParameterSpaceRegistry",
+        "ModelConfidenceSet"
+      ],
+      "output": [
+        "RobustConfigurationFrontier"
+      ],
+      "depends_on": [
+        "P9.S9.M01"
+      ],
+      "hard_invariants": [
+        "cohort-local comparison",
+        "dominated configurations preserved",
+        "parameter plateaus use non-dominated configurations"
+      ]
+    },
+    {
+      "module_id": "P9.S9.M03",
+      "name": "leaderboard_information_budget_and_contamination_controller",
+      "input": [
+        "SubmissionRecord",
+        "LeaderboardPolicy"
+      ],
+      "output": [
+        "LeaderboardInformationBudgetReport",
+        "SubmissionEligibilityReceipt"
+      ],
+      "depends_on": [],
+      "hard_invariants": [
+        "append-only history",
+        "public score not a fold",
+        "private score forbidden"
+      ]
+    },
+    {
+      "module_id": "P9.S9.M04",
+      "name": "champion_challenger_qualification_engine",
+      "input": [
+        "CompetitionObjectivePolicy",
+        "RobustConfigurationFrontier",
+        "LeaderboardInformationBudgetReport",
+        "PairwiseComparisonEvidence"
+      ],
+      "output": [
+        "ChampionChallengerQualificationReport"
+      ],
+      "depends_on": [
+        "P9.S9.M01",
+        "P9.S9.M02",
+        "P9.S9.M03"
+      ],
+      "hard_invariants": [
+        "same cohort",
+        "paired evidence",
+        "live degradation dominates historical gain"
+      ]
+    },
+    {
+      "module_id": "P9.S9.M05",
+      "name": "promotion_evidence_aggregator_and_recommendation_builder",
+      "input": [
+        "CompetitionObjectivePolicy",
+        "ChampionChallengerQualificationReport",
+        "PromotionGateReceipt"
+      ],
+      "output": [
+        "PromotionModuleOutput"
+      ],
+      "depends_on": [
+        "P9.S9.M01",
+        "P9.S9.M04"
+      ],
+      "hard_invariants": [
+        "P9 never authorizes",
+        "missing hard gate means insufficient evidence"
+      ]
+    },
+    {
+      "module_id": "P9.S9.M06",
+      "name": "typed_p5_p6_p7_p8_feedback_builder",
+      "input": [
+        "RootCauseEvidence",
+        "FeedbackPolicyRegistry",
+        "FeedbackEffectivenessRecord"
+      ],
+      "output": [
+        "FeedbackCandidateManifest"
+      ],
+      "depends_on": [
+        "P9.S9.M05"
+      ],
+      "hard_invariants": [
+        "one phase per feedback",
+        "target cycle after source",
+        "no direct patch"
+      ]
+    },
+    {
+      "module_id": "P9.S9.M07",
+      "name": "feedback_compatibility_next_cycle_activation_gate",
+      "input": [
+        "FeedbackCandidateManifest",
+        "TargetCapabilitySnapshot",
+        "FeedbackActivationLedgerEntry"
+      ],
+      "output": [
+        "FeedbackActivationGateOutput"
+      ],
+      "depends_on": [
+        "P9.S9.M06"
+      ],
+      "hard_invariants": [
+        "no activation",
+        "exactly once",
+        "atomic groups are all-or-none"
+      ]
+    }
+  ]
+}

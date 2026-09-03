@@ -1,0 +1,101 @@
+"""Public contract surface for the P3.S35 corpus tool suite.
+
+The implementation keeps contracts split by concern, while this module exposes
+one stable import surface for module wrappers, S40 and consumer tests.
+"""
+
+from .index_contracts import (
+    CapabilityReadiness,
+    CorpusArtifactRef,
+    CorpusIndexReadinessReport,
+    CorpusIndexSnapshot,
+    CorpusInternalWorkBudget,
+    CorpusRetrievalPolicy,
+    ModePolicy,
+)
+from .qualification_contracts import (
+    CorpusOperationQualificationPanel,
+    CorpusToolReadinessReport,
+    HandlerBundleManifest,
+    HandlerSpec,
+    OperationModeQualification,
+)
+from .request_contracts import (
+    BuildTimelineRequest,
+    CompareVersionsRequest,
+    CorpusFilter,
+    CorpusToolCallContext,
+    FindCounterevidenceRequest,
+    GetDocumentRequest,
+    InspectProvenanceRequest,
+    SearchCorpusRequest,
+)
+from .result_contracts import (
+    CorpusEvidenceRef,
+    CorpusToolResultEnvelope,
+    CounterevidenceHit,
+    CoverageReport,
+    DocumentResult,
+    ExecutionReport,
+    PitQueryProof,
+    ProvenanceEdge,
+    ProvenanceNode,
+    ProvenanceResult,
+    SearchHit,
+    TimelineEvent,
+    VersionComparisonResult,
+    VersionDifference,
+)
+from .types import (
+    CapabilityStatus,
+    ContentMode,
+    CorpusMode,
+    EvidenceDirection,
+    OutcomeStatus,
+    QualificationStatus,
+    RelationCertainty,
+)
+
+__all__ = [
+    "BuildTimelineRequest",
+    "CapabilityReadiness",
+    "CapabilityStatus",
+    "CompareVersionsRequest",
+    "ContentMode",
+    "CorpusArtifactRef",
+    "CorpusEvidenceRef",
+    "CorpusFilter",
+    "CorpusIndexReadinessReport",
+    "CorpusIndexSnapshot",
+    "CorpusInternalWorkBudget",
+    "CorpusMode",
+    "CorpusOperationQualificationPanel",
+    "CorpusRetrievalPolicy",
+    "CorpusToolCallContext",
+    "CorpusToolReadinessReport",
+    "CorpusToolResultEnvelope",
+    "CounterevidenceHit",
+    "CoverageReport",
+    "DocumentResult",
+    "EvidenceDirection",
+    "ExecutionReport",
+    "FindCounterevidenceRequest",
+    "GetDocumentRequest",
+    "HandlerBundleManifest",
+    "HandlerSpec",
+    "InspectProvenanceRequest",
+    "ModePolicy",
+    "OperationModeQualification",
+    "OutcomeStatus",
+    "PitQueryProof",
+    "ProvenanceEdge",
+    "ProvenanceNode",
+    "ProvenanceResult",
+    "QualificationStatus",
+    "RelationCertainty",
+    "SearchCorpusRequest",
+    "SearchHit",
+    "TimelineEvent",
+    "VersionComparisonResult",
+    "VersionDifference",
+]

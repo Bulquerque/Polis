@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "ModuleStatus": {
+      "enum": [
+        "SUCCESS",
+        "LIMITED",
+        "UNAVAILABLE",
+        "INSUFFICIENT_EVIDENCE",
+        "INVALID",
+        "FAILED",
+        "SKIPPED_UPSTREAM_BLOCKED"
+      ],
+      "title": "ModuleStatus",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "completed_at": {
+      "format": "date-time",
+      "title": "Completed At",
+      "type": "string"
+    },
+    "implementation_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Implementation Sha256",
+      "type": "string"
+    },
+    "input_artifact_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Input Artifact Ids",
+      "type": "array"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "module_id": {
+      "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+      "title": "Module Id",
+      "type": "string"
+    },
+    "output_artifact_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Output Artifact Ids",
+      "type": "array"
+    },
+    "policy_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Policy Sha256",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/ModuleStatus"
+    }
+  },
+  "required": [
+    "module_id",
+    "status",
+    "started_at",
+    "completed_at",
+    "implementation_sha256",
+    "policy_sha256"
+  ],
+  "title": "ModuleExecutionReceiptPayload",
+  "type": "object"
+}

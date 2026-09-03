@@ -1,0 +1,83 @@
+$defs:
+  InitialSocialEdge:
+    additionalProperties: false
+    properties:
+      edge_id:
+        minLength: 1
+        title: Edge Id
+        type: string
+      source_person_id:
+        minLength: 1
+        title: Source Person Id
+        type: string
+      target_person_id:
+        minLength: 1
+        title: Target Person Id
+        type: string
+      relationship_type:
+        minLength: 1
+        title: Relationship Type
+        type: string
+    required:
+    - edge_id
+    - source_person_id
+    - target_person_id
+    - relationship_type
+    title: InitialSocialEdge
+    type: object
+additionalProperties: false
+properties:
+  schema_id:
+    const: validated_initial_social_graph.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    title: Schema Version
+    type: string
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  snapshot_id:
+    minLength: 1
+    title: Snapshot Id
+    type: string
+  population_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Population Hash
+    type: string
+  graph_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Graph Hash
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/InitialSocialEdge'
+    title: Records
+    type: array
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+required:
+- schema_id
+- schema_version
+- artifact_id
+- run_id
+- snapshot_id
+- population_hash
+- graph_hash
+- records
+- lineage_id
+title: InitialSocialGraphView
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: validated_initial_social_graph_s11_view
+schema_id: validated_initial_social_graph.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

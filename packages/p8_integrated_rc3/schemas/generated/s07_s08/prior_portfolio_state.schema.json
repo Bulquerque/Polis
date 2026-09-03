@@ -1,0 +1,335 @@
+{
+  "$defs": {
+    "CurrencyAccountState": {
+      "additionalProperties": false,
+      "properties": {
+        "cash_available": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cash Available"
+        },
+        "collateral_restricted": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Collateral Restricted"
+        },
+        "currency": {
+          "minLength": 1,
+          "title": "Currency",
+          "type": "string"
+        },
+        "liabilities": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Liabilities"
+        },
+        "margin_used": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Margin Used"
+        }
+      },
+      "required": [
+        "currency",
+        "cash_available"
+      ],
+      "title": "CurrencyAccountState",
+      "type": "object"
+    },
+    "EquityPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Nav"
+        }
+      },
+      "required": [
+        "as_of_time",
+        "nav"
+      ],
+      "title": "EquityPoint",
+      "type": "object"
+    },
+    "PriorPhysicalPosition": {
+      "additionalProperties": false,
+      "properties": {
+        "average_entry_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Average Entry Price"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "opened_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Opened At"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "signed_cost_basis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Cost Basis"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "quantity",
+        "signed_cost_basis",
+        "average_entry_price",
+        "opened_at"
+      ],
+      "title": "PriorPhysicalPosition",
+      "type": "object"
+    },
+    "PriorVirtualPosition": {
+      "additionalProperties": false,
+      "properties": {
+        "average_entry_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Average Entry Price"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "opened_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Opened At"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "signed_cost_basis": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Cost Basis"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "instrument_id",
+        "quantity",
+        "signed_cost_basis",
+        "average_entry_price",
+        "opened_at"
+      ],
+      "title": "PriorVirtualPosition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "accounts": {
+      "items": {
+        "$ref": "#/$defs/CurrencyAccountState"
+      },
+      "title": "Accounts",
+      "type": "array"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "equity_curve": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/EquityPoint"
+      },
+      "title": "Equity Curve",
+      "type": "array"
+    },
+    "functional_currency": {
+      "minLength": 1,
+      "title": "Functional Currency",
+      "type": "string"
+    },
+    "last_event_offsets": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Last Event Offsets",
+      "type": "object"
+    },
+    "net_external_flow_since_open": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Net External Flow Since Open"
+    },
+    "opening_nav_functional": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Opening Nav Functional"
+    },
+    "physical_positions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/PriorPhysicalPosition"
+      },
+      "title": "Physical Positions",
+      "type": "array"
+    },
+    "state_id": {
+      "minLength": 1,
+      "title": "State Id",
+      "type": "string"
+    },
+    "virtual_positions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/PriorVirtualPosition"
+      },
+      "title": "Virtual Positions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "state_id",
+    "as_of_time",
+    "accounts",
+    "opening_nav_functional",
+    "functional_currency"
+  ],
+  "title": "PriorPortfolioState",
+  "type": "object"
+}

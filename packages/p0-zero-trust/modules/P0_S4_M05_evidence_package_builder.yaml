@@ -1,0 +1,45 @@
+module_id: P0.S4.M05
+module_name: evidence_package_builder
+function: Construir um pacote Zero Trust content-addressed de evidências obrigatórias
+  e opcionais, com categorias, completude, rastreabilidade e policy versionada.
+inputs: &id001
+- global_test_report
+- hash_integrity_report
+- lineage_integrity_report
+- code_quality_report
+outputs: &id002
+- zero_trust_evidence_package
+validations:
+- evidence_complete
+- release_evidence_traceable
+- evidence_policy_applied
+fail_fast_conditions:
+- evidence_package_builder_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S3.M01
+    - P0.S3.M02
+    - P0.S4.M04
+    - P0.S5.M06
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S6.M03
+    - P0.S8.M02
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S4
+rc: RC4.1
+notes: Default required evidence remains backward-compatible. Extended audit evidence
+  can be supplied without changing the public required-input contract.

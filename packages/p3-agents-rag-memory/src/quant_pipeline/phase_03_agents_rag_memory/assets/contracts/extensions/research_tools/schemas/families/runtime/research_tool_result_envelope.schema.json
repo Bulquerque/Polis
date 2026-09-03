@@ -1,0 +1,454 @@
+{
+  "$defs": {
+    "CoverageReport": {
+      "additionalProperties": false,
+      "properties": {
+        "missing_requirements": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Missing Requirements",
+          "type": "array"
+        },
+        "observations_rejected_future": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Observations Rejected Future",
+          "type": "integer"
+        },
+        "observations_rejected_quality": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Observations Rejected Quality",
+          "type": "integer"
+        },
+        "observations_requested": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Observations Requested",
+          "type": "integer"
+        },
+        "observations_used": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Observations Used",
+          "type": "integer"
+        },
+        "score": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Score",
+          "type": "number"
+        }
+      },
+      "required": [
+        "score"
+      ],
+      "title": "CoverageReport",
+      "type": "object"
+    },
+    "ExecutionReport": {
+      "additionalProperties": false,
+      "properties": {
+        "cost_units": {
+          "minimum": 0.0,
+          "title": "Cost Units",
+          "type": "number"
+        },
+        "deterministic_or_seeded": {
+          "title": "Deterministic Or Seeded",
+          "type": "boolean"
+        },
+        "execution_id": {
+          "minLength": 1,
+          "title": "Execution Id",
+          "type": "string"
+        },
+        "latency_ms": {
+          "minimum": 0.0,
+          "title": "Latency Ms",
+          "type": "number"
+        },
+        "provider_id": {
+          "minLength": 1,
+          "title": "Provider Id",
+          "type": "string"
+        },
+        "request_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Request Hash",
+          "type": "string"
+        },
+        "response_hash": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Response Hash"
+        },
+        "trace_id": {
+          "minLength": 1,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "execution_id",
+        "provider_id",
+        "latency_ms",
+        "cost_units",
+        "deterministic_or_seeded",
+        "request_hash",
+        "trace_id"
+      ],
+      "title": "ExecutionReport",
+      "type": "object"
+    },
+    "OutcomeStatus": {
+      "enum": [
+        "PASS",
+        "EMPTY_VALID",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM"
+      ],
+      "title": "OutcomeStatus",
+      "type": "string"
+    },
+    "PitProof": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "input_hashes": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "title": "Input Hashes",
+          "type": "array"
+        },
+        "latest_available_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latest Available At"
+        },
+        "p1_snapshot_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P1 Snapshot Id"
+        },
+        "p2_snapshot_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P2 Snapshot Id"
+        },
+        "proof_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Proof Hash",
+          "type": "string"
+        },
+        "records_rejected_future": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Records Rejected Future",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "decision_time",
+        "proof_hash"
+      ],
+      "title": "PitProof",
+      "type": "object"
+    },
+    "ProvenanceEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "p1_raw_artifact_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P1 Raw Artifact Id"
+        },
+        "p2_artifact_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P2 Artifact Id"
+        },
+        "p2_lineage_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P2 Lineage Id"
+        },
+        "p2_record_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P2 Record Id"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "source_quality": {
+          "default": 1.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Source Quality",
+          "type": "number"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "source_id",
+        "available_at",
+        "content_hash"
+      ],
+      "title": "ProvenanceEvidence",
+      "type": "object"
+    },
+    "ProvenanceReport": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/ProvenanceEvidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "lineage_complete": {
+          "title": "Lineage Complete",
+          "type": "boolean"
+        },
+        "provenance_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Provenance Hash",
+          "type": "string"
+        },
+        "source_count": {
+          "minimum": 0,
+          "title": "Source Count",
+          "type": "integer"
+        },
+        "source_families": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Families",
+          "type": "array"
+        }
+      },
+      "required": [
+        "evidence",
+        "source_families",
+        "source_count",
+        "lineage_complete",
+        "provenance_hash"
+      ],
+      "title": "ProvenanceReport",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_payload_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Canonical Payload Hash",
+      "type": "string"
+    },
+    "cognition_transaction_id": {
+      "minLength": 1,
+      "title": "Cognition Transaction Id",
+      "type": "string"
+    },
+    "coverage": {
+      "$ref": "#/$defs/CoverageReport"
+    },
+    "downgrade_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Downgrade Reason"
+    },
+    "envelope_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Envelope Hash",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "executed_mode": {
+      "minLength": 1,
+      "title": "Executed Mode",
+      "type": "string"
+    },
+    "execution": {
+      "$ref": "#/$defs/ExecutionReport"
+    },
+    "execution_id": {
+      "minLength": 1,
+      "title": "Execution Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "outcome_status": {
+      "$ref": "#/$defs/OutcomeStatus"
+    },
+    "person_id": {
+      "minLength": 1,
+      "title": "Person Id",
+      "type": "string"
+    },
+    "pit_proof": {
+      "$ref": "#/$defs/PitProof"
+    },
+    "provenance": {
+      "$ref": "#/$defs/ProvenanceReport"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "request_id": {
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "requested_mode": {
+      "minLength": 1,
+      "title": "Requested Mode",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "p3.s40.v1",
+      "default": "p3.s40.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "tool_id": {
+      "minLength": 1,
+      "title": "Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "execution_id",
+    "request_id",
+    "cognition_transaction_id",
+    "person_id",
+    "tool_id",
+    "operation_id",
+    "outcome_status",
+    "requested_mode",
+    "executed_mode",
+    "canonical_payload_hash",
+    "evidence_refs",
+    "coverage",
+    "provenance",
+    "pit_proof",
+    "execution",
+    "envelope_hash"
+  ],
+  "title": "ResearchToolResultEnvelope",
+  "type": "object"
+}

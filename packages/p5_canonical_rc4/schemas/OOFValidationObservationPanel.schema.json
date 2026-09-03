@@ -1,0 +1,144 @@
+{
+  "$defs": {
+    "OOFValidationObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "fold_id": {
+          "default": "fold-000",
+          "minLength": 1,
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "observation_id": {
+          "minLength": 1,
+          "title": "Observation Id",
+          "type": "string"
+        },
+        "partition_id": {
+          "enum": [
+            "VALIDATION",
+            "CALIBRATION"
+          ],
+          "title": "Partition Id",
+          "type": "string"
+        },
+        "prediction": {
+          "title": "Prediction",
+          "type": "number"
+        },
+        "prediction_timestamp": {
+          "format": "date-time",
+          "title": "Prediction Timestamp",
+          "type": "string"
+        },
+        "q05": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Q05"
+        },
+        "q95": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Q95"
+        },
+        "realized": {
+          "title": "Realized",
+          "type": "number"
+        },
+        "regime_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Regime Label"
+        },
+        "resolver_family": {
+          "minLength": 1,
+          "title": "Resolver Family",
+          "type": "string"
+        },
+        "resolver_id": {
+          "minLength": 1,
+          "title": "Resolver Id",
+          "type": "string"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "underlying": {
+          "minLength": 1,
+          "title": "Underlying",
+          "type": "string"
+        },
+        "unit": {
+          "default": "decimal_return",
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observation_id",
+        "resolver_id",
+        "resolver_family",
+        "underlying",
+        "target_id",
+        "horizon",
+        "prediction_timestamp",
+        "prediction",
+        "realized",
+        "partition_id",
+        "lineage_id"
+      ],
+      "title": "OOFValidationObservation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "records": {
+      "items": {
+        "$ref": "#/$defs/OOFValidationObservation"
+      },
+      "minItems": 1,
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "required": [
+    "records"
+  ],
+  "title": "OOFValidationObservationPanel",
+  "type": "object"
+}

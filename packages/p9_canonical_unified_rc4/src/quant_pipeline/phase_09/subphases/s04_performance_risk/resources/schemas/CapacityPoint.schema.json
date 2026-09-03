@@ -1,0 +1,46 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/CapacityPoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aum_multiplier": {
+      "exclusiveMinimum": 0,
+      "title": "Aum Multiplier",
+      "type": "number"
+    },
+    "estimated_impact_fraction": {
+      "minimum": 0,
+      "title": "Estimated Impact Fraction",
+      "type": "number"
+    },
+    "estimated_net_return_after_impact": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Estimated Net Return After Impact"
+    },
+    "maximum_participation_fraction": {
+      "minimum": 0,
+      "title": "Maximum Participation Fraction",
+      "type": "number"
+    },
+    "status": {
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "aum_multiplier",
+    "estimated_impact_fraction",
+    "estimated_net_return_after_impact",
+    "maximum_participation_fraction",
+    "status"
+  ],
+  "title": "CapacityPoint",
+  "type": "object"
+}

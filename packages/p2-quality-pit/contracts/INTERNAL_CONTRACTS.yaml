@@ -1,0 +1,18 @@
+phase: phase_02_quality_pit
+module_count: 14
+modules:
+- P2.S1.M01
+- P2.S1.M02
+- P2.S1.M03
+- P2.S2.M01
+- P2.S2.M02
+- P2.S3.M01
+- P2.S3.M02
+- P2.S3.M03
+- P2.S4.M01
+- P2.S4.M02
+- P2.S4.M03
+- P2.S5.M01
+- P2.S6.M01
+- P2.S6.M02
+rc3_1_corrections: subphase relations and module IO audited across Rodadas 1–3

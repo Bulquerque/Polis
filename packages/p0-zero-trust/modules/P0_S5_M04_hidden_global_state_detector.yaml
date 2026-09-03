@@ -1,0 +1,38 @@
+module_id: P0.S5.M04
+module_name: hidden_global_state_detector
+function: Executar hidden global state detector da Fase 0, mantendo controle Zero
+  Trust técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- source_tree_manifest
+- code_quality_policy_yaml
+outputs: &id002
+- hidden_global_state_report
+validations:
+- no_mutable_global_state
+- no_hardcoded_secret_path
+fail_fast_conditions:
+- hidden_global_state_detector_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - source_tree_manifest
+    - code_quality_policy_yaml
+  emits_to:
+    modules:
+    - P0.S5.M06
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S5
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

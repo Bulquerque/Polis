@@ -1,0 +1,48 @@
+module_id: P1.S2.M01
+module_name: source_capture_orchestrator
+phase: phase_01_ingestion
+subphase: P1.S2
+rc: RC4.1
+function: Transformar plano de captura em tarefas explícitas e rastreáveis.
+inputs: &id001
+- source_capture_plan
+outputs: &id002
+- capture_task_manifest
+validations:
+- capture_task_has_source_id
+- task_lineage_declared
+fail_fast_conditions:
+- source_capture_orchestrator_schema_violation
+- source_capture_orchestrator_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P1.S1.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P1.S2.M02
+    - P1.S2.M03
+    - P1.S2.M04
+    - P1.S2.M05
+    - P1.S2.M06
+    - P1.S5.M01
+    - P1.S5.M03
+    artifacts: *id002
+    phase_outputs: []
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

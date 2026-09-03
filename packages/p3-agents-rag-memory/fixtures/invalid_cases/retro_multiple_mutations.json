@@ -1,0 +1,7 @@
+{
+  "expected_failure": "single_change_only",
+  "changes": [
+    "prompt_update",
+    "tool_update"
+  ]
+}

@@ -1,0 +1,96 @@
+spec_id: P3.S17.TEST_SPEC
+subphase: P3.S17
+title: External Stimulus & Underlying Resolution
+status: PLANNED_NOT_EXECUTABLE_UNTIL_RUNTIME_EXISTS
+canonical_module_order:
+- P3.S17.M01
+- P3.S17.M02
+modules:
+- module_id: P3.S17.M01
+  module_name: external_stimulus_builder
+  cases:
+  - id: future_stimulus_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: missing_evidence_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - external_stimulus_stream
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: &id001
+    - future_return
+    - candidate_score
+    - rank_score
+    - portfolio_weight
+    - trade_decision
+    - buy_sell_signal
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S17.M02
+  module_name: canonical_underlying_resolver
+  cases:
+  - id: chunk_id_rejected
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: unresolved_preserved
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: mapping_version_recorded
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - resolved_external_stimulus_stream
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+integration_handoff:
+  upstream_contracts_validated: true
+  downstream_outputs_materialized: true
+  no_undeclared_dependencies: true
+fixture_requirements:
+- minimal_valid
+- missing_input
+- schema_invalid
+- forbidden_field
+- lineage_broken
+- boundary_case
+pass_criteria:
+- all_module_cases_pass
+- no_partial_output_on_failure
+- no_forbidden_authority
+- pit_and_lineage_preserved
+- observability_evidence_present

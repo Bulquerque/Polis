@@ -1,0 +1,126 @@
+spec_id: P3.S24.TEST_SPEC
+subphase: P3.S24
+title: Social Communication & Delivery
+status: PLANNED_NOT_EXECUTABLE_UNTIL_RUNTIME_EXISTS
+canonical_module_order:
+- P3.S24.M01
+- P3.S24.M02
+- P3.S24.M03
+modules:
+- module_id: P3.S24.M01
+  module_name: social_message_router
+  cases:
+  - id: invalid_receiver_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: channel_forbidden
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - social_message_panel
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: &id001
+    - future_return
+    - candidate_score
+    - rank_score
+    - portfolio_weight
+    - trade_decision
+    - buy_sell_signal
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S24.M02
+  module_name: social_delivery_scheduler
+  cases:
+  - id: latency_boundary
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: undelivered_preserved
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - social_delivery_panel
+    - social_delivery_event_panel
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+- module_id: P3.S24.M03
+  module_name: social_tool_usage_auditor
+  cases:
+  - id: unentitled_social_tool_fails
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: delivery_linkage
+    type: module_specific
+    expected: pass_or_fail_as_declared
+  - id: happy_path_materializes_declared_outputs
+    type: positive
+    expected:
+    - social_tool_audit_panel
+  - id: missing_required_input_fails_closed
+    type: negative
+    expected: typed_error_no_partial_output
+  - id: invalid_input_schema_fails
+    type: negative
+    expected: schema_error
+  - id: forbidden_field_rejected
+    type: authority
+    expected: *id001
+  - id: undeclared_dependency_rejected
+    type: contract
+    expected: no_hidden_global_state
+  - id: lineage_propagated
+    type: lineage
+    expected: all_outputs_trace_to_inputs
+  - id: observability_emitted
+    type: observability
+    expected: start_success_or_failure_events
+integration_handoff:
+  upstream_contracts_validated: true
+  downstream_outputs_materialized: true
+  no_undeclared_dependencies: true
+fixture_requirements:
+- minimal_valid
+- missing_input
+- schema_invalid
+- forbidden_field
+- lineage_broken
+- boundary_case
+pass_criteria:
+- all_module_cases_pass
+- no_partial_output_on_failure
+- no_forbidden_authority
+- pit_and_lineage_preserved
+- observability_evidence_present

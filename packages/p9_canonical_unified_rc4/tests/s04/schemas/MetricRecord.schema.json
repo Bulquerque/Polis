@@ -1,0 +1,124 @@
+{
+  "$defs": {
+    "GrossNet": {
+      "enum": [
+        "GROSS",
+        "NET",
+        "ACTIVE",
+        "EXCESS",
+        "NOT_APPLICABLE"
+      ],
+      "title": "GrossNet",
+      "type": "string"
+    },
+    "MetricStatus": {
+      "enum": [
+        "QUALIFIED",
+        "LIMITED",
+        "UNAVAILABLE",
+        "INSUFFICIENT_SAMPLE",
+        "UNDEFINED",
+        "INVALID"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "Unit": {
+      "enum": [
+        "DECIMAL_RETURN",
+        "ANNUALIZED_DECIMAL",
+        "RATIO",
+        "PROBABILITY",
+        "MONEY",
+        "BPS",
+        "COUNT",
+        "SECONDS",
+        "FRACTION",
+        "COEFFICIENT"
+      ],
+      "title": "Unit",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/MetricRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "annualization_periods": {
+      "anyOf": [
+        {
+          "gt": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Annualization Periods"
+    },
+    "gross_net": {
+      "$ref": "#/$defs/GrossNet",
+      "default": "NOT_APPLICABLE"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "method": {
+      "title": "Method",
+      "type": "string"
+    },
+    "metric_id": {
+      "title": "Metric Id",
+      "type": "string"
+    },
+    "metric_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Metric Version",
+      "type": "string"
+    },
+    "producer_module_id": {
+      "title": "Producer Module Id",
+      "type": "string"
+    },
+    "sample_count": {
+      "minimum": 0,
+      "title": "Sample Count",
+      "type": "integer"
+    },
+    "status": {
+      "$ref": "#/$defs/MetricStatus"
+    },
+    "unit": {
+      "$ref": "#/$defs/Unit"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Value"
+    }
+  },
+  "required": [
+    "metric_id",
+    "metric_version",
+    "producer_module_id",
+    "value",
+    "unit",
+    "status",
+    "sample_count",
+    "method"
+  ],
+  "title": "MetricRecord",
+  "type": "object"
+}

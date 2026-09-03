@@ -1,0 +1,32 @@
+schema_id: provider_adapter_registry.s12.v1
+schema_version: 1.0.0
+providers:
+- provider_id: offline_hashing
+  interface_id: EmbeddingProvider
+  adapter_id: hashing_embedding
+  adapter_version: 1.0.0
+  status: CONNECTED_QUALIFIED
+  model_id: hashing-word-projection
+  model_revision: "1"
+  dimensions: 64
+  supports_batching: true
+  supports_available_at_filter: false
+  supports_snapshot_pin: true
+  qualification_status: QUALIFIED_LOCAL_BASELINE_ONLY
+  fingerprint: 2f6cde60b11eaef7851a0ba87dbcc7156d2986874f5e970f127d33a31a605aae
+  metadata:
+    semantic_quality: BASELINE_ONLY
+- provider_id: nvidia_nim_reranker
+  interface_id: RerankerProvider
+  adapter_id: nvidia_nim_http
+  adapter_version: 1.0.0
+  status: CONFIGURED_DISCONNECTED
+  model_id: null
+  model_revision: null
+  dimensions: null
+  supports_batching: true
+  supports_available_at_filter: false
+  supports_snapshot_pin: false
+  qualification_status: UNQUALIFIED_NOT_CONNECTED
+  fingerprint: a579659c6d10d47a4a246e6d72accd97a63976b4664ba70b3c195770ebd66221
+  metadata: {}

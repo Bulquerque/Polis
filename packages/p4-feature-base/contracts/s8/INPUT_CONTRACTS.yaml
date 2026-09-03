@@ -1,0 +1,11 @@
+subphase: P4.S8
+required_inputs:
+- underlying_feature_matrix_selected
+- feature_transform_state_manifest
+- representation_policy_registry
+rules:
+- inputs_hash_valid
+- no_forbidden_fields
+- selected_matrix_feature_catalog_required
+- fit_states_from_same_cycle
+- no_targets

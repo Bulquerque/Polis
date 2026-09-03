@@ -1,0 +1,32 @@
+{
+  "version": "p3.s26.stimulus_bus.v2",
+  "bus_id": "P3_STIMULUS_EVENT_BUS_V2",
+  "allowed_sources": [
+    "TOOL_DISCOVERY",
+    "SOCIAL_DELIVERY",
+    "MEMORY_TRIGGER",
+    "ATTENTION_FOLLOWUP"
+  ],
+  "allowed_social_statuses": [
+    "SEEN",
+    "INTERPRETED",
+    "USED"
+  ],
+  "ttl_cycles_by_origin": {
+    "TOOL_DISCOVERY": 3,
+    "SOCIAL_DELIVERY": 2,
+    "MEMORY_TRIGGER": 3,
+    "ATTENTION_FOLLOWUP": 2
+  },
+  "priority_by_origin": {
+    "TOOL_DISCOVERY": 0.7,
+    "SOCIAL_DELIVERY": 0.65,
+    "MEMORY_TRIGGER": 0.75,
+    "ATTENTION_FOLLOWUP": 0.6
+  },
+  "max_stimuli_per_person": 20,
+  "overflow_policy": "BLOCK",
+  "exact_deduplication": true,
+  "same_cycle_forbidden": true,
+  "require_evidence": true
+}

@@ -1,0 +1,64 @@
+{
+  "$defs": {
+    "DeprecationEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "deprecated_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Deprecated Parameter Id",
+          "type": "string"
+        },
+        "migration_note": {
+          "minLength": 1,
+          "title": "Migration Note",
+          "type": "string"
+        },
+        "removal_after_version": {
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+          "title": "Removal After Version",
+          "type": "string"
+        },
+        "replacement_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Replacement Parameter Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "deprecated_parameter_id",
+        "replacement_parameter_id",
+        "removal_after_version",
+        "migration_note"
+      ],
+      "title": "DeprecationEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "entries": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/DeprecationEntry"
+      },
+      "title": "Entries",
+      "type": "array"
+    },
+    "registry_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Registry Sha256",
+      "type": "string"
+    },
+    "registry_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Registry Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_version",
+    "registry_sha256"
+  ],
+  "title": "DeprecationRegistry",
+  "type": "object"
+}

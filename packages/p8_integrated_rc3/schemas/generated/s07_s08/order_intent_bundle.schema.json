@@ -1,0 +1,284 @@
+{
+  "$defs": {
+    "CandidateAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "allocated_target_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Allocated Target Quantity"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "allocated_target_quantity"
+      ],
+      "title": "CandidateAllocation",
+      "type": "object"
+    },
+    "IntentType": {
+      "enum": [
+        "OPEN",
+        "INCREASE",
+        "REDUCE",
+        "CLOSE",
+        "HEDGE",
+        "LIFECYCLE"
+      ],
+      "title": "IntentType",
+      "type": "string"
+    },
+    "OrderIntent": {
+      "additionalProperties": false,
+      "properties": {
+        "authorization_id": {
+          "minLength": 1,
+          "title": "Authorization Id",
+          "type": "string"
+        },
+        "execution_group_id": {
+          "minLength": 1,
+          "title": "Execution Group Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "intent_id": {
+          "minLength": 1,
+          "title": "Intent Id",
+          "type": "string"
+        },
+        "intent_type": {
+          "$ref": "#/$defs/IntentType"
+        },
+        "leg_priority": {
+          "minimum": 0,
+          "title": "Leg Priority",
+          "type": "integer"
+        },
+        "position_intent": {
+          "$ref": "#/$defs/PositionIntent"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "risk_role": {
+          "$ref": "#/$defs/RiskRole"
+        },
+        "security_type": {
+          "$ref": "#/$defs/SecurityType"
+        },
+        "side": {
+          "$ref": "#/$defs/Side"
+        },
+        "signed_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Quantity"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "urgency": {
+          "$ref": "#/$defs/Urgency"
+        },
+        "virtual_allocations": {
+          "items": {
+            "$ref": "#/$defs/CandidateAllocation"
+          },
+          "title": "Virtual Allocations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "intent_id",
+        "target_id",
+        "authorization_id",
+        "execution_group_id",
+        "instrument_id",
+        "security_type",
+        "intent_type",
+        "position_intent",
+        "side",
+        "quantity",
+        "signed_quantity",
+        "urgency",
+        "risk_role",
+        "leg_priority",
+        "virtual_allocations"
+      ],
+      "title": "OrderIntent",
+      "type": "object"
+    },
+    "PositionIntent": {
+      "enum": [
+        "BUY_TO_OPEN",
+        "BUY_TO_CLOSE",
+        "SELL_TO_OPEN",
+        "SELL_TO_CLOSE",
+        "NO_PHYSICAL_TRADE"
+      ],
+      "title": "PositionIntent",
+      "type": "string"
+    },
+    "RiskRole": {
+      "enum": [
+        "PROTECTIVE",
+        "RISK_REDUCING",
+        "NEUTRAL",
+        "RISK_INCREASING"
+      ],
+      "title": "RiskRole",
+      "type": "string"
+    },
+    "SecurityType": {
+      "enum": [
+        "EQUITY",
+        "OPTION",
+        "FUTURE",
+        "ETF",
+        "CRYPTO"
+      ],
+      "title": "SecurityType",
+      "type": "string"
+    },
+    "Side": {
+      "enum": [
+        "BUY",
+        "SELL"
+      ],
+      "title": "Side",
+      "type": "string"
+    },
+    "Urgency": {
+      "enum": [
+        "LOW",
+        "NORMAL",
+        "HIGH",
+        "CRITICAL"
+      ],
+      "title": "Urgency",
+      "type": "string"
+    },
+    "VirtualReallocation": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "reallocation_id": {
+          "minLength": 1,
+          "title": "Reallocation Id",
+          "type": "string"
+        },
+        "reason_code": {
+          "default": "VIRTUAL_BOOK_REALLOCATION",
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "signed_quantity_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Quantity Delta"
+        }
+      },
+      "required": [
+        "reallocation_id",
+        "instrument_id",
+        "candidate_id",
+        "signed_quantity_delta"
+      ],
+      "title": "VirtualReallocation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bundle_id": {
+      "minLength": 1,
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "intents": {
+      "items": {
+        "$ref": "#/$defs/OrderIntent"
+      },
+      "title": "Intents",
+      "type": "array"
+    },
+    "no_action": {
+      "title": "No Action",
+      "type": "boolean"
+    },
+    "virtual_reallocations": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/VirtualReallocation"
+      },
+      "title": "Virtual Reallocations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "intents",
+    "no_action",
+    "content_sha256"
+  ],
+  "title": "OrderIntentBundle",
+  "type": "object"
+}

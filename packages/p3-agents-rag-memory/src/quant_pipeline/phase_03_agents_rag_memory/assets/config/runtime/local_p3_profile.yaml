@@ -1,0 +1,24 @@
+profile: LOCAL_P3
+production_promotion_allowed: false
+artifact_store:
+  kind: FILE
+  root_env: P3_ARTIFACT_ROOT
+  required: true
+graph_publisher:
+  kind: LOCAL_FILE
+  root_env: P3_GRAPH_ROOT
+  database: local
+  required: true
+llm:
+  provider: NVIDIA_NIM
+  base_url_env: NVIDIA_BASE_URL
+  default_base_url: http://127.0.0.1:8000/v1
+  model_env: NVIDIA_MODEL
+  api_key_env: NVIDIA_API_KEY
+  endpoint_path: chat/completions
+  structured_output: true
+  local_endpoint_requires_explicit_opt_in: true
+tool_gateway:
+  provider: internal_research
+  transport: COMPOSITE_INTERNAL
+  external_mcp_transport: DISABLED_NOT_REQUIRED

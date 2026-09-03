@@ -1,0 +1,173 @@
+{
+  "schema_version": "6.2.0-rc2",
+  "schemas": [
+    {
+      "model": "InstrumentReference",
+      "path": "domain/InstrumentReference.schema.json"
+    },
+    {
+      "model": "OptionContractReference",
+      "path": "domain/OptionContractReference.schema.json"
+    },
+    {
+      "model": "ExecutableQuote",
+      "path": "domain/ExecutableQuote.schema.json"
+    },
+    {
+      "model": "UnderlyingObservation",
+      "path": "domain/UnderlyingObservation.schema.json"
+    },
+    {
+      "model": "MarketBeliefState",
+      "path": "domain/MarketBeliefState.schema.json"
+    },
+    {
+      "model": "StrategyLeg",
+      "path": "domain/StrategyLeg.schema.json"
+    },
+    {
+      "model": "StrategyCandidate",
+      "path": "domain/StrategyCandidate.schema.json"
+    },
+    {
+      "model": "TargetPayoff",
+      "path": "domain/TargetPayoff.schema.json"
+    },
+    {
+      "model": "StrategyMarketSnapshot",
+      "path": "domain/StrategyMarketSnapshot.schema.json"
+    },
+    {
+      "model": "StrategyPayoffRecord",
+      "path": "domain/StrategyPayoffRecord.schema.json"
+    },
+    {
+      "model": "ScenarioEvaluation",
+      "path": "domain/ScenarioEvaluation.schema.json"
+    },
+    {
+      "model": "ScenarioProbabilityMassAuditRecord",
+      "path": "domain/ScenarioProbabilityMassAuditRecord.schema.json"
+    },
+    {
+      "model": "CandidateRiskSummary",
+      "path": "domain/CandidateRiskSummary.schema.json"
+    },
+    {
+      "model": "GreekState",
+      "path": "domain/GreekState.schema.json"
+    },
+    {
+      "model": "CostLiquidityRecord",
+      "path": "domain/CostLiquidityRecord.schema.json"
+    },
+    {
+      "model": "CandidateGenerationTrace",
+      "path": "domain/CandidateGenerationTrace.schema.json"
+    },
+    {
+      "model": "CandidateQualification",
+      "path": "domain/CandidateQualification.schema.json"
+    },
+    {
+      "model": "CandidateEquivalence",
+      "path": "domain/CandidateEquivalence.schema.json"
+    },
+    {
+      "model": "QualityDiversityCell",
+      "path": "domain/QualityDiversityCell.schema.json"
+    },
+    {
+      "model": "MutationOperatorDefinition",
+      "path": "domain/MutationOperatorDefinition.schema.json"
+    },
+    {
+      "model": "MutationApplication",
+      "path": "domain/MutationApplication.schema.json"
+    },
+    {
+      "model": "MarketImpliedState",
+      "path": "domain/MarketImpliedState.schema.json"
+    },
+    {
+      "model": "TargetPayoffRecord",
+      "path": "domain/TargetPayoffRecord.schema.json"
+    },
+    {
+      "model": "TargetPayoffRegularizationReport",
+      "path": "domain/TargetPayoffRegularizationReport.schema.json"
+    },
+    {
+      "model": "TargetPayoffQualification",
+      "path": "domain/TargetPayoffQualification.schema.json"
+    },
+    {
+      "model": "ReplicationBasisInstrument",
+      "path": "domain/ReplicationBasisInstrument.schema.json"
+    },
+    {
+      "model": "StrategySynthesisProblem",
+      "path": "domain/StrategySynthesisProblem.schema.json"
+    },
+    {
+      "model": "SolverQuantity",
+      "path": "domain/SolverQuantity.schema.json"
+    },
+    {
+      "model": "SolverResult",
+      "path": "domain/SolverResult.schema.json"
+    },
+    {
+      "model": "PathwiseValuationRecord",
+      "path": "domain/PathwiseValuationRecord.schema.json"
+    },
+    {
+      "model": "RobustAmbiguityEvaluation",
+      "path": "domain/RobustAmbiguityEvaluation.schema.json"
+    },
+    {
+      "model": "ArchiveCoverageReport",
+      "path": "domain/ArchiveCoverageReport.schema.json"
+    },
+    {
+      "model": "Phase7StrategyHandoffManifest",
+      "path": "domain/Phase7StrategyHandoffManifest.schema.json"
+    },
+    {
+      "model": "P5Phase6StrategyScenarioManifest",
+      "path": "domain/P5Phase6StrategyScenarioManifest.schema.json"
+    },
+    {
+      "model": "P5ScenarioPathRecord",
+      "path": "domain/P5ScenarioPathRecord.schema.json"
+    },
+    {
+      "model": "P5ReturnDistributionRecord",
+      "path": "domain/P5ReturnDistributionRecord.schema.json"
+    },
+    {
+      "model": "P5ForecastConfidenceRecord",
+      "path": "domain/P5ForecastConfidenceRecord.schema.json"
+    },
+    {
+      "model": "P5RegimeOODRecord",
+      "path": "domain/P5RegimeOODRecord.schema.json"
+    },
+    {
+      "model": "P5AmbiguitySetRecord",
+      "path": "domain/P5AmbiguitySetRecord.schema.json"
+    },
+    {
+      "model": "P5ArtifactReceipt",
+      "path": "domain/P5ArtifactReceipt.schema.json"
+    },
+    {
+      "model": "P5CompatibilityReport",
+      "path": "domain/P5CompatibilityReport.schema.json"
+    },
+    {
+      "model": "Phase6RunConfiguration",
+      "path": "domain/Phase6RunConfiguration.schema.json"
+    }
+  ]
+}

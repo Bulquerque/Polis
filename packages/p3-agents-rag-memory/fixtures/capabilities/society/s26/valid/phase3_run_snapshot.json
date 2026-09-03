@@ -1,0 +1,24 @@
+{
+  "schema_version": "p3.s26.phase3_run_snapshot.v2",
+  "run_id": "run_s26",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "lineage_id": "lin_snapshot",
+  "snapshot_id": "run_snapshot_4",
+  "next_cycle_id": 5,
+  "execution_mode": "LIVE",
+  "foundation_manifest_ref": "foundation_manifest_hash",
+  "config_manifest_ref": "config_manifest_hash",
+  "prompt_manifest_ref": "prompt_manifest_hash",
+  "model_registry_ref": "model_registry_hash",
+  "provider_fingerprint_ref": "provider_fingerprint_hash",
+  "tool_registry_ref": "tool_registry_hash",
+  "entitlement_ref": "entitlement_hash",
+  "rag_index_ref": "rag_index_hash",
+  "graph_index_ref": "graph_index_hash",
+  "memory_index_ref": "memory_index_hash",
+  "replay_cache_ref": "replay_cache_hash",
+  "prior_commitment_ids": [
+    "commit_prior"
+  ]
+}

@@ -1,0 +1,86 @@
+schema_id: forbidden_import_report.v1
+artifact_name: forbidden_import_report
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- checked_python_file_count
+- policy_rule_count
+- violation_count
+- violations
+- status
+- release_blocking
+- validation_evidence_status
+- promotion_blocked
+properties:
+  artifact_id:
+    type: string
+    pattern: ^forbidden-import-report-[0-9a-f]{12}$
+  created_at:
+    type: string
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  checked_python_file_count:
+    type: integer
+    minimum: 1
+  policy_rule_count:
+    type: integer
+    minimum: 1
+  violation_count:
+    type: integer
+    minimum: 0
+  violations:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - path
+      - line
+      - import_name
+      - matched_rule
+      properties:
+        path:
+          type: string
+        line:
+          type: integer
+          minimum: 1
+        import_name:
+          type: string
+        matched_rule:
+          type: string
+        kind:
+          type: string
+          enum:
+          - IMPORT
+          - IMPORT_FROM
+          - DYNAMIC_IMPORT
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  release_blocking:
+    type: boolean
+  validation_evidence_status:
+    type: string
+    const: domain_oracle_pass_pending_independent_judge
+  promotion_blocked:
+    type: boolean
+    const: true
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

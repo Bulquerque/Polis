@@ -1,0 +1,130 @@
+{
+  "$defs": {
+    "MetricLimitation": {
+      "additionalProperties": false,
+      "properties": {
+        "limitation": {
+          "title": "Limitation",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "severity": {
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_id",
+        "limitation",
+        "severity"
+      ],
+      "title": "MetricLimitation",
+      "type": "object"
+    },
+    "QualifiedBacktestIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "handoff_id": {
+          "title": "Handoff Id",
+          "type": "string"
+        },
+        "handoff_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Handoff Sha256",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trial_id": {
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trial_id",
+        "fold_id",
+        "configuration_id",
+        "handoff_id",
+        "handoff_sha256"
+      ],
+      "title": "QualifiedBacktestIdentity",
+      "type": "object"
+    },
+    "QualityState": {
+      "enum": [
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EVIDENCE",
+        "INVALID"
+      ],
+      "title": "QualityState",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/MetricQualityReceipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "check_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Check Ids",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "identity": {
+      "$ref": "#/$defs/QualifiedBacktestIdentity"
+    },
+    "limitations": {
+      "items": {
+        "$ref": "#/$defs/MetricLimitation"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/QualityState"
+    }
+  },
+  "required": [
+    "identity",
+    "state",
+    "check_ids",
+    "reason_codes",
+    "limitations",
+    "content_sha256"
+  ],
+  "title": "MetricQualityReceipt",
+  "type": "object"
+}

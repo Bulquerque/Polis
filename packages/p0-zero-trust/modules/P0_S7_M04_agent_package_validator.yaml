@@ -1,0 +1,44 @@
+module_id: P0.S7.M04
+module_name: agent_package_validator
+function: Validar estruturalmente pacotes de agentes contra a execution policy, incluindo
+  integridade ZIP, paths, caches, metadados Git, segredos, symlinks, limites e bindings
+  de manifest.
+inputs: &id001
+- agent_execution_policy
+- agent_phase_package_zip
+outputs: &id002
+- agent_package_validation_report
+validations:
+- package_structure_valid
+- no_cache_in_zip
+- no_git_metadata
+- no_secret_material
+- no_symlink_entries
+- package_limits_respected
+- manifest_binding_valid
+fail_fast_conditions:
+- agent_package_validator_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S7.M03
+    artifacts: *id001
+    phase_inputs:
+    - agent_phase_package_zip
+  emits_to:
+    modules:
+    - P0.S8.M03
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S7
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

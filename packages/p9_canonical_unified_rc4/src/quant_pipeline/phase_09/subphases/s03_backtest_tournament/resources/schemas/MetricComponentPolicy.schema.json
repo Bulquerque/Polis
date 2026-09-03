@@ -1,0 +1,76 @@
+{
+  "$defs": {
+    "ComponentTransform": {
+      "enum": [
+        "IDENTITY",
+        "NEGATE",
+        "CLIP"
+      ],
+      "title": "ComponentTransform",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/MetricComponentPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clip_lower": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Clip Lower"
+    },
+    "clip_upper": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Clip Upper"
+    },
+    "component_id": {
+      "title": "Component Id",
+      "type": "string"
+    },
+    "transform": {
+      "$ref": "#/$defs/ComponentTransform",
+      "default": "IDENTITY"
+    },
+    "weight": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Weight"
+    }
+  },
+  "required": [
+    "component_id",
+    "weight"
+  ],
+  "title": "MetricComponentPolicy",
+  "type": "object"
+}

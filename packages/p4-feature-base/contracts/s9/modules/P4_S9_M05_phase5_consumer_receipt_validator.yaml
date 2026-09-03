@@ -1,0 +1,46 @@
+module_id: P4.S9.M05
+module_name: phase5_consumer_receipt_validator
+phase: P4
+subphase: P4.S9
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: phase5 consumer receipt validator
+inputs:
+- phase5_feature_handoff_manifest
+- phase5_consumption_receipt_optional
+outputs:
+- p4_to_p5_integration_receipt
+validations:
+- receipt_hash_matches
+- all_payloads_accepted
+- no_silent_adaptations
+- consumption_not_alpha
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- no_hidden_global_state
+- no_supervised_metrics
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+- sharpe
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- hash_negative
+- forbidden_field_negative
+- replay
+- metamorphic_or_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M05_phase5_consumer_receipt_validator.py
+qualification_policy: LOCAL_THEN_CROSS_PHASE_THEN_P0
+production_promotion_allowed: false

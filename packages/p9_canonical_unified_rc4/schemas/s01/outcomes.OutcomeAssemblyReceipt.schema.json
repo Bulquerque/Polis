@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "counterfactual_count": {
+      "minimum": 0,
+      "title": "Counterfactual Count",
+      "type": "integer"
+    },
+    "factual_count": {
+      "minimum": 0,
+      "title": "Factual Count",
+      "type": "integer"
+    },
+    "output_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Output Sha256",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "subject_count": {
+      "minimum": 0,
+      "title": "Subject Count",
+      "type": "integer"
+    },
+    "unavailable_count": {
+      "minimum": 0,
+      "title": "Unavailable Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "policy_id",
+    "subject_count",
+    "factual_count",
+    "counterfactual_count",
+    "unavailable_count",
+    "output_sha256"
+  ],
+  "title": "OutcomeAssemblyReceipt",
+  "type": "object"
+}

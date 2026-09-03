@@ -1,0 +1,56 @@
+{
+  "$defs": {
+    "MarketMode": {
+      "enum": [
+        "OBSERVE",
+        "DIAGNOSTIC",
+        "STRUCTURAL"
+      ],
+      "title": "MarketMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "end_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End Date"
+    },
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/MarketMode",
+      "default": "OBSERVE"
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Start Date"
+    }
+  },
+  "required": [
+    "instrument_id"
+  ],
+  "title": "GetCorporateActionsRequest",
+  "type": "object"
+}

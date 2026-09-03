@@ -1,0 +1,234 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  CurrentPersonStateRecord:
+    additionalProperties: false
+    properties:
+      person_state_id:
+        minLength: 1
+        title: Person State Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      profile_hash:
+        minLength: 1
+        title: Profile Hash
+        type: string
+      identity:
+        $ref: '#/$defs/PersonStateIdentity'
+      core_personality:
+        additionalProperties:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Core Personality
+        type: object
+      cognitive_capacity:
+        additionalProperties:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Cognitive Capacity
+        type: object
+      knowledge:
+        additionalProperties:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Knowledge
+        type: object
+      trust:
+        additionalProperties:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Trust
+        type: object
+      tool_proficiency:
+        additionalProperties:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Tool Proficiency
+        type: object
+      attention:
+        additionalProperties:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Attention
+        type: object
+      confidence:
+        additionalProperties:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Confidence
+        type: object
+      functional_affect:
+        additionalProperties:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Functional Affect
+        type: object
+      belief_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Belief Refs
+        type: array
+      updated_at:
+        format: date-time
+        title: Updated At
+        type: string
+      state_version:
+        default: 1
+        minimum: 1
+        title: State Version
+        type: integer
+    required:
+    - person_state_id
+    - person_id
+    - profile_hash
+    - identity
+    - updated_at
+    title: CurrentPersonStateRecord
+    type: object
+  JsonValue: {}
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  PersonStateIdentity:
+    additionalProperties: false
+    properties:
+      life_stage_at_creation:
+        minLength: 1
+        title: Life Stage At Creation
+        type: string
+      creator_provenance:
+        additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        propertyNames:
+          minLength: 1
+        title: Creator Provenance
+        type: object
+    required:
+    - life_stage_at_creation
+    - creator_provenance
+    title: PersonStateIdentity
+    type: object
+  RejectedPersonStateTransition:
+    additionalProperties: false
+    properties:
+      transition_id:
+        minLength: 1
+        title: Transition Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      reason_codes:
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - transition_id
+    - person_id
+    - reason_codes
+    title: RejectedPersonStateTransition
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s21.v1
+    default: p3.s21.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+  records:
+    items:
+      $ref: '#/$defs/CurrentPersonStateRecord'
+    title: Records
+    type: array
+  rejections:
+    default: []
+    items:
+      $ref: '#/$defs/RejectedPersonStateTransition'
+    title: Rejections
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- status
+- records
+- lineage
+title: ValidatedNextPersonStatePanel
+type: object
+artifact_name: validated_next_person_state_panel
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

@@ -1,0 +1,114 @@
+artifact_id: p4-s6-default-approved-interactions
+schema_version: p4.s6.interaction_registry.v1
+pipeline_version: V14.5-RC1
+run_id: RUN_ID_REQUIRED
+cycle_id: CYCLE_ID_REQUIRED
+as_of_time: '2024-01-01T00:00:00Z'
+lineage_id: REGISTRY_LINEAGE_REQUIRED
+maximum_interactions: 8
+records:
+- interaction_id: I01
+  output_feature_id: interaction.momentum.absolute_relative_agreement
+  phenomenon_id: momentum
+  perspective_id: multi_view_confirmation
+  horizon_group: MEDIUM
+  operation: SIGN_AGREEMENT
+  parent_feature_ids:
+  - perspective.momentum.time_series
+  - perspective.momentum.cross_sectional_rank
+  rationale_id: R_MOMENTUM_CONFIRMATION
+  strong_heredity: true
+  enabled: true
+  parameters: {}
+- interaction_id: I02
+  output_feature_id: interaction.reversion.short_residual_agreement
+  phenomenon_id: reversion
+  perspective_id: multi_view_confirmation
+  horizon_group: SHORT
+  operation: SIGN_AGREEMENT
+  parent_feature_ids:
+  - perspective.reversion.short_term
+  - perspective.reversion.residual
+  rationale_id: R_REVERSION_CONFIRMATION
+  strong_heredity: true
+  enabled: true
+  parameters: {}
+- interaction_id: I03
+  output_feature_id: interaction.momentum_narrative_agreement
+  phenomenon_id: cross_phenomenon
+  perspective_id: narrative_confirmation
+  horizon_group: CROSS_HORIZON
+  operation: SIGN_AGREEMENT
+  parent_feature_ids:
+  - perspective.momentum.time_series
+  - perspective.narrative.shift_state
+  rationale_id: R_INFORMATION_CONFIRMATION
+  strong_heredity: true
+  enabled: true
+  parameters: {}
+- interaction_id: I04
+  output_feature_id: interaction.risk.implied_realized_ratio
+  phenomenon_id: risk
+  perspective_id: implied_realized_relative_state
+  horizon_group: CROSS_HORIZON
+  operation: SAFE_RATIO
+  parent_feature_ids:
+  - perspective.risk.implied_uncertainty
+  - perspective.risk.multiscale
+  rationale_id: R_VARIANCE_RISK_STATE
+  strong_heredity: true
+  enabled: true
+  parameters:
+    epsilon: 1.0e-12
+- interaction_id: I05
+  output_feature_id: interaction.risk.downside_drawdown_geomean
+  phenomenon_id: risk
+  perspective_id: downside_path_confirmation
+  horizon_group: MEDIUM
+  operation: NONNEGATIVE_GEOMETRIC_MEAN
+  parent_feature_ids:
+  - perspective.risk.downside
+  - perspective.risk.drawdown_stress
+  rationale_id: R_DOWNSIDE_PATH_STRESS
+  strong_heredity: true
+  enabled: true
+  parameters: {}
+- interaction_id: I06
+  output_feature_id: interaction.fundamental.value_profitability_agreement
+  phenomenon_id: fundamentals
+  perspective_id: value_quality_confirmation
+  horizon_group: LONG
+  operation: SIGN_AGREEMENT
+  parent_feature_ids:
+  - perspective.fundamental.value_state
+  - perspective.fundamental.profitability_state
+  rationale_id: R_VALUE_QUALITY
+  strong_heredity: true
+  enabled: true
+  parameters: {}
+- interaction_id: I07
+  output_feature_id: interaction.carry.curve_basis_agreement
+  phenomenon_id: carry
+  perspective_id: curve_basis_confirmation
+  horizon_group: MEDIUM
+  operation: SIGN_AGREEMENT
+  parent_feature_ids:
+  - perspective.carry.curve_slope_state
+  - perspective.carry.basis_state
+  rationale_id: R_CARRY_CONFIRMATION
+  strong_heredity: true
+  enabled: true
+  parameters: {}
+- interaction_id: I08
+  output_feature_id: interaction.event_narrative_agreement
+  phenomenon_id: events
+  perspective_id: event_information_confirmation
+  horizon_group: SHORT
+  operation: SIGN_AGREEMENT
+  parent_feature_ids:
+  - perspective.event.surprise_state
+  - perspective.narrative.information_state
+  rationale_id: R_EVENT_NARRATIVE
+  strong_heredity: true
+  enabled: true
+  parameters: {}

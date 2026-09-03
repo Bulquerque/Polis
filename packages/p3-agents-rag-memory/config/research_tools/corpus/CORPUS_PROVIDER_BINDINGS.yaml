@@ -1,0 +1,20 @@
+schema_id: p3.s35.corpus_provider_bindings.v1
+schema_version: 1.0.0
+providers:
+  internal_research:
+    transport: COMPOSITE_INTERNAL
+    enabled: true
+    qualification: QUALIFIED_LOCAL
+    network_required: false
+  optional_dense_retrieval:
+    transport: LOCAL_FUNCTION
+    enabled: false
+    qualification: OPTIONAL_NOT_CONFIGURED
+    snapshot_pin_required: true
+    network_allowed_in_backtest: false
+  optional_reranker:
+    transport: LOCAL_FUNCTION
+    enabled: false
+    qualification: OPTIONAL_NOT_CONFIGURED
+    snapshot_pin_required: true
+    network_allowed_in_backtest: false

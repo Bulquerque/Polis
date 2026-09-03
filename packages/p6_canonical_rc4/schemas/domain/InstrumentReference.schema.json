@@ -1,0 +1,87 @@
+{
+  "$defs": {
+    "InstrumentType": {
+      "enum": [
+        "UNDERLYING",
+        "OPTION",
+        "CASH"
+      ],
+      "title": "InstrumentType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "currency": {
+      "title": "Currency",
+      "type": "string"
+    },
+    "exchange": {
+      "title": "Exchange",
+      "type": "string"
+    },
+    "instrument_id": {
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "instrument_type": {
+      "$ref": "#/$defs/InstrumentType"
+    },
+    "multiplier": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Multiplier"
+    },
+    "source_artifact_id": {
+      "title": "Source Artifact Id",
+      "type": "string"
+    },
+    "source_record_id": {
+      "title": "Source Record Id",
+      "type": "string"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    },
+    "valid_from": {
+      "format": "date-time",
+      "title": "Valid From",
+      "type": "string"
+    },
+    "valid_until": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valid Until"
+    }
+  },
+  "required": [
+    "instrument_id",
+    "instrument_type",
+    "underlying_id",
+    "currency",
+    "exchange",
+    "multiplier",
+    "valid_from",
+    "source_artifact_id",
+    "source_record_id"
+  ],
+  "title": "InstrumentReference",
+  "type": "object"
+}

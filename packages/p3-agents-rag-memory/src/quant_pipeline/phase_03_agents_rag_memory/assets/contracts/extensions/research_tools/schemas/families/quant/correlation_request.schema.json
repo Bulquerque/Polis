@@ -1,0 +1,105 @@
+{
+  "$defs": {
+    "CorrelationMethod": {
+      "enum": [
+        "PEARSON",
+        "SPEARMAN"
+      ],
+      "title": "CorrelationMethod",
+      "type": "string"
+    },
+    "QuantMode": {
+      "enum": [
+        "BASIC",
+        "ROBUST",
+        "STABILITY"
+      ],
+      "title": "QuantMode",
+      "type": "string"
+    },
+    "ReturnKind": {
+      "enum": [
+        "SIMPLE",
+        "LOG"
+      ],
+      "title": "ReturnKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "block_length": {
+      "default": 5,
+      "exclusiveMinimum": 0,
+      "title": "Block Length",
+      "type": "integer"
+    },
+    "bootstrap_confidence": {
+      "default": 0.95,
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": 0.5,
+      "title": "Bootstrap Confidence",
+      "type": "number"
+    },
+    "bootstrap_samples": {
+      "default": 0,
+      "maximum": 2000,
+      "minimum": 0,
+      "title": "Bootstrap Samples",
+      "type": "integer"
+    },
+    "end_time": {
+      "format": "date-time",
+      "title": "End Time",
+      "type": "string"
+    },
+    "left_instrument_id": {
+      "minLength": 1,
+      "title": "Left Instrument Id",
+      "type": "string"
+    },
+    "method": {
+      "$ref": "#/$defs/CorrelationMethod",
+      "default": "PEARSON"
+    },
+    "min_observations": {
+      "default": 3,
+      "maximum": 100000,
+      "minimum": 3,
+      "title": "Min Observations",
+      "type": "integer"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/QuantMode",
+      "default": "BASIC"
+    },
+    "return_kind": {
+      "$ref": "#/$defs/ReturnKind",
+      "default": "SIMPLE"
+    },
+    "right_instrument_id": {
+      "minLength": 1,
+      "title": "Right Instrument Id",
+      "type": "string"
+    },
+    "start_time": {
+      "format": "date-time",
+      "title": "Start Time",
+      "type": "string"
+    },
+    "view_id": {
+      "default": "market_prices",
+      "minLength": 1,
+      "title": "View Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "start_time",
+    "end_time",
+    "left_instrument_id",
+    "right_instrument_id"
+  ],
+  "title": "CorrelationRequest",
+  "type": "object"
+}

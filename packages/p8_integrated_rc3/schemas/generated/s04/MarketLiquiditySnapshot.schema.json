@@ -1,0 +1,115 @@
+{
+  "$defs": {
+    "LiquidityQuote": {
+      "additionalProperties": false,
+      "properties": {
+        "ask": {
+          "exclusiveMinimum": 0.0,
+          "title": "Ask",
+          "type": "number"
+        },
+        "ask_size": {
+          "minimum": 0.0,
+          "title": "Ask Size",
+          "type": "number"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "bid": {
+          "exclusiveMinimum": 0.0,
+          "title": "Bid",
+          "type": "number"
+        },
+        "bid_size": {
+          "minimum": 0.0,
+          "title": "Bid Size",
+          "type": "number"
+        },
+        "combo_group_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Combo Group Id"
+        },
+        "daily_volume": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Daily Volume"
+        },
+        "instrument_id": {
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "open_interest": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Open Interest"
+        },
+        "quote_time": {
+          "format": "date-time",
+          "title": "Quote Time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "bid",
+        "ask",
+        "bid_size",
+        "ask_size",
+        "quote_time",
+        "available_at"
+      ],
+      "title": "LiquidityQuote",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/MarketLiquiditySnapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "quotes": {
+      "items": {
+        "$ref": "#/$defs/LiquidityQuote"
+      },
+      "title": "Quotes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "decision_time",
+    "quotes"
+  ],
+  "title": "MarketLiquiditySnapshot",
+  "type": "object"
+}

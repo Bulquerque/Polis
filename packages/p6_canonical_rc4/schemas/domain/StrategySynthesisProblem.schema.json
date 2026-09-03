@@ -1,0 +1,126 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "basis_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Basis Ids",
+      "type": "array"
+    },
+    "cost_budget": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Cost Budget"
+    },
+    "max_legs": {
+      "minimum": 1,
+      "title": "Max Legs",
+      "type": "integer"
+    },
+    "max_quantity": {
+      "minimum": 1,
+      "title": "Max Quantity",
+      "type": "integer"
+    },
+    "problem_id": {
+      "title": "Problem Id",
+      "type": "string"
+    },
+    "risk_budget": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Risk Budget"
+    },
+    "scenario_weights": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Scenario Weights",
+      "type": "array"
+    },
+    "state_grid": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "State Grid",
+      "type": "array"
+    },
+    "target_payoff_id": {
+      "title": "Target Payoff Id",
+      "type": "string"
+    },
+    "target_vector": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Target Vector",
+      "type": "array"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "problem_id",
+    "target_payoff_id",
+    "underlying_id",
+    "state_grid",
+    "target_vector",
+    "scenario_weights",
+    "basis_ids",
+    "max_legs",
+    "max_quantity"
+  ],
+  "title": "StrategySynthesisProblem",
+  "type": "object"
+}

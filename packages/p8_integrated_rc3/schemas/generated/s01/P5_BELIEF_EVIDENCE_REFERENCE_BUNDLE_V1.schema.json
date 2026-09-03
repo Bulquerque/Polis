@@ -1,0 +1,294 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "relationship_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relationship Type"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_version",
+        "contract_version",
+        "content_sha256",
+        "available_at"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "HorizonSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "exclusiveMinimum": 0,
+          "title": "Value",
+          "type": "integer"
+        },
+        "unit": {
+          "$ref": "#/$defs/HorizonUnit"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "title": "HorizonSpec",
+      "type": "object"
+    },
+    "HorizonUnit": {
+      "enum": [
+        "HOURS",
+        "CALENDAR_DAYS",
+        "TRADING_SESSIONS"
+      ],
+      "title": "HorizonUnit",
+      "type": "string"
+    },
+    "ProbabilityMeasure": {
+      "enum": [
+        "PHYSICAL",
+        "RISK_NEUTRAL",
+        "STRESS_WEIGHT",
+        "OTHER"
+      ],
+      "title": "ProbabilityMeasure",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "belief_state_id": {
+      "minLength": 1,
+      "title": "Belief State Id",
+      "type": "string"
+    },
+    "target_id": {
+      "minLength": 1,
+      "title": "Target Id",
+      "type": "string"
+    },
+    "underlying_or_factor_id": {
+      "minLength": 1,
+      "title": "Underlying Or Factor Id",
+      "type": "string"
+    },
+    "forecast_horizon": {
+      "$ref": "#/$defs/HorizonSpec"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "resolver_id": {
+      "minLength": 1,
+      "title": "Resolver Id",
+      "type": "string"
+    },
+    "model_artifact_id": {
+      "minLength": 1,
+      "title": "Model Artifact Id",
+      "type": "string"
+    },
+    "probability_measure": {
+      "$ref": "#/$defs/ProbabilityMeasure"
+    },
+    "forecast_distribution_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "quantile_panel_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "scenario_set_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "path_scenario_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "covariance_dependence_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "regime_state_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "ood_state_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "disagreement_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "calibration_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "ambiguity_evidence_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "ensemble_weights_ref": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "view_refs": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "View Refs",
+      "type": "array"
+    },
+    "lineage_refs": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "Lineage Refs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "belief_state_id",
+    "target_id",
+    "underlying_or_factor_id",
+    "forecast_horizon",
+    "as_of_time",
+    "decision_time",
+    "resolver_id",
+    "model_artifact_id",
+    "probability_measure"
+  ],
+  "title": "P5BeliefEvidenceBundleV1",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P5_BELIEF_EVIDENCE_REFERENCE_BUNDLE_V1.schema.json"
+}

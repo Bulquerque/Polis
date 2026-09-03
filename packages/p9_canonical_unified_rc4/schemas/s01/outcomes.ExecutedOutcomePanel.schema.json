@@ -1,0 +1,93 @@
+{
+  "$defs": {
+    "ExecutedOutcomeRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "closed_at": {
+          "format": "date-time",
+          "title": "Closed At",
+          "type": "string"
+        },
+        "realized_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Realized Pnl"
+        },
+        "realized_return": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Realized Return"
+        },
+        "settlement_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Settlement At"
+        },
+        "source_artifact_id": {
+          "minLength": 1,
+          "title": "Source Artifact Id",
+          "type": "string"
+        },
+        "source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Sha256",
+          "type": "string"
+        },
+        "subject_id": {
+          "minLength": 1,
+          "title": "Subject Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "subject_id",
+        "realized_pnl",
+        "closed_at",
+        "source_artifact_id",
+        "source_sha256"
+      ],
+      "title": "ExecutedOutcomeRecord",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "records": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ExecutedOutcomeRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "title": "ExecutedOutcomePanel",
+  "type": "object"
+}

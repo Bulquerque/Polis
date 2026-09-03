@@ -1,0 +1,26 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: P4 Hypothesis Budget Report
+type: object
+required:
+- artifact_id
+- cycle_id
+- approved_count
+- rejected_count
+- budget_status
+- lineage_id
+properties:
+  artifact_id:
+    type: string
+  cycle_id:
+    type: string
+  approved_count:
+    type: integer
+  rejected_count:
+    type: integer
+  budget_status:
+    enum:
+    - PASS
+    - BLOCKED
+    - AMENDMENT_REQUIRED
+  lineage_id:
+    type: string

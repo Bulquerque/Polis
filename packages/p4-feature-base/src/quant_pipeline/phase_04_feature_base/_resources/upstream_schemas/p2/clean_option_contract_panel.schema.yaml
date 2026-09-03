@@ -1,0 +1,24 @@
+artifact: clean_option_contract_panel
+grain:
+- contract_key
+required_fields:
+- option_id
+- expiration_date
+- contract_key
+- underlying
+- option_type
+- strike
+- contract_size
+- first_seen_date
+- last_seen_date
+- expiration_calendar_date
+- source_id
+- lineage_id
+- pipeline_version
+forbidden_fields:
+- candidate_score
+- rank_score
+- portfolio_weight
+- future_pnl
+- trade_decision
+schema_version: v14.1-rc4.1

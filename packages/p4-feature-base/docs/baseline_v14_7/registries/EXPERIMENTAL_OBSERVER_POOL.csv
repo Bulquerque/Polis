@@ -1,0 +1,5 @@
+observer_id,family_id,name,primary_inputs,transformation_summary,sanctioned_horizons,parameter_mode,literature_ids,implementation_tier,known_limitations,status
+F02.O03,F02,intraday_reversal,intraday_return,late versus early session reversal,intraday,DATA_FREQUENCY_DERIVED,L007,EXPERIMENTAL,requires reliable intraday bars,CANDIDATE_DOCUMENTED
+F04.O12,F04,crowding_stress_composite,liquidity;correlation;attention;consensus,registered interaction of crowding ingredients,5/21D,FIXED_THEORY,L012;L016,EXPERIMENTAL,composite specification risk,CANDIDATE_DOCUMENTED
+F06.O12,F06,frequency_connectedness,connectedness_spectrum,short/medium/long frequency bands,63/126/252D,SMALL_SCALE_BANK,L017,EXPERIMENTAL,complexity and sample length,CANDIDATE_DOCUMENTED
+F08.O13,F08,regime_state_instability,macro_system_states,"contemporaneous disagreement/transition pressure, not forecast",weekly/monthly,FIXED_THEORY,L022,EXPERIMENTAL,may be mistaken for prediction,CANDIDATE_DOCUMENTED

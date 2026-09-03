@@ -1,0 +1,50 @@
+module_id: P1.S1.M02
+module_name: ingestion_run_config_validator
+phase: phase_01_ingestion
+subphase: P1.S1
+rc: RC4.1
+function: Validar run config, credenciais indiretas e calendário sem materializar
+  segredo.
+inputs: &id001
+- ingestion_run_config
+- source_credentials_handle
+- source_calendar_config
+- source_registry
+outputs: &id002
+- validated_ingestion_run_config
+validations:
+- run_id_present
+- credentials_not_materialized
+- calendar_declared
+fail_fast_conditions:
+- ingestion_run_config_validator_schema_violation
+- ingestion_run_config_validator_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P1.S1.M01
+    artifacts: *id001
+    phase_inputs:
+    - ingestion_run_config
+    - source_credentials_handle
+    - source_calendar_config
+  emits_to:
+    modules:
+    - P1.S1.M03
+    artifacts: *id002
+    phase_outputs: []
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

@@ -1,0 +1,32 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: cycle_state_snapshot
+status: planned_internal_schema
+type: object
+required:
+- cycle_id
+- as_of_time
+- person_state_ref
+- belief_state_ref
+- memory_state_ref
+- social_graph_ref
+- endogenous_stimulus_queue_ref
+- lineage_id
+properties:
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  person_state_ref:
+    type: string
+  belief_state_ref:
+    type: string
+  memory_state_ref:
+    type: string
+  social_graph_ref:
+    type: string
+  endogenous_stimulus_queue_ref:
+    type: string
+  lineage_id:
+    type: string
+additionalProperties: false

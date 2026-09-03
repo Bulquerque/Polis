@@ -1,0 +1,80 @@
+$defs:
+  DeploymentStage:
+    enum:
+    - SHADOW_ONLY
+    - PAPER_EXECUTION
+    - LIMITED_CAPITAL
+    - FULL_PRODUCTION
+    - QUARANTINED
+    title: DeploymentStage
+    type: string
+  PolicyRole:
+    enum:
+    - CHAMPION
+    - CHALLENGER
+    title: PolicyRole
+    type: string
+  ShadowPlanEntry:
+    additionalProperties: false
+    properties:
+      cohort_id:
+        minLength: 1
+        title: Cohort Id
+        type: string
+      prediction_event_id:
+        minLength: 1
+        title: Prediction Event Id
+        type: string
+      policy_id:
+        minLength: 1
+        title: Policy Id
+        type: string
+      policy_version:
+        minLength: 1
+        title: Policy Version
+        type: string
+      role:
+        $ref: '#/$defs/PolicyRole'
+      information_set_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Information Set Hash
+        type: string
+      stage:
+        $ref: '#/$defs/DeploymentStage'
+      resource_budget_units:
+        exclusiveMinimum: 0
+        title: Resource Budget Units
+        type: integer
+      seed_entropy:
+        minimum: 0
+        title: Seed Entropy
+        type: integer
+    required:
+    - cohort_id
+    - prediction_event_id
+    - policy_id
+    - policy_version
+    - role
+    - information_set_hash
+    - stage
+    - resource_budget_units
+    - seed_entropy
+    title: ShadowPlanEntry
+    type: object
+additionalProperties: false
+properties:
+  entries:
+    items:
+      $ref: '#/$defs/ShadowPlanEntry'
+    title: Entries
+    type: array
+  plan_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Plan Sha256
+    type: string
+required:
+- entries
+- plan_sha256
+title: ShadowExecutionPlan
+type: object
+$id: urn:inferencia:p9:s7:ShadowExecutionPlan:1.0.0

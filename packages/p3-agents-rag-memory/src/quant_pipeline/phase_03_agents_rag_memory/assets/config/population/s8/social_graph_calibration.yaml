@@ -1,0 +1,27 @@
+calibration_id: P3_FINAL_SOCIAL_GRAPH_CALIBRATION_V1
+calibration_version: 1.0.0
+profile: REFERENCE_FIXTURE_NOT_EMPIRICAL_MARKET_CALIBRATION
+required_ranges:
+  connected_component_count:
+    minimum: 1
+    maximum: 1
+  isolated_node_count:
+    minimum: 0
+    maximum: 0
+  minimum_neighbor_degree:
+    minimum: 1
+    maximum: 12
+  maximum_neighbor_degree:
+    minimum: 1
+    maximum: 12
+  mean_neighbor_degree:
+    minimum: 1.0
+    maximum: 12.0
+  maximum_hub_share:
+    minimum: 0.0
+    maximum: 0.2
+  cross_family_bridge_pair_count:
+    minimum: 4
+    maximum: 1000000
+calibration_status: REFERENCE_CALIBRATED_NOT_EXTERNALLY_VALIDATED
+production_promotion_allowed: false

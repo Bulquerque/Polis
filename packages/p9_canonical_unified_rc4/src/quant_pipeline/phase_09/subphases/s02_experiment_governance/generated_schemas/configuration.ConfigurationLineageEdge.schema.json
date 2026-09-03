@@ -1,0 +1,27 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "child_configuration_id": {
+      "pattern": "^cfg-[0-9a-f]{64}$",
+      "title": "Child Configuration Id",
+      "type": "string"
+    },
+    "parent_configuration_id": {
+      "pattern": "^cfg-[0-9a-f]{64}$",
+      "title": "Parent Configuration Id",
+      "type": "string"
+    },
+    "relation": {
+      "minLength": 1,
+      "title": "Relation",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parent_configuration_id",
+    "child_configuration_id",
+    "relation"
+  ],
+  "title": "ConfigurationLineageEdge",
+  "type": "object"
+}

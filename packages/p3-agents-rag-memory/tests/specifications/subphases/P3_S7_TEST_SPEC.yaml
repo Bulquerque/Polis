@@ -1,0 +1,15 @@
+subphase: P3.S7
+modules:
+- module_id: P3.S7.M01
+  required_cases:
+  - weight_sum_exact
+  - fixed_ids
+  - role_distribution_bounds
+- module_id: P3.S7.M02
+  required_cases:
+  - clone_detection
+  - weight_concentration_failure
+  - coverage_floor
+canonical_module_order:
+- P3.S7.M01
+- P3.S7.M02

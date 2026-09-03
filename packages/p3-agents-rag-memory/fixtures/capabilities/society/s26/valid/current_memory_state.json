@@ -1,0 +1,64 @@
+{
+  "schema_version": "p3.s26.current_memory_state.v2",
+  "run_id": "run_s26",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "lineage_id": "lin_current_memory",
+  "memory_state_id": "memstate_4",
+  "items": [
+    {
+      "memory_id": "mem_94bfa7e6a269bb6d1c4c4890",
+      "person_id": "p1",
+      "memory_type": "EPISODIC",
+      "source_event_ids": [
+        "evt_old"
+      ],
+      "created_at": "2026-01-10T10:00:00Z",
+      "available_at": "2026-01-10T10:00:00Z",
+      "valid_from_cycle": 3,
+      "importance": 0.6,
+      "confidence": 0.7,
+      "retrievability": 0.5,
+      "content_ref": "experience:shared_fact",
+      "content_fingerprint": "fp_experience_1",
+      "evidence_refs": [
+        "ev_old"
+      ],
+      "status": "ACTIVE",
+      "supersedes_memory_id": null,
+      "reinforcement_count": 2,
+      "last_reinforced_at": "2026-01-10T10:00:00Z",
+      "protected_audit": false,
+      "lineage_ids": [
+        "lin_old"
+      ]
+    },
+    {
+      "memory_id": "mem_audit_1",
+      "person_id": "p1",
+      "memory_type": "AUDIT",
+      "source_event_ids": [
+        "audit_evt"
+      ],
+      "created_at": "2026-01-01T00:00:00Z",
+      "available_at": "2026-01-01T00:00:00Z",
+      "valid_from_cycle": 1,
+      "importance": 1.0,
+      "confidence": 1.0,
+      "retrievability": 1.0,
+      "content_ref": "audit:run",
+      "content_fingerprint": "fp_audit",
+      "evidence_refs": [
+        "ev_audit"
+      ],
+      "status": "ACTIVE",
+      "supersedes_memory_id": null,
+      "reinforcement_count": 1,
+      "last_reinforced_at": "2026-01-01T00:00:00Z",
+      "protected_audit": true,
+      "lineage_ids": [
+        "lin_audit"
+      ]
+    }
+  ]
+}

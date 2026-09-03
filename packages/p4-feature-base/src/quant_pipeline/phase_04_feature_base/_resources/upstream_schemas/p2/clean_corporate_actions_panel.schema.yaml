@@ -1,0 +1,10 @@
+artifact: clean_corporate_actions_panel
+grain:
+- artifact_id
+required_fields:
+- artifact_id
+- created_at
+- lineage_id
+- pipeline_version
+forbidden_fields: []
+schema_version: v14.1-rc4.1

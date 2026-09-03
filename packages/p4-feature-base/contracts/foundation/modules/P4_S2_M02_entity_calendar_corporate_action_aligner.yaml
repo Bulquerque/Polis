@@ -1,0 +1,59 @@
+phase: P4
+subphase: P4.S2
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- no_hidden_global_state
+- no_future_targets
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+observability:
+- module_started
+- input_validated
+- module_succeeded
+- module_failed
+- input_record_count
+- output_record_count
+- warning_count
+- duration_ms
+production_promotion_allowed: false
+module_id: P4.S2.M02
+module_name: entity_calendar_corporate_action_aligner
+function: Align canonical entities, calendars, sessions and corporate actions without
+  inventing identifiers.
+inputs:
+- temporally_resolved_observation_bundle
+outputs:
+- entity_aligned_observation_bundle
+- entity_alignment_report
+validations:
+- entity authority remains P2
+- ticker is not identity
+- calendar conflicts rejected
+- announcement <= effective time
+- missing calendar explicitly degraded
+fail_fast_conditions:
+- P4_S2_M02_INPUT_INVALID
+- P4_S2_M02_TEMPORAL_VIOLATION
+- P4_S2_M02_OUTPUT_INVALID
+- P4_S2_M02_FORBIDDEN_FIELD
+tests_required:
+- happy_path
+- schema_negative
+- temporal_adversarial
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S2_M02_entity_calendar_corporate_action_aligner.py

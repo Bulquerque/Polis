@@ -1,0 +1,203 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  ChannelVisibility:
+    enum:
+    - DECLARED
+    - HIDDEN
+    title: ChannelVisibility
+    type: string
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  RequestValidationStatus:
+    enum:
+    - ACCEPTED
+    - REJECTED_SCHEMA
+    - REJECTED_TOOL_UNKNOWN
+    - REJECTED_OPERATION
+    - REJECTED_ENTITLEMENT
+    - REJECTED_BUDGET
+    - REJECTED_TEMPORAL
+    - REJECTED_CREDENTIAL
+    - REJECTED_DUPLICATE
+    title: RequestValidationStatus
+    type: string
+  SocialToolAuditRecord:
+    additionalProperties: false
+    properties:
+      audit_id:
+        minLength: 1
+        title: Audit Id
+        type: string
+      delivery_id:
+        minLength: 1
+        title: Delivery Id
+        type: string
+      message_id:
+        minLength: 1
+        title: Message Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      sender_person_id:
+        minLength: 1
+        title: Sender Person Id
+        type: string
+      channel_id:
+        minLength: 1
+        title: Channel Id
+        type: string
+      channel_visibility:
+        $ref: '#/$defs/ChannelVisibility'
+      tool_call_request_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Tool Call Request Id
+      tool_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Tool Id
+      operation_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Operation Id
+      provider_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Provider Id
+      entitlement_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Entitlement Version
+      request_validation_status:
+        anyOf:
+        - $ref: '#/$defs/RequestValidationStatus'
+        - type: 'null'
+        default: null
+      audit_status:
+        $ref: '#/$defs/SocialToolAuditStatus'
+      social_operation_confirmed:
+        default: false
+        title: Social Operation Confirmed
+        type: boolean
+      request_level_only:
+        const: true
+        default: true
+        title: Request Level Only
+        type: boolean
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - audit_id
+    - delivery_id
+    - message_id
+    - cognition_transaction_id
+    - sender_person_id
+    - channel_id
+    - channel_visibility
+    - audit_status
+    title: SocialToolAuditRecord
+    type: object
+  SocialToolAuditStatus:
+    enum:
+    - NO_ASSOCIATED_REQUEST
+    - SOCIAL_OPERATION_CONFIRMED
+    - ASSOCIATED_REQUEST_ONLY
+    - REQUEST_REJECTED
+    - ENTITLEMENT_MISSING
+    - ENTITLEMENT_MISMATCH
+    - HIDDEN_CHANNEL
+    title: SocialToolAuditStatus
+    type: string
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s24.v1
+    default: p3.s24.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/SocialToolAuditRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: SocialToolAuditPanel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: social_tool_audit_panel
+schema_id: social_tool_audit_panel.p3.s24.v1
+status: implemented_internal_schema
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

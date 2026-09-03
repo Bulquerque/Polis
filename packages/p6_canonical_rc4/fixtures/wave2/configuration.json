@@ -1,0 +1,16 @@
+{
+  "available_at": "2026-01-02T20:00:01+00:00",
+  "created_at": "2026-01-02T20:00:01+00:00",
+  "cycle_id": "wave1-cycle",
+  "decision_time": "2026-01-02T20:00:00+00:00",
+  "operational_mode": "QUALITY_DIVERSITY",
+  "risk": {
+    "maximum_relative_spread": "1",
+    "minimum_liquidity_score": "0"
+  },
+  "run_id": "wave1-run",
+  "seed": 7,
+  "strategy": {
+    "allow_cash_secured_short_put": true
+  }
+}

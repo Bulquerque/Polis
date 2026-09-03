@@ -1,0 +1,55 @@
+{
+  "forbidden_fields": [
+    "future_return",
+    "realized_return",
+    "realized_pnl",
+    "future_pnl",
+    "target_outcome",
+    "realized_outcome",
+    "portfolio_weight",
+    "position_size",
+    "execution_price"
+  ],
+  "publication": {
+    "consumer_phase": "P8",
+    "contract_version": "2.0.0",
+    "legacy_projection_mode": "EXPLICIT_CAPABILITY_ONLY",
+    "policy_id": "p7_p8_publication_policy_2_2",
+    "required_reference_fields": [
+      "strategy_candidate_reference",
+      "strategy_legs_reference",
+      "payoff_evaluation_reference",
+      "scenario_evaluation_reference",
+      "risk_reference",
+      "cost_liquidity_reference",
+      "greeks_reference",
+      "generation_trace_reference"
+    ],
+    "semantic_version": "2.0.0"
+  },
+  "ranking": {
+    "max_group_size": 1000,
+    "policy_id": "p7_ranking_v1",
+    "score_round_digits": 12,
+    "sort_keys": [
+      "pareto_tier",
+      "diversity_adjusted_score",
+      "score_confidence",
+      "robustness_stage",
+      "execution_quality_stage",
+      "leg_count",
+      "candidate_id"
+    ]
+  },
+  "runtime": {
+    "run_id": "run-finalization-fixture",
+    "run_timestamp": "2026-01-05T15:00:00Z",
+    "trace_id": "trace-finalization-fixture"
+  },
+  "thesis": {
+    "llm_authoritative": false,
+    "max_nearest_alternatives": 3,
+    "policy_id": "p7_thesis_v1",
+    "structured_evidence_only": true
+  }
+}

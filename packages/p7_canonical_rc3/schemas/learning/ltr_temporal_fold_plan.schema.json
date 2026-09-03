@@ -1,0 +1,189 @@
+{
+  "$id": "ltr_temporal_fold_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "ltr_temporal_fold_plan"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "calibration_end_session": {
+            "format": "date",
+            "type": "string"
+          },
+          "calibration_query_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "calibration_start_session": {
+            "format": "date",
+            "type": "string"
+          },
+          "embargoed_query_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "fold_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "purged_query_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "sealed_test_query_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "test_sealed": {
+            "const": true
+          },
+          "test_start_session": {
+            "format": "date",
+            "type": "string"
+          },
+          "train_end_session": {
+            "format": "date",
+            "type": "string"
+          },
+          "train_query_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "train_start_session": {
+            "format": "date",
+            "type": "string"
+          },
+          "validation_end_session": {
+            "format": "date",
+            "type": "string"
+          },
+          "validation_query_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "validation_start_session": {
+            "format": "date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "fold_id",
+          "train_query_ids",
+          "validation_query_ids",
+          "calibration_query_ids",
+          "sealed_test_query_ids",
+          "purged_query_ids",
+          "embargoed_query_ids",
+          "train_start_session",
+          "train_end_session",
+          "validation_start_session",
+          "validation_end_session",
+          "calibration_start_session",
+          "calibration_end_session",
+          "test_start_session",
+          "test_sealed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

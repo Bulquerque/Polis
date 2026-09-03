@@ -1,0 +1,104 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "asset_id": {
+      "minLength": 1,
+      "title": "Asset Id",
+      "type": "string"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "factor_id": {
+      "minLength": 1,
+      "title": "Factor Id",
+      "type": "string"
+    },
+    "family": {
+      "minLength": 1,
+      "title": "Family",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "rationale": {
+      "minLength": 1,
+      "title": "Rationale",
+      "type": "string"
+    },
+    "region": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Region"
+    },
+    "relationship_type": {
+      "minLength": 1,
+      "title": "Relationship Type",
+      "type": "string"
+    },
+    "series_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Series Ids",
+      "type": "array"
+    },
+    "source_id": {
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "valid_from": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valid From"
+    },
+    "valid_to": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valid To"
+    }
+  },
+  "required": [
+    "asset_id",
+    "factor_id",
+    "family",
+    "series_ids",
+    "relationship_type",
+    "rationale",
+    "source_id",
+    "available_at",
+    "lineage_id"
+  ],
+  "title": "AssetMacroContextDefinition",
+  "type": "object"
+}

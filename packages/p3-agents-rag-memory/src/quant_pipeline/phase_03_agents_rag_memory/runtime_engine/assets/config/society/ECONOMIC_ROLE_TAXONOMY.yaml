@@ -1,0 +1,51 @@
+taxonomy_id: P3_ECONOMIC_ROLE_TAXONOMY_V1
+principle: economic_society_not_investor_only
+role_families:
+- family_id: market_participants
+  roles:
+  - retail_investor
+  - active_trader
+  - portfolio_manager
+  - hedge_fund_professional
+  - asset_manager
+  - wealth_manager
+  - sell_side_analyst
+  - buy_side_analyst
+  - quant_researcher
+  - risk_professional
+  - options_specialist
+  - market_maker_or_liquidity_professional
+- family_id: corporate_actors
+  roles:
+  - chief_executive
+  - finance_executive
+  - operating_executive
+  - investor_relations_professional
+  - corporate_strategy_professional
+  - technical_employee
+  - commercial_employee
+- family_id: information_actors
+  roles:
+  - financial_journalist
+  - general_journalist
+  - independent_researcher
+  - academic_researcher
+  - economic_commentator
+  - industry_expert
+  - content_creator_or_influencer
+- family_id: policy_institutions
+  roles:
+  - central_bank_economist
+  - government_economist
+  - regulator
+  - policy_advisor
+  - public_statistician
+- family_id: real_economy
+  roles:
+  - business_owner
+  - entrepreneur
+  - professional_worker
+  - consumer_household_decision_maker
+  - procurement_or_supply_chain_professional
+  - sector_specialist
+coverage_rule: population_generation_must_allow_multiple_families_when_relevant_to_universe; no forced equal proportions

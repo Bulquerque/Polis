@@ -1,0 +1,29 @@
+{
+  "schema_version": "p3.s26.person_learning_trajectory_bundle.v2",
+  "run_id": "run_s26",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "lineage_id": "lin_trajectory",
+  "items": [
+    {
+      "experience_id": "exp_1",
+      "person_id": "p1",
+      "experience_type": "GENERAL",
+      "event_time": "2026-01-15T09:00:00Z",
+      "available_at": "2026-01-15T09:00:00Z",
+      "content_ref": "experience:shared_fact",
+      "content_fingerprint": "fp_experience_1",
+      "source_event_ids": [
+        "evt_new"
+      ],
+      "evidence_refs": [
+        "ev_new"
+      ],
+      "importance": 0.8,
+      "confidence": 0.9,
+      "matured": true,
+      "commitment_id": null,
+      "lineage_id": "lin_exp_1"
+    }
+  ]
+}

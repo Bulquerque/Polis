@@ -1,0 +1,37 @@
+additionalProperties: false
+properties:
+  policy_id:
+    title: Policy Id
+    type: string
+  cluster_threshold:
+    maximum: 1
+    minimum: 0
+    title: Cluster Threshold
+    type: number
+  density_top_k:
+    minimum: 1
+    title: Density Top K
+    type: integer
+  penalty_lambda:
+    minimum: 0
+    title: Penalty Lambda
+    type: number
+  max_penalty_fraction:
+    maximum: 1
+    minimum: 0
+    title: Max Penalty Fraction
+    type: number
+  score_scale:
+    exclusiveMinimum: 0
+    title: Score Scale
+    type: number
+required:
+- policy_id
+- cluster_threshold
+- density_top_k
+- penalty_lambda
+- max_penalty_fraction
+- score_scale
+title: DiversityPolicy
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

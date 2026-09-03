@@ -1,0 +1,12 @@
+schema_id: provider_capability_report.v1
+schema_version: v14.1-rc4.1
+release_version: V14.1-RC4.1
+type: object
+required: [schema_id, schema_version, release_version, source_id, status, capabilities]
+properties:
+  schema_id: {const: provider_capability_report.v1}
+  schema_version: {const: v14.1-rc4.1}
+  release_version: {const: V14.1-RC4.1}
+  source_id: {type: string}
+  status: {enum: [PASS, FAIL, OUT_OF_SCOPE]}
+  capabilities: {type: array}

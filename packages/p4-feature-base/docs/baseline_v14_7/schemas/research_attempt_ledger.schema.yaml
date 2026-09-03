@@ -1,0 +1,24 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: P4 Research Attempt Ledger
+type: object
+required:
+- artifact_id
+- append_only
+- attempts
+- lineage_id
+properties:
+  artifact_id:
+    type: string
+  append_only:
+    const: true
+  attempts:
+    type: array
+    items:
+      type: object
+      required:
+      - experiment_id
+      - hypothesis_id
+      - status
+      - dataset_snapshot_id
+  lineage_id:
+    type: string

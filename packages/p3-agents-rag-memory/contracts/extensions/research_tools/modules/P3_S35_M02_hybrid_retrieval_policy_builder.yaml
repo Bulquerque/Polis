@@ -1,0 +1,145 @@
+module_id: P3.S35.M02
+module_name: hybrid_retrieval_policy_builder
+phase: phase_03_agents_rag_memory
+subphase: P3.S35
+status: implemented_qualified_local
+function: Construir políticas determinísticas de BM25, RRF, modos, budgets e adapters opcionais.
+inputs:
+- corpus_index_snapshot
+- corpus_index_readiness_report
+optional_inputs:
+- retrieval_policy_config
+outputs: &id001
+- corpus_retrieval_policy
+- corpus_internal_work_budget
+validations:
+- mode_completeness
+- acyclic_downgrade
+- bounded_subqueries
+- bounded_work_units
+- semantic_only_when_snapshot_ready
+- reranker_only_when_snapshot_ready
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- single_responsibility
+- no_hidden_global_state
+- read_only
+- deterministic_or_snapshot_pinned
+non_responsibilities:
+- Não executar retrieval, não selecionar modelo dinamicamente e não alterar o índice.
+fail_fast_conditions:
+- invalid_numeric_config
+- missing_mode
+- invalid_downgrade
+- unbounded_internal_work
+forbidden_fields:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+- target
+- label
+- prediction
+- realized_pnl
+- performance
+- pnl
+- recommendation
+allowed_connections:
+  consumes_from:
+    modules:
+    - P3.S35.M01
+    artifacts:
+    - corpus_index_snapshot
+    - corpus_index_readiness_report
+    - retrieval_policy_config
+  emits_to:
+    modules:
+    - P3.S35.M03
+    - P3.S35.M04
+    - P3.S35.M05
+    - P3.S40.M01
+    artifacts: *id001
+forbidden_connections:
+- network_in_backtest
+- direct_P3_to_P5_P6_P7_P8
+- arbitrary_P1_path_access
+- same_cycle_back_edge
+- undeclared_dependency
+tests_required:
+- happy_path
+- schema_negative
+- point_in_time_negative
+- hash_or_lineage_negative
+- deterministic_replay
+- consumer_compatibility
+definition_of_done:
+- required_tests_implemented_and_passing
+- outputs_match_generated_schemas
+- contracts_docs_tests_updated_together
+- no_silent_fallback
+- manifest_integrity_valid
+contract_version: p3.research_tools.s35.v1
+rc: RC4.1-S35
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S35_M02_hybrid_retrieval_policy_builder.py
+unit_test_target: tests/unit/test_retrieval.py
+integration_test_target: tests/integration/test_s35_module_pipeline.py
+implementation_status_policy:
+  current: IMPLEMENTED_QUALIFIED_LOCAL
+  production_promotion_allowed: false
+  runtime_fail_closed: true
+  production_authority: P0_ONLY
+observability_requirements:
+  dimensions:
+  - run_id
+  - cycle_id
+  - module_id
+  - snapshot_id
+  - decision_time
+  - content_hash
+  metrics:
+  - duration_ms
+  - records_scanned
+  - records_visible
+  - records_rejected_future
+  - records_returned
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - provider_secrets
+  - raw_private_payloads
+review_checklist:
+- responsibility_is_single_and_bounded
+- inputs_outputs_match_contract
+- temporal_semantics_explicit
+- no_forbidden_authority
+- tests_cover_happy_negative_boundary_lineage
+debugging_contract:
+  triage_order:
+  - validate_required_and_optional_inputs
+  - validate_schema_and_version
+  - validate_point_in_time_and_snapshot_identity
+  - validate_lineage_and_hashes
+  - validate_output_schema_and_reason_codes
+  error_codes:
+  - P3RT-CONTRACT-SCHEMA-INVALID
+  - P3RT-PIT-SNAPSHOT-MISMATCH
+  - P3RT-DATA-UPSTREAM-INCOMPLETE
+  - P3RT-OUTPUT-CONTRACT-INVALID
+  fallback_policy: fail_closed_no_silent_fallback
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - documentation
+  - test_fixture
+  contract_change_requires:
+  - schema_update
+  - fixtures_update
+  - consumer_tests_update
+  - documentation_update
+  - version_review
+  major_breaking_change_during_parallel_production: false

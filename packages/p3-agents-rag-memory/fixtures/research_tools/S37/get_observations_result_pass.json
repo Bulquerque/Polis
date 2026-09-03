@@ -1,0 +1,121 @@
+{
+  "coverage": {
+    "missing_dimensions": [],
+    "missing_series": [],
+    "records_requested": 3,
+    "records_returned": 2,
+    "score": 1.0,
+    "series_requested": 1,
+    "series_returned": 1,
+    "truncated": false
+  },
+  "downgrade_reason": null,
+  "envelope_version": "1.0.0",
+  "evidence_refs": [
+    {
+      "available_at": "2023-03-14T12:30:00Z",
+      "content_hash": "55937a6e12d6914f931ec9939b83d0802c2aaf191ce36e0f5164e610e12b937d",
+      "evidence_id": "macro:55937a6e12d6914f931ec993",
+      "p2_artifact_id": "macro",
+      "p2_lineage_id": "lin-2",
+      "p2_record_id": "CPIAUCSL:2023-01-01:0",
+      "source_id": "FRED",
+      "source_quality": 1.0
+    },
+    {
+      "available_at": "2023-03-14T12:30:00Z",
+      "content_hash": "717522f63a8294e5aa7971c3f3020e493324c6803c2e0fcf1a9fcd98b40b20d9",
+      "evidence_id": "macro:717522f63a8294e5aa7971c3",
+      "p2_artifact_id": "macro",
+      "p2_lineage_id": "lin-3",
+      "p2_record_id": "CPIAUCSL:2023-02-01:1",
+      "source_id": "FRED",
+      "source_quality": 1.0
+    }
+  ],
+  "executed_mode": "VINTAGE_ANALYSIS",
+  "execution": {
+    "cost_units": 6.0,
+    "deterministic": true,
+    "internal_subquery_count": 2,
+    "records_returned": 2,
+    "records_scanned": 3,
+    "warnings": []
+  },
+  "operation_id": "get_observations",
+  "outcome_status": "PASS",
+  "pit_proof": {
+    "decision_time": "2023-03-20T00:00:00Z",
+    "earliest_available_at": "2023-03-14T12:30:00Z",
+    "input_hashes": [
+      "31d81cc8793a79dfe4523e3c6bf28cfc92d35ccd7aa4d05e47d144932c6dd528",
+      "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    ],
+    "latest_available_at": "2023-03-14T12:30:00Z",
+    "policy_version": "p3.s37.pit.v1",
+    "proof_hash": "e1991a4c5c450844a3ad080680a48d35bf946bd91380d192c6c19e82a325b6f4",
+    "records_rejected_filter": 0,
+    "records_rejected_future": 0,
+    "records_rejected_missing_time": 0,
+    "records_scanned": 3,
+    "records_visible": 3,
+    "snapshot_id": "fixture-snapshot",
+    "vintage_policy": "LATEST_KNOWN_AT_DECISION_TIME"
+  },
+  "provenance": {
+    "evidence_ids": [
+      "macro:55937a6e12d6914f931ec993",
+      "macro:717522f63a8294e5aa7971c3"
+    ],
+    "input_hashes": [
+      "31d81cc8793a79dfe4523e3c6bf28cfc92d35ccd7aa4d05e47d144932c6dd528",
+      "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    ],
+    "snapshot_id": "fixture-snapshot",
+    "source_ids": [
+      "FRED"
+    ]
+  },
+  "records": [
+    {
+      "available_at": "2023-03-14T12:30:00Z",
+      "frequency": "MONTHLY",
+      "is_original_release": null,
+      "lineage_id": "lin-2",
+      "observation_date": "2023-01-01",
+      "published_at": "2023-03-14T12:30:00Z",
+      "quality_flag": "PASS",
+      "raw_value": 300.2,
+      "release_id": null,
+      "revision_id": "revision-1",
+      "series_id": "CPIAUCSL",
+      "source_id": "FRED",
+      "transformation": "LEVEL",
+      "unit": "INDEX",
+      "value": 300.2,
+      "vintage_date": "2023-03-14"
+    },
+    {
+      "available_at": "2023-03-14T12:30:00Z",
+      "frequency": "MONTHLY",
+      "is_original_release": null,
+      "lineage_id": "lin-3",
+      "observation_date": "2023-02-01",
+      "published_at": "2023-03-14T12:30:00Z",
+      "quality_flag": "PASS",
+      "raw_value": 301.0,
+      "release_id": null,
+      "revision_id": "original-feb",
+      "series_id": "CPIAUCSL",
+      "source_id": "FRED",
+      "transformation": "LEVEL",
+      "unit": "INDEX",
+      "value": 301.0,
+      "vintage_date": "2023-03-14"
+    }
+  ],
+  "request_id": "fixture-request",
+  "requested_mode": "VINTAGE_ANALYSIS",
+  "result_hash": "c132ce5b408c280cf1c4c391331a883c4ba238abbbdb372b570472e434b696fd",
+  "tool_id": "macro.observation.v1"
+}

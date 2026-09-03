@@ -1,0 +1,253 @@
+{
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "default": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "content_sha256"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "CandidateSizability": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "capital_max_units": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Capital Max Units"
+        },
+        "component_quality": {
+          "additionalProperties": {
+            "$ref": "#/$defs/ComponentQuality"
+          },
+          "title": "Component Quality",
+          "type": "object"
+        },
+        "liquidity_max_units": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Liquidity Max Units"
+        },
+        "max_units": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Units"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "risk_budget_cap": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Risk Budget Cap",
+          "type": "number"
+        },
+        "state": {
+          "$ref": "#/$defs/SizabilityState"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "state",
+        "risk_budget_cap",
+        "component_quality"
+      ],
+      "title": "CandidateSizability",
+      "type": "object"
+    },
+    "ComponentQuality": {
+      "enum": [
+        "FULLY_QUALIFIED",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQuality",
+      "type": "string"
+    },
+    "ConsumptionStatus": {
+      "enum": [
+        "INTEGRITY_VALIDATED",
+        "SEMANTICALLY_CONSUMED",
+        "PARTIALLY_CONSUMED",
+        "RESERVED",
+        "NOT_APPLICABLE",
+        "CAPABILITY_UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ConsumptionStatus",
+      "type": "string"
+    },
+    "RiskCapabilityReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_status": {
+          "additionalProperties": {
+            "$ref": "#/$defs/ConsumptionStatus"
+          },
+          "title": "Artifact Status",
+          "type": "object"
+        },
+        "candidate_status": {
+          "additionalProperties": {
+            "$ref": "#/$defs/SizabilityState"
+          },
+          "title": "Candidate Status",
+          "type": "object"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "artifact_status",
+        "candidate_status"
+      ],
+      "title": "RiskCapabilityReceipt",
+      "type": "object"
+    },
+    "SizabilityState": {
+      "enum": [
+        "FULLY_SIZABLE",
+        "DEGRADED_SIZABLE",
+        "NOT_SIZABLE",
+        "RISK_STATE_INCOMPLETE"
+      ],
+      "title": "SizabilityState",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/P8DecisionReadyRiskBundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_id": {
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "candidate_sizability": {
+      "items": {
+        "$ref": "#/$defs/CandidateSizability"
+      },
+      "title": "Candidate Sizability",
+      "type": "array"
+    },
+    "content_sha256": {
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "cycle_id": {
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "dependence_state_ref": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "greek_path_state_ref": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "liquidity_state_ref": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "margin_funding_state_ref": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "pnl_cube_ref": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "risk_capability_receipt": {
+      "$ref": "#/$defs/RiskCapabilityReceipt"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "s3_result_sha256": {
+      "title": "S3 Result Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "s3_result_sha256",
+    "pnl_cube_ref",
+    "dependence_state_ref",
+    "greek_path_state_ref",
+    "liquidity_state_ref",
+    "margin_funding_state_ref",
+    "candidate_sizability",
+    "risk_capability_receipt",
+    "content_sha256"
+  ],
+  "title": "P8DecisionReadyRiskBundle",
+  "type": "object"
+}

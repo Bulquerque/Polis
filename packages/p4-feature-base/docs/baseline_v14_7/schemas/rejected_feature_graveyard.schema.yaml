@@ -1,0 +1,21 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: P4 Rejected Feature Graveyard
+type: object
+required:
+- artifact_id
+- entries
+- lineage_id
+properties:
+  artifact_id:
+    type: string
+  entries:
+    type: array
+    items:
+      type: object
+      required:
+      - hypothesis_id
+      - observer_id
+      - rejection_reason
+      - generation
+  lineage_id:
+    type: string

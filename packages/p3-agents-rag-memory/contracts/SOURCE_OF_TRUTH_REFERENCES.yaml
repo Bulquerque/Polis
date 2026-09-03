@@ -1,0 +1,26 @@
+phase_id: P3
+source_of_truth: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth
+authority: global_contracts_parallel_agents/v14_1_global_contracts_parallel_agents_RC4_1/source_of_truth
+canonical_standards:
+  code: source_of_truth/standards/CODE_STANDARDS.md
+  testing: source_of_truth/standards/TESTING_STANDARDS.md
+  zero_trust: source_of_truth/standards/ZERO_TRUST_RULES.md
+  artifact_style: source_of_truth/standards/ARTIFACT_STYLE_GUIDE.md
+  minimal_code: source_of_truth/standards/MINIMAL_CODE_POLICY.md
+  search_first: source_of_truth/standards/SEARCH_FIRST_PATCH_ONLY_POLICY.md
+  point_in_time_ai: source_of_truth/standards/POINT_IN_TIME_AI_POLICY.md
+local_docs_are_addenda: true
+forbidden_duplication:
+- common_hashing_utils
+- common_yaml_loader
+- common_manifest_writer
+- global_structural_tests
+local_plan_authority_order:
+- contracts/INPUT_CONTRACTS.yaml
+- contracts/OUTPUT_CONTRACTS.yaml
+- contracts/MODULE_IO_MATRIX.yaml
+- contracts/INTERNAL_ARTIFACT_REGISTRY.yaml
+- contracts/ARTIFACT_SCHEMA_BINDINGS.yaml
+- modules/
+- subphases/
+- tests/specifications/

@@ -1,0 +1,61 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: feature_lineage_report
+type: object
+additionalProperties: true
+properties:
+  artifact_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+  lineage_id:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: true
+      properties:
+        feature_id:
+          type:
+          - string
+          - number
+          - 'null'
+        dependency_graph_hash:
+          type:
+          - string
+          - number
+          - 'null'
+        temporal_status:
+          type:
+          - string
+          - number
+          - 'null'
+        lineage_status:
+          type:
+          - string
+          - number
+          - 'null'
+      required:
+      - feature_id
+      - dependency_graph_hash
+      - temporal_status
+      - lineage_status
+required:
+- artifact_id
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- pipeline_version
+- lineage_id
+- records

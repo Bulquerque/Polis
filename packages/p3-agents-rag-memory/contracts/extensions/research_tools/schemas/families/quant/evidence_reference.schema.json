@@ -1,0 +1,52 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "content_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "p2_artifact_id": {
+      "minLength": 1,
+      "title": "P2 Artifact Id",
+      "type": "string"
+    },
+    "p2_record_id": {
+      "minLength": 1,
+      "title": "P2 Record Id",
+      "type": "string"
+    },
+    "source_id": {
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_quality": {
+      "default": 1.0,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Source Quality",
+      "type": "number"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "source_id",
+    "p2_artifact_id",
+    "p2_record_id",
+    "available_at",
+    "content_hash"
+  ],
+  "title": "EvidenceReference",
+  "type": "object"
+}

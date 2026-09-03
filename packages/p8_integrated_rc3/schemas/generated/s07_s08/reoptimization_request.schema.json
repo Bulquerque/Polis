@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "affected_candidate_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Affected Candidate Ids",
+      "type": "array"
+    },
+    "affected_instrument_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Affected Instrument Ids",
+      "type": "array"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "title": "Reason Code",
+      "type": "string"
+    },
+    "request_id": {
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "requested_next_cycle_id": {
+      "minLength": 1,
+      "title": "Requested Next Cycle Id",
+      "type": "string"
+    },
+    "source_cycle_id": {
+      "minLength": 1,
+      "title": "Source Cycle Id",
+      "type": "string"
+    },
+    "source_state_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Source State Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_id",
+    "event_time",
+    "source_cycle_id",
+    "requested_next_cycle_id",
+    "reason_code",
+    "source_state_hash"
+  ],
+  "title": "ReoptimizationRequest",
+  "type": "object"
+}

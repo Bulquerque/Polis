@@ -1,0 +1,19 @@
+registry_id: P3_S5_PROVIDER_ADAPTER_REGISTRY_V2
+selected_provider_id: nvidia_nim_reference
+providers:
+  - provider_id: nvidia_nim_reference
+    provider_kind: NVIDIA_NIM
+    base_url: https://integrate.api.nvidia.com/v1
+    model_id: REPLACE_WITH_QUALIFIED_MODEL
+    timeout_seconds: 60.0
+    max_connections: 8
+    supports_strict_json_schema: true
+    api_key_env: NVIDIA_API_KEY
+  - provider_id: huggingface_router_reference
+    provider_kind: HUGGINGFACE_ROUTER
+    base_url: https://router.huggingface.co/v1
+    model_id: REPLACE_WITH_QUALIFIED_MODEL_AND_PROVIDER_SUFFIX
+    timeout_seconds: 60.0
+    max_connections: 8
+    supports_strict_json_schema: true
+    api_key_env: HF_TOKEN

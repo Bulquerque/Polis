@@ -1,0 +1,186 @@
+module_id: P3.S23.M01
+module_name: person_state_transition_writer
+phase: phase_03_agents_rag_memory
+subphase: P3.S23
+status: implemented_qualified_internal
+function: Aplicar belief updates evidenciados ao estado individual e materializar o estado completo de crenças de forma determinística
+  e versionada.
+inputs:
+- evidence_bound_belief_update_panel
+- current_person_state_panel
+- current_belief_state_panel
+- person_schema_policy
+- state_change_config
+outputs:
+- next_person_state_panel
+- next_belief_state_panel
+validations:
+- unique_person_state
+- complete_next_belief_state
+- slow_medium_fast_rules
+- attention_update
+- confidence_update
+- tool_proficiency_preserved_without_execution_audit
+- point_in_time_transition
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- single_responsibility
+- no_hidden_global_state
+- no_same_cycle_back_edge
+- immutable_identity_preserved
+non_responsibilities:
+- Não alterar trust, core personality, cognitive capacity ou tool proficiency sem evidência autoritativa.
+- Não executar ferramentas, LLMs, memória ou comunicação social.
+fail_fast_conditions:
+- person_state_transition_writer_schema_violation
+- duplicate_person_or_belief_key
+- belief_person_not_found
+- transition_before_prior_state
+- undeclared_state_family
+forbidden_fields:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+allowed_connections:
+  consumes_from:
+    modules:
+    - P3.S4.M02
+    - P3.S11.M03
+    - P3.S22.M02
+    artifacts:
+    - evidence_bound_belief_update_panel
+    - current_person_state_panel
+    - current_belief_state_panel
+    - person_schema_policy
+    - state_change_config
+    phase_inputs:
+    - state_change_config
+  emits_to:
+    modules:
+    - P3.S23.M02
+    - P3.S26.M01
+    - P3.S26.M03
+    - P3.S27.M01
+    - P3.S28.M01
+    artifacts:
+    - next_person_state_panel
+    - next_belief_state_panel
+    phase_outputs: []
+temporal_inputs: []
+tests_required:
+- slow_state_delta_cap
+- medium_state_delta_scaled_by_elapsed_time
+- tool_proficiency_preserved_without_execution_audit
+- complete_next_belief_state
+- deterministic_replay
+definition_of_done:
+- runtime_implemented
+- schemas_generated_from_models
+- unit_contract_integration_replay_tests_passing
+- outputs_match_original_io
+- no_undeclared_side_effects
+- qualified_local_evidence_present
+notes:
+- Implementation, contract and executable tests are synchronized in the final release.
+contract_version: p3.s23.module.v1
+owner_prompt: subphases/P3_S23_person_state_transition_persistence.md
+implementation_boundary:
+  owns:
+  - Deterministic candidate person-state and next-belief-state materialization.
+  must_not_absorb:
+  - Gradual guard authority
+  - Trust/relationship updates
+  - Memory consolidation
+  - Tool execution
+  state_mutation_policy: immutable_candidate_outputs_only
+observability_requirements:
+  events:
+  - module_started
+  - input_contract_validated
+  - module_succeeded
+  - module_failed
+  dimensions:
+  - run_id
+  - cycle_id
+  - module_id
+  - as_of_time
+  - contract_version
+  - lineage_id
+  metrics:
+  - duration_ms
+  - input_record_count
+  - output_record_count
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - provider_secrets
+  - private_tool_payloads
+debugging_contract:
+  triage_order:
+  - verify_declared_inputs_materialized
+  - verify_schema_and_version
+  - verify_transition_time
+  - verify_upstream_lineage
+  - verify_delta_caps
+  - verify_output_schema_and_forbidden_fields
+  error_codes:
+  - P3_S23_M01_INPUT_INVALID
+  - P3_S23_M01_TEMPORAL_VIOLATION
+  - P3_S23_M01_DUPLICATE_KEY
+  - P3_S23_M01_OUTPUT_INVALID
+  - P3_S23_M01_FORBIDDEN_FIELD
+  fallback_policy: no_silent_fallback
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - tests
+  - documentation
+  contract_change_requires:
+  - schema_update
+  - io_matrix_update
+  - tests_update
+  - documentation_update
+  - consumer_acceptance
+  one_change_experiment_required_when_retro_managed: true
+review_checklist:
+- responsibility_is_single_and_bounded
+- inputs_and_outputs_match_io_matrix
+- no_forbidden_authority
+- temporal_semantics_are_explicit
+- complete_state_is_materialized
+- tests_cover_happy_negative_boundary_lineage_observability
+rc: RC4.1
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+- same_cycle_back_edge
+- direct_P3_to_P5_P6_P7_P8
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/modules/P3_S23_M01_person_state_transition_writer.py
+unit_test_target: tests/phase_specific/test_p3_s23_m01_person_state_transition_writer.py
+integration_test_target: tests/phase_specific/test_p3_s23_integration.py
+implementation_status_policy:
+  current: IMPLEMENTED_QUALIFIED_INTERNAL
+  allowed_progression:
+  - NOT_IMPLEMENTED
+  - IMPLEMENTED_QUALIFIED_INTERNAL
+  - QUALIFIED_LOCAL
+  - QUALIFIED_P0
+  production_claim_requires: QUALIFIED_P0
+  qualification_required: false
+  production_promotion_allowed: false
+  runtime_fail_closed: true
+documentation_target: docs/runtime/modules/P3_S23_M01.md
+qualification_scope: LOCAL_AND_INTEGRATION_CONTRACTS; P0_PENDING
+integration_revision: P3-FINAL
+qualification_evidence:
+  python_test_target: tests/phase_specific/test_p3_s23_m01_person_state_transition_writer.py
+  integration_test_target: tests/phase_specific/test_p3_s23_integration.py
+  canonical_entrypoint: execute(inputs, ModuleExecutionContext)
+  profile_aware: true

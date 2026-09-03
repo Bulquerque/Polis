@@ -1,0 +1,1117 @@
+{
+  "P7.S2.M01": {
+    "issues": [],
+    "module_id": "P7.S2.M01",
+    "outputs": {
+      "eligibility_blocked_candidate_panel": {
+        "artifact_id": "eligibility_blocked_candidate_panel:p7-foundation-s2-fixture:cycle-2",
+        "artifact_name": "eligibility_blocked_candidate_panel",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "UNAVAILABLE",
+        "content_sha256": "c76aa8df89ddfb625eb7aa544de0d20d49ae1732fd864af9f0fab7f842ecb617",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_candidate",
+        "lineage_id": "lin-p7-foundation-s2-fixture",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S2.M01",
+        "producer_phase": "P7",
+        "record_count": 0,
+        "records": [],
+        "run_id": "p7-foundation-s2-fixture",
+        "schema_version": "2.0.0"
+      },
+      "eligibility_decision_panel": {
+        "artifact_id": "eligibility_decision_panel:p7-foundation-s2-fixture:cycle-2",
+        "artifact_name": "eligibility_decision_panel",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "bc32484bdac4236e78d7c61c34ff4c05703044fe5442f2e1cf635bf6db73ae35",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_candidate",
+        "lineage_id": "lin-p7-foundation-s2-fixture",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S2.M01",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "decision_id": "elig-31d10086f7bf50581518637b1bb3ed5d07fa28048373985f7c4990739fb356a6",
+            "evidence": [],
+            "policy_id": "p7_defined_risk_baseline",
+            "policy_version": "2.0.0",
+            "reason_codes": [],
+            "status": "ELIGIBLE"
+          }
+        ],
+        "run_id": "p7-foundation-s2-fixture",
+        "schema_version": "2.0.0"
+      },
+      "eligibility_policy_audit": {
+        "artifact_id": "eligibility_policy_audit:p7-foundation-s2-fixture:cycle-2",
+        "artifact_name": "eligibility_policy_audit",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "0304beab43644baff5cc96ae0c297506522947edfb1c617ff7e49e684db59308",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_eligibility_run",
+        "lineage_id": "lin-p7-foundation-s2-fixture",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S2.M01",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "applied_feedback_adjustments": [],
+            "blocked_count": 0,
+            "candidate_count": 1,
+            "eligible_count": 1,
+            "policy_id": "p7_defined_risk_baseline",
+            "policy_version": "2.0.0",
+            "status": "PASS"
+          }
+        ],
+        "run_id": "p7-foundation-s2-fixture",
+        "schema_version": "2.0.0"
+      },
+      "eligible_strategy_candidate_panel": {
+        "artifact_id": "eligible_strategy_candidate_panel:p7-foundation-s2-fixture:cycle-2",
+        "artifact_name": "eligible_strategy_candidate_panel",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "cd8bef40d82e1b0f9fbe7dc2b4bc25b9aceda1c4170821f53409c07b603e01cc",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_candidate",
+        "lineage_id": "lin-p7-foundation-s2-fixture",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S2.M01",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "ambiguity_evaluations": [],
+            "candidate": {
+              "candidate_id": "cand-iron-condor-1",
+              "capabilities": {
+                "ambiguity": "UNAVAILABLE",
+                "equivalence": "UNAVAILABLE",
+                "greeks": "UNAVAILABLE",
+                "quality_diversity": "UNAVAILABLE"
+              },
+              "currency": "USD",
+              "cycle_id": "cycle-2",
+              "decision_time": "2026-01-05T14:30:00Z",
+              "horizon": "5_sessions",
+              "lineage_id": "lin-cand-1",
+              "market_snapshot_id": "snapshot-1",
+              "objective_family": "RANGE",
+              "strategy_class": "IRON_CONDOR",
+              "underlying_id": "XYZ"
+            },
+            "candidate_id": "cand-iron-condor-1",
+            "cost_liquidity": {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "currency": "USD",
+              "entry_cost": 10.0,
+              "entry_cost_units": "currency",
+              "liquidity_score": 0.8,
+              "liquidity_score_units": "normalized_score"
+            },
+            "cycle_id": "cycle-2",
+            "decision_time": "2026-01-05T14:30:00Z",
+            "eligibility_decision_id": "elig-31d10086f7bf50581518637b1bb3ed5d07fa28048373985f7c4990739fb356a6",
+            "eligibility_status": "ELIGIBLE",
+            "equivalence": [],
+            "generation_trace": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-iron-condor-1",
+                "trace_id": "trace-1"
+              }
+            ],
+            "greeks": [],
+            "horizon": "5_sessions",
+            "legs": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-iron-condor-1",
+                "leg_id": "leg-1"
+              },
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-iron-condor-1",
+                "leg_id": "leg-2"
+              },
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-iron-condor-1",
+                "leg_id": "leg-3"
+              },
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-iron-condor-1",
+                "leg_id": "leg-4"
+              }
+            ],
+            "lineage": {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "lineage_id": "lin-cand-1"
+            },
+            "lineage_id": "lin-cand-1",
+            "market_snapshot": {
+              "calendar_id": "XNYS",
+              "currency": "USD",
+              "market_snapshot_id": "snapshot-1",
+              "market_snapshot_time": "2026-01-05T14:30:00Z"
+            },
+            "market_snapshot_id": "snapshot-1",
+            "objective_family": "RANGE",
+            "payoffs": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-iron-condor-1",
+                "payoff_id": "payoff-1"
+              }
+            ],
+            "quality_diversity": [],
+            "risk": {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "expected_net_payoff": 12.0,
+              "expected_net_payoff_units": "currency",
+              "expected_shortfall": 25.0,
+              "expected_shortfall_units": "currency",
+              "maximum_loss": 100.0,
+              "maximum_loss_proven": true,
+              "maximum_loss_units": "currency",
+              "payoff_fit_error": 0.03,
+              "payoff_fit_error_units": "squared_error",
+              "probability_of_profit": 0.62,
+              "probability_of_profit_units": "probability",
+              "return_on_max_loss": 0.12,
+              "return_on_max_loss_units": "ratio"
+            },
+            "scenario_evaluations": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-iron-condor-1",
+                "scenario_id": "scenario-central"
+              },
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-iron-condor-1",
+                "scenario_id": "scenario-tail"
+              }
+            ],
+            "underlying_id": "XYZ"
+          }
+        ],
+        "run_id": "p7-foundation-s2-fixture",
+        "schema_version": "2.0.0"
+      }
+    },
+    "receipt": {
+      "input_hash": "7921989023d7270fcd1a5cf7675f56f7b3416f3eda97c61d45ce514fc862c7cd",
+      "output_artifact_names": [
+        "eligibility_blocked_candidate_panel",
+        "eligibility_decision_panel",
+        "eligibility_policy_audit",
+        "eligible_strategy_candidate_panel"
+      ],
+      "output_hash": "705980b84a9af8198b5bddcb12e9cb57d19a499d64be56838e727d4088ed55db"
+    },
+    "status": "PASS"
+  },
+  "P7.S2.M02": {
+    "issues": [],
+    "module_id": "P7.S2.M02",
+    "outputs": {
+      "candidate_comparison_group_panel": {
+        "artifact_id": "candidate_comparison_group_panel:p7-foundation-s2-fixture:cycle-2",
+        "artifact_name": "candidate_comparison_group_panel",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "6bf3ce3a8c52f0048db503a8e7e10a78d7ec2040967f0ada076518147570af58",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_candidate",
+        "lineage_id": "lin-p7-foundation-s2-fixture",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S2.M02",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "capital_at_risk": 100.0,
+            "capital_at_risk_bucket": "RISK_0000_0249",
+            "capital_at_risk_source": "risk.maximum_loss",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "currency": "USD",
+            "cycle_id": "cycle-2",
+            "decision_time": "2026-01-05T14:30:00Z",
+            "group_size": 1,
+            "horizon": "5_sessions",
+            "objective_family": "RANGE",
+            "policy_id": "p7_canonical_comparison_group",
+            "policy_version": "2.0.0",
+            "query_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "underlying_id": "XYZ"
+          }
+        ],
+        "run_id": "p7-foundation-s2-fixture",
+        "schema_version": "2.0.0"
+      },
+      "comparison_group_audit": {
+        "artifact_id": "comparison_group_audit:p7-foundation-s2-fixture:cycle-2",
+        "artifact_name": "comparison_group_audit",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "72801464cf27b9d4032916be822196674cb37625d16f7fe495b4ede7111560f8",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_grouping_run",
+        "lineage_id": "lin-p7-foundation-s2-fixture",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S2.M02",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "candidate_count": 1,
+            "comparison_group_count": 1,
+            "maximum_group_size": 1,
+            "minimum_group_size": 1,
+            "policy_id": "p7_canonical_comparison_group",
+            "policy_version": "2.0.0",
+            "singleton_group_count": 1,
+            "status": "PASS"
+          }
+        ],
+        "run_id": "p7-foundation-s2-fixture",
+        "schema_version": "2.0.0"
+      }
+    },
+    "receipt": {
+      "input_hash": "1270ee251e0fc5d52f666bce61d7a6f603d7316bde16c6b66584a21a0b53b8af",
+      "output_artifact_names": [
+        "candidate_comparison_group_panel",
+        "comparison_group_audit"
+      ],
+      "output_hash": "311c9d6ef8a4431be1b209ac3c55a005489e5aec9328794d52258b5864ec15c2"
+    },
+    "status": "PASS"
+  },
+  "P7.S2.M03": {
+    "issues": [],
+    "module_id": "P7.S2.M03",
+    "outputs": {
+      "candidate_metric_route_panel": {
+        "artifact_id": "candidate_metric_route_panel:p7-foundation-s2-fixture:cycle-2",
+        "artifact_name": "candidate_metric_route_panel",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "2dee714acdcfa07075f384ef6839f76c3712f7f920f5904f24eaedfa4bef3016",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_candidate_metric",
+        "lineage_id": "lin-p7-foundation-s2-fixture",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S2.M03",
+        "producer_phase": "P7",
+        "record_count": 9,
+        "records": [
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "direction": "MINIMIZE",
+            "metric_id": "entry_cost",
+            "metric_route_id": "route-71736fd34c159929d8f10c7466898f9b52cfa6aa6cd6ce24cab4618df5781d20",
+            "missingness_policy": "BLOCK",
+            "raw_value": 10.0,
+            "required": true,
+            "semantic_version": "2.0.0",
+            "source_artifact_name": "strategy_cost_liquidity_panel",
+            "source_path": "cost_liquidity.entry_cost",
+            "status": "AVAILABLE",
+            "transformation_policy": "IDENTITY",
+            "units": "currency"
+          },
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "direction": "MAXIMIZE",
+            "metric_id": "expected_net_payoff",
+            "metric_route_id": "route-96ee4aa314a7ef65425cd5f9324fddd9bd1228076108bcea54fcfa2d2b967405",
+            "missingness_policy": "BLOCK",
+            "raw_value": 12.0,
+            "required": true,
+            "semantic_version": "2.0.0",
+            "source_artifact_name": "strategy_risk_panel",
+            "source_path": "risk.expected_net_payoff",
+            "status": "AVAILABLE",
+            "transformation_policy": "IDENTITY",
+            "units": "currency"
+          },
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "direction": "MINIMIZE",
+            "metric_id": "expected_shortfall",
+            "metric_route_id": "route-b06354e382886c7cad7b72d433e1e3dc102f017bed5bea5cabb72a3e9a355e21",
+            "missingness_policy": "BLOCK",
+            "raw_value": 25.0,
+            "required": true,
+            "semantic_version": "2.0.0",
+            "source_artifact_name": "strategy_risk_panel",
+            "source_path": "risk.expected_shortfall",
+            "status": "AVAILABLE",
+            "transformation_policy": "IDENTITY",
+            "units": "currency"
+          },
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "direction": "MAXIMIZE",
+            "metric_id": "liquidity_score",
+            "metric_route_id": "route-727c7767e32b272f82d8313bee0738df21c9ab4fb94bb83d4b7817f83f5f7a50",
+            "missingness_policy": "BLOCK",
+            "raw_value": 0.8,
+            "required": true,
+            "semantic_version": "2.0.0",
+            "source_artifact_name": "strategy_cost_liquidity_panel",
+            "source_path": "cost_liquidity.liquidity_score",
+            "status": "AVAILABLE",
+            "transformation_policy": "IDENTITY",
+            "units": "normalized_score"
+          },
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "direction": "MINIMIZE",
+            "metric_id": "maximum_loss",
+            "metric_route_id": "route-d6a90fdc56edbeb66e9ed659b4c77995abaad0ada4cc5c6ddf7b6eb62304595b",
+            "missingness_policy": "BLOCK",
+            "raw_value": 100.0,
+            "required": true,
+            "semantic_version": "2.0.0",
+            "source_artifact_name": "strategy_risk_panel",
+            "source_path": "risk.maximum_loss",
+            "status": "AVAILABLE",
+            "transformation_policy": "IDENTITY",
+            "units": "currency"
+          },
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "direction": "MINIMIZE",
+            "metric_id": "payoff_fit_error",
+            "metric_route_id": "route-77ede6a6ad46db012b2e435e007742c0a4c8ba69c19eb51543a8231997889892",
+            "missingness_policy": "ALLOW_UNAVAILABLE",
+            "raw_value": 0.03,
+            "required": false,
+            "semantic_version": "2.0.0",
+            "source_artifact_name": "strategy_risk_panel",
+            "source_path": "risk.payoff_fit_error",
+            "status": "AVAILABLE",
+            "transformation_policy": "IDENTITY",
+            "units": "squared_error"
+          },
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "direction": "MAXIMIZE",
+            "metric_id": "probability_of_profit",
+            "metric_route_id": "route-5d97f64abb0b66b49417ad13ebf51395f25c01ba84a0fe39b3c58b52dbae8561",
+            "missingness_policy": "BLOCK",
+            "raw_value": 0.62,
+            "required": true,
+            "semantic_version": "2.0.0",
+            "source_artifact_name": "strategy_risk_panel",
+            "source_path": "risk.probability_of_profit",
+            "status": "AVAILABLE",
+            "transformation_policy": "IDENTITY",
+            "units": "probability"
+          },
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "direction": "MAXIMIZE",
+            "metric_id": "return_on_max_loss",
+            "metric_route_id": "route-63dbb84a777f5784b5634a374e268892c54777054db1319fe880c9baa73f726a",
+            "missingness_policy": "ALLOW_UNAVAILABLE",
+            "raw_value": 0.12,
+            "required": false,
+            "semantic_version": "2.0.0",
+            "source_artifact_name": "strategy_risk_panel",
+            "source_path": "risk.return_on_max_loss",
+            "status": "AVAILABLE",
+            "transformation_policy": "IDENTITY",
+            "units": "ratio"
+          },
+          {
+            "candidate_id": "cand-iron-condor-1",
+            "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+            "direction": "MAXIMIZE",
+            "metric_id": "worst_ambiguity_utility",
+            "metric_route_id": "route-4406259cf5bc6c23894c4c8e21cfdf3406c7b2731be889d2fcda4b5e6ec8e845",
+            "missingness_policy": "ALLOW_UNAVAILABLE",
+            "raw_value": null,
+            "required": false,
+            "semantic_version": "2.0.0",
+            "source_artifact_name": "strategy_risk_panel",
+            "source_path": "risk.worst_ambiguity_utility",
+            "status": "UNAVAILABLE",
+            "transformation_policy": "IDENTITY",
+            "units": "utility"
+          }
+        ],
+        "run_id": "p7-foundation-s2-fixture",
+        "schema_version": "2.0.0"
+      },
+      "metric_route_audit": {
+        "artifact_id": "metric_route_audit:p7-foundation-s2-fixture:cycle-2",
+        "artifact_name": "metric_route_audit",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "fb39db89ae221654b6b0f396f265a4b7f60d0098bcc5d3455c2c1a98a6ed32bd",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_metric_routing_run",
+        "lineage_id": "lin-p7-foundation-s2-fixture",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S2.M03",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "available_route_count": 8,
+            "metric_registry_id": "p7_metric_semantics_registry",
+            "metric_registry_version": "2.0.0",
+            "objective_registry_id": "p7_objective_family_registry",
+            "objective_registry_version": "2.0.0",
+            "route_count": 9,
+            "status": "PASS",
+            "unavailable_route_count": 1
+          }
+        ],
+        "run_id": "p7-foundation-s2-fixture",
+        "schema_version": "2.0.0"
+      }
+    },
+    "receipt": {
+      "input_hash": "15e9226eefe08d6dcf42894d9f928202ff4584199046f44d9bb6570feb40d2fb",
+      "output_artifact_names": [
+        "candidate_metric_route_panel",
+        "metric_route_audit"
+      ],
+      "output_hash": "0b2a3b28af0f2a7afa5ce6499edc88cedad66e91f07d059de42a2464bcc3a555"
+    },
+    "status": "PASS"
+  },
+  "P7.S2.M04": {
+    "issues": [],
+    "module_id": "P7.S2.M04",
+    "outputs": {
+      "runtime_foundation_handoff_manifest": {
+        "artifact_id": "runtime_foundation_handoff_manifest:p7-foundation-s2-fixture:cycle-2",
+        "artifact_name": "runtime_foundation_handoff_manifest",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "9c8c90e011c1247e17f6208b8eed37d3f7a243ca0292be0fc04b30a4313789b0",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_phase_handoff",
+        "lineage_id": "lin-p7-foundation-s2-fixture",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S2.M04",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "artifacts": [
+              {
+                "artifact_id": "candidate_comparison_group_panel:p7-foundation-s2-fixture:cycle-2",
+                "artifact_name": "candidate_comparison_group_panel",
+                "content_sha256": "6bf3ce3a8c52f0048db503a8e7e10a78d7ec2040967f0ada076518147570af58",
+                "grain": "one_record_per_candidate",
+                "producer_module_id": "P7.S2.M02",
+                "record_count": 1,
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "candidate_metric_route_panel:p7-foundation-s2-fixture:cycle-2",
+                "artifact_name": "candidate_metric_route_panel",
+                "content_sha256": "2dee714acdcfa07075f384ef6839f76c3712f7f920f5904f24eaedfa4bef3016",
+                "grain": "one_record_per_candidate_metric",
+                "producer_module_id": "P7.S2.M03",
+                "record_count": 9,
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "eligibility_blocked_candidate_panel:p7-foundation-s2-fixture:cycle-2",
+                "artifact_name": "eligibility_blocked_candidate_panel",
+                "content_sha256": "c76aa8df89ddfb625eb7aa544de0d20d49ae1732fd864af9f0fab7f842ecb617",
+                "grain": "one_record_per_candidate",
+                "producer_module_id": "P7.S2.M01",
+                "record_count": 0,
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "eligibility_decision_panel:p7-foundation-s2-fixture:cycle-2",
+                "artifact_name": "eligibility_decision_panel",
+                "content_sha256": "bc32484bdac4236e78d7c61c34ff4c05703044fe5442f2e1cf635bf6db73ae35",
+                "grain": "one_record_per_candidate",
+                "producer_module_id": "P7.S2.M01",
+                "record_count": 1,
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "eligible_strategy_candidate_panel:p7-foundation-s2-fixture:cycle-2",
+                "artifact_name": "eligible_strategy_candidate_panel",
+                "content_sha256": "cd8bef40d82e1b0f9fbe7dc2b4bc25b9aceda1c4170821f53409c07b603e01cc",
+                "grain": "one_record_per_candidate",
+                "producer_module_id": "P7.S2.M01",
+                "record_count": 1,
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "ranking_feedback_context:p7-foundation-s2-fixture:cycle-2",
+                "artifact_name": "ranking_feedback_context",
+                "content_sha256": "83cbabe82072e2e4a62592010d27782909dceb89af5858f71a130d7c9caed1c8",
+                "grain": "one_record_per_promoted_feedback_item",
+                "producer_module_id": "FIXTURE.GENERATOR",
+                "record_count": 0,
+                "schema_version": "2.0.0"
+              }
+            ],
+            "consumer_stages": [
+              "TOURNAMENT",
+              "LEARNING"
+            ],
+            "contract_version": "2.0.0",
+            "handoff_id": "foundation-a3b6d697574bc13c0703cebc5ae95f0286a92ee9bf6919831bc4d424764b562b",
+            "producer_stage": "FOUNDATION",
+            "semantic_version": "2.0.0"
+          }
+        ],
+        "run_id": "p7-foundation-s2-fixture",
+        "schema_version": "2.0.0"
+      }
+    },
+    "receipt": {
+      "input_hash": "dc1093008cd9d145da7a5e933c888129748082c2fadb6e11c1ae4667b7b917f8",
+      "output_artifact_names": [
+        "runtime_foundation_handoff_manifest"
+      ],
+      "output_hash": "cb7aeb339c7d776b8439149f85687418471b19fbe25f1bcb672f72130dcf152d"
+    },
+    "status": "PASS"
+  },
+  "outputs": {
+    "runtime_foundation_handoff_manifest": {
+      "artifact_id": "runtime_foundation_handoff_manifest:p7-foundation-s2-fixture:cycle-2",
+      "artifact_name": "runtime_foundation_handoff_manifest",
+      "available_at": "2026-01-05T14:30:00Z",
+      "capability_status": "AVAILABLE",
+      "content_sha256": "9c8c90e011c1247e17f6208b8eed37d3f7a243ca0292be0fc04b30a4313789b0",
+      "created_at": "2026-01-05T14:31:00Z",
+      "cycle_id": "cycle-2",
+      "decision_time": "2026-01-05T14:30:00Z",
+      "destination_phase": "P7",
+      "grain": "one_record_per_phase_handoff",
+      "lineage_id": "lin-p7-foundation-s2-fixture",
+      "pipeline_version": "15.0.0",
+      "producer_module_id": "P7.S2.M04",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "artifacts": [
+            {
+              "artifact_id": "candidate_comparison_group_panel:p7-foundation-s2-fixture:cycle-2",
+              "artifact_name": "candidate_comparison_group_panel",
+              "content_sha256": "6bf3ce3a8c52f0048db503a8e7e10a78d7ec2040967f0ada076518147570af58",
+              "grain": "one_record_per_candidate",
+              "producer_module_id": "P7.S2.M02",
+              "record_count": 1,
+              "schema_version": "2.0.0"
+            },
+            {
+              "artifact_id": "candidate_metric_route_panel:p7-foundation-s2-fixture:cycle-2",
+              "artifact_name": "candidate_metric_route_panel",
+              "content_sha256": "2dee714acdcfa07075f384ef6839f76c3712f7f920f5904f24eaedfa4bef3016",
+              "grain": "one_record_per_candidate_metric",
+              "producer_module_id": "P7.S2.M03",
+              "record_count": 9,
+              "schema_version": "2.0.0"
+            },
+            {
+              "artifact_id": "eligibility_blocked_candidate_panel:p7-foundation-s2-fixture:cycle-2",
+              "artifact_name": "eligibility_blocked_candidate_panel",
+              "content_sha256": "c76aa8df89ddfb625eb7aa544de0d20d49ae1732fd864af9f0fab7f842ecb617",
+              "grain": "one_record_per_candidate",
+              "producer_module_id": "P7.S2.M01",
+              "record_count": 0,
+              "schema_version": "2.0.0"
+            },
+            {
+              "artifact_id": "eligibility_decision_panel:p7-foundation-s2-fixture:cycle-2",
+              "artifact_name": "eligibility_decision_panel",
+              "content_sha256": "bc32484bdac4236e78d7c61c34ff4c05703044fe5442f2e1cf635bf6db73ae35",
+              "grain": "one_record_per_candidate",
+              "producer_module_id": "P7.S2.M01",
+              "record_count": 1,
+              "schema_version": "2.0.0"
+            },
+            {
+              "artifact_id": "eligible_strategy_candidate_panel:p7-foundation-s2-fixture:cycle-2",
+              "artifact_name": "eligible_strategy_candidate_panel",
+              "content_sha256": "cd8bef40d82e1b0f9fbe7dc2b4bc25b9aceda1c4170821f53409c07b603e01cc",
+              "grain": "one_record_per_candidate",
+              "producer_module_id": "P7.S2.M01",
+              "record_count": 1,
+              "schema_version": "2.0.0"
+            },
+            {
+              "artifact_id": "ranking_feedback_context:p7-foundation-s2-fixture:cycle-2",
+              "artifact_name": "ranking_feedback_context",
+              "content_sha256": "83cbabe82072e2e4a62592010d27782909dceb89af5858f71a130d7c9caed1c8",
+              "grain": "one_record_per_promoted_feedback_item",
+              "producer_module_id": "FIXTURE.GENERATOR",
+              "record_count": 0,
+              "schema_version": "2.0.0"
+            }
+          ],
+          "consumer_stages": [
+            "TOURNAMENT",
+            "LEARNING"
+          ],
+          "contract_version": "2.0.0",
+          "handoff_id": "foundation-a3b6d697574bc13c0703cebc5ae95f0286a92ee9bf6919831bc4d424764b562b",
+          "producer_stage": "FOUNDATION",
+          "semantic_version": "2.0.0"
+        }
+      ],
+      "run_id": "p7-foundation-s2-fixture",
+      "schema_version": "2.0.0"
+    },
+    "candidate_comparison_group_panel": {
+      "artifact_id": "candidate_comparison_group_panel:p7-foundation-s2-fixture:cycle-2",
+      "artifact_name": "candidate_comparison_group_panel",
+      "available_at": "2026-01-05T14:30:00Z",
+      "capability_status": "AVAILABLE",
+      "content_sha256": "6bf3ce3a8c52f0048db503a8e7e10a78d7ec2040967f0ada076518147570af58",
+      "created_at": "2026-01-05T14:31:00Z",
+      "cycle_id": "cycle-2",
+      "decision_time": "2026-01-05T14:30:00Z",
+      "destination_phase": "P7",
+      "grain": "one_record_per_candidate",
+      "lineage_id": "lin-p7-foundation-s2-fixture",
+      "pipeline_version": "15.0.0",
+      "producer_module_id": "P7.S2.M02",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "capital_at_risk": 100.0,
+          "capital_at_risk_bucket": "RISK_0000_0249",
+          "capital_at_risk_source": "risk.maximum_loss",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "currency": "USD",
+          "cycle_id": "cycle-2",
+          "decision_time": "2026-01-05T14:30:00Z",
+          "group_size": 1,
+          "horizon": "5_sessions",
+          "objective_family": "RANGE",
+          "policy_id": "p7_canonical_comparison_group",
+          "policy_version": "2.0.0",
+          "query_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "underlying_id": "XYZ"
+        }
+      ],
+      "run_id": "p7-foundation-s2-fixture",
+      "schema_version": "2.0.0"
+    },
+    "candidate_metric_route_panel": {
+      "artifact_id": "candidate_metric_route_panel:p7-foundation-s2-fixture:cycle-2",
+      "artifact_name": "candidate_metric_route_panel",
+      "available_at": "2026-01-05T14:30:00Z",
+      "capability_status": "AVAILABLE",
+      "content_sha256": "2dee714acdcfa07075f384ef6839f76c3712f7f920f5904f24eaedfa4bef3016",
+      "created_at": "2026-01-05T14:31:00Z",
+      "cycle_id": "cycle-2",
+      "decision_time": "2026-01-05T14:30:00Z",
+      "destination_phase": "P7",
+      "grain": "one_record_per_candidate_metric",
+      "lineage_id": "lin-p7-foundation-s2-fixture",
+      "pipeline_version": "15.0.0",
+      "producer_module_id": "P7.S2.M03",
+      "producer_phase": "P7",
+      "record_count": 9,
+      "records": [
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "direction": "MINIMIZE",
+          "metric_id": "entry_cost",
+          "metric_route_id": "route-71736fd34c159929d8f10c7466898f9b52cfa6aa6cd6ce24cab4618df5781d20",
+          "missingness_policy": "BLOCK",
+          "raw_value": 10.0,
+          "required": true,
+          "semantic_version": "2.0.0",
+          "source_artifact_name": "strategy_cost_liquidity_panel",
+          "source_path": "cost_liquidity.entry_cost",
+          "status": "AVAILABLE",
+          "transformation_policy": "IDENTITY",
+          "units": "currency"
+        },
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "direction": "MAXIMIZE",
+          "metric_id": "expected_net_payoff",
+          "metric_route_id": "route-96ee4aa314a7ef65425cd5f9324fddd9bd1228076108bcea54fcfa2d2b967405",
+          "missingness_policy": "BLOCK",
+          "raw_value": 12.0,
+          "required": true,
+          "semantic_version": "2.0.0",
+          "source_artifact_name": "strategy_risk_panel",
+          "source_path": "risk.expected_net_payoff",
+          "status": "AVAILABLE",
+          "transformation_policy": "IDENTITY",
+          "units": "currency"
+        },
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "direction": "MINIMIZE",
+          "metric_id": "expected_shortfall",
+          "metric_route_id": "route-b06354e382886c7cad7b72d433e1e3dc102f017bed5bea5cabb72a3e9a355e21",
+          "missingness_policy": "BLOCK",
+          "raw_value": 25.0,
+          "required": true,
+          "semantic_version": "2.0.0",
+          "source_artifact_name": "strategy_risk_panel",
+          "source_path": "risk.expected_shortfall",
+          "status": "AVAILABLE",
+          "transformation_policy": "IDENTITY",
+          "units": "currency"
+        },
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "direction": "MAXIMIZE",
+          "metric_id": "liquidity_score",
+          "metric_route_id": "route-727c7767e32b272f82d8313bee0738df21c9ab4fb94bb83d4b7817f83f5f7a50",
+          "missingness_policy": "BLOCK",
+          "raw_value": 0.8,
+          "required": true,
+          "semantic_version": "2.0.0",
+          "source_artifact_name": "strategy_cost_liquidity_panel",
+          "source_path": "cost_liquidity.liquidity_score",
+          "status": "AVAILABLE",
+          "transformation_policy": "IDENTITY",
+          "units": "normalized_score"
+        },
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "direction": "MINIMIZE",
+          "metric_id": "maximum_loss",
+          "metric_route_id": "route-d6a90fdc56edbeb66e9ed659b4c77995abaad0ada4cc5c6ddf7b6eb62304595b",
+          "missingness_policy": "BLOCK",
+          "raw_value": 100.0,
+          "required": true,
+          "semantic_version": "2.0.0",
+          "source_artifact_name": "strategy_risk_panel",
+          "source_path": "risk.maximum_loss",
+          "status": "AVAILABLE",
+          "transformation_policy": "IDENTITY",
+          "units": "currency"
+        },
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "direction": "MINIMIZE",
+          "metric_id": "payoff_fit_error",
+          "metric_route_id": "route-77ede6a6ad46db012b2e435e007742c0a4c8ba69c19eb51543a8231997889892",
+          "missingness_policy": "ALLOW_UNAVAILABLE",
+          "raw_value": 0.03,
+          "required": false,
+          "semantic_version": "2.0.0",
+          "source_artifact_name": "strategy_risk_panel",
+          "source_path": "risk.payoff_fit_error",
+          "status": "AVAILABLE",
+          "transformation_policy": "IDENTITY",
+          "units": "squared_error"
+        },
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "direction": "MAXIMIZE",
+          "metric_id": "probability_of_profit",
+          "metric_route_id": "route-5d97f64abb0b66b49417ad13ebf51395f25c01ba84a0fe39b3c58b52dbae8561",
+          "missingness_policy": "BLOCK",
+          "raw_value": 0.62,
+          "required": true,
+          "semantic_version": "2.0.0",
+          "source_artifact_name": "strategy_risk_panel",
+          "source_path": "risk.probability_of_profit",
+          "status": "AVAILABLE",
+          "transformation_policy": "IDENTITY",
+          "units": "probability"
+        },
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "direction": "MAXIMIZE",
+          "metric_id": "return_on_max_loss",
+          "metric_route_id": "route-63dbb84a777f5784b5634a374e268892c54777054db1319fe880c9baa73f726a",
+          "missingness_policy": "ALLOW_UNAVAILABLE",
+          "raw_value": 0.12,
+          "required": false,
+          "semantic_version": "2.0.0",
+          "source_artifact_name": "strategy_risk_panel",
+          "source_path": "risk.return_on_max_loss",
+          "status": "AVAILABLE",
+          "transformation_policy": "IDENTITY",
+          "units": "ratio"
+        },
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "comparison_group_id": "cmp-0528756abaa245e1ea9d240a90f52457b2cfc6bc1ae0dd9c385c536a2ae7d942",
+          "direction": "MAXIMIZE",
+          "metric_id": "worst_ambiguity_utility",
+          "metric_route_id": "route-4406259cf5bc6c23894c4c8e21cfdf3406c7b2731be889d2fcda4b5e6ec8e845",
+          "missingness_policy": "ALLOW_UNAVAILABLE",
+          "raw_value": null,
+          "required": false,
+          "semantic_version": "2.0.0",
+          "source_artifact_name": "strategy_risk_panel",
+          "source_path": "risk.worst_ambiguity_utility",
+          "status": "UNAVAILABLE",
+          "transformation_policy": "IDENTITY",
+          "units": "utility"
+        }
+      ],
+      "run_id": "p7-foundation-s2-fixture",
+      "schema_version": "2.0.0"
+    },
+    "eligibility_blocked_candidate_panel": {
+      "artifact_id": "eligibility_blocked_candidate_panel:p7-foundation-s2-fixture:cycle-2",
+      "artifact_name": "eligibility_blocked_candidate_panel",
+      "available_at": "2026-01-05T14:30:00Z",
+      "capability_status": "UNAVAILABLE",
+      "content_sha256": "c76aa8df89ddfb625eb7aa544de0d20d49ae1732fd864af9f0fab7f842ecb617",
+      "created_at": "2026-01-05T14:31:00Z",
+      "cycle_id": "cycle-2",
+      "decision_time": "2026-01-05T14:30:00Z",
+      "destination_phase": "P7",
+      "grain": "one_record_per_candidate",
+      "lineage_id": "lin-p7-foundation-s2-fixture",
+      "pipeline_version": "15.0.0",
+      "producer_module_id": "P7.S2.M01",
+      "producer_phase": "P7",
+      "record_count": 0,
+      "records": [],
+      "run_id": "p7-foundation-s2-fixture",
+      "schema_version": "2.0.0"
+    },
+    "eligibility_decision_panel": {
+      "artifact_id": "eligibility_decision_panel:p7-foundation-s2-fixture:cycle-2",
+      "artifact_name": "eligibility_decision_panel",
+      "available_at": "2026-01-05T14:30:00Z",
+      "capability_status": "AVAILABLE",
+      "content_sha256": "bc32484bdac4236e78d7c61c34ff4c05703044fe5442f2e1cf635bf6db73ae35",
+      "created_at": "2026-01-05T14:31:00Z",
+      "cycle_id": "cycle-2",
+      "decision_time": "2026-01-05T14:30:00Z",
+      "destination_phase": "P7",
+      "grain": "one_record_per_candidate",
+      "lineage_id": "lin-p7-foundation-s2-fixture",
+      "pipeline_version": "15.0.0",
+      "producer_module_id": "P7.S2.M01",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "candidate_id": "cand-iron-condor-1",
+          "decision_id": "elig-31d10086f7bf50581518637b1bb3ed5d07fa28048373985f7c4990739fb356a6",
+          "evidence": [],
+          "policy_id": "p7_defined_risk_baseline",
+          "policy_version": "2.0.0",
+          "reason_codes": [],
+          "status": "ELIGIBLE"
+        }
+      ],
+      "run_id": "p7-foundation-s2-fixture",
+      "schema_version": "2.0.0"
+    },
+    "eligible_strategy_candidate_panel": {
+      "artifact_id": "eligible_strategy_candidate_panel:p7-foundation-s2-fixture:cycle-2",
+      "artifact_name": "eligible_strategy_candidate_panel",
+      "available_at": "2026-01-05T14:30:00Z",
+      "capability_status": "AVAILABLE",
+      "content_sha256": "cd8bef40d82e1b0f9fbe7dc2b4bc25b9aceda1c4170821f53409c07b603e01cc",
+      "created_at": "2026-01-05T14:31:00Z",
+      "cycle_id": "cycle-2",
+      "decision_time": "2026-01-05T14:30:00Z",
+      "destination_phase": "P7",
+      "grain": "one_record_per_candidate",
+      "lineage_id": "lin-p7-foundation-s2-fixture",
+      "pipeline_version": "15.0.0",
+      "producer_module_id": "P7.S2.M01",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "ambiguity_evaluations": [],
+          "candidate": {
+            "candidate_id": "cand-iron-condor-1",
+            "capabilities": {
+              "ambiguity": "UNAVAILABLE",
+              "equivalence": "UNAVAILABLE",
+              "greeks": "UNAVAILABLE",
+              "quality_diversity": "UNAVAILABLE"
+            },
+            "currency": "USD",
+            "cycle_id": "cycle-2",
+            "decision_time": "2026-01-05T14:30:00Z",
+            "horizon": "5_sessions",
+            "lineage_id": "lin-cand-1",
+            "market_snapshot_id": "snapshot-1",
+            "objective_family": "RANGE",
+            "strategy_class": "IRON_CONDOR",
+            "underlying_id": "XYZ"
+          },
+          "candidate_id": "cand-iron-condor-1",
+          "cost_liquidity": {
+            "available_at": "2026-01-05T14:30:00Z",
+            "candidate_id": "cand-iron-condor-1",
+            "currency": "USD",
+            "entry_cost": 10.0,
+            "entry_cost_units": "currency",
+            "liquidity_score": 0.8,
+            "liquidity_score_units": "normalized_score"
+          },
+          "cycle_id": "cycle-2",
+          "decision_time": "2026-01-05T14:30:00Z",
+          "eligibility_decision_id": "elig-31d10086f7bf50581518637b1bb3ed5d07fa28048373985f7c4990739fb356a6",
+          "eligibility_status": "ELIGIBLE",
+          "equivalence": [],
+          "generation_trace": [
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "trace_id": "trace-1"
+            }
+          ],
+          "greeks": [],
+          "horizon": "5_sessions",
+          "legs": [
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "leg_id": "leg-1"
+            },
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "leg_id": "leg-2"
+            },
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "leg_id": "leg-3"
+            },
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "leg_id": "leg-4"
+            }
+          ],
+          "lineage": {
+            "available_at": "2026-01-05T14:30:00Z",
+            "candidate_id": "cand-iron-condor-1",
+            "lineage_id": "lin-cand-1"
+          },
+          "lineage_id": "lin-cand-1",
+          "market_snapshot": {
+            "calendar_id": "XNYS",
+            "currency": "USD",
+            "market_snapshot_id": "snapshot-1",
+            "market_snapshot_time": "2026-01-05T14:30:00Z"
+          },
+          "market_snapshot_id": "snapshot-1",
+          "objective_family": "RANGE",
+          "payoffs": [
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "payoff_id": "payoff-1"
+            }
+          ],
+          "quality_diversity": [],
+          "risk": {
+            "available_at": "2026-01-05T14:30:00Z",
+            "candidate_id": "cand-iron-condor-1",
+            "expected_net_payoff": 12.0,
+            "expected_net_payoff_units": "currency",
+            "expected_shortfall": 25.0,
+            "expected_shortfall_units": "currency",
+            "maximum_loss": 100.0,
+            "maximum_loss_proven": true,
+            "maximum_loss_units": "currency",
+            "payoff_fit_error": 0.03,
+            "payoff_fit_error_units": "squared_error",
+            "probability_of_profit": 0.62,
+            "probability_of_profit_units": "probability",
+            "return_on_max_loss": 0.12,
+            "return_on_max_loss_units": "ratio"
+          },
+          "scenario_evaluations": [
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "scenario_id": "scenario-central"
+            },
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-iron-condor-1",
+              "scenario_id": "scenario-tail"
+            }
+          ],
+          "underlying_id": "XYZ"
+        }
+      ],
+      "run_id": "p7-foundation-s2-fixture",
+      "schema_version": "2.0.0"
+    }
+  }
+}

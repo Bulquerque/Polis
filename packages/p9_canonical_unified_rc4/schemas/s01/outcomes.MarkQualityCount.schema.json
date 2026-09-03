@@ -1,0 +1,34 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "minimum": 0,
+      "title": "Count",
+      "type": "integer"
+    },
+    "evidence_class": {
+      "$ref": "#/$defs/EvidenceClass"
+    }
+  },
+  "required": [
+    "evidence_class",
+    "count"
+  ],
+  "title": "MarkQualityCount",
+  "type": "object"
+}

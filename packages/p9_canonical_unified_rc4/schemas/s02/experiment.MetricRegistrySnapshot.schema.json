@@ -1,0 +1,80 @@
+{
+  "$defs": {
+    "MetricBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_for_tuning": {
+          "title": "Allowed For Tuning",
+          "type": "boolean"
+        },
+        "direction": {
+          "$ref": "#/$defs/MetricDirection"
+        },
+        "hard_guardrail_eligible": {
+          "default": false,
+          "title": "Hard Guardrail Eligible",
+          "type": "boolean"
+        },
+        "metric_id": {
+          "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_version": {
+          "minLength": 1,
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "minimum_observations": {
+          "minimum": 1,
+          "title": "Minimum Observations",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_version",
+        "direction",
+        "minimum_observations",
+        "allowed_for_tuning"
+      ],
+      "title": "MetricBinding",
+      "type": "object"
+    },
+    "MetricDirection": {
+      "enum": [
+        "MAXIMIZE",
+        "MINIMIZE"
+      ],
+      "title": "MetricDirection",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "metrics": {
+      "items": {
+        "$ref": "#/$defs/MetricBinding"
+      },
+      "title": "Metrics",
+      "type": "array"
+    },
+    "registry_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Registry Sha256",
+      "type": "string"
+    },
+    "registry_version": {
+      "minLength": 1,
+      "title": "Registry Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_version",
+    "registry_sha256",
+    "metrics"
+  ],
+  "title": "MetricRegistrySnapshot",
+  "type": "object"
+}

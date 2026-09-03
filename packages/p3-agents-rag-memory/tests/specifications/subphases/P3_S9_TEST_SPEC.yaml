@@ -1,0 +1,8 @@
+subphase: P3.S9
+modules:
+- module_id: P3.S9.M01
+  required_cases:
+  - overlap_evaluation_fails
+  - holdout_leak_fails
+canonical_module_order:
+- P3.S9.M01

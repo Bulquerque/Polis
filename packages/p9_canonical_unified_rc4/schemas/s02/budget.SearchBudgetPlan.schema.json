@@ -1,0 +1,304 @@
+{
+  "$defs": {
+    "BudgetAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_slots": {
+          "minimum": 0,
+          "title": "Configuration Slots",
+          "type": "integer"
+        },
+        "cpu_seconds_reserved": {
+          "minimum": 0,
+          "title": "Cpu Seconds Reserved",
+          "type": "integer"
+        },
+        "stage": {
+          "minLength": 1,
+          "title": "Stage",
+          "type": "string"
+        },
+        "trial_execution_slots": {
+          "minimum": 0,
+          "title": "Trial Execution Slots",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "stage",
+        "configuration_slots",
+        "trial_execution_slots",
+        "cpu_seconds_reserved"
+      ],
+      "title": "BudgetAllocation",
+      "type": "object"
+    },
+    "BudgetState": {
+      "enum": [
+        "BUDGET_RESERVED",
+        "BUDGET_LIMITED",
+        "BUDGET_INFEASIBLE",
+        "RESOURCE_CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "BudgetState",
+      "type": "string"
+    },
+    "ComplexityPenaltyPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "adaptive_search_depth": {
+          "minimum": 0,
+          "title": "Adaptive Search Depth",
+          "type": "integer"
+        },
+        "effective_dimension_count": {
+          "minimum": 0,
+          "title": "Effective Dimension Count",
+          "type": "integer"
+        },
+        "nominal_configuration_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nominal Configuration Count"
+        },
+        "penalty_metadata_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Penalty Metadata Sha256",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "effective_dimension_count",
+        "adaptive_search_depth",
+        "penalty_metadata_sha256"
+      ],
+      "title": "ComplexityPenaltyPolicy",
+      "type": "object"
+    },
+    "EarlyStoppingPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "development_only": {
+          "default": true,
+          "title": "Development Only",
+          "type": "boolean"
+        },
+        "enabled": {
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "minimum_completed_cells": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Minimum Completed Cells",
+          "type": "integer"
+        },
+        "signal_metric_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+            "type": "string"
+          },
+          "title": "Signal Metric Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "title": "EarlyStoppingPolicy",
+      "type": "object"
+    },
+    "FidelityLevel": {
+      "additionalProperties": false,
+      "properties": {
+        "fidelity_id": {
+          "minLength": 1,
+          "title": "Fidelity Id",
+          "type": "string"
+        },
+        "ordinal": {
+          "minimum": 0,
+          "title": "Ordinal",
+          "type": "integer"
+        },
+        "preserves_lifecycle": {
+          "title": "Preserves Lifecycle",
+          "type": "boolean"
+        },
+        "preserves_temporal_order": {
+          "title": "Preserves Temporal Order",
+          "type": "boolean"
+        },
+        "preserves_transaction_costs": {
+          "title": "Preserves Transaction Costs",
+          "type": "boolean"
+        },
+        "resource_fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Resource Fraction"
+        }
+      },
+      "required": [
+        "fidelity_id",
+        "ordinal",
+        "resource_fraction",
+        "preserves_transaction_costs",
+        "preserves_lifecycle",
+        "preserves_temporal_order"
+      ],
+      "title": "FidelityLevel",
+      "type": "object"
+    },
+    "SearchStrategy": {
+      "enum": [
+        "GRID",
+        "RANDOM",
+        "SUCCESSIVE_HALVING",
+        "HYPERBAND",
+        "BOHB"
+      ],
+      "title": "SearchStrategy",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "allocations": {
+      "items": {
+        "$ref": "#/$defs/BudgetAllocation"
+      },
+      "title": "Allocations",
+      "type": "array"
+    },
+    "complexity_penalty": {
+      "$ref": "#/$defs/ComplexityPenaltyPolicy"
+    },
+    "configuration_limit": {
+      "minimum": 0,
+      "title": "Configuration Limit",
+      "type": "integer"
+    },
+    "cpu_seconds_per_full_cell": {
+      "minimum": 1,
+      "title": "Cpu Seconds Per Full Cell",
+      "type": "integer"
+    },
+    "early_stopping": {
+      "$ref": "#/$defs/EarlyStoppingPolicy"
+    },
+    "evaluation_cell_count": {
+      "minimum": 1,
+      "title": "Evaluation Cell Count",
+      "type": "integer"
+    },
+    "experiment_id": {
+      "minLength": 1,
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "fidelity_levels": {
+      "items": {
+        "$ref": "#/$defs/FidelityLevel"
+      },
+      "title": "Fidelity Levels",
+      "type": "array"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "memory_mb_per_trial": {
+      "minimum": 128,
+      "title": "Memory Mb Per Trial",
+      "type": "integer"
+    },
+    "parallel_trial_limit": {
+      "minimum": 0,
+      "title": "Parallel Trial Limit",
+      "type": "integer"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "title": "Plan Id",
+      "type": "string"
+    },
+    "plan_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Plan Sha256",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "search_strategy": {
+      "$ref": "#/$defs/SearchStrategy"
+    },
+    "seed_count": {
+      "minimum": 1,
+      "title": "Seed Count",
+      "type": "integer"
+    },
+    "state": {
+      "$ref": "#/$defs/BudgetState"
+    },
+    "trial_execution_limit": {
+      "minimum": 0,
+      "title": "Trial Execution Limit",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "plan_id",
+    "experiment_id",
+    "state",
+    "search_strategy",
+    "configuration_limit",
+    "trial_execution_limit",
+    "parallel_trial_limit",
+    "seed_count",
+    "evaluation_cell_count",
+    "cpu_seconds_per_full_cell",
+    "memory_mb_per_trial",
+    "fidelity_levels",
+    "allocations",
+    "early_stopping",
+    "complexity_penalty",
+    "plan_sha256"
+  ],
+  "title": "SearchBudgetPlan",
+  "type": "object"
+}

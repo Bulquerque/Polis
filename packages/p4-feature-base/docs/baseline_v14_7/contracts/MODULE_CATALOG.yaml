@@ -1,0 +1,446 @@
+phase: P4
+version: V14.6-RC1
+modules:
+- module_id: P4.S1.M01
+  subphase: P4.S1
+  module_name: phase2_handoff_validator
+  purpose: Validar o bundle P2→P4, seus manifests, hashes, versões, grains, cobertura
+    e temporalidade declarada.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S1_M01_phase2_handoff_validator.py
+  contract_file: contracts/modules/P4_S1_M01_phase2_handoff_validator.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S1.M02
+  subphase: P4.S1
+  module_name: phase3_handoff_validator
+  purpose: Validar o bundle interpretativo P3→P4 sem achatar evidência, disagreement,
+    memória e hipóteses.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S1_M02_phase3_handoff_validator.py
+  contract_file: contracts/modules/P4_S1_M02_phase3_handoff_validator.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S1.M03
+  subphase: P4.S1
+  module_name: boundary_consistency_gate
+  purpose: Fechar run_id, cycle_id, universe_id, as_of_time, versões e consistência
+    cruzada dos handoffs P2 e P3.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S1_M03_boundary_consistency_gate.py
+  contract_file: contracts/modules/P4_S1_M03_boundary_consistency_gate.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S1.M04
+  subphase: P4.S1
+  module_name: n_plus_1_variable_evolution_intake
+  purpose: Admitir propostas de evolução de variáveis apenas no ciclo N+1, sem otimizar
+    features nem promover mudanças automaticamente.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S1_M04_n_plus_1_variable_evolution_intake.py
+  contract_file: contracts/modules/P4_S1_M04_n_plus_1_variable_evolution_intake.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S2.M01
+  subphase: P4.S2
+  module_name: temporal_semantics_resolver
+  purpose: Resolver event_time, reference_time, published_at, available_at, ingested_at,
+    decision_time e calculation_time.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S2_M01_temporal_semantics_resolver.py
+  contract_file: contracts/modules/P4_S2_M01_temporal_semantics_resolver.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S2.M02
+  subphase: P4.S2
+  module_name: entity_calendar_corporate_action_aligner
+  purpose: Harmonizar entity_id, underlying, venue, moeda, timezone, sessões, calendários
+    e corporate actions.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S2_M02_entity_calendar_corporate_action_aligner.py
+  contract_file: contracts/modules/P4_S2_M02_entity_calendar_corporate_action_aligner.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S2.M03
+  subphase: P4.S2
+  module_name: revision_freshness_missingness_mapper
+  purpose: Classificar vintage, revisão, staleness, cobertura, ausência estrutural,
+    atraso e falha de fonte sem converter missing em zero.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S2_M03_revision_freshness_missingness_mapper.py
+  contract_file: contracts/modules/P4_S2_M03_revision_freshness_missingness_mapper.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S2.M04
+  subphase: P4.S2
+  module_name: canonical_observation_store_builder
+  purpose: Construir painel longo canônico e point-in-time para todos os cálculos
+    posteriores.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S2_M04_canonical_observation_store_builder.py
+  contract_file: contracts/modules/P4_S2_M04_canonical_observation_store_builder.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S3.M01
+  subphase: P4.S3
+  module_name: phenomenon_perspective_registry
+  purpose: Registrar fenômenos, perspectivas, modalidades, mecanismos, horizontes,
+    falhas conhecidas e regimes esperados.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S3_M01_phenomenon_perspective_registry.py
+  contract_file: contracts/modules/P4_S3_M01_phenomenon_perspective_registry.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S3.M02
+  subphase: P4.S3
+  module_name: observer_spec_validator
+  purpose: Validar receitas declarativas de observadores, dependências, janelas, lags,
+    grains e políticas de disponibilidade.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S3_M02_observer_spec_validator.py
+  contract_file: contracts/modules/P4_S3_M02_observer_spec_validator.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S3.M03
+  subphase: P4.S3
+  module_name: causal_operator_engine
+  purpose: Executar operadores temporais univariados causais e reproduzíveis com estados
+    de fit versionados.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S3_M03_causal_operator_engine.py
+  contract_file: contracts/modules/P4_S3_M03_causal_operator_engine.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S3.M04
+  subphase: P4.S3
+  module_name: relational_stateful_operator_engine
+  purpose: Executar beta, correlação, residual, spread, lead-lag, cluster distance
+    e agregações de grafo sem leakage.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S3_M04_relational_stateful_operator_engine.py
+  contract_file: contracts/modules/P4_S3_M04_relational_stateful_operator_engine.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S3.M05
+  subphase: P4.S3
+  module_name: hypothesis_passport_budget_gate
+  purpose: Validar passaportes teóricos, classificar hipóteses por tier e aplicar
+    orçamento hierárquico antes de qualquer cálculo confirmatório.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S3_M05_hypothesis_passport_budget_gate.py
+  contract_file: contracts/modules/P4_S3_M05_hypothesis_passport_budget_gate.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S4.M01
+  subphase: P4.S4
+  module_name: price_return_observations
+  purpose: Produzir retornos, gaps, ranges, posição no range, overnight/sessão e observações
+    de preço ajustado.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S4_M01_price_return_observations.py
+  contract_file: contracts/modules/P4_S4_M01_price_return_observations.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S4.M02
+  subphase: P4.S4
+  module_name: volume_liquidity_microstructure_observations
+  purpose: Produzir turnover, volume relativo, volume financeiro, Amihud, spread,
+    staleness e impacto aproximado.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S4_M02_volume_liquidity_microstructure_observations.py
+  contract_file: contracts/modules/P4_S4_M02_volume_liquidity_microstructure_observations.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S4.M03
+  subphase: P4.S4
+  module_name: realized_risk_tail_observations
+  purpose: Produzir volatilidade realizada, semivariância, drawdown, skew, kurtosis,
+    jumps e vol-of-vol.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S4_M03_realized_risk_tail_observations.py
+  contract_file: contracts/modules/P4_S4_M03_realized_risk_tail_observations.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S4.M04
+  subphase: P4.S4
+  module_name: benchmark_cross_asset_observations
+  purpose: Produzir retornos relativos, beta histórico, spreads, breadth, dispersão
+    e dependências cross-asset.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S4_M04_benchmark_cross_asset_observations.py
+  contract_file: contracts/modules/P4_S4_M04_benchmark_cross_asset_observations.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S4.M05
+  subphase: P4.S4
+  module_name: underlying_option_state_observations
+  purpose: 'Agregar option chain ao nível do underlying: IV ATM, skew, smile, term
+    structure, IV-RV, OI e cobertura.'
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S4_M05_underlying_option_state_observations.py
+  contract_file: contracts/modules/P4_S4_M05_underlying_option_state_observations.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S4.M06
+  subphase: P4.S4
+  module_name: macro_event_calendar_observations
+  purpose: Produzir mudanças macro, vintages, surpresas quando expectativa autorizada
+    existir, curvas, eventos e sazonalidade.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S4_M06_macro_event_calendar_observations.py
+  contract_file: contracts/modules/P4_S4_M06_macro_event_calendar_observations.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S4.M07
+  subphase: P4.S4
+  module_name: social_evidence_context_observations
+  purpose: Preservar direção, força, credibilidade, novidade, disagreement, memória,
+    hipóteses e estabilidade narrativa.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S4_M07_social_evidence_context_observations.py
+  contract_file: contracts/modules/P4_S4_M07_social_evidence_context_observations.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S4.M08
+  subphase: P4.S4
+  module_name: fundamental_accounting_quality_observations
+  purpose: Produzir observações point-in-time de valuation, rentabilidade, qualidade,
+    investimento, alavancagem, accruals e evolução contábil, com vintages e disponibilidade
+    explícitos.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S4_M08_fundamental_accounting_quality_observations.py
+  contract_file: contracts/modules/P4_S4_M08_fundamental_accounting_quality_observations.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M01
+  subphase: P4.S5
+  module_name: momentum_trend_persistence_perspectives
+  purpose: Construir views de momentum por retorno, slope, breakout, persistência,
+    residual, volume, opções, narrativa e P3.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M01_momentum_trend_persistence_perspectives.py
+  contract_file: contracts/modules/P4_S5_M01_momentum_trend_persistence_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M02
+  subphase: P4.S5
+  module_name: reversion_relative_value_perspectives
+  purpose: Construir views de reversão por média, residual, pares, setor, cluster,
+    gap, volume e saturação narrativa.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M02_reversion_relative_value_perspectives.py
+  contract_file: contracts/modules/P4_S5_M02_reversion_relative_value_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M03
+  subphase: P4.S5
+  module_name: risk_uncertainty_stress_perspectives
+  purpose: Construir views de risco realizado, implícito, downside, cauda, instabilidade,
+    surpresa e disagreement.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M03_risk_uncertainty_stress_perspectives.py
+  contract_file: contracts/modules/P4_S5_M03_risk_uncertainty_stress_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M04
+  subphase: P4.S5
+  module_name: liquidity_attention_crowding_perspectives
+  purpose: Construir views de iliquidez, atenção, concentração, OI, consenso excessivo
+    e crowding.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M04_liquidity_attention_crowding_perspectives.py
+  contract_file: contracts/modules/P4_S5_M04_liquidity_attention_crowding_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M05
+  subphase: P4.S5
+  module_name: structure_contagion_breadth_perspectives
+  purpose: Construir views de market mode, effective rank, eigen entropy, centralidade,
+    propagação, dispersão e breadth.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M05_structure_contagion_breadth_perspectives.py
+  contract_file: contracts/modules/P4_S5_M05_structure_contagion_breadth_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M06
+  subphase: P4.S5
+  module_name: macro_cycle_regime_state_perspectives
+  purpose: Descrever estado contemporâneo de inflação, crescimento, liquidez, curva,
+    stress e distância histórica.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M06_macro_cycle_regime_state_perspectives.py
+  contract_file: contracts/modules/P4_S5_M06_macro_cycle_regime_state_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M07
+  subphase: P4.S5
+  module_name: event_surprise_seasonality_perspectives
+  purpose: Construir views de tempo até/des­de evento, reação contemporânea, persistência,
+    reversão e sazonalidade.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M07_event_surprise_seasonality_perspectives.py
+  contract_file: contracts/modules/P4_S5_M07_event_surprise_seasonality_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M08
+  subphase: P4.S5
+  module_name: narrative_evidence_disagreement_perspectives
+  purpose: Construir views de consenso, polarização, contradição, novidade, diversidade
+    de hipóteses e visão minoritária.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M08_narrative_evidence_disagreement_perspectives.py
+  contract_file: contracts/modules/P4_S5_M08_narrative_evidence_disagreement_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M09
+  subphase: P4.S5
+  module_name: value_quality_profitability_investment_perspectives
+  purpose: Construir perspectivas de value, qualidade, profitability, investment,
+    leverage e accruals sem usar retornos futuros para selecionar ou calibrar sinais.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M09_value_quality_profitability_investment_perspectives.py
+  contract_file: contracts/modules/P4_S5_M09_value_quality_profitability_investment_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S5.M10
+  subphase: P4.S5
+  module_name: carry_curve_basis_perspectives
+  purpose: Construir perspectivas de carry, roll-down, basis, inclinação e curvatura
+    de estruturas a termo em classes de ativos para as quais os dados existam.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S5_M10_carry_curve_basis_perspectives.py
+  contract_file: contracts/modules/P4_S5_M10_carry_curve_basis_perspectives.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S6.M01
+  subphase: P4.S6
+  module_name: multi_view_alignment
+  purpose: Alinhar perspectivas por entidade, fenômeno, decision_time e horizonte
+    mantendo views ausentes explicitamente.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S6_M01_multi_view_alignment.py
+  contract_file: contracts/modules/P4_S6_M01_multi_view_alignment.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S6.M02
+  subphase: P4.S6
+  module_name: confirmation_conflict_engine
+  purpose: Medir consenso, dispersão, entropia, confirmação independente, conflito
+    modal e força de visão minoritária.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S6_M02_confirmation_conflict_engine.py
+  contract_file: contracts/modules/P4_S6_M02_confirmation_conflict_engine.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S6.M03
+  subphase: P4.S6
+  module_name: hypothesis_constrained_interaction_builder
+  purpose: Criar apenas interações registradas com racional econômico, famílias de
+    origem e risco de overfitting.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S6_M03_hypothesis_constrained_interaction_builder.py
+  contract_file: contracts/modules/P4_S6_M03_hypothesis_constrained_interaction_builder.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S6.M04
+  subphase: P4.S6
+  module_name: multi_horizon_missing_view_assembler
+  purpose: Organizar views e conflitos em conjuntos intraday, short, medium, long
+    e cross-horizon.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S6_M04_multi_horizon_missing_view_assembler.py
+  contract_file: contracts/modules/P4_S6_M04_multi_horizon_missing_view_assembler.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S7.M01
+  subphase: P4.S7
+  module_name: causal_transform_fit_engine
+  purpose: Aplicar winsorization, log, clipping e scalers com fit_start, fit_end e
+    estado versionado.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S7_M01_causal_transform_fit_engine.py
+  contract_file: contracts/modules/P4_S7_M01_causal_transform_fit_engine.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S7.M02
+  subphase: P4.S7
+  module_name: normalization_neutralization_engine
+  purpose: Produzir versões rank/z-score e neutralizações por mercado, setor, beta,
+    volatilidade, tamanho e moeda.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S7_M02_normalization_neutralization_engine.py
+  contract_file: contracts/modules/P4_S7_M02_normalization_neutralization_engine.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S7.M03
+  subphase: P4.S7
+  module_name: diversity_redundancy_analyzer
+  purpose: Medir redundância linear, ordinal, não linear, por regime, fonte e padrão
+    de erro sem usar targets.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S7_M03_diversity_redundancy_analyzer.py
+  contract_file: contracts/modules/P4_S7_M03_diversity_redundancy_analyzer.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S7.M04
+  subphase: P4.S7
+  module_name: structural_feature_selector
+  purpose: Selecionar features por cobertura, estabilidade, lineage, missingness,
+    custo e redundância estrutural.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S7_M04_structural_feature_selector.py
+  contract_file: contracts/modules/P4_S7_M04_structural_feature_selector.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S8.M01
+  subphase: P4.S8
+  module_name: representation_fold_hyperparameter_controller
+  purpose: Construir folds cronológicos cross-fitted, orçamento pequeno e pré-registrado
+    de hiperparâmetros e plano de treinamento sem acesso a targets futuros.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S8_M01_representation_fold_hyperparameter_controller.py
+  contract_file: contracts/modules/P4_S8_M01_representation_fold_hyperparameter_controller.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S8.M02
+  subphase: P4.S8
+  module_name: family_pca_sparse_pca_builder
+  purpose: Construir PCA e Sparse PCA por família e horizonte, com fit cross-fitted,
+    loadings, explained variance, estabilidade e lineage.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S8_M02_family_pca_sparse_pca_builder.py
+  contract_file: contracts/modules/P4_S8_M02_family_pca_sparse_pca_builder.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S8.M03
+  subphase: P4.S8
+  module_name: family_shared_private_denoising_encoder_builder
+  purpose: Construir somente o challenger de encoder raso por família, denoising/masked
+    e shared-private, preservando modalidades e sem objetivo preditivo.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S8_M03_family_shared_private_denoising_encoder_builder.py
+  contract_file: contracts/modules/P4_S8_M03_family_shared_private_denoising_encoder_builder.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S8.M04
+  subphase: P4.S8
+  module_name: representation_quality_horizon_packager
+  purpose: Avaliar estabilidade, reconstrução, degeneração, robustez, preservação
+    de perspectivas e resultados da busca pequena; empacotar representações por horizonte.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S8_M04_representation_quality_horizon_packager.py
+  contract_file: contracts/modules/P4_S8_M04_representation_quality_horizon_packager.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S9.M01
+  subphase: P4.S9
+  module_name: feature_lineage_temporal_safety_auditor
+  purpose: Reconstruir source→operator→fit→feature→representation e auditar segurança
+    temporal ponta a ponta.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M01_feature_lineage_temporal_safety_auditor.py
+  contract_file: contracts/modules/P4_S9_M01_feature_lineage_temporal_safety_auditor.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S9.M02
+  subphase: P4.S9
+  module_name: drift_coverage_quality_gate
+  purpose: Medir drift de dados, cobertura, missingness, dependências e latents; não
+    medir concept drift supervisionado.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M02_drift_coverage_quality_gate.py
+  contract_file: contracts/modules/P4_S9_M02_drift_coverage_quality_gate.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S9.M03
+  subphase: P4.S9
+  module_name: model_consumer_view_packager
+  purpose: Empacotar as mesmas informações em views tipadas para modelos tabulares,
+    cross-sectionais, sequenciais, de grafo, cauda, regime, sparse e latentes sem
+    escolher o modelo preditivo.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M03_model_consumer_view_packager.py
+  contract_file: contracts/modules/P4_S9_M03_model_consumer_view_packager.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S9.M04
+  subphase: P4.S9
+  module_name: phase5_feature_handoff_builder
+  purpose: Construir manifesto P4→P5 com outputs legados, views por consumidor, hashes,
+    schemas, qualidade, fit states e limitações.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M04_phase5_feature_handoff_builder.py
+  contract_file: contracts/modules/P4_S9_M04_phase5_feature_handoff_builder.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S9.M05
+  subphase: P4.S9
+  module_name: phase5_consumer_receipt_validator
+  purpose: Validar o recibo da P5 e fechar a integração sem transformar consumo em
+    qualificação econômica da P4.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M05_phase5_consumer_receipt_validator.py
+  contract_file: contracts/modules/P4_S9_M05_phase5_consumer_receipt_validator.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY
+- module_id: P4.S9.M06
+  subphase: P4.S9
+  module_name: research_attempt_ledger_publisher
+  purpose: Publicar ledger imutável de todas as tentativas, resultados negativos e
+    rejeições, sem apagar graus de liberdade de pesquisa.
+  status: DOCUMENTED_NOT_IMPLEMENTED
+  implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S9_M06_research_attempt_ledger_publisher.py
+  contract_file: contracts/modules/P4_S9_M06_research_attempt_ledger_publisher.yaml
+  contract_change_authority: INTEGRATION_LEAD_ONLY

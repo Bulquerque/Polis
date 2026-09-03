@@ -1,0 +1,18 @@
+policy_id: p4_s2_temporal_field_policy_v1
+canonical_timezone: UTC
+strict_rules:
+  naive_timestamp: reject
+  date_without_time: require_artifact_policy
+  available_at_after_decision_time: reject
+  available_at_after_as_of_time: reject
+  same_timestamp_revision_tie: reject_without_stable_sequence
+  created_at_fallback: reject
+compatibility_rules:
+  created_at_fallback: allowed_only_when_artifact_policy_explicit
+  created_at_fallback_quality: DEGRADED
+corporate_action_rules:
+  preserve_announcement_and_effective_times: true
+  announcement_must_not_follow_effective_when_both_present: true
+revision_rules:
+  selection: latest_available_vintage_at_cutoff
+  deterministic_tie_break: stable_sequence_then_source_record_id

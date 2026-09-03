@@ -1,0 +1,247 @@
+schema_id: lineage_integrity_report.v1
+artifact_name: lineage_integrity_report
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- validated_module_registry_lineage_id
+- contract_registry_lineage_id
+- manifest_sources
+- expected_module_count
+- module_count
+- artifact_count
+- passed_module_count
+- failed_module_count
+- passed_artifact_count
+- failed_artifact_count
+- declared_cycle_count
+- declared_cycles
+- runtime_lineage_available
+- runtime_lineage_record_count
+- runtime_lineage_failure_count
+- runtime_artifact_checks
+- runtime_cycle_count
+- runtime_cycles
+- checks
+- artifact_checks
+- lineage_id_present
+- output_points_to_producer
+- contract_hashes_match
+- manifest_provenance_complete
+- parent_links_valid
+- status
+- severity
+- release_blocking
+- validation_evidence_status
+- promotion_blocked
+properties:
+  artifact_id:
+    type: string
+    pattern: ^lineage-integrity-report-[0-9a-f]{12}$
+  created_at:
+    type: string
+    pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id: &id001
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  validated_module_registry_lineage_id: *id001
+  contract_registry_lineage_id: *id001
+  manifest_sources:
+    type: array
+    minItems: 1
+    items:
+      type: string
+  module_count:
+    type: integer
+    minimum: 1
+  artifact_count:
+    type: integer
+    minimum: 1
+  passed_module_count:
+    type: integer
+    minimum: 0
+  failed_module_count:
+    type: integer
+    minimum: 0
+  passed_artifact_count:
+    type: integer
+    minimum: 0
+  failed_artifact_count:
+    type: integer
+    minimum: 0
+  declared_cycle_count:
+    type: integer
+    minimum: 0
+  declared_cycles:
+    type: array
+    items:
+      type: array
+      minItems: 1
+      items:
+        type: string
+  checks:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - module_id
+      - contract_path
+      - contract_sha256
+      - manifest_source
+      - parent_module_count
+      - input_count
+      - output_count
+      - schema_count
+      - status
+      - codes
+      properties:
+        module_id:
+          type: string
+          pattern: ^P[0-9]+\.S[0-9]+\.M[0-9]+$
+        contract_path:
+          type: string
+        contract_sha256:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+        manifest_source:
+          type: string
+        parent_module_count:
+          type: integer
+          minimum: 0
+        input_count:
+          type: integer
+          minimum: 0
+        output_count:
+          type: integer
+          minimum: 1
+        schema_count:
+          type: integer
+          minimum: 0
+        status:
+          type: string
+        codes:
+          type: array
+          minItems: 1
+          items:
+            type: string
+  artifact_checks:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - artifact
+      - producer
+      - producer_count
+      - schema_path
+      - status
+      - codes
+      properties:
+        artifact:
+          type: string
+        producer:
+          type: string
+        producer_count:
+          type: integer
+          minimum: 1
+        schema_path:
+          type: string
+        status:
+          type: string
+        codes:
+          type: array
+          minItems: 1
+          items:
+            type: string
+  lineage_id_present:
+    type: boolean
+    const: true
+  output_points_to_producer:
+    type: boolean
+  contract_hashes_match:
+    type: boolean
+  manifest_provenance_complete:
+    type: boolean
+  parent_links_valid:
+    type: boolean
+  status:
+    type: string
+  severity:
+    type: string
+  release_blocking:
+    type: boolean
+  validation_evidence_status:
+    type: string
+    const: domain_oracle_pass_pending_independent_judge
+  promotion_blocked:
+    type: boolean
+    const: true
+  expected_module_count:
+    type: integer
+    minimum: 1
+  runtime_lineage_available:
+    type: boolean
+  runtime_lineage_record_count:
+    type: integer
+    minimum: 0
+  runtime_lineage_failure_count:
+    type: integer
+    minimum: 0
+  runtime_artifact_checks:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - artifact_id
+      - producer_module_id
+      - parent_count
+      - status
+      - codes
+      properties:
+        artifact_id:
+          type: string
+          minLength: 1
+        producer_module_id:
+          type: string
+        parent_count:
+          type: integer
+          minimum: 0
+        status:
+          type: string
+          enum:
+          - PASS
+          - FAIL
+        codes:
+          type: array
+          minItems: 1
+          items:
+            type: string
+  runtime_cycle_count:
+    type: integer
+    minimum: 0
+  runtime_cycles:
+    type: array
+    items:
+      type: array
+      minItems: 1
+      items:
+        type: string
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

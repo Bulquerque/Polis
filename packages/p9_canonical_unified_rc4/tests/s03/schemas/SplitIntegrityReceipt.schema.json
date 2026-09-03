@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "SplitCount": {
+      "additionalProperties": false,
+      "properties": {
+        "excluded_count": {
+          "minimum": 0,
+          "title": "Excluded Count",
+          "type": "integer"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "pit_rejected_count": {
+          "minimum": 0,
+          "title": "Pit Rejected Count",
+          "type": "integer"
+        },
+        "purged_count": {
+          "minimum": 0,
+          "title": "Purged Count",
+          "type": "integer"
+        },
+        "test_count": {
+          "minimum": 0,
+          "title": "Test Count",
+          "type": "integer"
+        },
+        "train_count": {
+          "minimum": 0,
+          "title": "Train Count",
+          "type": "integer"
+        },
+        "tuning_count": {
+          "minimum": 0,
+          "title": "Tuning Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "fold_id",
+        "train_count",
+        "tuning_count",
+        "test_count",
+        "excluded_count",
+        "purged_count",
+        "pit_rejected_count"
+      ],
+      "title": "SplitCount",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/SplitIntegrityReceipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "counts": {
+      "items": {
+        "$ref": "#/$defs/SplitCount"
+      },
+      "title": "Counts",
+      "type": "array"
+    },
+    "plan_id": {
+      "title": "Plan Id",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "plan_id",
+    "status",
+    "counts",
+    "content_sha256"
+  ],
+  "title": "SplitIntegrityReceipt",
+  "type": "object"
+}

@@ -1,0 +1,76 @@
+{
+  "$defs": {
+    "VintagePolicyConfigRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_execution_modes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Allowed Execution Modes",
+          "type": "array"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "policy_name": {
+          "$ref": "#/$defs/VintagePolicyName"
+        },
+        "selection_rule": {
+          "minLength": 1,
+          "title": "Selection Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_name",
+        "description",
+        "allowed_execution_modes",
+        "selection_rule"
+      ],
+      "title": "VintagePolicyConfigRecord",
+      "type": "object"
+    },
+    "VintagePolicyName": {
+      "enum": [
+        "KNOWN_AT_DECISION_TIME",
+        "ORIGINAL_RELEASE",
+        "LATEST_KNOWN_AT_DECISION_TIME"
+      ],
+      "title": "VintagePolicyName",
+      "type": "string"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.vintage_policy_config.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "policies": {
+      "items": {
+        "$ref": "#/$defs/VintagePolicyConfigRecord"
+      },
+      "title": "Policies",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "p3.research_tools.vintage_policy_config.v1",
+      "default": "p3.research_tools.vintage_policy_config.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policies"
+  ],
+  "title": "VintagePolicyConfig",
+  "type": "object"
+}

@@ -1,0 +1,1795 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "artifact_schema_name": {
+          "minLength": 1,
+          "title": "Artifact Schema Name",
+          "type": "string"
+        },
+        "artifact_schema_version": {
+          "minLength": 1,
+          "title": "Artifact Schema Version",
+          "type": "string"
+        },
+        "artifact_schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Artifact Schema Sha256",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "minLength": 1,
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "decision_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Decision Time"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "computed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Computed At"
+        },
+        "maturity_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maturity At"
+        },
+        "uri": {
+          "minLength": 1,
+          "title": "Uri",
+          "type": "string"
+        },
+        "availability": {
+          "$ref": "#/$defs/Availability",
+          "default": "AVAILABLE"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "artifact_schema_name",
+        "artifact_schema_version",
+        "artifact_schema_sha256",
+        "content_sha256",
+        "producer_module_id",
+        "run_id",
+        "cycle_id",
+        "available_at",
+        "uri"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "Availability": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "UNAVAILABLE",
+        "RESEARCH_ONLY"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "BinaryProbabilityForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "BINARY_PROBABILITY",
+          "default": "BINARY_PROBABILITY",
+          "title": "Kind",
+          "type": "string"
+        },
+        "probability": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Probability",
+          "type": "number"
+        }
+      },
+      "required": [
+        "probability"
+      ],
+      "title": "BinaryProbabilityForecast",
+      "type": "object"
+    },
+    "BundleHeader": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_name": {
+          "const": "P9_S7_PROSPECTIVE_MONITORING_BUNDLE_V1",
+          "default": "P9_S7_PROSPECTIVE_MONITORING_BUNDLE_V1",
+          "title": "Contract Name",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "1.0.0",
+          "default": "1.0.0",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "created_at"
+      ],
+      "title": "BundleHeader",
+      "type": "object"
+    },
+    "ConformalObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "group_id": {
+          "minLength": 1,
+          "title": "Group Id",
+          "type": "string"
+        },
+        "lower": {
+          "title": "Lower",
+          "type": "number"
+        },
+        "upper": {
+          "title": "Upper",
+          "type": "number"
+        },
+        "outcome": {
+          "title": "Outcome",
+          "type": "number"
+        }
+      },
+      "required": [
+        "event_id",
+        "group_id",
+        "lower",
+        "upper",
+        "outcome"
+      ],
+      "title": "ConformalObservation",
+      "type": "object"
+    },
+    "ConformalPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/Availability",
+          "default": "AVAILABLE"
+        },
+        "target_coverage": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Target Coverage",
+          "type": "number"
+        },
+        "learning_rate": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Learning Rate",
+          "type": "number"
+        },
+        "minimum_miscoverage": {
+          "default": 0.001,
+          "exclusiveMaximum": 0.5,
+          "exclusiveMinimum": 0.0,
+          "title": "Minimum Miscoverage",
+          "type": "number"
+        },
+        "maximum_miscoverage": {
+          "default": 0.5,
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Maximum Miscoverage",
+          "type": "number"
+        },
+        "calibration_window": {
+          "default": 200,
+          "minimum": 10,
+          "title": "Calibration Window",
+          "type": "integer"
+        },
+        "minimum_group_count": {
+          "default": 20,
+          "minimum": 2,
+          "title": "Minimum Group Count",
+          "type": "integer"
+        },
+        "maximum_qualified_width": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum Qualified Width"
+        }
+      },
+      "required": [
+        "target_coverage",
+        "learning_rate"
+      ],
+      "title": "ConformalPolicy",
+      "type": "object"
+    },
+    "ConsumerReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "consumer_module_id": {
+          "pattern": "^P9\\.S7\\.M0[1-8]$",
+          "title": "Consumer Module Id",
+          "type": "string"
+        },
+        "source_contract_name": {
+          "minLength": 1,
+          "title": "Source Contract Name",
+          "type": "string"
+        },
+        "source_contract_version": {
+          "minLength": 1,
+          "title": "Source Contract Version",
+          "type": "string"
+        },
+        "source_bundle_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Bundle Sha256",
+          "type": "string"
+        },
+        "input_ref_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Input Ref Ids",
+          "type": "array"
+        },
+        "accepted_ref_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Accepted Ref Ids",
+          "type": "array"
+        },
+        "rejected_ref_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Rejected Ref Ids",
+          "type": "array"
+        },
+        "reserved_ref_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reserved Ref Ids",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "consumer_module_id",
+        "source_contract_name",
+        "source_contract_version",
+        "source_bundle_sha256",
+        "input_ref_ids",
+        "accepted_ref_ids"
+      ],
+      "title": "ConsumerReceipt",
+      "type": "object"
+    },
+    "DecisionKind": {
+      "enum": [
+        "ACTION",
+        "NO_ACTION",
+        "ABSTAIN"
+      ],
+      "title": "DecisionKind",
+      "type": "string"
+    },
+    "DeploymentStage": {
+      "enum": [
+        "SHADOW_ONLY",
+        "PAPER_EXECUTION",
+        "LIMITED_CAPITAL",
+        "FULL_PRODUCTION",
+        "QUARANTINED"
+      ],
+      "title": "DeploymentStage",
+      "type": "string"
+    },
+    "DriftChannelKind": {
+      "enum": [
+        "INPUT",
+        "MISSINGNESS",
+        "FORECAST_RESIDUAL",
+        "CALIBRATION",
+        "PNL",
+        "COST",
+        "LIQUIDITY",
+        "FACTOR_EXPOSURE",
+        "POLICY_ACTION"
+      ],
+      "title": "DriftChannelKind",
+      "type": "string"
+    },
+    "DriftChannelPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "channel_kind": {
+          "$ref": "#/$defs/DriftChannelKind"
+        },
+        "reference_window": {
+          "default": 50,
+          "minimum": 10,
+          "title": "Reference Window",
+          "type": "integer"
+        },
+        "test_window": {
+          "default": 20,
+          "minimum": 5,
+          "title": "Test Window",
+          "type": "integer"
+        },
+        "mean_shift_z_threshold": {
+          "default": 3.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Mean Shift Z Threshold",
+          "type": "number"
+        },
+        "variance_ratio_threshold": {
+          "default": 2.0,
+          "exclusiveMinimum": 1.0,
+          "title": "Variance Ratio Threshold",
+          "type": "number"
+        },
+        "cusum_threshold": {
+          "default": 5.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Cusum Threshold",
+          "type": "number"
+        },
+        "cusum_allowance": {
+          "default": 0.5,
+          "minimum": 0.0,
+          "title": "Cusum Allowance",
+          "type": "number"
+        },
+        "bocpd_hazard": {
+          "default": 0.02,
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Bocpd Hazard",
+          "type": "number"
+        },
+        "bocpd_alert_probability": {
+          "default": 0.5,
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Bocpd Alert Probability",
+          "type": "number"
+        },
+        "bocpd_max_run_length": {
+          "default": 256,
+          "minimum": 20,
+          "title": "Bocpd Max Run Length",
+          "type": "integer"
+        },
+        "missingness_delta_threshold": {
+          "default": 0.2,
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Missingness Delta Threshold",
+          "type": "number"
+        },
+        "hard_breach": {
+          "default": false,
+          "title": "Hard Breach",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "channel_id",
+        "channel_kind"
+      ],
+      "title": "DriftChannelPolicy",
+      "type": "object"
+    },
+    "DriftObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "channel_id": {
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "channel_kind": {
+          "$ref": "#/$defs/DriftChannelKind"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "channel_id",
+        "channel_kind",
+        "observed_at",
+        "value"
+      ],
+      "title": "DriftObservation",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "ExecutionStage": {
+      "enum": [
+        "BACKTEST",
+        "SHADOW",
+        "PAPER",
+        "LIVE"
+      ],
+      "title": "ExecutionStage",
+      "type": "string"
+    },
+    "IntervalForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "INTERVAL",
+          "default": "INTERVAL",
+          "title": "Kind",
+          "type": "string"
+        },
+        "lower": {
+          "title": "Lower",
+          "type": "number"
+        },
+        "upper": {
+          "title": "Upper",
+          "type": "number"
+        },
+        "nominal_coverage": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Nominal Coverage",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lower",
+        "upper",
+        "nominal_coverage"
+      ],
+      "title": "IntervalForecast",
+      "type": "object"
+    },
+    "LiveExecutionMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "observation_count": {
+          "minimum": 0,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "realized_net_alpha": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Realized Net Alpha"
+        },
+        "reference_net_alpha": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reference Net Alpha"
+        },
+        "mean_cost_error_bps": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mean Cost Error Bps"
+        },
+        "capacity_ratio_to_approved": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Capacity Ratio To Approved"
+        },
+        "hard_risk_breach_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Hard Risk Breach Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "observation_count",
+        "realized_net_alpha",
+        "reference_net_alpha",
+        "mean_cost_error_bps"
+      ],
+      "title": "LiveExecutionMetrics",
+      "type": "object"
+    },
+    "LiveHealthState": {
+      "enum": [
+        "HEALTHY",
+        "WATCH",
+        "DEGRADED",
+        "REQUALIFICATION_REQUIRED",
+        "ROLLBACK_RECOMMENDED",
+        "QUARANTINE_RECOMMENDED",
+        "INSUFFICIENT_LIVE_EVIDENCE"
+      ],
+      "title": "LiveHealthState",
+      "type": "string"
+    },
+    "MaturityState": {
+      "enum": [
+        "NOT_MATURED",
+        "PARTIALLY_MATURED",
+        "MATURED",
+        "SETTLED",
+        "CENSORED",
+        "UNOBSERVABLE"
+      ],
+      "title": "MaturityState",
+      "type": "string"
+    },
+    "NormalForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "NORMAL",
+          "default": "NORMAL",
+          "title": "Kind",
+          "type": "string"
+        },
+        "mean": {
+          "title": "Mean",
+          "type": "number"
+        },
+        "standard_deviation": {
+          "exclusiveMinimum": 0.0,
+          "title": "Standard Deviation",
+          "type": "number"
+        }
+      },
+      "required": [
+        "mean",
+        "standard_deviation"
+      ],
+      "title": "NormalForecast",
+      "type": "object"
+    },
+    "OutcomeEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "outcome_id": {
+          "minLength": 1,
+          "title": "Outcome Id",
+          "type": "string"
+        },
+        "prediction_event_id": {
+          "minLength": 1,
+          "title": "Prediction Event Id",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "maturity_state": {
+          "$ref": "#/$defs/MaturityState"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        },
+        "vintage_id": {
+          "minLength": 1,
+          "title": "Vintage Id",
+          "type": "string"
+        },
+        "supersedes_outcome_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Supersedes Outcome Id"
+        }
+      },
+      "required": [
+        "outcome_id",
+        "prediction_event_id",
+        "observed_at",
+        "available_at",
+        "maturity_state",
+        "evidence_class",
+        "value",
+        "vintage_id"
+      ],
+      "title": "OutcomeEvent",
+      "type": "object"
+    },
+    "PairedLossObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort_id": {
+          "minLength": 1,
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "prediction_event_id": {
+          "minLength": 1,
+          "title": "Prediction Event Id",
+          "type": "string"
+        },
+        "champion_policy_id": {
+          "minLength": 1,
+          "title": "Champion Policy Id",
+          "type": "string"
+        },
+        "challenger_policy_id": {
+          "minLength": 1,
+          "title": "Challenger Policy Id",
+          "type": "string"
+        },
+        "champion_loss": {
+          "title": "Champion Loss",
+          "type": "number"
+        },
+        "challenger_loss": {
+          "title": "Challenger Loss",
+          "type": "number"
+        }
+      },
+      "required": [
+        "cohort_id",
+        "prediction_event_id",
+        "champion_policy_id",
+        "challenger_policy_id",
+        "champion_loss",
+        "challenger_loss"
+      ],
+      "title": "PairedLossObservation",
+      "type": "object"
+    },
+    "PointForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "POINT",
+          "default": "POINT",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "PointForecast",
+      "type": "object"
+    },
+    "PolicyExecutionOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort_id": {
+          "minLength": 1,
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "prediction_event_id": {
+          "minLength": 1,
+          "title": "Prediction Event Id",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "information_set_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Information Set Hash",
+          "type": "string"
+        },
+        "stage": {
+          "$ref": "#/$defs/DeploymentStage"
+        },
+        "started_at": {
+          "format": "date-time",
+          "title": "Started At",
+          "type": "string"
+        },
+        "completed_at": {
+          "format": "date-time",
+          "title": "Completed At",
+          "type": "string"
+        },
+        "output_artifact_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output Artifact Id"
+        },
+        "output_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output Sha256"
+        },
+        "execution_status": {
+          "minLength": 1,
+          "title": "Execution Status",
+          "type": "string"
+        },
+        "resource_units_used": {
+          "minimum": 0,
+          "title": "Resource Units Used",
+          "type": "integer"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "cohort_id",
+        "prediction_event_id",
+        "policy_id",
+        "policy_version",
+        "information_set_hash",
+        "stage",
+        "started_at",
+        "completed_at",
+        "execution_status",
+        "resource_units_used"
+      ],
+      "title": "PolicyExecutionOutput",
+      "type": "object"
+    },
+    "PolicyRole": {
+      "enum": [
+        "CHAMPION",
+        "CHALLENGER"
+      ],
+      "title": "PolicyRole",
+      "type": "string"
+    },
+    "PolicySpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "role": {
+          "$ref": "#/$defs/PolicyRole"
+        },
+        "code_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "resource_budget_units": {
+          "exclusiveMinimum": 0,
+          "title": "Resource Budget Units",
+          "type": "integer"
+        },
+        "seed_entropy": {
+          "minimum": 0,
+          "title": "Seed Entropy",
+          "type": "integer"
+        },
+        "authorized_stage": {
+          "$ref": "#/$defs/DeploymentStage"
+        },
+        "authorization_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Authorization Ref"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "role",
+        "code_sha256",
+        "resource_budget_units",
+        "seed_entropy",
+        "authorized_stage"
+      ],
+      "title": "PolicySpecification",
+      "type": "object"
+    },
+    "PredictionEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "cohort_id": {
+          "minLength": 1,
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "horizon_id": {
+          "minLength": 1,
+          "title": "Horizon Id",
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "title": "Issued At",
+          "type": "string"
+        },
+        "information_set_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Information Set Hash",
+          "type": "string"
+        },
+        "forecast": {
+          "discriminator": {
+            "mapping": {
+              "BINARY_PROBABILITY": "#/$defs/BinaryProbabilityForecast",
+              "INTERVAL": "#/$defs/IntervalForecast",
+              "NORMAL": "#/$defs/NormalForecast",
+              "POINT": "#/$defs/PointForecast",
+              "QUANTILES": "#/$defs/QuantileForecast"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/PointForecast"
+            },
+            {
+              "$ref": "#/$defs/BinaryProbabilityForecast"
+            },
+            {
+              "$ref": "#/$defs/NormalForecast"
+            },
+            {
+              "$ref": "#/$defs/QuantileForecast"
+            },
+            {
+              "$ref": "#/$defs/IntervalForecast"
+            }
+          ],
+          "title": "Forecast"
+        },
+        "decision_kind": {
+          "$ref": "#/$defs/DecisionKind"
+        },
+        "action_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Action Id"
+        },
+        "regime_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Regime Id"
+        },
+        "ood_bucket": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ood Bucket"
+        },
+        "confidence_bucket": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence Bucket"
+        }
+      },
+      "required": [
+        "event_id",
+        "cohort_id",
+        "policy_id",
+        "policy_version",
+        "target_id",
+        "horizon_id",
+        "issued_at",
+        "information_set_hash",
+        "forecast",
+        "decision_kind"
+      ],
+      "title": "PredictionEvent",
+      "type": "object"
+    },
+    "PrequentialRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "prediction": {
+          "$ref": "#/$defs/PredictionEvent"
+        },
+        "outcomes": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/OutcomeEvent"
+          },
+          "title": "Outcomes",
+          "type": "array"
+        },
+        "active_outcome_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Active Outcome Id"
+        },
+        "record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Record Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prediction",
+        "record_sha256"
+      ],
+      "title": "PrequentialRecord",
+      "type": "object"
+    },
+    "QuantileForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "QUANTILES",
+          "default": "QUANTILES",
+          "title": "Kind",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/QuantilePoint"
+          },
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "title": "QuantileForecast",
+      "type": "object"
+    },
+    "QuantilePoint": {
+      "additionalProperties": false,
+      "properties": {
+        "quantile": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Quantile",
+          "type": "number"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "quantile",
+        "value"
+      ],
+      "title": "QuantilePoint",
+      "type": "object"
+    },
+    "RealityGapPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum_live_pairs": {
+          "default": 20,
+          "minimum": 1,
+          "title": "Minimum Live Pairs",
+          "type": "integer"
+        },
+        "maximum_mean_abs_fill_rate_gap": {
+          "default": 0.15,
+          "minimum": 0.0,
+          "title": "Maximum Mean Abs Fill Rate Gap",
+          "type": "number"
+        },
+        "maximum_mean_abs_slippage_gap_bps": {
+          "default": 10.0,
+          "minimum": 0.0,
+          "title": "Maximum Mean Abs Slippage Gap Bps",
+          "type": "number"
+        },
+        "maximum_mean_abs_pnl_gap": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum Mean Abs Pnl Gap"
+        }
+      },
+      "title": "RealityGapPolicy",
+      "type": "object"
+    },
+    "RollbackPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum_live_observations": {
+          "default": 30,
+          "minimum": 1,
+          "title": "Minimum Live Observations",
+          "type": "integer"
+        },
+        "alpha_decay_threshold": {
+          "default": 0.0,
+          "title": "Alpha Decay Threshold",
+          "type": "number"
+        },
+        "cost_error_watch_bps": {
+          "default": 5.0,
+          "minimum": 0.0,
+          "title": "Cost Error Watch Bps",
+          "type": "number"
+        },
+        "cost_error_rollback_bps": {
+          "default": 20.0,
+          "minimum": 0.0,
+          "title": "Cost Error Rollback Bps",
+          "type": "number"
+        },
+        "minimum_capacity_ratio": {
+          "default": 0.8,
+          "exclusiveMinimum": 0.0,
+          "title": "Minimum Capacity Ratio",
+          "type": "number"
+        },
+        "severe_capacity_ratio": {
+          "default": 0.5,
+          "exclusiveMinimum": 0.0,
+          "title": "Severe Capacity Ratio",
+          "type": "number"
+        },
+        "confirmed_drift_action": {
+          "$ref": "#/$defs/LiveHealthState",
+          "default": "REQUALIFICATION_REQUIRED"
+        }
+      },
+      "title": "RollbackPolicy",
+      "type": "object"
+    },
+    "S7UpstreamReferences": {
+      "additionalProperties": false,
+      "properties": {
+        "foundation_bundle": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "backtest_metrics_bundle": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "robustness_stress_bundle": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "consumer_receipts": {
+          "items": {
+            "$ref": "#/$defs/ConsumerReceipt"
+          },
+          "title": "Consumer Receipts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "foundation_bundle",
+        "backtest_metrics_bundle",
+        "robustness_stress_bundle",
+        "consumer_receipts"
+      ],
+      "title": "S7UpstreamReferences",
+      "type": "object"
+    },
+    "ScoringPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "probability_floor": {
+          "default": 1e-12,
+          "exclusiveMaximum": 0.5,
+          "exclusiveMinimum": 0.0,
+          "title": "Probability Floor",
+          "type": "number"
+        },
+        "minimum_calibration_count": {
+          "default": 10,
+          "minimum": 2,
+          "title": "Minimum Calibration Count",
+          "type": "integer"
+        },
+        "binary_bin_edges": {
+          "default": [
+            0.0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "items": {
+            "type": "number"
+          },
+          "title": "Binary Bin Edges",
+          "type": "array"
+        }
+      },
+      "title": "ScoringPolicy",
+      "type": "object"
+    },
+    "SequentialComparisonPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha": {
+          "default": 0.05,
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Alpha",
+          "type": "number"
+        },
+        "minimum_samples": {
+          "default": 30,
+          "minimum": 2,
+          "title": "Minimum Samples",
+          "type": "integer"
+        },
+        "minimum_effect": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Minimum Effect",
+          "type": "number"
+        },
+        "loss_lower_bound": {
+          "title": "Loss Lower Bound",
+          "type": "number"
+        },
+        "loss_upper_bound": {
+          "title": "Loss Upper Bound",
+          "type": "number"
+        },
+        "maximum_family_size": {
+          "default": 20,
+          "minimum": 1,
+          "title": "Maximum Family Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "loss_lower_bound",
+        "loss_upper_bound"
+      ],
+      "title": "SequentialComparisonPolicy",
+      "type": "object"
+    },
+    "StageExecutionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "cohort_id": {
+          "minLength": 1,
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "horizon_id": {
+          "minLength": 1,
+          "title": "Horizon Id",
+          "type": "string"
+        },
+        "stage": {
+          "$ref": "#/$defs/ExecutionStage"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "forecast_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Forecast Value"
+        },
+        "signal_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Signal Value"
+        },
+        "target_quantity": {
+          "title": "Target Quantity",
+          "type": "number"
+        },
+        "order_quantity": {
+          "title": "Order Quantity",
+          "type": "number"
+        },
+        "fill_quantity": {
+          "title": "Fill Quantity",
+          "type": "number"
+        },
+        "benchmark_price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Benchmark Price"
+        },
+        "average_fill_price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Average Fill Price"
+        },
+        "fees": {
+          "minimum": 0.0,
+          "title": "Fees",
+          "type": "number"
+        },
+        "margin_used": {
+          "minimum": 0.0,
+          "title": "Margin Used",
+          "type": "number"
+        },
+        "pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pnl"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        }
+      },
+      "required": [
+        "decision_id",
+        "cohort_id",
+        "policy_id",
+        "instrument_id",
+        "horizon_id",
+        "stage",
+        "decision_time",
+        "target_quantity",
+        "order_quantity",
+        "fill_quantity",
+        "fees",
+        "margin_used",
+        "evidence_class"
+      ],
+      "title": "StageExecutionRecord",
+      "type": "object"
+    },
+    "StressCapacityQualification": {
+      "additionalProperties": false,
+      "properties": {
+        "qualification_state": {
+          "minLength": 1,
+          "title": "Qualification State",
+          "type": "string"
+        },
+        "reverse_stress_distance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reverse Stress Distance"
+        },
+        "capacity_limit_ratio": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Capacity Limit Ratio"
+        },
+        "hard_blocking_reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Hard Blocking Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "qualification_state"
+      ],
+      "title": "StressCapacityQualification",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "header": {
+      "$ref": "#/$defs/BundleHeader"
+    },
+    "upstream": {
+      "$ref": "#/$defs/S7UpstreamReferences"
+    },
+    "predictions": {
+      "items": {
+        "$ref": "#/$defs/PredictionEvent"
+      },
+      "title": "Predictions",
+      "type": "array"
+    },
+    "outcomes": {
+      "items": {
+        "$ref": "#/$defs/OutcomeEvent"
+      },
+      "title": "Outcomes",
+      "type": "array"
+    },
+    "existing_records": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/PrequentialRecord"
+      },
+      "title": "Existing Records",
+      "type": "array"
+    },
+    "champion_policy": {
+      "$ref": "#/$defs/PolicySpecification"
+    },
+    "challenger_policies": {
+      "items": {
+        "$ref": "#/$defs/PolicySpecification"
+      },
+      "title": "Challenger Policies",
+      "type": "array"
+    },
+    "policy_execution_outputs": {
+      "items": {
+        "$ref": "#/$defs/PolicyExecutionOutput"
+      },
+      "title": "Policy Execution Outputs",
+      "type": "array"
+    },
+    "allowed_policy_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Allowed Policy Ids"
+    },
+    "scoring_policy": {
+      "$ref": "#/$defs/ScoringPolicy"
+    },
+    "conformal_policy": {
+      "$ref": "#/$defs/ConformalPolicy"
+    },
+    "conformal_observations": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ConformalObservation"
+      },
+      "title": "Conformal Observations",
+      "type": "array"
+    },
+    "drift_observations": {
+      "items": {
+        "$ref": "#/$defs/DriftObservation"
+      },
+      "title": "Drift Observations",
+      "type": "array"
+    },
+    "drift_policies": {
+      "items": {
+        "$ref": "#/$defs/DriftChannelPolicy"
+      },
+      "title": "Drift Policies",
+      "type": "array"
+    },
+    "minimum_confirming_drift_channels": {
+      "default": 2,
+      "minimum": 1,
+      "title": "Minimum Confirming Drift Channels",
+      "type": "integer"
+    },
+    "paired_loss_observations": {
+      "items": {
+        "$ref": "#/$defs/PairedLossObservation"
+      },
+      "title": "Paired Loss Observations",
+      "type": "array"
+    },
+    "sequential_comparison_policy": {
+      "$ref": "#/$defs/SequentialComparisonPolicy"
+    },
+    "offline_model_set": {
+      "anyOf": [
+        {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Offline Model Set"
+    },
+    "live_execution_metrics": {
+      "$ref": "#/$defs/LiveExecutionMetrics"
+    },
+    "stress_capacity_qualification": {
+      "$ref": "#/$defs/StressCapacityQualification"
+    },
+    "rollback_policy": {
+      "$ref": "#/$defs/RollbackPolicy"
+    },
+    "stage_execution_records": {
+      "items": {
+        "$ref": "#/$defs/StageExecutionRecord"
+      },
+      "title": "Stage Execution Records",
+      "type": "array"
+    },
+    "reality_gap_policy": {
+      "$ref": "#/$defs/RealityGapPolicy"
+    }
+  },
+  "required": [
+    "header",
+    "upstream",
+    "predictions",
+    "outcomes",
+    "champion_policy",
+    "challenger_policies",
+    "policy_execution_outputs",
+    "scoring_policy",
+    "conformal_policy",
+    "drift_observations",
+    "drift_policies",
+    "paired_loss_observations",
+    "sequential_comparison_policy",
+    "live_execution_metrics",
+    "stress_capacity_qualification",
+    "rollback_policy",
+    "stage_execution_records",
+    "reality_gap_policy"
+  ],
+  "title": "S7ExecutionRequest",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:S7ExecutionRequest:1.0.0"
+}

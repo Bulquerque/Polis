@@ -1,0 +1,188 @@
+{
+  "$defs": {
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT",
+        "UNKNOWN"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "ask": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ask"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "bid": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Bid"
+    },
+    "contract_key": {
+      "minLength": 1,
+      "title": "Contract Key",
+      "type": "string"
+    },
+    "execution_status": {
+      "minLength": 1,
+      "title": "Execution Status",
+      "type": "string"
+    },
+    "expiration_date": {
+      "format": "date",
+      "title": "Expiration Date",
+      "type": "string"
+    },
+    "financial_volume": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Financial Volume"
+    },
+    "implied_volatility": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Implied Volatility"
+    },
+    "last_price": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Last Price"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "mid": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Mid"
+    },
+    "observation_date": {
+      "format": "date",
+      "title": "Observation Date",
+      "type": "string"
+    },
+    "open_interest": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Open Interest"
+    },
+    "option_type": {
+      "$ref": "#/$defs/OptionType"
+    },
+    "quality_flag": {
+      "minLength": 1,
+      "title": "Quality Flag",
+      "type": "string"
+    },
+    "source_id": {
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "strike": {
+      "exclusiveMinimum": 0.0,
+      "title": "Strike",
+      "type": "number"
+    },
+    "underlying": {
+      "minLength": 1,
+      "title": "Underlying",
+      "type": "string"
+    },
+    "volume": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Volume"
+    }
+  },
+  "required": [
+    "contract_key",
+    "underlying",
+    "option_type",
+    "strike",
+    "expiration_date",
+    "observation_date",
+    "available_at",
+    "execution_status",
+    "source_id",
+    "lineage_id",
+    "quality_flag"
+  ],
+  "title": "OptionQuoteObservation",
+  "type": "object"
+}

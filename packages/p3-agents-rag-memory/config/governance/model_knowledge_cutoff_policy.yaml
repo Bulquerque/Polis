@@ -1,0 +1,11 @@
+version: model-cutoff.v2
+require_model_version: true
+require_release_date_when_known: true
+require_training_cutoff_when_known: true
+unknown_cutoff_class: UNKNOWN_CUTOFF
+post_cutoff_preferred: false
+never_claim_clean_when_unknown: true
+unknown_cutoff_risk: CONTAMINATION_RISK
+qualification_unknown_action: fail_closed
+absolute_cleanliness_claim_forbidden: true
+canary_detection_action: block

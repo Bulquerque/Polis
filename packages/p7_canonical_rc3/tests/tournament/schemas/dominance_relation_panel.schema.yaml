@@ -1,0 +1,131 @@
+$defs:
+  DominanceEvidence:
+    additionalProperties: false
+    properties:
+      metric_id:
+        title: Metric Id
+        type: string
+      dominator_value:
+        title: Dominator Value
+        type: number
+      dominated_value:
+        title: Dominated Value
+        type: number
+      tolerance:
+        minimum: 0
+        title: Tolerance
+        type: number
+      materially_better:
+        title: Materially Better
+        type: boolean
+    required:
+    - metric_id
+    - dominator_value
+    - dominated_value
+    - tolerance
+    - materially_better
+    title: DominanceEvidence
+    type: object
+  DominanceRelationRecord:
+    additionalProperties: false
+    properties:
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      dominator_candidate_id:
+        title: Dominator Candidate Id
+        type: string
+      dominated_candidate_id:
+        title: Dominated Candidate Id
+        type: string
+      evidence:
+        items:
+          $ref: '#/$defs/DominanceEvidence'
+        title: Evidence
+        type: array
+      policy_id:
+        title: Policy Id
+        type: string
+      relation_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Relation Hash
+        type: string
+    required:
+    - comparison_group_id
+    - dominator_candidate_id
+    - dominated_candidate_id
+    - evidence
+    - policy_id
+    - relation_hash
+    title: DominanceRelationRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/DominanceRelationRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: dominance_relation_panel envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s3/dominance_relation_panel/1.0.0

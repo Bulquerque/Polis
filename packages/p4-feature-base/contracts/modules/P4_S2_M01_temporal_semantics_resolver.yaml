@@ -1,0 +1,66 @@
+phase: P4
+subphase: P4.S2
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- no_hidden_global_state
+- no_future_targets
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+observability:
+- module_started
+- input_validated
+- module_succeeded
+- module_failed
+- input_record_count
+- output_record_count
+- warning_count
+- duration_ms
+production_promotion_allowed: false
+module_id: P4.S2.M01
+module_name: temporal_semantics_resolver
+function: Resolve event/reference/publication/availability/ingestion/decision/calculation
+  times and reject future availability.
+inputs:
+- validated_p4_boundary_bundle
+- validated_phase2_bundle
+- validated_phase3_bundle
+- phase2_capability_matrix
+- phase3_capability_matrix
+- all materialized extension artifacts declared AVAILABLE by capability matrices
+outputs:
+- temporally_resolved_observation_bundle
+- temporal_resolution_report
+validations:
+- S1 output schemas valid
+- materialized artifact hashes match S1 references
+- RFC3339 or explicit date-only policy
+- timezone IANA valid
+- DST ambiguity explicit
+- future availability rejected
+- legacy fallback explicitly degraded
+fail_fast_conditions:
+- P4_S2_M01_INPUT_INVALID
+- P4_S2_M01_TEMPORAL_VIOLATION
+- P4_S2_M01_OUTPUT_INVALID
+- P4_S2_M01_FORBIDDEN_FIELD
+tests_required:
+- happy_path
+- schema_negative
+- temporal_adversarial
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S2_M01_temporal_semantics_resolver.py

@@ -1,0 +1,19 @@
+module_id: P5.S8.M03
+name: adaptive_regime_weighted_conformal_calibrator
+subphase_id: P5.S8
+required_inputs:
+- harmonized_forecast_member_panel
+- forecast_calibration_diagnostics
+optional_inputs:
+- optional_resolver_feedback_context
+- resolver_context_router_panel
+outputs:
+- calibrated_forecast_member_panel
+- forecast_conformal_report
+allowed_actions:
+- RUN
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

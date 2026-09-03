@@ -1,0 +1,22 @@
+module_id: P5.S1.M01
+name: p4_handoff_contract_compatibility_validator
+subphase_id: P5.S1
+required_inputs:
+- phase5_feature_handoff_manifest
+- model_consumer_view_manifest
+- model_consumer_view_bundle
+- p4_quality_gate_decision
+- p4_artifact_catalog
+optional_inputs: []
+outputs:
+- validated_p4_contract_bundle
+- p4_contract_compatibility_report
+- validated_p4_artifact_catalog
+allowed_actions:
+- RUN
+allowed_modes:
+- OFFLINE_TRAINING
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

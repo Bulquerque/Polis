@@ -1,0 +1,110 @@
+{
+  "additionalProperties": false,
+  "description": "Auditable probability-mass transformation performed at the P5\u2192P6 boundary.",
+  "properties": {
+    "belief_state_id": {
+      "minLength": 1,
+      "title": "Belief State Id",
+      "type": "string"
+    },
+    "horizon_days": {
+      "exclusiveMinimum": 0,
+      "title": "Horizon Days",
+      "type": "integer"
+    },
+    "method": {
+      "minLength": 1,
+      "title": "Method",
+      "type": "string"
+    },
+    "normalization_factor": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Normalization Factor"
+    },
+    "original_probability_mass": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Original Probability Mass"
+    },
+    "rejected_probability_mass": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Rejected Probability Mass"
+    },
+    "renormalized": {
+      "title": "Renormalized",
+      "type": "boolean"
+    },
+    "retained_probability_mass": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Retained Probability Mass"
+    },
+    "retained_scenario_count": {
+      "minimum": 0,
+      "title": "Retained Scenario Count",
+      "type": "integer"
+    },
+    "source_scenario_count": {
+      "minimum": 0,
+      "title": "Source Scenario Count",
+      "type": "integer"
+    },
+    "underlying_id": {
+      "minLength": 1,
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "belief_state_id",
+    "underlying_id",
+    "horizon_days",
+    "method",
+    "source_scenario_count",
+    "retained_scenario_count",
+    "original_probability_mass",
+    "retained_probability_mass",
+    "rejected_probability_mass",
+    "renormalized"
+  ],
+  "title": "ScenarioProbabilityMassAuditRecord",
+  "type": "object"
+}

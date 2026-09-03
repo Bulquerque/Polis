@@ -1,0 +1,34 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Feature Experiment Record
+type: object
+additionalProperties: false
+properties:
+  experiment_id: &id001
+    type: string
+  feature_genome_ref: *id001
+  baseline_ref: *id001
+  mutation_type: *id001
+  fast_screen_result:
+    type: object
+  full_evaluation_result:
+    type: object
+  status:
+    type: string
+    enum:
+    - EXPERIMENTAL
+    - PROMOTED
+    - RETIRED
+    - REJECTED
+    - REGIME_SPECIFIC
+  lesson: *id001
+  lineage_id: *id001
+required:
+- experiment_id
+- feature_genome_ref
+- baseline_ref
+- mutation_type
+- fast_screen_result
+- full_evaluation_result
+- status
+- lesson
+- lineage_id

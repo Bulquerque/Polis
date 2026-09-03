@@ -1,0 +1,54 @@
+{
+  "modules": [
+    {
+      "entrypoint": "quant_pipeline.phase_09.subphases.s04_performance_risk.m01_returns.compute_returns",
+      "module_id": "P9.S4.M01",
+      "name": "return_and_wealth_path_engine",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "entrypoint": "quant_pipeline.phase_09.subphases.s04_performance_risk.m02_distribution.compute_distribution",
+      "module_id": "P9.S4.M02",
+      "name": "volatility_distribution_engine",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "entrypoint": "quant_pipeline.phase_09.subphases.s04_performance_risk.m03_tail_risk.compute_tail_risk",
+      "module_id": "P9.S4.M03",
+      "name": "tail_risk_engine",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "entrypoint": "quant_pipeline.phase_09.subphases.s04_performance_risk.m04_drawdown.compute_drawdowns",
+      "module_id": "P9.S4.M04",
+      "name": "drawdown_path_risk_engine",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "entrypoint": "quant_pipeline.phase_09.subphases.s04_performance_risk.m05_risk_adjusted.compute_risk_adjusted",
+      "module_id": "P9.S4.M05",
+      "name": "risk_adjusted_performance_engine",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "entrypoint": "quant_pipeline.phase_09.subphases.s04_performance_risk.m06_factor_regression.compute_factor_regressions",
+      "module_id": "P9.S4.M06",
+      "name": "benchmark_factor_alpha_beta_engine",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "entrypoint": "quant_pipeline.phase_09.subphases.s04_performance_risk.m07_execution_capacity.compute_execution_capacity",
+      "module_id": "P9.S4.M07",
+      "name": "trading_execution_capacity_metrics_engine",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "entrypoint": "quant_pipeline.phase_09.subphases.s04_performance_risk.m08_quality_gate.reconcile_metrics",
+      "module_id": "P9.S4.M08",
+      "name": "metric_reconciliation_and_quality_gate",
+      "status": "IMPLEMENTED"
+    }
+  ],
+  "registry_id": "P9_S4_MODULES",
+  "registry_version": "1.0.0"
+}

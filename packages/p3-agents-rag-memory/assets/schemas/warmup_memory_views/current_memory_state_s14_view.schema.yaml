@@ -1,0 +1,182 @@
+$defs:
+  ArtifactRef:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        minLength: 1
+        title: Artifact Id
+        type: string
+      artifact_type:
+        minLength: 1
+        title: Artifact Type
+        type: string
+      content_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Content Hash
+        type: string
+      schema_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Id
+      schema_version:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Schema Version
+    required:
+    - artifact_id
+    - artifact_type
+    - content_hash
+    title: ArtifactRef
+    type: object
+  MemoryRecord:
+    additionalProperties: false
+    properties:
+      memory_id:
+        minLength: 1
+        title: Memory Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      memory_type:
+        $ref: '#/$defs/MemoryType'
+      visibility_scope:
+        $ref: '#/$defs/VisibilityScope'
+      created_at:
+        format: date-time
+        title: Created At
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      content_ref:
+        $ref: '#/$defs/ArtifactRef'
+      importance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Importance
+        type: number
+      repetition:
+        maximum: 1.0
+        minimum: 0.0
+        title: Repetition
+        type: number
+      significance:
+        maximum: 1.0
+        minimum: 0.0
+        title: Significance
+        type: number
+    required:
+    - memory_id
+    - person_id
+    - memory_type
+    - visibility_scope
+    - created_at
+    - available_at
+    - content_ref
+    - importance
+    - repetition
+    - significance
+    title: MemoryRecord
+    type: object
+  MemoryType:
+    enum:
+    - EPISODIC
+    - SEMANTIC
+    - PROCEDURAL
+    - SOCIAL
+    title: MemoryType
+    type: string
+  VisibilityScope:
+    enum:
+    - SELF
+    - SOCIAL_VISIBLE
+    - PUBLIC
+    - AUDIT_ONLY
+    title: VisibilityScope
+    type: string
+additionalProperties: false
+properties:
+  schema_id:
+    const: current_memory_state.v2
+    default: current_memory_state.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    default: 2.0.0
+    title: Schema Version
+    type: string
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  module_id:
+    const: P3.S11.M03
+    default: P3.S11.M03
+    title: Module Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  snapshot_id:
+    minLength: 1
+    title: Snapshot Id
+    type: string
+  cycle_id:
+    minLength: 1
+    title: Cycle Id
+    type: string
+  cycle_number:
+    exclusiveMinimum: 0
+    title: Cycle Number
+    type: integer
+  as_of_time:
+    format: date-time
+    title: As Of Time
+    type: string
+  source_state_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Source State Hash
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/MemoryRecord'
+    title: Records
+    type: array
+  content_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Hash
+    type: string
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+required:
+- artifact_id
+- run_id
+- snapshot_id
+- cycle_id
+- cycle_number
+- as_of_time
+- source_state_hash
+- records
+- content_hash
+- lineage_id
+title: CurrentMemoryState
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+status: implemented_unqualified
+schema_owner: P3.S14
+artifact_name: current_memory_state
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

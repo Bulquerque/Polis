@@ -1,0 +1,183 @@
+{
+  "envelope": {
+    "artifact_id": "RISK1",
+    "artifact_type": "P8_DECISION_READY_RISK_BUNDLE_V1",
+    "schema_version": "1.0.0",
+    "contract_version": "1.0.0",
+    "producer_phase": "P8",
+    "producer_module": "P8.S4.M06",
+    "producer_release": "0.1.0",
+    "pipeline_version": "v14.1-rc4.1",
+    "run_id": "RUN1",
+    "cycle_id": 1,
+    "decision_time": "2026-08-03T18:00:00Z",
+    "market_cutoff_at": "2026-08-03T18:00:00Z",
+    "computed_at": "2026-08-03T18:00:00Z",
+    "recorded_at": "2026-08-03T18:00:00Z",
+    "available_at": "2026-08-03T18:00:00Z",
+    "content_sha256": "329949b7ea1fc80b989ca1752e7efa5c5f6dc2a0d5fa4dff01d1615341a5184f",
+    "lineage_id": "L1"
+  },
+  "payload": {
+    "decision_snapshot_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "horizons": [
+      {
+        "horizon_id": "H0",
+        "step": 0,
+        "duration_seconds": 3600
+      },
+      {
+        "horizon_id": "H1",
+        "step": 1,
+        "duration_seconds": 7200
+      }
+    ],
+    "candidates": [
+      {
+        "candidate_id": "C1",
+        "canonical_candidate_id": "C1",
+        "comparison_group_id": "G1",
+        "actionability": "NOMINAL_ACTIONABLE",
+        "score_semantics": "ORDINAL",
+        "current_quantity": 0.0,
+        "minimum_quantity": -5.0,
+        "maximum_quantity": 5.0,
+        "quantity_increment": 1.0,
+        "lot_size": 1.0,
+        "capital_per_unit": 1.0,
+        "margin_per_unit": 1.0,
+        "maximum_loss_per_unit": 1.0,
+        "transaction_cost_per_unit": 0.0,
+        "funding_cost_per_unit_by_horizon": [
+          0.0,
+          0.0
+        ],
+        "liquidity_trade_cap_by_horizon": [
+          5.0,
+          5.0
+        ],
+        "underlying_bucket": "U1",
+        "expiration_bucket": "E1",
+        "greeks": []
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_id": "UP",
+        "probability": 0.5,
+        "candidate_pnl": [
+          {
+            "candidate_id": "C1",
+            "incremental_pnl_by_horizon": [
+              2.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "scenario_id": "DOWN",
+        "probability": 0.5,
+        "candidate_pnl": [
+          {
+            "candidate_id": "C1",
+            "incremental_pnl_by_horizon": [
+              -1.0,
+              -0.5
+            ]
+          }
+        ]
+      }
+    ],
+    "mandatory_stresses": [],
+    "risk_limits": {
+      "maximum_capital_by_horizon": [
+        10.0,
+        10.0
+      ],
+      "maximum_margin_by_horizon": [
+        10.0,
+        10.0
+      ],
+      "maximum_loss_by_horizon": [
+        10.0,
+        10.0
+      ],
+      "maximum_turnover": 100.0,
+      "cvar_alpha": 0.5,
+      "maximum_cvar": 100.0,
+      "greek_limits": [],
+      "underlying_concentration": [],
+      "expiration_concentration": []
+    },
+    "ordinal_preferences": [],
+    "ambiguity": {
+      "calibrated": true,
+      "robust_scenario_probabilities": [
+        0.5,
+        0.5
+      ],
+      "lower_expected_pnl_by_candidate_horizon": [
+        {
+          "candidate_id": "C1",
+          "incremental_pnl_by_horizon": [
+            -1.0,
+            -0.5
+          ]
+        }
+      ]
+    },
+    "policy_context": {
+      "policy_id": "S5_TEST",
+      "policy_version": "1.0.0",
+      "authorized_by": "P0_TEST",
+      "effective_from_cycle": 0,
+      "expires_after_cycle": null,
+      "content_sha256": "705436ebb4ac3ecd3d3a620455ecbd82029c32221468bf536048771acf824fe9",
+      "created_at": "2026-08-03T18:00:00Z",
+      "objective": {
+        "return_weight": 1.0,
+        "cvar_weight": 0.1,
+        "transaction_cost_weight": 1.0,
+        "turnover_weight": 0.0,
+        "funding_weight": 0.0,
+        "ordinal_penalty_weight": 0.0
+      },
+      "solver": {
+        "method": "highs",
+        "time_limit_seconds": 10.0,
+        "primal_feasibility_tolerance": 1e-08,
+        "dual_feasibility_tolerance": 1e-08,
+        "objective_tolerance": 1e-08,
+        "presolve": true
+      },
+      "robust": {
+        "method": "PROBABILITY_BAND_CONSERVATIVE",
+        "enabled": true,
+        "maximum_probability_shift_l1": 0.5,
+        "material_quantity_difference": 0.5
+      },
+      "rounding": {
+        "use_milp_reoptimization": true,
+        "maximum_objective_degradation": 1000.0,
+        "integer_tolerance": 1e-08,
+        "milp_relative_gap": 0.0,
+        "time_limit_seconds": 10.0
+      },
+      "no_trade": {
+        "minimum_objective_improvement": 0.0,
+        "minimum_total_quantity_change": 0.0,
+        "hysteresis_multiplier": 1.1,
+        "risk_reduction_override": true
+      },
+      "mpc": {
+        "planning_horizon_steps": 2,
+        "target_validity_seconds": 3600,
+        "reoptimization_triggers": [
+          "PARTIAL_FILL",
+          "MARGIN_CHANGE"
+        ]
+      }
+    }
+  }
+}

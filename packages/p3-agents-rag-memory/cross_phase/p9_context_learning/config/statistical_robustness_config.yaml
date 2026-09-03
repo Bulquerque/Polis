@@ -1,0 +1,11 @@
+version: stat-robustness.v1
+paired_design: true
+common_random_numbers: true
+bootstrap: stationary_or_block
+bootstrap_replicates_default: 2000
+iid_bootstrap_default: false
+walk_forward: true
+blind_final_holdout: true
+multiple_testing_adjustment: true
+deflated_sharpe_when_applicable: true
+pbo_when_applicable: true

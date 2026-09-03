@@ -1,0 +1,81 @@
+{
+  "$defs": {
+    "MutationOperator": {
+      "enum": [
+        "SHIFT_CENTER",
+        "MOVE_STRIKE",
+        "WIDEN_LEFT_WING",
+        "WIDEN_RIGHT_WING",
+        "NARROW_LEFT_WING",
+        "NARROW_RIGHT_WING",
+        "CHANGE_QUANTITY",
+        "ADD_PROTECTION",
+        "REMOVE_REDUNDANT_LEG",
+        "REPLACE_LEG",
+        "CHANGE_EXPIRATION",
+        "ADD_UNDERLYING",
+        "REMOVE_UNDERLYING",
+        "SPLIT_QUANTITY",
+        "MERGE_IDENTICAL_LEGS"
+      ],
+      "title": "MutationOperator",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "application_index": {
+      "minimum": 1,
+      "title": "Application Index",
+      "type": "integer"
+    },
+    "child_candidate_id": {
+      "title": "Child Candidate Id",
+      "type": "string"
+    },
+    "mutation_id": {
+      "title": "Mutation Id",
+      "type": "string"
+    },
+    "operator": {
+      "$ref": "#/$defs/MutationOperator"
+    },
+    "parameters": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Parameters",
+      "type": "object"
+    },
+    "parent_candidate_id": {
+      "title": "Parent Candidate Id",
+      "type": "string"
+    },
+    "reason_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason Code"
+    },
+    "valid": {
+      "title": "Valid",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "mutation_id",
+    "parent_candidate_id",
+    "child_candidate_id",
+    "operator",
+    "application_index",
+    "valid"
+  ],
+  "title": "MutationApplication",
+  "type": "object"
+}

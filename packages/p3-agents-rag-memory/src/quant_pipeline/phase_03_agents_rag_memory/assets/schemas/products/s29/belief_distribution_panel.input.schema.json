@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.quant.local/p3/s29/input/belief-distribution-panel/1.0.0",
+  "$defs": {
+    "BeliefDistributionRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "underlying_id": {
+          "minLength": 1,
+          "title": "Underlying Id",
+          "type": "string"
+        },
+        "proposition_id": {
+          "minLength": 1,
+          "title": "Proposition Id",
+          "type": "string"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "negative_mass": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Negative Mass",
+          "type": "number"
+        },
+        "neutral_mass": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Neutral Mass",
+          "type": "number"
+        },
+        "positive_mass": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Positive Mass",
+          "type": "number"
+        },
+        "belief_mean": {
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Belief Mean",
+          "type": "number"
+        },
+        "belief_variance": {
+          "minimum": 0.0,
+          "title": "Belief Variance",
+          "type": "number"
+        },
+        "normalized_entropy": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Normalized Entropy",
+          "type": "number"
+        },
+        "polarization": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Polarization",
+          "type": "number"
+        },
+        "effective_sample_size": {
+          "minimum": 0.0,
+          "title": "Effective Sample Size",
+          "type": "number"
+        },
+        "population_size": {
+          "minimum": 0,
+          "title": "Population Size",
+          "type": "integer"
+        },
+        "coverage_ratio": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Coverage Ratio",
+          "type": "number"
+        },
+        "source_quality_score": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Source Quality Score",
+          "type": "number"
+        },
+        "formula_id": {
+          "minLength": 1,
+          "title": "Formula Id",
+          "type": "string"
+        },
+        "formula_version": {
+          "minLength": 1,
+          "title": "Formula Version",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "as_of_time",
+        "underlying_id",
+        "proposition_id",
+        "horizon",
+        "negative_mass",
+        "neutral_mass",
+        "positive_mass",
+        "belief_mean",
+        "belief_variance",
+        "normalized_entropy",
+        "polarization",
+        "effective_sample_size",
+        "population_size",
+        "coverage_ratio",
+        "source_quality_score",
+        "formula_id",
+        "formula_version",
+        "lineage_id"
+      ],
+      "title": "BeliefDistributionRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/BeliefDistributionRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "created_at",
+    "lineage_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "records"
+  ],
+  "title": "BeliefDistributionPanel",
+  "type": "object"
+}

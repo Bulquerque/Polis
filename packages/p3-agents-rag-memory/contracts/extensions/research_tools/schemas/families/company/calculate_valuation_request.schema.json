@@ -1,0 +1,234 @@
+{
+  "$defs": {
+    "CompanyMode": {
+      "enum": [
+        "QUICK_CHECK",
+        "STANDARD_REVIEW",
+        "DEEP_QUALITATIVE",
+        "ACCOUNTING_QUALITY",
+        "FORENSIC"
+      ],
+      "title": "CompanyMode",
+      "type": "string"
+    },
+    "DcfAssumptions": {
+      "additionalProperties": false,
+      "properties": {
+        "base_free_cash_flow": {
+          "title": "Base Free Cash Flow",
+          "type": "number"
+        },
+        "discount_rate": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Discount Rate",
+          "type": "number"
+        },
+        "growth_rates": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Growth Rates",
+          "type": "array"
+        },
+        "net_debt": {
+          "default": 0.0,
+          "title": "Net Debt",
+          "type": "number"
+        },
+        "shares_outstanding": {
+          "default": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Shares Outstanding",
+          "type": "number"
+        },
+        "terminal_growth_rate": {
+          "exclusiveMaximum": 0.2,
+          "minimum": -0.2,
+          "title": "Terminal Growth Rate",
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_free_cash_flow",
+        "growth_rates",
+        "discount_rate",
+        "terminal_growth_rate"
+      ],
+      "title": "DcfAssumptions",
+      "type": "object"
+    },
+    "ReverseDcfAssumptions": {
+      "additionalProperties": false,
+      "properties": {
+        "base_free_cash_flow": {
+          "title": "Base Free Cash Flow",
+          "type": "number"
+        },
+        "discount_rate": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Discount Rate",
+          "type": "number"
+        },
+        "forecast_years": {
+          "default": 5,
+          "maximum": 20,
+          "minimum": 1,
+          "title": "Forecast Years",
+          "type": "integer"
+        },
+        "iterations": {
+          "default": 80,
+          "maximum": 200,
+          "minimum": 10,
+          "title": "Iterations",
+          "type": "integer"
+        },
+        "lower_growth": {
+          "default": -0.5,
+          "title": "Lower Growth",
+          "type": "number"
+        },
+        "market_price": {
+          "exclusiveMinimum": 0.0,
+          "title": "Market Price",
+          "type": "number"
+        },
+        "net_debt": {
+          "default": 0.0,
+          "title": "Net Debt",
+          "type": "number"
+        },
+        "shares_outstanding": {
+          "default": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Shares Outstanding",
+          "type": "number"
+        },
+        "terminal_growth_rate": {
+          "exclusiveMaximum": 0.2,
+          "minimum": -0.2,
+          "title": "Terminal Growth Rate",
+          "type": "number"
+        },
+        "upper_growth": {
+          "default": 1.0,
+          "title": "Upper Growth",
+          "type": "number"
+        }
+      },
+      "required": [
+        "market_price",
+        "base_free_cash_flow",
+        "discount_rate",
+        "terminal_growth_rate"
+      ],
+      "title": "ReverseDcfAssumptions",
+      "type": "object"
+    },
+    "ValuationMethod": {
+      "enum": [
+        "OBSERVED_MULTIPLES",
+        "HISTORICAL_BAND",
+        "PEER_BAND",
+        "SCENARIO_DCF",
+        "REVERSE_DCF"
+      ],
+      "title": "ValuationMethod",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dcf": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DcfAssumptions"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "entity_id": {
+      "minLength": 1,
+      "title": "Entity Id",
+      "type": "string"
+    },
+    "explicit_multiple": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Explicit Multiple"
+    },
+    "fundamentals_view_id": {
+      "default": "financial_statements",
+      "minLength": 1,
+      "title": "Fundamentals View Id",
+      "type": "string"
+    },
+    "market_view_id": {
+      "default": "market_prices",
+      "minLength": 1,
+      "title": "Market View Id",
+      "type": "string"
+    },
+    "method": {
+      "$ref": "#/$defs/ValuationMethod",
+      "default": "SCENARIO_DCF"
+    },
+    "metric_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Metric Value"
+    },
+    "multiple_name": {
+      "default": "EV_EBITDA",
+      "minLength": 1,
+      "title": "Multiple Name",
+      "type": "string"
+    },
+    "peers_view_id": {
+      "default": "company_peers",
+      "minLength": 1,
+      "title": "Peers View Id",
+      "type": "string"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/CompanyMode",
+      "default": "QUICK_CHECK"
+    },
+    "reverse_dcf": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReverseDcfAssumptions"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "entity_id"
+  ],
+  "title": "CalculateValuationRequest",
+  "type": "object"
+}

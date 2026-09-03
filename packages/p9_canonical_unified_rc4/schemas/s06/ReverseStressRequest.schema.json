@@ -1,0 +1,330 @@
+{
+  "$defs": {
+    "BreachDirection": {
+      "enum": [
+        "LESS_THAN_OR_EQUAL",
+        "GREATER_THAN_OR_EQUAL"
+      ],
+      "title": "BreachDirection",
+      "type": "string"
+    },
+    "FactorBound": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "lower": {
+          "title": "Lower",
+          "type": "number"
+        },
+        "norm_weight": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Norm Weight",
+          "type": "number"
+        },
+        "upper": {
+          "title": "Upper",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "lower",
+        "upper"
+      ],
+      "title": "FactorBound",
+      "type": "object"
+    },
+    "FailureCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "breach_direction": {
+          "$ref": "#/$defs/BreachDirection"
+        },
+        "condition_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "threshold": {
+          "title": "Threshold",
+          "type": "number"
+        }
+      },
+      "required": [
+        "condition_id",
+        "threshold",
+        "breach_direction"
+      ],
+      "title": "FailureCondition",
+      "type": "object"
+    },
+    "OutputSemantics": {
+      "enum": [
+        "PNL",
+        "LOSS",
+        "SCORE",
+        "PORTFOLIO_VALUE"
+      ],
+      "title": "OutputSemantics",
+      "type": "string"
+    },
+    "QuadraticResponseModel": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_value": {
+          "title": "Baseline Value",
+          "type": "number"
+        },
+        "factor_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Factor Ids",
+          "type": "array"
+        },
+        "linear_coefficients": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Linear Coefficients",
+          "type": "array"
+        },
+        "model_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Model Id",
+          "type": "string"
+        },
+        "model_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Model Sha256",
+          "type": "string"
+        },
+        "quadratic_matrix": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Quadratic Matrix",
+          "type": "array"
+        },
+        "semantics": {
+          "$ref": "#/$defs/OutputSemantics"
+        },
+        "units": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Units",
+          "type": "array"
+        }
+      },
+      "required": [
+        "model_id",
+        "factor_ids",
+        "units",
+        "baseline_value",
+        "linear_coefficients",
+        "quadratic_matrix",
+        "semantics",
+        "model_sha256"
+      ],
+      "title": "QuadraticResponseModel",
+      "type": "object"
+    },
+    "ReverseNorm": {
+      "enum": [
+        "WEIGHTED_L2"
+      ],
+      "title": "ReverseNorm",
+      "type": "string"
+    },
+    "ReverseStressPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum_iterations": {
+          "default": 500,
+          "minimum": 1,
+          "title": "Maximum Iterations",
+          "type": "integer"
+        },
+        "minimum_safe_distance": {
+          "default": 0.25,
+          "minimum": 0,
+          "title": "Minimum Safe Distance",
+          "type": "number"
+        },
+        "multi_start_points": {
+          "default": 16,
+          "minimum": 1,
+          "title": "Multi Start Points",
+          "type": "integer"
+        },
+        "norm": {
+          "$ref": "#/$defs/ReverseNorm",
+          "default": "WEIGHTED_L2"
+        },
+        "solver_tolerance": {
+          "default": 1e-09,
+          "exclusiveMinimum": 0,
+          "title": "Solver Tolerance",
+          "type": "number"
+        },
+        "verification_tolerance": {
+          "default": 1e-07,
+          "exclusiveMinimum": 0,
+          "title": "Verification Tolerance",
+          "type": "number"
+        }
+      },
+      "title": "ReverseStressPolicy",
+      "type": "object"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    },
+    "SeedPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "default": "PCG64",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Algorithm",
+          "type": "string"
+        },
+        "derivation_version": {
+          "default": "seedsequence-v1",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Derivation Version",
+          "type": "string"
+        },
+        "root_entropy": {
+          "minimum": 0,
+          "title": "Root Entropy",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "root_entropy"
+      ],
+      "title": "SeedPolicy",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bounds": {
+      "items": {
+        "$ref": "#/$defs/FactorBound"
+      },
+      "title": "Bounds",
+      "type": "array"
+    },
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "failure_condition": {
+      "$ref": "#/$defs/FailureCondition"
+    },
+    "policy": {
+      "$ref": "#/$defs/ReverseStressPolicy",
+      "default": {
+        "maximum_iterations": 500,
+        "minimum_safe_distance": 0.25,
+        "multi_start_points": 16,
+        "norm": "WEIGHTED_L2",
+        "solver_tolerance": 1e-09,
+        "verification_tolerance": 1e-07
+      }
+    },
+    "response_model": {
+      "$ref": "#/$defs/QuadraticResponseModel"
+    },
+    "seed_policy": {
+      "$ref": "#/$defs/SeedPolicy"
+    }
+  },
+  "required": [
+    "context",
+    "response_model",
+    "bounds",
+    "failure_condition",
+    "seed_policy"
+  ],
+  "title": "ReverseStressRequest",
+  "type": "object"
+}

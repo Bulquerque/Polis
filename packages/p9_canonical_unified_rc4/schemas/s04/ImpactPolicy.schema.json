@@ -1,0 +1,53 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "OBSERVED_LIVE",
+        "OBSERVED_HISTORICAL",
+        "SIMULATED_ORDERBOOK",
+        "PARAMETRIC_IMPACT",
+        "STRESS_EXTRAPOLATED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/ImpactPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "eta": {
+      "default": 0.1,
+      "minimum": 0,
+      "title": "Eta",
+      "type": "number"
+    },
+    "evidence_class": {
+      "$ref": "#/$defs/EvidenceClass",
+      "default": "PARAMETRIC_IMPACT"
+    },
+    "maximum_participation": {
+      "default": 0.2,
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "title": "Maximum Participation",
+      "type": "number"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Policy Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version"
+  ],
+  "title": "ImpactPolicy",
+  "type": "object"
+}

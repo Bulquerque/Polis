@@ -1,0 +1,11 @@
+schema_id: p3.s37.macro_vintage_policy.v1
+schema_version: 1.0.0
+backtest_default: KNOWN_AT_DECISION_TIME
+allowed:
+  - KNOWN_AT_DECISION_TIME
+  - ORIGINAL_RELEASE
+  - LATEST_KNOWN_AT_DECISION_TIME
+forbidden:
+  - LATEST_REVISED_TODAY
+missing_vintage_behavior: BLOCKED_UPSTREAM
+visibility_rule: available_at <= decision_time

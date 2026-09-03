@@ -1,0 +1,198 @@
+{
+  "payload": {
+    "contract_name": "P8_EVALUATION_HANDOFF_V1",
+    "contract_version": "1.0.0",
+    "mode": "LEGACY_RC4_1_LIMITED",
+    "producer_package_version": "V14.1-RC4.1",
+    "run_id": "run-legacy",
+    "cycle_id": "cycle-legacy",
+    "backtest_id": "backtest-legacy",
+    "published_at": "2026-01-01T00:00:00Z",
+    "candidate_counts": {
+      "received": 1,
+      "selected": 0,
+      "rejected": 1,
+      "no_action": 0,
+      "execution_failed": 0,
+      "other_terminal": 0
+    },
+    "artifacts": [
+      {
+        "role": "portfolio_backtest_result",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "performance_report",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "backtest_audit_report",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "portfolio_diagnostics_report",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "orders_panel",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "fills_panel",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "position_ledger",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "cash_ledger",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "premium_ledger",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "cost_ledger",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "margin_ledger",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "pnl_panel",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "equity_curve_panel",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "exposure_panel",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "drawdown_panel",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "ranking_context_snapshot",
+        "reference": {
+          "artifact_id": "legacy-ranking_context_snapshot-99d6f501d389",
+          "artifact_type": "ranking_context_snapshot",
+          "schema_name": "ranking_context_snapshot",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "619c00c402b10ba479e35142dd3b335bf9aacd11d7392d00c297e8a8c4a003e4",
+          "content_sha256": "99d6f501d389b099d0fc378f445ecc319d71c6bd84bad639328c28d4fe9c66bf",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-legacy",
+          "cycle_id": "cycle-legacy",
+          "backtest_id": "backtest-legacy",
+          "event_time": null,
+          "decision_time": null,
+          "available_at": "2026-01-01T00:00:00Z",
+          "computed_at": "2026-01-01T00:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "mem://legacy/ranking_context_snapshot.json",
+          "availability": "LIMITED",
+          "record_count": 1,
+          "grain": [],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "score_decomposition_snapshot",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      },
+      {
+        "role": "ranking_audit_snapshot",
+        "reference": null,
+        "absence_state": "NOT_PRODUCED",
+        "reason_codes": [
+          "P9_S1_HANDOFF_REQUIRED_ARTIFACT_MISSING"
+        ]
+      }
+    ],
+    "p8_module_receipts": [],
+    "limitations": [
+      "legacy P8 lacks transitive lineage",
+      "legacy P8 lacks an ordered event stream and replay checkpoint",
+      "legacy P8 lacks outcome maturity and mark-quality evidence",
+      "legacy P8 is migration-only and cannot support production promotion"
+    ]
+  },
+  "integrity": {
+    "canonicalization_version": "P9-C14N-JSON-1",
+    "hash_algorithm": "sha256",
+    "payload_sha256": "7019b781efeca0edd4c1e8c34c54830de6a0069e96321f0d6dcfb4cdf9be4746"
+  }
+}

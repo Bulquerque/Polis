@@ -1,0 +1,44 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Feature Genome
+type: object
+additionalProperties: false
+properties:
+  variable_id: &id001
+    type: string
+  version:
+    type: integer
+    minimum: 1
+  hypothesis: *id001
+  source_variables:
+    type: array
+    items: *id001
+  transformation:
+    type: object
+  parameters:
+    type: object
+  scope:
+    type: object
+  expected_direction: *id001
+  economic_rationale: *id001
+  complexity_score:
+    type: number
+  parent_variable:
+    type:
+    - string
+    - 'null'
+  mutation_type: *id001
+  created_by: *id001
+  lineage_id: *id001
+required:
+- variable_id
+- version
+- hypothesis
+- source_variables
+- transformation
+- parameters
+- scope
+- economic_rationale
+- complexity_score
+- mutation_type
+- created_by
+- lineage_id

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "execution_failed": {
+      "minimum": 0,
+      "title": "Execution Failed",
+      "type": "integer"
+    },
+    "no_action": {
+      "minimum": 0,
+      "title": "No Action",
+      "type": "integer"
+    },
+    "other_terminal": {
+      "minimum": 0,
+      "title": "Other Terminal",
+      "type": "integer"
+    },
+    "received": {
+      "minimum": 0,
+      "title": "Received",
+      "type": "integer"
+    },
+    "rejected": {
+      "minimum": 0,
+      "title": "Rejected",
+      "type": "integer"
+    },
+    "selected": {
+      "minimum": 0,
+      "title": "Selected",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "received",
+    "selected",
+    "rejected",
+    "no_action",
+    "execution_failed",
+    "other_terminal"
+  ],
+  "title": "CandidateTerminalCounts",
+  "type": "object"
+}

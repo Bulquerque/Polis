@@ -1,0 +1,47 @@
+$defs:
+  JsonValue: {}
+$id: https://quant-pipeline.local/schemas/p7/eligibility_decision_record/2.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+additionalProperties: false
+properties:
+  candidate_id:
+    title: Candidate Id
+    type: string
+  decision_id:
+    title: Decision Id
+    type: string
+  evidence:
+    items:
+      additionalProperties:
+        $ref: '#/$defs/JsonValue'
+      type: object
+    title: Evidence
+    type: array
+  policy_id:
+    title: Policy Id
+    type: string
+  policy_version:
+    pattern: ^\d+\.\d+\.\d+$
+    title: Policy Version
+    type: string
+  reason_codes:
+    items:
+      type: string
+    title: Reason Codes
+    type: array
+  status:
+    enum:
+    - ELIGIBLE
+    - BLOCKED
+    title: Status
+    type: string
+required:
+- decision_id
+- candidate_id
+- status
+- reason_codes
+- evidence
+- policy_id
+- policy_version
+title: EligibilityDecisionRecord
+type: object

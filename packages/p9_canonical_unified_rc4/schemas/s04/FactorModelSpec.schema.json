@@ -1,0 +1,40 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/FactorModelSpec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "factor_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Factor Ids",
+      "type": "array"
+    },
+    "factor_model_id": {
+      "title": "Factor Model Id",
+      "type": "string"
+    },
+    "factor_model_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Factor Model Version",
+      "type": "string"
+    },
+    "include_intercept": {
+      "default": true,
+      "title": "Include Intercept",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "factor_model_id",
+    "factor_model_version",
+    "factor_ids",
+    "description"
+  ],
+  "title": "FactorModelSpec",
+  "type": "object"
+}

@@ -1,0 +1,60 @@
+{
+  "$defs": {
+    "MaturityBasis": {
+      "enum": [
+        "HORIZON",
+        "CLOSE",
+        "EXPIRATION",
+        "SETTLEMENT"
+      ],
+      "title": "MaturityBasis",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allow_partial": {
+      "default": false,
+      "title": "Allow Partial",
+      "type": "boolean"
+    },
+    "basis": {
+      "$ref": "#/$defs/MaturityBasis"
+    },
+    "grace_period_seconds": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Grace Period Seconds",
+      "type": "integer"
+    },
+    "metric_family": {
+      "minLength": 1,
+      "title": "Metric Family",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "requires_observable_data": {
+      "default": true,
+      "title": "Requires Observable Data",
+      "type": "boolean"
+    },
+    "target_type": {
+      "minLength": 1,
+      "title": "Target Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "metric_family",
+    "target_type",
+    "basis"
+  ],
+  "title": "OutcomeMaturityPolicy",
+  "type": "object"
+}

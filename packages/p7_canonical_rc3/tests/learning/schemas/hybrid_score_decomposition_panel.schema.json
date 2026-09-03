@@ -1,0 +1,167 @@
+{
+  "$id": "hybrid_score_decomposition_panel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "hybrid_score_decomposition_panel"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "base_interpretable_weight": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "base_ltr_weight": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "candidate_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "comparison_group_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "confidence_shrinkage": {
+            "anyOf": [
+              {
+                "maximum": 1,
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "effective_interpretable_weight": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "effective_ltr_weight": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "interpretable_contribution": {
+            "type": "number"
+          },
+          "lineage_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "ltr_contribution": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "safety_penalty_applied": {
+            "const": false
+          },
+          "upstream_decomposition_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "comparison_group_id",
+          "base_interpretable_weight",
+          "base_ltr_weight",
+          "effective_interpretable_weight",
+          "effective_ltr_weight",
+          "interpretable_contribution",
+          "ltr_contribution",
+          "confidence_shrinkage",
+          "upstream_decomposition_hash",
+          "safety_penalty_applied",
+          "lineage_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

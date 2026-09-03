@@ -1,0 +1,84 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/search/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "document_types": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Document Types",
+      "type": "array"
+    },
+    "end_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End Time"
+    },
+    "entity_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Entity Ids",
+      "type": "array"
+    },
+    "max_results": {
+      "default": 20,
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Max Results",
+      "type": "integer"
+    },
+    "query": {
+      "minLength": 1,
+      "title": "Query",
+      "type": "string"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "source_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Source Ids",
+      "type": "array"
+    },
+    "start_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Start Time"
+    }
+  },
+  "required": [
+    "research_mode",
+    "query"
+  ],
+  "title": "CorpusSearchRequest",
+  "type": "object"
+}

@@ -1,0 +1,658 @@
+schema_id: p3.research_tools.mode_config.v1
+schema_version: 1.0.0
+templates:
+- mode_id: LOOKUP
+  band: 1
+  required_capabilities:
+  - document_search
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 1
+  counterevidence_policy: OPTIONAL
+  max_records: 10
+  internal_subquery_limit: 1
+  internal_work_units: 10
+  coverage_floor: 0.0
+- mode_id: STANDARD
+  band: 2
+  required_capabilities:
+  - document_search
+  - source_evaluation
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 1
+  counterevidence_policy: OPTIONAL
+  max_records: 30
+  internal_subquery_limit: 3
+  internal_work_units: 30
+  coverage_floor: 0.3
+- mode_id: TRIANGULATED
+  band: 3
+  required_capabilities:
+  - document_search
+  - source_evaluation
+  required_methods:
+  - cross_source_validation
+  - counterevidence_search
+  required_view_classes: []
+  required_source_families: 2
+  counterevidence_policy: REQUIRED
+  max_records: 60
+  internal_subquery_limit: 8
+  internal_work_units: 100
+  coverage_floor: 0.6
+- mode_id: FORENSIC
+  band: 4
+  required_capabilities:
+  - document_search
+  - source_evaluation
+  required_methods:
+  - version_comparison
+  - forensic_review
+  required_view_classes: []
+  required_source_families: 2
+  counterevidence_policy: REQUIRED
+  max_records: 100
+  internal_subquery_limit: 12
+  internal_work_units: 180
+  coverage_floor: 0.75
+- mode_id: OBSERVE
+  band: 1
+  required_capabilities:
+  - market_analysis
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 100
+  internal_subquery_limit: 1
+  internal_work_units: 10
+  coverage_floor: 0.0
+- mode_id: DIAGNOSTIC
+  band: 2
+  required_capabilities:
+  - market_analysis
+  - liquidity_analysis
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 1000
+  internal_subquery_limit: 3
+  internal_work_units: 40
+  coverage_floor: 0.3
+- mode_id: STRUCTURAL
+  band: 3
+  required_capabilities:
+  - market_analysis
+  - liquidity_analysis
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 5000
+  internal_subquery_limit: 6
+  internal_work_units: 100
+  coverage_floor: 0.5
+- mode_id: CONTRACT_LOOKUP
+  band: 1
+  required_capabilities:
+  - options_analysis
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 500
+  internal_subquery_limit: 1
+  internal_work_units: 15
+  coverage_floor: 0.0
+- mode_id: CHAIN_DIAGNOSTIC
+  band: 2
+  required_capabilities:
+  - options_analysis
+  - liquidity_analysis
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 2000
+  internal_subquery_limit: 3
+  internal_work_units: 50
+  coverage_floor: 0.3
+- mode_id: STRUCTURE_HISTORY
+  band: 3
+  required_capabilities:
+  - options_analysis
+  - quantitative_statistics
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 5000
+  internal_subquery_limit: 6
+  internal_work_units: 120
+  coverage_floor: 0.5
+- mode_id: SURFACE_ANALYSIS
+  band: 4
+  required_capabilities:
+  - options_analysis
+  - quantitative_statistics
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 10000
+  internal_subquery_limit: 10
+  internal_work_units: 200
+  coverage_floor: 0.7
+- mode_id: CONTEXT
+  band: 2
+  required_capabilities:
+  - macro_analysis
+  - source_evaluation
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 1
+  counterevidence_policy: OPTIONAL
+  max_records: 1000
+  internal_subquery_limit: 3
+  internal_work_units: 50
+  coverage_floor: 0.3
+- mode_id: VINTAGE_ANALYSIS
+  band: 3
+  required_capabilities:
+  - macro_analysis
+  - source_evaluation
+  required_methods:
+  - version_comparison
+  required_view_classes: []
+  required_source_families: 1
+  counterevidence_policy: OPTIONAL
+  max_records: 5000
+  internal_subquery_limit: 7
+  internal_work_units: 120
+  coverage_floor: 0.6
+- mode_id: QUICK_CHECK
+  band: 1
+  required_capabilities:
+  - qualitative_company_analysis
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 1
+  counterevidence_policy: OPTIONAL
+  max_records: 20
+  internal_subquery_limit: 2
+  internal_work_units: 20
+  coverage_floor: 0.0
+- mode_id: STANDARD_REVIEW
+  band: 2
+  required_capabilities:
+  - qualitative_company_analysis
+  - financial_statement_analysis
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 1
+  counterevidence_policy: OPTIONAL
+  max_records: 100
+  internal_subquery_limit: 5
+  internal_work_units: 80
+  coverage_floor: 0.4
+- mode_id: DEEP_QUALITATIVE
+  band: 3
+  required_capabilities:
+  - qualitative_company_analysis
+  - source_evaluation
+  required_methods:
+  - counterevidence_search
+  - cross_source_validation
+  required_view_classes: []
+  required_source_families: 2
+  counterevidence_policy: REQUIRED
+  max_records: 300
+  internal_subquery_limit: 10
+  internal_work_units: 180
+  coverage_floor: 0.65
+- mode_id: ACCOUNTING_QUALITY
+  band: 3
+  required_capabilities:
+  - financial_statement_analysis
+  - accounting_quality_analysis
+  required_methods:
+  - version_comparison
+  required_view_classes: []
+  required_source_families: 1
+  counterevidence_policy: OPTIONAL
+  max_records: 300
+  internal_subquery_limit: 10
+  internal_work_units: 180
+  coverage_floor: 0.65
+- mode_id: BASIC
+  band: 1
+  required_capabilities:
+  - quantitative_statistics
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 1000
+  internal_subquery_limit: 0
+  internal_work_units: 20
+  coverage_floor: 0.0
+- mode_id: ROBUST
+  band: 2
+  required_capabilities:
+  - quantitative_statistics
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 5000
+  internal_subquery_limit: 2
+  internal_work_units: 70
+  coverage_floor: 0.3
+- mode_id: STABILITY
+  band: 3
+  required_capabilities:
+  - quantitative_statistics
+  required_methods: []
+  required_view_classes: []
+  required_source_families: 0
+  counterevidence_policy: NONE
+  max_records: 10000
+  internal_subquery_limit: 6
+  internal_work_units: 160
+  coverage_floor: 0.6
+assignments:
+- tool_id: company.fundamentals.v1
+  operation_id: get_profile
+  mode_ids:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  downgrade_targets:
+    STANDARD_REVIEW:
+    - QUICK_CHECK
+    DEEP_QUALITATIVE:
+    - STANDARD_REVIEW
+  overrides: {}
+- tool_id: company.fundamentals.v1
+  operation_id: get_financial_statements
+  mode_ids:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - ACCOUNTING_QUALITY
+  - FORENSIC
+  downgrade_targets:
+    STANDARD_REVIEW:
+    - QUICK_CHECK
+    ACCOUNTING_QUALITY:
+    - STANDARD_REVIEW
+    FORENSIC:
+    - ACCOUNTING_QUALITY
+  overrides: {}
+- tool_id: company.fundamentals.v1
+  operation_id: get_fundamental_snapshot
+  mode_ids:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - ACCOUNTING_QUALITY
+  downgrade_targets:
+    STANDARD_REVIEW:
+    - QUICK_CHECK
+    ACCOUNTING_QUALITY:
+    - STANDARD_REVIEW
+  overrides: {}
+- tool_id: company.fundamentals.v1
+  operation_id: get_guidance
+  mode_ids:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  - FORENSIC
+  downgrade_targets:
+    STANDARD_REVIEW:
+    - QUICK_CHECK
+    DEEP_QUALITATIVE:
+    - STANDARD_REVIEW
+    FORENSIC:
+    - DEEP_QUALITATIVE
+  overrides: {}
+- tool_id: company.fundamentals.v1
+  operation_id: get_capital_allocation
+  mode_ids:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  downgrade_targets:
+    STANDARD_REVIEW:
+    - QUICK_CHECK
+    DEEP_QUALITATIVE:
+    - STANDARD_REVIEW
+  overrides: {}
+- tool_id: company.fundamentals.v1
+  operation_id: get_peers
+  mode_ids:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  downgrade_targets:
+    STANDARD_REVIEW:
+    - QUICK_CHECK
+    DEEP_QUALITATIVE:
+    - STANDARD_REVIEW
+  overrides: {}
+- tool_id: company.fundamentals.v1
+  operation_id: calculate_valuation
+  mode_ids:
+  - QUICK_CHECK
+  - STANDARD_REVIEW
+  - DEEP_QUALITATIVE
+  - ACCOUNTING_QUALITY
+  downgrade_targets:
+    STANDARD_REVIEW:
+    - QUICK_CHECK
+    DEEP_QUALITATIVE:
+    - STANDARD_REVIEW
+    ACCOUNTING_QUALITY:
+    - STANDARD_REVIEW
+  overrides: {}
+- tool_id: macro.observation.v1
+  operation_id: search_series
+  mode_ids:
+  - LOOKUP
+  - CONTEXT
+  downgrade_targets:
+    CONTEXT:
+    - LOOKUP
+  overrides: {}
+- tool_id: macro.observation.v1
+  operation_id: get_observations
+  mode_ids:
+  - LOOKUP
+  - CONTEXT
+  - VINTAGE_ANALYSIS
+  downgrade_targets:
+    CONTEXT:
+    - LOOKUP
+    VINTAGE_ANALYSIS:
+    - CONTEXT
+  overrides: {}
+- tool_id: macro.observation.v1
+  operation_id: get_release_snapshot
+  mode_ids:
+  - LOOKUP
+  - CONTEXT
+  - VINTAGE_ANALYSIS
+  downgrade_targets:
+    CONTEXT:
+    - LOOKUP
+    VINTAGE_ANALYSIS:
+    - CONTEXT
+  overrides: {}
+- tool_id: macro.observation.v1
+  operation_id: compare_series
+  mode_ids:
+  - CONTEXT
+  - VINTAGE_ANALYSIS
+  downgrade_targets:
+    VINTAGE_ANALYSIS:
+    - CONTEXT
+  overrides: {}
+- tool_id: macro.observation.v1
+  operation_id: get_asset_context
+  mode_ids:
+  - LOOKUP
+  - CONTEXT
+  downgrade_targets:
+    CONTEXT:
+    - LOOKUP
+  overrides: {}
+- tool_id: market.observation.v1
+  operation_id: get_snapshot
+  mode_ids:
+  - OBSERVE
+  - DIAGNOSTIC
+  downgrade_targets:
+    DIAGNOSTIC:
+    - OBSERVE
+  overrides: {}
+- tool_id: market.observation.v1
+  operation_id: get_history
+  mode_ids:
+  - OBSERVE
+  - DIAGNOSTIC
+  - STRUCTURAL
+  downgrade_targets:
+    DIAGNOSTIC:
+    - OBSERVE
+    STRUCTURAL:
+    - DIAGNOSTIC
+  overrides: {}
+- tool_id: market.observation.v1
+  operation_id: get_liquidity
+  mode_ids:
+  - OBSERVE
+  - DIAGNOSTIC
+  - STRUCTURAL
+  downgrade_targets:
+    DIAGNOSTIC:
+    - OBSERVE
+    STRUCTURAL:
+    - DIAGNOSTIC
+  overrides: {}
+- tool_id: market.observation.v1
+  operation_id: get_corporate_actions
+  mode_ids:
+  - OBSERVE
+  - DIAGNOSTIC
+  - STRUCTURAL
+  downgrade_targets:
+    DIAGNOSTIC:
+    - OBSERVE
+    STRUCTURAL:
+    - DIAGNOSTIC
+  overrides: {}
+- tool_id: market.observation.v1
+  operation_id: compare_instruments
+  mode_ids:
+  - OBSERVE
+  - DIAGNOSTIC
+  - STRUCTURAL
+  downgrade_targets:
+    DIAGNOSTIC:
+    - OBSERVE
+    STRUCTURAL:
+    - DIAGNOSTIC
+  overrides: {}
+- tool_id: options.observation.v1
+  operation_id: get_contracts
+  mode_ids:
+  - CONTRACT_LOOKUP
+  - CHAIN_DIAGNOSTIC
+  downgrade_targets:
+    CHAIN_DIAGNOSTIC:
+    - CONTRACT_LOOKUP
+  overrides: {}
+- tool_id: options.observation.v1
+  operation_id: get_chain_snapshot
+  mode_ids:
+  - CONTRACT_LOOKUP
+  - CHAIN_DIAGNOSTIC
+  downgrade_targets:
+    CHAIN_DIAGNOSTIC:
+    - CONTRACT_LOOKUP
+  overrides: {}
+- tool_id: options.observation.v1
+  operation_id: get_quote_history
+  mode_ids:
+  - CHAIN_DIAGNOSTIC
+  - STRUCTURE_HISTORY
+  downgrade_targets:
+    STRUCTURE_HISTORY:
+    - CHAIN_DIAGNOSTIC
+  overrides: {}
+- tool_id: options.observation.v1
+  operation_id: get_surface_diagnostics
+  mode_ids:
+  - CHAIN_DIAGNOSTIC
+  - STRUCTURE_HISTORY
+  - SURFACE_ANALYSIS
+  downgrade_targets:
+    STRUCTURE_HISTORY:
+    - CHAIN_DIAGNOSTIC
+    SURFACE_ANALYSIS:
+    - STRUCTURE_HISTORY
+  overrides: {}
+- tool_id: quant.diagnostics.v1
+  operation_id: return_statistics
+  mode_ids:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  downgrade_targets:
+    ROBUST:
+    - BASIC
+    STABILITY:
+    - ROBUST
+  overrides: {}
+- tool_id: quant.diagnostics.v1
+  operation_id: realized_volatility
+  mode_ids:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  downgrade_targets:
+    ROBUST:
+    - BASIC
+    STABILITY:
+    - ROBUST
+  overrides: {}
+- tool_id: quant.diagnostics.v1
+  operation_id: drawdown
+  mode_ids:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  downgrade_targets:
+    ROBUST:
+    - BASIC
+    STABILITY:
+    - ROBUST
+  overrides: {}
+- tool_id: quant.diagnostics.v1
+  operation_id: correlation
+  mode_ids:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  downgrade_targets:
+    ROBUST:
+    - BASIC
+    STABILITY:
+    - ROBUST
+  overrides: {}
+- tool_id: quant.diagnostics.v1
+  operation_id: entropy
+  mode_ids:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  downgrade_targets:
+    ROBUST:
+    - BASIC
+    STABILITY:
+    - ROBUST
+  overrides: {}
+- tool_id: quant.diagnostics.v1
+  operation_id: event_window
+  mode_ids:
+  - BASIC
+  - ROBUST
+  - STABILITY
+  downgrade_targets:
+    ROBUST:
+    - BASIC
+    STABILITY:
+    - ROBUST
+  overrides: {}
+- tool_id: quant.diagnostics.v1
+  operation_id: scenario_shock
+  mode_ids:
+  - BASIC
+  - ROBUST
+  downgrade_targets:
+    ROBUST:
+    - BASIC
+  overrides: {}
+- tool_id: research.corpus.v1
+  operation_id: search
+  mode_ids:
+  - LOOKUP
+  - STANDARD
+  - TRIANGULATED
+  - FORENSIC
+  downgrade_targets:
+    STANDARD:
+    - LOOKUP
+    TRIANGULATED:
+    - STANDARD
+    FORENSIC:
+    - TRIANGULATED
+  overrides: {}
+- tool_id: research.corpus.v1
+  operation_id: get_document
+  mode_ids:
+  - LOOKUP
+  - STANDARD
+  downgrade_targets:
+    STANDARD:
+    - LOOKUP
+  overrides: {}
+- tool_id: research.corpus.v1
+  operation_id: compare_versions
+  mode_ids:
+  - STANDARD
+  - TRIANGULATED
+  - FORENSIC
+  downgrade_targets:
+    TRIANGULATED:
+    - STANDARD
+    FORENSIC:
+    - TRIANGULATED
+  overrides: {}
+- tool_id: research.corpus.v1
+  operation_id: find_counterevidence
+  mode_ids:
+  - STANDARD
+  - TRIANGULATED
+  - FORENSIC
+  downgrade_targets:
+    TRIANGULATED:
+    - STANDARD
+    FORENSIC:
+    - TRIANGULATED
+  overrides: {}
+- tool_id: research.corpus.v1
+  operation_id: build_timeline
+  mode_ids:
+  - LOOKUP
+  - STANDARD
+  - TRIANGULATED
+  downgrade_targets:
+    STANDARD:
+    - LOOKUP
+    TRIANGULATED:
+    - STANDARD
+  overrides: {}
+- tool_id: research.corpus.v1
+  operation_id: inspect_provenance
+  mode_ids:
+  - LOOKUP
+  - STANDARD
+  - FORENSIC
+  downgrade_targets:
+    STANDARD:
+    - LOOKUP
+    FORENSIC:
+    - STANDARD
+  overrides: {}

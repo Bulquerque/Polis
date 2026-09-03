@@ -1,0 +1,57 @@
+module_id: P4.S7.M04
+module_name: structural_feature_selector
+function: Select features using technical quality and redundancy only.
+inputs:
+- underlying_feature_matrix_interpretable
+- feature_diversity_redundancy_report
+- causal_transform_fit_state_manifest
+- normalization_neutralization_fit_state_manifest
+- structural_selection_policy
+outputs:
+- underlying_feature_matrix_selected
+- feature_selection_report
+- feature_transform_state_manifest
+validations:
+- no_supervised_metric
+- reason_for_every_feature
+- minimum_selected_features
+- lineage_complete
+phase: P4
+subphase: P4.S7
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- execution_fill
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- single_responsibility
+- no_hidden_global_state
+fail_fast_conditions:
+- P4_S7_M04_INPUT_INVALID
+- P4_S7_M04_TEMPORAL_VIOLATION
+- P4_S7_M04_FORBIDDEN_FIELD
+- P4_S7_M04_OUTPUT_INVALID
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- forbidden_field_negative
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S7_M04_structural_feature_selector.py
+production_promotion_allowed: false

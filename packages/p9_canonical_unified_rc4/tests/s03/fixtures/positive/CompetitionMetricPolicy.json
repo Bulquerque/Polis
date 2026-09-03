@@ -1,0 +1,22 @@
+{
+  "components": [
+    {
+      "clip_lower": null,
+      "clip_upper": null,
+      "component_id": "return",
+      "transform": "IDENTITY",
+      "weight": "0.7"
+    },
+    {
+      "clip_lower": null,
+      "clip_upper": null,
+      "component_id": "risk",
+      "transform": "IDENTITY",
+      "weight": "-0.3"
+    }
+  ],
+  "metric_id": "fixture-competition-metric",
+  "metric_version": "1.0.0",
+  "missing_policy": "ERROR",
+  "rounding_decimals": 8
+}

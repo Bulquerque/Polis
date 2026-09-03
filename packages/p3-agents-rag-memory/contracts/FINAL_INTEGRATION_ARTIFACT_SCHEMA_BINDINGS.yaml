@@ -1,0 +1,35 @@
+registry_id: P3_FINAL_INTEGRATION_ARTIFACT_SCHEMA_BINDINGS
+architecture_revision: P3-FINAL
+bindings:
+- artifact: integration_entry_evidence
+  schema: schemas/final_integration/integration_entry_evidence.schema.json
+- artifact: evaluation_dataset_manifest
+  schema: schemas/final_integration/evaluation_dataset_manifest.schema.json
+- artifact: evaluation_split_manifest
+  schema: schemas/final_integration/evaluation_split_manifest.schema.json
+- artifact: experiment_registry
+  schema: schemas/final_integration/experiment_registry.schema.json
+- artifact: commitment_coverage_report
+  schema: schemas/final_integration/commitment_coverage_report.schema.json
+- artifact: population_calibration_bundle
+  schema: schemas/final_integration/population_calibration_bundle.schema.json
+- artifact: social_graph_calibration_report
+  schema: schemas/final_integration/social_graph_calibration_report.schema.json
+- artifact: activation_trust_sensitivity_report
+  schema: schemas/final_integration/activation_trust_sensitivity_report.schema.json
+- artifact: variant_execution_manifest
+  schema: schemas/final_integration/variant_execution_manifest.schema.json
+- artifact: evaluation_observation_panel
+  schema: schemas/final_integration/evaluation_observation_panel.schema.json
+- artifact: runtime_cost_latency_panel
+  schema: schemas/final_integration/runtime_cost_latency_panel.schema.json
+- artifact: cross_phase_receipt_bundle
+  schema: schemas/final_integration/cross_phase_receipt_bundle.schema.json
+- artifact: qualification_summary
+  schema: schemas/final_integration/qualification_summary.schema.json
+- artifact: p0_promotion_decision
+  schema: schemas/final_integration/p0_promotion_decision.schema.json
+- artifact: promotion_candidate_bundle
+  schema: schemas/final_integration/promotion_candidate_bundle.schema.json
+- artifact: integration_gate_report
+  schema: schemas/final_integration/integration_gate_report.schema.json

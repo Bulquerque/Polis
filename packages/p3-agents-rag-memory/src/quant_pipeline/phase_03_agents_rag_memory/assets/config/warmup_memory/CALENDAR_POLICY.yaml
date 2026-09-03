@@ -1,0 +1,22 @@
+policy_id: P3_FINAL_WARMUP_CALENDAR_POLICY_V1
+policy_version: 1.0.0
+canonical_timezone: UTC
+supported_timezones:
+- UTC
+- America/Sao_Paulo
+- America/New_York
+- Europe/London
+holiday_calendars:
+  NONE: []
+  US_REFERENCE_2026:
+  - '2026-01-01'
+  - '2026-01-19'
+  - '2026-02-16'
+  - '2026-05-25'
+  - '2026-06-19'
+  - '2026-07-03'
+  - '2026-09-07'
+  - '2026-11-26'
+  - '2026-12-25'
+ambiguous_local_time_policy: FAIL_CLOSED
+nonexistent_local_time_policy: FAIL_CLOSED

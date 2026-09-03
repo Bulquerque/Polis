@@ -1,0 +1,116 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attributes": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Attributes",
+      "type": "object"
+    },
+    "cognition_transaction_id": {
+      "minLength": 1,
+      "title": "Cognition Transaction Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Cycle Id"
+    },
+    "event_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Event Hash",
+      "type": "string"
+    },
+    "event_name": {
+      "minLength": 1,
+      "title": "Event Name",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "execution_id": {
+      "minLength": 1,
+      "title": "Execution Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "parent_span_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Span Id"
+    },
+    "request_id": {
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "run_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Run Id"
+    },
+    "span_id": {
+      "minLength": 1,
+      "title": "Span Id",
+      "type": "string"
+    },
+    "tool_id": {
+      "minLength": 1,
+      "title": "Tool Id",
+      "type": "string"
+    },
+    "trace_id": {
+      "minLength": 1,
+      "title": "Trace Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trace_id",
+    "span_id",
+    "event_name",
+    "event_time",
+    "cognition_transaction_id",
+    "request_id",
+    "execution_id",
+    "tool_id",
+    "operation_id",
+    "event_hash"
+  ],
+  "title": "ResearchToolExecutionTraceRecord",
+  "type": "object"
+}

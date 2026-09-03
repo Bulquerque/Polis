@@ -1,0 +1,25 @@
+artifact: ingestion_error_report
+schema_version: v14.1-rc4.1
+required_fields:
+- ingestion_run_id
+- source_id
+- error_flag
+- error_severity
+- error_code
+- error_message
+- is_blocking
+- created_at
+- lineage_id
+- pipeline_version
+- artifact_id
+optional_fields: []
+forbidden_fields:
+- feature
+- target
+- prediction
+quality_checks:
+- required_fields_present
+- lineage_required
+- pipeline_version_required
+- forbidden_fields_absent
+notes: []

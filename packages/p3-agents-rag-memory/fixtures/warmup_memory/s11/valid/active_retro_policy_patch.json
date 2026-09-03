@@ -1,0 +1,14 @@
+{
+  "schema_id": "active_retro_policy_patch.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "retro-patch-none-001",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "status": "NO_PATCH",
+  "patch_hash": "6aa682603d49cfeccaf878f833b63337e0202976291e1b3eef59a6198dbcd914",
+  "effective_from": null,
+  "prompt_policy_ref": null,
+  "retrieval_policy_ref": null,
+  "tool_policy_ref": null,
+  "lineage_id": "lineage-retro-none-001"
+}

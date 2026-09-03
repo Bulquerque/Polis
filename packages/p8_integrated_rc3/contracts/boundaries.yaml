@@ -1,0 +1,48 @@
+release: 0.3.0rc3
+production_promotion_allowed: false
+boundaries:
+- id: P8_S2_TO_S3_S4_RC1
+  producer: P8.S1-S2
+  consumer: P8.S3-S4
+  adapter: quant_pipeline.phase_08_portfolio_control.integration.a1_a2
+  fail_closed: true
+  forbidden_defaults:
+  - risk_factor
+  - currency
+  - greeks
+  - liquidity
+  - margin
+- id: P8_S4_TO_S5_S6_RC1
+  producer: P8.S3-S4
+  consumer: P8.S5-S6
+  adapter: quant_pipeline.phase_08_portfolio_control.integration.a2_a3
+  fail_closed: true
+  invariants:
+  - candidate_ids
+  - horizon_count
+  - scenario_probabilities
+  - policy_hash
+- id: P8_S6_TO_S7_S8_RC1
+  producer: P8.S5-S6
+  consumer: P8.S7-S8
+  adapter: quant_pipeline.phase_08_portfolio_control.integration.a3_a4
+  fail_closed: true
+  invariants:
+  - shape_scale_separation
+  - dual_book
+  - no_unauthorized_zero_crossing
+- id: P8_S8_TO_S9_S10_RC1
+  producer: P8.S7-S8
+  consumer: P8.S9-S10
+  adapter: quant_pipeline.phase_08_portfolio_control.integration.a4_a5
+  fail_closed: true
+  invariants:
+  - order_fill_conservation
+  - accounting_reconciliation
+  - source_id_preservation
+- id: P8_S9_TO_S7_S8_RC1
+  producer: P8.S9
+  consumer: P8.S7-S8
+  adapter: quant_pipeline.phase_08_portfolio_control.integration.a4_a5.runtime_command_to_a4
+  fail_closed: true
+  authority: runtime_safety_only

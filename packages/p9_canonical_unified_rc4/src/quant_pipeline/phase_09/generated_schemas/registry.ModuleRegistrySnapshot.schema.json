@@ -1,0 +1,58 @@
+{
+  "$defs": {
+    "ModuleBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "module_id": {
+          "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+          "title": "Module Id",
+          "type": "string"
+        },
+        "phase_id": {
+          "pattern": "^P[0-9]+$",
+          "title": "Phase Id",
+          "type": "string"
+        },
+        "subphase_id": {
+          "minLength": 1,
+          "title": "Subphase Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "module_id",
+        "phase_id",
+        "subphase_id"
+      ],
+      "title": "ModuleBinding",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "modules": {
+      "items": {
+        "$ref": "#/$defs/ModuleBinding"
+      },
+      "title": "Modules",
+      "type": "array"
+    },
+    "registry_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Registry Sha256",
+      "type": "string"
+    },
+    "registry_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Registry Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_version",
+    "registry_sha256",
+    "modules"
+  ],
+  "title": "ModuleRegistrySnapshot",
+  "type": "object"
+}

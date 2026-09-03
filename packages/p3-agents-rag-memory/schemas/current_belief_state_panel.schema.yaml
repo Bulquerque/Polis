@@ -1,0 +1,120 @@
+$defs:
+  BeliefStateRecord:
+    additionalProperties: false
+    properties:
+      belief_id:
+        minLength: 1
+        title: Belief Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      proposition_id:
+        minLength: 1
+        title: Proposition Id
+        type: string
+      horizon:
+        minLength: 1
+        title: Horizon
+        type: string
+      value:
+        maximum: 1.0
+        minimum: -1.0
+        title: Value
+        type: number
+      confidence:
+        maximum: 1.0
+        minimum: 0.0
+        title: Confidence
+        type: number
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+    required:
+    - belief_id
+    - person_id
+    - proposition_id
+    - horizon
+    - value
+    - confidence
+    - available_at
+    title: BeliefStateRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_id:
+    const: current_belief_state_panel.v2
+    default: current_belief_state_panel.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    default: 2.0.0
+    title: Schema Version
+    type: string
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  module_id:
+    const: P3.S11.M03
+    default: P3.S11.M03
+    title: Module Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  snapshot_id:
+    minLength: 1
+    title: Snapshot Id
+    type: string
+  cycle_id:
+    minLength: 1
+    title: Cycle Id
+    type: string
+  cycle_number:
+    exclusiveMinimum: 0
+    title: Cycle Number
+    type: integer
+  as_of_time:
+    format: date-time
+    title: As Of Time
+    type: string
+  source_state_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Source State Hash
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/BeliefStateRecord'
+    title: Records
+    type: array
+  content_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Hash
+    type: string
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+required:
+- artifact_id
+- run_id
+- snapshot_id
+- cycle_id
+- cycle_number
+- as_of_time
+- source_state_hash
+- records
+- content_hash
+- lineage_id
+title: CurrentBeliefStatePanel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: current_belief_state_panel
+schema_id: current_belief_state_panel.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

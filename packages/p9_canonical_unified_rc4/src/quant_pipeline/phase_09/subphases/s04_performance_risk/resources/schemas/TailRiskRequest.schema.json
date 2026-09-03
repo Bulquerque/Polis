@@ -1,0 +1,522 @@
+{
+  "$defs": {
+    "DiagnosticRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "observed": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed"
+        },
+        "severity": {
+          "pattern": "^(INFO|WARNING|ERROR|BLOCKER)$",
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "severity"
+      ],
+      "title": "DiagnosticRecord",
+      "type": "object"
+    },
+    "GrossNet": {
+      "enum": [
+        "GROSS",
+        "NET",
+        "ACTIVE",
+        "EXCESS",
+        "NOT_APPLICABLE"
+      ],
+      "title": "GrossNet",
+      "type": "string"
+    },
+    "MetricRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "annualization_periods": {
+          "anyOf": [
+            {
+              "gt": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annualization Periods"
+        },
+        "gross_net": {
+          "$ref": "#/$defs/GrossNet",
+          "default": "NOT_APPLICABLE"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "sample_count": {
+          "minimum": 0,
+          "title": "Sample Count",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "unit": {
+          "$ref": "#/$defs/Unit"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_version",
+        "producer_module_id",
+        "value",
+        "unit",
+        "status",
+        "sample_count",
+        "method"
+      ],
+      "title": "MetricRecord",
+      "type": "object"
+    },
+    "MetricStatus": {
+      "enum": [
+        "QUALIFIED",
+        "LIMITED",
+        "UNAVAILABLE",
+        "INSUFFICIENT_SAMPLE",
+        "UNDEFINED",
+        "INVALID"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "MinimumSamplePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum_regression_observations": {
+          "default": 30,
+          "minimum": 3,
+          "title": "Minimum Regression Observations",
+          "type": "integer"
+        },
+        "minimum_return_observations": {
+          "default": 20,
+          "minimum": 2,
+          "title": "Minimum Return Observations",
+          "type": "integer"
+        },
+        "minimum_rolling_observations": {
+          "default": 20,
+          "minimum": 2,
+          "title": "Minimum Rolling Observations",
+          "type": "integer"
+        },
+        "minimum_tail_observations": {
+          "default": 50,
+          "minimum": 5,
+          "title": "Minimum Tail Observations",
+          "type": "integer"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version"
+      ],
+      "title": "MinimumSamplePolicy",
+      "type": "object"
+    },
+    "ParametricTailModel": {
+      "enum": [
+        "NONE",
+        "NORMAL"
+      ],
+      "title": "ParametricTailModel",
+      "type": "string"
+    },
+    "QualifiedBacktestIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "handoff_id": {
+          "title": "Handoff Id",
+          "type": "string"
+        },
+        "handoff_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Handoff Sha256",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trial_id": {
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trial_id",
+        "fold_id",
+        "configuration_id",
+        "handoff_id",
+        "handoff_sha256"
+      ],
+      "title": "QualifiedBacktestIdentity",
+      "type": "object"
+    },
+    "QuantileMethod": {
+      "enum": [
+        "linear",
+        "inverted_cdf",
+        "median_unbiased"
+      ],
+      "title": "QuantileMethod",
+      "type": "string"
+    },
+    "ReturnSeriesPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "active_returns": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Active Returns"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "excess_returns": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Excess Returns"
+        },
+        "gross_returns": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Gross Returns",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "net_returns": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Net Returns",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        },
+        "periods_per_year": {
+          "title": "Periods Per Year",
+          "type": "number"
+        },
+        "timestamps": {
+          "items": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "title": "Timestamps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "timestamps",
+        "gross_returns",
+        "net_returns",
+        "periods_per_year"
+      ],
+      "title": "ReturnSeriesPanel",
+      "type": "object"
+    },
+    "ScenarioPnlPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "records": {
+          "items": {
+            "$ref": "#/$defs/ScenarioPnlRecord"
+          },
+          "title": "Records",
+          "type": "array"
+        }
+      },
+      "required": [
+        "panel_id",
+        "records"
+      ],
+      "title": "ScenarioPnlPanel",
+      "type": "object"
+    },
+    "ScenarioPnlRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_class": {
+          "title": "Evidence Class",
+          "type": "string"
+        },
+        "pnl_fraction": {
+          "title": "Pnl Fraction",
+          "type": "number"
+        },
+        "scenario_id": {
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "scenario_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Scenario Version",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "scenario_version",
+        "timestamp",
+        "pnl_fraction",
+        "evidence_class"
+      ],
+      "title": "ScenarioPnlRecord",
+      "type": "object"
+    },
+    "TailRiskPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence_levels": {
+          "default": [
+            0.95,
+            0.99
+          ],
+          "items": {
+            "type": "number"
+          },
+          "title": "Confidence Levels",
+          "type": "array"
+        },
+        "minimum_samples": {
+          "$ref": "#/$defs/MinimumSamplePolicy"
+        },
+        "parametric_model": {
+          "$ref": "#/$defs/ParametricTailModel",
+          "default": "NORMAL"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "quantile_method": {
+          "$ref": "#/$defs/QuantileMethod",
+          "default": "linear"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "minimum_samples"
+      ],
+      "title": "TailRiskPolicy",
+      "type": "object"
+    },
+    "Unit": {
+      "enum": [
+        "DECIMAL_RETURN",
+        "ANNUALIZED_DECIMAL",
+        "RATIO",
+        "PROBABILITY",
+        "MONEY",
+        "BPS",
+        "COUNT",
+        "SECONDS",
+        "FRACTION",
+        "COEFFICIENT"
+      ],
+      "title": "Unit",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/TailRiskRequest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "policy": {
+      "$ref": "#/$defs/TailRiskPolicy"
+    },
+    "returns": {
+      "$ref": "#/$defs/ReturnSeriesPanel"
+    },
+    "scenarios": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ScenarioPnlPanel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "returns",
+    "policy"
+  ],
+  "title": "TailRiskRequest",
+  "type": "object"
+}

@@ -1,0 +1,4 @@
+formula: stimulus_intensity * relevance * tag_sensitivity * current_attention * exposure
+concern_threshold_policy: person_specific
+monthly_heartbeat: true
+max_extra_activations: configurable

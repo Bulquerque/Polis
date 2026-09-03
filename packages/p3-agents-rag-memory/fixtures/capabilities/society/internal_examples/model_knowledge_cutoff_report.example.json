@@ -1,0 +1,12 @@
+{
+  "provider_id": "nvidia_nim",
+  "model_id": "example-model",
+  "model_version": "v1",
+  "release_date": "2026-01-01",
+  "known_training_cutoff": "UNKNOWN",
+  "evaluation_start": "2024-01-01",
+  "evaluation_end": "2024-12-31",
+  "risk_class": "UNKNOWN",
+  "rationale": "Training cutoff not verified; do not claim clean backtest.",
+  "lineage_id": "lin-model-cutoff-001"
+}

@@ -1,0 +1,31 @@
+generated_from: canonical publication contract and locked references
+package_id: P5_INTEGRATED_RC34_INTEGRATION_HARDENED
+package_version: 0.34.1rc4.post2
+pipeline_version: P5-RC34.1-CONTRACT-CLOSURE-RC4
+implemented_scope: WAVES_0_TO_7
+preserved_phase_output: underlying_forecast_panel
+canonical_v2_schemas:
+- AmbiguitySet
+- DependenceState
+- ForecastConfidence
+- MarketFeatureBundle
+- ModelBinding
+- PathRiskForecastPanel
+- Phase6StrategyScenarioManifest
+- QualificationDecision
+- RegimeOODState
+- ReturnDistributionPanel
+- ScenarioPathPanel
+- TargetDefinition
+- TemporalEvaluationPlan
+- TemporalFold
+- VolatilityDistributionPanel
+legacy_projection: underlying_forecast_panel
+compatibility_state: P4_NATIVE_P6_NATIVE_BELIEF_PASS_FULL_V2_PENDING
+production_promotion_allowed: false
+guarantees:
+- point_in_time_temporal_fields
+- sealed_test
+- lineage_id_per_forecast
+- no_trade_or_signal_fields
+- explicit_capability_unavailability

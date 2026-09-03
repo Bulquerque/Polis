@@ -1,0 +1,389 @@
+{
+  "$defs": {
+    "ActivationCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "operator": {
+          "$ref": "#/$defs/ConditionOperator"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "operator",
+        "values"
+      ],
+      "title": "ActivationCondition",
+      "type": "object"
+    },
+    "CompiledParameterDomain": {
+      "additionalProperties": false,
+      "properties": {
+        "active_when": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ActivationCondition"
+          },
+          "title": "Active When",
+          "type": "array"
+        },
+        "discrete_values": {
+          "default": [],
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Discrete Values",
+          "type": "array"
+        },
+        "grid_points": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Grid Points"
+        },
+        "kind": {
+          "$ref": "#/$defs/ParameterKind"
+        },
+        "lower": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parameter Id",
+          "type": "string"
+        },
+        "scale": {
+          "$ref": "#/$defs/ParameterScale"
+        },
+        "topological_index": {
+          "minimum": 0,
+          "title": "Topological Index",
+          "type": "integer"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        }
+      },
+      "required": [
+        "parameter_id",
+        "kind",
+        "scale",
+        "topological_index"
+      ],
+      "title": "CompiledParameterDomain",
+      "type": "object"
+    },
+    "CompiledSearchSpace": {
+      "additionalProperties": false,
+      "properties": {
+        "cardinality": {
+          "$ref": "#/$defs/SearchSpaceCardinalityReport"
+        },
+        "constraint_graph": {
+          "$ref": "#/$defs/SearchSpaceConstraintGraph"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "parameters": {
+          "items": {
+            "$ref": "#/$defs/CompiledParameterDomain"
+          },
+          "title": "Parameters",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "space_id": {
+          "minLength": 1,
+          "title": "Space Id",
+          "type": "string"
+        },
+        "space_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Space Sha256",
+          "type": "string"
+        },
+        "specification_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Specification Sha256",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/SearchSpaceState"
+        }
+      },
+      "required": [
+        "space_id",
+        "experiment_id",
+        "specification_sha256",
+        "state",
+        "parameters",
+        "constraint_graph",
+        "cardinality",
+        "space_sha256"
+      ],
+      "title": "CompiledSearchSpace",
+      "type": "object"
+    },
+    "ConditionOperator": {
+      "enum": [
+        "EQUALS",
+        "NOT_EQUALS",
+        "IN",
+        "NOT_IN"
+      ],
+      "title": "ConditionOperator",
+      "type": "string"
+    },
+    "ParameterKind": {
+      "enum": [
+        "INTEGER",
+        "FLOAT",
+        "CATEGORICAL",
+        "BOOLEAN"
+      ],
+      "title": "ParameterKind",
+      "type": "string"
+    },
+    "ParameterScale": {
+      "enum": [
+        "LINEAR",
+        "LOG"
+      ],
+      "title": "ParameterScale",
+      "type": "string"
+    },
+    "SearchSpaceCardinalityReport": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary_only_parameter_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Boundary Only Parameter Ids",
+          "type": "array"
+        },
+        "conditional_parameter_count": {
+          "minimum": 0,
+          "title": "Conditional Parameter Count",
+          "type": "integer"
+        },
+        "effective_dimension_count": {
+          "minimum": 0,
+          "title": "Effective Dimension Count",
+          "type": "integer"
+        },
+        "exact_cardinality": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Exact Cardinality"
+        },
+        "finite": {
+          "title": "Finite",
+          "type": "boolean"
+        },
+        "inactive_parameter_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Inactive Parameter Ids",
+          "type": "array"
+        },
+        "upper_bound": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper Bound"
+        }
+      },
+      "required": [
+        "finite",
+        "effective_dimension_count",
+        "conditional_parameter_count"
+      ],
+      "title": "SearchSpaceCardinalityReport",
+      "type": "object"
+    },
+    "SearchSpaceConstraintEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "child_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Child Parameter Id",
+          "type": "string"
+        },
+        "parent_parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parent Parameter Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parent_parameter_id",
+        "child_parameter_id"
+      ],
+      "title": "SearchSpaceConstraintEdge",
+      "type": "object"
+    },
+    "SearchSpaceConstraintGraph": {
+      "additionalProperties": false,
+      "properties": {
+        "edges": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/SearchSpaceConstraintEdge"
+          },
+          "title": "Edges",
+          "type": "array"
+        },
+        "parameter_order": {
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Parameter Order",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parameter_order"
+      ],
+      "title": "SearchSpaceConstraintGraph",
+      "type": "object"
+    },
+    "SearchSpaceState": {
+      "enum": [
+        "SPACE_COMPILED",
+        "SPACE_COMPILED_WITH_WARNINGS",
+        "SPACE_EMPTY",
+        "SPACE_EXPLOSIVE",
+        "SPACE_INVALID"
+      ],
+      "title": "SearchSpaceState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "compiled_space": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CompiledSearchSpace"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "compiled_space"
+  ],
+  "title": "SearchSpaceCompilationOutcome",
+  "type": "object"
+}

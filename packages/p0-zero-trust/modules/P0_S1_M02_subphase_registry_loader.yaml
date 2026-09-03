@@ -1,0 +1,41 @@
+module_id: P0.S1.M02
+module_name: subphase_registry_loader
+function: Executar subphase registry loader da Fase 0, mantendo controle Zero Trust
+  técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- validated_phase_registry
+- subphase_registry_yaml
+outputs: &id002
+- validated_subphase_registry
+validations:
+- subphase_id_unique
+- subphase_belongs_to_existing_phase
+- exact_subphase_set
+- provenance_valid
+- registry_version_compatible
+fail_fast_conditions:
+- subphase_registry_loader_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S1.M01
+    artifacts: *id001
+    phase_inputs:
+    - subphase_registry_yaml
+  emits_to:
+    modules:
+    - P0.S1.M03
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S1
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

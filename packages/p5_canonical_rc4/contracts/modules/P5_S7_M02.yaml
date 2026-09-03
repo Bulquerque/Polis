@@ -1,0 +1,15 @@
+module_id: P5.S7.M02
+name: page_hinkley_cusum_changepoint_resolvers
+subphase_id: P5.S7
+required_inputs:
+- authorized_consumer_view_registry
+optional_inputs: []
+outputs:
+- structural_break_member_panel
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

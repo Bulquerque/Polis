@@ -1,0 +1,15 @@
+authority: P3 integrated frozen external schema authority
+schema_count: 6
+schemas:
+- file: agent_disagreement_panel.schema.yaml
+  sha256: df3cb86f13cbe2cc662ec99e6848b1d76e2601c9003e295986f0bb21b312c19d
+- file: context_memory_feature_panel.schema.yaml
+  sha256: 53c2f4f48acbf1335499cea6a248ddf14f9ab7d6d847fe99dc228fa835c765ca
+- file: evidence_tag_panel.schema.yaml
+  sha256: 3dffe2b8ef8487ea90ce3ecb6e6b2f0000fd3bcb0bd7fa29cc816af43039fd65
+- file: hypothesis_registry.schema.yaml
+  sha256: e355f0bf03d13b566b97f26ba809435e3f3e8472e411bdf254cb4edd10a27569
+- file: phase4_social_handoff_manifest.schema.yaml
+  sha256: af31845e01d07559d6946273338609ec834b7fab725adff01ce8e1afcea3f112
+- file: social_feature_panel.schema.yaml
+  sha256: ed4b0c7428d6e82a3400199dd7ef40ca33112d4687b4d26028a7ab3a22460424

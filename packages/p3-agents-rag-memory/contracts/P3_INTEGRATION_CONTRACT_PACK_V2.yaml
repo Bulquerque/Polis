@@ -1,0 +1,18 @@
+contract_pack_id: P3_INTEGRATION_CONTRACT_PACK_V2
+contract_pack_version: 2.0.0
+architecture_revision: P3-FINAL
+authority: src/quant_pipeline/phase_03_agents_rag_memory/contracts
+schemas:
+  artifact_pointer: schemas/integration/artifact_pointer.schema.json
+  cycle_kernel_request: schemas/integration/cycle_kernel_request.schema.json
+  cycle_kernel_result: schemas/integration/cycle_kernel_result.schema.json
+  foundation_runtime_manifest: schemas/integration/foundation_runtime_manifest.schema.json
+  p3_cycle_closure_manifest: schemas/integration/p3_cycle_closure_manifest.schema.json
+  replay_state: schemas/integration/replay_state.schema.json
+rules:
+- reference_only_boundary
+- strict_validation
+- extra_fields_forbidden
+- timezone_aware
+- content_hash_required
+- fail_closed

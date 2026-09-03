@@ -1,0 +1,1221 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "relationship_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relationship Type"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_version",
+        "contract_version",
+        "content_sha256",
+        "available_at"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "ExecutionPolicyFeedback": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "EXECUTION_POLICY_FEEDBACK",
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "effective_from_sequence": {
+          "minimum": 0,
+          "title": "Effective From Sequence",
+          "type": "integer"
+        },
+        "expires_after_sequence": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires After Sequence"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "p0_authorization_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "p9_recommendation_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "payload": {
+          "$ref": "#/$defs/ExecutionPolicyPayload"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "minLength": 1,
+          "title": "Source Cycle Id",
+          "type": "string"
+        },
+        "source_cycle_sequence": {
+          "minimum": 0,
+          "title": "Source Cycle Sequence",
+          "type": "integer"
+        },
+        "target_cycle_id": {
+          "minLength": 1,
+          "title": "Target Cycle Id",
+          "type": "string"
+        },
+        "target_cycle_sequence": {
+          "minimum": 0,
+          "title": "Target Cycle Sequence",
+          "type": "integer"
+        },
+        "target_policy_id": {
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "contract_version",
+        "schema_version",
+        "source_cycle_id",
+        "source_cycle_sequence",
+        "target_cycle_id",
+        "target_cycle_sequence",
+        "target_policy_id",
+        "p9_recommendation_ref",
+        "p0_authorization_ref",
+        "effective_from_sequence",
+        "idempotency_key",
+        "available_at",
+        "content_sha256",
+        "effect_type",
+        "payload"
+      ],
+      "title": "ExecutionPolicyFeedback",
+      "type": "object"
+    },
+    "ExecutionPolicyPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_order_types": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Allowed Order Types",
+          "type": "array"
+        },
+        "max_participation_rate": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "maximum": 1.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Participation Rate"
+        }
+      },
+      "required": [
+        "max_participation_rate",
+        "allowed_order_types"
+      ],
+      "title": "ExecutionPolicyPayload",
+      "type": "object"
+    },
+    "LiquidityHaircutFeedback": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "LIQUIDITY_HAIRCUT_FEEDBACK",
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "effective_from_sequence": {
+          "minimum": 0,
+          "title": "Effective From Sequence",
+          "type": "integer"
+        },
+        "expires_after_sequence": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires After Sequence"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "p0_authorization_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "p9_recommendation_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "payload": {
+          "$ref": "#/$defs/LiquidityHaircutPayload"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "minLength": 1,
+          "title": "Source Cycle Id",
+          "type": "string"
+        },
+        "source_cycle_sequence": {
+          "minimum": 0,
+          "title": "Source Cycle Sequence",
+          "type": "integer"
+        },
+        "target_cycle_id": {
+          "minLength": 1,
+          "title": "Target Cycle Id",
+          "type": "string"
+        },
+        "target_cycle_sequence": {
+          "minimum": 0,
+          "title": "Target Cycle Sequence",
+          "type": "integer"
+        },
+        "target_policy_id": {
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "contract_version",
+        "schema_version",
+        "source_cycle_id",
+        "source_cycle_sequence",
+        "target_cycle_id",
+        "target_cycle_sequence",
+        "target_policy_id",
+        "p9_recommendation_ref",
+        "p0_authorization_ref",
+        "effective_from_sequence",
+        "idempotency_key",
+        "available_at",
+        "content_sha256",
+        "effect_type",
+        "payload"
+      ],
+      "title": "LiquidityHaircutFeedback",
+      "type": "object"
+    },
+    "LiquidityHaircutPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "haircut_ratio": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Haircut Ratio"
+        },
+        "instrument_family": {
+          "minLength": 1,
+          "title": "Instrument Family",
+          "type": "string"
+        }
+      },
+      "required": [
+        "instrument_family",
+        "haircut_ratio"
+      ],
+      "title": "LiquidityHaircutPayload",
+      "type": "object"
+    },
+    "MarginBufferFeedback": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "MARGIN_BUFFER_FEEDBACK",
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "effective_from_sequence": {
+          "minimum": 0,
+          "title": "Effective From Sequence",
+          "type": "integer"
+        },
+        "expires_after_sequence": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires After Sequence"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "p0_authorization_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "p9_recommendation_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "payload": {
+          "$ref": "#/$defs/MarginBufferPayload"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "minLength": 1,
+          "title": "Source Cycle Id",
+          "type": "string"
+        },
+        "source_cycle_sequence": {
+          "minimum": 0,
+          "title": "Source Cycle Sequence",
+          "type": "integer"
+        },
+        "target_cycle_id": {
+          "minLength": 1,
+          "title": "Target Cycle Id",
+          "type": "string"
+        },
+        "target_cycle_sequence": {
+          "minimum": 0,
+          "title": "Target Cycle Sequence",
+          "type": "integer"
+        },
+        "target_policy_id": {
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "contract_version",
+        "schema_version",
+        "source_cycle_id",
+        "source_cycle_sequence",
+        "target_cycle_id",
+        "target_cycle_sequence",
+        "target_policy_id",
+        "p9_recommendation_ref",
+        "p0_authorization_ref",
+        "effective_from_sequence",
+        "idempotency_key",
+        "available_at",
+        "content_sha256",
+        "effect_type",
+        "payload"
+      ],
+      "title": "MarginBufferFeedback",
+      "type": "object"
+    },
+    "MarginBufferPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "buffer_ratio": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Buffer Ratio"
+        }
+      },
+      "required": [
+        "buffer_ratio"
+      ],
+      "title": "MarginBufferPayload",
+      "type": "object"
+    },
+    "ModelDeprecationFeedback": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "MODEL_DEPRECATION_FEEDBACK",
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "effective_from_sequence": {
+          "minimum": 0,
+          "title": "Effective From Sequence",
+          "type": "integer"
+        },
+        "expires_after_sequence": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires After Sequence"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "p0_authorization_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "p9_recommendation_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "payload": {
+          "$ref": "#/$defs/ModelDeprecationPayload"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "minLength": 1,
+          "title": "Source Cycle Id",
+          "type": "string"
+        },
+        "source_cycle_sequence": {
+          "minimum": 0,
+          "title": "Source Cycle Sequence",
+          "type": "integer"
+        },
+        "target_cycle_id": {
+          "minLength": 1,
+          "title": "Target Cycle Id",
+          "type": "string"
+        },
+        "target_cycle_sequence": {
+          "minimum": 0,
+          "title": "Target Cycle Sequence",
+          "type": "integer"
+        },
+        "target_policy_id": {
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "contract_version",
+        "schema_version",
+        "source_cycle_id",
+        "source_cycle_sequence",
+        "target_cycle_id",
+        "target_cycle_sequence",
+        "target_policy_id",
+        "p9_recommendation_ref",
+        "p0_authorization_ref",
+        "effective_from_sequence",
+        "idempotency_key",
+        "available_at",
+        "content_sha256",
+        "effect_type",
+        "payload"
+      ],
+      "title": "ModelDeprecationFeedback",
+      "type": "object"
+    },
+    "ModelDeprecationPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "deprecated": {
+          "const": true,
+          "title": "Deprecated",
+          "type": "boolean"
+        },
+        "model_id": {
+          "minLength": 1,
+          "title": "Model Id",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model_id",
+        "deprecated",
+        "reason"
+      ],
+      "title": "ModelDeprecationPayload",
+      "type": "object"
+    },
+    "OptimizerEligibilityFeedback": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "OPTIMIZER_ELIGIBILITY_FEEDBACK",
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "effective_from_sequence": {
+          "minimum": 0,
+          "title": "Effective From Sequence",
+          "type": "integer"
+        },
+        "expires_after_sequence": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires After Sequence"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "p0_authorization_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "p9_recommendation_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "payload": {
+          "$ref": "#/$defs/OptimizerEligibilityPayload"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "minLength": 1,
+          "title": "Source Cycle Id",
+          "type": "string"
+        },
+        "source_cycle_sequence": {
+          "minimum": 0,
+          "title": "Source Cycle Sequence",
+          "type": "integer"
+        },
+        "target_cycle_id": {
+          "minLength": 1,
+          "title": "Target Cycle Id",
+          "type": "string"
+        },
+        "target_cycle_sequence": {
+          "minimum": 0,
+          "title": "Target Cycle Sequence",
+          "type": "integer"
+        },
+        "target_policy_id": {
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "contract_version",
+        "schema_version",
+        "source_cycle_id",
+        "source_cycle_sequence",
+        "target_cycle_id",
+        "target_cycle_sequence",
+        "target_policy_id",
+        "p9_recommendation_ref",
+        "p0_authorization_ref",
+        "effective_from_sequence",
+        "idempotency_key",
+        "available_at",
+        "content_sha256",
+        "effect_type",
+        "payload"
+      ],
+      "title": "OptimizerEligibilityFeedback",
+      "type": "object"
+    },
+    "OptimizerEligibilityPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "optimizer_id": {
+          "minLength": 1,
+          "title": "Optimizer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "optimizer_id",
+        "enabled"
+      ],
+      "title": "OptimizerEligibilityPayload",
+      "type": "object"
+    },
+    "RiskLimitPolicyFeedback": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "RISK_LIMIT_POLICY_FEEDBACK",
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "effective_from_sequence": {
+          "minimum": 0,
+          "title": "Effective From Sequence",
+          "type": "integer"
+        },
+        "expires_after_sequence": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires After Sequence"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "p0_authorization_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "p9_recommendation_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "payload": {
+          "$ref": "#/$defs/RiskLimitPolicyPayload"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "minLength": 1,
+          "title": "Source Cycle Id",
+          "type": "string"
+        },
+        "source_cycle_sequence": {
+          "minimum": 0,
+          "title": "Source Cycle Sequence",
+          "type": "integer"
+        },
+        "target_cycle_id": {
+          "minLength": 1,
+          "title": "Target Cycle Id",
+          "type": "string"
+        },
+        "target_cycle_sequence": {
+          "minimum": 0,
+          "title": "Target Cycle Sequence",
+          "type": "integer"
+        },
+        "target_policy_id": {
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "contract_version",
+        "schema_version",
+        "source_cycle_id",
+        "source_cycle_sequence",
+        "target_cycle_id",
+        "target_cycle_sequence",
+        "target_policy_id",
+        "p9_recommendation_ref",
+        "p0_authorization_ref",
+        "effective_from_sequence",
+        "idempotency_key",
+        "available_at",
+        "content_sha256",
+        "effect_type",
+        "payload"
+      ],
+      "title": "RiskLimitPolicyFeedback",
+      "type": "object"
+    },
+    "RiskLimitPolicyPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "limit_name": {
+          "minLength": 1,
+          "title": "Limit Name",
+          "type": "string"
+        },
+        "new_limit": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "New Limit"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "limit_name",
+        "new_limit",
+        "unit"
+      ],
+      "title": "RiskLimitPolicyPayload",
+      "type": "object"
+    },
+    "RuntimeFallbackPolicyFeedback": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "RUNTIME_FALLBACK_POLICY_FEEDBACK",
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "effective_from_sequence": {
+          "minimum": 0,
+          "title": "Effective From Sequence",
+          "type": "integer"
+        },
+        "expires_after_sequence": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires After Sequence"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "p0_authorization_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "p9_recommendation_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "payload": {
+          "$ref": "#/$defs/RuntimeFallbackPolicyPayload"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "minLength": 1,
+          "title": "Source Cycle Id",
+          "type": "string"
+        },
+        "source_cycle_sequence": {
+          "minimum": 0,
+          "title": "Source Cycle Sequence",
+          "type": "integer"
+        },
+        "target_cycle_id": {
+          "minLength": 1,
+          "title": "Target Cycle Id",
+          "type": "string"
+        },
+        "target_cycle_sequence": {
+          "minimum": 0,
+          "title": "Target Cycle Sequence",
+          "type": "integer"
+        },
+        "target_policy_id": {
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "contract_version",
+        "schema_version",
+        "source_cycle_id",
+        "source_cycle_sequence",
+        "target_cycle_id",
+        "target_cycle_sequence",
+        "target_policy_id",
+        "p9_recommendation_ref",
+        "p0_authorization_ref",
+        "effective_from_sequence",
+        "idempotency_key",
+        "available_at",
+        "content_sha256",
+        "effect_type",
+        "payload"
+      ],
+      "title": "RuntimeFallbackPolicyFeedback",
+      "type": "object"
+    },
+    "RuntimeFallbackPolicyPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "fallback_mode": {
+          "minLength": 1,
+          "title": "Fallback Mode",
+          "type": "string"
+        },
+        "trigger_threshold": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Trigger Threshold"
+        }
+      },
+      "required": [
+        "fallback_mode",
+        "trigger_threshold"
+      ],
+      "title": "RuntimeFallbackPolicyPayload",
+      "type": "object"
+    },
+    "TurnoverPolicyFeedback": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "TURNOVER_POLICY_FEEDBACK",
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "effective_from_sequence": {
+          "minimum": 0,
+          "title": "Effective From Sequence",
+          "type": "integer"
+        },
+        "expires_after_sequence": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires After Sequence"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "idempotency_key": {
+          "minLength": 1,
+          "title": "Idempotency Key",
+          "type": "string"
+        },
+        "p0_authorization_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "p9_recommendation_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        },
+        "payload": {
+          "$ref": "#/$defs/TurnoverPolicyPayload"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "minLength": 1,
+          "title": "Source Cycle Id",
+          "type": "string"
+        },
+        "source_cycle_sequence": {
+          "minimum": 0,
+          "title": "Source Cycle Sequence",
+          "type": "integer"
+        },
+        "target_cycle_id": {
+          "minLength": 1,
+          "title": "Target Cycle Id",
+          "type": "string"
+        },
+        "target_cycle_sequence": {
+          "minimum": 0,
+          "title": "Target Cycle Sequence",
+          "type": "integer"
+        },
+        "target_policy_id": {
+          "minLength": 1,
+          "title": "Target Policy Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "contract_version",
+        "schema_version",
+        "source_cycle_id",
+        "source_cycle_sequence",
+        "target_cycle_id",
+        "target_cycle_sequence",
+        "target_policy_id",
+        "p9_recommendation_ref",
+        "p0_authorization_ref",
+        "effective_from_sequence",
+        "idempotency_key",
+        "available_at",
+        "content_sha256",
+        "effect_type",
+        "payload"
+      ],
+      "title": "TurnoverPolicyFeedback",
+      "type": "object"
+    },
+    "TurnoverPolicyPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "max_turnover": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Turnover"
+        }
+      },
+      "required": [
+        "max_turnover"
+      ],
+      "title": "TurnoverPolicyPayload",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "EXECUTION_POLICY_FEEDBACK": "#/$defs/ExecutionPolicyFeedback",
+      "LIQUIDITY_HAIRCUT_FEEDBACK": "#/$defs/LiquidityHaircutFeedback",
+      "MARGIN_BUFFER_FEEDBACK": "#/$defs/MarginBufferFeedback",
+      "MODEL_DEPRECATION_FEEDBACK": "#/$defs/ModelDeprecationFeedback",
+      "OPTIMIZER_ELIGIBILITY_FEEDBACK": "#/$defs/OptimizerEligibilityFeedback",
+      "RISK_LIMIT_POLICY_FEEDBACK": "#/$defs/RiskLimitPolicyFeedback",
+      "RUNTIME_FALLBACK_POLICY_FEEDBACK": "#/$defs/RuntimeFallbackPolicyFeedback",
+      "TURNOVER_POLICY_FEEDBACK": "#/$defs/TurnoverPolicyFeedback"
+    },
+    "propertyName": "effect_type"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/OptimizerEligibilityFeedback"
+    },
+    {
+      "$ref": "#/$defs/RiskLimitPolicyFeedback"
+    },
+    {
+      "$ref": "#/$defs/TurnoverPolicyFeedback"
+    },
+    {
+      "$ref": "#/$defs/LiquidityHaircutFeedback"
+    },
+    {
+      "$ref": "#/$defs/MarginBufferFeedback"
+    },
+    {
+      "$ref": "#/$defs/ExecutionPolicyFeedback"
+    },
+    {
+      "$ref": "#/$defs/RuntimeFallbackPolicyFeedback"
+    },
+    {
+      "$ref": "#/$defs/ModelDeprecationFeedback"
+    }
+  ],
+  "x-authority": "external-source-snapshot-not-p9-authority",
+  "x-boundary-contract": "P9_TO_P8_PROMOTED_FEEDBACK_V1",
+  "x-qualified-source-fingerprint": "3bbec0ba2eba2fd5d7951a303df36a8dbf143964ed36b378f3826a8f70bf2fbb",
+  "x-qualified-source-phase": "P8"
+}

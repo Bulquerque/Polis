@@ -1,0 +1,318 @@
+{
+  "schema_count": 52,
+  "schema_version": "1.0.0",
+  "schemas": [
+    {
+      "model": "ArtifactReference",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.common",
+      "schema_file": "schemas/ArtifactReference.schema.json",
+      "schema_sha256": "d0db42fa392110661465d463e96bce2cb78bbc8520c6d85580c2be8821c5c56e"
+    },
+    {
+      "model": "BacktestQualificationReceipt",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/BacktestQualificationReceipt.schema.json",
+      "schema_sha256": "44b1d9165f542bc54ae453efa5b000ddcd0b0edae5807a81a6035141a6ba1df0"
+    },
+    {
+      "model": "CandidateTerminalRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/CandidateTerminalRecord.schema.json",
+      "schema_sha256": "593472e35d6e4ff3a4d7a4f5956b782728237fe80fb8f04c8777b13dab3a4f73"
+    },
+    {
+      "model": "CashLedgerEntry",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/CashLedgerEntry.schema.json",
+      "schema_sha256": "694ca86ee1234a54fe65f1c3273b96fd13b9baa827a45941c879a9d47a44eadb"
+    },
+    {
+      "model": "CheckResult",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/CheckResult.schema.json",
+      "schema_sha256": "5bd39b3e38cfb230b9c781c800a902e2054955b31d4a5f1baf5379191c659aaa"
+    },
+    {
+      "model": "ComparisonLossRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/ComparisonLossRecord.schema.json",
+      "schema_sha256": "cf4fbafbfe4e043a550b9fec4ac1701e16bbcc6d17b64ec7c91d741f1fd17d9c"
+    },
+    {
+      "model": "ComparisonPolicy",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.comparison_models",
+      "schema_file": "schemas/ComparisonPolicy.schema.json",
+      "schema_sha256": "48b9cc891b7eb25168501430faa7be1541e8d319a3adb7489a5d433d9ed45530"
+    },
+    {
+      "model": "CompetitionMetricPolicy",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/CompetitionMetricPolicy.schema.json",
+      "schema_sha256": "a55c50426ca526967fa7c9443149673562dff8b9c46aef248eb664c7c86c703c"
+    },
+    {
+      "model": "CompetitionScoreRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/CompetitionScoreRecord.schema.json",
+      "schema_sha256": "8129ad289c88623eefe40281a8569ddd57295f4fc8f4e6050ebfc57d232d0de1"
+    },
+    {
+      "model": "ConfigurationLineage",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.comparison_models",
+      "schema_file": "schemas/ConfigurationLineage.schema.json",
+      "schema_sha256": "9a4fa51daf9ca3539c6482144dae66181336b1e64b137bdde5789759da915e25"
+    },
+    {
+      "model": "ConfigurationScoreAggregate",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/ConfigurationScoreAggregate.schema.json",
+      "schema_sha256": "11f97c2d9e393561d1cde47c6beb1bcb77eec4615a1b0c9eb00fef0e5592e5af"
+    },
+    {
+      "model": "DiagnosticRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.common",
+      "schema_file": "schemas/DiagnosticRecord.schema.json",
+      "schema_sha256": "1cc49f2fe9181ba811a176ec93710e94552e3f9775425ea012845eecaca4154c"
+    },
+    {
+      "model": "DurationSpec",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.common",
+      "schema_file": "schemas/DurationSpec.schema.json",
+      "schema_sha256": "01e2a9c02b6645f94167059e2f339d126b7830a97e57e2e24b8032414b797c51"
+    },
+    {
+      "model": "EquivalenceGroup",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.comparison_models",
+      "schema_file": "schemas/EquivalenceGroup.schema.json",
+      "schema_sha256": "84da4ed36f4068509b409906201095335f04390a7a0ab33b0077caed39767c9c"
+    },
+    {
+      "model": "EvidenceRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.common",
+      "schema_file": "schemas/EvidenceRecord.schema.json",
+      "schema_sha256": "8b9137f0ad431303fa314824dfdce1f3f7e2f72345524ffeb2727cce7b428154"
+    },
+    {
+      "model": "FillRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/FillRecord.schema.json",
+      "schema_sha256": "73973fdf989bfe7d0e9abdb68896e593861905973426312b111a189662edeb8d"
+    },
+    {
+      "model": "FoldAssignment",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.temporal_models",
+      "schema_file": "schemas/FoldAssignment.schema.json",
+      "schema_sha256": "4924daf55ae753394bdfad237a3c4b62c50e59fb45f4fd3b42bcbb38a8d0b5b7"
+    },
+    {
+      "model": "FoldAssignmentPanel",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.temporal_models",
+      "schema_file": "schemas/FoldAssignmentPanel.schema.json",
+      "schema_sha256": "b61fb9b1071659c2f6a29d3cb265b280e171f8bc1a372843d83a0673c4cdf459"
+    },
+    {
+      "model": "FoldDefinition",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.temporal_models",
+      "schema_file": "schemas/FoldDefinition.schema.json",
+      "schema_sha256": "27dc2a3307cf0e413f12ad7ac3af51993e29afa6452ef690126d56b9bf39dc3c"
+    },
+    {
+      "model": "GoldenMetricExample",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/GoldenMetricExample.schema.json",
+      "schema_sha256": "e1537aaa7c368bafa6dc2e439078d8d8ff7ab457047083bfc3c906ec63020f1f"
+    },
+    {
+      "model": "HoldoutFirewallPolicy",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.temporal_models",
+      "schema_file": "schemas/HoldoutFirewallPolicy.schema.json",
+      "schema_sha256": "5536eebefd6b6c40793ef20b717daeccf6f1387f7955e6f674cfd4f518e63a48"
+    },
+    {
+      "model": "LifecycleEvent",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/LifecycleEvent.schema.json",
+      "schema_sha256": "fe07fb35b7f49d8981dbd6ec07d823b2b102820a8ce7938713c37158cdd6de85"
+    },
+    {
+      "model": "MetricComponentPolicy",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/MetricComponentPolicy.schema.json",
+      "schema_sha256": "333c5b88bfa887c2e80ade912469b3fb0a9a26ec61fc4ac501367ecee57919f3"
+    },
+    {
+      "model": "MetricInputRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/MetricInputRecord.schema.json",
+      "schema_sha256": "e9cfd9d8d17e8c3b0e1da8f6c4c026d10610b5a48e7138d441ded78d9cb2d747"
+    },
+    {
+      "model": "MetricParityCheck",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/MetricParityCheck.schema.json",
+      "schema_sha256": "b2c1db565b5a04ecee4f27d345e77cb31ce8f309bca43a3a757d0f538adb6ef7"
+    },
+    {
+      "model": "MetricParityReport",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/MetricParityReport.schema.json",
+      "schema_sha256": "c55da903d227df129d8bdae5a387dd7328e7112745f9fbfe8ce782a5698c535e"
+    },
+    {
+      "model": "ModuleReceipt",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.common",
+      "schema_file": "schemas/ModuleReceipt.schema.json",
+      "schema_sha256": "8a25e84a7c2e461afb91fcbe207c5b82a533a31a614c275ad269d72f516e0bf4"
+    },
+    {
+      "model": "OrderRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/OrderRecord.schema.json",
+      "schema_sha256": "efc706de9d08f7650cbf8f6d8c717731d9a304bcae51093283db43fa4f68e6a8"
+    },
+    {
+      "model": "P8EvaluationHandoff",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/P8EvaluationHandoff.schema.json",
+      "schema_sha256": "7b29b033e6747b8a71c28bd4a38ddca687b636dba65787ec1ddb99e1fe88f24f"
+    },
+    {
+      "model": "PairwiseComparison",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.comparison_models",
+      "schema_file": "schemas/PairwiseComparison.schema.json",
+      "schema_sha256": "bc97148f972ce7c2aaaab8f8cffadb687308d7f001502758de375456c21d024a"
+    },
+    {
+      "model": "PhaseRunRequest",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.execution_models",
+      "schema_file": "schemas/PhaseRunRequest.schema.json",
+      "schema_sha256": "7f37c9a75b4c20d37bd054b524f693a6f333ad7dfd4c803f5c6e5e4c85c815c9"
+    },
+    {
+      "model": "PhaseRunResult",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.execution_models",
+      "schema_file": "schemas/PhaseRunResult.schema.json",
+      "schema_sha256": "1b969c657ad3e590ee73e659227a30e893d8cf5146e6dbbac6645931bd7941a6"
+    },
+    {
+      "model": "PositionSnapshot",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/PositionSnapshot.schema.json",
+      "schema_sha256": "91511f36e521248e677c63b961c85dd2a3830a313e81f644b90d3c60671cae57"
+    },
+    {
+      "model": "ProvisionalModelConfidenceSet",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.comparison_models",
+      "schema_file": "schemas/ProvisionalModelConfidenceSet.schema.json",
+      "schema_sha256": "63bd7b674f9351265db03f8dad5a99c29527ec07191de0de2880fcfc1e059813"
+    },
+    {
+      "model": "ReconciliationTolerance",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/ReconciliationTolerance.schema.json",
+      "schema_sha256": "daa47256e6cec68b506181cce36edec7c65f8afbce2d9c911c68fdbca2cebea9"
+    },
+    {
+      "model": "ResourceBudget",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.execution_models",
+      "schema_file": "schemas/ResourceBudget.schema.json",
+      "schema_sha256": "f6d18623859d1a4e4aeffe7676588efbe8997ffad07b7716309a0a5db8689f30"
+    },
+    {
+      "model": "SampleRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.temporal_models",
+      "schema_file": "schemas/SampleRecord.schema.json",
+      "schema_sha256": "8033223bc8f7a9e9a2957128158d4a0a037b39ea212056e4f4f1a0c7ae74643c"
+    },
+    {
+      "model": "ScoreAggregationPolicy",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/ScoreAggregationPolicy.schema.json",
+      "schema_sha256": "7c4cc4a625fe35a43b1e55c2d6c62d1e777e96943722f5a692d55c9c13c45621"
+    },
+    {
+      "model": "ScoreAggregationResult",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/ScoreAggregationResult.schema.json",
+      "schema_sha256": "06500220fa24e0eaf219947759ff17eb6fabea4541579ba03fdb5120b48ca750"
+    },
+    {
+      "model": "ScoreComponentRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/ScoreComponentRecord.schema.json",
+      "schema_sha256": "999eab1ae5f8a670315e28b4398e46ed02d43a3cd30b35f31a976582ac58d741"
+    },
+    {
+      "model": "ScoreContext",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.scoring_models",
+      "schema_file": "schemas/ScoreContext.schema.json",
+      "schema_sha256": "c104574780a36939e0123494db795c7a71aa6413e828b3909e6e53d9c299002a"
+    },
+    {
+      "model": "SplitCount",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.temporal_models",
+      "schema_file": "schemas/SplitCount.schema.json",
+      "schema_sha256": "d9646b8a89e0b5b1867ae90c478231d6059ee8d81cb405811d0ede693d1a374a"
+    },
+    {
+      "model": "SplitIntegrityReceipt",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.temporal_models",
+      "schema_file": "schemas/SplitIntegrityReceipt.schema.json",
+      "schema_sha256": "befe471a601a662a86ff6e06d82014bf0a225bc6fddbabf536964309f077f3f3"
+    },
+    {
+      "model": "TemporalEvaluationPlan",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.temporal_models",
+      "schema_file": "schemas/TemporalEvaluationPlan.schema.json",
+      "schema_sha256": "d1e14abd11d7537160be71b3e67e812bfacde8564c50ec3b967855e7c631ee2b"
+    },
+    {
+      "model": "TemporalPlanPolicy",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.temporal_models",
+      "schema_file": "schemas/TemporalPlanPolicy.schema.json",
+      "schema_sha256": "c15f738a7ea1c9dc47ccdee5634f5ea6f20aed63db98d5bc6a2aa0b15a1d9804"
+    },
+    {
+      "model": "TimeWindow",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.common",
+      "schema_file": "schemas/TimeWindow.schema.json",
+      "schema_sha256": "280082c734f038b56110b472b215e89691a7c9f8a1a7458c43688052d281d1bd"
+    },
+    {
+      "model": "TrialBacktestRunBundle",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.execution_models",
+      "schema_file": "schemas/TrialBacktestRunBundle.schema.json",
+      "schema_sha256": "070468022b4a0fbe7dba2d3f1b30bbd396ba591b043bbf1b23d337e820615e38"
+    },
+    {
+      "model": "TrialComparisonResult",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.comparison_models",
+      "schema_file": "schemas/TrialComparisonResult.schema.json",
+      "schema_sha256": "b81556b6a0669eecc0bd63196253bdab478e2440e53f5ba34e8a67fc93745bed"
+    },
+    {
+      "model": "TrialExecutionLedger",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.execution_models",
+      "schema_file": "schemas/TrialExecutionLedger.schema.json",
+      "schema_sha256": "b763c64bbf56f0a95ccfbe348cf0f24a7c1af7ac6667730ed68c9f01421c85ff"
+    },
+    {
+      "model": "TrialExecutionPlan",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.execution_models",
+      "schema_file": "schemas/TrialExecutionPlan.schema.json",
+      "schema_sha256": "053754885ffdc0d3a5864aacececa53d7971c7f77c23b29aac94b3e99bb584ec"
+    },
+    {
+      "model": "TrialSpec",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.execution_models",
+      "schema_file": "schemas/TrialSpec.schema.json",
+      "schema_sha256": "1397241f53168d3d24861d16db4ae811ed395f126e0e74758136d5a3584dfd79"
+    },
+    {
+      "model": "ValuationRecord",
+      "python_module": "quant_pipeline.phase_09.subphases.s03_backtest_tournament.integrity_models",
+      "schema_file": "schemas/ValuationRecord.schema.json",
+      "schema_sha256": "c982b59696aa33f7d2f8c4468d3db6dcd4eac8f6952ad5616c495b17e6810fb5"
+    }
+  ]
+}

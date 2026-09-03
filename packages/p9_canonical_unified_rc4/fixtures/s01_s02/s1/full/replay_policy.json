@@ -1,0 +1,5 @@
+{
+  "require_contiguous_sequence": true,
+  "accounting_tolerance": "0.000001",
+  "allow_numerical_equivalence": true
+}

@@ -1,0 +1,54 @@
+$defs:
+  SimilarityComponent:
+    additionalProperties: false
+    properties:
+      name:
+        title: Name
+        type: string
+      weight:
+        exclusiveMinimum: 0
+        title: Weight
+        type: number
+    required:
+    - name
+    - weight
+    title: SimilarityComponent
+    type: object
+additionalProperties: false
+properties:
+  policy_id:
+    title: Policy Id
+    type: string
+  stages:
+    items:
+      $ref: '#/$defs/SimilarityComponent'
+    title: Components
+    type: array
+  minimum_weight_coverage:
+    maximum: 1
+    minimum: 0
+    title: Minimum Weight Coverage
+    type: number
+  top_k_neighbors:
+    minimum: 1
+    title: Top K Neighbors
+    type: integer
+  minimum_edge_similarity:
+    maximum: 1
+    minimum: 0
+    title: Minimum Edge Similarity
+    type: number
+  max_group_size:
+    minimum: 2
+    title: Max Group Size
+    type: integer
+required:
+- policy_id
+- stages
+- minimum_weight_coverage
+- top_k_neighbors
+- minimum_edge_similarity
+- max_group_size
+title: SimilarityPolicy
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

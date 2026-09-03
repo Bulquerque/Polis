@@ -1,0 +1,70 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "boundary_only_parameter_ids": {
+      "default": [],
+      "items": {
+        "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+        "type": "string"
+      },
+      "title": "Boundary Only Parameter Ids",
+      "type": "array"
+    },
+    "conditional_parameter_count": {
+      "minimum": 0,
+      "title": "Conditional Parameter Count",
+      "type": "integer"
+    },
+    "effective_dimension_count": {
+      "minimum": 0,
+      "title": "Effective Dimension Count",
+      "type": "integer"
+    },
+    "exact_cardinality": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Exact Cardinality"
+    },
+    "finite": {
+      "title": "Finite",
+      "type": "boolean"
+    },
+    "inactive_parameter_ids": {
+      "default": [],
+      "items": {
+        "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+        "type": "string"
+      },
+      "title": "Inactive Parameter Ids",
+      "type": "array"
+    },
+    "upper_bound": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Upper Bound"
+    }
+  },
+  "required": [
+    "finite",
+    "effective_dimension_count",
+    "conditional_parameter_count"
+  ],
+  "title": "SearchSpaceCardinalityReport",
+  "type": "object"
+}

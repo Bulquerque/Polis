@@ -1,0 +1,100 @@
+$defs:
+  ObjectiveComponent:
+    additionalProperties: false
+    properties:
+      component_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Component Id
+        type: string
+      component_type:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Component Type
+        type: string
+      weight:
+        title: Weight
+        type: number
+      unit:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Unit
+        type: string
+      direction:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Direction
+        type: string
+    required:
+    - component_id
+    - component_type
+    - weight
+    - unit
+    - direction
+    title: ObjectiveComponent
+    type: object
+additionalProperties: false
+properties:
+  candidate_ids:
+    items:
+      maxLength: 160
+      minLength: 1
+      pattern: ^[A-Za-z0-9_.:\-/]+$
+      type: string
+    title: Candidate Ids
+    type: array
+  horizon_ids:
+    items:
+      maxLength: 160
+      minLength: 1
+      pattern: ^[A-Za-z0-9_.:\-/]+$
+      type: string
+    title: Horizon Ids
+    type: array
+  expected_pnl_by_horizon_candidate:
+    items:
+      items:
+        type: number
+      type: array
+    title: Expected Pnl By Horizon Candidate
+    type: array
+  transaction_cost_by_candidate:
+    items:
+      type: number
+    title: Transaction Cost By Candidate
+    type: array
+  funding_cost_by_horizon_candidate:
+    items:
+      items:
+        type: number
+      type: array
+    title: Funding Cost By Horizon Candidate
+    type: array
+  components:
+    items:
+      $ref: '#/$defs/ObjectiveComponent'
+    title: Components
+    type: array
+  ordinal_penalty_count:
+    minimum: 0
+    title: Ordinal Penalty Count
+    type: integer
+  objective_hash:
+    pattern: ^[a-f0-9]{64}$
+    title: Objective Hash
+    type: string
+required:
+- candidate_ids
+- horizon_ids
+- expected_pnl_by_horizon_candidate
+- transaction_cost_by_candidate
+- funding_cost_by_horizon_candidate
+- components
+- ordinal_penalty_count
+- objective_hash
+title: CompiledPortfolioObjective
+type: object

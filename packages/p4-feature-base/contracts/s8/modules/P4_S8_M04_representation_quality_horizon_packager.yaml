@@ -1,0 +1,22 @@
+module_id: P4.S8.M04
+module_name: representation_quality_horizon_packager
+status: IMPLEMENTED_LOCAL_QUALIFIED
+contract_version: p4.v14.9-rc1.module.v1
+inputs:
+- underlying_feature_factors_pca
+- underlying_feature_embeddings
+- pca_fit_state_manifest
+- encoder_fit_state_manifest
+- representation_fold_plan
+outputs:
+- representation_quality_report
+- representation_horizon_bundle
+- encoder_hyperparameter_search_report
+invariants:
+- point_in_time_integrity
+- cross_fitted_representation
+- deterministic_replay
+- no_predictive_objective
+production_promotion_allowed: false
+phase: P4
+subphase: P4.S8

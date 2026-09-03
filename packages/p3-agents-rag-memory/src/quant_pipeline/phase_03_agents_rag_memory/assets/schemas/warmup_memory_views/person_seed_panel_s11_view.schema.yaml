@@ -1,0 +1,79 @@
+$defs:
+  PersonSeed:
+    additionalProperties: false
+    properties:
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      representation_weight:
+        maximum: 1.0
+        minimum: 0.0
+        title: Representation Weight
+        type: number
+      deterministic_seed:
+        minimum: 0
+        title: Deterministic Seed
+        type: integer
+      structural_profile_hash:
+        pattern: ^[0-9a-f]{64}$
+        title: Structural Profile Hash
+        type: string
+    required:
+    - person_id
+    - representation_weight
+    - deterministic_seed
+    - structural_profile_hash
+    title: PersonSeed
+    type: object
+additionalProperties: false
+properties:
+  schema_id:
+    const: person_seed_panel.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    title: Schema Version
+    type: string
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  snapshot_id:
+    minLength: 1
+    title: Snapshot Id
+    type: string
+  population_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Population Hash
+    type: string
+  persons:
+    items:
+      $ref: '#/$defs/PersonSeed'
+    title: Persons
+    type: array
+  lineage_id:
+    minLength: 1
+    title: Lineage Id
+    type: string
+required:
+- schema_id
+- schema_version
+- artifact_id
+- run_id
+- snapshot_id
+- population_hash
+- persons
+- lineage_id
+title: PersonSeedPanelView
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: person_seed_panel_s11_view
+schema_id: person_seed_panel.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

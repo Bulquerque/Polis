@@ -1,0 +1,43 @@
+{
+  "$id": "https://inferencia.local/p9/s3/CheckResult.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "check_id": {
+      "title": "Check Id",
+      "type": "string"
+    },
+    "expected": {
+      "title": "Expected",
+      "type": "string"
+    },
+    "observed": {
+      "title": "Observed",
+      "type": "string"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    },
+    "reason_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason Code"
+    }
+  },
+  "required": [
+    "check_id",
+    "passed",
+    "observed",
+    "expected"
+  ],
+  "title": "CheckResult",
+  "type": "object"
+}

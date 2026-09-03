@@ -1,0 +1,14 @@
+schema_id: person_schema_policy.s15.v2
+schema_version: 2.0.0
+allowed_roles: [fundamental_analyst, quant_researcher, portfolio_manager]
+allowed_resources: [research_terminal, python_runtime, filings_access]
+allowed_capabilities: [research, quantitative, tool_use]
+allowed_constraints: [no_external_data, restricted_compute]
+forbidden_entitlement_attributes:
+  - performance
+  - future_return
+  - candidate_score
+  - rank_score
+  - portfolio_weight
+  - trade_decision
+  - buy_sell_signal

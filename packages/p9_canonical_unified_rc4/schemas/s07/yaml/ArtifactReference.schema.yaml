@@ -1,0 +1,94 @@
+$defs:
+  Availability:
+    enum:
+    - AVAILABLE
+    - LIMITED
+    - UNAVAILABLE
+    - RESEARCH_ONLY
+    title: Availability
+    type: string
+additionalProperties: false
+properties:
+  artifact_id:
+    minLength: 1
+    title: Artifact Id
+    type: string
+  artifact_type:
+    minLength: 1
+    title: Artifact Type
+    type: string
+  artifact_schema_name:
+    minLength: 1
+    title: Artifact Schema Name
+    type: string
+  artifact_schema_version:
+    minLength: 1
+    title: Artifact Schema Version
+    type: string
+  artifact_schema_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Artifact Schema Sha256
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  producer_module_id:
+    minLength: 1
+    title: Producer Module Id
+    type: string
+  run_id:
+    minLength: 1
+    title: Run Id
+    type: string
+  cycle_id:
+    minLength: 1
+    title: Cycle Id
+    type: string
+  decision_time:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Decision Time
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  computed_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Computed At
+  maturity_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Maturity At
+  uri:
+    minLength: 1
+    title: Uri
+    type: string
+  availability:
+    $ref: '#/$defs/Availability'
+    default: AVAILABLE
+required:
+- artifact_id
+- artifact_type
+- artifact_schema_name
+- artifact_schema_version
+- artifact_schema_sha256
+- content_sha256
+- producer_module_id
+- run_id
+- cycle_id
+- available_at
+- uri
+title: ArtifactReference
+type: object
+$id: urn:inferencia:p9:s7:ArtifactReference:1.0.0

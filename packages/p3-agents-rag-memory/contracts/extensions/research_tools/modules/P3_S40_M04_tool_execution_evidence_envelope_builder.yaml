@@ -1,0 +1,156 @@
+phase: phase_03_agents_rag_memory
+subphase: P3.S40
+status: qualified_local
+contract_version: p3.research.tools.module.v1
+rc: S40-V1
+implementation_status_policy:
+  current: IMPLEMENTED_LOCAL_QUALIFICATION_REQUIRED
+  production_promotion_allowed: false
+  runtime_fail_closed: true
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- single_responsibility
+- deterministic_or_seeded_execution
+- no_hidden_global_state
+- no_same_cycle_back_edge
+- no_direct_P3_to_P5
+forbidden_fields:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+- recommendation
+- model_selection_result
+- feature_selection_result
+- target
+- label
+- prediction
+- realized_pnl
+- performance
+- pnl
+definition_of_done:
+- required_tests_implemented_and_passing
+- outputs_match_schemas
+- no_undeclared_side_effects
+- contracts_docs_tests_updated_together
+- consumer_compatibility_status_explicit
+observability_requirements:
+  events:
+  - module_started
+  - input_contract_validated
+  - module_succeeded
+  - module_failed
+  dimensions:
+  - run_id
+  - cycle_id
+  - module_id
+  - decision_time
+  - contract_version
+  - lineage_id
+  metrics:
+  - duration_ms
+  - input_record_count
+  - output_record_count
+  - warning_count
+  - error_count
+  redaction:
+  - credentials
+  - provider_secrets
+  - private_tool_payloads
+forbidden_connections:
+- future_phase_output_consumption
+- hidden_global_state
+- same_cycle_back_edge
+- direct_P3_to_P5_P6_P7_P8
+- live_network_in_backtest
+validations:
+- input_contracts_strict
+- output_contracts_strict
+- point_in_time_policy_enforced
+- lineage_and_hashes_present
+- handler_and_schema_completeness
+- replay_and_leakage_evidence_present
+authority_note: S40 composes and qualifies the research-tool extension; it does not alter P3.S1-P3.S31 or promote releases.
+fail_fast_conditions:
+- P3_S40_INPUT_INVALID
+- P3_S40_TEMPORAL_VIOLATION
+- P3_S40_UNDECLARED_DEPENDENCY
+- P3_S40_OUTPUT_INVALID
+- P3_S40_FORBIDDEN_AUTHORITY
+debugging_contract:
+  triage_order:
+  - verify_declared_inputs_materialized
+  - verify_schema_and_version
+  - verify_registry_and_alias_binding
+  - verify_entitlement_provider_and_transport
+  - verify_available_at_and_decision_time
+  - verify_output_hashes_and_consumer_status
+  error_codes:
+  - P3RT-CONTRACT-SCHEMA-INVALID
+  - P3RT-HANDLER-REGISTRY-INCOMPLETE
+  - P3RT-RUNTIME-S21-PREFLIGHT-FAILED
+  - P3RT-PIT-LEAKAGE-TEST-FAILED
+  - P3RT-DOWNSTREAM-P4-INCOMPATIBLE
+  - P3RT-DOWNSTREAM-P9-INCOMPATIBLE
+  fallback_policy: no_silent_fallback; degrade_block_or_fail_with_reason_code
+change_control:
+  safe_surfaces:
+  - implementation
+  - configuration
+  - documentation
+  - test_fixture
+  contract_change_requires:
+  - schema_update
+  - overlay_update
+  - tests_update
+  - documentation_update
+  - version_review
+  major_breaking_change_during_parallel_production: false
+review_checklist:
+- responsibility_is_single_and_bounded
+- inputs_and_outputs_match_overlay
+- no_forbidden_authority
+- temporal_semantics_are_explicit
+- consumer_status_is_honest
+- tests_cover_happy_negative_boundary_lineage_replay
+module_id: P3.S40.M04
+module_name: tool_execution_evidence_envelope_builder
+function: Materialize point-in-time provenance and insert external tool evidence between S21.M03 and S21.M04.
+inputs: &id001
+- raw_tool_result_panel
+- tool_call_audit_panel
+- retrieval_evidence_map
+- phase3_run_snapshot
+outputs: &id002
+- research_tool_result_envelope_panel
+- research_tool_evidence_map
+- extended_retrieval_evidence_map
+- research_tool_execution_trace_panel
+implementation_boundary:
+  owns:
+  - Materialize point-in-time provenance and insert external tool evidence between S21.M03 and S21.M04.
+  must_not_absorb: &id003
+  - validating beliefs
+  - changing raw results
+  - creating future evidence
+  state_mutation_policy: only_declared_outputs
+tests_required:
+- happy_path
+- invalid_contract
+- point_in_time_violation
+- deterministic_replay
+- lineage_and_hash_integrity
+allowed_connections:
+  consumes_from:
+    artifacts: *id001
+  emits_to:
+    artifacts: *id002
+implementation_target: src/quant_pipeline/phase_03_agents_rag_memory/extensions/research_tools/modules/P3_S40_M04_tool_execution_evidence_envelope_builder.py
+unit_test_target: tests/research_tools/runtime
+integration_test_target: tests/research_tools/runtime/test_real_s21_bridge.py
+documentation_target: docs/research_tools/P3.S40.md
+non_responsibilities: *id003
+owner_prompt: extensions/research_tools/subphases/P3_S40_runtime_evidence_qualification_downstream.md

@@ -1,0 +1,85 @@
+{
+  "schema_version": "next_cycle_endogenous_stimulus_queue.v2",
+  "contract_version": "p3.s26.v1",
+  "queue_id": "queue:cycle-2026-07-27-001",
+  "source_run_id": "run:2026-07-27-001",
+  "source_cycle_id": "cycle:2026-07-26-001",
+  "target_cycle_id": "cycle:2026-07-27-001",
+  "created_at": "2026-07-26T23:00:00Z",
+  "items": [
+    {
+      "stimulus_id": "stim:endogenous-followup-001",
+      "origin_type": "ATTENTION_FOLLOWUP",
+      "source_event_id": "intent:followup-001",
+      "causal_parent_id": "belief:commit-001",
+      "created_cycle_id": "cycle:2026-07-26-001",
+      "target_cycle_id": "cycle:2026-07-27-001",
+      "event_time": "2026-07-26T20:00:00Z",
+      "available_at": "2026-07-26T20:01:00Z",
+      "expires_at": "2026-07-30T00:00:00Z",
+      "subject": "Revisit Apple directional outlook after prior uncertainty",
+      "stimulus_type": "ATTENTION_FOLLOWUP_EVENT",
+      "intensity": 0.72,
+      "salience": 0.68,
+      "priority": 76,
+      "resolution_status": "RESOLVED_ONE",
+      "underlying_candidates": [
+        {
+          "underlying_id": "figi:BBG000B9XRY4",
+          "weight": 1.0,
+          "mic": "XNAS",
+          "security_type": "Common Stock",
+          "identifiers": []
+        }
+      ],
+      "selected_underlying_id": "figi:BBG000B9XRY4",
+      "proposition_id": "directional_outlook",
+      "horizon": "21d",
+      "proposition_status": "RESOLVED",
+      "content_hash": "58238552c1bbc49c2daad06cf1e2ebc1cc038708ce2769e68e358d2e56f6baf5",
+      "evidence_refs": [
+        "evidence:followup-001"
+      ],
+      "lineage_id": "lineage:followup-001",
+      "warnings": []
+    },
+    {
+      "stimulus_id": "stim:endogenous-social-001",
+      "origin_type": "SOCIAL_DELIVERY",
+      "source_event_id": "social:delivery-001",
+      "causal_parent_id": "message:001",
+      "created_cycle_id": "cycle:2026-07-26-001",
+      "target_cycle_id": "cycle:2026-07-27-001",
+      "event_time": "2026-07-26T21:00:00Z",
+      "available_at": "2026-07-26T21:02:00Z",
+      "expires_at": "2026-07-29T00:00:00Z",
+      "subject": "Peer message about inflation regime uncertainty",
+      "stimulus_type": "SOCIAL_MESSAGE_EVENT",
+      "intensity": 0.55,
+      "salience": 0.52,
+      "priority": 60,
+      "resolution_status": "UNRESOLVED",
+      "underlying_candidates": [],
+      "selected_underlying_id": null,
+      "proposition_id": "regime_outlook",
+      "horizon": "21d",
+      "proposition_status": "RESOLVED",
+      "content_hash": "974cfb4ca27c685f678b58352cfa6158801b10a2ec40d67e3584182d308dbd30",
+      "evidence_refs": [
+        "evidence:social-001"
+      ],
+      "lineage_id": "lineage:social-001",
+      "warnings": [
+        "underlying_unresolved"
+      ]
+    }
+  ],
+  "lineage_id": "lineage:queue-001",
+  "content_hash": "36750a73769e3cc3d64e31af56548d5651b52239e88e23c96d55f99f9833e048",
+  "status": "READY",
+  "warnings": [],
+  "metrics": {
+    "generated_count": 2,
+    "warning_count": 0
+  }
+}

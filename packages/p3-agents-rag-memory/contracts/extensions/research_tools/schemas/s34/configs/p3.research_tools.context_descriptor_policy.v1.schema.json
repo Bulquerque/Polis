@@ -1,0 +1,105 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.context_descriptor_policy.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "include_examples": {
+      "default": true,
+      "title": "Include Examples",
+      "type": "boolean"
+    },
+    "mandatory_instructions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Mandatory Instructions",
+      "type": "array"
+    },
+    "max_descriptor_tokens": {
+      "default": 1500,
+      "maximum": 16384,
+      "minimum": 0,
+      "title": "Max Descriptor Tokens",
+      "type": "integer"
+    },
+    "max_example_characters": {
+      "default": 180,
+      "maximum": 1000,
+      "minimum": 0,
+      "title": "Max Example Characters",
+      "type": "integer"
+    },
+    "max_operations_per_tool": {
+      "default": 12,
+      "maximum": 64,
+      "minimum": 1,
+      "title": "Max Operations Per Tool",
+      "type": "integer"
+    },
+    "operation_examples": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Operation Examples",
+      "type": "object"
+    },
+    "policy_version": {
+      "default": "1.0.0",
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "preserve_section_types": {
+      "default": [
+        "PERSON_IDENTITY",
+        "PRIOR_BELIEFS",
+        "RETRIEVED_EVIDENCE"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Preserve Section Types",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "p3.research_tools.context_descriptor_policy.v1",
+      "default": "p3.research_tools.context_descriptor_policy.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "section_header": {
+      "default": "AUTHORIZED_RESEARCH_TOOLS",
+      "minLength": 1,
+      "title": "Section Header",
+      "type": "string"
+    },
+    "tokenizer_mode": {
+      "const": "DETERMINISTIC_REGEX",
+      "default": "DETERMINISTIC_REGEX",
+      "title": "Tokenizer Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "mandatory_instructions"
+  ],
+  "title": "ContextToolDescriptorPolicyConfig",
+  "type": "object"
+}

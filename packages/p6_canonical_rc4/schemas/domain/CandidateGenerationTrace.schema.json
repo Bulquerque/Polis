@@ -1,0 +1,131 @@
+{
+  "$defs": {
+    "JsonValue": {},
+    "OriginMode": {
+      "enum": [
+        "TEMPLATE",
+        "MUTATION",
+        "INVERSE_DESIGN"
+      ],
+      "title": "OriginMode",
+      "type": "string"
+    },
+    "TemplateId": {
+      "enum": [
+        "LONG_UNDERLYING",
+        "SHORT_UNDERLYING",
+        "LONG_CALL",
+        "LONG_PUT",
+        "BULL_CALL_DEBIT",
+        "BEAR_PUT_DEBIT",
+        "BULL_PUT_CREDIT",
+        "BEAR_CALL_CREDIT",
+        "LONG_STRADDLE",
+        "LONG_STRANGLE",
+        "LONG_CALL_BUTTERFLY",
+        "LONG_CALL_CONDOR",
+        "IRON_BUTTERFLY",
+        "IRON_CONDOR",
+        "COLLAR",
+        "RISK_REVERSAL_DEFINED_RISK",
+        "PROTECTED_RATIO_CALL",
+        "MUTATED_FREE_FORM",
+        "INVERSE_DESIGN_FREE_FORM"
+      ],
+      "title": "TemplateId",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "dedup_cluster": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Dedup Cluster"
+    },
+    "generation_stage": {
+      "title": "Generation Stage",
+      "type": "string"
+    },
+    "operators": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Operators",
+      "type": "array"
+    },
+    "origin": {
+      "$ref": "#/$defs/OriginMode"
+    },
+    "origin_template_id": {
+      "$ref": "#/$defs/TemplateId"
+    },
+    "parameters": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Parameters",
+      "type": "object"
+    },
+    "parent_candidate_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Parent Candidate Ids",
+      "type": "array"
+    },
+    "rejection_history": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Rejection History",
+      "type": "array"
+    },
+    "solver_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Solver Id"
+    },
+    "solver_status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Solver Status"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "origin",
+    "origin_template_id",
+    "generation_stage"
+  ],
+  "title": "CandidateGenerationTrace",
+  "type": "object"
+}

@@ -1,0 +1,47 @@
+module_id: P4.S6.M04
+module_name: multi_horizon_missing_view_assembler
+phase: P4
+subphase: P4.S6
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: multi horizon missing view assembler
+inputs:
+- aligned_perspective_panel
+- perspective_conflict_panel
+- interaction_feature_panel
+outputs:
+- horizon_feature_panel
+- horizon_feature_set_manifest
+validations:
+- long_form_output
+- information_age_preserved
+- coverage_manifest
+- no_wide_pivot
+- deterministic_order
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- single_responsibility
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- buy_sell_signal
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- missing_view
+- lineage
+- replay
+- metamorphic
+production_promotion_allowed: false

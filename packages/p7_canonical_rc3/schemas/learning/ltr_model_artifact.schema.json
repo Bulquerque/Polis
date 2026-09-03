@@ -1,0 +1,223 @@
+{
+  "$id": "ltr_model_artifact.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "ltr_model_artifact"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "calibration_query_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "calibrator": {
+            "additionalProperties": false,
+            "properties": {
+              "intercept": {
+                "type": "number"
+              },
+              "slope": {
+                "type": "number"
+              },
+              "status": {
+                "enum": [
+                  "CALIBRATED",
+                  "DEGRADED",
+                  "UNAVAILABLE"
+                ]
+              }
+            },
+            "required": [
+              "status",
+              "slope",
+              "intercept"
+            ],
+            "type": "object"
+          },
+          "deterministic": {
+            "const": true
+          },
+          "feature_names": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "feature_schema_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "implementation_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "model_family_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "model_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "model_state": {
+            "additionalProperties": true,
+            "properties": {
+              "implementation_id": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "implementation_id"
+            ],
+            "type": "object"
+          },
+          "model_version": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "promotion_status": {
+            "enum": [
+              "UNQUALIFIED",
+              "NOT_PROMOTED",
+              "PROMOTED",
+              "DEPRECATED"
+            ]
+          },
+          "sealed_test_query_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "serialization_format": {
+            "const": "DECLARATIVE_JSON"
+          },
+          "target_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "target_policy_version": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "training_cutoff_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "training_query_ids": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "model_family_id",
+          "implementation_id",
+          "model_version",
+          "target_id",
+          "target_policy_version",
+          "feature_schema_hash",
+          "feature_names",
+          "training_cutoff_at",
+          "training_query_ids",
+          "calibration_query_ids",
+          "sealed_test_query_ids",
+          "model_state",
+          "calibrator",
+          "deterministic",
+          "serialization_format",
+          "promotion_status",
+          "model_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

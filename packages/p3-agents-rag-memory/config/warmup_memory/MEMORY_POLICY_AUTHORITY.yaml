@@ -1,0 +1,19 @@
+authority_id: P3_FINAL_MEMORY_POLICY_AUTHORITY_V1
+authority_version: 1.0.0
+access_policy_path: config/warmup_memory/MEMORY_ACCESS_CONFIG_S14.yaml
+retrieval_policy_path: config/warmup_memory/MEMORY_RETRIEVAL_CONFIG_S14.yaml
+policy_dimensions:
+- scope
+- retention
+- visibility
+- budget
+- redaction
+index_compatibility_fields:
+- adapter_id
+- adapter_version
+- index_version
+- storage_mode
+- hash_algorithm
+- partition_fields
+migration_policy: EXPLICIT_VERSIONED_MIGRATION_ONLY
+concurrent_refresh_policy: SINGLE_WRITER_COMPARE_AND_SWAP

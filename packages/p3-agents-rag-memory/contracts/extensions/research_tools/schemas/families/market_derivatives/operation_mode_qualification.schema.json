@@ -1,0 +1,73 @@
+{
+  "$defs": {
+    "QualificationStatus": {
+      "enum": [
+        "QUALIFIED_LOCAL",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM",
+        "FAILED"
+      ],
+      "title": "QualificationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "mode_id": {
+      "minLength": 1,
+      "title": "Mode Id",
+      "type": "string"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "required_views": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Required Views",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/QualificationStatus"
+    },
+    "test_targets": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Test Targets",
+      "type": "array"
+    },
+    "tool_id": {
+      "enum": [
+        "market.observation.v1",
+        "options.observation.v1"
+      ],
+      "title": "Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool_id",
+    "operation_id",
+    "mode_id",
+    "status"
+  ],
+  "title": "OperationModeQualification",
+  "type": "object"
+}

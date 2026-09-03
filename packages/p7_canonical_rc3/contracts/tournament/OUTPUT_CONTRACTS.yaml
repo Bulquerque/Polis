@@ -1,0 +1,20 @@
+contract_id: p7_tournament_integrated_output_v1
+outputs:
+  - comparable_candidate_metric_panel
+  - metric_semantics_audit_report
+  - factor_exposure_panel
+  - factor_adjusted_metric_panel
+  - factor_adjustment_audit_report
+  - dominance_relation_panel
+  - dominated_candidate_panel
+  - dominance_survivor_panel
+  - pareto_frontier_panel
+  - pareto_frontier_audit_report
+  - scoring_head_input_panel
+  - scoring_policy_receipt
+  - scoring_head_panel
+  - interpretable_score_panel
+  - score_decomposition_panel
+  - interpretable_tournament_audit_report
+  - interpretable_tournament_handoff_manifest
+forbidden_outputs: [rank, top_k, ltr_score, portfolio_weight, execution_order, recommended_trade]

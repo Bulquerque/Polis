@@ -1,0 +1,13 @@
+registry_id: test_ownership_registry_v14_1_rc4_1
+phase_0_global_tests:
+- structure
+- yaml
+- manifest
+- duplicates
+- monolith
+- forbidden_connections
+- source_of_truth
+phase_local_tests:
+- phase_contract_surface
+- phase_module_invariants
+- phase_fixtures

@@ -1,0 +1,5 @@
+subphase: P3.S28
+bindings:
+  aggregation_semantics_config: config/S28_AGGREGATION_SEMANTICS.yaml
+  emergence_vector_config: config/S28_EMERGENCE_VECTOR_CONFIG.yaml
+policy: module_scoped_configs_do_not_replace_global_authorities_without_P0_merge

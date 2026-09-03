@@ -1,0 +1,46 @@
+subphase: P7.S4
+modules:
+  P7.S4.M01:
+    inputs:
+      - pareto_frontier_panel
+      - factor_adjusted_metric_panel
+      - comparable_candidate_metric_panel
+      - candidate_comparison_group_panel
+      - scoring_policy_context
+    outputs:
+      - scoring_head_input_panel
+      - scoring_policy_receipt
+  P7.S4.M02:
+    inputs:
+      - scoring_head_input_panel
+      - factor_adjusted_metric_panel
+      - comparable_candidate_metric_panel
+      - scoring_policy_receipt
+    outputs:
+      - scoring_head_panel
+  P7.S4.M03:
+    inputs:
+      - scoring_head_panel
+      - scoring_policy_receipt
+      - pareto_frontier_panel
+    outputs:
+      - interpretable_score_panel
+  P7.S4.M04:
+    inputs:
+      - interpretable_score_panel
+      - scoring_head_panel
+      - scoring_policy_receipt
+      - pareto_frontier_panel
+      - pareto_frontier_audit_report
+      - dominated_candidate_panel
+      - dominance_survivor_panel
+      - dominance_relation_panel
+      - factor_adjusted_metric_panel
+      - factor_exposure_panel
+      - comparable_candidate_metric_panel
+      - metric_semantics_audit_report
+      - factor_adjustment_audit_report
+    outputs:
+      - score_decomposition_panel
+      - interpretable_tournament_audit_report
+      - interpretable_tournament_handoff_manifest

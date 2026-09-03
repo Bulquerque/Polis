@@ -1,0 +1,154 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: research_attempt_ledger
+type: object
+properties:
+  artifact_id:
+    type: string
+  artifact_name:
+    const: research_attempt_ledger
+  schema_version:
+    type: string
+  producer_phase:
+    const: phase_04_feature_base
+  producer_module_id:
+    type: string
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  record_count:
+    type: integer
+    minimum: 0
+  grain:
+    type: array
+    items:
+      type: string
+  lineage_id:
+    type: string
+  execution_status:
+    enum:
+    - PRODUCED
+    - DEGRADED
+    - BLOCKED
+    - SKIPPED_NOT_AVAILABLE
+    - SKIPPED_NOT_AUTHORIZED
+    - UNAVAILABLE_UPSTREAM
+    - FAILED_NONBLOCKING
+    - NOT_RUN
+  quality_status:
+    enum:
+    - VALIDATED
+    - DEGRADED
+    - BLOCKED
+    - NOT_EVALUATED
+  records:
+    type: array
+    items:
+      type: object
+      properties:
+        attempt_id:
+          type: string
+        hypothesis_id:
+          type:
+          - string
+          - 'null'
+        observer_id:
+          type:
+          - string
+          - 'null'
+        parameterization_id:
+          type:
+          - string
+          - 'null'
+        config_id:
+          type:
+          - string
+          - 'null'
+        fold_id:
+          type:
+          - string
+          - 'null'
+        seed:
+          type:
+          - integer
+          - 'null'
+        status:
+          type: string
+        reason_code:
+          type:
+          - string
+          - 'null'
+        agent_id:
+          type:
+          - string
+          - 'null'
+        parent_attempt_id:
+          type:
+          - string
+          - 'null'
+        first_event_time:
+          type: string
+        last_event_time:
+          type: string
+        event_count:
+          type: integer
+          minimum: 1
+        terminal:
+          type: boolean
+        last_event_hash:
+          type: string
+      required:
+      - attempt_id
+      - hypothesis_id
+      - observer_id
+      - parameterization_id
+      - config_id
+      - fold_id
+      - seed
+      - status
+      - reason_code
+      - agent_id
+      - parent_attempt_id
+      - first_event_time
+      - last_event_time
+      - event_count
+      - terminal
+      - last_event_hash
+      additionalProperties: false
+  metadata:
+    type: object
+    properties: {}
+    additionalProperties: true
+  alias_of:
+    type:
+    - string
+    - 'null'
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- record_count
+- grain
+- lineage_id
+- execution_status
+- quality_status
+- records
+- metadata
+- alias_of
+additionalProperties: false

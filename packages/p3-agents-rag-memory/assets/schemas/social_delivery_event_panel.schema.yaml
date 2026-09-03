@@ -1,0 +1,160 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  DeliveryEventStatus:
+    enum:
+    - CREATED
+    - QUEUED
+    - UNDELIVERED
+    - EXPIRED
+    - FAILED
+    title: DeliveryEventStatus
+    type: string
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  SocialDeliveryEventRecord:
+    additionalProperties: false
+    properties:
+      specversion:
+        const: '1.0'
+        default: '1.0'
+        title: Specversion
+        type: string
+      event_id:
+        minLength: 1
+        title: Event Id
+        type: string
+      event_type:
+        minLength: 1
+        title: Event Type
+        type: string
+      source:
+        minLength: 1
+        title: Source
+        type: string
+      subject:
+        minLength: 1
+        title: Subject
+        type: string
+      event_time:
+        format: date-time
+        title: Event Time
+        type: string
+      data_schema:
+        default: urn:p3:schema:social-delivery-event:v1
+        minLength: 1
+        title: Data Schema
+        type: string
+      delivery_id:
+        minLength: 1
+        title: Delivery Id
+        type: string
+      message_id:
+        minLength: 1
+        title: Message Id
+        type: string
+      correlation_id:
+        minLength: 1
+        title: Correlation Id
+        type: string
+      causation_id:
+        minLength: 1
+        title: Causation Id
+        type: string
+      target_cycle_id:
+        minLength: 1
+        title: Target Cycle Id
+        type: string
+      status:
+        $ref: '#/$defs/DeliveryEventStatus'
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+    required:
+    - event_id
+    - event_type
+    - source
+    - subject
+    - event_time
+    - delivery_id
+    - message_id
+    - correlation_id
+    - causation_id
+    - target_cycle_id
+    - status
+    title: SocialDeliveryEventRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s24.v1
+    default: p3.s24.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/SocialDeliveryEventRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: SocialDeliveryEventPanel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: social_delivery_event_panel
+schema_id: social_delivery_event_panel.p3.s24.v1
+status: implemented_internal_schema
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

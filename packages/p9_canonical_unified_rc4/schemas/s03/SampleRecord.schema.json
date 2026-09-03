@@ -1,0 +1,51 @@
+{
+  "$id": "https://inferencia.local/p9/s3/SampleRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "entity_id": {
+      "title": "Entity Id",
+      "type": "string"
+    },
+    "label_end_time": {
+      "format": "date-time",
+      "title": "Label End Time",
+      "type": "string"
+    },
+    "label_start_time": {
+      "format": "date-time",
+      "title": "Label Start Time",
+      "type": "string"
+    },
+    "record_id": {
+      "title": "Record Id",
+      "type": "string"
+    },
+    "vintage_time": {
+      "format": "date-time",
+      "title": "Vintage Time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "entity_id",
+    "decision_time",
+    "available_at",
+    "label_start_time",
+    "label_end_time",
+    "vintage_time"
+  ],
+  "title": "SampleRecord",
+  "type": "object"
+}

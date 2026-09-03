@@ -1,0 +1,490 @@
+{
+  "matrix_id": "p3.research-tools.unified.test-matrix.rc3",
+  "status": "PASS",
+  "partition_count": 37,
+  "executed_partition_count": 37,
+  "passed_test_count": 1003,
+  "results": [
+    {
+      "name": "contracts",
+      "targets": [
+        "tests/contracts"
+      ],
+      "returncode": 0,
+      "duration_seconds": 5.097,
+      "passed_count": 248,
+      "output": "........................................................................ [ 29%]\n........................................................................ [ 58%]\n........................................................................ [ 87%]\n................................                                         [100%]\n248 passed in 3.72s",
+      "status": "PASS"
+    },
+    {
+      "name": "final_integration",
+      "targets": [
+        "tests/final_integration"
+      ],
+      "returncode": 0,
+      "duration_seconds": 8.45,
+      "passed_count": 20,
+      "output": "....................                                                     [100%]\n20 passed in 7.37s",
+      "status": "PASS"
+    },
+    {
+      "name": "foundation_contracts",
+      "targets": [
+        "tests/foundation_contracts"
+      ],
+      "returncode": 0,
+      "duration_seconds": 3.239,
+      "passed_count": 19,
+      "output": "...................                                                      [100%]\n19 passed in 2.22s",
+      "status": "PASS"
+    },
+    {
+      "name": "integration_runtime",
+      "targets": [
+        "tests/integration_runtime"
+      ],
+      "returncode": 0,
+      "duration_seconds": 12.186,
+      "passed_count": 8,
+      "output": "........                                                                 [100%]\n8 passed in 10.25s",
+      "status": "PASS"
+    },
+    {
+      "name": "phase_specific_research_tools",
+      "targets": [
+        "tests/phase_specific/research_tools"
+      ],
+      "returncode": 0,
+      "duration_seconds": 13.202,
+      "passed_count": 79,
+      "output": "........................................................................ [ 91%]\n.......                                                                  [100%]\n79 passed in 12.15s",
+      "status": "PASS"
+    },
+    {
+      "name": "research_tools",
+      "targets": [
+        "tests/research_tools"
+      ],
+      "returncode": 0,
+      "duration_seconds": 6.334,
+      "passed_count": 80,
+      "output": "........................................................................ [ 90%]\n........                                                                 [100%]\n80 passed in 5.03s",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_context",
+      "targets": [
+        "tests/runtime_context"
+      ],
+      "returncode": 0,
+      "duration_seconds": 2.048,
+      "passed_count": 33,
+      "output": ".................................                                        [100%]\n33 passed in 1.17s",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_engine",
+      "targets": [
+        "tests/runtime_engine"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.97,
+      "passed_count": 2,
+      "output": "..                                                                       [100%]\n2 passed in 0.82s",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_hardening_live",
+      "targets": [
+        "tests/runtime_hardening/test_live_safety_hard.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 3.389,
+      "passed_count": 6,
+      "output": "......                                                                   [100%]\n6 passed in 2.45s",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_hardening_migration",
+      "targets": [
+        "tests/runtime_hardening/test_migration_script_static.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 0.716,
+      "passed_count": 6,
+      "output": "......                                                                   [100%]\n6 passed in 0.05s",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_hardening_temporal",
+      "targets": [
+        "tests/runtime_hardening/test_temporal_overlay_and_gate.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.415,
+      "passed_count": 2,
+      "output": "..                                                                       [100%]\n2 passed in 0.67s",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_products",
+      "targets": [
+        "tests/runtime_products"
+      ],
+      "returncode": 0,
+      "duration_seconds": 11.486,
+      "passed_count": 149,
+      "output": "........................................................................ [ 48%]\n........................................................................ [ 96%]\n.....                                                                    [100%]\n149 passed in 10.63s",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_society",
+      "targets": [
+        "tests/runtime_society"
+      ],
+      "returncode": 0,
+      "duration_seconds": 2.292,
+      "passed_count": 80,
+      "output": "........................................................................ [ 90%]\n........                                                                 [100%]\n80 passed in 1.42s",
+      "status": "PASS"
+    },
+    {
+      "name": "scientific_evaluation",
+      "targets": [
+        "tests/scientific_evaluation"
+      ],
+      "returncode": 0,
+      "duration_seconds": 2.105,
+      "passed_count": 2,
+      "output": "..                                                                       [100%]\n2 passed in 1.23s",
+      "status": "PASS"
+    },
+    {
+      "name": "phase_specific_1",
+      "targets": [
+        "tests\\phase_specific\\test_cognition_s21_s24_consolidated.py",
+        "tests\\phase_specific\\test_contracts_and_boundaries.py",
+        "tests\\phase_specific\\test_documentation.py",
+        "tests\\phase_specific\\test_graph_and_artifacts.py",
+        "tests\\phase_specific\\test_ids_versions_and_compatibility.py",
+        "tests\\phase_specific\\test_module_contracts.py",
+        "tests\\phase_specific\\test_module_semantic_acceptance.py",
+        "tests\\phase_specific\\test_p0_compact_contract_compatibility.py",
+        "tests\\phase_specific\\test_p3_s10_integration.py",
+        "tests\\phase_specific\\test_p3_s10_m01_warmup_scheduler.py",
+        "tests\\phase_specific\\test_p3_s10_m02_warmup_checkpoint_planner.py",
+        "tests\\phase_specific\\test_p3_s12_integration.py",
+        "tests\\phase_specific\\test_p3_s12_m01_document_chunker_and_indexer.py",
+        "tests\\phase_specific\\test_p3_s12_m02_retrieval_index_manifest_builder.py",
+        "tests\\phase_specific\\test_p3_s13_integration.py",
+        "tests\\phase_specific\\test_p3_s14_integration.py",
+        "tests\\phase_specific\\test_p3_s14_m01_memory_access_policy_builder.py",
+        "tests\\phase_specific\\test_p3_s14_m02_memory_index_manifest_builder.py",
+        "tests\\phase_specific\\test_p3_s15_integration.py",
+        "tests\\phase_specific\\test_p3_s15_m01_tool_registry_builder.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 80.612,
+      "passed_count": 129,
+      "output": "........................................................................ [ 55%]\n.........................................................                [100%]\n129 passed in 79.69s (0:01:19)",
+      "status": "PASS"
+    },
+    {
+      "name": "phase_specific_2",
+      "targets": [
+        "tests\\phase_specific\\test_p3_s15_m02_person_tool_entitlement_router.py",
+        "tests\\phase_specific\\test_p3_s16_integration.py",
+        "tests\\phase_specific\\test_p3_s16_m01_mcp_tool_gateway_policy_builder.py",
+        "tests\\phase_specific\\test_p3_s16_m02_tool_call_audit_contract_builder.py",
+        "tests\\phase_specific\\test_p3_s16_schema_binding.py",
+        "tests\\phase_specific\\test_p3_s1_m01_phase2_handoff_contract_validator.py",
+        "tests\\phase_specific\\test_p3_s1_m02_source_quality_context_guard.py",
+        "tests\\phase_specific\\test_p3_s21_canonical_execution_and_budget.py",
+        "tests\\phase_specific\\test_p3_s21_integration.py",
+        "tests\\phase_specific\\test_p3_s21_m01_wrapper.py",
+        "tests\\phase_specific\\test_p3_s21_m02_wrapper.py",
+        "tests\\phase_specific\\test_p3_s21_m03_wrapper.py",
+        "tests\\phase_specific\\test_p3_s21_m04_wrapper.py",
+        "tests\\phase_specific\\test_p3_s21_m05_wrapper.py",
+        "tests\\phase_specific\\test_p3_s21_m06_wrapper.py",
+        "tests\\phase_specific\\test_p3_s22_integration.py",
+        "tests\\phase_specific\\test_p3_s22_m01_belief_state_validator.py",
+        "tests\\phase_specific\\test_p3_s22_m02_evidence_binding_validator.py",
+        "tests\\phase_specific\\test_p3_s22_m03_belief_outcome_commitment_logger.py",
+        "tests\\phase_specific\\test_p3_s23_integration.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 4.099,
+      "passed_count": 24,
+      "output": "........................                                                 [100%]\n24 passed in 3.04s",
+      "status": "PASS"
+    },
+    {
+      "name": "phase_specific_3",
+      "targets": [
+        "tests\\phase_specific\\test_p3_s23_m01_person_state_transition_writer.py",
+        "tests\\phase_specific\\test_p3_s23_m02_gradual_change_guard.py",
+        "tests\\phase_specific\\test_p3_s24_integration.py",
+        "tests\\phase_specific\\test_p3_s24_m01_social_message_router.py",
+        "tests\\phase_specific\\test_p3_s24_m02_social_delivery_scheduler.py",
+        "tests\\phase_specific\\test_p3_s24_m03_social_tool_usage_auditor.py",
+        "tests\\phase_specific\\test_p3_s2_m01_point_in_time_context_gate.py",
+        "tests\\phase_specific\\test_p3_s2_m02_phase3_run_snapshot_builder.py",
+        "tests\\phase_specific\\test_p3_s2_m03_model_knowledge_cutoff_firewall.py",
+        "tests\\phase_specific\\test_p3_s2_temporal_authority.py",
+        "tests\\phase_specific\\test_p3_s3_integration.py",
+        "tests\\phase_specific\\test_p3_s3_m01_promoted_retro_update_ingestor.py",
+        "tests\\phase_specific\\test_p3_s3_m02_matured_belief_feedback_ingestor.py",
+        "tests\\phase_specific\\test_p3_s4_catalog_generation.py",
+        "tests\\phase_specific\\test_p3_s4_integration.py",
+        "tests\\phase_specific\\test_p3_s4_m01_personality_tag_registry_loader.py",
+        "tests\\phase_specific\\test_p3_s4_m02_person_schema_policy_loader.py",
+        "tests\\phase_specific\\test_p3_s5_integration.py",
+        "tests\\phase_specific\\test_p3_s5_m01_personality_candidate_generator.py",
+        "tests\\phase_specific\\test_p3_s5_m02_personality_candidate_consistency_checker.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 5.39,
+      "passed_count": 31,
+      "output": "...............................                                          [100%]\n31 passed in 4.43s",
+      "status": "PASS"
+    },
+    {
+      "name": "phase_specific_4",
+      "targets": [
+        "tests\\phase_specific\\test_p3_s6_integration.py",
+        "tests\\phase_specific\\test_p3_s6_m01_personality_coverage_metric_calculator.py",
+        "tests\\phase_specific\\test_p3_s6_m02_coverage_density_controller.py",
+        "tests\\phase_specific\\test_p3_s7_integration.py",
+        "tests\\phase_specific\\test_p3_s7_m01_fixed_population_builder.py",
+        "tests\\phase_specific\\test_p3_s7_m02_population_consistency_validator.py",
+        "tests\\phase_specific\\test_p3_s8_integration.py",
+        "tests\\phase_specific\\test_p3_s8_m01_initial_social_graph_builder.py",
+        "tests\\phase_specific\\test_p3_s8_m02_relationship_prior_validator.py",
+        "tests\\phase_specific\\test_p3_s9_integration.py",
+        "tests\\phase_specific\\test_p3_s9_m01_warmup_history_validator.py",
+        "tests\\phase_specific\\test_parsing_and_schemas.py",
+        "tests\\phase_specific\\test_registry_completeness.py",
+        "tests\\phase_specific\\test_semantic_architecture.py",
+        "tests\\phase_specific\\test_structure.py",
+        "tests\\phase_specific\\test_subphase_order.py",
+        "tests\\phase_specific\\test_subphases_and_tests.py",
+        "tests\\phase_specific\\test_three_person_society_e2e.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 27.659,
+      "passed_count": 48,
+      "output": "................................................                         [100%]\n48 passed in 26.74s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_checkpoint_resolver",
+      "targets": [
+        "tests\\test_checkpoint_resolver.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.384,
+      "passed_count": 1,
+      "output": ".                                                                        [100%]\n1 passed in 0.60s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_contract_hygiene",
+      "targets": [
+        "tests\\test_contract_hygiene.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 11.392,
+      "passed_count": 4,
+      "output": "....                                                                     [100%]\n4 passed in 10.71s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_cycle_boundary",
+      "targets": [
+        "tests\\test_cycle_boundary.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.59,
+      "passed_count": 2,
+      "output": "..                                                                       [100%]\n2 passed in 0.77s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_genesis_graph_preservation",
+      "targets": [
+        "tests\\test_genesis_graph_preservation.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 2.126,
+      "passed_count": 1,
+      "output": ".                                                                        [100%]\n1 passed in 1.17s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_governance_adapters",
+      "targets": [
+        "tests\\test_governance_adapters.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 2.083,
+      "passed_count": 4,
+      "output": "....                                                                     [100%]\n4 passed in 1.17s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_integration_contract_pack",
+      "targets": [
+        "tests\\test_integration_contract_pack.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.42,
+      "passed_count": 4,
+      "output": "....                                                                     [100%]\n4 passed in 0.60s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_json_artifact_store",
+      "targets": [
+        "tests\\test_json_artifact_store.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.372,
+      "passed_count": 3,
+      "output": "...                                                                      [100%]\n3 passed in 0.60s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_manifest_assembly",
+      "targets": [
+        "tests\\test_manifest_assembly.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.524,
+      "passed_count": 1,
+      "output": ".                                                                        [100%]\n1 passed in 0.67s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_module_contract_alignment",
+      "targets": [
+        "tests\\test_module_contract_alignment.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 3.931,
+      "passed_count": 1,
+      "output": ".                                                                        [100%]\n1 passed in 2.82s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_optional_adapters",
+      "targets": [
+        "tests\\test_optional_adapters.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.6,
+      "passed_count": 2,
+      "output": "..                                                                       [100%]\n2 passed in 0.69s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_optional_dependency_isolation",
+      "targets": [
+        "tests\\test_optional_dependency_isolation.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 2.923,
+      "passed_count": 2,
+      "output": "..                                                                       [100%]\n2 passed in 2.27s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_p2_p3_boundary_adapter",
+      "targets": [
+        "tests\\test_p2_p3_boundary_adapter.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 2.53,
+      "passed_count": 1,
+      "output": ".                                                                        [100%]\n1 passed in 1.68s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_population_adapters",
+      "targets": [
+        "tests\\test_population_adapters.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.963,
+      "passed_count": 3,
+      "output": "...                                                                      [100%]\n3 passed in 1.11s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_population_pipeline_real",
+      "targets": [
+        "tests\\test_population_pipeline_real.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 2.485,
+      "passed_count": 1,
+      "output": ".                                                                        [100%]\n1 passed in 1.58s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_portable_handoff",
+      "targets": [
+        "tests\\test_portable_handoff.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.542,
+      "passed_count": 1,
+      "output": ".                                                                        [100%]\n1 passed in 0.68s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_real_p2_compatibility",
+      "targets": [
+        "tests\\test_real_p2_compatibility.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.387,
+      "passed_count": 2,
+      "output": "..                                                                       [100%]\n2 passed in 0.63s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_registry_and_imports",
+      "targets": [
+        "tests\\test_registry_and_imports.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 4.173,
+      "passed_count": 2,
+      "output": "..                                                                       [100%]\n2 passed in 3.01s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_resource_boundary",
+      "targets": [
+        "tests\\test_resource_boundary.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 1.95,
+      "passed_count": 1,
+      "output": ".                                                                        [100%]\n1 passed in 1.12s",
+      "status": "PASS"
+    },
+    {
+      "name": "top_level_test_runtime_facade",
+      "targets": [
+        "tests\\test_runtime_facade.py"
+      ],
+      "returncode": 0,
+      "duration_seconds": 2.136,
+      "passed_count": 1,
+      "output": ".                                                                        [100%]\n1 passed in 1.43s",
+      "status": "PASS"
+    }
+  ]
+}

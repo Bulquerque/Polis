@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "AmbiguityFamily": {
+      "enum": [
+        "DISCRETE_SUPPORT_WASSERSTEIN_1"
+      ],
+      "title": "AmbiguityFamily",
+      "type": "string"
+    },
+    "CapabilityState": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "RESEARCH_ONLY",
+        "UNAVAILABLE",
+        "INVALID"
+      ],
+      "title": "CapabilityState",
+      "type": "string"
+    },
+    "DROFrontierPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "radius": {
+          "minimum": 0.0,
+          "title": "Radius",
+          "type": "number"
+        },
+        "solver_status": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Solver Status",
+          "type": "string"
+        },
+        "target_probabilities": {
+          "items": {
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "title": "Target Probabilities",
+          "type": "array"
+        },
+        "transport_cost": {
+          "minimum": 0.0,
+          "title": "Transport Cost",
+          "type": "number"
+        },
+        "worst_case_cvar": {
+          "title": "Worst Case Cvar",
+          "type": "number"
+        },
+        "worst_case_mean_loss": {
+          "title": "Worst Case Mean Loss",
+          "type": "number"
+        },
+        "worst_case_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Worst Case Score"
+        }
+      },
+      "required": [
+        "radius",
+        "worst_case_mean_loss",
+        "worst_case_cvar",
+        "worst_case_score",
+        "transport_cost",
+        "solver_status",
+        "target_probabilities"
+      ],
+      "title": "DROFrontierPoint",
+      "type": "object"
+    },
+    "S6State": {
+      "enum": [
+        "SUCCESS",
+        "COMMITTED",
+        "COMMITTED_WITH_COVERAGE_GAPS",
+        "DUPLICATE_REJECTED",
+        "SUCCESS_WITH_MAPPING_LIMITATIONS",
+        "MATERIAL_EXPOSURE_UNMAPPED",
+        "LOCAL_ONLY",
+        "EXTRAPOLATION_LIMITED",
+        "CONSTRAINT_DISCONTINUITY_FOUND",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EXCEEDANCES",
+        "UNSTABLE_TAIL_INDEX",
+        "THRESHOLD_NOT_IDENTIFIED",
+        "DEPENDENCE_NOT_REMOVED",
+        "AMBIGUITY_SET_UNINFORMATIVE",
+        "SOLVER_NOT_QUALIFIED",
+        "UNBOUNDED",
+        "CAPACITY_LIMITED",
+        "BORROW_LIMITED",
+        "MARGIN_FRAGILE",
+        "NETWORK_STRESS_RESEARCH_ONLY",
+        "INSUFFICIENT_LIQUIDITY_DATA",
+        "STRESS_RESILIENT",
+        "RESILIENT_WITH_LIMITATIONS",
+        "REVERSE_STRESS_TOO_CLOSE",
+        "STRUCTURALLY_UNSAFE",
+        "NO_FAILURE_WITHIN_DOMAIN",
+        "SEARCH_NOT_CONVERGED",
+        "VALIDATED",
+        "VALIDATED_WITH_LIMITATIONS",
+        "RESEARCH_ONLY",
+        "SCENARIO_INCOMPLETE",
+        "MODEL_NOT_FIT_FOR_STRESS",
+        "UNVALIDATED",
+        "CAPABILITY_UNAVAILABLE",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S6State",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_state": {
+      "$ref": "#/$defs/CapabilityState"
+    },
+    "empirical_cvar": {
+      "title": "Empirical Cvar",
+      "type": "number"
+    },
+    "empirical_mean_loss": {
+      "title": "Empirical Mean Loss",
+      "type": "number"
+    },
+    "empirical_mean_score": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Empirical Mean Score"
+    },
+    "family": {
+      "$ref": "#/$defs/AmbiguityFamily"
+    },
+    "frontier": {
+      "items": {
+        "$ref": "#/$defs/DROFrontierPoint"
+      },
+      "title": "Frontier",
+      "type": "array"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "radius_calibrated": {
+      "title": "Radius Calibrated",
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S6State"
+    }
+  },
+  "required": [
+    "status",
+    "family",
+    "empirical_mean_loss",
+    "empirical_cvar",
+    "empirical_mean_score",
+    "frontier",
+    "capability_state",
+    "radius_calibrated"
+  ],
+  "title": "DistributionalRobustnessResult",
+  "type": "object"
+}

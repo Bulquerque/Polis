@@ -1,0 +1,13 @@
+{
+  "schema_id": "heartbeat_config.v1",
+  "schema_version": "1.0.0",
+  "enabled": true,
+  "frequency": "MONTHLY",
+  "due_day_policy": "MONTH_END",
+  "due_hour_utc": 23,
+  "due_minute_utc": 59,
+  "due_second_utc": 59,
+  "include_partial_months": true,
+  "event_activation_may_satisfy_obligation": true,
+  "max_heartbeat_delay_days": 7
+}

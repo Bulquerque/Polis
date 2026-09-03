@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "command": "python -m compileall -q src tests",
+  "syntax_errors": 0
+}

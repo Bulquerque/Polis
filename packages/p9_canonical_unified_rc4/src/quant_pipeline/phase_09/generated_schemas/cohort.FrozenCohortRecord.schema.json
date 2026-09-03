@@ -1,0 +1,50 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "evidence_class": {
+      "$ref": "#/$defs/EvidenceClass"
+    },
+    "lineage_complete": {
+      "title": "Lineage Complete",
+      "type": "boolean"
+    },
+    "outcome_record_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Outcome Record Sha256",
+      "type": "string"
+    },
+    "subject_id": {
+      "minLength": 1,
+      "title": "Subject Id",
+      "type": "string"
+    },
+    "target_type": {
+      "minLength": 1,
+      "title": "Target Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "subject_id",
+    "target_type",
+    "evidence_class",
+    "outcome_record_sha256",
+    "lineage_complete"
+  ],
+  "title": "FrozenCohortRecord",
+  "type": "object"
+}

@@ -1,0 +1,34 @@
+{
+  "exact_file_overlap": 0,
+  "installation_proofs": [
+    {
+      "failures": 0,
+      "mode": "wheel extraction P8 then P9",
+      "p9_modules_imported": 238,
+      "status": "PASS"
+    },
+    {
+      "failures": 0,
+      "mode": "wheel extraction P9 then P8",
+      "p9_modules_imported": 238,
+      "status": "PASS"
+    },
+    {
+      "failures": 0,
+      "mode": "joint pip --target install",
+      "p9_modules_imported": 238,
+      "status": "PASS"
+    }
+  ],
+  "p8_regression_with_p9_present": {
+    "failed": 0,
+    "passed": 631,
+    "status": "PASS"
+  },
+  "p8_wheel": "quant_pipeline_phase08_integrated-0.3.0rc3-py3-none-any.whl",
+  "p9_wheel": "quant_pipeline_phase_09-0.1.0rc4-py3-none-any.whl",
+  "p9_wheel_sha256": "c8906715fed52243db26cc40f77ba4cc8335e8405de4c39930feec7ffc2adfac",
+  "release": "P9_CANONICAL_UNIFIED_RC4",
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

@@ -1,0 +1,848 @@
+phase: P0
+rc: RC4.1
+contract: MODULE_IO_MATRIX
+format: compact_contract_v4
+module_io_matrix:
+- module_id: P0.S1.M01
+  module_name: phase_registry_loader
+  subphase: P0.S1
+  consumes_from:
+    modules: []
+    artifacts:
+    - phase_registry_yaml
+    - global_architecture_config
+    phase_inputs:
+    - phase_registry_yaml
+    - global_architecture_config
+  emits_to:
+    modules:
+    - P0.S1.M02
+    - P0.S1.M03
+    - P0.S1.M04
+    - P0.S7.M01
+    - P0.S8.M01
+    artifacts:
+    - validated_phase_registry
+    phase_outputs: []
+  module_contract: modules/P0_S1_M01_phase_registry_loader.yaml
+- module_id: P0.S1.M02
+  module_name: subphase_registry_loader
+  subphase: P0.S1
+  consumes_from:
+    modules:
+    - P0.S1.M01
+    artifacts:
+    - validated_phase_registry
+    - subphase_registry_yaml
+    phase_inputs:
+    - subphase_registry_yaml
+  emits_to:
+    modules:
+    - P0.S1.M03
+    artifacts:
+    - validated_subphase_registry
+    phase_outputs: []
+  module_contract: modules/P0_S1_M02_subphase_registry_loader.yaml
+- module_id: P0.S1.M03
+  module_name: module_registry_loader
+  subphase: P0.S1
+  consumes_from:
+    modules:
+    - P0.S1.M01
+    - P0.S1.M02
+    artifacts:
+    - validated_phase_registry
+    - validated_subphase_registry
+    - module_registry_yaml
+    phase_inputs:
+    - module_registry_yaml
+  emits_to:
+    modules:
+    - P0.S1.M04
+    - P0.S3.M02
+    - P0.S4.M02
+    - P0.S5.M05
+    - P0.S7.M01
+    artifacts:
+    - validated_module_registry
+    phase_outputs: []
+  module_contract: modules/P0_S1_M03_module_registry_loader.yaml
+- module_id: P0.S1.M04
+  module_name: connection_matrix_validator
+  subphase: P0.S1
+  consumes_from:
+    modules:
+    - P0.S1.M01
+    - P0.S1.M03
+    artifacts:
+    - connection_matrix_yaml
+    - validated_phase_registry
+    - validated_module_registry
+    phase_inputs:
+    - connection_matrix_yaml
+  emits_to:
+    modules:
+    - P0.S1.M05
+    - P0.S2.M03
+    artifacts:
+    - validated_connection_matrix
+    phase_outputs: []
+  module_contract: modules/P0_S1_M04_connection_matrix_validator.yaml
+- module_id: P0.S1.M05
+  module_name: forbidden_connection_detector
+  subphase: P0.S1
+  consumes_from:
+    modules:
+    - P0.S1.M04
+    artifacts:
+    - validated_connection_matrix
+    - forbidden_connection_matrix_yaml
+    - module_io_matrix_all_phases
+    phase_inputs:
+    - forbidden_connection_matrix_yaml
+    - module_io_matrix_all_phases
+  emits_to:
+    modules:
+    - P0.S6.M03
+    - P0.S8.M03
+    artifacts:
+    - forbidden_connection_report
+    phase_outputs:
+    - forbidden_connection_report
+  module_contract: modules/P0_S1_M05_forbidden_connection_detector.yaml
+- module_id: P0.S2.M01
+  module_name: contract_registry_builder
+  subphase: P0.S2
+  consumes_from:
+    modules: []
+    artifacts:
+    - contracts_all_phases
+    - global_contracts
+    phase_inputs:
+    - contracts_all_phases
+    - global_contracts
+  emits_to:
+    modules:
+    - P0.S2.M03
+    - P0.S3.M02
+    - P0.S4.M02
+    - P0.S8.M01
+    artifacts:
+    - contract_registry
+    phase_outputs: []
+  module_contract: modules/P0_S2_M01_contract_registry_builder.yaml
+- module_id: P0.S2.M02
+  module_name: schema_registry_builder
+  subphase: P0.S2
+  consumes_from:
+    modules: []
+    artifacts:
+    - schemas_all_phases
+    phase_inputs:
+    - schemas_all_phases
+  emits_to:
+    modules:
+    - P0.S2.M03
+    - P0.S2.M04
+    - P0.S4.M02
+    - P0.S4.M03
+    - P0.S8.M01
+    artifacts:
+    - schema_registry
+    phase_outputs: []
+  module_contract: modules/P0_S2_M02_schema_registry_builder.yaml
+- module_id: P0.S2.M03
+  module_name: input_output_compatibility_checker
+  subphase: P0.S2
+  consumes_from:
+    modules:
+    - P0.S1.M04
+    - P0.S2.M01
+    - P0.S2.M02
+    artifacts:
+    - contract_registry
+    - schema_registry
+    - validated_connection_matrix
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S6.M03
+    artifacts:
+    - io_compatibility_report
+    - schema_compatibility_report
+    phase_outputs:
+    - schema_compatibility_report
+  module_contract: modules/P0_S2_M03_input_output_compatibility_checker.yaml
+- module_id: P0.S2.M04
+  module_name: forbidden_field_scanner
+  subphase: P0.S2
+  consumes_from:
+    modules:
+    - P0.S2.M02
+    artifacts:
+    - schema_registry
+    - artifact_registry
+    - forbidden_fields_yaml
+    phase_inputs:
+    - artifact_registry
+    - forbidden_fields_yaml
+  emits_to:
+    modules: []
+    artifacts:
+    - forbidden_field_report
+    phase_outputs: []
+  module_contract: modules/P0_S2_M04_forbidden_field_scanner.yaml
+- module_id: P0.S2.M05
+  module_name: artifact_format_policy_validator
+  subphase: P0.S2
+  consumes_from:
+    modules: []
+    artifacts:
+    - artifact_registry
+    - artifact_format_policy_yaml
+    phase_inputs:
+    - artifact_registry
+    - artifact_format_policy_yaml
+  emits_to:
+    modules: []
+    artifacts:
+    - artifact_format_validation_report
+    phase_outputs: []
+  module_contract: modules/P0_S2_M05_artifact_format_policy_validator.yaml
+- module_id: P0.S3.M01
+  module_name: hash_policy_enforcer
+  subphase: P0.S3
+  consumes_from:
+    modules: []
+    artifacts:
+    - artifact_manifest_all_phases
+    - hash_policy_yaml
+    phase_inputs:
+    - artifact_manifest_all_phases
+    - hash_policy_yaml
+  emits_to:
+    modules:
+    - P0.S3.M03
+    - P0.S4.M05
+    - P0.S6.M02
+    - P0.S8.M03
+    artifacts:
+    - hash_integrity_report
+    phase_outputs:
+    - hash_integrity_report
+  module_contract: modules/P0_S3_M01_hash_policy_enforcer.yaml
+- module_id: P0.S3.M02
+  module_name: lineage_integrity_checker
+  subphase: P0.S3
+  consumes_from:
+    modules:
+    - P0.S1.M03
+    - P0.S2.M01
+    artifacts:
+    - artifact_manifest_all_phases
+    - validated_module_registry
+    - contract_registry
+    phase_inputs:
+    - artifact_manifest_all_phases
+  emits_to:
+    modules:
+    - P0.S3.M03
+    - P0.S4.M05
+    artifacts:
+    - lineage_integrity_report
+    phase_outputs:
+    - lineage_integrity_report
+  module_contract: modules/P0_S3_M02_lineage_integrity_checker.yaml
+- module_id: P0.S3.M03
+  module_name: artifact_manifest_auditor
+  subphase: P0.S3
+  consumes_from:
+    modules:
+    - P0.S3.M01
+    - P0.S3.M02
+    artifacts:
+    - manifesto_all_packages
+    - artifact_registry
+    - hash_integrity_report
+    - lineage_integrity_report
+    phase_inputs:
+    - manifesto_all_packages
+    - artifact_registry
+  emits_to:
+    modules:
+    - P0.S6.M01
+    artifacts:
+    - artifact_manifest_audit_report
+    - artifact_integrity_report
+    phase_outputs:
+    - artifact_manifest_audit_report
+    - artifact_integrity_report
+  module_contract: modules/P0_S3_M03_artifact_manifest_auditor.yaml
+- module_id: P0.S3.M04
+  module_name: artifact_immutability_checker
+  subphase: P0.S3
+  consumes_from:
+    modules: []
+    artifacts:
+    - artifact_manifest_all_phases
+    - hash_history
+    - release_manifest_previous
+    phase_inputs:
+    - artifact_manifest_all_phases
+    - hash_history
+    - release_manifest_previous
+  emits_to:
+    modules: []
+    artifacts:
+    - immutability_report
+    phase_outputs:
+    - immutability_report
+  module_contract: modules/P0_S3_M04_artifact_immutability_checker.yaml
+- module_id: P0.S4.M01
+  module_name: test_report_collector
+  subphase: P0.S4
+  consumes_from:
+    modules: []
+    artifacts:
+    - test_run_report_all_phases
+    - contract_test_report_all_phases
+    - schema_test_report_all_phases
+    - code_quality_test_report_all_phases
+    phase_inputs:
+    - test_run_report_all_phases
+    - contract_test_report_all_phases
+    - schema_test_report_all_phases
+    - code_quality_test_report_all_phases
+  emits_to:
+    modules:
+    - P0.S4.M04
+    artifacts:
+    - collected_test_reports
+    phase_outputs: []
+  module_contract: modules/P0_S4_M01_test_report_collector.yaml
+- module_id: P0.S4.M02
+  module_name: contract_test_orchestrator
+  subphase: P0.S4
+  consumes_from:
+    modules:
+    - P0.S1.M03
+    - P0.S2.M01
+    - P0.S2.M02
+    artifacts:
+    - contract_registry
+    - schema_registry
+    - validated_module_registry
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S4.M04
+    artifacts:
+    - contract_test_execution_plan
+    - contract_test_report
+    phase_outputs: []
+  module_contract: modules/P0_S4_M02_contract_test_orchestrator.yaml
+- module_id: P0.S4.M03
+  module_name: schema_test_orchestrator
+  subphase: P0.S4
+  consumes_from:
+    modules:
+    - P0.S2.M02
+    artifacts:
+    - schema_registry
+    - fixtures_all_phases
+    phase_inputs:
+    - fixtures_all_phases
+  emits_to:
+    modules:
+    - P0.S4.M04
+    artifacts:
+    - schema_test_report
+    phase_outputs: []
+  module_contract: modules/P0_S4_M03_schema_test_orchestrator.yaml
+- module_id: P0.S4.M04
+  module_name: test_status_aggregator
+  subphase: P0.S4
+  consumes_from:
+    modules:
+    - P0.S4.M01
+    - P0.S4.M02
+    - P0.S4.M03
+    artifacts:
+    - collected_test_reports
+    - contract_test_report
+    - schema_test_report
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S4.M05
+    - P0.S6.M01
+    - P0.S6.M02
+    - P0.S8.M03
+    - P0.S9.M01
+    artifacts:
+    - global_test_report
+    - phase_test_status_panel
+    phase_outputs:
+    - global_test_report
+  module_contract: modules/P0_S4_M04_test_status_aggregator.yaml
+- module_id: P0.S4.M05
+  module_name: evidence_package_builder
+  subphase: P0.S4
+  consumes_from:
+    modules:
+    - P0.S3.M01
+    - P0.S3.M02
+    - P0.S4.M04
+    - P0.S5.M06
+    artifacts:
+    - global_test_report
+    - hash_integrity_report
+    - lineage_integrity_report
+    - code_quality_report
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S6.M03
+    - P0.S8.M02
+    artifacts:
+    - zero_trust_evidence_package
+    phase_outputs: []
+  module_contract: modules/P0_S4_M05_evidence_package_builder.yaml
+- module_id: P0.S5.M01
+  module_name: duplicate_file_detector
+  subphase: P0.S5
+  consumes_from:
+    modules: []
+    artifacts:
+    - source_tree_manifest
+    - file_hash_manifest
+    phase_inputs:
+    - source_tree_manifest
+    - file_hash_manifest
+  emits_to:
+    modules:
+    - P0.S5.M06
+    artifacts:
+    - duplicate_file_report
+    phase_outputs:
+    - duplicate_file_report
+  module_contract: modules/P0_S5_M01_duplicate_file_detector.yaml
+- module_id: P0.S5.M02
+  module_name: monolith_code_detector
+  subphase: P0.S5
+  consumes_from:
+    modules: []
+    artifacts:
+    - source_tree_manifest
+    - code_quality_policy_yaml
+    phase_inputs:
+    - source_tree_manifest
+    - code_quality_policy_yaml
+  emits_to:
+    modules:
+    - P0.S5.M06
+    artifacts:
+    - monolith_report
+    phase_outputs:
+    - monolith_report
+  module_contract: modules/P0_S5_M02_monolith_code_detector.yaml
+- module_id: P0.S5.M03
+  module_name: forbidden_import_detector
+  subphase: P0.S5
+  consumes_from:
+    modules: []
+    artifacts:
+    - source_tree_manifest
+    - forbidden_import_policy_yaml
+    phase_inputs:
+    - source_tree_manifest
+    - forbidden_import_policy_yaml
+  emits_to:
+    modules:
+    - P0.S5.M06
+    artifacts:
+    - forbidden_import_report
+    phase_outputs: []
+  module_contract: modules/P0_S5_M03_forbidden_import_detector.yaml
+- module_id: P0.S5.M04
+  module_name: hidden_global_state_detector
+  subphase: P0.S5
+  consumes_from:
+    modules: []
+    artifacts:
+    - source_tree_manifest
+    - code_quality_policy_yaml
+    phase_inputs:
+    - source_tree_manifest
+    - code_quality_policy_yaml
+  emits_to:
+    modules:
+    - P0.S5.M06
+    artifacts:
+    - hidden_global_state_report
+    phase_outputs: []
+  module_contract: modules/P0_S5_M04_hidden_global_state_detector.yaml
+- module_id: P0.S5.M05
+  module_name: module_contract_coverage_checker
+  subphase: P0.S5
+  consumes_from:
+    modules:
+    - P0.S1.M03
+    artifacts:
+    - validated_module_registry
+    - modules_yaml_all_phases
+    - tests_all_phases
+    phase_inputs:
+    - modules_yaml_all_phases
+    - tests_all_phases
+  emits_to:
+    modules:
+    - P0.S5.M06
+    artifacts:
+    - module_contract_coverage_report
+    phase_outputs: []
+  module_contract: modules/P0_S5_M05_module_contract_coverage_checker.yaml
+- module_id: P0.S5.M06
+  module_name: code_style_quality_reporter
+  subphase: P0.S5
+  consumes_from:
+    modules:
+    - P0.S5.M01
+    - P0.S5.M02
+    - P0.S5.M03
+    - P0.S5.M04
+    - P0.S5.M05
+    artifacts:
+    - duplicate_file_report
+    - monolith_report
+    - forbidden_import_report
+    - hidden_global_state_report
+    - module_contract_coverage_report
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S4.M05
+    - P0.S6.M02
+    - P0.S8.M03
+    - P0.S9.M01
+    artifacts:
+    - code_quality_report
+    phase_outputs:
+    - code_quality_report
+  module_contract: modules/P0_S5_M06_code_style_quality_reporter.yaml
+- module_id: P0.S6.M01
+  module_name: phase_dashboard_payload_collector
+  subphase: P0.S6
+  consumes_from:
+    modules:
+    - P0.S3.M03
+    - P0.S4.M04
+    artifacts:
+    - dashboard_phase_payload_all_phases
+    - phase_test_status_panel
+    - artifact_manifest_audit_report
+    phase_inputs:
+    - dashboard_phase_payload_all_phases
+  emits_to:
+    modules:
+    - P0.S6.M02
+    artifacts:
+    - collected_phase_dashboard_payloads
+    phase_outputs: []
+  module_contract: modules/P0_S6_M01_phase_dashboard_payload_collector.yaml
+- module_id: P0.S6.M02
+  module_name: phase_health_panel_builder
+  subphase: P0.S6
+  consumes_from:
+    modules:
+    - P0.S3.M01
+    - P0.S4.M04
+    - P0.S5.M06
+    - P0.S6.M01
+    artifacts:
+    - collected_phase_dashboard_payloads
+    - global_test_report
+    - code_quality_report
+    - hash_integrity_report
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S6.M03
+    - P0.S6.M04
+    - P0.S9.M01
+    artifacts:
+    - phase_health_panel
+    phase_outputs:
+    - phase_health_panel
+  module_contract: modules/P0_S6_M02_phase_health_panel_builder.yaml
+- module_id: P0.S6.M03
+  module_name: global_control_tower_builder
+  subphase: P0.S6
+  consumes_from:
+    modules:
+    - P0.S1.M05
+    - P0.S2.M03
+    - P0.S4.M05
+    - P0.S6.M02
+    artifacts:
+    - phase_health_panel
+    - forbidden_connection_report
+    - io_compatibility_report
+    - zero_trust_evidence_package
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S6.M04
+    - P0.S8.M02
+    artifacts:
+    - global_control_tower_payload
+    - pipeline_health_report
+    - zero_trust_health_report
+    phase_outputs:
+    - global_control_tower_payload
+    - pipeline_health_report
+    - zero_trust_health_report
+  module_contract: modules/P0_S6_M03_global_control_tower_builder.yaml
+- module_id: P0.S6.M04
+  module_name: dashboard_exporter
+  subphase: P0.S6
+  consumes_from:
+    modules:
+    - P0.S6.M02
+    - P0.S6.M03
+    artifacts:
+    - global_control_tower_payload
+    - phase_health_panel
+    phase_inputs: []
+  emits_to:
+    modules: []
+    artifacts:
+    - dashboard_export_manifest
+    - dashboard_static_site
+    - dashboard_json_payloads
+    phase_outputs: []
+  module_contract: modules/P0_S6_M04_dashboard_exporter.yaml
+- module_id: P0.S7.M01
+  module_name: agent_skill_registry_builder
+  subphase: P0.S7
+  consumes_from:
+    modules:
+    - P0.S1.M01
+    - P0.S1.M03
+    artifacts:
+    - agent_skill_definitions_yaml
+    - validated_phase_registry
+    - validated_module_registry
+    phase_inputs:
+    - agent_skill_definitions_yaml
+  emits_to:
+    modules:
+    - P0.S7.M02
+    artifacts:
+    - agent_skill_registry
+    phase_outputs: []
+  module_contract: modules/P0_S7_M01_agent_skill_registry_builder.yaml
+- module_id: P0.S7.M02
+  module_name: agent_prompt_template_validator
+  subphase: P0.S7
+  consumes_from:
+    modules:
+    - P0.S7.M01
+    artifacts:
+    - agent_prompt_templates
+    - agent_skill_registry
+    - zero_trust_rules
+    phase_inputs:
+    - agent_prompt_templates
+    - zero_trust_rules
+  emits_to:
+    modules:
+    - P0.S7.M03
+    artifacts:
+    - validated_agent_prompt_templates
+    phase_outputs: []
+  module_contract: modules/P0_S7_M02_agent_prompt_template_validator.yaml
+- module_id: P0.S7.M03
+  module_name: agent_execution_policy_builder
+  subphase: P0.S7
+  consumes_from:
+    modules:
+    - P0.S7.M02
+    artifacts:
+    - validated_agent_prompt_templates
+    - code_standards
+    - testing_standards
+    phase_inputs:
+    - code_standards
+    - testing_standards
+  emits_to:
+    modules:
+    - P0.S7.M04
+    artifacts:
+    - agent_execution_policy
+    phase_outputs: []
+  module_contract: modules/P0_S7_M03_agent_execution_policy_builder.yaml
+- module_id: P0.S7.M04
+  module_name: agent_package_validator
+  subphase: P0.S7
+  consumes_from:
+    modules:
+    - P0.S7.M03
+    artifacts:
+    - agent_execution_policy
+    - agent_phase_package_zip
+    phase_inputs:
+    - agent_phase_package_zip
+  emits_to:
+    modules:
+    - P0.S8.M03
+    artifacts:
+    - agent_package_validation_report
+    phase_outputs: []
+  module_contract: modules/P0_S7_M04_agent_package_validator.yaml
+- module_id: P0.S8.M01
+  module_name: version_compatibility_checker
+  subphase: P0.S8
+  consumes_from:
+    modules:
+    - P0.S1.M01
+    - P0.S2.M01
+    - P0.S2.M02
+    artifacts:
+    - validated_phase_registry
+    - contract_registry
+    - schema_registry
+    - release_manifest_previous
+    phase_inputs:
+    - release_manifest_previous
+  emits_to:
+    modules:
+    - P0.S8.M02
+    artifacts:
+    - version_compatibility_report
+    phase_outputs: []
+  module_contract: modules/P0_S8_M01_version_compatibility_checker.yaml
+- module_id: P0.S8.M02
+  module_name: release_manifest_builder
+  subphase: P0.S8
+  consumes_from:
+    modules:
+    - P0.S4.M05
+    - P0.S6.M03
+    - P0.S8.M01
+    artifacts:
+    - pipeline_health_report
+    - version_compatibility_report
+    - zero_trust_evidence_package
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S8.M03
+    artifacts:
+    - release_manifest
+    phase_outputs: []
+  module_contract: modules/P0_S8_M02_release_manifest_builder.yaml
+- module_id: P0.S8.M03
+  module_name: release_gate_decision_engine
+  subphase: P0.S8
+  consumes_from:
+    modules:
+    - P0.S1.M05
+    - P0.S3.M01
+    - P0.S4.M04
+    - P0.S5.M06
+    - P0.S8.M02
+    - P0.S7.M04
+    artifacts:
+    - release_manifest
+    - global_test_report
+    - forbidden_connection_report
+    - code_quality_report
+    - hash_integrity_report
+    - agent_package_validation_report
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S9.M01
+    artifacts:
+    - release_gate_report
+    phase_outputs:
+    - release_gate_report
+  module_contract: modules/P0_S8_M03_release_gate_decision_engine.yaml
+- module_id: P0.S9.M01
+  module_name: phase_feedback_router
+  subphase: P0.S9
+  consumes_from:
+    modules:
+    - P0.S4.M04
+    - P0.S5.M06
+    - P0.S6.M02
+    - P0.S8.M03
+    artifacts:
+    - release_gate_report
+    - phase_health_panel
+    - code_quality_report
+    - global_test_report
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S9.M02
+    - P0.S9.M03
+    - P0.S9.M04
+    artifacts:
+    - phase_zero_trust_feedback_panel
+    phase_outputs:
+    - phase_zero_trust_feedback_panel
+  module_contract: modules/P0_S9_M01_phase_feedback_router.yaml
+- module_id: P0.S9.M02
+  module_name: blocking_issue_dispatcher
+  subphase: P0.S9
+  consumes_from:
+    modules:
+    - P0.S9.M01
+    artifacts:
+    - phase_zero_trust_feedback_panel
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S9.M04
+    artifacts:
+    - blocking_issue_report
+    phase_outputs: []
+  module_contract: modules/P0_S9_M02_blocking_issue_dispatcher.yaml
+- module_id: P0.S9.M03
+  module_name: nonblocking_warning_dispatcher
+  subphase: P0.S9
+  consumes_from:
+    modules:
+    - P0.S9.M01
+    artifacts:
+    - phase_zero_trust_feedback_panel
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S9.M04
+    artifacts:
+    - nonblocking_warning_report
+    phase_outputs: []
+  module_contract: modules/P0_S9_M03_nonblocking_warning_dispatcher.yaml
+- module_id: P0.S9.M04
+  module_name: zero_trust_feedback_manifest_builder
+  subphase: P0.S9
+  consumes_from:
+    modules:
+    - P0.S9.M01
+    - P0.S9.M02
+    - P0.S9.M03
+    artifacts:
+    - blocking_issue_report
+    - nonblocking_warning_report
+    - phase_zero_trust_feedback_panel
+    phase_inputs: []
+  emits_to:
+    modules: []
+    artifacts:
+    - zero_trust_feedback_manifest
+    phase_outputs:
+    - zero_trust_feedback_manifest
+  module_contract: modules/P0_S9_M04_zero_trust_feedback_manifest_builder.yaml

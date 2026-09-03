@@ -1,0 +1,621 @@
+$defs:
+  ApprovedS6PolicyContext:
+    additionalProperties: false
+    properties:
+      policy_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Policy Id
+        type: string
+      policy_version:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Policy Version
+        type: string
+      authorized_by:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Authorized By
+        type: string
+      effective_from_cycle:
+        minimum: 0
+        title: Effective From Cycle
+        type: integer
+      expires_after_cycle:
+        anyOf:
+        - minimum: 0
+          type: integer
+        - type: 'null'
+        default: null
+        title: Expires After Cycle
+      content_sha256:
+        pattern: ^[a-f0-9]{64}$
+        title: Content Sha256
+        type: string
+      created_at:
+        format: date-time
+        title: Created At
+        type: string
+      risk_gate:
+        $ref: '#/$defs/RiskGatePolicy'
+      hedge:
+        $ref: '#/$defs/HedgePolicy'
+      lifecycle:
+        $ref: '#/$defs/LifecyclePolicy'
+      emergency:
+        $ref: '#/$defs/EmergencyPolicy'
+      authorization:
+        $ref: '#/$defs/AuthorizationPolicy'
+    required:
+    - policy_id
+    - policy_version
+    - authorized_by
+    - effective_from_cycle
+    - content_sha256
+    - created_at
+    - risk_gate
+    - hedge
+    - lifecycle
+    - emergency
+    - authorization
+    title: ApprovedS6PolicyContext
+    type: object
+  ArtifactEnvelope:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Artifact Id
+        type: string
+      artifact_type:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Artifact Type
+        type: string
+      schema_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Schema Version
+        type: string
+      contract_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Contract Version
+        type: string
+      producer_phase:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Producer Phase
+        type: string
+      producer_module:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Producer Module
+        type: string
+      producer_release:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Producer Release
+        type: string
+      pipeline_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Pipeline Version
+        type: string
+      run_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Run Id
+        type: string
+      cycle_id:
+        minimum: 0
+        title: Cycle Id
+        type: integer
+      decision_time:
+        format: date-time
+        title: Decision Time
+        type: string
+      market_cutoff_at:
+        format: date-time
+        title: Market Cutoff At
+        type: string
+      computed_at:
+        format: date-time
+        title: Computed At
+        type: string
+      recorded_at:
+        format: date-time
+        title: Recorded At
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      content_sha256:
+        pattern: ^[a-f0-9]{64}$
+        title: Content Sha256
+        type: string
+      lineage_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Lineage Id
+        type: string
+    required:
+    - artifact_id
+    - artifact_type
+    - schema_version
+    - contract_version
+    - producer_phase
+    - producer_module
+    - producer_release
+    - pipeline_version
+    - run_id
+    - cycle_id
+    - decision_time
+    - market_cutoff_at
+    - computed_at
+    - recorded_at
+    - available_at
+    - content_sha256
+    - lineage_id
+    title: ArtifactEnvelope
+    type: object
+  AuthorizationPolicy:
+    additionalProperties: false
+    properties:
+      validity_seconds:
+        maximum: 86400
+        minimum: 1
+        title: Validity Seconds
+        type: integer
+      allow_partial_authorization:
+        default: false
+        title: Allow Partial Authorization
+        type: boolean
+      emergency_overrides_normal_target:
+        default: true
+        title: Emergency Overrides Normal Target
+        type: boolean
+    required:
+    - validity_seconds
+    title: AuthorizationPolicy
+    type: object
+  CandidateLifecycleInput:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      candidate_type:
+        $ref: '#/$defs/CandidateType'
+      legs:
+        default: []
+        items:
+          $ref: '#/$defs/LifecycleLegInput'
+        title: Legs
+        type: array
+    required:
+    - candidate_id
+    - candidate_type
+    title: CandidateLifecycleInput
+    type: object
+  CandidateType:
+    enum:
+    - LINEAR
+    - OPTION_STRUCTURE
+    title: CandidateType
+    type: string
+  EmergencyPolicy:
+    additionalProperties: false
+    properties:
+      enabled:
+        default: true
+        title: Enabled
+        type: boolean
+      protected_candidate_ids:
+        default: []
+        items:
+          maxLength: 180
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Protected Candidate Ids
+        type: array
+      protection_penalty_per_unit:
+        minimum: 0
+        title: Protection Penalty Per Unit
+        type: number
+      economic_preservation_weight:
+        minimum: 0
+        title: Economic Preservation Weight
+        type: number
+      time_limit_seconds:
+        exclusiveMinimum: 0
+        maximum: 300
+        title: Time Limit Seconds
+        type: number
+      mip_relative_gap:
+        maximum: 0.1
+        minimum: 0
+        title: Mip Relative Gap
+        type: number
+    required:
+    - protection_penalty_per_unit
+    - economic_preservation_weight
+    - time_limit_seconds
+    - mip_relative_gap
+    title: EmergencyPolicy
+    type: object
+  EmergencyState:
+    additionalProperties: false
+    properties:
+      required_margin_relief:
+        default: 0
+        minimum: 0
+        title: Required Margin Relief
+        type: number
+      required_capital_relief:
+        default: 0
+        minimum: 0
+        title: Required Capital Relief
+        type: number
+      required_maximum_loss_relief:
+        default: 0
+        minimum: 0
+        title: Required Maximum Loss Relief
+        type: number
+      forced_liquidation_required:
+        default: false
+        title: Forced Liquidation Required
+        type: boolean
+      trigger_reason_codes:
+        default: []
+        items:
+          maxLength: 180
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Trigger Reason Codes
+        type: array
+    title: EmergencyState
+    type: object
+  HedgePolicy:
+    additionalProperties: false
+    properties:
+      enabled:
+        default: true
+        title: Enabled
+        type: boolean
+      approved_hedge_candidate_ids:
+        default: []
+        items:
+          maxLength: 180
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Approved Hedge Candidate Ids
+        type: array
+      risk_weight:
+        exclusiveMinimum: 0
+        title: Risk Weight
+        type: number
+      transaction_cost_weight:
+        minimum: 0
+        title: Transaction Cost Weight
+        type: number
+      minimum_cvar_reduction:
+        minimum: 0
+        title: Minimum Cvar Reduction
+        type: number
+      maximum_total_absolute_hedge_units:
+        exclusiveMinimum: 0
+        title: Maximum Total Absolute Hedge Units
+        type: number
+      maximum_cost:
+        minimum: 0
+        title: Maximum Cost
+        type: number
+      time_limit_seconds:
+        exclusiveMinimum: 0
+        maximum: 300
+        title: Time Limit Seconds
+        type: number
+      mip_relative_gap:
+        maximum: 0.1
+        minimum: 0
+        title: Mip Relative Gap
+        type: number
+    required:
+    - risk_weight
+    - transaction_cost_weight
+    - minimum_cvar_reduction
+    - maximum_total_absolute_hedge_units
+    - maximum_cost
+    - time_limit_seconds
+    - mip_relative_gap
+    title: HedgePolicy
+    type: object
+  InstrumentType:
+    enum:
+    - OPTION
+    - UNDERLYING
+    - FUTURE
+    - CASH
+    title: InstrumentType
+    type: string
+  LifecycleLegInput:
+    additionalProperties: false
+    properties:
+      leg_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Leg Id
+        type: string
+      instrument_id:
+        maxLength: 180
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Instrument Id
+        type: string
+      instrument_type:
+        $ref: '#/$defs/InstrumentType'
+      side:
+        $ref: '#/$defs/PositionSide'
+      quantity_per_candidate_unit:
+        title: Quantity Per Candidate Unit
+        type: number
+      option_style:
+        $ref: '#/$defs/OptionStyle'
+        default: NONE
+      option_right:
+        $ref: '#/$defs/OptionRight'
+        default: NONE
+      settlement_type:
+        $ref: '#/$defs/SettlementType'
+        default: NONE
+      strike:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Strike
+      underlying_price:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Underlying Price
+      mark_value_per_unit:
+        minimum: 0
+        title: Mark Value Per Unit
+        type: number
+      intrinsic_value_per_unit:
+        minimum: 0
+        title: Intrinsic Value Per Unit
+        type: number
+      time_value_per_unit:
+        minimum: 0
+        title: Time Value Per Unit
+        type: number
+      dividend_present_value_per_unit:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Dividend Present Value Per Unit
+      exercise_fee_per_unit:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Exercise Fee Per Unit
+      expiration_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        title: Expiration At
+      exercise_cutoff_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        title: Exercise Cutoff At
+      borrow_available:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        title: Borrow Available
+      exercise_supported:
+        default: false
+        title: Exercise Supported
+        type: boolean
+      assignment_supported:
+        default: false
+        title: Assignment Supported
+        type: boolean
+      settlement_supported:
+        default: true
+        title: Settlement Supported
+        type: boolean
+      close_supported:
+        default: true
+        title: Close Supported
+        type: boolean
+      roll_supported:
+        default: false
+        title: Roll Supported
+        type: boolean
+      roll_target_instrument_id:
+        anyOf:
+        - maxLength: 180
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        - type: 'null'
+        default: null
+        title: Roll Target Instrument Id
+    required:
+    - leg_id
+    - instrument_id
+    - instrument_type
+    - side
+    - quantity_per_candidate_unit
+    - mark_value_per_unit
+    - intrinsic_value_per_unit
+    - time_value_per_unit
+    title: LifecycleLegInput
+    type: object
+  LifecyclePolicy:
+    additionalProperties: false
+    properties:
+      require_complete_context:
+        default: true
+        title: Require Complete Context
+        type: boolean
+      close_before_expiry_seconds:
+        minimum: 0
+        title: Close Before Expiry Seconds
+        type: integer
+      roll_before_expiry_seconds:
+        minimum: 0
+        title: Roll Before Expiry Seconds
+        type: integer
+      minimum_early_exercise_benefit:
+        minimum: 0
+        title: Minimum Early Exercise Benefit
+        type: number
+      minimum_assignment_risk_intrinsic:
+        minimum: 0
+        title: Minimum Assignment Risk Intrinsic
+        type: number
+      maximum_time_value_for_assignment_risk:
+        minimum: 0
+        title: Maximum Time Value For Assignment Risk
+        type: number
+      allow_american_early_exercise:
+        default: true
+        title: Allow American Early Exercise
+        type: boolean
+      prevent_short_assignment_if_possible:
+        default: true
+        title: Prevent Short Assignment If Possible
+        type: boolean
+    required:
+    - close_before_expiry_seconds
+    - roll_before_expiry_seconds
+    - minimum_early_exercise_benefit
+    - minimum_assignment_risk_intrinsic
+    - maximum_time_value_for_assignment_risk
+    title: LifecyclePolicy
+    type: object
+  OptionRight:
+    enum:
+    - NONE
+    - CALL
+    - PUT
+    title: OptionRight
+    type: string
+  OptionStyle:
+    enum:
+    - NONE
+    - EUROPEAN
+    - AMERICAN
+    title: OptionStyle
+    type: string
+  PositionSide:
+    enum:
+    - LONG
+    - SHORT
+    title: PositionSide
+    type: string
+  RiskGatePolicy:
+    additionalProperties: false
+    properties:
+      numerical_tolerance:
+        exclusiveMinimum: 0
+        maximum: 0.001
+        title: Numerical Tolerance
+        type: number
+      require_all_horizons:
+        default: true
+        title: Require All Horizons
+        type: boolean
+      block_on_future_plan_violation:
+        default: true
+        title: Block On Future Plan Violation
+        type: boolean
+      maximum_optimizer_risk_discrepancy:
+        minimum: 0
+        title: Maximum Optimizer Risk Discrepancy
+        type: number
+    required:
+    - numerical_tolerance
+    - maximum_optimizer_risk_discrepancy
+    title: RiskGatePolicy
+    type: object
+  RiskLifecycleContextPayload:
+    additionalProperties: false
+    properties:
+      decision_snapshot_hash:
+        title: Decision Snapshot Hash
+        type: string
+      lifecycle_candidates:
+        items:
+          $ref: '#/$defs/CandidateLifecycleInput'
+        title: Lifecycle Candidates
+        type: array
+      emergency_state:
+        $ref: '#/$defs/EmergencyState'
+      policy_context:
+        $ref: '#/$defs/ApprovedS6PolicyContext'
+    required:
+    - decision_snapshot_hash
+    - lifecycle_candidates
+    - emergency_state
+    - policy_context
+    title: RiskLifecycleContextPayload
+    type: object
+  SettlementType:
+    enum:
+    - NONE
+    - CASH
+    - PHYSICAL
+    title: SettlementType
+    type: string
+additionalProperties: false
+properties:
+  envelope:
+    $ref: '#/$defs/ArtifactEnvelope'
+  payload:
+    $ref: '#/$defs/RiskLifecycleContextPayload'
+required:
+- envelope
+- payload
+title: RiskLifecycleContextBundle
+type: object

@@ -1,0 +1,52 @@
+additionalProperties: false
+properties:
+  schema_id:
+    const: warmup_checkpoint_config.v2
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 2.0.0
+    title: Schema Version
+    type: string
+  checkpoint_frequency:
+    const: MONTHLY
+    title: Checkpoint Frequency
+    type: string
+  final_checkpoint_required:
+    const: true
+    title: Final Checkpoint Required
+    type: boolean
+  resume_supported:
+    title: Resume Supported
+    type: boolean
+  hash_all_state_families:
+    const: true
+    title: Hash All State Families
+    type: boolean
+  required_state_families:
+    items:
+      minLength: 1
+      type: string
+    title: Required State Families
+    type: array
+  max_checkpoint_count:
+    default: 1000
+    exclusiveMinimum: 0
+    maximum: 10000
+    title: Max Checkpoint Count
+    type: integer
+required:
+- schema_id
+- schema_version
+- checkpoint_frequency
+- final_checkpoint_required
+- resume_supported
+- hash_all_state_families
+- required_state_families
+title: WarmupCheckpointConfig
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: warmup_checkpoint_config_s10
+schema_id: warmup_checkpoint_config.v2
+schema_version: v14.1-rc4.1
+status: implemented_unqualified

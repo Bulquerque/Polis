@@ -1,0 +1,133 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "relationship_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relationship Type"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_version",
+        "contract_version",
+        "content_sha256",
+        "available_at"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "source_artifact_id": {
+      "minLength": 1,
+      "title": "Source Artifact Id",
+      "type": "string"
+    },
+    "source_artifact_type": {
+      "minLength": 1,
+      "title": "Source Artifact Type",
+      "type": "string"
+    },
+    "source_hash_field": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Hash Field"
+    },
+    "source_phase": {
+      "enum": [
+        "P5",
+        "P6",
+        "P7"
+      ],
+      "title": "Source Phase",
+      "type": "string"
+    },
+    "source_release": {
+      "minLength": 1,
+      "title": "Source Release",
+      "type": "string"
+    },
+    "source_reported_hash": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Reported Hash"
+    },
+    "source_schema_version": {
+      "minLength": 1,
+      "title": "Source Schema Version",
+      "type": "string"
+    },
+    "wrapped_reference": {
+      "$ref": "#/$defs/ArtifactReference"
+    }
+  },
+  "required": [
+    "source_phase",
+    "source_release",
+    "source_artifact_id",
+    "source_artifact_type",
+    "source_schema_version",
+    "wrapped_reference"
+  ],
+  "title": "SourceArtifactAuditRecord",
+  "type": "object"
+}

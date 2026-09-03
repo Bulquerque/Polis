@@ -1,0 +1,126 @@
+{
+  "schema_version": "cognitive_cycle_schedule.v2",
+  "contract_version": "p3.s19.v1",
+  "schedule_policy": "EVENT_FIRST_PRIORITY_SCORE_SEEDED_SHA256_HEARTBEAT_PERSON",
+  "run_id": "run:2026-07-27-001",
+  "cycle_id": "cycle:2026-07-27-001",
+  "target_cycle_id": "cycle:2026-07-27-001",
+  "population_id": "population:demo-v1",
+  "as_of": "2026-07-27T14:00:00Z",
+  "coverage_period": "2026-07",
+  "steps": [
+    {
+      "schedule_step_id": "schedule-step:event:2abe650d89ced94f8b2e68f74ffc7eeb",
+      "sequence_index": 0,
+      "person_id": "person:analyst-tech",
+      "trigger_type": "STIMULUS",
+      "activation_reason": "STIMULUS_THRESHOLD_MET",
+      "activation_id": "activation:07e7ad16593c0b2a946abbb4dd1f76f0",
+      "stimulus_id": "stim:b9489b957ef8b35f656b0e3a55d295f1",
+      "heartbeat_period": null,
+      "priority": 83,
+      "activation_score": 0.8275,
+      "scheduled_at": "2026-07-27T14:00:00Z",
+      "seed": 248208156434486588,
+      "tie_break_hash": "db4a75d7f56aed0b8879eab4638a47ac06bdb0353591851b31b23ff5b7c2e298",
+      "source_lineage_ids": [
+        "lineage:p3.s19.m01:d9772bc10c770343548259c8b71f0e6a",
+        "lineage:state-analyst",
+        "lineage:validated-population-demo"
+      ]
+    },
+    {
+      "schedule_step_id": "schedule-step:event:a197788d8cd5cbc181ad74f5fc9fb2d3",
+      "sequence_index": 1,
+      "person_id": "person:macro",
+      "trigger_type": "STIMULUS",
+      "activation_reason": "STIMULUS_THRESHOLD_MET",
+      "activation_id": "activation:7c2011417667e13c0e66ccc31ca0f733",
+      "stimulus_id": "stim:b9e8793db20612b39c45d398c86537d4",
+      "heartbeat_period": null,
+      "priority": 66,
+      "activation_score": 0.66,
+      "scheduled_at": "2026-07-27T14:00:00Z",
+      "seed": 2281240130861270419,
+      "tie_break_hash": "80bcdaccddabc6449f4e9a9659b15ce9b40cf643f85651ed01561346c092d29b",
+      "source_lineage_ids": [
+        "lineage:p3.s19.m01:d9772bc10c770343548259c8b71f0e6a",
+        "lineage:state-macro",
+        "lineage:validated-population-demo"
+      ]
+    },
+    {
+      "schedule_step_id": "schedule-step:heartbeat:9b43f35f57f7a91c896d935c2cd23be7",
+      "sequence_index": 2,
+      "person_id": "person:quant",
+      "trigger_type": "HEARTBEAT",
+      "activation_reason": "MONTHLY_HEARTBEAT",
+      "activation_id": null,
+      "stimulus_id": null,
+      "heartbeat_period": "2026-07",
+      "priority": 0,
+      "activation_score": null,
+      "scheduled_at": "2026-07-27T14:00:00Z",
+      "seed": 6240715568232651315,
+      "tie_break_hash": "569b79be9cc1da33a877bd9ec32be8bc21f05babf3b214d804c01d503acc852a",
+      "source_lineage_ids": [
+        "lineage:p3.s19.m01:d9772bc10c770343548259c8b71f0e6a",
+        "lineage:state-quant",
+        "lineage:validated-population-demo"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "person_id": "person:analyst-tech",
+      "period": "2026-07",
+      "covered": true,
+      "reason": "EVENT_ACTIVATION",
+      "last_cognitive_cycle_at": "2026-06-20T12:00:00Z",
+      "schedule_step_id": "schedule-step:event:2abe650d89ced94f8b2e68f74ffc7eeb"
+    },
+    {
+      "person_id": "person:dormant",
+      "period": "2026-07",
+      "covered": true,
+      "reason": "PERSON_DISABLED",
+      "last_cognitive_cycle_at": null,
+      "schedule_step_id": null
+    },
+    {
+      "person_id": "person:macro",
+      "period": "2026-07",
+      "covered": true,
+      "reason": "EVENT_ACTIVATION",
+      "last_cognitive_cycle_at": "2026-06-22T12:00:00Z",
+      "schedule_step_id": "schedule-step:event:a197788d8cd5cbc181ad74f5fc9fb2d3"
+    },
+    {
+      "person_id": "person:quant",
+      "period": "2026-07",
+      "covered": true,
+      "reason": "HEARTBEAT_SCHEDULED",
+      "last_cognitive_cycle_at": "2026-06-15T12:00:00Z",
+      "schedule_step_id": "schedule-step:heartbeat:9b43f35f57f7a91c896d935c2cd23be7"
+    }
+  ],
+  "source_lineage_ids": [
+    "lineage:current-person-state-demo",
+    "lineage:p3.s19.m01:d9772bc10c770343548259c8b71f0e6a",
+    "lineage:validated-population-demo"
+  ],
+  "lineage_id": "lineage:p3.s19.m02:40a29a0de9b6ca1c7479a136a9df9ebd",
+  "content_hash": "fefa9fbf6287391573892d18ea4ec1cd28505348059a5662ac37f061621a999b",
+  "status": "READY",
+  "warnings": [],
+  "metrics": {
+    "population_count": 4,
+    "enabled_population_count": 3,
+    "event_step_count": 2,
+    "heartbeat_step_count": 1,
+    "prior_month_covered_count": 0,
+    "disabled_count": 1,
+    "total_step_count": 3,
+    "warning_count": 0
+  }
+}

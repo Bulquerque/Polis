@@ -1,0 +1,12 @@
+version: reward-vector.v1
+primary_order:
+- PIT_AND_AUTHORITY
+- PREDICTIVE_GAIN
+- INCREMENTAL_INFORMATION
+- STABILITY
+- ECONOMIC_GAIN
+penalties:
+- COMPLEXITY
+- COST
+- REDUNDANCY
+collapse_to_single_scalar: false

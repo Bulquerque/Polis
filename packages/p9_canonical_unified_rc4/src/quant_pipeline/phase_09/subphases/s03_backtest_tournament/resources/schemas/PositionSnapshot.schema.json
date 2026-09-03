@@ -1,0 +1,42 @@
+{
+  "$id": "https://inferencia.local/p9/s3/PositionSnapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "instrument_id": {
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "market_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Market Value"
+    },
+    "quantity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Quantity"
+    }
+  },
+  "required": [
+    "instrument_id",
+    "quantity",
+    "market_value"
+  ],
+  "title": "PositionSnapshot",
+  "type": "object"
+}

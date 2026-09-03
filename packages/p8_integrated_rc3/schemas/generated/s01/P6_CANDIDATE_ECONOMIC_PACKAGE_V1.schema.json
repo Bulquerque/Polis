@@ -1,0 +1,409 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "relationship_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relationship Type"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_version",
+        "contract_version",
+        "content_sha256",
+        "available_at"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "CandidateLegV1": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "instrument_type": {
+          "minLength": 1,
+          "title": "Instrument Type",
+          "type": "string"
+        },
+        "side": {
+          "$ref": "#/$defs/PositionSide"
+        },
+        "unit_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Unit Quantity"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "strike": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Strike"
+        },
+        "expiration": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expiration"
+        },
+        "exercise_style": {
+          "$ref": "#/$defs/ExerciseStyle",
+          "default": "NONE"
+        },
+        "settlement_type": {
+          "$ref": "#/$defs/SettlementType"
+        },
+        "contract_valid_from": {
+          "format": "date-time",
+          "title": "Contract Valid From",
+          "type": "string"
+        },
+        "contract_valid_until": {
+          "format": "date-time",
+          "title": "Contract Valid Until",
+          "type": "string"
+        },
+        "instrument_master_ref": {
+          "$ref": "#/$defs/ArtifactReference"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "instrument_type",
+        "side",
+        "unit_quantity",
+        "contract_multiplier",
+        "settlement_type",
+        "contract_valid_from",
+        "contract_valid_until",
+        "instrument_master_ref"
+      ],
+      "title": "CandidateLegV1",
+      "type": "object"
+    },
+    "ComponentQualificationStatus": {
+      "enum": [
+        "QUALIFIED",
+        "DEGRADED",
+        "RESERVED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQualificationStatus",
+      "type": "string"
+    },
+    "ExerciseStyle": {
+      "enum": [
+        "NONE",
+        "EUROPEAN",
+        "AMERICAN",
+        "OTHER"
+      ],
+      "title": "ExerciseStyle",
+      "type": "string"
+    },
+    "PositionSide": {
+      "enum": [
+        "LONG",
+        "SHORT"
+      ],
+      "title": "PositionSide",
+      "type": "string"
+    },
+    "SettlementType": {
+      "enum": [
+        "CASH",
+        "PHYSICAL",
+        "NONE"
+      ],
+      "title": "SettlementType",
+      "type": "string"
+    },
+    "UnitEconomicsV1": {
+      "additionalProperties": false,
+      "properties": {
+        "entry_cost_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "payoff_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "maximum_loss_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "liquidity_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "lifecycle_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "unit_entry_cost": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit Entry Cost"
+        },
+        "unit_maximum_loss": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit Maximum Loss"
+        },
+        "margin_per_unit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Margin Per Unit"
+        },
+        "liquidity_capacity_units": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Liquidity Capacity Units"
+        },
+        "scenario_valuation_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "entry_cost_status",
+        "payoff_status",
+        "maximum_loss_status",
+        "liquidity_status",
+        "lifecycle_status"
+      ],
+      "title": "UnitEconomicsV1",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "canonical_candidate_id": {
+      "minLength": 1,
+      "title": "Canonical Candidate Id",
+      "type": "string"
+    },
+    "candidate_family": {
+      "minLength": 1,
+      "title": "Candidate Family",
+      "type": "string"
+    },
+    "objective_family": {
+      "minLength": 1,
+      "title": "Objective Family",
+      "type": "string"
+    },
+    "unit_definition": {
+      "minLength": 1,
+      "title": "Unit Definition",
+      "type": "string"
+    },
+    "currency": {
+      "pattern": "^[A-Z]{3}$",
+      "title": "Currency",
+      "type": "string"
+    },
+    "lot_size": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Lot Size"
+    },
+    "quantity_increment": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Quantity Increment"
+    },
+    "legs": {
+      "items": {
+        "$ref": "#/$defs/CandidateLegV1"
+      },
+      "minItems": 1,
+      "title": "Legs",
+      "type": "array"
+    },
+    "unit_economics": {
+      "$ref": "#/$defs/UnitEconomicsV1"
+    },
+    "p5_belief_bundle_ref": {
+      "$ref": "#/$defs/ArtifactReference"
+    },
+    "lineage_refs": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "Lineage Refs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "canonical_candidate_id",
+    "candidate_family",
+    "objective_family",
+    "unit_definition",
+    "currency",
+    "lot_size",
+    "quantity_increment",
+    "legs",
+    "unit_economics",
+    "p5_belief_bundle_ref"
+  ],
+  "title": "P6CandidateEconomicPackageV1",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P6_CANDIDATE_ECONOMIC_PACKAGE_V1.schema.json"
+}

@@ -1,0 +1,49 @@
+{
+  "$id": "https://inferencia.local/p8/s4/v1/ScenarioArtifactBundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "full_scenarios_file": {
+      "title": "Full Scenarios File",
+      "type": "string"
+    },
+    "full_scenarios_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Full Scenarios Sha256",
+      "type": "string"
+    },
+    "reduced_scenarios_file": {
+      "title": "Reduced Scenarios File",
+      "type": "string"
+    },
+    "reduced_scenarios_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Reduced Scenarios Sha256",
+      "type": "string"
+    },
+    "root_path": {
+      "title": "Root Path",
+      "type": "string"
+    },
+    "stress_scenarios_file": {
+      "title": "Stress Scenarios File",
+      "type": "string"
+    },
+    "stress_scenarios_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Stress Scenarios Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "root_path",
+    "full_scenarios_file",
+    "reduced_scenarios_file",
+    "stress_scenarios_file",
+    "full_scenarios_sha256",
+    "reduced_scenarios_sha256",
+    "stress_scenarios_sha256"
+  ],
+  "title": "ScenarioArtifactBundle",
+  "type": "object"
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonicalization_version": {
+      "default": "P9-C14N-JSON-1",
+      "minLength": 1,
+      "title": "Canonicalization Version",
+      "type": "string"
+    },
+    "hash_algorithm": {
+      "default": "sha256",
+      "minLength": 1,
+      "title": "Hash Algorithm",
+      "type": "string"
+    },
+    "payload_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Payload Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "payload_sha256"
+  ],
+  "title": "IntegrityEnvelope",
+  "type": "object"
+}

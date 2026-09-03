@@ -1,0 +1,166 @@
+$defs:
+  EvidenceQuality:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceQuality
+    type: string
+  P3ContextCategory:
+    enum:
+    - ABSTRACT_LESSON
+    - RESEARCH_HYPOTHESIS
+    - UNCERTAINTY
+    - FAILURE_PATTERN
+    - RESEARCH_QUESTION
+    title: P3ContextCategory
+    type: string
+  P3ContextState:
+    enum:
+    - P3_CONTEXT_READY
+    - NO_EXPORTABLE_CONTEXT
+    - TEMPORAL_LEAKAGE_BLOCKED
+    - P3_SCHEMA_INCOMPATIBLE
+    title: P3ContextState
+    type: string
+  P3ResearchContextItem:
+    additionalProperties: false
+    properties:
+      abstract_claim:
+        maxLength: 4000
+        minLength: 1
+        title: Abstract Claim
+        type: string
+      category:
+        $ref: '#/$defs/P3ContextCategory'
+      context_item_id:
+        maxLength: 256
+        minLength: 1
+        title: Context Item Id
+        type: string
+      evidence_quality:
+        $ref: '#/$defs/EvidenceQuality'
+      research_question:
+        maxLength: 4000
+        minLength: 1
+        title: Research Question
+        type: string
+      scope:
+        $ref: '#/$defs/ResearchScope'
+      source_memory_item_id:
+        maxLength: 192
+        minLength: 1
+        title: Source Memory Item Id
+        type: string
+      uncertainty:
+        maxLength: 4000
+        minLength: 1
+        title: Uncertainty
+        type: string
+      world_memory_write_allowed:
+        default: false
+        title: World Memory Write Allowed
+        type: boolean
+    required:
+    - context_item_id
+    - category
+    - abstract_claim
+    - uncertainty
+    - research_question
+    - scope
+    - source_memory_item_id
+    - evidence_quality
+    title: P3ResearchContextItem
+    type: object
+  ResearchScope:
+    additionalProperties: false
+    properties:
+      asset_families:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Asset Families
+        type: array
+      phases:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Phases
+        type: array
+      policy_ids:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Policy Ids
+        type: array
+      regimes:
+        default: []
+        items:
+          maxLength: 256
+          minLength: 1
+          type: string
+        title: Regimes
+        type: array
+    title: ResearchScope
+    type: object
+additionalProperties: false
+properties:
+  blocked_memory_item_ids:
+    default: []
+    items:
+      maxLength: 192
+      minLength: 1
+      type: string
+    title: Blocked Memory Item Ids
+    type: array
+  context_items:
+    items:
+      $ref: '#/$defs/P3ResearchContextItem'
+    title: Context Items
+    type: array
+  contract_name:
+    default: P9_RESEARCH_CONTEXT_HANDOFF_V1
+    maxLength: 256
+    minLength: 1
+    title: Contract Name
+    type: string
+  contract_version:
+    default: 1.0.0
+    maxLength: 256
+    minLength: 1
+    title: Contract Version
+    type: string
+  destination:
+    default: P3_RESEARCH_CONTEXT_ONLY
+    maxLength: 256
+    minLength: 1
+    title: Destination
+    type: string
+  reason_codes:
+    default: []
+    items:
+      pattern: ^P9_[A-Z0-9_]+$
+      type: string
+    title: Reason Codes
+    type: array
+  state:
+    $ref: '#/$defs/P3ContextState'
+  world_memory_write_allowed:
+    default: false
+    title: World Memory Write Allowed
+    type: boolean
+required:
+- state
+- context_items
+title: P3ResearchContextHandoff
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

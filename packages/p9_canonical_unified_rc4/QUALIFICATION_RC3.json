@@ -1,0 +1,72 @@
+{
+  "compatibility": {
+    "fingerprints_verified": 9,
+    "p3_boundary": "PROCESS_ISOLATED",
+    "p6_boundary": "P0_GOVERNED",
+    "p8_full_profile": "QUALIFIED_WITH_EXPLICIT_SUPPLEMENTS",
+    "p8_native_profile": "COMPATIBLE_LIMITED",
+    "phases_covered": 9,
+    "schemas": 13
+  },
+  "economic_promotion_allowed": false,
+  "imports": {
+    "failures": 0,
+    "source_modules": 238,
+    "wheel_coinstalled_modules": 238
+  },
+  "module_registry": {
+    "modules": 70,
+    "subphases": 10
+  },
+  "parse_counts": {
+    "json": 1046,
+    "python": 439,
+    "yaml": 145
+  },
+  "project_version": "0.1.0rc4",
+  "qualification_state": "TECHNICAL_CONTRACTUAL_AND_CROSS_PHASE_QUALIFIED_FOR_FROZEN_SNAPSHOTS",
+  "real_capital_authorized": false,
+  "registries": {
+    "contracts": 11,
+    "status": "PASS",
+    "tokens": 339
+  },
+  "release": "P9_CANONICAL_UNIFIED_RC4",
+  "schema_version": "1.0.0",
+  "static_tools": {
+    "mypy": "NOT_AVAILABLE_IN_ENVIRONMENT",
+    "replacement_gates": [
+      "Python AST",
+      "JSON/YAML parsing",
+      "import sweep",
+      "registry validation",
+      "schema validation",
+      "source scans",
+      "hermetic tests"
+    ],
+    "ruff": "NOT_AVAILABLE_IN_ENVIRONMENT"
+  },
+  "tests": {
+    "p8_with_p9_present": {
+      "failed": 0,
+      "passed": 631
+    },
+    "p9_aggregate": {
+      "failed": 0,
+      "passed": 591
+    },
+    "p9_core": {
+      "failed": 0,
+      "passed": 573
+    },
+    "p9_external_compatibility": {
+      "failed": 0,
+      "passed": 18
+    }
+  },
+  "wheel": {
+    "coinstallation_status": "PASS",
+    "path": "dist/quant_pipeline_phase_09-0.1.0rc4-py3-none-any.whl",
+    "sha256": "c8906715fed52243db26cc40f77ba4cc8335e8405de4c39930feec7ffc2adfac"
+  }
+}

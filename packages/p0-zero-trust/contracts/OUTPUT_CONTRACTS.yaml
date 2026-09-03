@@ -1,0 +1,33 @@
+phase: phase_00_zero_trust
+outputs:
+- zero_trust_health_report
+- pipeline_health_report
+- forbidden_connection_report
+- schema_compatibility_report
+- artifact_integrity_report
+- hash_integrity_report
+- code_quality_report
+- duplicate_file_report
+- monolith_report
+- global_test_report
+- phase_health_panel
+- global_control_tower_payload
+- release_gate_report
+- phase_zero_trust_feedback_panel
+- zero_trust_feedback_manifest
+terminal_artifacts:
+- agent_package_validation_report
+- artifact_format_validation_report
+- contract_test_execution_plan
+- dashboard_export_manifest
+- dashboard_json_payloads
+- dashboard_static_site
+- forbidden_field_report
+- immutability_report
+forbidden_output_fields:
+- future_return
+- rank_score
+- candidate_score
+- portfolio_weight
+- realized_pnl
+- trade_decision

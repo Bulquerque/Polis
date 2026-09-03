@@ -1,0 +1,118 @@
+{
+  "$defs": {
+    "QualityMetric": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "passed": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Passed"
+        },
+        "reason_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason Code"
+        },
+        "threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Threshold"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "threshold",
+        "passed"
+      ],
+      "title": "QualityMetric",
+      "type": "object"
+    },
+    "QualityStatus": {
+      "enum": [
+        "FULLY_QUALIFIED",
+        "QUALIFIED_WITH_HAIRCUT",
+        "TAIL_INCOMPLETE",
+        "PATH_INCOMPLETE",
+        "REGIME_INCOMPLETE",
+        "DECISION_UNSTABLE",
+        "NOT_ACTIONABLE"
+      ],
+      "title": "QualityStatus",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "metrics": {
+      "items": {
+        "$ref": "#/$defs/QualityMetric"
+      },
+      "title": "Metrics",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "score": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Score",
+      "type": "number"
+    },
+    "status_by_family": {
+      "additionalProperties": {
+        "$ref": "#/$defs/QualityStatus"
+      },
+      "title": "Status By Family",
+      "type": "object"
+    }
+  },
+  "required": [
+    "status_by_family",
+    "score",
+    "metrics"
+  ],
+  "title": "QualityAssessment",
+  "type": "object"
+}

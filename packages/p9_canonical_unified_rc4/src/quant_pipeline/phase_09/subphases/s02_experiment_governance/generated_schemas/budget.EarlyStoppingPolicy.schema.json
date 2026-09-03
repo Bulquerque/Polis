@@ -1,0 +1,34 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "development_only": {
+      "default": true,
+      "title": "Development Only",
+      "type": "boolean"
+    },
+    "enabled": {
+      "title": "Enabled",
+      "type": "boolean"
+    },
+    "minimum_completed_cells": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Minimum Completed Cells",
+      "type": "integer"
+    },
+    "signal_metric_ids": {
+      "default": [],
+      "items": {
+        "pattern": "^[a-z][a-z0-9_.-]{2,127}$",
+        "type": "string"
+      },
+      "title": "Signal Metric Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "enabled"
+  ],
+  "title": "EarlyStoppingPolicy",
+  "type": "object"
+}

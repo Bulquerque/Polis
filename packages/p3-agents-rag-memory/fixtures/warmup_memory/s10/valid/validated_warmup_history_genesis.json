@@ -1,0 +1,44 @@
+{
+  "schema_id": "validated_warmup_history.v1",
+  "schema_version": "1.0.0",
+  "artifact_id": "p3-s9-run-s9-001-996614ea593c6748",
+  "module_id": "P3.S9.M01",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "as_of": "2026-01-01T00:00:00Z",
+  "mode": "GENESIS_ONLY",
+  "status": "READY",
+  "evaluation_start": "2026-01-01T00:00:00Z",
+  "warmup_start": "2025-01-01T00:00:00Z",
+  "warmup_end": null,
+  "records": [],
+  "history_hash": "996614ea593c67480d019fb51d2cec6f33680848e2dcb4740e43ae17128529f8",
+  "lineage": {
+    "lineage_id": "lineage-history-genesis-001:validated:996614ea593c",
+    "input_history_id": "history-genesis-001",
+    "input_history_hash": "720fcf3d5dad0cb42f31378d6682d03e30657fa21d15c908aa70dd1ea6ed535d",
+    "input_snapshot_id": "snapshot-s9-001",
+    "input_snapshot_hash": "73349e3f1da0910545d7856e6ced8c46e965116c9870a0a4c88d83e7ea04dc88",
+    "source_artifact_ids": [],
+    "source_lineage_ids": [
+      "lineage-history-genesis-001"
+    ]
+  },
+  "validation_summary": {
+    "input_record_count": 0,
+    "output_record_count": 0,
+    "unique_event_count": 0,
+    "unique_source_count": 0,
+    "earliest_available_at": null,
+    "latest_available_at": null,
+    "rejected_record_count": 0
+  },
+  "issues": [
+    {
+      "code": "P3_S9_M01_NO_APPROVED_WARMUP_HISTORY",
+      "severity": "INFO",
+      "message": "Genesis mode selected; no historical records will be replayed.",
+      "path": "warmup_history_bundle.mode"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+schema_version: p3.s21.v1
+policy_version: person-state-policy-v1
+immutable_fields:
+- person_id
+- profile_hash
+- identity.life_stage_at_creation
+- identity.creator_provenance
+slow_families:
+- core_personality
+- cognitive_capacity
+medium_families:
+- knowledge
+- trust
+- tool_proficiency
+fast_families:
+- attention
+- confidence
+- functional_affect
+transition_authorized_families:
+- knowledge
+- attention
+- confidence
+- functional_affect

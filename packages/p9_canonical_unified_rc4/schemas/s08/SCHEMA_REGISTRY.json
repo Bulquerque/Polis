@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.0.0",
+  "models": [
+    {
+      "model": "ProspectiveAttributionBundle",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.bundle.ProspectiveAttributionBundle",
+      "json_schema": "schemas/json/ProspectiveAttributionBundle.schema.json",
+      "yaml_schema": "schemas/yaml/ProspectiveAttributionBundle.schema.yaml"
+    },
+    {
+      "model": "ProspectiveAttributionPayload",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.bundle.ProspectiveAttributionPayload",
+      "json_schema": "schemas/json/ProspectiveAttributionPayload.schema.json",
+      "yaml_schema": "schemas/yaml/ProspectiveAttributionPayload.schema.yaml"
+    },
+    {
+      "model": "AttributionAmount",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.contracts.AttributionAmount",
+      "json_schema": "schemas/json/AttributionAmount.schema.json",
+      "yaml_schema": "schemas/yaml/AttributionAmount.schema.yaml"
+    },
+    {
+      "model": "AttributionReconciliationReceipt",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m08_reconciliation.AttributionReconciliationReceipt",
+      "json_schema": "schemas/json/AttributionReconciliationReceipt.schema.json",
+      "yaml_schema": "schemas/yaml/AttributionReconciliationReceipt.schema.yaml"
+    },
+    {
+      "model": "CandidateAllocationEffect",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m04_portfolio_attribution.CandidateAllocationEffect",
+      "json_schema": "schemas/json/CandidateAllocationEffect.schema.json",
+      "yaml_schema": "schemas/yaml/CandidateAllocationEffect.schema.yaml"
+    },
+    {
+      "model": "CandidateAllocationRecord",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m04_portfolio_attribution.CandidateAllocationRecord",
+      "json_schema": "schemas/json/CandidateAllocationRecord.schema.json",
+      "yaml_schema": "schemas/yaml/CandidateAllocationRecord.schema.yaml"
+    },
+    {
+      "model": "CandidateOutcome",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m02_payoff_attribution.CandidateOutcome",
+      "json_schema": "schemas/json/CandidateOutcome.schema.json",
+      "yaml_schema": "schemas/yaml/CandidateOutcome.schema.yaml"
+    },
+    {
+      "model": "CollinearityPair",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m01_forecast_attribution.CollinearityPair",
+      "json_schema": "schemas/json/CollinearityPair.schema.json",
+      "yaml_schema": "schemas/yaml/CollinearityPair.schema.yaml"
+    },
+    {
+      "model": "ComponentAttribution",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m01_forecast_attribution.ComponentAttribution",
+      "json_schema": "schemas/json/ComponentAttribution.schema.json",
+      "yaml_schema": "schemas/yaml/ComponentAttribution.schema.yaml"
+    },
+    {
+      "model": "CounterfactualPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m07_counterfactual.CounterfactualPolicy",
+      "json_schema": "schemas/json/CounterfactualPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/CounterfactualPolicy.schema.yaml"
+    },
+    {
+      "model": "CounterfactualPolicyResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m07_counterfactual.CounterfactualPolicyResult",
+      "json_schema": "schemas/json/CounterfactualPolicyResult.schema.json",
+      "yaml_schema": "schemas/yaml/CounterfactualPolicyResult.schema.yaml"
+    },
+    {
+      "model": "EstimateAccuracyItem",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m02_payoff_attribution.EstimateAccuracyItem",
+      "json_schema": "schemas/json/EstimateAccuracyItem.schema.json",
+      "yaml_schema": "schemas/yaml/EstimateAccuracyItem.schema.yaml"
+    },
+    {
+      "model": "ExecutionAttributionPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m05_execution_attribution.ExecutionAttributionPolicy",
+      "json_schema": "schemas/json/ExecutionAttributionPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/ExecutionAttributionPolicy.schema.yaml"
+    },
+    {
+      "model": "ExecutionAttributionResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m05_execution_attribution.ExecutionAttributionResult",
+      "json_schema": "schemas/json/ExecutionAttributionResult.schema.json",
+      "yaml_schema": "schemas/yaml/ExecutionAttributionResult.schema.yaml"
+    },
+    {
+      "model": "ExecutionRecord",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m05_execution_attribution.ExecutionRecord",
+      "json_schema": "schemas/json/ExecutionRecord.schema.json",
+      "yaml_schema": "schemas/yaml/ExecutionRecord.schema.yaml"
+    },
+    {
+      "model": "ForecastAttributionPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m01_forecast_attribution.ForecastAttributionPolicy",
+      "json_schema": "schemas/json/ForecastAttributionPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/ForecastAttributionPolicy.schema.yaml"
+    },
+    {
+      "model": "ForecastAttributionResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m01_forecast_attribution.ForecastAttributionResult",
+      "json_schema": "schemas/json/ForecastAttributionResult.schema.json",
+      "yaml_schema": "schemas/yaml/ForecastAttributionResult.schema.yaml"
+    },
+    {
+      "model": "ForecastComponentObservation",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m01_forecast_attribution.ForecastComponentObservation",
+      "json_schema": "schemas/json/ForecastComponentObservation.schema.json",
+      "yaml_schema": "schemas/yaml/ForecastComponentObservation.schema.yaml"
+    },
+    {
+      "model": "HierarchicalPnlAttributionResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m08_reconciliation.HierarchicalPnlAttributionResult",
+      "json_schema": "schemas/json/HierarchicalPnlAttributionResult.schema.json",
+      "yaml_schema": "schemas/yaml/HierarchicalPnlAttributionResult.schema.yaml"
+    },
+    {
+      "model": "LifecycleAttribution",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m05_execution_attribution.LifecycleAttribution",
+      "json_schema": "schemas/json/LifecycleAttribution.schema.json",
+      "yaml_schema": "schemas/yaml/LifecycleAttribution.schema.yaml"
+    },
+    {
+      "model": "LifecycleEvent",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m05_execution_attribution.LifecycleEvent",
+      "json_schema": "schemas/json/LifecycleEvent.schema.json",
+      "yaml_schema": "schemas/yaml/LifecycleEvent.schema.yaml"
+    },
+    {
+      "model": "LoggedPolicyObservation",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m07_counterfactual.LoggedPolicyObservation",
+      "json_schema": "schemas/json/LoggedPolicyObservation.schema.json",
+      "yaml_schema": "schemas/yaml/LoggedPolicyObservation.schema.yaml"
+    },
+    {
+      "model": "OptionAttributionInterval",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m06_option_attribution.OptionAttributionInterval",
+      "json_schema": "schemas/json/OptionAttributionInterval.schema.json",
+      "yaml_schema": "schemas/yaml/OptionAttributionInterval.schema.yaml"
+    },
+    {
+      "model": "OptionAttributionPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m06_option_attribution.OptionAttributionPolicy",
+      "json_schema": "schemas/json/OptionAttributionPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/OptionAttributionPolicy.schema.yaml"
+    },
+    {
+      "model": "OptionAttributionResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m06_option_attribution.OptionAttributionResult",
+      "json_schema": "schemas/json/OptionAttributionResult.schema.json",
+      "yaml_schema": "schemas/yaml/OptionAttributionResult.schema.yaml"
+    },
+    {
+      "model": "OptionIntervalAttribution",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m06_option_attribution.OptionIntervalAttribution",
+      "json_schema": "schemas/json/OptionIntervalAttribution.schema.json",
+      "yaml_schema": "schemas/yaml/OptionIntervalAttribution.schema.yaml"
+    },
+    {
+      "model": "OrderShortfall",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m05_execution_attribution.OrderShortfall",
+      "json_schema": "schemas/json/OrderShortfall.schema.json",
+      "yaml_schema": "schemas/yaml/OrderShortfall.schema.yaml"
+    },
+    {
+      "model": "OverlapDiagnostics",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m07_counterfactual.OverlapDiagnostics",
+      "json_schema": "schemas/json/OverlapDiagnostics.schema.json",
+      "yaml_schema": "schemas/yaml/OverlapDiagnostics.schema.yaml"
+    },
+    {
+      "model": "PayoffAttributionPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m02_payoff_attribution.PayoffAttributionPolicy",
+      "json_schema": "schemas/json/PayoffAttributionPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/PayoffAttributionPolicy.schema.yaml"
+    },
+    {
+      "model": "PayoffAttributionResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m02_payoff_attribution.PayoffAttributionResult",
+      "json_schema": "schemas/json/PayoffAttributionResult.schema.json",
+      "yaml_schema": "schemas/yaml/PayoffAttributionResult.schema.yaml"
+    },
+    {
+      "model": "PayoffFidelityItem",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m02_payoff_attribution.PayoffFidelityItem",
+      "json_schema": "schemas/json/PayoffFidelityItem.schema.json",
+      "yaml_schema": "schemas/yaml/PayoffFidelityItem.schema.yaml"
+    },
+    {
+      "model": "PayoffScenarioPoint",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m02_payoff_attribution.PayoffScenarioPoint",
+      "json_schema": "schemas/json/PayoffScenarioPoint.schema.json",
+      "yaml_schema": "schemas/yaml/PayoffScenarioPoint.schema.yaml"
+    },
+    {
+      "model": "PhysicalPositionLedgerItem",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m04_portfolio_attribution.PhysicalPositionLedgerItem",
+      "json_schema": "schemas/json/PhysicalPositionLedgerItem.schema.json",
+      "yaml_schema": "schemas/yaml/PhysicalPositionLedgerItem.schema.yaml"
+    },
+    {
+      "model": "PortfolioAttributionPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m04_portfolio_attribution.PortfolioAttributionPolicy",
+      "json_schema": "schemas/json/PortfolioAttributionPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/PortfolioAttributionPolicy.schema.yaml"
+    },
+    {
+      "model": "PortfolioAttributionResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m04_portfolio_attribution.PortfolioAttributionResult",
+      "json_schema": "schemas/json/PortfolioAttributionResult.schema.json",
+      "yaml_schema": "schemas/yaml/PortfolioAttributionResult.schema.yaml"
+    },
+    {
+      "model": "RankedCandidate",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m03_ranking_attribution.RankedCandidate",
+      "json_schema": "schemas/json/RankedCandidate.schema.json",
+      "yaml_schema": "schemas/yaml/RankedCandidate.schema.yaml"
+    },
+    {
+      "model": "RankingAttributionPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m03_ranking_attribution.RankingAttributionPolicy",
+      "json_schema": "schemas/json/RankingAttributionPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/RankingAttributionPolicy.schema.yaml"
+    },
+    {
+      "model": "RankingAttributionResult",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m03_ranking_attribution.RankingAttributionResult",
+      "json_schema": "schemas/json/RankingAttributionResult.schema.json",
+      "yaml_schema": "schemas/yaml/RankingAttributionResult.schema.yaml"
+    },
+    {
+      "model": "RankingGroup",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m03_ranking_attribution.RankingGroup",
+      "json_schema": "schemas/json/RankingGroup.schema.json",
+      "yaml_schema": "schemas/yaml/RankingGroup.schema.yaml"
+    },
+    {
+      "model": "RankingGroupReport",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m03_ranking_attribution.RankingGroupReport",
+      "json_schema": "schemas/json/RankingGroupReport.schema.json",
+      "yaml_schema": "schemas/yaml/RankingGroupReport.schema.yaml"
+    },
+    {
+      "model": "ReconciliationPolicy",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m08_reconciliation.ReconciliationPolicy",
+      "json_schema": "schemas/json/ReconciliationPolicy.schema.json",
+      "yaml_schema": "schemas/yaml/ReconciliationPolicy.schema.yaml"
+    },
+    {
+      "model": "RootCauseEdge",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.contracts.RootCauseEdge",
+      "json_schema": "schemas/json/RootCauseEdge.schema.json",
+      "yaml_schema": "schemas/yaml/RootCauseEdge.schema.yaml"
+    },
+    {
+      "model": "RootCauseNode",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.contracts.RootCauseNode",
+      "json_schema": "schemas/json/RootCauseNode.schema.json",
+      "yaml_schema": "schemas/yaml/RootCauseNode.schema.yaml"
+    },
+    {
+      "model": "S8BundleHeader",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.contracts.S8BundleHeader",
+      "json_schema": "schemas/json/S8BundleHeader.schema.json",
+      "yaml_schema": "schemas/yaml/S8BundleHeader.schema.yaml"
+    },
+    {
+      "model": "S8ConsumerReceipt",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.contracts.S8ConsumerReceipt",
+      "json_schema": "schemas/json/S8ConsumerReceipt.schema.json",
+      "yaml_schema": "schemas/yaml/S8ConsumerReceipt.schema.yaml"
+    },
+    {
+      "model": "S8ExecutionRequest",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.bundle.S8ExecutionRequest",
+      "json_schema": "schemas/json/S8ExecutionRequest.schema.json",
+      "yaml_schema": "schemas/yaml/S8ExecutionRequest.schema.yaml"
+    },
+    {
+      "model": "S8ModuleExecutionReceipt",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.contracts.S8ModuleExecutionReceipt",
+      "json_schema": "schemas/json/S8ModuleExecutionReceipt.schema.json",
+      "yaml_schema": "schemas/yaml/S8ModuleExecutionReceipt.schema.yaml"
+    },
+    {
+      "model": "S8SubphaseExecutionReceipt",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.contracts.S8SubphaseExecutionReceipt",
+      "json_schema": "schemas/json/S8SubphaseExecutionReceipt.schema.json",
+      "yaml_schema": "schemas/yaml/S8SubphaseExecutionReceipt.schema.yaml"
+    },
+    {
+      "model": "S8UpstreamReferences",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.contracts.S8UpstreamReferences",
+      "json_schema": "schemas/json/S8UpstreamReferences.schema.json",
+      "yaml_schema": "schemas/yaml/S8UpstreamReferences.schema.yaml"
+    },
+    {
+      "model": "VirtualCandidateLedgerItem",
+      "python_path": "quant_pipeline.phase_09.subphases.s08_attribution.m04_portfolio_attribution.VirtualCandidateLedgerItem",
+      "json_schema": "schemas/json/VirtualCandidateLedgerItem.schema.json",
+      "yaml_schema": "schemas/yaml/VirtualCandidateLedgerItem.schema.yaml"
+    }
+  ]
+}

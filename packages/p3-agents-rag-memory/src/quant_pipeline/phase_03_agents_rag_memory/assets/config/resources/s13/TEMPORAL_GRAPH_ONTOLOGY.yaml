@@ -1,0 +1,25 @@
+ontology_id: P3_FINAL_TEMPORAL_GRAPH_ONTOLOGY_V1
+ontology_version: 1.0.0
+node_types:
+- document
+- event
+- source
+- underlying
+- proposition
+- entity
+edge_types:
+- MENTIONS
+- SUPPORTS
+- CONTRADICTS
+- ABOUT
+- DERIVED_FROM
+- SUPERSEDES
+required_temporal_fields:
+- effective_from
+- effective_to
+- available_at
+- ingested_at
+open_interval_value: null
+point_in_time_rule: available_at <= as_of_time
+edge_identity_algorithm: sha256_typed_temporal_edge_v1
+unknown_type_policy: FAIL_CLOSED

@@ -1,0 +1,53 @@
+phase_id: P6
+phase_name: payoff_design_strategy_synthesis_candidate_generation
+release: P6-RC6.2-P5-V2-CLOSURE-RC4
+operational_modes:
+- TEMPLATE_ONLY
+- TEMPLATE_MUTATION
+- INVERSE_DESIGN
+- QUALITY_DIVERSITY
+- CHALLENGER
+production_promotion_allowed: false
+inputs:
+  p5_native:
+  - phase6_strategy_scenario_manifest
+  - phase5_output_handoff_manifest
+  - market_belief_state
+  - return_distributions
+  - volatility_distributions
+  - path_risk_forecasts
+  - scenario_paths
+  - ambiguity_sets
+  - dependence_states
+  - regime_ood_states
+  - forecast_confidence
+  - availability_report
+  - lineage_report
+  p5_legacy:
+  - underlying_forecast_panel
+  p2:
+  - clean_option_contract_panel
+  - clean_option_quotes_panel
+  - clean_underlying_trade_panel
+canonical_outputs:
+- p5_handoff_compatibility_report
+- strategy_candidate_panel
+- strategy_leg_panel
+- strategy_market_snapshot
+- strategy_payoff_panel
+- strategy_scenario_evaluation_panel
+- strategy_ambiguity_evaluation_panel
+- strategy_greek_panel
+- strategy_risk_panel
+- strategy_cost_liquidity_panel
+- strategy_lineage_panel
+- strategy_generation_trace_panel
+- candidate_equivalence_panel
+- quality_diversity_archive
+- candidate_rejection_report
+- candidate_generation_audit
+- phase7_strategy_handoff_manifest
+- target_payoff_panel
+- solver_result_panel
+- pathwise_valuation_panel
+- quality_diversity_report

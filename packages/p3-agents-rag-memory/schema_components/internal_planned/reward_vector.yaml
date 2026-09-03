@@ -1,0 +1,26 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Reward Vector
+type: object
+additionalProperties: false
+properties:
+  predictive_gain: &id001
+    type: number
+  incremental_information: *id001
+  stability: *id001
+  originality: *id001
+  economic_gain: *id001
+  complexity_penalty: *id001
+  cost_penalty: *id001
+  risk_guardrail_pass: &id002
+    type: boolean
+  pit_guardrail_pass: *id002
+required:
+- predictive_gain
+- incremental_information
+- stability
+- originality
+- economic_gain
+- complexity_penalty
+- cost_penalty
+- risk_guardrail_pass
+- pit_guardrail_pass

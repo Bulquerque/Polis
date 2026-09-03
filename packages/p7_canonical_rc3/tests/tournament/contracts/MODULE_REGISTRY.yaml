@@ -1,0 +1,45 @@
+registry_id: p7_tournament_s3_s4_modules_v1
+phase: P7
+stages: TOURNAMENT
+subphases: [P7.S3, P7.S4]
+modules:
+  - module_id: P7.S3.M01
+    name: candidate_metric_semantics_compiler
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S3_M01_candidate_metric_semantics_compiler.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s3/semantics.py
+    contract: contracts/modules/P7_S3_M01_candidate_metric_semantics_compiler.yaml
+  - module_id: P7.S3.M02
+    name: option_factor_exposure_adjuster
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S3_M02_option_factor_exposure_adjuster.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s3/factors.py
+    contract: contracts/modules/P7_S3_M02_option_factor_exposure_adjuster.yaml
+  - module_id: P7.S3.M03
+    name: strict_dominance_filter
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S3_M03_strict_dominance_filter.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s3/dominance.py
+    contract: contracts/modules/P7_S3_M03_strict_dominance_filter.yaml
+  - module_id: P7.S3.M04
+    name: pareto_frontier_builder
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S3_M04_pareto_frontier_builder.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s3/pareto.py
+    contract: contracts/modules/P7_S3_M04_pareto_frontier_builder.yaml
+  - module_id: P7.S4.M01
+    name: scoring_policy_head_binding_compiler
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S4_M01_scoring_policy_head_binding_compiler.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s4/binding.py
+    contract: contracts/modules/P7_S4_M01_scoring_policy_head_binding_compiler.yaml
+  - module_id: P7.S4.M02
+    name: multi_head_score_engine
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S4_M02_multi_head_score_engine.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s4/scoring.py
+    contract: contracts/modules/P7_S4_M02_multi_head_score_engine.yaml
+  - module_id: P7.S4.M03
+    name: interpretable_score_assembler
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S4_M03_interpretable_score_assembler.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s4/assembly.py
+    contract: contracts/modules/P7_S4_M03_interpretable_score_assembler.yaml
+  - module_id: P7.S4.M04
+    name: score_decomposition_and_tournament_handoff_publisher
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S4_M04_score_decomposition_and_tournament_handoff_publisher.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s4/publication.py
+    contract: contracts/modules/P7_S4_M04_score_decomposition_and_tournament_handoff_publisher.yaml

@@ -1,0 +1,117 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: feature_selection_report
+type: object
+properties:
+  artifact_id:
+    type: string
+    minLength: 1
+  artifact_name:
+    type: string
+    minLength: 1
+  schema_version:
+    type: string
+    minLength: 1
+  producer_phase:
+    type: string
+  producer_module_id:
+    type: string
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  record_count:
+    type: integer
+    minimum: 0
+  grain:
+    type: array
+    items:
+      type: string
+  lineage_id:
+    type: string
+  execution_status:
+    type: string
+  quality_status:
+    type: string
+  metadata:
+    type: object
+  alias_of:
+    type:
+    - string
+    - 'null'
+  records:
+    type: array
+    items:
+      type: object
+      properties:
+        horizon_group:
+          type: string
+        feature_id:
+          type: string
+        decision:
+          type: string
+        reason_codes:
+          type: array
+          items:
+            type: string
+        coverage:
+          type: number
+        missingness:
+          type: number
+        variance:
+          type:
+          - number
+          - 'null'
+        observed_count:
+          type: integer
+        total_count:
+          type: integer
+        redundancy_cluster_id:
+          type:
+          - string
+          - 'null'
+        representative_feature_id:
+          type:
+          - string
+          - 'null'
+      required:
+      - horizon_group
+      - feature_id
+      - decision
+      - reason_codes
+      - coverage
+      - missingness
+      - variance
+      - observed_count
+      - total_count
+      - redundancy_cluster_id
+      - representative_feature_id
+      additionalProperties: false
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- record_count
+- grain
+- lineage_id
+- execution_status
+- quality_status
+- metadata
+- alias_of
+- records
+additionalProperties: false

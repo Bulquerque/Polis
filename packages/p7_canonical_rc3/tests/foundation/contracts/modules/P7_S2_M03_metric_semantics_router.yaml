@@ -1,0 +1,17 @@
+module_id: P7.S2.M03
+module_name: metric_semantics_router
+owner: FOUNDATION
+purpose: Bind candidate metrics to approved sources, units, directions and missingness semantics without scoring.
+inputs: [eligible_strategy_candidate_panel, candidate_comparison_group_panel, metric_semantics_registry, objective_family_registry]
+outputs: [candidate_metric_route_panel, metric_route_audit]
+failure_scope: MODULE_FATAL
+reason_codes:
+  - P7_METRIC_SEMANTICS_UNKNOWN
+  - P7_METRIC_UNIT_INCOMPATIBLE
+  - P7_METRIC_DIRECTION_UNDEFINED
+  - P7_REQUIRED_METRIC_ROUTE_MISSING
+  - P7_METRIC_ROUTE_DUPLICATE
+invariants:
+  - required_metrics_have_available_routes
+  - optional_missing_metrics_are_explicitly_unavailable
+  - no_normalization_or_score_is_computed

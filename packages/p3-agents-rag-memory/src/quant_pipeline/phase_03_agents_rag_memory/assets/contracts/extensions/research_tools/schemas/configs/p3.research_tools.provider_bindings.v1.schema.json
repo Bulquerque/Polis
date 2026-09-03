@@ -1,0 +1,107 @@
+{
+  "$defs": {
+    "JsonValue": {},
+    "ProviderAvailability": {
+      "enum": [
+        "QUALIFIED_LOCAL",
+        "OPTIONAL_NOT_CONFIGURED",
+        "DISABLED",
+        "UNQUALIFIED"
+      ],
+      "title": "ProviderAvailability",
+      "type": "string"
+    },
+    "ProviderBindingConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/ProviderAvailability"
+        },
+        "configured": {
+          "title": "Configured",
+          "type": "boolean"
+        },
+        "metadata": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Metadata",
+          "type": "object"
+        },
+        "protocol": {
+          "minLength": 1,
+          "title": "Protocol",
+          "type": "string"
+        },
+        "protocol_version": {
+          "minLength": 1,
+          "title": "Protocol Version",
+          "type": "string"
+        },
+        "provider_id": {
+          "minLength": 1,
+          "title": "Provider Id",
+          "type": "string"
+        },
+        "qualified": {
+          "title": "Qualified",
+          "type": "boolean"
+        },
+        "transport": {
+          "$ref": "#/$defs/TransportKind"
+        }
+      },
+      "required": [
+        "provider_id",
+        "transport",
+        "availability",
+        "protocol",
+        "protocol_version",
+        "configured",
+        "qualified"
+      ],
+      "title": "ProviderBindingConfig",
+      "type": "object"
+    },
+    "TransportKind": {
+      "enum": [
+        "LOCAL_FUNCTION",
+        "ARTIFACT_QUERY",
+        "COMPOSITE_INTERNAL",
+        "MCP_OPTIONAL",
+        "HTTP_OPTIONAL"
+      ],
+      "title": "TransportKind",
+      "type": "string"
+    }
+  },
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.provider_bindings.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "providers": {
+      "items": {
+        "$ref": "#/$defs/ProviderBindingConfig"
+      },
+      "title": "Providers",
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "p3.research_tools.provider_bindings.v1",
+      "default": "p3.research_tools.provider_bindings.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "providers"
+  ],
+  "title": "ProviderTransportBindingsConfig",
+  "type": "object"
+}

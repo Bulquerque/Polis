@@ -1,0 +1,92 @@
+schema_id: version_compatibility_report.v1
+artifact_name: version_compatibility_report
+schema_version: v14.1-rc4.1
+type: object
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- current_pipeline_version
+- previous_pipeline_version
+- sources
+- findings
+- source_count
+- finding_count
+- schema_version_compatible
+- pipeline_version_consistent
+- status
+- release_blocking
+- promotion_blocked
+properties:
+  created_at:
+    type: string
+    minLength: 1
+  current_pipeline_version:
+    type: string
+    minLength: 1
+  previous_pipeline_version:
+    type: string
+    minLength: 1
+  artifact_id:
+    type: string
+    pattern: ^version-compatibility-report-[0-9a-f]{12}$
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  sources:
+    type: array
+    minItems: 4
+  findings:
+    type: array
+  source_count:
+    type: integer
+    minimum: 4
+  finding_count:
+    type: integer
+    minimum: 0
+  schema_version_compatible:
+    type: boolean
+  pipeline_version_consistent:
+    type: boolean
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  release_blocking:
+    type: boolean
+  promotion_blocked:
+    type: boolean
+    const: true
+  version_transition_status:
+    type: string
+    enum:
+    - SAME_VERSION
+    - COMPATIBLE_FORWARD_REVISION
+    - INCOMPATIBLE_RELEASE_LINE
+    - VERSION_DOWNGRADE
+  current_inventory:
+    type: object
+  inventory_change_summary:
+    type: object
+  warnings:
+    type: array
+  warning_count:
+    type: integer
+    minimum: 0
+  contract_version_compatible:
+    type: boolean
+  production_promotion_allowed:
+    type: boolean
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision

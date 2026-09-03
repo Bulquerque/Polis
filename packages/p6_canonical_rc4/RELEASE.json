@@ -1,0 +1,42 @@
+{
+  "bundle_python_requires": ">=3.13,<3.15",
+  "bundle_release": "P5_P9_P0_P4_COMPAT_RC3_HARDENED_6",
+  "closure_changes": [
+    "listed_expiration_policy",
+    "maturity_specific_implied_surfaces",
+    "solver_status_truthfulness",
+    "fail_closed_liquidity_gate",
+    "pareto_diversity_representative_selection",
+    "exact_candidate_lineage"
+  ],
+  "generated_at": "2026-08-06T20:50:05.592200+00:00",
+  "modules": 55,
+  "p5_contracts_accepted": [
+    "P5-P6-V2",
+    "LEGACY_RC34_REPLAY_ONLY"
+  ],
+  "package_id": "quant-pipeline-p6-strategy-synthesis",
+  "package_version": "0.6.2rc4.post2",
+  "phase_id": "P6",
+  "pipeline_version": "P6-RC6.2-P5-V2-CLOSURE-RC4",
+  "production_promotion_allowed": false,
+  "python_requires": ">=3.11,<3.15",
+  "schema_version": "6.2.0-rc2",
+  "status": "PASS_TECHNICAL_CLOSURE_ECONOMIC_PROMOTION_BLOCKED",
+  "subphases": 10,
+  "technical_closure": true,
+  "tests": {
+    "collected": 91,
+    "execution": "SEGMENTED_WITH_EXPLICIT_TIMEOUTS",
+    "failed": 0,
+    "generated_at": "2026-08-06T20:50:05.592200+00:00",
+    "passed": 91,
+    "skipped": 0,
+    "status": "PASS"
+  },
+  "wheel": {
+    "filename": "quant_pipeline_p6_strategy_synthesis-0.6.2rc4.post2-py3-none-any.whl",
+    "sha256": "4143abb0746df748ee42eb1bc2579d3994cd745bc9133d559bce8ca461f83725",
+    "size": 175254
+  }
+}

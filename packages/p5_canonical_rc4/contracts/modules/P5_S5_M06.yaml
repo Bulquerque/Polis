@@ -1,0 +1,20 @@
+module_id: P5.S5.M06
+name: tail_scenario_validation_gate
+subphase_id: P5.S5
+required_inputs: []
+optional_inputs:
+- tail_member_forecast_panel_quantile
+- tail_member_forecast_panel_evt
+- tail_member_forecast_panel_distributional
+- scenario_member_panel_multiple_future
+- scenario_member_panel_joint_generative
+outputs:
+- validated_tail_scenario_registry
+- tail_scenario_validation_report
+allowed_actions:
+- VALIDATE
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

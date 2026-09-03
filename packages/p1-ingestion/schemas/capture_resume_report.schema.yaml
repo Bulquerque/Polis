@@ -1,0 +1,12 @@
+schema_id: capture_resume_report.v1
+schema_version: v14.1-rc4.1
+release_version: V14.1-RC4.1
+type: object
+required: [schema_id, schema_version, release_version, status, equivalent_to_continuous, duplicate_artifacts]
+properties:
+  schema_id: {const: capture_resume_report.v1}
+  schema_version: {const: v14.1-rc4.1}
+  release_version: {const: V14.1-RC4.1}
+  status: {enum: [PASS, FAIL]}
+  equivalent_to_continuous: {type: boolean}
+  duplicate_artifacts: {type: integer, minimum: 0}

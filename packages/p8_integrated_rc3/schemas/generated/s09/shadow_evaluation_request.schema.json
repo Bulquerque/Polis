@@ -1,0 +1,315 @@
+{
+  "$defs": {
+    "ChallengerDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "minLength": 1,
+          "title": "Action",
+          "type": "string"
+        },
+        "constraint_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Constraint Hash",
+          "type": "string"
+        },
+        "execution_authority": {
+          "const": false,
+          "default": false,
+          "title": "Execution Authority",
+          "type": "boolean"
+        },
+        "input_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Hash",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "predicted_risk": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Predicted Risk"
+        },
+        "risk_limit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Risk Limit"
+        },
+        "scenario_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Scenario Hash",
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/TargetQuantity"
+          },
+          "title": "Targets",
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "input_hash",
+        "scenario_hash",
+        "constraint_hash",
+        "action",
+        "targets",
+        "predicted_risk",
+        "risk_limit"
+      ],
+      "title": "ChallengerDecision",
+      "type": "object"
+    },
+    "ChampionDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "minLength": 1,
+          "title": "Action",
+          "type": "string"
+        },
+        "constraint_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Constraint Hash",
+          "type": "string"
+        },
+        "execution_authority": {
+          "const": true,
+          "default": true,
+          "title": "Execution Authority",
+          "type": "boolean"
+        },
+        "input_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Hash",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "predicted_risk": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Predicted Risk"
+        },
+        "risk_limit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Risk Limit"
+        },
+        "scenario_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Scenario Hash",
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/TargetQuantity"
+          },
+          "title": "Targets",
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "input_hash",
+        "scenario_hash",
+        "constraint_hash",
+        "action",
+        "targets",
+        "predicted_risk",
+        "risk_limit"
+      ],
+      "title": "ChampionDecision",
+      "type": "object"
+    },
+    "RuntimeContext": {
+      "additionalProperties": false,
+      "properties": {
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "minLength": 1,
+          "title": "Trace Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trace_id",
+        "decision_time",
+        "observed_at",
+        "policy_version"
+      ],
+      "title": "RuntimeContext",
+      "type": "object"
+    },
+    "ShadowEvaluationPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "benign_quantity_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Benign Quantity Tolerance"
+        },
+        "material_quantity_tolerance": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Material Quantity Tolerance"
+        },
+        "risk_tolerance": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Risk Tolerance"
+        }
+      },
+      "required": [
+        "benign_quantity_tolerance",
+        "material_quantity_tolerance",
+        "risk_tolerance"
+      ],
+      "title": "ShadowEvaluationPolicy",
+      "type": "object"
+    },
+    "TargetQuantity": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "quantity"
+      ],
+      "title": "TargetQuantity",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/schemas/p8/s9/shadow_evaluation_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "challenger": {
+      "$ref": "#/$defs/ChallengerDecision"
+    },
+    "champion": {
+      "$ref": "#/$defs/ChampionDecision"
+    },
+    "context": {
+      "$ref": "#/$defs/RuntimeContext"
+    },
+    "policy": {
+      "$ref": "#/$defs/ShadowEvaluationPolicy"
+    }
+  },
+  "required": [
+    "context",
+    "champion",
+    "challenger",
+    "policy"
+  ],
+  "title": "ShadowEvaluationRequest",
+  "type": "object"
+}

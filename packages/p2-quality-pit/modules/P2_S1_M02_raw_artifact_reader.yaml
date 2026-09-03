@@ -1,0 +1,43 @@
+module_id: P2.S1.M02
+module_name: raw_artifact_reader
+phase: phase_02_quality_pit
+subphase: P2.S1
+rc: RC4.1
+function: Ler artefatos brutos validados preservando lineage.
+inputs: &id001
+- validated_phase1_handoff_bundle
+outputs: &id002
+- raw_artifact_read_bundle
+validations:
+- readability_status_ok
+- lineage_preserved
+fail_fast_conditions:
+- raw_artifact_reader_schema_violation
+- raw_artifact_reader_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P2.S1.M01
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P2.S2.M01
+    artifacts: *id002
+    phase_outputs: []
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

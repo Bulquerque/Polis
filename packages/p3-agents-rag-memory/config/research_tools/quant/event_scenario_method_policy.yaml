@@ -1,0 +1,16 @@
+policy_id: p3.s39.event_scenario.v1
+status: FROZEN_LOCAL
+event_window:
+  anchor_policy: FIRST_OBSERVATION_ON_OR_AFTER_EVENT
+  complete_window_required: true
+  benchmark_adjustments: [NONE, BENCHMARK]
+  causal_claim_authority: false
+  placebo_dates_must_be_explicit: true
+  future_window_allowed: false
+scenario_shock:
+  forms: [LINEAR, QUADRATIC]
+  factor_shocks_must_be_explicit: true
+  exposures_must_be_explicit: true
+  probability_assignment: false
+  optimization_authority: false
+  recommendation_authority: false

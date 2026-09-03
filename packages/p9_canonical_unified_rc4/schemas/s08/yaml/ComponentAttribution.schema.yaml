@@ -1,0 +1,70 @@
+$defs:
+  AttributionQuality:
+    enum:
+    - QUALIFIED
+    - LIMITED
+    - INSUFFICIENT_EVIDENCE
+    - NOT_IDENTIFIABLE
+    - INVALID
+    title: AttributionQuality
+    type: string
+  EvidenceClass:
+    enum:
+    - FACTUAL_EXECUTED
+    - FACTUAL_OBSERVED_NOT_EXECUTED
+    - OBSERVABLE_COUNTERFACTUAL
+    - MODEL_BASED_COUNTERFACTUAL
+    - CENSORED
+    - UNAVAILABLE
+    title: EvidenceClass
+    type: string
+additionalProperties: false
+properties:
+  component_id:
+    minLength: 1
+    title: Component Id
+    type: string
+  component_kind:
+    minLength: 1
+    title: Component Kind
+    type: string
+  observation_count:
+    minimum: 0
+    title: Observation Count
+    type: integer
+  mean_historical_weight:
+    title: Mean Historical Weight
+    type: number
+  mean_loss_increase_when_removed:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Mean Loss Increase When Removed
+  aggregate_pnl_effect:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Aggregate Pnl Effect
+  quality:
+    $ref: '#/$defs/AttributionQuality'
+  evidence_class:
+    $ref: '#/$defs/EvidenceClass'
+  reason_codes:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Reason Codes
+    type: array
+required:
+- component_id
+- component_kind
+- observation_count
+- mean_historical_weight
+- mean_loss_increase_when_removed
+- aggregate_pnl_effect
+- quality
+- evidence_class
+title: ComponentAttribution
+type: object
+$id: urn:inferencia:p9:s8:ComponentAttribution:1.0.0

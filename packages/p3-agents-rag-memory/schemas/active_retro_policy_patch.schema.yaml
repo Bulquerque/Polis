@@ -1,0 +1,187 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s3:active-retro-policy-patch:v2
+title: active_retro_policy_patch
+artifact_name: active_retro_policy_patch
+schema_id: active_retro_policy_patch.v2
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required:
+- schema_version
+- contract_version
+- status
+- run_id
+- snapshot_id
+- current_cycle_id
+- source_package
+- source_manifest
+- patch
+- issues
+- created_at
+- lineage_id
+- content_hash
+properties:
+  schema_version:
+    const: v14.1-rc4.1
+  contract_version:
+    const: p3.s3.active_retro_policy_patch.v2
+  status:
+    enum:
+    - NO_PATCH
+    - ACTIVE
+  run_id:
+    type: string
+    minLength: 1
+  snapshot_id:
+    type: string
+    minLength: 1
+  current_cycle_id:
+    type: integer
+    minimum: 0
+  source_package: &id001
+    type: object
+    additionalProperties: false
+    required:
+    - artifact_id
+    - lineage_id
+    properties:
+      artifact_id:
+        type: string
+        minLength: 1
+      lineage_id:
+        type: string
+        minLength: 1
+  source_manifest: *id001
+  patch:
+    oneOf:
+    - type: 'null'
+    - type: object
+      additionalProperties: false
+      required:
+      - patch_id
+      - proposal_id
+      - source_experiment_id
+      - source_cycle_id
+      - change_type
+      - change_target
+      - target_version_range
+      - target_current_version
+      - promotion_status
+      - promoted_at
+      - effective_cycle_id
+      - payload_ref
+      - payload_hash
+      - lineage_id
+      properties:
+        patch_id:
+          type: string
+          minLength: 1
+        proposal_id:
+          type:
+          - string
+          - 'null'
+        source_experiment_id:
+          type:
+          - string
+          - 'null'
+        source_cycle_id:
+          type: integer
+          minimum: 0
+        change_type:
+          enum:
+          - prompt_update
+          - tool_update
+          - retrieval_policy_update
+        change_target:
+          type: string
+          minLength: 1
+        target_version_range:
+          type: string
+          minLength: 1
+        target_current_version:
+          type: string
+          pattern: ^v?\d+\.\d+\.\d+$
+        promotion_status:
+          const: PROMOTED
+        promoted_at:
+          type: string
+          format: date-time
+        effective_cycle_id:
+          type: integer
+          minimum: 0
+        payload_ref:
+          type:
+          - string
+          - 'null'
+        payload_hash:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+        lineage_id:
+          type: string
+          minLength: 1
+  issues:
+    type: array
+    items:
+      $ref: '#/$defs/issue'
+  created_at:
+    type: string
+    format: date-time
+  lineage_id:
+    type: string
+    minLength: 1
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+$defs:
+  issue:
+    type: object
+    additionalProperties: false
+    required:
+    - code
+    - severity
+    - message
+    - artifact_name
+    - record_id
+    - field
+    properties:
+      code:
+        type: string
+        minLength: 1
+      severity:
+        enum:
+        - INFO
+        - WARNING
+        - ERROR
+        - BLOCKING
+      message:
+        type: string
+        minLength: 1
+      artifact_name:
+        type:
+        - string
+        - 'null'
+      record_id:
+        type:
+        - string
+        - 'null'
+      field:
+        type:
+        - string
+        - 'null'
+allOf:
+- if:
+    properties:
+      status:
+        const: NO_PATCH
+  then:
+    properties:
+      patch:
+        type: 'null'
+- if:
+    properties:
+      status:
+        const: ACTIVE
+  then:
+    properties:
+      patch:
+        type: object

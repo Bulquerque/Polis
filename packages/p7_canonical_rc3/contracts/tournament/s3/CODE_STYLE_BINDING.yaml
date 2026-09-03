@@ -1,0 +1,11 @@
+phase_id: P7
+subphase_id: P7.S3
+policy: p7_engineering_quality_v1_2
+search_first_patch_only: true
+max_python_file_lines: 350
+max_function_lines: 60
+max_class_lines: 180
+max_cyclomatic_complexity: 10
+common_utilities_must_be_imported_from: quant_pipeline.common
+forbidden_generic_files: [utils.py, helpers.py, misc.py, common.py]
+forbidden_new_files_without_manifest_update: true

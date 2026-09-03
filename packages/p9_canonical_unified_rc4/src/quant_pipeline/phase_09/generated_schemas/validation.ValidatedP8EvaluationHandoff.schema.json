@@ -1,0 +1,716 @@
+{
+  "$defs": {
+    "ArtifactAbsenceState": {
+      "enum": [
+        "NOT_PRODUCED",
+        "NOT_APPLICABLE",
+        "CAPABILITY_UNAVAILABLE",
+        "EMPTY_VALID",
+        "RESERVED"
+      ],
+      "title": "ArtifactAbsenceState",
+      "type": "string"
+    },
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_schema_version": {
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+          "title": "Artifact Schema Version",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "availability": {
+          "$ref": "#/$defs/Availability",
+          "default": "AVAILABLE"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "backtest_id": {
+          "minLength": 1,
+          "title": "Backtest Id",
+          "type": "string"
+        },
+        "computed_at": {
+          "format": "date-time",
+          "title": "Computed At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "decision_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Decision Time"
+        },
+        "event_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Event Time"
+        },
+        "grain": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Grain",
+          "type": "array"
+        },
+        "location": {
+          "minLength": 1,
+          "title": "Location",
+          "type": "string"
+        },
+        "maturity_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maturity At"
+        },
+        "parent_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Parent Artifact Ids",
+          "type": "array"
+        },
+        "producer_module_id": {
+          "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "record_count": {
+          "minimum": 0,
+          "title": "Record Count",
+          "type": "integer"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_name": {
+          "minLength": 1,
+          "title": "Schema Name",
+          "type": "string"
+        },
+        "schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Schema Sha256",
+          "type": "string"
+        },
+        "settlement_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Settlement At"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_name",
+        "artifact_schema_version",
+        "schema_sha256",
+        "content_sha256",
+        "producer_module_id",
+        "run_id",
+        "cycle_id",
+        "backtest_id",
+        "available_at",
+        "computed_at",
+        "location",
+        "record_count"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "ArtifactSlot": {
+      "additionalProperties": false,
+      "properties": {
+        "absence_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactAbsenceState"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "reference": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "role": {
+          "minLength": 1,
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role"
+      ],
+      "title": "ArtifactSlot",
+      "type": "object"
+    },
+    "Availability": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "UNAVAILABLE",
+        "RESERVED"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "CandidateTerminalCounts": {
+      "additionalProperties": false,
+      "properties": {
+        "execution_failed": {
+          "minimum": 0,
+          "title": "Execution Failed",
+          "type": "integer"
+        },
+        "no_action": {
+          "minimum": 0,
+          "title": "No Action",
+          "type": "integer"
+        },
+        "other_terminal": {
+          "minimum": 0,
+          "title": "Other Terminal",
+          "type": "integer"
+        },
+        "received": {
+          "minimum": 0,
+          "title": "Received",
+          "type": "integer"
+        },
+        "rejected": {
+          "minimum": 0,
+          "title": "Rejected",
+          "type": "integer"
+        },
+        "selected": {
+          "minimum": 0,
+          "title": "Selected",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "received",
+        "selected",
+        "rejected",
+        "no_action",
+        "execution_failed",
+        "other_terminal"
+      ],
+      "title": "CandidateTerminalCounts",
+      "type": "object"
+    },
+    "ConsumerReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "integrity": {
+          "$ref": "#/$defs/IntegrityEnvelope"
+        },
+        "payload": {
+          "$ref": "#/$defs/ConsumerReceiptPayload"
+        }
+      },
+      "required": [
+        "payload",
+        "integrity"
+      ],
+      "title": "ConsumerReceipt",
+      "type": "object"
+    },
+    "ConsumerReceiptPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Accepted Artifact Ids",
+          "type": "array"
+        },
+        "consumer_module_id": {
+          "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+          "title": "Consumer Module Id",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "rejected_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Rejected Artifact Ids",
+          "type": "array"
+        },
+        "reserved_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reserved Artifact Ids",
+          "type": "array"
+        },
+        "source_contract_name": {
+          "minLength": 1,
+          "title": "Source Contract Name",
+          "type": "string"
+        },
+        "source_contract_version": {
+          "minLength": 1,
+          "title": "Source Contract Version",
+          "type": "string"
+        },
+        "source_payload_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Payload Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "consumer_module_id",
+        "source_contract_name",
+        "source_contract_version",
+        "source_payload_sha256"
+      ],
+      "title": "ConsumerReceiptPayload",
+      "type": "object"
+    },
+    "HandoffValidationReport": {
+      "additionalProperties": false,
+      "properties": {
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/ValidationCheck"
+          },
+          "title": "Checks",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/HandoffValidationStatus"
+        }
+      },
+      "required": [
+        "status",
+        "checks"
+      ],
+      "title": "HandoffValidationReport",
+      "type": "object"
+    },
+    "HandoffValidationStatus": {
+      "enum": [
+        "ACCEPTED_FULL",
+        "ACCEPTED_LIMITED",
+        "REJECTED_CONTRACT",
+        "REJECTED_INTEGRITY",
+        "REJECTED_INCOMPLETE"
+      ],
+      "title": "HandoffValidationStatus",
+      "type": "string"
+    },
+    "IntegrityEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "canonicalization_version": {
+          "default": "P9-C14N-JSON-1",
+          "minLength": 1,
+          "title": "Canonicalization Version",
+          "type": "string"
+        },
+        "hash_algorithm": {
+          "default": "sha256",
+          "minLength": 1,
+          "title": "Hash Algorithm",
+          "type": "string"
+        },
+        "payload_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Payload Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "payload_sha256"
+      ],
+      "title": "IntegrityEnvelope",
+      "type": "object"
+    },
+    "ModuleExecutionReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "integrity": {
+          "$ref": "#/$defs/IntegrityEnvelope"
+        },
+        "payload": {
+          "$ref": "#/$defs/ModuleExecutionReceiptPayload"
+        }
+      },
+      "required": [
+        "payload",
+        "integrity"
+      ],
+      "title": "ModuleExecutionReceipt",
+      "type": "object"
+    },
+    "ModuleExecutionReceiptPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "completed_at": {
+          "format": "date-time",
+          "title": "Completed At",
+          "type": "string"
+        },
+        "implementation_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Implementation Sha256",
+          "type": "string"
+        },
+        "input_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Input Artifact Ids",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "module_id": {
+          "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+          "title": "Module Id",
+          "type": "string"
+        },
+        "output_artifact_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Output Artifact Ids",
+          "type": "array"
+        },
+        "policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Policy Sha256",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "started_at": {
+          "format": "date-time",
+          "title": "Started At",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/ModuleStatus"
+        }
+      },
+      "required": [
+        "module_id",
+        "status",
+        "started_at",
+        "completed_at",
+        "implementation_sha256",
+        "policy_sha256"
+      ],
+      "title": "ModuleExecutionReceiptPayload",
+      "type": "object"
+    },
+    "ModuleStatus": {
+      "enum": [
+        "SUCCESS",
+        "LIMITED",
+        "UNAVAILABLE",
+        "INSUFFICIENT_EVIDENCE",
+        "INVALID",
+        "FAILED",
+        "SKIPPED_UPSTREAM_BLOCKED"
+      ],
+      "title": "ModuleStatus",
+      "type": "string"
+    },
+    "P8EvaluationHandoffPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/ArtifactSlot"
+          },
+          "title": "Artifacts",
+          "type": "array"
+        },
+        "backtest_id": {
+          "minLength": 1,
+          "title": "Backtest Id",
+          "type": "string"
+        },
+        "candidate_counts": {
+          "$ref": "#/$defs/CandidateTerminalCounts"
+        },
+        "contract_name": {
+          "const": "P8_EVALUATION_HANDOFF_V1",
+          "default": "P8_EVALUATION_HANDOFF_V1",
+          "title": "Contract Name",
+          "type": "string"
+        },
+        "contract_version": {
+          "default": "1.0.0",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "mode": {
+          "$ref": "#/$defs/P8HandoffMode"
+        },
+        "p8_module_receipts": {
+          "items": {
+            "$ref": "#/$defs/ModuleExecutionReceipt"
+          },
+          "title": "P8 Module Receipts",
+          "type": "array"
+        },
+        "producer_package_version": {
+          "minLength": 1,
+          "title": "Producer Package Version",
+          "type": "string"
+        },
+        "published_at": {
+          "format": "date-time",
+          "title": "Published At",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "producer_package_version",
+        "run_id",
+        "cycle_id",
+        "backtest_id",
+        "published_at",
+        "candidate_counts",
+        "artifacts",
+        "p8_module_receipts"
+      ],
+      "title": "P8EvaluationHandoffPayload",
+      "type": "object"
+    },
+    "P8HandoffMode": {
+      "enum": [
+        "FULL_V1",
+        "LEGACY_RC4_1_LIMITED"
+      ],
+      "title": "P8HandoffMode",
+      "type": "string"
+    },
+    "ValidationCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "check_id": {
+          "minLength": 1,
+          "title": "Check Id",
+          "type": "string"
+        },
+        "details": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Details",
+          "type": "array"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "check_id",
+        "passed"
+      ],
+      "title": "ValidationCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "accepted_artifacts": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "Accepted Artifacts",
+      "type": "array"
+    },
+    "consumer_receipt": {
+      "$ref": "#/$defs/ConsumerReceipt"
+    },
+    "handoff": {
+      "$ref": "#/$defs/P8EvaluationHandoffPayload"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/HandoffValidationStatus"
+    },
+    "validation_report": {
+      "$ref": "#/$defs/HandoffValidationReport"
+    }
+  },
+  "required": [
+    "handoff",
+    "accepted_artifacts",
+    "status",
+    "limitations",
+    "consumer_receipt",
+    "validation_report"
+  ],
+  "title": "ValidatedP8EvaluationHandoff",
+  "type": "object"
+}

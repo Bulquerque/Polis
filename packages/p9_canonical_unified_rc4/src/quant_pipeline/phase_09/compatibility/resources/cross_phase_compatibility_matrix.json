@@ -1,0 +1,105 @@
+{
+  "entries": [
+    {
+      "boundary": "CONTROL_PLANE_REPORT_SET",
+      "fingerprint_sha256": "d3a7a4e37f034b1ee153de4e8959632160a2b1b6fbaf05912673cf2d52aee83d",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "notes": "external control-plane authority",
+      "package_name": "phase-00-zero-trust",
+      "package_version": "RC4.1",
+      "phase_id": "P0",
+      "state": "COMPATIBLE"
+    },
+    {
+      "boundary": "LINEAGE_AND_MANIFEST",
+      "fingerprint_sha256": "952f53ecf0a6e188ecaee5e760cc38867cfb6c233bed5db1d0bd626dfd9da2d8",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "notes": "external ingestion authority",
+      "package_name": "phase-01-ingestion",
+      "package_version": "RC4.1",
+      "phase_id": "P1",
+      "state": "COMPATIBLE"
+    },
+    {
+      "boundary": "PIT_LINEAGE_AND_MANIFEST",
+      "fingerprint_sha256": "8904b473e97565eba8e9531a79781d4e2e6235f096647496b490184108565c0b",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "notes": "external PIT/data-quality authority",
+      "package_name": "phase-02-quality-pit",
+      "package_version": "RC4.1",
+      "phase_id": "P2",
+      "state": "COMPATIBLE"
+    },
+    {
+      "boundary": "S31_EVIDENCE_AND_RETRO_FEEDBACK",
+      "fingerprint_sha256": "24fbdc284dbb6bd82897678be113505eb87a6b7c518ddd4d5e66641f194d0721",
+      "fingerprint_subject": "PACKAGE_MANIFEST.json",
+      "notes": "regular quant_pipeline package; isolated process required",
+      "package_name": "quant-pipeline-p3",
+      "package_version": "1.0.0",
+      "phase_id": "P3",
+      "state": "COMPATIBLE_PROCESS_ISOLATED"
+    },
+    {
+      "boundary": "FEATURE_LINEAGE_AND_MANIFEST",
+      "fingerprint_sha256": "ebd88cada68da9e7d7783374359707d75ac8ca50c04649fb6f21d28f58e243dd",
+      "fingerprint_subject": "MANIFESTO.csv",
+      "notes": "external feature authority and P5 handoff producer",
+      "package_name": "phase-04-feature-base",
+      "package_version": "RC4.1",
+      "phase_id": "P4",
+      "state": "COMPATIBLE"
+    },
+    {
+      "boundary": "P4_TO_P5_AND_SIGNAL_FEEDBACK",
+      "fingerprint_sha256": "3a7fa9f0c7d024f43114cbdb3ded0637939f18bb358e34ffb2615e07d59be8d4",
+      "fingerprint_subject": "qualification/P0_P4_COMPAT_FINGERPRINT.json",
+      "notes": "official P4 adapter included in P5",
+      "package_name": "quant-pipeline-p5-canonical",
+      "package_version": "0.34.1rc4.post2",
+      "phase_id": "P5",
+      "state": "COMPATIBLE"
+    },
+    {
+      "boundary": "P2_TO_P6_AND_SYNTHESIS_FEEDBACK",
+      "fingerprint_sha256": "fe2f4e5092a74ef2fa262d3430e6b428b2452034ef9af5e46e591585a416943a",
+      "fingerprint_subject": "qualification/P0_P4_COMPAT_FINGERPRINT.json",
+      "notes": "P2 metadata requires explicit governed market profile",
+      "package_name": "quant-pipeline-p6-strategy-synthesis",
+      "package_version": "0.6.2rc4.post2",
+      "phase_id": "P6",
+      "state": "COMPATIBLE_GOVERNED"
+    },
+    {
+      "boundary": "RANKING_FEEDBACK_REPORT",
+      "fingerprint_sha256": "62b85fd85b5eaf9cc458fdb66297bd4912e04de02e3ea41c3be3319ddda3bb41",
+      "fingerprint_subject": "qualification/P0_P4_COMPAT_FINGERPRINT.json",
+      "notes": "canonical external integration profiles included",
+      "package_name": "quant-pipeline-p7-strategy-tournament",
+      "package_version": "2.3.1rc3.post2",
+      "phase_id": "P7",
+      "state": "COMPATIBLE"
+    },
+    {
+      "boundary": "NATIVE_EVIDENCE_AND_PROMOTED_FEEDBACK",
+      "fingerprint_sha256": "3bbec0ba2eba2fd5d7951a303df36a8dbf143964ed36b378f3826a8f70bf2fbb",
+      "fingerprint_subject": "qualification/P0_P4_COMPAT_FINGERPRINT.json",
+      "notes": "LIMITED until operational S3-S10 evidence is supplied",
+      "package_name": "quant-pipeline-phase-08",
+      "package_version": "0.3.0rc3.post3",
+      "phase_id": "P8",
+      "state": "COMPATIBLE_LIMITED"
+    }
+  ],
+  "generated_at": "2026-08-06T00:00:00Z",
+  "invariants": [
+    "P9 scientific subphases do not import P0-P4 implementations",
+    "all feedback targets a later cycle",
+    "P0 remains the only activation authority",
+    "missing evidence is never synthesized",
+    "P3 is integrated through a process boundary until its namespace package is modernized",
+    "P5-P9 locations are resolved by component_registry.json rather than release-folder guesses"
+  ],
+  "p9_version": "0.1.0rc4.post2",
+  "schema_version": "1.0.0"
+}

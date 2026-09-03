@@ -1,0 +1,57 @@
+registry_id: llm_model_registry_v1
+status: proposal_only_not_authorized
+documentary_g0_status: closed
+implementation_status: not_authorized
+provider:
+  provider_id: nvidia_nim
+  base_url_env: NVIDIA_BASE_URL
+  credential_env: NVIDIA_API_KEY
+  primary: true
+  router: point_in_time_capability_router
+policy_intervals:
+  - policy_id: model_before_2024_07_23
+    effective_from: null
+    effective_until: '2024-07-22'
+    model_id: mistralai/mixtral-8x7b-instruct-v0.1
+    evidence_status: pending_exact_provider_timestamp
+  - policy_id: model_2024_07_23_to_2024_12_05
+    effective_from: '2024-07-23'
+    effective_until: '2024-12-05'
+    model_id: meta/llama-3.1-70b-instruct
+    evidence_status: provider_card_required
+  - policy_id: model_2024_12_06_to_2025_08_04
+    effective_from: '2024-12-06'
+    effective_until: '2025-08-04'
+    model_id: meta/llama-3.3-70b-instruct
+    evidence_status: provider_card_required
+  - policy_id: model_2025_08_05_to_2025-12-01
+    effective_from: '2025-08-05'
+    effective_until: '2025-12-01'
+    model_id: openai/gpt-oss-120b
+    evidence_status: provider_card_required
+  - policy_id: model_2025-12-02_to_2026-02-15
+    effective_from: '2025-12-02'
+    effective_until: '2026-02-15'
+    model_id: mistralai/mistral-large-3-675b-instruct-2512
+    evidence_status: provider_card_required
+  - policy_id: model_2026-02-16_to_2026-04-22
+    effective_from: '2026-02-16'
+    effective_until: '2026-04-22'
+    model_id: qwen/qwen3.5-397b-a17b
+    evidence_status: provider_card_required
+  - policy_id: model_2026-04-23_to_2026-07-01
+    effective_from: '2026-04-23'
+    effective_until: '2026-07-01'
+    model_id: deepseek-ai/deepseek-v4-pro
+    evidence_status: provider_card_required
+  - policy_id: model_from_2026-07-02
+    effective_from: '2026-07-02'
+    effective_until: null
+    model_id: z-ai/glm-5.2
+    evidence_status: provider_card_required
+required_capabilities: [supports_tools, supports_structured_output, supports_streaming, context_window, provider_available_from, provider_available_until, license_reference, capability_validation_artifact]
+fallback_rules:
+  - fallback_must_be_available_at_or_before_as_of_date
+  - fallback_must_match_requested_capability
+  - fallback_selection_must_be_logged
+  - agent_must_not_select_model_id_directly

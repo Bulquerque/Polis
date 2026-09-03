@@ -1,0 +1,6 @@
+allowed_change_types:
+- prompt_update
+- tool_update
+- retrieval_policy_update
+promoted_status_required: true
+same_cycle_forbidden: true

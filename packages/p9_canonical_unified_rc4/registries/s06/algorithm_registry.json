@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "algorithms": [
+    {
+      "module_id": "P9.S6.M01",
+      "algorithm": "semantic commitment hashing + weighted risk coverage",
+      "implementation": "native Python/Pydantic"
+    },
+    {
+      "module_id": "P9.S6.M02",
+      "algorithm": "frozen factor-path replay with linear/quadratic sensitivities",
+      "implementation": "NumPy-compatible native code"
+    },
+    {
+      "module_id": "P9.S6.M03",
+      "algorithm": "Cartesian response surface + finite-difference interaction/cliff diagnostics",
+      "implementation": "NumPy"
+    },
+    {
+      "module_id": "P9.S6.M04",
+      "algorithm": "conditional POT/GPD with fixed-location MLE and parameter bootstrap",
+      "implementation": "scipy.stats.genpareto"
+    },
+    {
+      "module_id": "P9.S6.M05",
+      "algorithm": "finite-support Wasserstein-1 transport LP + CVaR frontier",
+      "implementation": "scipy.optimize.linprog(method=highs)"
+    },
+    {
+      "module_id": "P9.S6.M06",
+      "algorithm": "convex participation-impact cost and AUM feasibility curve",
+      "implementation": "NumPy/native"
+    },
+    {
+      "module_id": "P9.S6.M07",
+      "algorithm": "constrained weighted-L2 reverse stress with deterministic multi-start",
+      "implementation": "scipy.optimize.minimize(method=SLSQP)"
+    },
+    {
+      "module_id": "P9.S6.M08",
+      "algorithm": "independent rule-based qualification lattice",
+      "implementation": "native typed checks"
+    }
+  ]
+}

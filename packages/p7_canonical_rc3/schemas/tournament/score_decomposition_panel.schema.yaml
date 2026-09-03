@@ -1,0 +1,168 @@
+$defs:
+  ComponentType:
+    enum:
+    - METRIC
+    - HEAD
+    - FACTOR
+    - PENALTY
+    - CONFIDENCE
+    - BOUNDARY
+    title: ComponentType
+    type: string
+  ScoreDecompositionRecord:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        title: Candidate Id
+        type: string
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      stage_type:
+        $ref: '#/$defs/ComponentType'
+      stage_id:
+        title: Component Id
+        type: string
+      head_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        title: Head Id
+      metric_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        title: Metric Id
+      raw_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Raw Value
+      transformed_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Transformed Value
+      normalized_value:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Normalized Value
+      local_weight:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        title: Local Weight
+      global_weight:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        title: Global Weight
+      score_contribution:
+        title: Score Contribution
+        type: number
+      source_artifact_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        title: Source Artifact Id
+      policy_id:
+        title: Policy Id
+        type: string
+      policy_version:
+        title: Policy Version
+        type: string
+      lineage_id:
+        title: Lineage Id
+        type: string
+    required:
+    - candidate_id
+    - comparison_group_id
+    - stage_type
+    - stage_id
+    - head_id
+    - metric_id
+    - raw_value
+    - transformed_value
+    - normalized_value
+    - local_weight
+    - global_weight
+    - score_contribution
+    - source_artifact_id
+    - policy_id
+    - policy_version
+    - lineage_id
+    title: ScoreDecompositionRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/ScoreDecompositionRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: score_decomposition_panel envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s4/score_decomposition_panel/1.0.0

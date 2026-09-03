@@ -1,0 +1,43 @@
+phase: phase_04_feature_base
+contract_version: v14.9-rc1
+required_inputs:
+  from_P2:
+  - clean_underlying_panel
+  - clean_macro_br_panel
+  - clean_macro_us_panel
+  - clean_benchmark_panel
+  - clean_calendar_panel
+  - clean_corporate_actions_panel
+  - quality_report_phase_2
+  - phase4_handoff_manifest
+  from_P3:
+  - social_feature_panel
+  - evidence_tag_panel
+  - agent_disagreement_panel
+  - context_memory_feature_panel
+  - hypothesis_registry
+  - phase4_social_handoff_manifest
+extension_inputs:
+  from_P2:
+  - clean_underlying_trade_panel
+  - clean_option_contract_panel
+  - clean_option_quotes_panel
+  - clean_event_reference_panel
+  - clean_context_source_panel
+  - clean_document_panel
+  - source_quality_panel
+  - clean_liquidity_reference_panel
+  - clean_fundamental_panel
+  - clean_curve_term_structure_panel
+optional_n_plus_1_inputs:
+  from_P3:
+  - variable_evolution_input_manifest
+rules:
+- required_inputs_must_exist_first_cycle
+- extension_absence_degrades_only_the_dependent_feature_families
+- optional_n_plus_1_absence_nonblocking
+- variable_evolution_input_manifest_never_changes_same_cycle_features
+- all_cross_phase_artifacts_hash_and_schema_validated
+- no_direct_P1_P6_P7_P8_P9_economic_inputs
+- fundamental_family_disabled_when_fundamental_extension_absent
+- carry_curve_family_disabled_when_term_structure_extension_absent

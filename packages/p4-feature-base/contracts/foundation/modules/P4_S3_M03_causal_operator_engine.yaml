@@ -1,0 +1,36 @@
+module_id: P4.S3.M03
+module_name: causal_operator_engine
+phase: P4
+subphase: P4.S3
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: causal operator engine
+inputs:
+- canonical_observation_panel
+- approved_observer_execution_registry
+outputs:
+- causal_operator_execution_plan
+- causal_operator_result_panel
+- operator_fit_state_registry
+invariants:
+- point_in_time_integrity
+- only_approved_observers_executed
+- deterministic_replay
+- no_target_or_future_return
+forbidden_fields:
+- target
+- label
+- future_return
+- prediction
+- candidate_id
+- rank_score
+- realized_pnl
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- budget_negative
+- numeric_oracle
+- replay
+production_promotion_allowed: false
+execution_mode: COMPILE_STANDARD_MATERIALIZE_DIAGNOSTIC

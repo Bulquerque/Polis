@@ -1,0 +1,33 @@
+registry_id: p7_s4_scoring_heads_v1
+baseline_heads:
+  - BELIEF_FIT
+  - ECONOMIC_EDGE
+  - DOWNSIDE_SAFETY
+  - CONVEXITY_ASYMMETRY
+  - EXECUTION_QUALITY
+  - ROBUSTNESS_CONFIDENCE
+  - SIMPLICITY_PARSIMONY
+normalizations:
+  - IDENTITY_BOUNDED
+  - ABSOLUTE_RANGE
+  - ROBUST_Z_SIGMOID
+  - PERCENTILE
+transformations:
+  - IDENTITY
+  - SIGNED_LOG1P
+  - CLIP
+missing_metric_actions:
+  - BLOCK_HEAD
+  - PENALIZE_HEAD
+  - RENORMALIZE_METRICS
+  - UNAVAILABLE
+missing_head_actions:
+  - BLOCK
+  - PENALIZE
+  - RENORMALIZE_ALLOWED
+rules:
+  - all metric weights are positive and versioned
+  - normalization occurs only within a frozen comparison group or fixed absolute bounds
+  - small groups use an explicit fallback policy
+  - confidence can shrink but never increase the score
+  - raw, transformed, normalized, and contributed values remain visible

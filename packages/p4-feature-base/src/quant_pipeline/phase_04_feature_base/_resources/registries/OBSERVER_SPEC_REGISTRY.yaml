@@ -1,0 +1,769 @@
+records:
+- observer_id: O_H01_PRIMARY
+  hypothesis_id: H01
+  family_id: F01
+  perspective_id: absolute_momentum
+  operator: return
+  input_variables: &id001
+  - market.close
+  parameters:
+    periods: 1
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id002
+  - MARKET
+  economic_rationale: Primary observer for absolute_momentum.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H02_PRIMARY
+  hypothesis_id: H02
+  family_id: F01
+  perspective_id: cross_sectional_momentum
+  operator: rank
+  input_variables: &id003
+  - market.close
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id004
+  - MARKET
+  economic_rationale: Primary observer for cross_sectional_momentum.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H03_PRIMARY
+  hypothesis_id: H03
+  family_id: F01
+  perspective_id: residual_momentum
+  operator: residual
+  input_variables: &id005
+  - market.close
+  - benchmark.close
+  parameters:
+    window: 5
+    ridge_alpha: 1.0e-08
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id006
+  - BENCHMARK
+  - MARKET
+  economic_rationale: Primary observer for residual_momentum.
+  status: ACTIVE
+  engine: RELATIONAL
+- observer_id: O_H04_PRIMARY
+  hypothesis_id: H04
+  family_id: F01
+  perspective_id: volume_confirmed_momentum
+  operator: rolling_mean
+  input_variables: &id007
+  - market.volume
+  parameters:
+    window: 3
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id008
+  - MARKET
+  economic_rationale: Primary observer for volume_confirmed_momentum.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H05_PRIMARY
+  hypothesis_id: H05
+  family_id: F02
+  perspective_id: short_term_reversal
+  operator: return
+  input_variables: &id009
+  - market.close
+  parameters:
+    periods: 1
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id010
+  - MARKET
+  economic_rationale: Primary observer for short_term_reversal.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H06_PRIMARY
+  hypothesis_id: H06
+  family_id: F02
+  perspective_id: robust_state_deviation
+  operator: zscore
+  input_variables: &id011
+  - market.close
+  parameters:
+    window: 5
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id012
+  - MARKET
+  economic_rationale: Primary observer for robust_state_deviation.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H07_PRIMARY
+  hypothesis_id: H07
+  family_id: F02
+  perspective_id: residual_reversal
+  operator: residual
+  input_variables: &id013
+  - market.close
+  - benchmark.close
+  parameters:
+    window: 5
+    ridge_alpha: 1.0e-08
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id014
+  - BENCHMARK
+  - MARKET
+  economic_rationale: Primary observer for residual_reversal.
+  status: ACTIVE
+  engine: RELATIONAL
+- observer_id: O_H08_PRIMARY
+  hypothesis_id: H08
+  family_id: F03
+  perspective_id: value
+  operator: identity
+  input_variables: &id015
+  - fundamental.total_equity
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id016
+  - FUNDAMENTAL
+  economic_rationale: Primary observer for value.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H09_PRIMARY
+  hypothesis_id: H09
+  family_id: F03
+  perspective_id: profitability
+  operator: identity
+  input_variables: &id017
+  - fundamental.gross_profit
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id018
+  - FUNDAMENTAL
+  economic_rationale: Primary observer for profitability.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H10_PRIMARY
+  hypothesis_id: H10
+  family_id: F03
+  perspective_id: investment
+  operator: difference
+  input_variables: &id019
+  - fundamental.total_assets
+  parameters:
+    periods: 1
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id020
+  - FUNDAMENTAL
+  economic_rationale: Primary observer for investment.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H11_PRIMARY
+  hypothesis_id: H11
+  family_id: F03
+  perspective_id: accrual_quality
+  operator: difference
+  input_variables: &id021
+  - fundamental.net_income
+  parameters:
+    periods: 1
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id022
+  - FUNDAMENTAL
+  economic_rationale: Primary observer for accrual_quality.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H12_PRIMARY
+  hypothesis_id: H12
+  family_id: F04
+  perspective_id: turnover_participation
+  operator: rolling_mean
+  input_variables: &id023
+  - market.volume
+  parameters:
+    window: 3
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id024
+  - MARKET
+  economic_rationale: Primary observer for turnover_participation.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H13_PRIMARY
+  hypothesis_id: H13
+  family_id: F04
+  perspective_id: price_impact_illiquidity
+  operator: rolling_mean
+  input_variables: &id025
+  - market.financial_volume
+  parameters:
+    window: 3
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id026
+  - MARKET
+  economic_rationale: Primary observer for price_impact_illiquidity.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H14_PRIMARY
+  hypothesis_id: H14
+  family_id: F04
+  perspective_id: attention_state
+  operator: rolling_mean
+  input_variables: &id027
+  - social_feature.feature_value
+  parameters:
+    window: 3
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id028
+  - SOCIAL_FEATURE
+  economic_rationale: Primary observer for attention_state.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H15_PRIMARY
+  hypothesis_id: H15
+  family_id: F05
+  perspective_id: multiscale_volatility
+  operator: rolling_std
+  input_variables: &id029
+  - market.close
+  parameters:
+    window: 5
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id030
+  - MARKET
+  economic_rationale: Primary observer for multiscale_volatility.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H16_PRIMARY
+  hypothesis_id: H16
+  family_id: F05
+  perspective_id: downside_risk
+  operator: rolling_std
+  input_variables: &id031
+  - market.close
+  parameters:
+    window: 5
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id032
+  - MARKET
+  economic_rationale: Primary observer for downside_risk.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H17_PRIMARY
+  hypothesis_id: H17
+  family_id: F05
+  perspective_id: drawdown_state
+  operator: drawdown
+  input_variables: &id033
+  - market.close
+  parameters:
+    window: 5
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id034
+  - MARKET
+  economic_rationale: Primary observer for drawdown_state.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H18_PRIMARY
+  hypothesis_id: H18
+  family_id: F05
+  perspective_id: option_implied_risk
+  operator: identity
+  input_variables: &id035
+  - option_quote.implied_volatility
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities: &id036
+  - OPTION_QUOTE
+  economic_rationale: Primary observer for option_implied_risk.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H19_PRIMARY
+  hypothesis_id: H19
+  family_id: F06
+  perspective_id: downside_beta
+  operator: beta
+  input_variables:
+  - market.close
+  - benchmark.close
+  parameters:
+    window: 5
+    ridge_alpha: 1.0e-08
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - BENCHMARK
+  - MARKET
+  economic_rationale: Primary observer for downside_beta.
+  status: ACTIVE
+  engine: RELATIONAL
+- observer_id: O_H20_PRIMARY
+  hypothesis_id: H20
+  family_id: F06
+  perspective_id: market_mode_concentration
+  operator: market_mode_share
+  input_variables:
+  - market.close
+  parameters:
+    window: 5
+    min_entities: 2
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - MARKET
+  economic_rationale: Primary observer for market_mode_concentration.
+  status: ACTIVE
+  engine: RELATIONAL
+- observer_id: O_H21_PRIMARY
+  hypothesis_id: H21
+  family_id: F06
+  perspective_id: directional_connectedness
+  operator: connectedness_proxy
+  input_variables:
+  - market.close
+  parameters:
+    window: 5
+    min_entities: 2
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - MARKET
+  economic_rationale: Primary observer for directional_connectedness.
+  status: ACTIVE
+  engine: RELATIONAL
+- observer_id: O_H22_PRIMARY
+  hypothesis_id: H22
+  family_id: F07
+  perspective_id: curve_slope
+  operator: spread
+  input_variables:
+  - term_structure.yield
+  - term_structure.rate
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - TERM_STRUCTURE
+  economic_rationale: Primary observer for curve_slope.
+  status: ACTIVE
+  engine: RELATIONAL
+- observer_id: O_H23_PRIMARY
+  hypothesis_id: H23
+  family_id: F07
+  perspective_id: basis_carry
+  operator: identity
+  input_variables:
+  - term_structure.basis
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - TERM_STRUCTURE
+  economic_rationale: Primary observer for basis_carry.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H24_PRIMARY
+  hypothesis_id: H24
+  family_id: F07
+  perspective_id: cross_asset_carry_rank
+  operator: rank
+  input_variables:
+  - term_structure.carry
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - TERM_STRUCTURE
+  economic_rationale: Primary observer for cross_asset_carry_rank.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H25_PRIMARY
+  hypothesis_id: H25
+  family_id: F08
+  perspective_id: growth_inflation_state
+  operator: spread
+  input_variables:
+  - macro_br.value
+  - macro_us.value
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - MACRO_BR
+  - MACRO_US
+  economic_rationale: Primary observer for growth_inflation_state.
+  status: ACTIVE
+  engine: RELATIONAL
+- observer_id: O_H26_PRIMARY
+  hypothesis_id: H26
+  family_id: F08
+  perspective_id: financial_conditions
+  operator: zscore
+  input_variables:
+  - benchmark.close
+  parameters:
+    window: 5
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - BENCHMARK
+  economic_rationale: Primary observer for financial_conditions.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H27_PRIMARY
+  hypothesis_id: H27
+  family_id: F08
+  perspective_id: macro_surprise
+  operator: identity
+  input_variables:
+  - macro_br.surprise
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - MACRO_BR
+  economic_rationale: Primary observer for macro_surprise.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H28_PRIMARY
+  hypothesis_id: H28
+  family_id: F09
+  perspective_id: event_surprise
+  operator: identity
+  input_variables:
+  - event.surprise
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - EVENT
+  economic_rationale: Primary observer for event_surprise.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H29_PRIMARY
+  hypothesis_id: H29
+  family_id: F09
+  perspective_id: post_event_state
+  operator: return
+  input_variables:
+  - market.close
+  parameters:
+    periods: 1
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - MARKET
+  economic_rationale: Primary observer for post_event_state.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H30_PRIMARY
+  hypothesis_id: H30
+  family_id: F10
+  perspective_id: information_novelty
+  operator: identity
+  input_variables:
+  - social_feature.feature_value
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - SOCIAL_FEATURE
+  economic_rationale: Primary observer for information_novelty.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H31_PRIMARY
+  hypothesis_id: H31
+  family_id: F10
+  perspective_id: disagreement_polarization
+  operator: identity
+  input_variables:
+  - disagreement.disagreement_score
+  parameters: {}
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - DISAGREEMENT
+  economic_rationale: Primary observer for disagreement_polarization.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H32_PRIMARY
+  hypothesis_id: H32
+  family_id: F10
+  perspective_id: narrative_shift
+  operator: difference
+  input_variables:
+  - context_memory.feature_value
+  parameters:
+    periods: 1
+  parameter_role: PRIMARY
+  horizon_group: MEDIUM
+  source_modalities:
+  - CONTEXT_MEMORY
+  economic_rationale: Primary observer for narrative_shift.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H01_ROBUST
+  hypothesis_id: H01
+  family_id: F01
+  perspective_id: absolute_momentum
+  operator: return
+  input_variables: *id001
+  parameters:
+    periods: 2
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id002
+  economic_rationale: Robustness observer for absolute_momentum.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H02_ROBUST
+  hypothesis_id: H02
+  family_id: F01
+  perspective_id: cross_sectional_momentum
+  operator: rank
+  input_variables: *id003
+  parameters:
+    robustness_variant: ALT_DEFINITION
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id004
+  economic_rationale: Robustness observer for cross_sectional_momentum.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H03_ROBUST
+  hypothesis_id: H03
+  family_id: F01
+  perspective_id: residual_momentum
+  operator: residual
+  input_variables: *id005
+  parameters:
+    window: 7
+    ridge_alpha: 1.0e-08
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id006
+  economic_rationale: Robustness observer for residual_momentum.
+  status: ACTIVE
+  engine: RELATIONAL
+- observer_id: O_H04_ROBUST
+  hypothesis_id: H04
+  family_id: F01
+  perspective_id: volume_confirmed_momentum
+  operator: rolling_mean
+  input_variables: *id007
+  parameters:
+    window: 5
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id008
+  economic_rationale: Robustness observer for volume_confirmed_momentum.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H05_ROBUST
+  hypothesis_id: H05
+  family_id: F02
+  perspective_id: short_term_reversal
+  operator: return
+  input_variables: *id009
+  parameters:
+    periods: 2
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id010
+  economic_rationale: Robustness observer for short_term_reversal.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H06_ROBUST
+  hypothesis_id: H06
+  family_id: F02
+  perspective_id: robust_state_deviation
+  operator: zscore
+  input_variables: *id011
+  parameters:
+    window: 7
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id012
+  economic_rationale: Robustness observer for robust_state_deviation.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H07_ROBUST
+  hypothesis_id: H07
+  family_id: F02
+  perspective_id: residual_reversal
+  operator: residual
+  input_variables: *id013
+  parameters:
+    window: 7
+    ridge_alpha: 1.0e-08
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id014
+  economic_rationale: Robustness observer for residual_reversal.
+  status: ACTIVE
+  engine: RELATIONAL
+- observer_id: O_H08_ROBUST
+  hypothesis_id: H08
+  family_id: F03
+  perspective_id: value
+  operator: identity
+  input_variables: *id015
+  parameters:
+    robustness_variant: ALT_DEFINITION
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id016
+  economic_rationale: Robustness observer for value.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H09_ROBUST
+  hypothesis_id: H09
+  family_id: F03
+  perspective_id: profitability
+  operator: identity
+  input_variables: *id017
+  parameters:
+    robustness_variant: ALT_DEFINITION
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id018
+  economic_rationale: Robustness observer for profitability.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H10_ROBUST
+  hypothesis_id: H10
+  family_id: F03
+  perspective_id: investment
+  operator: difference
+  input_variables: *id019
+  parameters:
+    periods: 2
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id020
+  economic_rationale: Robustness observer for investment.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H11_ROBUST
+  hypothesis_id: H11
+  family_id: F03
+  perspective_id: accrual_quality
+  operator: difference
+  input_variables: *id021
+  parameters:
+    periods: 2
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id022
+  economic_rationale: Robustness observer for accrual_quality.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H12_ROBUST
+  hypothesis_id: H12
+  family_id: F04
+  perspective_id: turnover_participation
+  operator: rolling_mean
+  input_variables: *id023
+  parameters:
+    window: 5
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id024
+  economic_rationale: Robustness observer for turnover_participation.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H13_ROBUST
+  hypothesis_id: H13
+  family_id: F04
+  perspective_id: price_impact_illiquidity
+  operator: rolling_mean
+  input_variables: *id025
+  parameters:
+    window: 5
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id026
+  economic_rationale: Robustness observer for price_impact_illiquidity.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H14_ROBUST
+  hypothesis_id: H14
+  family_id: F04
+  perspective_id: attention_state
+  operator: rolling_mean
+  input_variables: *id027
+  parameters:
+    window: 5
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id028
+  economic_rationale: Robustness observer for attention_state.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H15_ROBUST
+  hypothesis_id: H15
+  family_id: F05
+  perspective_id: multiscale_volatility
+  operator: rolling_std
+  input_variables: *id029
+  parameters:
+    window: 7
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id030
+  economic_rationale: Robustness observer for multiscale_volatility.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H16_ROBUST
+  hypothesis_id: H16
+  family_id: F05
+  perspective_id: downside_risk
+  operator: rolling_std
+  input_variables: *id031
+  parameters:
+    window: 7
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id032
+  economic_rationale: Robustness observer for downside_risk.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H17_ROBUST
+  hypothesis_id: H17
+  family_id: F05
+  perspective_id: drawdown_state
+  operator: drawdown
+  input_variables: *id033
+  parameters:
+    window: 7
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id034
+  economic_rationale: Robustness observer for drawdown_state.
+  status: ACTIVE
+  engine: CAUSAL
+- observer_id: O_H18_ROBUST
+  hypothesis_id: H18
+  family_id: F05
+  perspective_id: option_implied_risk
+  operator: identity
+  input_variables: *id035
+  parameters:
+    robustness_variant: ALT_DEFINITION
+  parameter_role: ROBUSTNESS
+  horizon_group: MEDIUM
+  source_modalities: *id036
+  economic_rationale: Robustness observer for option_implied_risk.
+  status: ACTIVE
+  engine: CAUSAL

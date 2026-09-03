@@ -1,0 +1,809 @@
+{
+  "payload": {
+    "contract_name": "P8_EVALUATION_HANDOFF_V1",
+    "contract_version": "1.0.0",
+    "mode": "FULL_V1",
+    "producer_package_version": "P8-NEW-1.0.0",
+    "run_id": "run-1",
+    "cycle_id": "cycle-1",
+    "backtest_id": "backtest-1",
+    "published_at": "2026-01-07T14:00:00Z",
+    "candidate_counts": {
+      "received": 1,
+      "selected": 1,
+      "rejected": 0,
+      "no_action": 0,
+      "execution_failed": 0,
+      "other_terminal": 0
+    },
+    "artifacts": [
+      {
+        "role": "candidate_terminal_state_ledger",
+        "reference": {
+          "artifact_id": "artifact-candidate_terminal_state_ledger",
+          "artifact_type": "candidate_terminal_state_ledger",
+          "schema_name": "candidate_terminal_state_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "8872b2bf81ada3bd174dfa48a968eb3eeedeffd49f9c567b3b689ea7cbb7d819",
+          "content_sha256": "5ca6661d82ef66434ad19602cd1c9d9da66ed6f0c47eda7d5c7fd06a6f5ef3db",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/candidate_terminal_state_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "cash_ledger",
+        "reference": {
+          "artifact_id": "artifact-cash_ledger",
+          "artifact_type": "cash_ledger",
+          "schema_name": "cash_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "2c64676a381947e21f9d4cdc3aa15c4d39c0673daa73b8f594cab97df28373d2",
+          "content_sha256": "3e9b32ad266c044e9239ff301c7b4001c287dd2704d6f46ff5f92fba148fd11a",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/cash_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "collateral_ledger",
+        "reference": {
+          "artifact_id": "artifact-collateral_ledger",
+          "artifact_type": "collateral_ledger",
+          "schema_name": "collateral_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "e7c0868377d92f26ec9d286e96e765ca31232fa00a0205cb629da93910b46e16",
+          "content_sha256": "a1b458eb1c2794427a644343da46418a9cf75e422da3b8c51b93c3ee1947a483",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/collateral_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "cost_ledger",
+        "reference": {
+          "artifact_id": "artifact-cost_ledger",
+          "artifact_type": "cost_ledger",
+          "schema_name": "cost_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "df87066f4a9795253881b0681ce65234bbdbe1496b503178bfe33555e832d6d9",
+          "content_sha256": "f9bafed688e783a6f709e29b47204f5e4057752375008195b7d829440fbd9d11",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/cost_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "drawdown_panel",
+        "reference": {
+          "artifact_id": "artifact-drawdown_panel",
+          "artifact_type": "drawdown_panel",
+          "schema_name": "drawdown_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "4e906bb6f6a794fc8eae862a3778cf3ece99ec85879b13cd894093cba9947c1d",
+          "content_sha256": "bca0a9008572f208b7913cfb1e4e41183c5d5acdfa66e64d6c8a321c1b29a075",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/drawdown_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "executed_outcome_panel",
+        "reference": {
+          "artifact_id": "artifact-executed_outcome_panel",
+          "artifact_type": "executed_outcome_panel",
+          "schema_name": "executed_outcome_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "c7ff250a48359e305e05933e07d218557818236724639f6b1bb80c44a550d176",
+          "content_sha256": "25ca762321d25a71af49b7eec5ff94f1b21d5966112d5a1ede1185f5bc62857d",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/executed_outcome_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "exposure_panel",
+        "reference": {
+          "artifact_id": "artifact-exposure_panel",
+          "artifact_type": "exposure_panel",
+          "schema_name": "exposure_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "c6e508556c4c7a4f262c41599c475c6ad0bff7284af17ff3153e56df4d398328",
+          "content_sha256": "316afd3faf827deaeb6f8bc9719a3bf63a65dd0cbb9deda59633a4a846bbc2a1",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/exposure_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "fills_panel",
+        "reference": {
+          "artifact_id": "artifact-fills_panel",
+          "artifact_type": "fills_panel",
+          "schema_name": "fills_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "51f556ba2166579e6734c36ec60621ea61d7d39b81979fcadcd0d97abeed7347",
+          "content_sha256": "a52ecc669341fe3e4236178fc26720ec30a53dba7271535d99d5bf776ea40ba9",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/fills_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "lifecycle_event_ledger",
+        "reference": {
+          "artifact_id": "artifact-lifecycle_event_ledger",
+          "artifact_type": "lifecycle_event_ledger",
+          "schema_name": "lifecycle_event_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "ee0f432e428b83ba6bbaee777e36bfb2bfd8f66bfae0ebdd46968e7248c0a9ae",
+          "content_sha256": "f75f6adf7329e6e6a286b0848048ece0762cdd9211d38535e9208f382ffc130d",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/lifecycle_event_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "lineage_manifest",
+        "reference": {
+          "artifact_id": "artifact-lineage_manifest",
+          "artifact_type": "lineage_manifest",
+          "schema_name": "lineage_manifest",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "8a24e13eca21520b860b37e71fb4f688f8e72da1924249f90d1f71a8a890cea7",
+          "content_sha256": "186a99d8a969bf6743e5f82b0c9435f5de3fbfe099192176df6afc2c2641c7f6",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/lineage_manifest.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "margin_ledger",
+        "reference": {
+          "artifact_id": "artifact-margin_ledger",
+          "artifact_type": "margin_ledger",
+          "schema_name": "margin_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "a63eafe1fe49c71bc79b61959be3bb516eb300e869734a3c6b8a4c138bec9442",
+          "content_sha256": "203ee21d88629089f6d6b4257a3ac456357ab696d065ad5444768b608cee35b1",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/margin_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "market_mark_panel",
+        "reference": {
+          "artifact_id": "artifact-market_mark_panel",
+          "artifact_type": "market_mark_panel",
+          "schema_name": "market_mark_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "33788fcfcfd53cabd78efad4288c0521e8110a033f052ab5129a0e8721b5f077",
+          "content_sha256": "1b8b4c0b6f6ad1d32565952720bc004eeb1f188f62045e4d5525ae2af8c78432",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/market_mark_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "marking_policy_snapshot",
+        "reference": {
+          "artifact_id": "artifact-marking_policy_snapshot",
+          "artifact_type": "marking_policy_snapshot",
+          "schema_name": "marking_policy_snapshot",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "d342c7b4acacc9154a12da314ea9c48585ed8bd0e85d8ac02a71fca7c2e2f46d",
+          "content_sha256": "77267fad81b2b5de07a9fdd5dccbe50c01f3191da117a826ff8d83391bc8c6f2",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/marking_policy_snapshot.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "maturity_subject_manifest",
+        "reference": {
+          "artifact_id": "artifact-maturity_subject_manifest",
+          "artifact_type": "maturity_subject_manifest",
+          "schema_name": "maturity_subject_manifest",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "5c19e966a7869e50f8514815ee892ab7c9c805385c5f2d3464390f3d4f04a671",
+          "content_sha256": "cca70a615049deebaaa85314c5a387ad08ea257acc26d526288e479be2c8cd8a",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/maturity_subject_manifest.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "nav_panel",
+        "reference": {
+          "artifact_id": "artifact-nav_panel",
+          "artifact_type": "nav_panel",
+          "schema_name": "nav_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "1937c39c38a707da1416cd44a2f6ea791b4669bf7ed55bd6866764ae97baf263",
+          "content_sha256": "8aa66fdd6b9416b2b862f6695227d1c6e72a633dcd9ab950278db0d93c24ba49",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/nav_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "optimizer_decision_trace",
+        "reference": {
+          "artifact_id": "artifact-optimizer_decision_trace",
+          "artifact_type": "optimizer_decision_trace",
+          "schema_name": "optimizer_decision_trace",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "e882b3f3a99f1e010084446775bd54aec9117a057ee563a51a1ab1a8d2852ce4",
+          "content_sha256": "d1868c6e4ff3bc0fd39d677d2858f963a3f19da662eaf236d37d02c61398b6fc",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/optimizer_decision_trace.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "ordered_event_ledger",
+        "reference": {
+          "artifact_id": "artifact-ordered_event_ledger",
+          "artifact_type": "ordered_event_ledger",
+          "schema_name": "ordered_event_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "337fffed07f605d736c207bb39ddb176409e1eb6983f83298e710b7ecd95b809",
+          "content_sha256": "77d049a626b4aa1f0034a89b8f5ac6d49c987be8d307aeaf57ab5fce54ad5302",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/ordered_event_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "orders_panel",
+        "reference": {
+          "artifact_id": "artifact-orders_panel",
+          "artifact_type": "orders_panel",
+          "schema_name": "orders_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "b2c17af051463bd8e882eec83831805233a54439f0cc5874f2bb694a25ffb11a",
+          "content_sha256": "34eb15cdc61f8625c41540fef49255c37a86fbbe78e1c90f1b4eb3b489ac7ff7",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/orders_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "physical_position_ledger",
+        "reference": {
+          "artifact_id": "artifact-physical_position_ledger",
+          "artifact_type": "physical_position_ledger",
+          "schema_name": "physical_position_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "496103c538a2fc1dd825e99ec15e66ea9c2593c2638329b0106c20b8e0c17a88",
+          "content_sha256": "c39aefeb2e69d1cdc768beb6f9c3c358eebca11e212075624dd01fbac30a731f",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/physical_position_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "pnl_panel",
+        "reference": {
+          "artifact_id": "artifact-pnl_panel",
+          "artifact_type": "pnl_panel",
+          "schema_name": "pnl_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "90c58111022fdd24b8fda86ec0ef5b9bf90834a46c1e8a67ab0591c2dc97ede0",
+          "content_sha256": "b771bb10a225cc794648255b00911328f244f4c44e893eba935e7f9dbc53c5e7",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/pnl_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "portfolio_decision_panel",
+        "reference": {
+          "artifact_id": "artifact-portfolio_decision_panel",
+          "artifact_type": "portfolio_decision_panel",
+          "schema_name": "portfolio_decision_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "e6bf724b3c4db5baee82c62ed6e3f1b3fb870b53aa941b20f3d7cf6543716c4e",
+          "content_sha256": "0efd4dca7abfbd2c364aec832b33b67a40d48d1c54799d813a1a3b5f81f50707",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/portfolio_decision_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "premium_ledger",
+        "reference": {
+          "artifact_id": "artifact-premium_ledger",
+          "artifact_type": "premium_ledger",
+          "schema_name": "premium_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "c99063856d1215b8b2c9e1d592cd67a371d84fecfa646036ffe6b68ac3a7ddf4",
+          "content_sha256": "6394ad516634a1d504154550f21670a60f8a863743fac6a5e99a35e1ee2eeb2d",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/premium_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "replay_checkpoint_manifest",
+        "reference": {
+          "artifact_id": "artifact-replay_checkpoint_manifest",
+          "artifact_type": "replay_checkpoint_manifest",
+          "schema_name": "replay_checkpoint_manifest",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "e7311d158281bb558ac7de465b018d51bd554baec464e45fb31c6a91eeab35e2",
+          "content_sha256": "95f05ce0489aee640b97475507d032552300551e27ea8bf20c4e03c2cac1939c",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/replay_checkpoint_manifest.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "replay_expected_state",
+        "reference": {
+          "artifact_id": "artifact-replay_expected_state",
+          "artifact_type": "replay_expected_state",
+          "schema_name": "replay_expected_state",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "f4e4fb0c295cb189158185ec0a756ae50ad863346d3be4acec95d182f88742d1",
+          "content_sha256": "014c8c9ded2ac4fd23fc2e508160a037c761379ab07de277d52a3ed20e3b26ed",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/replay_expected_state.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "valuation_panel",
+        "reference": {
+          "artifact_id": "artifact-valuation_panel",
+          "artifact_type": "valuation_panel",
+          "schema_name": "valuation_panel",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "26a86f66d011015c3687cc43d3a2fba415b75ce914c4f502ded053ea04f4e88a",
+          "content_sha256": "4fb95b2b28a8f559801163306c7f9e8de6e40cfa7fc4e49ab67b01794a116a5b",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/valuation_panel.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      },
+      {
+        "role": "virtual_candidate_ledger",
+        "reference": {
+          "artifact_id": "artifact-virtual_candidate_ledger",
+          "artifact_type": "virtual_candidate_ledger",
+          "schema_name": "virtual_candidate_ledger",
+          "artifact_schema_version": "1.0.0",
+          "schema_sha256": "a6007014f4565e7beda9b744aea0e41c3e84cd757b8364eae4eab7b7b5e5faf1",
+          "content_sha256": "792ed6f05591d91f6a946999eb11b4e6dcfa2361f431d4f33f240fe9b254f316",
+          "producer_module_id": "P8.S5.M03",
+          "run_id": "run-1",
+          "cycle_id": "cycle-1",
+          "backtest_id": "backtest-1",
+          "event_time": "2026-01-07T14:00:00Z",
+          "decision_time": "2026-01-07T14:00:00Z",
+          "available_at": "2026-01-07T14:00:00Z",
+          "computed_at": "2026-01-07T14:00:00Z",
+          "maturity_at": null,
+          "settlement_at": null,
+          "location": "artifacts/virtual_candidate_ledger.json",
+          "availability": "AVAILABLE",
+          "record_count": 1,
+          "grain": [
+            "artifact_id"
+          ],
+          "parent_artifact_ids": []
+        },
+        "absence_state": null,
+        "reason_codes": []
+      }
+    ],
+    "p8_module_receipts": [],
+    "limitations": []
+  },
+  "integrity": {
+    "canonicalization_version": "P9-C14N-JSON-1",
+    "hash_algorithm": "sha256",
+    "payload_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  }
+}

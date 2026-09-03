@@ -1,0 +1,32 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "backtest_id": {
+      "minLength": 1,
+      "title": "Backtest Id",
+      "type": "string"
+    },
+    "producer_package_version": {
+      "minLength": 1,
+      "title": "Producer Package Version",
+      "type": "string"
+    },
+    "published_at": {
+      "format": "date-time",
+      "title": "Published At",
+      "type": "string"
+    },
+    "require_full": {
+      "default": false,
+      "title": "Require Full",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "backtest_id",
+    "producer_package_version",
+    "published_at"
+  ],
+  "title": "P8NativePublicationRequest",
+  "type": "object"
+}

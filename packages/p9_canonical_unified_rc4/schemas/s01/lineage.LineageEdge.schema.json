@@ -1,0 +1,64 @@
+{
+  "$defs": {
+    "LineageRelation": {
+      "enum": [
+        "DERIVED_FROM",
+        "USED",
+        "GENERATED_BY",
+        "ASSOCIATED_WITH",
+        "SPECIALIZATION_OF"
+      ],
+      "title": "LineageRelation",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activity_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Activity Id"
+    },
+    "child_node_id": {
+      "minLength": 1,
+      "title": "Child Node Id",
+      "type": "string"
+    },
+    "edge_id": {
+      "minLength": 1,
+      "title": "Edge Id",
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "parent_node_id": {
+      "minLength": 1,
+      "title": "Parent Node Id",
+      "type": "string"
+    },
+    "relation": {
+      "$ref": "#/$defs/LineageRelation"
+    }
+  },
+  "required": [
+    "edge_id",
+    "parent_node_id",
+    "child_node_id",
+    "relation",
+    "occurred_at"
+  ],
+  "title": "LineageEdge",
+  "type": "object"
+}

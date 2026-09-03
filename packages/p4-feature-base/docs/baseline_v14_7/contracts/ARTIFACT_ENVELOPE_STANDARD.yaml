@@ -1,0 +1,35 @@
+standard: P4_ARTIFACT_ENVELOPE_V1
+required_fields:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- record_count
+- grain
+- lineage_id
+- execution_status
+- quality_status
+execution_status_values:
+- PRODUCED
+- DEGRADED
+- SKIPPED_NOT_AUTHORIZED
+- UNAVAILABLE_UPSTREAM
+- FAILED_NONBLOCKING
+- BLOCKED
+quality_status_values:
+- UNVALIDATED
+- VALIDATED
+- DEGRADED
+- BLOCKED
+rules:
+- payload_or_reference_must_be_explicit
+- hashes_cover_canonical_payload_not_runtime_memory_address
+- skipped_outputs_have_zero_records_and_reason
+- no_default_temporal_or_lineage_values
+- aliases_reference_canonical_artifact_without_payload_duplication

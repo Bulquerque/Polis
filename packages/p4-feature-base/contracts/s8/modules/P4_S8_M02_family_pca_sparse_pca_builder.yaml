@@ -1,0 +1,20 @@
+module_id: P4.S8.M02
+module_name: family_pca_sparse_pca_builder
+status: IMPLEMENTED_LOCAL_QUALIFIED
+contract_version: p4.v14.9-rc1.module.v1
+inputs:
+- underlying_feature_matrix_selected
+- feature_transform_state_manifest
+- representation_fold_plan
+- representation_policy_registry
+outputs:
+- underlying_feature_factors_pca
+- pca_fit_state_manifest
+invariants:
+- point_in_time_integrity
+- cross_fitted_representation
+- deterministic_replay
+- no_predictive_objective
+production_promotion_allowed: false
+phase: P4
+subphase: P4.S8

@@ -1,0 +1,40 @@
+additionalProperties: false
+properties:
+  policy_id:
+    minLength: 1
+    title: Policy Id
+    type: string
+  lower_edge:
+    title: Lower Edge
+    type: number
+  upper_edge:
+    title: Upper Edge
+    type: number
+  observation_count:
+    minimum: 0
+    title: Observation Count
+    type: integer
+  mean_prediction:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Mean Prediction
+  observed_frequency:
+    anyOf:
+    - type: number
+    - type: 'null'
+    default: null
+    title: Observed Frequency
+  qualified:
+    title: Qualified
+    type: boolean
+required:
+- policy_id
+- lower_edge
+- upper_edge
+- observation_count
+- qualified
+title: CalibrationBin
+type: object
+$id: urn:inferencia:p9:s7:CalibrationBin:1.0.0

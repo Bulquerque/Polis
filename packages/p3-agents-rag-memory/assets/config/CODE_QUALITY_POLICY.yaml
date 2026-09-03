@@ -1,0 +1,24 @@
+policy_id: p3_foundation_code_quality.v2
+revision: P3-FINAL
+preferred_limits:
+  file_lines: 500
+  function_lines: 100
+hard_limits:
+  file_lines: 800
+  function_lines: 300
+rules:
+- no_silent_exception_success
+- no_generic_utility_modules
+- no_optional_sdk_imports_outside_adapters
+- no_runtime_worker_labels
+- no_hidden_environment_reads_in_domain
+- no_transient_artifacts_in_release
+- canonical_module_ids_stable
+- public_contracts_strict_and_frozen
+review_policy:
+  preferred_limit_exceeded: warning_requires_review
+  hard_limit_exceeded: release_blocker
+allowed_large_file_categories:
+- declarative_model_catalog
+- cohesive_state_machine
+- generated_registry

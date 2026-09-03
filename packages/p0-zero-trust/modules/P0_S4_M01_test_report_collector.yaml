@@ -1,0 +1,44 @@
+module_id: P0.S4.M01
+module_name: test_report_collector
+function: Coletar, normalizar e classificar evidências de testes por fase sem confundir
+  ausência esperada de uma fase não iniciada com falha operacional.
+inputs: &id001
+- test_run_report_all_phases
+- contract_test_report_all_phases
+- schema_test_report_all_phases
+- code_quality_test_report_all_phases
+outputs: &id002
+- collected_test_reports
+validations:
+- every_expected_phase_emits_test_report
+- test_run_id_unique
+- lifecycle_aware_test_expectation
+fail_fast_conditions:
+- test_report_collector_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - test_run_report_all_phases
+    - contract_test_report_all_phases
+    - schema_test_report_all_phases
+    - code_quality_test_report_all_phases
+  emits_to:
+    modules:
+    - P0.S4.M04
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S4
+rc: RC4.1
+notes: Lifecycle-aware collector. Missing expected evidence is materialized as a test-evidence
+  gap; NOT_STARTED phases are NOT_RUN rather than false failures.

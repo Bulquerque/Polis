@@ -1,0 +1,210 @@
+{
+  "$defs": {
+    "ComparisonLossRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort_id": {
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "loss": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Loss"
+        },
+        "unit_id": {
+          "title": "Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "configuration_id",
+        "cohort_id",
+        "unit_id",
+        "loss"
+      ],
+      "title": "ComparisonLossRecord",
+      "type": "object"
+    },
+    "ConfigurationScoreAggregate": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort_id": {
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "coverage": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Coverage"
+        },
+        "expected_fold_count": {
+          "minimum": 1,
+          "title": "Expected Fold Count",
+          "type": "integer"
+        },
+        "fold_count": {
+          "minimum": 1,
+          "title": "Fold Count",
+          "type": "integer"
+        },
+        "mean_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Mean Score"
+        },
+        "median_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Median Score"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "score_std": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Score Std"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "weighted_mean_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Weighted Mean Score"
+        },
+        "worst_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Worst Score"
+        }
+      },
+      "required": [
+        "configuration_id",
+        "cohort_id",
+        "fold_count",
+        "expected_fold_count",
+        "coverage",
+        "mean_score",
+        "median_score",
+        "worst_score",
+        "score_std",
+        "weighted_mean_score",
+        "status"
+      ],
+      "title": "ConfigurationScoreAggregate",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/ScoreAggregationResult.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregates": {
+      "items": {
+        "$ref": "#/$defs/ConfigurationScoreAggregate"
+      },
+      "title": "Aggregates",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "loss_series": {
+      "items": {
+        "$ref": "#/$defs/ComparisonLossRecord"
+      },
+      "title": "Loss Series",
+      "type": "array"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "policy_id",
+    "aggregates",
+    "loss_series",
+    "reason_codes",
+    "content_sha256"
+  ],
+  "title": "ScoreAggregationResult",
+  "type": "object"
+}

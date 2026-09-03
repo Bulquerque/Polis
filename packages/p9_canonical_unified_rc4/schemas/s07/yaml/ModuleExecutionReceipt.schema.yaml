@@ -1,0 +1,92 @@
+$defs:
+  IntegrityEnvelope:
+    additionalProperties: false
+    properties:
+      algorithm:
+        const: SHA-256
+        default: SHA-256
+        title: Algorithm
+        type: string
+      canonicalization_version:
+        const: JCS-LIKE-JSON-UTF8-V1
+        default: JCS-LIKE-JSON-UTF8-V1
+        title: Canonicalization Version
+        type: string
+      payload_sha256:
+        pattern: ^[0-9a-f]{64}$
+        title: Payload Sha256
+        type: string
+    required:
+    - payload_sha256
+    title: IntegrityEnvelope
+    type: object
+  ModuleStatus:
+    enum:
+    - SUCCESS
+    - LIMITED
+    - UNAVAILABLE
+    - INSUFFICIENT_EVIDENCE
+    - INVALID
+    - FAILED
+    title: ModuleStatus
+    type: string
+additionalProperties: false
+properties:
+  module_id:
+    pattern: ^P9\.S7\.M0[1-8]$
+    title: Module Id
+    type: string
+  status:
+    $ref: '#/$defs/ModuleStatus'
+  input_artifact_ids:
+    items:
+      minLength: 1
+      type: string
+    title: Input Artifact Ids
+    type: array
+  output_artifact_ids:
+    items:
+      minLength: 1
+      type: string
+    title: Output Artifact Ids
+    type: array
+  reason_codes:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Reason Codes
+    type: array
+  limitations:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Limitations
+    type: array
+  started_at:
+    format: date-time
+    title: Started At
+    type: string
+  completed_at:
+    format: date-time
+    title: Completed At
+    type: string
+  diagnostics_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Diagnostics Sha256
+    type: string
+  integrity:
+    $ref: '#/$defs/IntegrityEnvelope'
+required:
+- module_id
+- status
+- input_artifact_ids
+- output_artifact_ids
+- started_at
+- completed_at
+- diagnostics_sha256
+- integrity
+title: ModuleExecutionReceipt
+type: object
+$id: urn:inferencia:p9:s7:ModuleExecutionReceipt:1.0.0

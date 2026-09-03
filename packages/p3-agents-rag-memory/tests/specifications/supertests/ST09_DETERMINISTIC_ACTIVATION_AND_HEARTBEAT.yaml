@@ -1,0 +1,15 @@
+spec_id: ST09_DETERMINISTIC_ACTIVATION_AND_HEARTBEAT
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Activation gate is deterministic and every person receives monthly heartbeat
+required_cases:
+- threshold_boundary
+- sensitivity_tags
+- max_extra_activations
+- monthly_coverage
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

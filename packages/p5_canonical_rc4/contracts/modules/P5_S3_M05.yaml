@@ -1,0 +1,17 @@
+module_id: P5.S3.M05
+name: foundation_prior_return_resolvers
+subphase_id: P5.S3
+required_inputs:
+- qualified_resolver_registry
+- authorized_consumer_view_registry
+optional_inputs:
+- resolver_view_binding_registry
+outputs:
+- return_member_forecast_panel_foundation
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: OPTIONAL

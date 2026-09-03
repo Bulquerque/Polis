@@ -1,0 +1,122 @@
+$defs:
+  DatasetPartition:
+    enum:
+    - WARMUP
+    - TRAIN
+    - VALIDATION
+    - EVALUATION
+    - HOLDOUT
+    - TEST
+    title: DatasetPartition
+    type: string
+additionalProperties: false
+properties:
+  schema_id:
+    const: evaluation_window_config.s9.v1
+    title: Schema Id
+    type: string
+  schema_version:
+    const: 1.0.0
+    title: Schema Version
+    type: string
+  warmup_start:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Warmup Start
+  evaluation_start:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Evaluation Start
+  evaluation_end:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Evaluation End
+  holdout_start:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Holdout Start
+  holdout_end:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    title: Holdout End
+  holdout_artifact_ids:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Holdout Artifact Ids
+    type: array
+  allowed_partitions:
+    default:
+    - WARMUP
+    - TRAIN
+    items:
+      $ref: '#/$defs/DatasetPartition'
+    title: Allowed Partitions
+    type: array
+  forbidden_partitions:
+    default:
+    - EVALUATION
+    - HOLDOUT
+    - TEST
+    items:
+      $ref: '#/$defs/DatasetPartition'
+    title: Forbidden Partitions
+    type: array
+  warmup_end_strictly_before_evaluation:
+    title: Warmup End Strictly Before Evaluation
+    type: boolean
+  final_holdout_blind:
+    title: Final Holdout Blind
+    type: boolean
+  timezone:
+    const: UTC
+    title: Timezone
+    type: string
+  boundary_rule:
+    enum:
+    - available_at_equal_as_of_allowed
+    - available_at_strictly_before_as_of
+    title: Boundary Rule
+    type: string
+  allow_degraded_history:
+    default: false
+    title: Allow Degraded History
+    type: boolean
+  max_records:
+    default: 1000000
+    maximum: 10000000
+    minimum: 0
+    title: Max Records
+    type: integer
+required:
+- schema_id
+- schema_version
+- warmup_end_strictly_before_evaluation
+- final_holdout_blind
+- timezone
+- boundary_rule
+title: EvaluationWindowConfig
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: evaluation_window_config_s9
+schema_id: evaluation_window_config_s9.v1
+schema_version: v14.1-rc4.1
+x-p3-owner: P3.S9
+x-contract-status: IMPLEMENTED_QUALIFIED_INTERNAL
+artifact_schema_version: 1.0.0

@@ -1,0 +1,141 @@
+"""Compact canonical registry data for all 45 P5 modules."""
+from __future__ import annotations
+
+from .domain.core import ExecutionMode as E, ModuleAction as A
+
+BOUNDARY_MODES = (E.OFFLINE_TRAINING, E.RUNTIME_INFERENCE, E.VALIDATION, E.INTEGRATION_REPLAY)
+OFFLINE_MODES = (E.OFFLINE_TRAINING, E.VALIDATION, E.INTEGRATION_REPLAY)
+RUNTIME_MODES = (E.RUNTIME_INFERENCE, E.VALIDATION, E.INTEGRATION_REPLAY)
+RETURN_MEMBER_OUTPUTS = (
+    "return_member_forecast_panel_linear",
+    "return_member_forecast_panel_state_space",
+    "return_member_forecast_panel_tabular",
+    "return_member_forecast_panel_temporal",
+    "return_member_forecast_panel_foundation",
+)
+PUBLICATION_MODES = (E.PUBLICATION, E.VALIDATION, E.INTEGRATION_REPLAY)
+
+
+def row(module_id, name, required, optional, outputs, actions, modes, capability="CORE"):
+    return (module_id, name, required, optional, outputs, actions, modes, capability)
+
+
+MODULE_ROWS = (
+    row("P5.S1.M01", "p4_handoff_contract_compatibility_validator",
+        ("phase5_feature_handoff_manifest", "model_consumer_view_manifest", "model_consumer_view_bundle", "p4_quality_gate_decision", "p4_artifact_catalog"), (),
+        ("validated_p4_contract_bundle", "p4_contract_compatibility_report", "validated_p4_artifact_catalog"), (A.RUN,), BOUNDARY_MODES),
+    row("P5.S1.M02", "p4_consumer_view_capability_router",
+        ("validated_p4_contract_bundle", "validated_p4_artifact_catalog"), (),
+        ("authorized_consumer_view_registry", "resolver_view_compatibility_matrix", "p4_degraded_mode_report"), (A.RUN,), BOUNDARY_MODES),
+    row("P5.S1.M03", "p4_hypothesis_research_lineage_intake", (),
+        ("approved_hypothesis_passport_registry", "hypothesis_budget_report", "research_attempt_ledger", "rejected_feature_graveyard", "feature_observer_registry", "perspective_conflict_panel"),
+        ("p5_hypothesis_confirmation_registry", "cross_phase_research_lineage_map", "p4_perspective_context"), (A.RUN,), BOUNDARY_MODES),
+    row("P5.S1.M04", "optional_prior_cycle_resolver_feedback_loader", (),
+        ("resolver_feedback_report", "signal_feedback_report", "resolver_promotion_decision_report"),
+        ("optional_resolver_feedback_context",), (A.RUN,), BOUNDARY_MODES),
+    row("P5.S1.M05", "phase5_consumption_receipt_builder",
+        ("validated_p4_contract_bundle", "validated_p4_artifact_catalog", "authorized_consumer_view_registry", "resolver_view_compatibility_matrix", "p4_degraded_mode_report"), (),
+        ("phase5_consumption_receipt", "p5_p4_contract_acknowledgement"), (A.RUN,), BOUNDARY_MODES),
+
+    row("P5.S2.M01", "offline_outcome_target_registry_builder",
+        ("p5_offline_training_outcome_bundle", "authorized_consumer_view_registry", "p5_hypothesis_confirmation_registry", "cross_phase_research_lineage_map"), (),
+        ("training_target_panel", "target_definition_registry", "training_dataset_manifest", "hypothesis_target_mapping"), (A.RUN,), OFFLINE_MODES),
+    row("P5.S2.M02", "temporal_split_purge_embargo_planner",
+        ("training_dataset_manifest", "training_target_panel", "target_definition_registry"), ("representation_fold_plan",),
+        ("temporal_evaluation_plan", "sealed_holdout_exclusion_receipt"), (A.RUN,), OFFLINE_MODES),
+    row("P5.S2.M03", "resolver_spec_bias_view_registry_builder",
+        ("authorized_consumer_view_registry", "resolver_view_compatibility_matrix", "temporal_evaluation_plan", "target_definition_registry"),
+        ("hypothesis_target_mapping", "optional_resolver_feedback_context"),
+        ("resolver_spec_registry", "resolver_bias_registry", "resolver_view_binding_registry"), (A.RUN,), OFFLINE_MODES),
+    row("P5.S2.M04", "model_training_representation_ablation_orchestrator",
+        ("resolver_spec_registry", "resolver_view_binding_registry", "training_target_panel", "authorized_consumer_view_registry", "temporal_evaluation_plan"),
+        ("representation_quality_report",),
+        ("trained_resolver_registry", "resolver_training_run_report", "resolver_validation_result_panel", "representation_downstream_ablation_report", "oof_validation_observation_panel"),
+        (A.FIT,), (E.OFFLINE_TRAINING, E.INTEGRATION_REPLAY)),
+    row("P5.S2.M05", "model_artifact_qualification_gate",
+        ("trained_resolver_registry", "resolver_validation_result_panel", "resolver_training_run_report", "resolver_bias_registry", "resolver_view_binding_registry"),
+        ("p4_to_p5_integration_receipt", "hypothesis_budget_report", "optional_resolver_feedback_context"),
+        ("qualified_resolver_registry", "resolver_rejection_report", "resolver_promotion_candidate_report", "hypothesis_confirmation_development_report"),
+        (A.VALIDATE,), OFFLINE_MODES),
+
+    row("P5.S3.M01", "baseline_statistical_linear_return_resolvers", ("qualified_resolver_registry", "authorized_consumer_view_registry"), ("resolver_view_binding_registry",), ("return_member_forecast_panel_linear",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S3.M02", "kalman_dynamic_linear_return_resolvers", ("qualified_resolver_registry", "authorized_consumer_view_registry"), ("resolver_view_binding_registry",), ("return_member_forecast_panel_state_space",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S3.M03", "histogram_extra_trees_kernel_return_resolvers", ("qualified_resolver_registry", "authorized_consumer_view_registry"), ("resolver_view_binding_registry",), ("return_member_forecast_panel_tabular",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S3.M04", "temporal_neural_return_resolvers", ("qualified_resolver_registry", "authorized_consumer_view_registry"), ("resolver_view_binding_registry",), ("return_member_forecast_panel_temporal",), (A.PREDICT,), RUNTIME_MODES, "OPTIONAL"),
+    row("P5.S3.M05", "foundation_prior_return_resolvers", ("qualified_resolver_registry", "authorized_consumer_view_registry"), ("resolver_view_binding_registry",), ("return_member_forecast_panel_foundation",), (A.PREDICT,), RUNTIME_MODES, "OPTIONAL"),
+
+    row("P5.S4.M01", "realized_historical_har_volatility_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), (),
+        ("volatility_member_forecast_panel_har",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S4.M02", "estimated_gjr_conditional_volatility_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), (),
+        ("volatility_member_forecast_panel_conditional",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S4.M03", "realized_implied_volatility_blend_resolvers",
+        ("authorized_consumer_view_registry", "qualified_resolver_registry", "oof_validation_observation_panel"),
+        ("p4_degraded_mode_report",), ("volatility_member_forecast_panel_rough_implied",),
+        (A.PREDICT,), RUNTIME_MODES, "OPTIONAL"),
+    row("P5.S4.M04", "ml_neural_volatility_resolvers",
+        ("qualified_resolver_registry",), (), ("volatility_member_forecast_panel_ml_neural",),
+        (A.PREDICT,), RUNTIME_MODES, "OPTIONAL"),
+    row("P5.S4.M05", "drawdown_jump_path_extrema_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"),
+        RETURN_MEMBER_OUTPUTS, ("path_risk_member_forecast_panel",), (A.PREDICT,), RUNTIME_MODES),
+
+    row("P5.S5.M01", "caviar_regime_conditional_quantile_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), RETURN_MEMBER_OUTPUTS,
+        ("tail_member_forecast_panel_quantile",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S5.M02", "evt_pot_expected_shortfall_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), RETURN_MEMBER_OUTPUTS,
+        ("tail_member_forecast_panel_evt",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S5.M03", "student_t_ged_mixture_distribution_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), RETURN_MEMBER_OUTPUTS,
+        ("tail_member_forecast_panel_distributional",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S5.M04", "stationary_block_bootstrap_scenario_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), RETURN_MEMBER_OUTPUTS,
+        ("scenario_member_panel_multiple_future",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S5.M05", "empirical_copula_multistep_scenario_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), RETURN_MEMBER_OUTPUTS,
+        ("scenario_member_panel_joint_generative",), (A.PREDICT,), RUNTIME_MODES, "OPTIONAL"),
+    row("P5.S5.M06", "tail_scenario_validation_gate", (),
+        ("tail_member_forecast_panel_quantile", "tail_member_forecast_panel_evt", "tail_member_forecast_panel_distributional", "scenario_member_panel_multiple_future", "scenario_member_panel_joint_generative"),
+        ("validated_tail_scenario_registry", "tail_scenario_validation_report"), (A.VALIDATE,), RUNTIME_MODES),
+
+    row("P5.S6.M01", "shrinkage_factor_covariance_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), (),
+        ("covariance_member_registry_shrinkage_factor",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S6.M02", "estimated_dcc_beta_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), (),
+        ("covariance_member_registry_dynamic",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S6.M03", "sparse_correlation_network_resolvers",
+        ("qualified_resolver_registry", "oof_validation_observation_panel"), (),
+        ("covariance_member_registry_network_geometric",), (A.PREDICT,), RUNTIME_MODES, "OPTIONAL"),
+    row("P5.S6.M04", "covariance_matrix_validation_registry",
+        ("covariance_member_registry_shrinkage_factor", "covariance_member_registry_dynamic"),
+        ("covariance_member_registry_network_geometric",),
+        ("covariance_forecast_registry", "covariance_validation_report"), (A.VALIDATE,), RUNTIME_MODES),
+
+    row("P5.S7.M01", "rolling_volatility_regime_transition_baseline", ("authorized_consumer_view_registry",), ("p4_perspective_context",), ("regime_probability_member_panel",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S7.M02", "page_hinkley_cusum_changepoint_resolvers", ("authorized_consumer_view_registry",), (), ("structural_break_member_panel",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S7.M03", "resolver_specific_ood_representation_shift_engine", ("authorized_consumer_view_registry",), ("drift_safety_report", "representation_quality_report", "feature_transform_state_manifest", "qualified_resolver_registry", "covariance_forecast_registry"), ("ood_drift_diagnostics_panel",), (A.PREDICT,), RUNTIME_MODES),
+    row("P5.S7.M04", "input_perspective_model_disagreement_analyzer", (),
+        ("p4_perspective_context", "return_member_forecast_panel_linear", "return_member_forecast_panel_state_space", "return_member_forecast_panel_tabular", "return_member_forecast_panel_temporal", "return_member_forecast_panel_foundation", "volatility_member_forecast_panel_har", "volatility_member_forecast_panel_conditional", "volatility_member_forecast_panel_rough_implied", "volatility_member_forecast_panel_ml_neural", "path_risk_member_forecast_panel", "tail_member_forecast_panel_quantile", "tail_member_forecast_panel_evt", "tail_member_forecast_panel_distributional", "scenario_member_panel_multiple_future", "scenario_member_panel_joint_generative", "oof_validation_observation_panel"),
+        ("perspective_model_disagreement_panel",), (A.RUN,), RUNTIME_MODES),
+    row("P5.S7.M05", "weighted_context_uncertainty_router",
+        ("regime_probability_member_panel", "structural_break_member_panel", "ood_drift_diagnostics_panel", "perspective_model_disagreement_panel"),
+        ("p4_perspective_context",),
+        ("regime_ood_surprise_panel", "resolver_context_router_panel", "regime_transition_evaluation_plan"), (A.RUN,), RUNTIME_MODES),
+
+    row("P5.S8.M01", "predictive_distribution_harmonizer", (),
+        ("return_member_forecast_panel_linear", "return_member_forecast_panel_state_space", "return_member_forecast_panel_tabular", "return_member_forecast_panel_temporal", "return_member_forecast_panel_foundation", "volatility_member_forecast_panel_har", "volatility_member_forecast_panel_conditional", "volatility_member_forecast_panel_rough_implied", "volatility_member_forecast_panel_ml_neural", "path_risk_member_forecast_panel", "validated_tail_scenario_registry"),
+        ("harmonized_forecast_member_panel",), (A.RUN,), RUNTIME_MODES),
+    row("P5.S8.M02", "probabilistic_scoring_calibration_diagnostics", ("harmonized_forecast_member_panel", "oof_validation_observation_panel"), ("regime_transition_evaluation_plan", "hypothesis_confirmation_development_report"), ("forecast_scoring_panel", "forecast_calibration_diagnostics"), (A.VALIDATE,), RUNTIME_MODES),
+    row("P5.S8.M03", "adaptive_regime_weighted_conformal_calibrator", ("harmonized_forecast_member_panel", "forecast_calibration_diagnostics"), ("optional_resolver_feedback_context", "resolver_context_router_panel"), ("calibrated_forecast_member_panel", "forecast_conformal_report"), (A.RUN,), RUNTIME_MODES),
+    row("P5.S8.M04", "resolver_diversity_redundancy_pruning_engine", ("calibrated_forecast_member_panel", "forecast_scoring_panel"), ("resolver_context_router_panel", "perspective_model_disagreement_panel", "oof_validation_observation_panel"), ("resolver_diversity_panel", "ensemble_candidate_panel"), (A.RUN,), RUNTIME_MODES),
+    row("P5.S8.M05", "sparse_ensemble_selection_uncertainty_confidence_engine", ("calibrated_forecast_member_panel", "ensemble_candidate_panel", "forecast_scoring_panel"), ("resolver_diversity_panel", "regime_ood_surprise_panel", "forecast_calibration_diagnostics", "forecast_conformal_report", "resolver_context_router_panel", "oof_validation_observation_panel"), ("ensemble_forecast_panel", "forecast_confidence_panel", "ensemble_selection_report"), (A.RUN,), RUNTIME_MODES),
+
+    row("P5.S9.M01", "forecast_member_panel_builder", ("calibrated_forecast_member_panel", "resolver_diversity_panel", "resolver_bias_registry", "resolver_view_binding_registry", "cross_phase_research_lineage_map"), (), ("forecast_member_panel",), (A.PUBLISH,), PUBLICATION_MODES),
+    row("P5.S9.M02", "forecast_distribution_scenario_builder", ("ensemble_forecast_panel", "validated_tail_scenario_registry"), ("forecast_confidence_panel", "covariance_forecast_registry", "resolver_context_router_panel"), ("forecast_distribution_panel", "forecast_scenario_panel", "ambiguity_set", "market_belief_state"), (A.PUBLISH,), PUBLICATION_MODES),
+    row("P5.S9.M03", "covariance_regime_surprise_publication_builder", (), ("covariance_forecast_registry", "covariance_validation_report", "regime_probability_member_panel", "structural_break_member_panel", "ood_drift_diagnostics_panel", "regime_ood_surprise_panel", "resolver_context_router_panel", "perspective_model_disagreement_panel"), ("published_covariance_registry", "published_regime_ood_surprise_panel"), (A.PUBLISH,), PUBLICATION_MODES),
+    row("P5.S9.M04", "underlying_forecast_panel_builder", ("ensemble_forecast_panel",), ("forecast_confidence_panel", "published_covariance_registry", "published_regime_ood_surprise_panel"), ("underlying_forecast_panel",), (A.PUBLISH,), PUBLICATION_MODES),
+    row("P5.S9.M05", "phase6_phase9_lineage_handoff_builder", ("forecast_member_panel", "forecast_distribution_panel", "forecast_scenario_panel", "resolver_diversity_panel", "underlying_forecast_panel", "ensemble_selection_report", "representation_downstream_ablation_report"), ("published_covariance_registry", "published_regime_ood_surprise_panel", "market_belief_state", "ambiguity_set", "forecast_confidence_panel"), ("phase5_output_handoff_manifest", "resolver_evaluation_lineage_map", "representation_feedback_lineage_map", "phase6_strategy_scenario_manifest"), (A.PUBLISH,), PUBLICATION_MODES),
+)

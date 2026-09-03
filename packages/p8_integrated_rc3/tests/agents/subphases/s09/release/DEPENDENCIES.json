@@ -1,0 +1,40 @@
+{
+  "runtime": [
+    {
+      "name": "pydantic",
+      "constraint": ">=2.10,<3",
+      "validated_version": "2.13.4"
+    }
+  ],
+  "standard_library": [
+    "argparse",
+    "datetime",
+    "decimal",
+    "enum",
+    "hashlib",
+    "json",
+    "pathlib"
+  ],
+  "test_only": [
+    {
+      "name": "pytest",
+      "validated_version": "9.0.2"
+    },
+    {
+      "name": "pytest-cov",
+      "validated_version": "7.0.0"
+    },
+    {
+      "name": "jsonschema",
+      "validated_version": "4.26.0"
+    }
+  ],
+  "not_runtime_dependencies": [
+    "numpy",
+    "river",
+    "frouros",
+    "scipy",
+    "broker APIs",
+    "market data APIs"
+  ]
+}

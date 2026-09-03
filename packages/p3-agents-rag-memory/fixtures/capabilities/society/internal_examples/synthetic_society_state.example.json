@@ -1,0 +1,44 @@
+{
+  "underlying": "NVDA",
+  "as_of_time": "2026-01-05T12:00:00Z",
+  "features": {
+    "belief": {
+      "belief_mean": 0.41,
+      "belief_variance": 0.12,
+      "belief_entropy": 0.67,
+      "belief_polarization": 0.38,
+      "bullish_share": 0.62,
+      "bearish_share": 0.21
+    },
+    "dynamics": {
+      "belief_update_velocity": 0.18,
+      "belief_reversal_rate": 0.07
+    },
+    "attention": {
+      "attention_intensity": 0.71,
+      "attention_concentration": 0.56
+    },
+    "social": {
+      "cascade_size": 8,
+      "cascade_depth": 3,
+      "social_contagion": 0.44,
+      "influence_concentration": 0.31
+    },
+    "information": {
+      "information_asymmetry": 0.47,
+      "expert_nonexpert_divergence": 0.29,
+      "institutional_disagreement": 0.22
+    },
+    "tag_projection": {
+      "top_tag_divergence": 0.34,
+      "top_tag_conditioned_shift": 0.27,
+      "active_tag_projection_count": 5
+    }
+  },
+  "coverage": {
+    "active_person_count": 22,
+    "population_coverage_ratio": 0.73,
+    "belief_coverage_ratio": 0.68
+  },
+  "lineage_id": "LIN_SOCIETY_NVDA_001"
+}

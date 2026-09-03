@@ -1,0 +1,137 @@
+{
+  "$defs": {
+    "CorpusFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "available_from": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Available From"
+        },
+        "available_to": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Available To"
+        },
+        "document_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Document Ids",
+          "type": "array"
+        },
+        "document_types": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Document Types",
+          "type": "array"
+        },
+        "entity_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Entity Ids",
+          "type": "array"
+        },
+        "source_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Ids",
+          "type": "array"
+        },
+        "underlying_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Underlying Ids",
+          "type": "array"
+        }
+      },
+      "title": "CorpusFilter",
+      "type": "object"
+    },
+    "CorpusMode": {
+      "enum": [
+        "LOOKUP",
+        "STANDARD",
+        "TRIANGULATED",
+        "FORENSIC"
+      ],
+      "title": "CorpusMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "counter_queries": {
+      "items": {
+        "maxLength": 1000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Counter Queries",
+      "type": "array"
+    },
+    "filters": {
+      "$ref": "#/$defs/CorpusFilter"
+    },
+    "max_results": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "maximum": 100,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Results"
+    },
+    "proposition": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Proposition",
+      "type": "string"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/CorpusMode",
+      "default": "TRIANGULATED"
+    }
+  },
+  "required": [
+    "proposition",
+    "counter_queries"
+  ],
+  "title": "FindCounterevidenceRequest",
+  "type": "object"
+}

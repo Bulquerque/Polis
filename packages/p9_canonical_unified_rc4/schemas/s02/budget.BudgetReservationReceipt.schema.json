@@ -1,0 +1,45 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "capacity_snapshot_id": {
+      "minLength": 1,
+      "title": "Capacity Snapshot Id",
+      "type": "string"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "title": "Plan Id",
+      "type": "string"
+    },
+    "reservation_id": {
+      "minLength": 1,
+      "title": "Reservation Id",
+      "type": "string"
+    },
+    "reservation_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Reservation Sha256",
+      "type": "string"
+    },
+    "reserved_cpu_seconds": {
+      "minimum": 0,
+      "title": "Reserved Cpu Seconds",
+      "type": "integer"
+    },
+    "reserved_parallel_trials": {
+      "minimum": 0,
+      "title": "Reserved Parallel Trials",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "reservation_id",
+    "plan_id",
+    "capacity_snapshot_id",
+    "reserved_cpu_seconds",
+    "reserved_parallel_trials",
+    "reservation_sha256"
+  ],
+  "title": "BudgetReservationReceipt",
+  "type": "object"
+}

@@ -1,0 +1,87 @@
+{
+  "$defs": {
+    "MetricParityCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "example_id": {
+          "title": "Example Id",
+          "type": "string"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Expected"
+        },
+        "observed": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Observed"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "example_id",
+        "passed",
+        "observed",
+        "expected"
+      ],
+      "title": "MetricParityCheck",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/MetricParityReport.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/MetricParityCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "metric_id": {
+      "title": "Metric Id",
+      "type": "string"
+    },
+    "metric_version": {
+      "title": "Metric Version",
+      "type": "string"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "metric_id",
+    "metric_version",
+    "checks",
+    "passed",
+    "content_sha256"
+  ],
+  "title": "MetricParityReport",
+  "type": "object"
+}

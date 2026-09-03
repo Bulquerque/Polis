@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "graph_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Graph Sha256",
+      "type": "string"
+    },
+    "manifest_artifact_id": {
+      "minLength": 1,
+      "title": "Manifest Artifact Id",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "unresolved_artifact_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Unresolved Artifact Ids",
+      "type": "array"
+    },
+    "verified_artifact_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Verified Artifact Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "manifest_artifact_id",
+    "graph_sha256",
+    "verified_artifact_ids",
+    "unresolved_artifact_ids"
+  ],
+  "title": "LineageResolutionReceipt",
+  "type": "object"
+}

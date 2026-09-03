@@ -1,0 +1,12 @@
+# Composition-root example only. The API key belongs in the injected HTTP client's
+# Authorization header and must never enter this file, an artifact, a checkpoint, or a log.
+adapter: OpenAICompatibleHTTPXLLMAdapter
+endpoint_url: https://integrate.api.nvidia.com/v1/chat/completions
+request_json_object: true
+http:
+  connect_timeout_seconds: 5.0
+  read_timeout_seconds: 60.0
+  write_timeout_seconds: 15.0
+  pool_timeout_seconds: 5.0
+  max_connections: 20
+  max_keepalive_connections: 10

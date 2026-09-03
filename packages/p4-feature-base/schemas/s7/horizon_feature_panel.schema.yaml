@@ -1,0 +1,131 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: horizon_feature_panel
+type: object
+properties:
+  artifact_id:
+    type: string
+    minLength: 1
+  artifact_name:
+    type: string
+    minLength: 1
+  schema_version:
+    type: string
+    minLength: 1
+  producer_phase:
+    type: string
+  producer_module_id:
+    type: string
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  record_count:
+    type: integer
+    minimum: 0
+  grain:
+    type: array
+    items:
+      type: string
+  lineage_id:
+    type: string
+  execution_status:
+    type: string
+  quality_status:
+    type: string
+  metadata:
+    type: object
+  alias_of:
+    type:
+    - string
+    - 'null'
+  records:
+    type: array
+    items:
+      type: object
+      properties:
+        decision_time:
+          type: string
+          format: date-time
+        entity_id:
+          type: string
+        feature_id:
+          type: string
+        feature_value:
+          type:
+          - number
+          - 'null'
+        family_id:
+          type: string
+        perspective_id:
+          type: string
+        parameterization_id:
+          type: string
+        horizon_group:
+          type: string
+        available_at:
+          type: string
+          format: date-time
+        quality_state:
+          type: string
+        missingness_state:
+          type: string
+        lineage_id:
+          type: string
+        source_modalities:
+          type: array
+          items:
+            type: string
+        implementation_tier:
+          type: string
+        is_primary_parameterization:
+          type: boolean
+        compute_cost:
+          type: number
+          minimum: 0
+      required:
+      - decision_time
+      - entity_id
+      - feature_id
+      - feature_value
+      - family_id
+      - perspective_id
+      - parameterization_id
+      - horizon_group
+      - available_at
+      - quality_state
+      - missingness_state
+      - lineage_id
+      - source_modalities
+      - implementation_tier
+      - is_primary_parameterization
+      - compute_cost
+      additionalProperties: false
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- record_count
+- grain
+- lineage_id
+- execution_status
+- quality_status
+- metadata
+- alias_of
+- records
+additionalProperties: false

@@ -1,0 +1,4 @@
+plan_name: P3 Reformed Plan
+external_contract_version: V14.1-RC4.1
+rule: Do not silently change external contract schemas
+implementation_revision: to_be_defined_during_implementation

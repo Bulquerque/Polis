@@ -1,0 +1,247 @@
+{
+  "schema_version": "stimulus_panel.v2",
+  "contract_version": "p3.s18.v1",
+  "bus_id": "P3_STIMULUS_EVENT_BUS_V2",
+  "dedup_key_version": "stimulus_dedup_v1",
+  "run_id": "run:2026-07-27-001",
+  "cycle_id": "cycle:2026-07-27-001",
+  "target_cycle_id": "cycle:2026-07-27-001",
+  "as_of": "2026-07-27T14:00:00Z",
+  "records": [
+    {
+      "stimulus_id": "stim:b9489b957ef8b35f656b0e3a55d295f1",
+      "origin_type": "EXTERNAL_PIT_CONTEXT",
+      "origin_types": [
+        "EXTERNAL_PIT_CONTEXT"
+      ],
+      "merged_stimulus_ids": [
+        "stim:b9489b957ef8b35f656b0e3a55d295f1"
+      ],
+      "source_event_id": "event:apple-10q-001",
+      "causal_parent_ids": [],
+      "created_cycle_ids": [
+        "cycle:2026-07-27-001"
+      ],
+      "target_cycle_id": "cycle:2026-07-27-001",
+      "event_time": "2026-07-27T13:00:00Z",
+      "available_at": "2026-07-27T13:05:00Z",
+      "expires_at": null,
+      "subject": "Apple Inc. quarterly filing became available",
+      "stimulus_type": "FILING_EVENT",
+      "intensity": 0.8275,
+      "salience": 0.8275,
+      "priority": 83,
+      "resolution_status": "RESOLVED_ONE",
+      "underlying_candidates": [
+        {
+          "underlying_id": "figi:BBG000B9XRY4",
+          "weight": 1.0,
+          "mic": "XNAS",
+          "security_type": "Common Stock",
+          "identifiers": [
+            {
+              "id_type": "TICKER",
+              "id_value": "AAPL",
+              "mic": "XNAS",
+              "exchange_code": "US",
+              "currency": "USD"
+            }
+          ]
+        }
+      ],
+      "selected_underlying_id": "figi:BBG000B9XRY4",
+      "proposition_id": "directional_outlook",
+      "horizon": "21d",
+      "proposition_status": "RESOLVED",
+      "content_hash": "dc65ad9dc999cec0bcbe347e2fd46a7c3dc5f1bb970c5e1c91105b3a077567d5",
+      "evidence_refs": [
+        "evidence:apple-10q-001"
+      ],
+      "lineage_ids": [
+        "lin:0a08f7e74d1497f6098e5190bc3e0b44"
+      ],
+      "dedup_key": "9d461badfb1f0ce60f7750f88ad5be30180bb84623c66ae0ca5908f8da67956e",
+      "warnings": []
+    },
+    {
+      "stimulus_id": "stim:endogenous-followup-001",
+      "origin_type": "ATTENTION_FOLLOWUP",
+      "origin_types": [
+        "ATTENTION_FOLLOWUP"
+      ],
+      "merged_stimulus_ids": [
+        "stim:endogenous-followup-001"
+      ],
+      "source_event_id": "intent:followup-001",
+      "causal_parent_ids": [
+        "belief:commit-001"
+      ],
+      "created_cycle_ids": [
+        "cycle:2026-07-26-001"
+      ],
+      "target_cycle_id": "cycle:2026-07-27-001",
+      "event_time": "2026-07-26T20:00:00Z",
+      "available_at": "2026-07-26T20:01:00Z",
+      "expires_at": "2026-07-30T00:00:00Z",
+      "subject": "Revisit Apple directional outlook after prior uncertainty",
+      "stimulus_type": "ATTENTION_FOLLOWUP_EVENT",
+      "intensity": 0.72,
+      "salience": 0.68,
+      "priority": 76,
+      "resolution_status": "RESOLVED_ONE",
+      "underlying_candidates": [
+        {
+          "underlying_id": "figi:BBG000B9XRY4",
+          "weight": 1.0,
+          "mic": "XNAS",
+          "security_type": "Common Stock",
+          "identifiers": []
+        }
+      ],
+      "selected_underlying_id": "figi:BBG000B9XRY4",
+      "proposition_id": "directional_outlook",
+      "horizon": "21d",
+      "proposition_status": "RESOLVED",
+      "content_hash": "58238552c1bbc49c2daad06cf1e2ebc1cc038708ce2769e68e358d2e56f6baf5",
+      "evidence_refs": [
+        "evidence:followup-001"
+      ],
+      "lineage_ids": [
+        "lineage:followup-001"
+      ],
+      "dedup_key": "4046f6d79eb70a0ac674474084a7daf4898da242e0f68bdc18bf81a2cec21d0a",
+      "warnings": []
+    },
+    {
+      "stimulus_id": "stim:b9e8793db20612b39c45d398c86537d4",
+      "origin_type": "EXTERNAL_PIT_CONTEXT",
+      "origin_types": [
+        "EXTERNAL_PIT_CONTEXT"
+      ],
+      "merged_stimulus_ids": [
+        "stim:b9e8793db20612b39c45d398c86537d4"
+      ],
+      "source_event_id": "event:macro-cpi-001",
+      "causal_parent_ids": [],
+      "created_cycle_ids": [
+        "cycle:2026-07-27-001"
+      ],
+      "target_cycle_id": "cycle:2026-07-27-001",
+      "event_time": "2026-07-27T12:30:00Z",
+      "available_at": "2026-07-27T12:31:00Z",
+      "expires_at": null,
+      "subject": "Inflation report released",
+      "stimulus_type": "MACRO_RELEASE",
+      "intensity": 0.66,
+      "salience": 0.66,
+      "priority": 66,
+      "resolution_status": "UNRESOLVED",
+      "underlying_candidates": [],
+      "selected_underlying_id": null,
+      "proposition_id": "regime_outlook",
+      "horizon": "21d",
+      "proposition_status": "RESOLVED",
+      "content_hash": "f0221ba5c3ff268086acef1d886a26b465b3464502265b24d2e0e622dd20f1d0",
+      "evidence_refs": [
+        "evidence:macro-cpi-001"
+      ],
+      "lineage_ids": [
+        "lin:f1148cd5dec576eca91079e7aa39f79d"
+      ],
+      "dedup_key": "34a2cf6e7ae19bd0b4d2511e9b656eced4a86cd9882363d79adf57244e158db1",
+      "warnings": [
+        "UNDERLYING_UNRESOLVED"
+      ]
+    },
+    {
+      "stimulus_id": "stim:endogenous-social-001",
+      "origin_type": "SOCIAL_DELIVERY",
+      "origin_types": [
+        "SOCIAL_DELIVERY"
+      ],
+      "merged_stimulus_ids": [
+        "stim:endogenous-social-001"
+      ],
+      "source_event_id": "social:delivery-001",
+      "causal_parent_ids": [
+        "message:001"
+      ],
+      "created_cycle_ids": [
+        "cycle:2026-07-26-001"
+      ],
+      "target_cycle_id": "cycle:2026-07-27-001",
+      "event_time": "2026-07-26T21:00:00Z",
+      "available_at": "2026-07-26T21:02:00Z",
+      "expires_at": "2026-07-29T00:00:00Z",
+      "subject": "Peer message about inflation regime uncertainty",
+      "stimulus_type": "SOCIAL_MESSAGE_EVENT",
+      "intensity": 0.55,
+      "salience": 0.52,
+      "priority": 60,
+      "resolution_status": "UNRESOLVED",
+      "underlying_candidates": [],
+      "selected_underlying_id": null,
+      "proposition_id": "regime_outlook",
+      "horizon": "21d",
+      "proposition_status": "RESOLVED",
+      "content_hash": "974cfb4ca27c685f678b58352cfa6158801b10a2ec40d67e3584182d308dbd30",
+      "evidence_refs": [
+        "evidence:social-001"
+      ],
+      "lineage_ids": [
+        "lineage:social-001"
+      ],
+      "dedup_key": "03d8583181e8fbe217d939cada9c567e625f66ad5e2ca1bf5f1c8b6617d56d05",
+      "warnings": [
+        "underlying_unresolved"
+      ]
+    }
+  ],
+  "admission_decisions": [
+    {
+      "stimulus_id": "stim:b9489b957ef8b35f656b0e3a55d295f1",
+      "reason": "ACCEPTED",
+      "detail": "admitted to current-cycle stimulus panel",
+      "dedup_key": "9d461badfb1f0ce60f7750f88ad5be30180bb84623c66ae0ca5908f8da67956e"
+    },
+    {
+      "stimulus_id": "stim:b9e8793db20612b39c45d398c86537d4",
+      "reason": "ACCEPTED",
+      "detail": "admitted to current-cycle stimulus panel",
+      "dedup_key": "34a2cf6e7ae19bd0b4d2511e9b656eced4a86cd9882363d79adf57244e158db1"
+    },
+    {
+      "stimulus_id": "stim:endogenous-followup-001",
+      "reason": "ACCEPTED",
+      "detail": "admitted to current-cycle stimulus panel",
+      "dedup_key": "4046f6d79eb70a0ac674474084a7daf4898da242e0f68bdc18bf81a2cec21d0a"
+    },
+    {
+      "stimulus_id": "stim:endogenous-social-001",
+      "reason": "ACCEPTED",
+      "detail": "admitted to current-cycle stimulus panel",
+      "dedup_key": "03d8583181e8fbe217d939cada9c567e625f66ad5e2ca1bf5f1c8b6617d56d05"
+    }
+  ],
+  "source_lineage_ids": [
+    "lin:e15c9e26c1d54e8393855124cc11a77c",
+    "lineage:p3.s18.m01:73e7152abc41a4e548709b2773902a1f"
+  ],
+  "lineage_id": "lineage:p3.s18.m02:17c0f80a0ba6216a4d40a52f6bf82ea8",
+  "content_hash": "5354441e07c6d728313a17f3010b360ee8bd73cab5596a7ac178e69b2c44da1c",
+  "status": "DEGRADED",
+  "warnings": [
+    "unresolved_records_accepted:2"
+  ],
+  "metrics": {
+    "external_input_count": 2,
+    "endogenous_input_count": 2,
+    "accepted_count": 4,
+    "duplicate_collapsed_count": 0,
+    "deferred_total_budget_count": 0,
+    "deferred_origin_budget_count": 0,
+    "deferred_unresolved_budget_count": 0,
+    "unresolved_accepted_count": 2,
+    "warning_count": 1
+  }
+}

@@ -1,0 +1,179 @@
+phase: P4
+scope: P4.S1,P4.S2,P4.S3
+version: V14.9-RC1
+module_io_matrix:
+- module_id: P4.S1.M01
+  module_name: phase2_handoff_validator
+  subphase: P4.S1
+  consumes_artifacts:
+  - clean_underlying_panel
+  - clean_macro_br_panel
+  - clean_macro_us_panel
+  - clean_benchmark_panel
+  - clean_calendar_panel
+  - clean_corporate_actions_panel
+  - quality_report_phase_2
+  - phase4_handoff_manifest
+  - clean_underlying_trade_panel
+  - clean_option_contract_panel
+  - clean_option_quotes_panel
+  - clean_event_reference_panel
+  - clean_context_source_panel
+  - clean_document_panel
+  - source_quality_panel
+  - clean_liquidity_reference_panel
+  - clean_fundamental_panel
+  - clean_curve_term_structure_panel
+  emits_artifacts:
+  - validated_phase2_bundle
+  - phase2_capability_matrix
+  module_contract: contracts/modules/P4_S1_M01_phase2_handoff_validator.yaml
+  execution_stage: build
+- module_id: P4.S1.M02
+  module_name: phase3_handoff_validator
+  subphase: P4.S1
+  consumes_artifacts:
+  - social_feature_panel
+  - evidence_tag_panel
+  - agent_disagreement_panel
+  - context_memory_feature_panel
+  - hypothesis_registry
+  - phase4_social_handoff_manifest
+  emits_artifacts:
+  - validated_phase3_bundle
+  - phase3_capability_matrix
+  module_contract: contracts/modules/P4_S1_M02_phase3_handoff_validator.yaml
+  execution_stage: build
+- module_id: P4.S1.M03
+  module_name: boundary_consistency_gate
+  subphase: P4.S1
+  consumes_artifacts:
+  - validated_phase2_bundle
+  - validated_phase3_bundle
+  emits_artifacts:
+  - validated_p4_boundary_bundle
+  - boundary_consistency_report
+  module_contract: contracts/modules/P4_S1_M03_boundary_consistency_gate.yaml
+  execution_stage: build
+- module_id: P4.S1.M04
+  module_name: n_plus_1_variable_evolution_intake
+  subphase: P4.S1
+  consumes_artifacts:
+  - validated_p4_boundary_bundle
+  - variable_evolution_input_manifest
+  emits_artifacts:
+  - observer_change_proposal_registry
+  module_contract: contracts/modules/P4_S1_M04_n_plus_1_variable_evolution_intake.yaml
+  execution_stage: build
+- module_id: P4.S2.M01
+  module_name: temporal_semantics_resolver
+  subphase: P4.S2
+  consumes_artifacts:
+  - validated_p4_boundary_bundle
+  - validated_phase2_bundle
+  - validated_phase3_bundle
+  - phase2_capability_matrix
+  - phase3_capability_matrix
+  - all materialized extension artifacts declared AVAILABLE by capability matrices
+  emits_artifacts:
+  - temporally_resolved_observation_bundle
+  - temporal_resolution_report
+  module_contract: contracts/modules/P4_S2_M01_temporal_semantics_resolver.yaml
+  execution_stage: build
+- module_id: P4.S2.M02
+  module_name: entity_calendar_corporate_action_aligner
+  subphase: P4.S2
+  consumes_artifacts:
+  - temporally_resolved_observation_bundle
+  emits_artifacts:
+  - entity_aligned_observation_bundle
+  - entity_alignment_report
+  module_contract: contracts/modules/P4_S2_M02_entity_calendar_corporate_action_aligner.yaml
+  execution_stage: build
+- module_id: P4.S2.M03
+  module_name: revision_freshness_missingness_mapper
+  subphase: P4.S2
+  consumes_artifacts:
+  - entity_aligned_observation_bundle
+  - phase2_capability_matrix
+  - phase3_capability_matrix
+  emits_artifacts:
+  - quality_enriched_observation_bundle
+  - availability_missingness_panel
+  - revision_selection_report
+  module_contract: contracts/modules/P4_S2_M03_revision_freshness_missingness_mapper.yaml
+  execution_stage: build
+- module_id: P4.S2.M04
+  module_name: canonical_observation_store_builder
+  subphase: P4.S2
+  consumes_artifacts:
+  - quality_enriched_observation_bundle
+  emits_artifacts:
+  - canonical_observation_panel
+  - canonical_store_manifest
+  module_contract: contracts/modules/P4_S2_M04_canonical_observation_store_builder.yaml
+  execution_stage: build
+- module_id: P4.S3.M01
+  module_name: phenomenon_perspective_registry
+  subphase: P4.S3
+  consumes_artifacts:
+  - observer_change_proposal_registry
+  emits_artifacts:
+  - feature_observer_registry
+  - feature_parameter_policy_registry
+  - foundational_hypothesis_core_registry
+  - observer_change_review_registry
+  module_contract: contracts/modules/P4_S3_M01_phenomenon_perspective_registry.yaml
+  execution_stage: build
+- module_id: P4.S3.M02
+  module_name: observer_spec_validator
+  subphase: P4.S3
+  consumes_artifacts:
+  - feature_observer_registry
+  - foundational_hypothesis_core_registry
+  emits_artifacts:
+  - validated_observer_spec_registry
+  - observer_spec_validation_report
+  module_contract: contracts/modules/P4_S3_M02_observer_spec_validator.yaml
+  execution_stage: build
+- module_id: P4.S3.M03
+  module_name: causal_operator_engine
+  subphase: P4.S3
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - causal_operator_execution_plan
+  - causal_operator_result_panel
+  - operator_fit_state_registry
+  module_contract: contracts/modules/P4_S3_M03_causal_operator_engine.yaml
+  execution_stage: build
+- module_id: P4.S3.M04
+  module_name: relational_stateful_operator_engine
+  subphase: P4.S3
+  consumes_artifacts:
+  - canonical_observation_panel
+  - approved_observer_execution_registry
+  emits_artifacts:
+  - relational_operator_execution_plan
+  - relational_operator_result_panel
+  - relational_fit_state_registry
+  module_contract: contracts/modules/P4_S3_M04_relational_stateful_operator_engine.yaml
+  execution_stage: build
+- module_id: P4.S3.M05
+  module_name: hypothesis_passport_budget_gate
+  subphase: P4.S3
+  consumes_artifacts:
+  - validated_observer_spec_registry
+  - foundational_hypothesis_core_registry
+  - feature_parameter_policy_registry
+  - observer_change_review_registry
+  emits_artifacts:
+  - approved_hypothesis_passport_registry
+  - approved_observer_execution_registry
+  - approved_interaction_registry
+  - hypothesis_budget_report
+  - rejected_hypothesis_registry
+  - observer_change_decision_registry
+  module_contract: contracts/modules/P4_S3_M05_hypothesis_passport_budget_gate.yaml
+  execution_stage: build

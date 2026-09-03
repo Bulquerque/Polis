@@ -1,0 +1,20 @@
+population_size: configurable_dozen_scale_default_range_30_80
+creator_type: LLM_personality_creator
+tag_registry: config/PERSONALITY_TAG_REGISTRY.yaml
+economic_role_taxonomy: config/ECONOMIC_ROLE_TAXONOMY.yaml
+coverage_epsilon: configurable
+coverage_patience: configurable_consecutive_rounds
+density_margin: configurable
+max_generation_rounds: configurable_fail_fast_cap
+rule: iterative_coverage_first_then_density
+coverage_statistics:
+- confidence_weighted_mean
+- confidence_weighted_variance
+- tag_covariance_matrix
+- marginal_coverage_gain
+- local_density
+fixed_population_after_freeze: true
+creator_owns_initial_relationship_design: true
+no_free_tag_creation: true
+creator_temperature: low
+provider_interface: LLMProviderAdapter

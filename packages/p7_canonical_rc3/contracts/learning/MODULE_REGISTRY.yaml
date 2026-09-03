@@ -1,0 +1,163 @@
+registry_id: p7_learning_module_registry_2_2
+phase_id: P7
+scope: LEARNING
+version: 2.3.1rc3
+subphases:
+- P7.S5
+- P7.S6
+module_count: 9
+modules:
+- module_id: P7.S5.M01
+  subphase: P7.S5
+  subphase_name: Offline LTR Training and Qualification
+  module_name: ranking_target_policy_registry_builder
+  purpose: Compile versioned ranking target definitions without exposing future outcomes
+    to runtime.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/learning/modules/P7_S5_M01_ranking_target_policy_registry_builder.py
+  inputs:
+  - ranking_target_policy_source
+  - metric_semantics_registry
+  outputs:
+  - ranking_target_policy_registry
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S5.M02
+  subphase: P7.S5
+  subphase_name: Offline LTR Training and Qualification
+  module_name: counterfactual_training_dataset_builder
+  purpose: Build grouped counterfactual training evidence for all evaluable historical
+    candidates.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/learning/modules/P7_S5_M02_counterfactual_training_dataset_builder.py
+  inputs:
+  - historical_tournament_snapshots
+  - historical_candidate_counterfactual_outcome_panel
+  - ranking_target_policy_registry
+  outputs:
+  - ltr_training_dataset_manifest
+  - ltr_query_group_panel
+  - label_coverage_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S5.M03
+  subphase: P7.S5
+  subphase_name: Offline LTR Training and Qualification
+  module_name: query_group_temporal_split_planner
+  purpose: Create purged and embargoed temporal folds using the trading calendar and
+    query groups.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/learning/modules/P7_S5_M03_query_group_temporal_split_planner.py
+  inputs:
+  - ltr_training_dataset_manifest
+  - trading_calendar_reference
+  outputs:
+  - ltr_temporal_fold_plan
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S5.M04
+  subphase: P7.S5
+  subphase_name: Offline LTR Training and Qualification
+  module_name: ltr_training_orchestrator
+  purpose: Train bounded pointwise and pairwise ranking baselines and publish out-of-fold
+    evidence.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/learning/modules/P7_S5_M04_ltr_training_orchestrator.py
+  inputs:
+  - ltr_training_dataset_manifest
+  - ltr_temporal_fold_plan
+  - model_family_registry
+  outputs:
+  - ltr_model_artifact
+  - ltr_oof_score_panel
+  - ltr_calibration_evidence_panel
+  - training_execution_receipt
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S5.M05
+  subphase: P7.S5
+  subphase_name: Offline LTR Training and Qualification
+  module_name: ltr_model_qualification_gate
+  purpose: Compare rankers against the interpretable baseline and publish runtime
+    eligibility evidence.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/learning/modules/P7_S5_M05_ltr_model_qualification_gate.py
+  inputs:
+  - ltr_model_artifact
+  - ltr_oof_score_panel
+  - ltr_calibration_evidence_panel
+  - training_execution_receipt
+  - interpretable_baseline_history
+  outputs:
+  - ltr_model_qualification_report
+  - ltr_model_qualification_registry
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S6.M01
+  subphase: P7.S6
+  subphase_name: Runtime Scoring and Hybrid Blend
+  module_name: runtime_model_compatibility_gate
+  purpose: Accept only governed, qualified and temporally compatible model artifacts.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/learning/modules/P7_S6_M01_runtime_model_compatibility_gate.py
+  inputs:
+  - interpretable_tournament_handoff_manifest
+  - tournament_artifacts
+  - ltr_model_artifact
+  - ltr_model_qualification_registry
+  - governed_model_registry
+  outputs:
+  - runtime_model_compatibility_report
+  - resolved_runtime_model_reference
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S6.M02
+  subphase: P7.S6
+  subphase_name: Runtime Scoring and Hybrid Blend
+  module_name: group_aware_ltr_runtime_scorer
+  purpose: Score candidates within their comparison groups without training or future
+    access.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/learning/modules/P7_S6_M02_group_aware_ltr_runtime_scorer.py
+  inputs:
+  - factor_adjusted_candidate_panel
+  - ltr_model_artifact
+  - resolved_runtime_model_reference
+  - runtime_model_compatibility_report
+  outputs:
+  - ltr_model_score_panel
+  - model_runtime_receipt
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S6.M03
+  subphase: P7.S6
+  subphase_name: Runtime Scoring and Hybrid Blend
+  module_name: score_calibration_confidence_engine
+  purpose: Calibrate runtime LTR scores and publish confidence only when supporting
+    evidence exists.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/learning/modules/P7_S6_M03_score_calibration_confidence_engine.py
+  inputs:
+  - factor_adjusted_candidate_panel
+  - ltr_model_score_panel
+  - ltr_model_artifact
+  - resolved_runtime_model_reference
+  - ltr_model_qualification_report
+  outputs:
+  - ltr_score_calibration_panel
+  - ltr_score_confidence_panel
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S6.M04
+  subphase: P7.S6
+  subphase_name: Runtime Scoring and Hybrid Blend
+  module_name: hybrid_score_blend_and_handoff_builder
+  purpose: Blend calibrated LTR evidence with the interpretable baseline, preserve
+    fallback, and publish final scoring evidence.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/learning/modules/P7_S6_M04_hybrid_score_blend_and_handoff_builder.py
+  inputs:
+  - interpretable_score_panel
+  - interpretable_score_decomposition_panel
+  - ltr_model_score_panel
+  - ltr_score_calibration_panel
+  - ltr_score_confidence_panel
+  - runtime_model_compatibility_report
+  outputs:
+  - hybrid_candidate_score_panel
+  - hybrid_score_decomposition_panel
+  - learning_candidate_conservation_report
+  - hybrid_scoring_handoff_manifest
+  status: IMPLEMENTED
+  production_promotion_allowed: false

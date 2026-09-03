@@ -1,0 +1,12 @@
+{
+  "schema_id": "warmup_checkpoint_config.v2",
+  "schema_version": "2.0.0",
+  "checkpoint_frequency": "MONTHLY",
+  "final_checkpoint_required": true,
+  "resume_supported": true,
+  "hash_all_state_families": true,
+  "required_state_families": [
+    "person_state"
+  ],
+  "max_checkpoint_count": 1000
+}

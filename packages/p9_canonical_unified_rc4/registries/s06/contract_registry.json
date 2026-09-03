@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0.0",
+  "contracts": [
+    {
+      "contract_name": "ScenarioRegistryRequest",
+      "schema_file": "schemas/ScenarioRegistryRequest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "StressScenarioRegistrySnapshot",
+      "schema_file": "schemas/StressScenarioRegistrySnapshot.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "HistoricalReplayRequest",
+      "schema_file": "schemas/HistoricalReplayRequest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "HistoricalCrisisReplayResult",
+      "schema_file": "schemas/HistoricalCrisisReplayResult.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "SensitivitySurfaceRequest",
+      "schema_file": "schemas/SensitivitySurfaceRequest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "SensitivitySurfaceResult",
+      "schema_file": "schemas/SensitivitySurfaceResult.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "EVTRequest",
+      "schema_file": "schemas/EVTRequest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "ConditionalEVTResult",
+      "schema_file": "schemas/ConditionalEVTResult.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "DRORequest",
+      "schema_file": "schemas/DRORequest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "DistributionalRobustnessResult",
+      "schema_file": "schemas/DistributionalRobustnessResult.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "CapacityRequest",
+      "schema_file": "schemas/CapacityRequest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "CapacityResult",
+      "schema_file": "schemas/CapacityResult.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "ReverseStressRequest",
+      "schema_file": "schemas/ReverseStressRequest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "ReverseStressResult",
+      "schema_file": "schemas/ReverseStressResult.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "StressValidationRequest",
+      "schema_file": "schemas/StressValidationRequest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "StressModelValidationResult",
+      "schema_file": "schemas/StressModelValidationResult.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "S6RunRequest",
+      "schema_file": "schemas/S6RunRequest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "S6OutputBundle",
+      "schema_file": "schemas/S6OutputBundle.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    },
+    {
+      "contract_name": "RobustnessStressBundleManifest",
+      "schema_file": "schemas/RobustnessStressBundleManifest.schema.json",
+      "strict": true,
+      "frozen": true,
+      "extra_forbid": true
+    }
+  ]
+}

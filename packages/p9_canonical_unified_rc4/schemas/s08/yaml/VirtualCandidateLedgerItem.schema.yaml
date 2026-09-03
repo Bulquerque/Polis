@@ -1,0 +1,31 @@
+additionalProperties: false
+properties:
+  candidate_id:
+    minLength: 1
+    title: Candidate Id
+    type: string
+  discrete_quantity:
+    title: Discrete Quantity
+    type: number
+  realized_virtual_pnl:
+    title: Realized Virtual Pnl
+    type: number
+  instrument_quantities:
+    items:
+      maxItems: 2
+      minItems: 2
+      prefixItems:
+      - minLength: 1
+        type: string
+      - type: number
+      type: array
+    title: Instrument Quantities
+    type: array
+required:
+- candidate_id
+- discrete_quantity
+- realized_virtual_pnl
+- instrument_quantities
+title: VirtualCandidateLedgerItem
+type: object
+$id: urn:inferencia:p9:s8:VirtualCandidateLedgerItem:1.0.0

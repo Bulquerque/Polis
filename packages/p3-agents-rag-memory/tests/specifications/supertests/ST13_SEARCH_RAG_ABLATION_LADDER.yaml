@@ -1,0 +1,19 @@
+spec_id: ST13_SEARCH_RAG_ABLATION_LADDER
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: A0–A7 and full society B are compared with matched inputs
+required_cases:
+- search_only
+- rag
+- memory
+- agents
+- tools
+- social_graph
+- warmup
+- endogenous_stimuli
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

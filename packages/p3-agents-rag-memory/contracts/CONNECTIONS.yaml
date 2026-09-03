@@ -1,0 +1,27 @@
+phase: phase_03_agents_rag_memory
+consumes_from:
+- phase_02_quality_pit
+- phase_09_audit_learning
+emits_to:
+- phase_04_feature_base
+- phase_09_audit_learning
+temporal_rules:
+  phase_09_to_phase_03: N_plus_1_only
+  cycle_state_feedback: N_plus_1_only
+  endogenous_stimulus_feedback: N_plus_1_only
+forbidden_connections:
+- direct_P3_to_P5_P6_P7_P8
+- future_phase_output_into_current_cognition
+- same_cycle_back_edge
+- undeclared_internal_connection
+- P9_evaluation_result_into_current_P3_cycle
+- retro_experiment_memory_into_synthetic_person_context
+- P3_promotion_authority
+forbidden:
+- direct_P3_to_P5_P6_P7_P8
+- future_phase_output_into_current_cognition
+- same_cycle_back_edge
+- undeclared_internal_connection
+- P9_evaluation_result_into_current_P3_cycle
+- retro_experiment_memory_into_synthetic_person_context
+- P3_promotion_authority

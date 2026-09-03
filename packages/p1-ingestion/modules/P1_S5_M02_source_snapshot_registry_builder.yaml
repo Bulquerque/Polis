@@ -1,0 +1,47 @@
+module_id: P1.S5.M02
+module_name: source_snapshot_registry_builder
+phase: phase_01_ingestion
+subphase: P1.S5
+rc: RC4.1
+function: Registrar snapshot de fonte/versionamento por source_id e run.
+inputs: &id001
+- source_registry
+- ingestion_manifest
+- versioned_raw_file_inventory
+outputs: &id002
+- source_snapshot_registry
+validations:
+- source_snapshot_unique
+- snapshot_references_hash
+fail_fast_conditions:
+- source_snapshot_registry_builder_schema_violation
+- source_snapshot_registry_builder_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P1.S1.M01
+    - P1.S5.M01
+    - P1.S3.M02
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P1.S5.M04
+    artifacts: *id002
+    phase_outputs:
+    - source_snapshot_registry
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

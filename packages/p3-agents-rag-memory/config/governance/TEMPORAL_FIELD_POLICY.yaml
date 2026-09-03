@@ -1,0 +1,22 @@
+policy_id: P3_FINAL_TEMPORAL_FIELD_POLICY_V1
+policy_version: 1.0.0
+canonical_as_of_field: as_of_time
+compatibility_as_of_alias: as_of
+artifacts:
+  clean_context_source_panel:
+    required: [available_at]
+    required_in_qualification: [available_at]
+    effective_time_sources: []
+  clean_document_panel:
+    required: [available_at, ingested_at]
+    required_in_qualification: [available_at, ingested_at]
+    effective_time_sources: [effective_time, reference_date]
+  clean_event_reference_panel:
+    required: [available_at]
+    required_in_qualification: [available_at]
+    effective_time_sources: [effective_time, event_time, reference_date]
+    require_effective_time_in_qualification: true
+ordering_rules:
+  ingested_at_gte_available_at: true
+  effective_time_lte_available_at: false
+  available_at_lte_as_of_time: true

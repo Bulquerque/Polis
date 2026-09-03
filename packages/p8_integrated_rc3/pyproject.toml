@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=80", "wheel>=0.45"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-pipeline-phase08-integrated"
+version = "0.3.0rc3.post3"
+description = "Integrated P8 portfolio control, execution, runtime assurance, and audit release"
+readme = "README.md"
+requires-python = ">=3.13,<3.15"
+dependencies = [
+  "pydantic>=2.13,<3",
+  "PyYAML>=6,<7",
+  "jsonschema>=4.26,<5",
+  "numpy>=2,<3",
+  "scipy>=1.14,<2",
+]
+authors = [{name = "Projeto Inferencia"}]
+license = {text = "Proprietary - project internal"}
+
+[project.optional-dependencies]
+test = ["pytest>=9,<10", "coverage>=7,<8"]
+
+[project.scripts]
+p8-s1 = "quant_pipeline.phase_08_portfolio_control.s01_boundary.cli:main"
+p8-s2 = "quant_pipeline.phase_08_portfolio_control.s02_candidate_context.cli:main"
+p8-s3 = "quant_pipeline.phase_08_portfolio_control.scenario_engineering.cli:main"
+p8-s4 = "quant_pipeline.phase_08_portfolio_control.risk_state.cli:main"
+p8-s9 = "quant_pipeline.phase_08_portfolio_control.subphases.s09_runtime_assurance.cli:main"
+p8-s10 = "quant_pipeline.phase_08_portfolio_control.subphases.s10_audit_release.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["quant_pipeline*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"quant_pipeline.phase_08_portfolio_control" = ["py.typed"]
+"quant_pipeline.phase_08_portfolio_control.s01_boundary" = ["py.typed"]
+"quant_pipeline.phase_08_portfolio_control.s02_candidate_context" = ["py.typed"]
+"quant_pipeline.phase_08_portfolio_control.scenario_engineering" = ["py.typed"]
+"quant_pipeline.phase_08_portfolio_control.risk_state" = ["py.typed"]
+"quant_pipeline.phase_08_portfolio_control.agent1_integration" = ["py.typed"]
+"quant_pipeline.phase_08_portfolio_control.agent2_bundle" = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra --strict-config --import-mode=importlib"
+markers = [
+  "contract: producer-consumer contract validation",
+  "integration: subphase or cross-boundary integration",
+  "property: deterministic and metamorphic invariants",
+  "slow: higher-cost numerical tests",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["quant_pipeline.phase_08_portfolio_control"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false

@@ -1,0 +1,66 @@
+{
+  "$defs": {
+    "ObjectiveFamily": {
+      "enum": [
+        "DIRECTIONAL_UP",
+        "DIRECTIONAL_DOWN",
+        "RANGE",
+        "LONG_VOLATILITY",
+        "SHORT_VOLATILITY_DEFINED_RISK",
+        "POSITIVE_CONVEXITY",
+        "TAIL_HEDGE",
+        "INCOME_DEFINED_RISK",
+        "SKEW_RELATIVE_VALUE",
+        "TERM_STRUCTURE",
+        "EVENT",
+        "PORTFOLIO_HEDGE",
+        "HYBRID"
+      ],
+      "title": "ObjectiveFamily",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Candidate Ids",
+      "type": "array"
+    },
+    "leg_count": {
+      "exclusiveMinimum": 0,
+      "title": "Leg Count",
+      "type": "integer"
+    },
+    "niche_id": {
+      "title": "Niche Id",
+      "type": "string"
+    },
+    "objective_family": {
+      "$ref": "#/$defs/ObjectiveFamily"
+    },
+    "representative_candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Representative Candidate Ids",
+      "type": "array"
+    },
+    "risk_bucket": {
+      "title": "Risk Bucket",
+      "type": "string"
+    }
+  },
+  "required": [
+    "niche_id",
+    "objective_family",
+    "leg_count",
+    "risk_bucket",
+    "candidate_ids",
+    "representative_candidate_ids"
+  ],
+  "title": "QualityDiversityCell",
+  "type": "object"
+}

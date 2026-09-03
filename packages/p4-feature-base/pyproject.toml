@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-pipeline-p4-feature-base"
+version = "14.9.1"
+description = "Integrated point-in-time feature representation phase (P4 S1-S9)"
+requires-python = ">=3.11"
+dependencies = [
+  "jsonschema>=4.20",
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "pydantic>=2.6",
+  "PyYAML>=6.0",
+  "scikit-learn>=1.4",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+encoder = ["torch>=2.2"]
+test = ["pytest>=8", "hypothesis>=6"]
+quality = ["ruff>=0.6", "mypy>=1.10"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["quant_pipeline*"]
+
+[tool.setuptools.package-data]
+"quant_pipeline.phase_04_feature_base" = ["py.typed", "_resources/**/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_configs = true

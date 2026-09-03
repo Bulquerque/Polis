@@ -1,0 +1,9 @@
+schema_id: p3.research_tools.s33.contract_schema_bindings.v1
+schema_version: 1.0.0
+bindings:
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.entity_resolution_result.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/contracts/p3.research_tools.entity_resolution_result.v1.schema.json
+  sha256: a578d79e1a5744d9e4050a5f6f5b100ce5adfa0fdcb3609c147bde9d6f970b1d
+- schema_id: https://quant-pipeline.local/schema/p3.research_tools.pit_query_proof.v1
+  relative_path: contracts/extensions/research_tools/schemas/s33/contracts/p3.research_tools.pit_query_proof.v1.schema.json
+  sha256: 70e6f6e7c0c0d2bf2afed1160a5a0aa7479bbcfae3fa2275400131849daaacd8

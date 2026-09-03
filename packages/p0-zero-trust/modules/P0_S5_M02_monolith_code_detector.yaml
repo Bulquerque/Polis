@@ -1,0 +1,39 @@
+module_id: P0.S5.M02
+module_name: monolith_code_detector
+function: Executar monolith code detector da Fase 0, mantendo controle Zero Trust
+  técnico e sem tocar no fluxo econômico.
+inputs: &id001
+- source_tree_manifest
+- code_quality_policy_yaml
+outputs: &id002
+- monolith_report
+validations:
+- file_line_limit_checked
+- function_line_limit_checked
+fail_fast_conditions:
+- monolith_code_detector_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules: []
+    artifacts: *id001
+    phase_inputs:
+    - source_tree_manifest
+    - code_quality_policy_yaml
+  emits_to:
+    modules:
+    - P0.S5.M06
+    artifacts: *id002
+    phase_outputs:
+    - monolith_report
+phase: P0
+subphase: P0.S5
+rc: RC4.1
+notes: Canonical P0 module contract; the matrix remains the IO authority.

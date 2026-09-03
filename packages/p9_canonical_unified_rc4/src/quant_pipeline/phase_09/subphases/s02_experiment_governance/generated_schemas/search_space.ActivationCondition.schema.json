@@ -1,0 +1,52 @@
+{
+  "$defs": {
+    "ConditionOperator": {
+      "enum": [
+        "EQUALS",
+        "NOT_EQUALS",
+        "IN",
+        "NOT_IN"
+      ],
+      "title": "ConditionOperator",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "operator": {
+      "$ref": "#/$defs/ConditionOperator"
+    },
+    "parent_parameter_id": {
+      "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+      "title": "Parent Parameter Id",
+      "type": "string"
+    },
+    "values": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Values",
+      "type": "array"
+    }
+  },
+  "required": [
+    "parent_parameter_id",
+    "operator",
+    "values"
+  ],
+  "title": "ActivationCondition",
+  "type": "object"
+}

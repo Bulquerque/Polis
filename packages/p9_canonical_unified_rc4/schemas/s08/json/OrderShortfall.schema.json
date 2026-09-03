@@ -1,0 +1,83 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "order_id": {
+      "minLength": 1,
+      "title": "Order Id",
+      "type": "string"
+    },
+    "delay_cost": {
+      "title": "Delay Cost",
+      "type": "number"
+    },
+    "trading_cost": {
+      "title": "Trading Cost",
+      "type": "number"
+    },
+    "opportunity_cost": {
+      "title": "Opportunity Cost",
+      "type": "number"
+    },
+    "explicit_cost": {
+      "title": "Explicit Cost",
+      "type": "number"
+    },
+    "legging_cost": {
+      "title": "Legging Cost",
+      "type": "number"
+    },
+    "total_shortfall": {
+      "title": "Total Shortfall",
+      "type": "number"
+    },
+    "fill_rate": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Fill Rate",
+      "type": "number"
+    },
+    "slippage_model_error": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Slippage Model Error"
+    },
+    "evidence_class": {
+      "$ref": "#/$defs/EvidenceClass"
+    }
+  },
+  "required": [
+    "order_id",
+    "delay_cost",
+    "trading_cost",
+    "opportunity_cost",
+    "explicit_cost",
+    "legging_cost",
+    "total_shortfall",
+    "fill_rate",
+    "slippage_model_error",
+    "evidence_class"
+  ],
+  "title": "OrderShortfall",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:OrderShortfall:1.0.0"
+}

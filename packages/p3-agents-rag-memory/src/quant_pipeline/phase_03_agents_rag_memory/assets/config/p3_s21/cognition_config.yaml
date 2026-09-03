@@ -1,0 +1,10 @@
+schema_version: p3.s21.v1
+temperature: 0.1
+structured_output: true
+max_tool_calls_per_cycle: 3
+max_repair_attempts: 1
+no_trade_authority: true
+initial_prompt_id: p3.s21.initial
+initial_prompt_version: 1.0.0
+continuation_prompt_id: p3.s21.continuation
+continuation_prompt_version: 1.0.0

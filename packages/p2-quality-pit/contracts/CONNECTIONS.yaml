@@ -1,0 +1,8 @@
+phase: phase_02_quality_pit
+consumes_from:
+- phase_01_ingestion
+emits_to:
+- phase_03_agents_rag_memory
+- phase_04_feature_base
+- phase_06_candidate_generation
+forbidden_connections: []

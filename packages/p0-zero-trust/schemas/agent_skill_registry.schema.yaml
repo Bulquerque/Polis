@@ -1,0 +1,35 @@
+schema_id: agent_skill_registry.v1
+artifact_name: agent_skill_registry
+schema_version: v14.1-rc4.1
+type: object
+required_fields: [artifact_id, created_at, pipeline_version, lineage_id, skills, skill_count, source_path, source_sha256, status, release_blocking, promotion_blocked]
+properties:
+  artifact_id: {type: string}
+  created_at: {type: string}
+  pipeline_version: {type: string, const: V14.1-RC4.1}
+  lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  skills:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required: [skill_id, skill_version, phase_scope, module_scope, permissions, permission_names, allowed_paths, capabilities]
+      properties:
+        skill_id: {type: string}
+        skill_version: {type: string}
+        phase_scope: {type: string}
+        module_scope: {type: array, minItems: 1}
+        capabilities: {type: array}
+        permissions: {type: object}
+        permission_names: {type: array}
+        allowed_paths: {type: array, minItems: 1}
+        cross_phase_scope: {type: boolean}
+  skill_count: {type: integer, minimum: 1}
+  source_sha256: {type: string, pattern: '^[0-9a-f]{64}$'}
+  source_path: {type: string}
+  phase_registry_lineage_id: {type: string}
+  module_registry_lineage_id: {type: string}
+  status: {const: PASS}
+  release_blocking: {const: false}
+  promotion_blocked: {const: true}
+forbidden_fields: [future_return, target, candidate_score, rank_score, portfolio_weight, realized_pnl, trade_decision]

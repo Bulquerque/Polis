@@ -1,0 +1,85 @@
+{
+  "$defs": {
+    "ActionabilityState": {
+      "enum": [
+        "NOMINAL_ACTIONABLE",
+        "ROBUST_ONLY",
+        "DEGRADED_ACTIONABLE",
+        "CLOSE_ONLY",
+        "NO_NEW_RISK",
+        "NO_ACTION_VALID"
+      ],
+      "title": "ActionabilityState",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actionability_state": {
+      "$ref": "#/$defs/ActionabilityState"
+    },
+    "ambiguity_radius": {
+      "minimum": 0.0,
+      "title": "Ambiguity Radius",
+      "type": "number"
+    },
+    "liquidity_haircut": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Liquidity Haircut",
+      "type": "number"
+    },
+    "margin_buffer": {
+      "minimum": 0.0,
+      "title": "Margin Buffer",
+      "type": "number"
+    },
+    "probability_lower_bounds": {
+      "items": {
+        "type": "number"
+      },
+      "title": "Probability Lower Bounds",
+      "type": "array"
+    },
+    "probability_upper_bounds": {
+      "items": {
+        "type": "number"
+      },
+      "title": "Probability Upper Bounds",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "risk_budget_cap": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Risk Budget Cap",
+      "type": "number"
+    },
+    "uncertainty_score": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Uncertainty Score",
+      "type": "number"
+    }
+  },
+  "required": [
+    "actionability_state",
+    "uncertainty_score",
+    "ambiguity_radius",
+    "risk_budget_cap",
+    "liquidity_haircut",
+    "margin_buffer",
+    "probability_lower_bounds",
+    "probability_upper_bounds"
+  ],
+  "title": "AmbiguityAssessment",
+  "type": "object"
+}

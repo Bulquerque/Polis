@@ -1,0 +1,6 @@
+version: research-budget.v1
+count_all_trials: true
+count_rejected_trials: true
+count_parameter_searches: true
+family_level_ledger: true
+holdout_access_budget: 1

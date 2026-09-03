@@ -1,0 +1,21 @@
+registry_id: p3.s39.entropy.v1
+status: FROZEN_LOCAL
+shannon:
+  policies:
+    EQUAL_WIDTH:
+      version: 1.0.0
+    EQUAL_FREQUENCY:
+      version: 1.0.0
+    FIXED_EDGES:
+      version: 1.0.0
+  log_base: 2
+  sensitivity_bin_offsets: [-2, 0, 2]
+permutation:
+  version: 1.0.0
+  tie_policy: STABLE_INDEX_ORDER
+  max_embedding_dimension: 7
+  max_delay: 10
+rules:
+  choose_bins_from_result: false
+  choose_embedding_from_result: false
+  policy_in_snapshot_required: true

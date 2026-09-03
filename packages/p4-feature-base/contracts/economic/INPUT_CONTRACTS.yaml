@@ -1,0 +1,23 @@
+phase: P4
+subphase: P4.S6
+contract_version: v14.5-rc1
+required_inputs:
+- momentum_perspective_panel
+- reversion_relative_value_perspective_panel
+- risk_uncertainty_stress_perspective_panel
+- liquidity_attention_crowding_perspective_panel
+- structure_contagion_breadth_perspective_panel
+- macro_cycle_regime_state_perspective_panel
+- event_surprise_seasonality_perspective_panel
+- narrative_evidence_disagreement_perspective_panel
+- value_quality_profitability_investment_perspective_panel
+- carry_curve_basis_perspective_panel
+- approved_hypothesis_passport_registry
+- alignment_policy_registry
+- conflict_group_registry
+- approved_interaction_registry
+rules:
+- all_inputs_match_run_cycle_as_of_pipeline
+- alignment_is_backward_only
+- missingness_is_explicit
+- no_target_prediction_candidate_rank_or_pnl

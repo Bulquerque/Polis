@@ -1,0 +1,394 @@
+{
+  "content_sha256": "07804535b861ebec9cd653bd39d86795913917d0b90b22bb978de10427f7dc41",
+  "entries": [
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "return.cumulative",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "DECIMAL_RETURN"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "return.cagr",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "ANNUALIZED_DECIMAL"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "return.arithmetic_mean",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "DECIMAL_RETURN"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "return.geometric_mean",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "DECIMAL_RETURN"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "risk.volatility",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "ANNUALIZED_DECIMAL"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "risk.downside_deviation",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "ANNUALIZED_DECIMAL"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "risk.upside_deviation",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "ANNUALIZED_DECIMAL"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "distribution.skewness",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "COEFFICIENT"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "distribution.excess_kurtosis",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "COEFFICIENT"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "tail.var.*",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "DECIMAL_RETURN"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "tail.expected_shortfall.*",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "DECIMAL_RETURN"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "tail.var_normal.*",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "DECIMAL_RETURN"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "tail.expected_shortfall_normal.*",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "DECIMAL_RETURN"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "tail.ratio.*",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "drawdown.maximum",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "FRACTION"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "drawdown.average",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "FRACTION"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "drawdown.conditional_expected",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "FRACTION"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "drawdown.maximum_duration",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "SECONDS"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "drawdown.maximum_recovery",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "SECONDS"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "drawdown.time_underwater",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "FRACTION"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "ratio.sharpe",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "ratio.sharpe_autocorrelation_adjusted",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "ratio.psr",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "PROBABILITY"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "ratio.sortino",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "ratio.omega",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NET"
+      ],
+      "metric_pattern": "ratio.calmar",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "ACTIVE"
+      ],
+      "metric_pattern": "risk.tracking_error",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "ANNUALIZED_DECIMAL"
+    },
+    {
+      "allowed_gross_net": [
+        "ACTIVE"
+      ],
+      "metric_pattern": "ratio.information",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "factor.*.alpha_annualized",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "ANNUALIZED_DECIMAL"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "factor.*.r_squared",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "factor.*.residual_volatility",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "ANNUALIZED_DECIMAL"
+    },
+    {
+      "allowed_gross_net": [
+        "GROSS",
+        "NET"
+      ],
+      "metric_pattern": "factor.*.*",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "COEFFICIENT"
+    },
+    {
+      "allowed_gross_net": [
+        "NOT_APPLICABLE"
+      ],
+      "metric_pattern": "execution.fill_rate",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NOT_APPLICABLE"
+      ],
+      "metric_pattern": "execution.partial_fill_rate",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NOT_APPLICABLE"
+      ],
+      "metric_pattern": "execution.rejection_rate",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NOT_APPLICABLE"
+      ],
+      "metric_pattern": "execution.turnover",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NOT_APPLICABLE"
+      ],
+      "metric_pattern": "execution.average_leverage",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NOT_APPLICABLE"
+      ],
+      "metric_pattern": "execution.peak_leverage",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NOT_APPLICABLE"
+      ],
+      "metric_pattern": "execution.average_margin_utilization",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NOT_APPLICABLE"
+      ],
+      "metric_pattern": "execution.peak_margin_utilization",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "RATIO"
+    },
+    {
+      "allowed_gross_net": [
+        "NOT_APPLICABLE"
+      ],
+      "metric_pattern": "execution.slippage_fraction",
+      "metric_version": "1.0.0",
+      "producer_module_id": "P9.S4",
+      "unit": "FRACTION"
+    }
+  ],
+  "registry_id": "P9_S4_METRICS",
+  "registry_version": "1.0.0"
+}

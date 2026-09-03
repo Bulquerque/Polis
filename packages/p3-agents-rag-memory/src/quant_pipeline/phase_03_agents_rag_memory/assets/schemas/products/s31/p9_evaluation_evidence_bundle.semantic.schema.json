@@ -1,0 +1,415 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_name": {
+          "enum": [
+            "phase4_social_handoff_manifest",
+            "variable_evolution_input_manifest",
+            "belief_outcome_commitment_log",
+            "model_knowledge_cutoff_report",
+            "phase3_run_snapshot",
+            "validated_society_state_panel"
+          ],
+          "title": "Artifact Name",
+          "type": "string"
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "schema_id": {
+          "minLength": 1,
+          "title": "Schema Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "row_count": {
+          "minimum": 0,
+          "title": "Row Count",
+          "type": "integer"
+        },
+        "grain": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Grain",
+          "type": "array"
+        },
+        "producer_module_id": {
+          "minLength": 1,
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "quality_status": {
+          "$ref": "#/$defs/QualityStatus"
+        }
+      },
+      "required": [
+        "artifact_name",
+        "artifact_id",
+        "schema_id",
+        "schema_version",
+        "content_hash",
+        "row_count",
+        "grain",
+        "producer_module_id",
+        "lineage_id",
+        "available_at",
+        "quality_status"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "BlindHoldoutPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "policy_id": {
+          "const": "p9.blind_holdout.v1",
+          "default": "p9.blind_holdout.v1",
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "const": "1.0.0",
+          "default": "1.0.0",
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "evaluation_authority": {
+          "const": "P9",
+          "default": "P9",
+          "title": "Evaluation Authority",
+          "type": "string"
+        },
+        "producer_can_read_outcomes": {
+          "const": false,
+          "default": false,
+          "title": "Producer Can Read Outcomes",
+          "type": "boolean"
+        },
+        "contains_outcome_labels": {
+          "const": false,
+          "default": false,
+          "title": "Contains Outcome Labels",
+          "type": "boolean"
+        },
+        "contains_evaluation_results": {
+          "const": false,
+          "default": false,
+          "title": "Contains Evaluation Results",
+          "type": "boolean"
+        },
+        "same_cycle_feedback_allowed": {
+          "const": false,
+          "default": false,
+          "title": "Same Cycle Feedback Allowed",
+          "type": "boolean"
+        },
+        "feedback_return_artifact": {
+          "const": "phase3_retro_handoff_manifest",
+          "default": "phase3_retro_handoff_manifest",
+          "title": "Feedback Return Artifact",
+          "type": "string"
+        }
+      },
+      "title": "BlindHoldoutPolicy",
+      "type": "object"
+    },
+    "CommitmentMaturityEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "commitment_id": {
+          "minLength": 1,
+          "title": "Commitment Id",
+          "type": "string"
+        },
+        "commitment_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Commitment Hash",
+          "type": "string"
+        },
+        "underlying_id": {
+          "minLength": 1,
+          "title": "Underlying Id",
+          "type": "string"
+        },
+        "proposition_id": {
+          "minLength": 1,
+          "title": "Proposition Id",
+          "type": "string"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "committed_at": {
+          "format": "date-time",
+          "title": "Committed At",
+          "type": "string"
+        },
+        "matures_at": {
+          "format": "date-time",
+          "title": "Matures At",
+          "type": "string"
+        },
+        "readiness": {
+          "$ref": "#/$defs/EvaluationReadiness"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commitment_id",
+        "commitment_hash",
+        "underlying_id",
+        "proposition_id",
+        "horizon",
+        "committed_at",
+        "matures_at",
+        "readiness",
+        "lineage_id"
+      ],
+      "title": "CommitmentMaturityEntry",
+      "type": "object"
+    },
+    "CutoffRiskClass": {
+      "enum": [
+        "STRICT_CLEAN",
+        "LOWER_RISK",
+        "CONTAMINATION_RISK",
+        "UNKNOWN"
+      ],
+      "title": "CutoffRiskClass",
+      "type": "string"
+    },
+    "EvaluationReadiness": {
+      "enum": [
+        "PENDING_MATURITY",
+        "READY_FOR_EVALUATION"
+      ],
+      "title": "EvaluationReadiness",
+      "type": "string"
+    },
+    "QualityStatus": {
+      "enum": [
+        "PASS",
+        "DEGRADED",
+        "BLOCKED"
+      ],
+      "title": "QualityStatus",
+      "type": "string"
+    },
+    "ReproducibilityKeys": {
+      "additionalProperties": false,
+      "properties": {
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "configuration_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Configuration Hash",
+          "type": "string"
+        },
+        "model_registry_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Model Registry Hash",
+          "type": "string"
+        },
+        "input_set_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Set Hash",
+          "type": "string"
+        },
+        "bundle_build_type": {
+          "const": "p3.s31.evaluation-evidence-export/v1",
+          "default": "p3.s31.evaluation-evidence-export/v1",
+          "title": "Bundle Build Type",
+          "type": "string"
+        },
+        "builder_id": {
+          "const": "quant_pipeline.phase_03_agents_rag_memory.P3.S31.M01",
+          "default": "quant_pipeline.phase_03_agents_rag_memory.P3.S31.M01",
+          "title": "Builder Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "configuration_hash",
+        "model_registry_hash",
+        "input_set_hash"
+      ],
+      "title": "ReproducibilityKeys",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "p3.s31.p9_evaluation_evidence_bundle.semantic",
+      "default": "p3.s31.p9_evaluation_evidence_bundle.semantic",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "items": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Items",
+      "type": "array"
+    },
+    "commitments": {
+      "items": {
+        "$ref": "#/$defs/CommitmentMaturityEntry"
+      },
+      "title": "Commitments",
+      "type": "array"
+    },
+    "cutoff_risk_class": {
+      "$ref": "#/$defs/CutoffRiskClass"
+    },
+    "cutoff_report_ref": {
+      "minLength": 1,
+      "title": "Cutoff Report Ref",
+      "type": "string"
+    },
+    "reproducibility": {
+      "$ref": "#/$defs/ReproducibilityKeys"
+    },
+    "blind_holdout_policy": {
+      "$ref": "#/$defs/BlindHoldoutPolicy"
+    },
+    "evaluation_authority": {
+      "const": "P9",
+      "default": "P9",
+      "title": "Evaluation Authority",
+      "type": "string"
+    },
+    "contains_evaluation_results": {
+      "const": false,
+      "default": false,
+      "title": "Contains Evaluation Results",
+      "type": "boolean"
+    },
+    "contains_outcome_labels": {
+      "const": false,
+      "default": false,
+      "title": "Contains Outcome Labels",
+      "type": "boolean"
+    },
+    "contains_promotion_decision": {
+      "const": false,
+      "default": false,
+      "title": "Contains Promotion Decision",
+      "type": "boolean"
+    },
+    "quality_status": {
+      "$ref": "#/$defs/QualityStatus"
+    },
+    "quality_reasons": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Quality Reasons",
+      "type": "array"
+    },
+    "complete": {
+      "const": true,
+      "default": true,
+      "title": "Complete",
+      "type": "boolean"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "created_at",
+    "run_id",
+    "cycle_id",
+    "as_of_time",
+    "pipeline_version",
+    "schema_version",
+    "items",
+    "commitments",
+    "cutoff_risk_class",
+    "cutoff_report_ref",
+    "reproducibility",
+    "blind_holdout_policy",
+    "quality_status",
+    "quality_reasons",
+    "lineage_id"
+  ],
+  "title": "P9EvaluationEvidenceBundle",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

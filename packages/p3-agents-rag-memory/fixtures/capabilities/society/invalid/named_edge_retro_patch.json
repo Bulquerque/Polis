@@ -1,0 +1,12 @@
+{
+  "status": "ACTIVE",
+  "patch_id": "patch_bad",
+  "change_type": "relationship_policy_update",
+  "change_target": "relationship_formation_config",
+  "promoted_at": "2026-01-15T12:00:00Z",
+  "effective_cycle_id": 4,
+  "lineage_id": "lin_patch_none",
+  "parameters": {
+    "target_person_id": "p3"
+  }
+}

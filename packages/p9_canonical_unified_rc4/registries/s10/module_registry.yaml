@@ -1,0 +1,59 @@
+schema_version: 1.0.0
+subphase_id: P9.S10
+module_count: 4
+modules:
+- module_id: P9.S10.M01
+  name: matured_lesson_hypothesis_and_negative_memory_normalizer
+  input:
+  - ResearchClaimCandidate
+  - ResearchNormalizationPolicy
+  output:
+  - NormalizedResearchMemoryBundle
+  depends_on: []
+  hard_invariants:
+  - only matured or settled claims are materialized
+  - negative evidence and breakpoints are preserved
+  - supersession graph is acyclic
+- module_id: P9.S10.M02
+  name: system_research_memory_and_p3_contextual_handoff_builder
+  input:
+  - NormalizedResearchMemoryBundle
+  - ResearchMemorySnapshot
+  - ResearchMemoryUpdatePolicy
+  output:
+  - MemoryAndP3HandoffOutput
+  depends_on:
+  - P9.S10.M01
+  hard_invariants:
+  - research memory is append-only and hash chained
+  - P3 handoff never authorizes world-memory writes
+  - future-sensitive content is blocked
+- module_id: P9.S10.M03
+  name: feedback_effectiveness_and_regression_ledger
+  input:
+  - FeedbackEffectivenessInputBundle
+  output:
+  - FeedbackEffectivenessModuleOutput
+  depends_on:
+  - P9.S9.M06
+  - P9.S9.M07
+  hard_invariants:
+  - effectiveness requires authorized activated policy diff
+  - only comparable matured outcomes enter estimates
+  - critical guardrail regression overrides target improvement
+- module_id: P9.S10.M04
+  name: cycle_evaluation_release_packager_and_p0_authorization_request_builder
+  input:
+  - ReleaseCandidateInputBundle
+  output:
+  - ReleaseCandidateOutput
+  depends_on:
+  - P9.S10.M01
+  - P9.S10.M02
+  - P9.S10.M03
+  - P9.S9.M05
+  - P9.S9.M07
+  hard_invariants:
+  - P0 authorization remains pending
+  - feedback remains unactivated
+  - release candidate contains exactly S1-S9 before S10 sealing

@@ -1,0 +1,387 @@
+{
+  "$defs": {
+    "CoverageReport": {
+      "additionalProperties": false,
+      "properties": {
+        "missing_dimensions": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Dimensions",
+          "type": "array"
+        },
+        "records_rejected_filter": {
+          "minimum": 0,
+          "title": "Records Rejected Filter",
+          "type": "integer"
+        },
+        "records_rejected_future": {
+          "minimum": 0,
+          "title": "Records Rejected Future",
+          "type": "integer"
+        },
+        "records_rejected_missing_time": {
+          "minimum": 0,
+          "title": "Records Rejected Missing Time",
+          "type": "integer"
+        },
+        "records_returned": {
+          "minimum": 0,
+          "title": "Records Returned",
+          "type": "integer"
+        },
+        "records_scanned": {
+          "minimum": 0,
+          "title": "Records Scanned",
+          "type": "integer"
+        },
+        "records_visible": {
+          "minimum": 0,
+          "title": "Records Visible",
+          "type": "integer"
+        },
+        "score": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Score",
+          "type": "number"
+        },
+        "truncated": {
+          "default": false,
+          "title": "Truncated",
+          "type": "boolean"
+        },
+        "unique_sources": {
+          "minimum": 0,
+          "title": "Unique Sources",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "records_scanned",
+        "records_visible",
+        "records_returned",
+        "records_rejected_future",
+        "records_rejected_missing_time",
+        "records_rejected_filter",
+        "unique_sources",
+        "score"
+      ],
+      "title": "CoverageReport",
+      "type": "object"
+    },
+    "ExecutionReport": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic": {
+          "const": true,
+          "default": true,
+          "title": "Deterministic",
+          "type": "boolean"
+        },
+        "executed_mode": {
+          "minLength": 1,
+          "title": "Executed Mode",
+          "type": "string"
+        },
+        "handler_id": {
+          "minLength": 1,
+          "title": "Handler Id",
+          "type": "string"
+        },
+        "handler_version": {
+          "const": "1.0.0",
+          "default": "1.0.0",
+          "title": "Handler Version",
+          "type": "string"
+        },
+        "internal_work_units": {
+          "minimum": 0,
+          "title": "Internal Work Units",
+          "type": "integer"
+        },
+        "requested_mode": {
+          "minLength": 1,
+          "title": "Requested Mode",
+          "type": "string"
+        },
+        "seed": {
+          "minimum": 0,
+          "title": "Seed",
+          "type": "integer"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "handler_id",
+        "requested_mode",
+        "executed_mode",
+        "internal_work_units",
+        "seed"
+      ],
+      "title": "ExecutionReport",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "MarketEvidenceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "record_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Record Hash",
+          "type": "string"
+        },
+        "record_key": {
+          "minLength": 1,
+          "title": "Record Key",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "view_name": {
+          "minLength": 1,
+          "title": "View Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "view_name",
+        "record_key",
+        "source_id",
+        "lineage_id",
+        "available_at",
+        "record_hash"
+      ],
+      "title": "MarketEvidenceRef",
+      "type": "object"
+    },
+    "OutcomeStatus": {
+      "enum": [
+        "PASS",
+        "EMPTY_VALID",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM"
+      ],
+      "title": "OutcomeStatus",
+      "type": "string"
+    },
+    "PitQueryProof": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "earliest_available_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Earliest Available At"
+        },
+        "input_hashes": {
+          "items": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "title": "Input Hashes",
+          "type": "array"
+        },
+        "latest_available_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latest Available At"
+        },
+        "proof_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Proof Hash",
+          "type": "string"
+        },
+        "records_rejected_filter": {
+          "minimum": 0,
+          "title": "Records Rejected Filter",
+          "type": "integer"
+        },
+        "records_rejected_future": {
+          "minimum": 0,
+          "title": "Records Rejected Future",
+          "type": "integer"
+        },
+        "records_rejected_missing_time": {
+          "minimum": 0,
+          "title": "Records Rejected Missing Time",
+          "type": "integer"
+        },
+        "records_scanned": {
+          "minimum": 0,
+          "title": "Records Scanned",
+          "type": "integer"
+        },
+        "records_visible": {
+          "minimum": 0,
+          "title": "Records Visible",
+          "type": "integer"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "decision_time",
+        "records_scanned",
+        "records_visible",
+        "records_rejected_future",
+        "records_rejected_missing_time",
+        "records_rejected_filter",
+        "snapshot_id",
+        "input_hashes",
+        "proof_hash"
+      ],
+      "title": "PitQueryProof",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "coverage": {
+      "$ref": "#/$defs/CoverageReport"
+    },
+    "downgrade_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Downgrade Reason"
+    },
+    "envelope_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Envelope Version",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "$ref": "#/$defs/MarketEvidenceRef"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "executed_mode": {
+      "minLength": 1,
+      "title": "Executed Mode",
+      "type": "string"
+    },
+    "execution": {
+      "$ref": "#/$defs/ExecutionReport"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "outcome_status": {
+      "$ref": "#/$defs/OutcomeStatus"
+    },
+    "pit_proof": {
+      "$ref": "#/$defs/PitQueryProof"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "request_id": {
+      "minLength": 1,
+      "title": "Request Id",
+      "type": "string"
+    },
+    "requested_mode": {
+      "minLength": 1,
+      "title": "Requested Mode",
+      "type": "string"
+    },
+    "result_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Result Hash",
+      "type": "string"
+    },
+    "tool_id": {
+      "enum": [
+        "market.observation.v1",
+        "options.observation.v1"
+      ],
+      "title": "Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool_id",
+    "operation_id",
+    "request_id",
+    "outcome_status",
+    "requested_mode",
+    "executed_mode",
+    "records",
+    "evidence_refs",
+    "coverage",
+    "pit_proof",
+    "execution",
+    "result_hash"
+  ],
+  "title": "MarketDerivativesToolResultEnvelope",
+  "type": "object"
+}

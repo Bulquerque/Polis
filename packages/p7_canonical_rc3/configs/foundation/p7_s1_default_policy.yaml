@@ -1,0 +1,23 @@
+policy_version: p7_s1_boundary_policy_v1
+m01:
+  accepted_contract_major: 2
+  accepted_schema_major: 2
+m03:
+  forbidden_fields:
+    - future_return
+    - realized_outcome
+    - realized_pnl
+    - portfolio_weight
+    - final_position_size
+    - execution_price
+    - rank
+    - candidate_score
+  runtime_time_fields:
+    - available_at
+    - market_snapshot_time
+    - quote_time
+    - forecast_created_at
+    - model_trained_at
+m04:
+  allowed_scope:
+    phase: P7

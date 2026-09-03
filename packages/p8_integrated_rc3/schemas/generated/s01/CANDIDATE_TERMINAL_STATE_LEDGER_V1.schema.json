@@ -1,0 +1,226 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "relationship_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relationship Type"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_version",
+        "contract_version",
+        "content_sha256",
+        "available_at"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "CandidateConservationProof": {
+      "additionalProperties": false,
+      "properties": {
+        "received_count": {
+          "minimum": 0,
+          "title": "Received Count",
+          "type": "integer"
+        },
+        "ranked_count": {
+          "minimum": 0,
+          "title": "Ranked Count",
+          "type": "integer"
+        },
+        "eligibility_blocked_count": {
+          "minimum": 0,
+          "title": "Eligibility Blocked Count",
+          "type": "integer"
+        },
+        "safety_blocked_count": {
+          "minimum": 0,
+          "title": "Safety Blocked Count",
+          "type": "integer"
+        },
+        "abstained_count": {
+          "minimum": 0,
+          "title": "Abstained Count",
+          "type": "integer"
+        },
+        "received_ids_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Received Ids Hash",
+          "type": "string"
+        },
+        "terminal_ids_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Terminal Ids Hash",
+          "type": "string"
+        },
+        "equation_valid": {
+          "title": "Equation Valid",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "received_count",
+        "ranked_count",
+        "eligibility_blocked_count",
+        "safety_blocked_count",
+        "abstained_count",
+        "received_ids_hash",
+        "terminal_ids_hash",
+        "equation_valid"
+      ],
+      "title": "CandidateConservationProof",
+      "type": "object"
+    },
+    "CandidateTerminalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "canonical_candidate_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Canonical Candidate Id"
+        },
+        "terminal_state": {
+          "$ref": "#/$defs/CandidateTerminalState"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "comparison_group_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comparison Group Id"
+        },
+        "rank": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rank"
+        },
+        "p6_economic_package_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "candidate_id",
+        "terminal_state"
+      ],
+      "title": "CandidateTerminalRecord",
+      "type": "object"
+    },
+    "CandidateTerminalState": {
+      "enum": [
+        "RANKED",
+        "ELIGIBILITY_BLOCKED",
+        "SAFETY_BLOCKED",
+        "ABSTAINED"
+      ],
+      "title": "CandidateTerminalState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "records": {
+      "items": {
+        "$ref": "#/$defs/CandidateTerminalRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "proof": {
+      "$ref": "#/$defs/CandidateConservationProof"
+    }
+  },
+  "required": [
+    "records",
+    "proof"
+  ],
+  "title": "CandidateTerminalStateLedger",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "CANDIDATE_TERMINAL_STATE_LEDGER_V1.schema.json"
+}

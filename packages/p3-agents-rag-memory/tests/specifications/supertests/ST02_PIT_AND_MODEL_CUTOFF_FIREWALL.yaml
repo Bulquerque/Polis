@@ -1,0 +1,14 @@
+spec_id: ST02_PIT_AND_MODEL_CUTOFF_FIREWALL
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: No data-time or model-knowledge leakage enters cognition
+required_cases:
+- available_at_as_of_time
+- provider_version_freeze
+- unknown_cutoff_risk_classification
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

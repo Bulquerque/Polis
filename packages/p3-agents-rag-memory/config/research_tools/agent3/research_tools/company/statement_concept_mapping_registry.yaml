@@ -1,0 +1,18 @@
+version: 1.0.0
+concepts:
+  revenue:
+  - revenue
+  operating_income:
+  - operating_income
+  net_income:
+  - net_income
+  operating_cash_flow:
+  - operating_cash_flow
+  total_debt:
+  - total_debt
+  cash:
+  - cash
+  ebitda:
+  - ebitda
+  capital_expenditure:
+  - capital_expenditure

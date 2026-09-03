@@ -1,0 +1,161 @@
+registry_id: p7_tournament_module_registry_2_2
+phase_id: P7
+scope: TOURNAMENT
+version: 2.3.1rc3
+subphases:
+- P7.S3
+- P7.S4
+module_count: 8
+modules:
+- module_id: P7.S3.M01
+  subphase: P7.S3
+  subphase_name: Dominance, Pareto and Factor Adjustment
+  module_name: candidate_metric_semantics_compiler
+  purpose: Compile routed metrics into a comparable semantic space while preserving
+    raw values and absence.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/tournament/modules/P7_S3_M01_candidate_metric_semantics_compiler.py
+  inputs:
+  - runtime_foundation_handoff_manifest
+  - eligible_strategy_candidate_panel
+  - candidate_comparison_group_panel
+  - candidate_metric_source_panel
+  - ranking_policy_context
+  - runtime_foundation_audit_report
+  outputs:
+  - comparable_candidate_metric_panel
+  - metric_semantics_audit_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S3.M02
+  subphase: P7.S3
+  subphase_name: Dominance, Pareto and Factor Adjustment
+  module_name: option_factor_exposure_adjuster
+  purpose: Estimate common option-factor exposure and preserve residual edge as a
+    distinct metric.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/tournament/modules/P7_S3_M02_option_factor_exposure_adjuster.py
+  inputs:
+  - comparable_candidate_metric_panel
+  - eligible_strategy_candidate_panel
+  - ranking_policy_context
+  - runtime_foundation_audit_report
+  - option_factor_model_artifact
+  outputs:
+  - factor_adjusted_metric_panel
+  - factor_exposure_panel
+  - factor_adjustment_audit_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S3.M03
+  subphase: P7.S3
+  subphase_name: Dominance, Pareto and Factor Adjustment
+  module_name: strict_dominance_filter
+  purpose: Remove only candidates that are strictly dominated under compatible metrics
+    and policies.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/tournament/modules/P7_S3_M03_strict_dominance_filter.py
+  inputs:
+  - factor_adjusted_metric_panel
+  - comparable_candidate_metric_panel
+  - candidate_comparison_group_panel
+  - ranking_policy_context
+  - runtime_foundation_audit_report
+  outputs:
+  - dominance_relation_panel
+  - dominated_candidate_panel
+  - dominance_survivor_panel
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S3.M04
+  subphase: P7.S3
+  subphase_name: Dominance, Pareto and Factor Adjustment
+  module_name: pareto_frontier_builder
+  purpose: Construct deterministic Pareto layers for each comparison group and preserve
+    incomparable trade-offs.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/tournament/modules/P7_S3_M04_pareto_frontier_builder.py
+  inputs:
+  - dominance_relation_panel
+  - dominated_candidate_panel
+  - dominance_survivor_panel
+  - factor_adjusted_metric_panel
+  - ranking_policy_context
+  - runtime_foundation_audit_report
+  outputs:
+  - pareto_frontier_panel
+  - pareto_frontier_audit_report
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S4.M01
+  subphase: P7.S4
+  subphase_name: Interpretable Multi-Head Scoring
+  module_name: scoring_policy_head_binding_compiler
+  purpose: Bind Pareto candidates and metric semantics to versioned interpretable
+    scoring heads.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/tournament/modules/P7_S4_M01_scoring_policy_head_binding_compiler.py
+  inputs:
+  - pareto_frontier_panel
+  - factor_adjusted_metric_panel
+  - comparable_candidate_metric_panel
+  - candidate_comparison_group_panel
+  - scoring_policy_context
+  outputs:
+  - scoring_head_input_panel
+  - scoring_policy_receipt
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S4.M02
+  subphase: P7.S4
+  subphase_name: Interpretable Multi-Head Scoring
+  module_name: multi_head_score_engine
+  purpose: Calculate belief-fit, edge, downside, execution and robustness heads with
+    explicit contributions.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/tournament/modules/P7_S4_M02_multi_head_score_engine.py
+  inputs:
+  - scoring_head_input_panel
+  - factor_adjusted_metric_panel
+  - comparable_candidate_metric_panel
+  - scoring_policy_receipt
+  outputs:
+  - scoring_head_panel
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S4.M03
+  subphase: P7.S4
+  subphase_name: Interpretable Multi-Head Scoring
+  module_name: interpretable_score_assembler
+  purpose: Assemble normalized head contributions into an interpretable candidate
+    score.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/tournament/modules/P7_S4_M03_interpretable_score_assembler.py
+  inputs:
+  - scoring_head_panel
+  - scoring_policy_receipt
+  - pareto_frontier_panel
+  outputs:
+  - interpretable_score_panel
+  status: IMPLEMENTED
+  production_promotion_allowed: false
+- module_id: P7.S4.M04
+  subphase: P7.S4
+  subphase_name: Interpretable Multi-Head Scoring
+  module_name: score_decomposition_and_tournament_handoff_publisher
+  purpose: Publish complete score decomposition, tournament audit evidence and the
+    learning handoff.
+  source_path: src/quant_pipeline/phase_07_strategy_tournament/tournament/modules/P7_S4_M04_score_decomposition_and_tournament_handoff_publisher.py
+  inputs:
+  - interpretable_score_panel
+  - scoring_head_panel
+  - scoring_policy_receipt
+  - pareto_frontier_panel
+  - pareto_frontier_audit_report
+  - dominated_candidate_panel
+  - dominance_survivor_panel
+  - dominance_relation_panel
+  - factor_adjusted_metric_panel
+  - factor_exposure_panel
+  - comparable_candidate_metric_panel
+  - metric_semantics_audit_report
+  - factor_adjustment_audit_report
+  outputs:
+  - score_decomposition_panel
+  - interpretable_tournament_audit_report
+  - interpretable_tournament_handoff_manifest
+  status: IMPLEMENTED
+  production_promotion_allowed: false

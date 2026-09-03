@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Checkpoint Sha256",
+      "type": "string"
+    },
+    "event_ledger_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Event Ledger Sha256",
+      "type": "string"
+    },
+    "expected_state_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Expected State Sha256"
+    },
+    "reconstructed_state_sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reconstructed State Sha256"
+    }
+  },
+  "required": [
+    "checkpoint_sha256",
+    "event_ledger_sha256",
+    "reconstructed_state_sha256",
+    "expected_state_sha256"
+  ],
+  "title": "ReconstructedStateHashPanel",
+  "type": "object"
+}

@@ -1,0 +1,64 @@
+schema_id: phase_zero_trust_feedback_panel.v2
+artifact_name: phase_zero_trust_feedback_panel
+schema_version: v14.1-rc4.1
+compatibility: backward_compatible_with_v1_consumers
+semantic_change: severity_is_separate_from_readiness_and_release_impact
+type: object
+additionalProperties: true
+required_fields:
+- artifact_id
+- phase_id
+- created_at
+- pipeline_version
+- lineage_id
+- source_evidence
+- phase_count
+- phases
+- findings
+- blocking_errors
+- advisories
+- warnings
+- notices
+- required_actions
+- blocking_count
+- warning_count
+- notice_count
+- finding_count
+- deduplicated_source_finding_count
+- critical_count
+- feedback_per_phase
+- blocking_vs_warning_separated
+- severity_impact_separated
+- findings_deduplicated
+- status
+- readiness_blocking
+- release_blocking
+properties:
+  artifact_id: {type: string, pattern: '^phase-zero-trust-feedback-[0-9a-f]{12}$'}
+  phase_id: {type: string}
+  created_at: {type: string}
+  pipeline_version: {type: string, const: V14.1-RC4.1}
+  lineage_id: {type: string, pattern: '^sha256:[0-9a-f]{64}$'}
+  source_evidence: {type: array, minItems: 4}
+  phase_count: {type: integer, minimum: 1}
+  phases: {type: array, minItems: 1}
+  findings: {type: array}
+  blocking_errors: {type: array}
+  advisories: {type: array}
+  warnings: {type: array}
+  notices: {type: array}
+  required_actions: {type: array}
+  blocking_count: {type: integer, minimum: 0}
+  warning_count: {type: integer, minimum: 0}
+  notice_count: {type: integer, minimum: 0}
+  finding_count: {type: integer, minimum: 0}
+  deduplicated_source_finding_count: {type: integer, minimum: 0}
+  critical_count: {type: integer, minimum: 0}
+  feedback_per_phase: {type: boolean, const: true}
+  blocking_vs_warning_separated: {type: boolean, const: true}
+  severity_impact_separated: {type: boolean, const: true}
+  findings_deduplicated: {type: boolean, const: true}
+  status: {type: string, enum: [PASS, NOTICE, WARNING, BLOCKED, CRITICAL]}
+  readiness_blocking: {type: boolean}
+  release_blocking: {type: boolean}
+forbidden_fields: [future_return, target, candidate_score, trade_decision, rank_score, portfolio_weight, realized_pnl]

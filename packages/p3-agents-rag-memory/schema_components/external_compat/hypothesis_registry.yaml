@@ -1,0 +1,30 @@
+artifact: hypothesis_registry
+schema_version: v14.1-rc4.1
+phase: phase_03_agents_rag_memory
+grain:
+- hypothesis_id
+- created_at
+required_fields:
+- hypothesis_id
+- created_at
+- hypothesis_text
+- evidence_count
+- source_quality_score
+- lineage_id
+- pipeline_version
+- artifact_id
+optional_fields: []
+forbidden_fields:
+- future_return
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- buy_sell_signal
+quality_checks:
+- required_fields_present
+- lineage_required
+- pipeline_version_required
+- primary_key_unique_when_applicable
+notes:
+- Generated/updated during RC4.1 module-contract correction.

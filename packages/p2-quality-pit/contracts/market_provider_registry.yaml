@@ -1,0 +1,20 @@
+schema_version: market-provider-registry-v1
+providers:
+  B3_PUBLIC_DATA:
+    country: BR
+    venue: B3
+    authority_class: EXCHANGE_OFFICIAL
+    capabilities:
+      cotahist_history: REQUIRED
+      instrument_reference: REQUIRED
+      market_calendar: REQUIRED
+      option_underlying_mapping: REQUIRED
+  LONDON_STRATEGIC_EDGE:
+    aliases: [LSE_DATA]
+    country_scope: [US, INTERNATIONAL]
+    authority_class: THIRD_PARTY_MARKET_DATA
+    capabilities:
+      us_equities_history: CANDIDATE
+      us_options_history: CANDIDATE
+      us_option_reference: CANDIDATE
+      b3_instrument_reference: UNSUPPORTED

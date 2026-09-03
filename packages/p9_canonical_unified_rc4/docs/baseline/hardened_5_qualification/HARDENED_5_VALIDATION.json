@@ -1,0 +1,33 @@
+{
+  "release": "P9_HARDENED_5",
+  "package_version": "0.1.0rc4.post2",
+  "generated_at": "2026-08-06T16:20:05.912965+00:00",
+  "modules": 70,
+  "subphases": 10,
+  "tokens": 348,
+  "contracts": 14,
+  "tests": {
+    "collected": 594,
+    "passed": 587,
+    "skipped_external": 7,
+    "failed": 0
+  },
+  "coverage": {
+    "statements_pct": 92.21139685057211,
+    "branches_pct": 74.03452975920037,
+    "combined_pct": 88.58360536815378
+  },
+  "technical_internal_closure": true,
+  "economic_qualification": false,
+  "production_promotion_allowed": false,
+  "external_skip_reason": "P0_P9_REFERENCE_ROOT frozen P0-P7 tree not configured",
+  "corrected_blockers": [
+    "P9.S1.M05",
+    "P9.S2.M04",
+    "P9.S3.M03",
+    "P9.S7.M01",
+    "P9.S9.M04",
+    "P9.S9.M05",
+    "P9.S10.M04"
+  ]
+}

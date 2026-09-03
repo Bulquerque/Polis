@@ -1,0 +1,106 @@
+$defs:
+  EligibleCandidateRecord:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        title: Candidate Id
+        type: string
+      underlying_id:
+        title: Underlying Id
+        type: string
+      horizon:
+        title: Horizon
+        type: string
+      objective_family:
+        title: Objective Family
+        type: string
+      capital_at_risk_bucket:
+        title: Capital At Risk Bucket
+        type: string
+      lineage_id:
+        title: Lineage Id
+        type: string
+      factor_values:
+        additionalProperties:
+          type: number
+        title: Factor Values
+        type: object
+    required:
+    - candidate_id
+    - underlying_id
+    - horizon
+    - objective_family
+    - capital_at_risk_bucket
+    - lineage_id
+    title: EligibleCandidateRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/EligibleCandidateRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: eligible_strategy_candidate_panel envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s3/eligible_strategy_candidate_panel/1.0.0

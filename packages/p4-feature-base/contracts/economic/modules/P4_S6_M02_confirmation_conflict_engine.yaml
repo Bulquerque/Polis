@@ -1,0 +1,44 @@
+module_id: P4.S6.M02
+module_name: confirmation_conflict_engine
+phase: P4
+subphase: P4.S6
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: confirmation conflict engine
+inputs:
+- aligned_perspective_panel
+- conflict_group_registry
+outputs:
+- perspective_conflict_panel
+validations:
+- only_semantically_comparable_groups
+- independence_from_registry
+- insufficient_views_degraded
+- entropy_and_dispersion_finite
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- single_responsibility
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- buy_sell_signal
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- missing_view
+- lineage
+- replay
+- metamorphic
+production_promotion_allowed: false

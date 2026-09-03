@@ -1,0 +1,162 @@
+$defs:
+  CohortFrontier:
+    additionalProperties: false
+    properties:
+      cohort_id:
+        maxLength: 256
+        minLength: 1
+        title: Cohort Id
+        type: string
+      dominated:
+        items:
+          $ref: '#/$defs/DominatedConfiguration'
+        title: Dominated
+        type: array
+      eligible_configuration_ids:
+        items:
+          maxLength: 128
+          minLength: 1
+          type: string
+        title: Eligible Configuration Ids
+        type: array
+      frontier_configuration_ids:
+        items:
+          maxLength: 128
+          minLength: 1
+          type: string
+        title: Frontier Configuration Ids
+        type: array
+      ineligible_configuration_ids:
+        items:
+          maxLength: 128
+          minLength: 1
+          type: string
+        title: Ineligible Configuration Ids
+        type: array
+      robust_regions:
+        items:
+          $ref: '#/$defs/ParameterRegion'
+        title: Robust Regions
+        type: array
+    required:
+    - cohort_id
+    - frontier_configuration_ids
+    - eligible_configuration_ids
+    - ineligible_configuration_ids
+    - robust_regions
+    - dominated
+    title: CohortFrontier
+    type: object
+  DominatedConfiguration:
+    additionalProperties: false
+    properties:
+      configuration_id:
+        maxLength: 128
+        minLength: 1
+        title: Configuration Id
+        type: string
+      dominated_by:
+        items:
+          maxLength: 128
+          minLength: 1
+          type: string
+        title: Dominated By
+        type: array
+      reason:
+        maxLength: 256
+        minLength: 1
+        title: Reason
+        type: string
+    required:
+    - configuration_id
+    - dominated_by
+    - reason
+    title: DominatedConfiguration
+    type: object
+  FrontierState:
+    enum:
+    - FRONTIER_AVAILABLE
+    - MULTIPLE_ROBUST_REGIONS
+    - NO_ELIGIBLE_CONFIGURATION
+    - PARAMETER_REGION_FRAGILE
+    - INSUFFICIENT_COMPARABILITY
+    title: FrontierState
+    type: string
+  ParameterRegion:
+    additionalProperties: false
+    properties:
+      boundary_fraction:
+        maximum: 1.0
+        minimum: 0.0
+        title: Boundary Fraction
+        type: number
+      cohort_id:
+        maxLength: 256
+        minLength: 1
+        title: Cohort Id
+        type: string
+      mean_utility:
+        title: Mean Utility
+        type: number
+      member_configuration_ids:
+        items:
+          maxLength: 128
+          minLength: 1
+          type: string
+        title: Member Configuration Ids
+        type: array
+      minimum_primary_lower_bound:
+        title: Minimum Primary Lower Bound
+        type: number
+      region_id:
+        maxLength: 256
+        minLength: 1
+        title: Region Id
+        type: string
+      state:
+        $ref: '#/$defs/ParameterRegionState'
+      utility_dispersion:
+        minimum: 0.0
+        title: Utility Dispersion
+        type: number
+    required:
+    - region_id
+    - cohort_id
+    - member_configuration_ids
+    - state
+    - mean_utility
+    - minimum_primary_lower_bound
+    - utility_dispersion
+    - boundary_fraction
+    title: ParameterRegion
+    type: object
+  ParameterRegionState:
+    enum:
+    - ROBUST_PLATEAU
+    - FRAGILE_PEAK
+    - SPARSE_REGION
+    title: ParameterRegionState
+    type: string
+additionalProperties: false
+properties:
+  cohorts:
+    items:
+      $ref: '#/$defs/CohortFrontier'
+    title: Cohorts
+    type: array
+  state:
+    $ref: '#/$defs/FrontierState'
+  warnings:
+    default: []
+    items:
+      maxLength: 256
+      minLength: 1
+      type: string
+    title: Warnings
+    type: array
+required:
+- state
+- cohorts
+title: RobustConfigurationFrontier
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

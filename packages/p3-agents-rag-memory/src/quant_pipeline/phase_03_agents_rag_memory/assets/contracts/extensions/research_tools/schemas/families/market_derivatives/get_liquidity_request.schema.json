@@ -1,0 +1,37 @@
+{
+  "$defs": {
+    "MarketMode": {
+      "enum": [
+        "OBSERVE",
+        "DIAGNOSTIC",
+        "STRUCTURAL"
+      ],
+      "title": "MarketMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "lookback_days": {
+      "default": 20,
+      "maximum": 756,
+      "minimum": 1,
+      "title": "Lookback Days",
+      "type": "integer"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/MarketMode",
+      "default": "DIAGNOSTIC"
+    }
+  },
+  "required": [
+    "instrument_id"
+  ],
+  "title": "GetLiquidityRequest",
+  "type": "object"
+}

@@ -1,0 +1,355 @@
+{
+  "$defs": {
+    "CandidateAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "allocated_target_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Allocated Target Quantity"
+        },
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "allocated_target_quantity"
+      ],
+      "title": "CandidateAllocation",
+      "type": "object"
+    },
+    "OrderClass": {
+      "enum": [
+        "SIMPLE",
+        "MLEG"
+      ],
+      "title": "OrderClass",
+      "type": "string"
+    },
+    "OrderType": {
+      "enum": [
+        "MARKET",
+        "LIMIT",
+        "STOP",
+        "STOP_LIMIT"
+      ],
+      "title": "OrderType",
+      "type": "string"
+    },
+    "PlannedOrder": {
+      "additionalProperties": false,
+      "properties": {
+        "authorization_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Authorization Ids",
+          "type": "array"
+        },
+        "client_order_id": {
+          "minLength": 1,
+          "title": "Client Order Id",
+          "type": "string"
+        },
+        "execution_group_id": {
+          "minLength": 1,
+          "title": "Execution Group Id",
+          "type": "string"
+        },
+        "expire_at": {
+          "format": "date-time",
+          "title": "Expire At",
+          "type": "string"
+        },
+        "legs": {
+          "items": {
+            "$ref": "#/$defs/PlannedOrderLeg"
+          },
+          "title": "Legs",
+          "type": "array"
+        },
+        "limit_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Limit Price"
+        },
+        "order_class": {
+          "$ref": "#/$defs/OrderClass"
+        },
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "order_type": {
+          "$ref": "#/$defs/OrderType"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "replace_allowed": {
+          "title": "Replace Allowed",
+          "type": "boolean"
+        },
+        "risk_role": {
+          "$ref": "#/$defs/RiskRole"
+        },
+        "security_type": {
+          "$ref": "#/$defs/SecurityType"
+        },
+        "slice_index": {
+          "minimum": 0,
+          "title": "Slice Index",
+          "type": "integer"
+        },
+        "structure_id": {
+          "minLength": 1,
+          "title": "Structure Id",
+          "type": "string"
+        },
+        "submit_at": {
+          "format": "date-time",
+          "title": "Submit At",
+          "type": "string"
+        },
+        "time_in_force": {
+          "$ref": "#/$defs/TimeInForce"
+        },
+        "venue": {
+          "minLength": 1,
+          "title": "Venue",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order_id",
+        "client_order_id",
+        "authorization_ids",
+        "structure_id",
+        "execution_group_id",
+        "order_class",
+        "venue",
+        "security_type",
+        "risk_role",
+        "order_type",
+        "time_in_force",
+        "quantity",
+        "limit_price",
+        "submit_at",
+        "expire_at",
+        "slice_index",
+        "replace_allowed",
+        "legs"
+      ],
+      "title": "PlannedOrder",
+      "type": "object"
+    },
+    "PlannedOrderLeg": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "intent_id": {
+          "minLength": 1,
+          "title": "Intent Id",
+          "type": "string"
+        },
+        "position_intent": {
+          "$ref": "#/$defs/PositionIntent"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "ratio_quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Ratio Quantity"
+        },
+        "side": {
+          "$ref": "#/$defs/Side"
+        },
+        "virtual_allocations": {
+          "items": {
+            "$ref": "#/$defs/CandidateAllocation"
+          },
+          "title": "Virtual Allocations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "intent_id",
+        "instrument_id",
+        "side",
+        "position_intent",
+        "ratio_quantity",
+        "quantity",
+        "virtual_allocations"
+      ],
+      "title": "PlannedOrderLeg",
+      "type": "object"
+    },
+    "PositionIntent": {
+      "enum": [
+        "BUY_TO_OPEN",
+        "BUY_TO_CLOSE",
+        "SELL_TO_OPEN",
+        "SELL_TO_CLOSE",
+        "NO_PHYSICAL_TRADE"
+      ],
+      "title": "PositionIntent",
+      "type": "string"
+    },
+    "RiskRole": {
+      "enum": [
+        "PROTECTIVE",
+        "RISK_REDUCING",
+        "NEUTRAL",
+        "RISK_INCREASING"
+      ],
+      "title": "RiskRole",
+      "type": "string"
+    },
+    "RoutingBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "reason_code": {
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "structure_id": {
+          "minLength": 1,
+          "title": "Structure Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "structure_id",
+        "reason_code"
+      ],
+      "title": "RoutingBlock",
+      "type": "object"
+    },
+    "SecurityType": {
+      "enum": [
+        "EQUITY",
+        "OPTION",
+        "FUTURE",
+        "ETF",
+        "CRYPTO"
+      ],
+      "title": "SecurityType",
+      "type": "string"
+    },
+    "Side": {
+      "enum": [
+        "BUY",
+        "SELL"
+      ],
+      "title": "Side",
+      "type": "string"
+    },
+    "TimeInForce": {
+      "enum": [
+        "DAY",
+        "GTC",
+        "IOC",
+        "FOK",
+        "OPG",
+        "CLS"
+      ],
+      "title": "TimeInForce",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "blocked_structure_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Blocked Structure Ids",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "orders": {
+      "items": {
+        "$ref": "#/$defs/PlannedOrder"
+      },
+      "title": "Orders",
+      "type": "array"
+    },
+    "routing_blocks": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/RoutingBlock"
+      },
+      "title": "Routing Blocks",
+      "type": "array"
+    }
+  },
+  "required": [
+    "orders",
+    "blocked_structure_ids",
+    "content_sha256"
+  ],
+  "title": "PlannedOrderBundle",
+  "type": "object"
+}

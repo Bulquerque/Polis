@@ -1,0 +1,5 @@
+version: 1.0.0
+allowed_authorities:
+- DOCUMENTED
+- CANONICAL
+algorithmic_suggestions_are_canonical: false

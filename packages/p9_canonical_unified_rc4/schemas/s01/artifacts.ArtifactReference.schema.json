@@ -1,0 +1,180 @@
+{
+  "$defs": {
+    "Availability": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "UNAVAILABLE",
+        "RESERVED"
+      ],
+      "title": "Availability",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "artifact_schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$",
+      "title": "Artifact Schema Version",
+      "type": "string"
+    },
+    "artifact_type": {
+      "minLength": 1,
+      "title": "Artifact Type",
+      "type": "string"
+    },
+    "availability": {
+      "$ref": "#/$defs/Availability",
+      "default": "AVAILABLE"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "backtest_id": {
+      "minLength": 1,
+      "title": "Backtest Id",
+      "type": "string"
+    },
+    "computed_at": {
+      "format": "date-time",
+      "title": "Computed At",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Decision Time"
+    },
+    "event_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Event Time"
+    },
+    "grain": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Grain",
+      "type": "array"
+    },
+    "location": {
+      "minLength": 1,
+      "title": "Location",
+      "type": "string"
+    },
+    "maturity_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maturity At"
+    },
+    "parent_artifact_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Parent Artifact Ids",
+      "type": "array"
+    },
+    "producer_module_id": {
+      "pattern": "^P[0-9]+\\.S[0-9]+\\.M[0-9]+$",
+      "title": "Producer Module Id",
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_name": {
+      "minLength": 1,
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Schema Sha256",
+      "type": "string"
+    },
+    "settlement_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Settlement At"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_type",
+    "schema_name",
+    "artifact_schema_version",
+    "schema_sha256",
+    "content_sha256",
+    "producer_module_id",
+    "run_id",
+    "cycle_id",
+    "backtest_id",
+    "available_at",
+    "computed_at",
+    "location",
+    "record_count"
+  ],
+  "title": "ArtifactReference",
+  "type": "object"
+}

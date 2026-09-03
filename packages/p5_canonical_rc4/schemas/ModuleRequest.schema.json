@@ -1,0 +1,106 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "metadata": {
+          "additionalProperties": true,
+          "title": "Metadata",
+          "type": "object"
+        },
+        "row_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Row Count"
+        },
+        "schema_version": {
+          "default": "1.0.0",
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "storage_uri": {
+          "minLength": 1,
+          "title": "Storage Uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "storage_uri",
+        "content_hash"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "ModuleAction": {
+      "enum": [
+        "RUN",
+        "FIT",
+        "PREDICT",
+        "VALIDATE",
+        "PUBLISH"
+      ],
+      "title": "ModuleAction",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "$ref": "#/$defs/ModuleAction"
+    },
+    "input_artifacts": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "Input Artifacts",
+      "type": "object"
+    },
+    "module_id": {
+      "pattern": "^P5\\.S[1-9]\\.M\\d{2}$",
+      "title": "Module Id",
+      "type": "string"
+    },
+    "options": {
+      "additionalProperties": true,
+      "title": "Options",
+      "type": "object"
+    },
+    "payload": {
+      "additionalProperties": true,
+      "title": "Payload",
+      "type": "object"
+    }
+  },
+  "required": [
+    "module_id",
+    "action"
+  ],
+  "title": "ModuleRequest",
+  "type": "object"
+}

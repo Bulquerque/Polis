@@ -1,0 +1,60 @@
+phase: phase_03_agents_rag_memory.runtime
+authority: runtime S17-S31
+boundary_outputs:
+- P3CycleClosureManifest
+- CycleKernelResult
+p4_official_outputs:
+- social_feature_panel
+- evidence_tag_panel
+- agent_disagreement_panel
+- context_memory_feature_panel
+- hypothesis_registry
+- phase4_social_handoff_manifest
+p9_outputs:
+- p9_evaluation_evidence_bundle
+- p9_context_learning_handoff_manifest
+internal_temporal_outputs:
+- next_person_state_panel
+- next_belief_state_panel
+- next_memory_state
+- next_social_graph
+- next_cycle_endogenous_stimulus_queue
+- belief_outcome_commitment_log
+- tool_call_audit_panel
+forbidden_output_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- buy_sell_signal
+rules:
+- closure_is_reference_based
+- P4_P9_only_in_LIVE
+- temporal_queue_is_N_plus_1_only
+- lineage_and_hashes_required
+- P3_has_no_statistical_promotion_authority
+contract_compatibility: V14.1-RC4.1
+official_outputs:
+- social_feature_panel
+- evidence_tag_panel
+- agent_disagreement_panel
+- context_memory_feature_panel
+- hypothesis_registry
+- phase4_social_handoff_manifest
+cross_phase_outputs:
+- p9_evaluation_evidence_bundle
+- p9_context_learning_handoff_manifest
+temporal_outputs:
+- next_person_state_panel
+- next_belief_state_panel
+- next_memory_state
+- next_social_graph
+- next_cycle_endogenous_stimulus_queue
+- belief_outcome_commitment_log
+- tool_call_audit_panel

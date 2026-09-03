@@ -1,0 +1,22 @@
+phase: phase_01_ingestion
+module_count: 18
+modules:
+- P1.S1.M01
+- P1.S1.M02
+- P1.S1.M03
+- P1.S2.M01
+- P1.S2.M02
+- P1.S2.M03
+- P1.S2.M04
+- P1.S2.M05
+- P1.S2.M06
+- P1.S2.M07
+- P1.S3.M01
+- P1.S3.M02
+- P1.S4.M01
+- P1.S4.M02
+- P1.S5.M01
+- P1.S5.M02
+- P1.S5.M03
+- P1.S5.M04
+rc3_1_corrections: subphase relations and module IO audited across Rodadas 1–3

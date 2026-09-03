@@ -1,0 +1,112 @@
+schema_id: duplicate_file_report.v1
+artifact_name: duplicate_file_report
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required_fields:
+- artifact_id
+- created_at
+- pipeline_version
+- lineage_id
+- checked_file_count
+- duplicate_group_count
+- schema_duplicate_group_count
+- blocking_duplicate_group_count
+- duplicate_groups
+- duplicate_hashes_detected
+- schemas_duplicate_check
+- status
+- release_blocking
+- validation_evidence_status
+- promotion_blocked
+properties:
+  artifact_id:
+    type: string
+    pattern: ^duplicate-file-report-[0-9a-f]{12}$
+  created_at:
+    type: string
+  pipeline_version:
+    type: string
+    const: V14.1-RC4.1
+  lineage_id:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  checked_file_count:
+    type: integer
+    minimum: 1
+  duplicate_group_count:
+    type: integer
+    minimum: 0
+  schema_duplicate_group_count:
+    type: integer
+    minimum: 0
+  blocking_duplicate_group_count:
+    type: integer
+    minimum: 0
+  duplicate_groups:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required_fields:
+      - sha256
+      - paths
+      - file_count
+      - schema_duplicate
+      - allowlisted
+      - release_blocking
+      properties:
+        sha256:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+        paths:
+          type: array
+          minItems: 2
+          items:
+            type: string
+        file_count:
+          type: integer
+          minimum: 2
+        schema_duplicate:
+          type: boolean
+        allowlisted:
+          type: boolean
+        release_blocking:
+          type: boolean
+        classification:
+          type: string
+          enum:
+          - EXPLICIT_ALLOWLIST
+          - AUTHORIZED_PATTERN
+          - PACKAGE_MARKER
+          - TEST_FIXTURE
+          - SCHEMA_MIRROR
+          - DUPLICATED_COMMON_UTILITY
+          - SOURCE_OF_TRUTH_MIRROR
+          - EXACT_DUPLICATE
+  duplicate_hashes_detected:
+    type: boolean
+  schemas_duplicate_check:
+    type: boolean
+    const: true
+  status:
+    type: string
+    enum:
+    - PASS
+    - FAIL
+  release_blocking:
+    type: boolean
+  validation_evidence_status:
+    type: string
+    const: domain_oracle_pass_pending_independent_judge
+  promotion_blocked:
+    type: boolean
+    const: true
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- trade_decision
+- rank_score
+- portfolio_weight
+- realized_pnl

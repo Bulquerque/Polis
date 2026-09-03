@@ -1,0 +1,134 @@
+{
+  "$defs": {
+    "ExecutionStructurePlan": {
+      "additionalProperties": false,
+      "properties": {
+        "block_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Block Reason"
+        },
+        "execution_group_id": {
+          "minLength": 1,
+          "title": "Execution Group Id",
+          "type": "string"
+        },
+        "intent_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Intent Ids",
+          "type": "array"
+        },
+        "sequence": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Sequence",
+          "type": "array"
+        },
+        "structure_id": {
+          "minLength": 1,
+          "title": "Structure Id",
+          "type": "string"
+        },
+        "structure_type": {
+          "$ref": "#/$defs/StructureType"
+        },
+        "temporary_risk_budget": {
+          "$ref": "#/$defs/TemporaryRiskBudget"
+        },
+        "venue": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Venue"
+        }
+      },
+      "required": [
+        "structure_id",
+        "execution_group_id",
+        "structure_type",
+        "intent_ids",
+        "venue",
+        "sequence",
+        "temporary_risk_budget"
+      ],
+      "title": "ExecutionStructurePlan",
+      "type": "object"
+    },
+    "StructureType": {
+      "enum": [
+        "SINGLE",
+        "COMBO",
+        "LEGGING",
+        "BLOCKED"
+      ],
+      "title": "StructureType",
+      "type": "string"
+    },
+    "TemporaryRiskBudget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_temporary_notional": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Max Temporary Notional"
+        },
+        "unwind_required": {
+          "title": "Unwind Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "max_temporary_notional",
+        "unwind_required"
+      ],
+      "title": "TemporaryRiskBudget",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "structures": {
+      "items": {
+        "$ref": "#/$defs/ExecutionStructurePlan"
+      },
+      "title": "Structures",
+      "type": "array"
+    }
+  },
+  "required": [
+    "structures",
+    "content_sha256"
+  ],
+  "title": "ExecutionStructureBundle",
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+window_types:
+- EXPANDING
+- ROLLING
+- ANCHORED
+minimum_fold_count: 2
+sealed_partition: TEST
+purge: TARGET_LABEL_AVAILABILITY
+embargo: TARGET_HORIZON_TRADING_SESSIONS
+calendar: P5_DEFAULT_TRADING_CALENDAR

@@ -1,0 +1,88 @@
+{
+  "$defs": {
+    "ViewReadinessStatus": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED_UPSTREAM"
+      ],
+      "title": "ViewReadinessStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "available_fields": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Available Fields",
+      "type": "array"
+    },
+    "available_operations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Available Operations",
+      "type": "array"
+    },
+    "blocked_operations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Blocked Operations",
+      "type": "array"
+    },
+    "content_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "observation_count": {
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "schema_id": {
+      "default": "p3.s37.macro_view_readiness_report.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "series_count": {
+      "title": "Series Count",
+      "type": "integer"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/ViewReadinessStatus"
+    },
+    "vintage_capable_series_count": {
+      "title": "Vintage Capable Series Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "status",
+    "available_operations",
+    "blocked_operations",
+    "available_fields",
+    "series_count",
+    "observation_count",
+    "vintage_capable_series_count",
+    "reason_codes",
+    "content_hash"
+  ],
+  "title": "MacroViewReadinessReport",
+  "type": "object"
+}

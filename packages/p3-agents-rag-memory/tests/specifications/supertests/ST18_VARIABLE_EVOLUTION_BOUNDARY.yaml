@@ -1,0 +1,14 @@
+spec_id: ST18_VARIABLE_EVOLUTION_BOUNDARY
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: P3 states remain canonical while P4 owns FeatureGenome evolution and P9 owns promotion evidence
+required_cases:
+- P3_no_feature_mutation
+- P4_feature_genome_owner
+- P9_evaluation_owner
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

@@ -1,0 +1,8 @@
+{
+  "executable_only": false,
+  "expiration_date": null,
+  "max_records": 1000,
+  "option_type": null,
+  "research_mode": "CHAIN_DIAGNOSTIC",
+  "underlying": "ACME3"
+}

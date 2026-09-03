@@ -1,0 +1,57 @@
+artifact_id: p4-s6-default-alignment-policy
+schema_version: p4.s6.alignment_policy.v1
+pipeline_version: V14.5-RC1
+run_id: RUN_ID_REQUIRED
+cycle_id: CYCLE_ID_REQUIRED
+as_of_time: '2024-01-01T00:00:00Z'
+lineage_id: REGISTRY_LINEAGE_REQUIRED
+direction: BACKWARD
+anchor_mode: UNION_OBSERVED_TIMES
+max_output_records: 2000000
+global_entity_ids:
+- BR
+- US
+- GLOBAL
+- MACRO
+policies:
+- horizon_group: INTRADAY
+  max_age_seconds: 86400
+  emit_missing_records: true
+- horizon_group: SHORT
+  max_age_seconds: 864000
+  emit_missing_records: true
+- horizon_group: MEDIUM
+  max_age_seconds: 3888000
+  emit_missing_records: true
+- horizon_group: LONG
+  max_age_seconds: 17280000
+  emit_missing_records: true
+- horizon_group: CROSS_HORIZON
+  max_age_seconds: 3888000
+  emit_missing_records: true
+broadcast_rules:
+- feature_id: perspective.macro.growth_state
+  source_entity_id: BR
+  target_scope: ALL_LOCAL_ENTITIES
+  excluded_target_entity_ids:
+  - BENCHMARK
+- feature_id: perspective.macro.inflation_state
+  source_entity_id: BR
+  target_scope: ALL_LOCAL_ENTITIES
+  excluded_target_entity_ids:
+  - BENCHMARK
+- feature_id: perspective.macro.surprise_state
+  source_entity_id: BR
+  target_scope: ALL_LOCAL_ENTITIES
+  excluded_target_entity_ids:
+  - BENCHMARK
+- feature_id: perspective.carry.curve_slope_state
+  source_entity_id: BR
+  target_scope: ALL_LOCAL_ENTITIES
+  excluded_target_entity_ids:
+  - BENCHMARK
+- feature_id: perspective.carry.basis_state
+  source_entity_id: BR
+  target_scope: ALL_LOCAL_ENTITIES
+  excluded_target_entity_ids:
+  - BENCHMARK

@@ -1,0 +1,15 @@
+subphase: P3.S8
+modules:
+- module_id: P3.S8.M01
+  required_cases:
+  - same_seed_graph_envelope
+  - degree_bounds
+  - bridge_presence
+- module_id: P3.S8.M02
+  required_cases:
+  - isolated_population_fails
+  - super_hub_fails
+  - invalid_relation_type
+canonical_module_order:
+- P3.S8.M01
+- P3.S8.M02

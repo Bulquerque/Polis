@@ -1,0 +1,58 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "rule_id": {
+      "minLength": 1,
+      "title": "Rule Id",
+      "type": "string"
+    },
+    "triggered": {
+      "title": "Triggered",
+      "type": "boolean"
+    },
+    "observed_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observed Value"
+    },
+    "threshold_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Threshold Value"
+    },
+    "reason_code": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason Code"
+    }
+  },
+  "required": [
+    "rule_id",
+    "triggered"
+  ],
+  "title": "DecisionTraceItem",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:DecisionTraceItem:1.0.0"
+}

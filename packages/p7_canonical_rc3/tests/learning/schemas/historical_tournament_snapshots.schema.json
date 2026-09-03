@@ -1,0 +1,176 @@
+{
+  "$id": "historical_tournament_snapshots.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "historical_tournament_snapshots"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "candidate_topology": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "capital_at_risk_bucket": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "cycle_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "decision_time": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "feature_available_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "feature_schema_version": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "features": {
+            "additionalProperties": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "type": "object"
+          },
+          "horizon": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "interpretable_score": {
+            "type": "number"
+          },
+          "lineage_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "objective_family": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "query_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "regime": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "selected_by_p8": {
+            "type": "boolean"
+          },
+          "underlying_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "query_id",
+          "cycle_id",
+          "decision_time",
+          "feature_available_at",
+          "underlying_id",
+          "horizon",
+          "objective_family",
+          "capital_at_risk_bucket",
+          "feature_schema_version",
+          "features",
+          "interpretable_score",
+          "selected_by_p8",
+          "candidate_topology",
+          "regime",
+          "lineage_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

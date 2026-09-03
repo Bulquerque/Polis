@@ -1,0 +1,14 @@
+sources:
+  - id: LSE
+    required: true
+    qualification_role: PRIMARY_API_PROVIDER
+    bid_ask_required: false
+  - id: B3_COTAHIST
+    required: true
+    qualification_role: BULK_HISTORY_AND_SCALE_WITNESS
+  - id: FRED_STATIC_EXPORT
+    required: true
+  - id: SEC_EDGAR
+    required: true
+contract_mode: CAPTURE_V2
+allow_partial_success: false

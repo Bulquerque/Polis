@@ -1,0 +1,31 @@
+{
+  "schema_version": "p3.s26.validated_next_person_state_panel.v2",
+  "run_id": "run_s26",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "lineage_id": "lin_persons",
+  "records": [
+    {
+      "person_id": "p1",
+      "relationship_observations": [],
+      "state_change_summary": {
+        "change_id": "chg_1",
+        "content_ref": "state:attention_increase",
+        "change_magnitude": 0.5,
+        "source_event_ids": [
+          "evt_attention"
+        ],
+        "evidence_refs": [
+          "ev_attention"
+        ],
+        "changed_at": "2026-01-15T10:30:00Z",
+        "lineage_id": "lin_chg_1"
+      }
+    },
+    {
+      "person_id": "p2",
+      "relationship_observations": [],
+      "state_change_summary": null
+    }
+  ]
+}

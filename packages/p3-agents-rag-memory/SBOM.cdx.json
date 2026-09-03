@@ -1,0 +1,111 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "name": "pydantic",
+      "purl": "pkg:pypi/pydantic@2.13.4",
+      "type": "library",
+      "version": "2.13.4"
+    },
+    {
+      "name": "PyYAML",
+      "purl": "pkg:pypi/pyyaml@6.0.3",
+      "type": "library",
+      "version": "6.0.3"
+    },
+    {
+      "name": "jsonschema",
+      "purl": "pkg:pypi/jsonschema@4.26.0",
+      "type": "library",
+      "version": "4.26.0"
+    },
+    {
+      "name": "cryptography",
+      "purl": "pkg:pypi/cryptography@46.0.7",
+      "type": "library",
+      "version": "46.0.7"
+    },
+    {
+      "name": "httpx",
+      "purl": "pkg:pypi/httpx@0.28.1",
+      "type": "library",
+      "version": "0.28.1"
+    },
+    {
+      "name": "pytest",
+      "purl": "pkg:pypi/pytest@9.0.3",
+      "type": "library",
+      "version": "9.0.3"
+    },
+    {
+      "name": "pytest-asyncio",
+      "purl": "pkg:pypi/pytest-asyncio@1.4.0",
+      "type": "library",
+      "version": "1.4.0"
+    },
+    {
+      "name": "coverage",
+      "purl": "pkg:pypi/coverage@7.15.2",
+      "type": "library",
+      "version": "7.15.2"
+    },
+    {
+      "name": "opentelemetry-api",
+      "purl": "pkg:pypi/opentelemetry-api@1.44.0",
+      "type": "library",
+      "version": "1.44.0"
+    },
+    {
+      "name": "opentelemetry-sdk",
+      "purl": "pkg:pypi/opentelemetry-sdk@1.44.0",
+      "type": "library",
+      "version": "1.44.0"
+    },
+    {
+      "name": "tzdata",
+      "purl": "pkg:pypi/tzdata@2025.2",
+      "type": "library",
+      "version": "2025.2"
+    },
+    {
+      "name": "numpy",
+      "purl": "pkg:pypi/numpy@2.4.6",
+      "type": "library",
+      "version": "2.4.6"
+    },
+    {
+      "name": "scipy",
+      "purl": "pkg:pypi/scipy@1.17.1",
+      "type": "library",
+      "version": "1.17.1"
+    },
+    {
+      "name": "mcp",
+      "purl": "pkg:pypi/mcp@1.29.0",
+      "type": "library",
+      "version": "1.29.0"
+    },
+    {
+      "name": "pyarrow",
+      "purl": "pkg:pypi/pyarrow@25.0.0",
+      "type": "library",
+      "version": "25.0.0"
+    },
+    {
+      "name": "neo4j",
+      "purl": "pkg:pypi/neo4j@6.2.0",
+      "type": "library",
+      "version": "6.2.0"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "quant-pipeline-p3",
+      "type": "application",
+      "version": "1.0.0"
+    }
+  },
+  "serialNumber": "urn:uuid:00000000-0000-4000-8000-000000000003",
+  "specVersion": "1.5",
+  "version": 1
+}

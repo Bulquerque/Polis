@@ -1,0 +1,184 @@
+{
+  "$defs": {
+    "EvaluationObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_integrity": {
+          "const": true,
+          "title": "Authority Integrity",
+          "type": "boolean"
+        },
+        "brier_score": {
+          "minimum": 0.0,
+          "title": "Brier Score",
+          "type": "number"
+        },
+        "cost": {
+          "minimum": 0.0,
+          "title": "Cost",
+          "type": "number"
+        },
+        "effective_sample_size": {
+          "exclusiveMinimum": 0.0,
+          "title": "Effective Sample Size",
+          "type": "number"
+        },
+        "evidence_coverage": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Evidence Coverage",
+          "type": "number"
+        },
+        "execution_record_hash": {
+          "title": "Execution Record Hash",
+          "type": "string"
+        },
+        "experiment_id": {
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "latency_ms": {
+          "minimum": 0.0,
+          "title": "Latency Ms",
+          "type": "number"
+        },
+        "log_loss": {
+          "minimum": 0.0,
+          "title": "Log Loss",
+          "type": "number"
+        },
+        "max_drawdown": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Max Drawdown",
+          "type": "number"
+        },
+        "net_return": {
+          "title": "Net Return",
+          "type": "number"
+        },
+        "observation_id": {
+          "title": "Observation Id",
+          "type": "string"
+        },
+        "output_artifact_hash": {
+          "title": "Output Artifact Hash",
+          "type": "string"
+        },
+        "pit_integrity": {
+          "const": true,
+          "title": "Pit Integrity",
+          "type": "boolean"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "source_kind": {
+          "const": "REAL_PIPELINE",
+          "title": "Source Kind",
+          "type": "string"
+        },
+        "turnover": {
+          "minimum": 0.0,
+          "title": "Turnover",
+          "type": "number"
+        },
+        "variant": {
+          "enum": [
+            "SEARCH_RAG",
+            "SINGLE_AGENT",
+            "SOCIETY_NO_RELATIONS",
+            "SOCIETY_NO_MEMORY",
+            "SOCIETY_NO_TOOLS",
+            "FULL_SOCIETY"
+          ],
+          "title": "Variant",
+          "type": "string"
+        },
+        "volatility": {
+          "minimum": 0.0,
+          "title": "Volatility",
+          "type": "number"
+        }
+      },
+      "required": [
+        "experiment_id",
+        "variant",
+        "fold_id",
+        "seed",
+        "observation_id",
+        "execution_record_hash",
+        "output_artifact_hash",
+        "brier_score",
+        "log_loss",
+        "net_return",
+        "volatility",
+        "max_drawdown",
+        "turnover",
+        "cost",
+        "latency_ms",
+        "evidence_coverage",
+        "effective_sample_size",
+        "pit_integrity",
+        "authority_integrity",
+        "source_kind"
+      ],
+      "title": "EvaluationObservation",
+      "type": "object"
+    }
+  },
+  "$id": "p3://schemas/final_integration/evaluation_observation_panel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "experiment_id": {
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "experiment_registry_hash": {
+      "title": "Experiment Registry Hash",
+      "type": "string"
+    },
+    "observations": {
+      "items": {
+        "$ref": "#/$defs/EvaluationObservation"
+      },
+      "minItems": 90,
+      "title": "Observations",
+      "type": "array"
+    },
+    "panel_hash": {
+      "title": "Panel Hash",
+      "type": "string"
+    },
+    "panel_version": {
+      "default": "p3.evaluation-observations.v2",
+      "title": "Panel Version",
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "experiment_id",
+    "experiment_registry_hash",
+    "observations",
+    "panel_hash"
+  ],
+  "title": "EvaluationObservationPanel",
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+version: variable-evolution-boundary.v1
+owner_P3:
+- canonical_society_state
+- evidence
+- hypotheses
+- belief_commitments
+owner_P4:
+- feature_genomes
+- numeric_parameter_optimization
+- feature_library
+owner_P9:
+- evaluation
+- statistical_governance
+- promotion_decisions
+forbidden:
+- P3_mutates_canonical_state_for_Sharpe
+- P4_rewrites_P3_personality
+- P9_mutates_current_cycle
+planned_artifacts:
+- variable_evolution_input_manifest
+- feature_genome
+- mutation_proposal
+- feature_screen_report
+- feature_experiment_record
+- feature_library_registry
+- statistical_evaluation_report
+- research_budget_ledger

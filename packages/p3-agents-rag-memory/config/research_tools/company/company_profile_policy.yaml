@@ -1,0 +1,4 @@
+version: 1.0.0
+temporal_identity_required: true
+ambiguous_entity_policy: BLOCK
+allow_documentary_degraded_mode: true

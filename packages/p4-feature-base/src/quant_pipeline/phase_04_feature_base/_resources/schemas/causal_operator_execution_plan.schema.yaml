@@ -1,0 +1,102 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: causal_operator_execution_plan
+type: object
+additionalProperties: true
+properties:
+  artifact_id:
+    type: string
+    minLength: 1
+  artifact_name:
+    const: causal_operator_execution_plan
+  schema_id:
+    type: string
+  schema_version:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  decision_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+  lineage_id:
+    type: string
+  producer_module_id:
+    const: P4.S3.M03
+  content_hash:
+    type: string
+    pattern: ^[a-f0-9]{64}$
+  status:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        observer_id:
+          type: string
+        hypothesis_id:
+          type: string
+        family_id:
+          type: string
+        operator:
+          type: string
+        input_variables:
+          type: array
+          items:
+            type: string
+        parameters:
+          type: object
+        engine:
+          enum:
+          - CAUSAL
+          - RELATIONAL
+        execution_stage:
+          const: P4.S4_ATOMIC_FACTORIES
+        materialize_in_s3:
+          const: false
+        coverage_status:
+          enum:
+          - READY
+          - DEGRADED_INPUTS_MISSING
+        missing_input_variables:
+          type: array
+          items:
+            type: string
+      required:
+      - observer_id
+      - hypothesis_id
+      - family_id
+      - operator
+      - input_variables
+      - parameters
+      - engine
+      - execution_stage
+      - materialize_in_s3
+      - coverage_status
+      - missing_input_variables
+required:
+- artifact_id
+- artifact_name
+- schema_id
+- schema_version
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- decision_time
+- pipeline_version
+- lineage_id
+- producer_module_id
+- content_hash
+- status
+- records

@@ -1,0 +1,28 @@
+phase: phase_09_audit_learning
+outputs:
+- signal_feedback_report
+- ranking_feedback_report
+- portfolio_feedback_report
+- integrity_audit_report
+- performance_decomposition_report
+- ranking_quality_report
+- portfolio_construction_audit_report
+- options_attribution_report
+- robustness_report
+- promotion_decision
+- next_cycle_plan
+- retro_memory_update_package
+- phase3_retro_handoff_manifest
+forbidden_output_fields:
+- direct_code_patch
+- live_override
+- current_backtest_mutation
+- direct_model_change
+- direct_ranking_change
+- direct_portfolio_change
+rules:
+- outputs_must_match_schema
+- forbidden_fields_absent
+- lineage_required
+- all_declared_outputs_have_producer_module
+rc: RC4.1

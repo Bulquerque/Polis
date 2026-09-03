@@ -1,0 +1,69 @@
+{
+  "$defs": {
+    "ConsumerBindingStatus": {
+      "enum": [
+        "READY_FOR_BOUND_P9",
+        "CONSUMER_NOT_YET_BOUND",
+        "BLOCKED"
+      ],
+      "title": "ConsumerBindingStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "config_id": {
+      "const": "p3.s31.p9-consumer-compatibility",
+      "default": "p3.s31.p9-consumer-compatibility",
+      "title": "Config Id",
+      "type": "string"
+    },
+    "config_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Config Version",
+      "type": "string"
+    },
+    "current_p9_input_contract_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Current P9 Input Contract Hash",
+      "type": "string"
+    },
+    "current_p9_output_contract_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Current P9 Output Contract Hash",
+      "type": "string"
+    },
+    "declared_p9_inputs": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Declared P9 Inputs",
+      "type": "array"
+    },
+    "consumer_contract_id": {
+      "minLength": 1,
+      "title": "Consumer Contract Id",
+      "type": "string"
+    },
+    "consumer_binding_status": {
+      "$ref": "#/$defs/ConsumerBindingStatus"
+    },
+    "blind_holdout_policy_ref": {
+      "const": "p9.blind_holdout.v1",
+      "default": "p9.blind_holdout.v1",
+      "title": "Blind Holdout Policy Ref",
+      "type": "string"
+    }
+  },
+  "required": [
+    "current_p9_input_contract_hash",
+    "current_p9_output_contract_hash",
+    "declared_p9_inputs",
+    "consumer_contract_id",
+    "consumer_binding_status"
+  ],
+  "title": "P9ConsumerCompatibilityConfig",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

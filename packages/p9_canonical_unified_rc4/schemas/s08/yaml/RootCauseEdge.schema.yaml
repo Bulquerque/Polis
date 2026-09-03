@@ -1,0 +1,25 @@
+additionalProperties: false
+properties:
+  parent_cause_id:
+    minLength: 1
+    title: Parent Cause Id
+    type: string
+  child_cause_id:
+    minLength: 1
+    title: Child Cause Id
+    type: string
+  relation:
+    enum:
+    - CONTRIBUTES_TO
+    - CONTRADICTS
+    - CONDITIONS
+    - EXPLAINS
+    title: Relation
+    type: string
+required:
+- parent_cause_id
+- child_cause_id
+- relation
+title: RootCauseEdge
+type: object
+$id: urn:inferencia:p9:s8:RootCauseEdge:1.0.0

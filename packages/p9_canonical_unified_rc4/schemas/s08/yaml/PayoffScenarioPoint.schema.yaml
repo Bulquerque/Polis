@@ -1,0 +1,29 @@
+additionalProperties: false
+properties:
+  candidate_id:
+    minLength: 1
+    title: Candidate Id
+    type: string
+  scenario_id:
+    minLength: 1
+    title: Scenario Id
+    type: string
+  target_payoff_per_unit:
+    title: Target Payoff Per Unit
+    type: number
+  candidate_payoff_per_unit:
+    title: Candidate Payoff Per Unit
+    type: number
+  probability_weight:
+    exclusiveMinimum: 0.0
+    title: Probability Weight
+    type: number
+required:
+- candidate_id
+- scenario_id
+- target_payoff_per_unit
+- candidate_payoff_per_unit
+- probability_weight
+title: PayoffScenarioPoint
+type: object
+$id: urn:inferencia:p9:s8:PayoffScenarioPoint:1.0.0

@@ -1,0 +1,15 @@
+subphase: P4.S7
+contract_version: v14.9-rc1
+required_inputs:
+- horizon_feature_panel
+- transform_policy_registry
+- exposure_panel
+- normalization_neutralization_policy
+- structural_selection_policy
+rules:
+- all_inputs_are_artifact_envelopes
+- available_at_not_after_decision_time
+- decision_time_not_after_as_of_time
+- content_hash_valid
+- missingness_is_explicit
+- no_forbidden_fields_recursively

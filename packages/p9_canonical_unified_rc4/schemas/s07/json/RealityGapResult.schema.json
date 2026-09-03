@@ -1,0 +1,255 @@
+{
+  "$defs": {
+    "ExecutionStage": {
+      "enum": [
+        "BACKTEST",
+        "SHADOW",
+        "PAPER",
+        "LIVE"
+      ],
+      "title": "ExecutionStage",
+      "type": "string"
+    },
+    "PairwiseRealityGap": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "earlier_stage": {
+          "$ref": "#/$defs/ExecutionStage"
+        },
+        "later_stage": {
+          "$ref": "#/$defs/ExecutionStage"
+        },
+        "forecast_gap": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Forecast Gap"
+        },
+        "signal_gap": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Signal Gap"
+        },
+        "order_quantity_gap": {
+          "title": "Order Quantity Gap",
+          "type": "number"
+        },
+        "fill_rate_earlier": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Fill Rate Earlier"
+        },
+        "fill_rate_later": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Fill Rate Later"
+        },
+        "fill_rate_gap": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Fill Rate Gap"
+        },
+        "slippage_bps_earlier": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Slippage Bps Earlier"
+        },
+        "slippage_bps_later": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Slippage Bps Later"
+        },
+        "slippage_gap_bps": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Slippage Gap Bps"
+        },
+        "fee_gap": {
+          "title": "Fee Gap",
+          "type": "number"
+        },
+        "margin_gap": {
+          "title": "Margin Gap",
+          "type": "number"
+        },
+        "pnl_gap": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Pnl Gap"
+        }
+      },
+      "required": [
+        "decision_id",
+        "policy_id",
+        "earlier_stage",
+        "later_stage",
+        "forecast_gap",
+        "signal_gap",
+        "order_quantity_gap",
+        "fill_rate_earlier",
+        "fill_rate_later",
+        "fill_rate_gap",
+        "slippage_bps_earlier",
+        "slippage_bps_later",
+        "slippage_gap_bps",
+        "fee_gap",
+        "margin_gap",
+        "pnl_gap"
+      ],
+      "title": "PairwiseRealityGap",
+      "type": "object"
+    },
+    "TransportabilityState": {
+      "enum": [
+        "TRANSPORTABLE",
+        "TRANSPORTABLE_WITH_LIMITATIONS",
+        "SIMULATION_BIAS_DETECTED",
+        "EXECUTION_MODEL_MISSPECIFIED",
+        "SHADOW_EVIDENCE_INSUFFICIENT",
+        "NOT_TRANSPORTABLE"
+      ],
+      "title": "TransportabilityState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "gaps": {
+      "items": {
+        "$ref": "#/$defs/PairwiseRealityGap"
+      },
+      "title": "Gaps",
+      "type": "array"
+    },
+    "matched_live_pair_count": {
+      "minimum": 0,
+      "title": "Matched Live Pair Count",
+      "type": "integer"
+    },
+    "mean_abs_fill_rate_gap": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mean Abs Fill Rate Gap"
+    },
+    "mean_abs_slippage_gap_bps": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mean Abs Slippage Gap Bps"
+    },
+    "mean_abs_pnl_gap": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Mean Abs Pnl Gap"
+    },
+    "state": {
+      "$ref": "#/$defs/TransportabilityState"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "result_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Result Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "gaps",
+    "matched_live_pair_count",
+    "mean_abs_fill_rate_gap",
+    "mean_abs_slippage_gap_bps",
+    "mean_abs_pnl_gap",
+    "state",
+    "reason_codes",
+    "result_sha256"
+  ],
+  "title": "RealityGapResult",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:RealityGapResult:1.0.0"
+}

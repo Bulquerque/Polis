@@ -1,0 +1,59 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: underlying_feature_matrix_interpretable
+type: object
+additionalProperties: true
+properties:
+  artifact_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  pipeline_version:
+    type: string
+  lineage_id:
+    type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: true
+      properties:
+        decision_time:
+          type: string
+          format: date-time
+        entity_id:
+          type: string
+        feature_set_id:
+          type: string
+        values:
+          type: object
+        missingness_mask:
+          type: object
+        quality_state:
+          type: string
+        record_lineage_id:
+          type: string
+      required:
+      - decision_time
+      - entity_id
+      - feature_set_id
+      - values
+      - missingness_mask
+      - quality_state
+      - record_lineage_id
+required:
+- artifact_id
+- created_at
+- run_id
+- cycle_id
+- as_of_time
+- pipeline_version
+- lineage_id
+- records

@@ -1,0 +1,54 @@
+module_id: P0.S9.M01
+module_name: phase_feedback_router
+function: Consolidar, normalizar, deduplicar e rotear feedback técnico Zero Trust
+  por fase, subfase e módulo, separando severidade de impacto sobre readiness/release
+  sem executar correções.
+inputs: &id001
+- release_gate_report
+- phase_health_panel
+- code_quality_report
+- global_test_report
+outputs: &id002
+- phase_zero_trust_feedback_panel
+validations:
+- feedback_per_phase
+- finding_identity_stable
+- findings_deduplicated
+- severity_impact_separated
+- source_conflicts_fail_closed
+fail_fast_conditions:
+- feedback_source_phase_coverage_conflict
+- finding_identity_conflict
+- invalid_owner_or_lineage
+- forbidden_economic_payload
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S4.M04
+    - P0.S5.M06
+    - P0.S6.M02
+    - P0.S8.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S9.M02
+    - P0.S9.M03
+    - P0.S9.M04
+    artifacts: *id002
+    phase_outputs:
+    - phase_zero_trust_feedback_panel
+phase: P0
+subphase: P0.S9
+rc: RC4.1
+notes: Canonical P0 module contract; public IDs and artifact names are preserved.
+  S9 v2 separates severity from readiness/release impact and performs routing only;
+  no external dispatch or auto-remediation.

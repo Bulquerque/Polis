@@ -1,0 +1,35 @@
+contracts:
+  - contract_id: p7_learning_to_finalization_handoff
+    contract_version: 2.0.0
+    producer: LEARNING
+    consumer: P7.S7
+    manifest: hybrid_scoring_handoff_manifest
+    required_artifacts:
+      - hybrid_candidate_score_panel
+      - candidate_score_confidence_panel
+      - score_decomposition_panel
+      - comparison_group_panel
+      - validated_strategy_candidate_reference_panel
+      - pre_final_blocked_candidate_panel
+  - contract_id: p7_s7_to_s8_rankability_handoff
+    contract_version: 2.0.0
+    producer: P7.S7.M04
+    consumer: P7.S8
+    manifest: rankability_handoff_manifest
+    required_artifacts:
+      - rankable_candidate_panel
+      - abstained_candidate_panel
+      - final_blocked_candidate_panel
+      - rankability_group_report
+      - diversity_adjusted_score_panel
+      - candidate_diversity_cluster_panel
+      - score_decomposition_panel
+      - comparison_group_panel
+      - validated_strategy_candidate_reference_panel
+    invariants:
+      - exact_content_hashes
+      - exact_candidate_reconciliation
+      - disjoint_terminal_states
+      - candidate_conservation
+      - same_cycle_and_decision_time
+      - recursive_future_field_scan

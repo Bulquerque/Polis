@@ -1,0 +1,27 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: representation_fold_plan
+type: object
+required:
+- artifact_id
+- created_at
+- lineage_id
+- outer_folds
+- inner_fold_policy
+properties:
+  artifact_id:
+    type: string
+  created_at:
+    type: string
+  lineage_id:
+    type: string
+  contract_version:
+    type: string
+  outer_folds:
+    type: array
+  inner_fold_policy:
+    type: object
+  no_shuffle:
+    const: true
+  target_access:
+    const: false
+additionalProperties: true

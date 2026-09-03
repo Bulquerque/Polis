@@ -1,0 +1,330 @@
+{
+  "$defs": {
+    "BeliefScenario": {
+      "additionalProperties": false,
+      "properties": {
+        "path_prices": {
+          "default": [],
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Path Prices",
+          "type": "array"
+        },
+        "probability": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Probability"
+        },
+        "scenario_id": {
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "terminal_underlying_price": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Terminal Underlying Price"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "terminal_underlying_price",
+        "probability"
+      ],
+      "title": "BeliefScenario",
+      "type": "object"
+    },
+    "CapabilityStatus": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "UNAVAILABLE"
+      ],
+      "title": "CapabilityStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "abstained": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Abstained"
+    },
+    "ambiguity_capability": {
+      "$ref": "#/$defs/CapabilityStatus",
+      "default": "UNAVAILABLE"
+    },
+    "ambiguity_distribution_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Ambiguity Distribution Ids",
+      "type": "array"
+    },
+    "ambiguity_probabilities": {
+      "default": [],
+      "items": {
+        "items": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ]
+        },
+        "type": "array"
+      },
+      "title": "Ambiguity Probabilities",
+      "type": "array"
+    },
+    "ambiguity_radius": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ambiguity Radius"
+    },
+    "ambiguity_set_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ambiguity Set Id"
+    },
+    "belief_state_id": {
+      "title": "Belief State Id",
+      "type": "string"
+    },
+    "calibration_status": {
+      "default": "UNAVAILABLE",
+      "title": "Calibration Status",
+      "type": "string"
+    },
+    "capability_reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Capability Reason Codes",
+      "type": "array"
+    },
+    "confidence": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Confidence"
+    },
+    "confidence_components": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "title": "Confidence Components",
+      "type": "object"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "horizon_days": {
+      "exclusiveMinimum": 0,
+      "title": "Horizon Days",
+      "type": "integer"
+    },
+    "ood_severity": {
+      "default": "UNAVAILABLE",
+      "title": "Ood Severity",
+      "type": "string"
+    },
+    "p5_contract_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "P5 Contract Version"
+    },
+    "regime_context": {
+      "title": "Regime Context",
+      "type": "string"
+    },
+    "scenario_capability": {
+      "$ref": "#/$defs/CapabilityStatus",
+      "default": "AVAILABLE"
+    },
+    "scenario_mass_audit": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "title": "Scenario Mass Audit",
+      "type": "object"
+    },
+    "scenario_source": {
+      "default": "NATIVE_MARKET_BELIEF",
+      "title": "Scenario Source",
+      "type": "string"
+    },
+    "scenarios": {
+      "items": {
+        "$ref": "#/$defs/BeliefScenario"
+      },
+      "title": "Scenarios",
+      "type": "array"
+    },
+    "source_artifact_id": {
+      "title": "Source Artifact Id",
+      "type": "string"
+    },
+    "source_lineage_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Lineage Id"
+    },
+    "source_manifest_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Manifest Id"
+    },
+    "source_record_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Record Id"
+    },
+    "surface_capability": {
+      "$ref": "#/$defs/CapabilityStatus",
+      "default": "UNAVAILABLE"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "belief_state_id",
+    "underlying_id",
+    "decision_time",
+    "horizon_days",
+    "scenarios",
+    "confidence",
+    "regime_context",
+    "source_artifact_id"
+  ],
+  "title": "MarketBeliefState",
+  "type": "object"
+}

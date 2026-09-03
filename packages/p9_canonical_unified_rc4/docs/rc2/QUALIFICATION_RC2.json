@@ -1,0 +1,45 @@
+{
+  "economic_promotion_allowed": false,
+  "imports": {
+    "failures": 0,
+    "source_modules": 222,
+    "wheel_modules": 222
+  },
+  "module_registry": {
+    "modules": 70,
+    "subphases": 10
+  },
+  "parse_counts": {
+    "json": 1025,
+    "python": 415,
+    "yaml": 145
+  },
+  "project_version": "0.1.0rc2",
+  "qualification_state": "TECHNICAL_AND_CONTRACTUAL_QUALIFIED",
+  "real_capital_authorized": false,
+  "registries": {
+    "contracts": 5,
+    "status": "PASS",
+    "tokens": 337
+  },
+  "release": "P9_CANONICAL_UNIFIED_RC2",
+  "source_quality": {
+    "broad_exception_boundary_waivers": [
+      "src/quant_pipeline/phase_09/subphases/s07_prospective_validation/m02_shadow.py:172"
+    ],
+    "mypy_executed": false,
+    "production_asserts": [],
+    "ruff_executed": false,
+    "tooling_note": "ruff/mypy were unavailable in the air-gapped package registry; AST, schema, registry, import and test gates passed."
+  },
+  "test_result": {
+    "duration_seconds": 30.1,
+    "failed": 0,
+    "passed": 567
+  },
+  "wheel": {
+    "import_status": "PASS",
+    "path": "dist/quant_pipeline_phase_09-0.1.0rc2-py3-none-any.whl",
+    "sha256": "fd9668e62218934365fb8a9f63663901287491f3b87632e150fed64ca8995e7d"
+  }
+}

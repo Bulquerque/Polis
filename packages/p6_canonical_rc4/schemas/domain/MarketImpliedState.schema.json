@@ -1,0 +1,212 @@
+{
+  "$defs": {
+    "CalculationStatus": {
+      "enum": [
+        "AVAILABLE",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "BLOCKED"
+      ],
+      "title": "CalculationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "dividend_yield": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Dividend Yield"
+    },
+    "market_implied_state_id": {
+      "title": "Market Implied State Id",
+      "type": "string"
+    },
+    "method": {
+      "title": "Method",
+      "type": "string"
+    },
+    "reason_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason Code"
+    },
+    "repair_status": {
+      "$ref": "#/$defs/CalculationStatus"
+    },
+    "risk_free_rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Risk Free Rate"
+    },
+    "risk_neutral_probabilities": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Risk Neutral Probabilities",
+      "type": "array"
+    },
+    "smoothing": {
+      "title": "Smoothing",
+      "type": "string"
+    },
+    "source_contract_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Contract Ids",
+      "type": "array"
+    },
+    "source_currency": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Currency"
+    },
+    "source_exercise_style": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Exercise Style"
+    },
+    "source_expiration": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Expiration"
+    },
+    "source_multiplier": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Multiplier"
+    },
+    "state_grid": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "State Grid",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/CalculationStatus"
+    },
+    "strike_coverage": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Strike Coverage"
+    },
+    "tail_extrapolation_status": {
+      "$ref": "#/$defs/CalculationStatus"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "market_implied_state_id",
+    "underlying_id",
+    "decision_time",
+    "state_grid",
+    "risk_neutral_probabilities",
+    "method",
+    "smoothing",
+    "repair_status",
+    "strike_coverage",
+    "tail_extrapolation_status",
+    "source_contract_ids",
+    "status"
+  ],
+  "title": "MarketImpliedState",
+  "type": "object"
+}

@@ -1,0 +1,409 @@
+{
+  "$defs": {
+    "ComponentQualificationStatus": {
+      "enum": [
+        "QUALIFIED",
+        "DEGRADED",
+        "RESERVED",
+        "UNAVAILABLE",
+        "REJECTED"
+      ],
+      "title": "ComponentQualificationStatus",
+      "type": "string"
+    },
+    "ExerciseStyle": {
+      "enum": [
+        "NONE",
+        "EUROPEAN",
+        "AMERICAN",
+        "OTHER"
+      ],
+      "title": "ExerciseStyle",
+      "type": "string"
+    },
+    "NormalizedCandidateIntent": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "canonical_candidate_id": {
+          "minLength": 1,
+          "title": "Canonical Candidate Id",
+          "type": "string"
+        },
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "candidate_family": {
+          "minLength": 1,
+          "title": "Candidate Family",
+          "type": "string"
+        },
+        "objective_family": {
+          "minLength": 1,
+          "title": "Objective Family",
+          "type": "string"
+        },
+        "unit_definition": {
+          "minLength": 1,
+          "title": "Unit Definition",
+          "type": "string"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "lot_size": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Lot Size"
+        },
+        "quantity_increment": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity Increment"
+        },
+        "legs": {
+          "items": {
+            "$ref": "#/$defs/NormalizedLeg"
+          },
+          "minItems": 1,
+          "title": "Legs",
+          "type": "array"
+        },
+        "unit_economics": {
+          "$ref": "#/$defs/NormalizedUnitEconomics"
+        },
+        "p6_package_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "P6 Package Hash",
+          "type": "string"
+        },
+        "p5_belief_bundle_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "P5 Belief Bundle Hash",
+          "type": "string"
+        },
+        "p5_evidence_signature_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "P5 Evidence Signature Hash",
+          "type": "string"
+        },
+        "source_score_semantics": {
+          "minLength": 1,
+          "title": "Source Score Semantics",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "canonical_candidate_id",
+        "comparison_group_id",
+        "candidate_family",
+        "objective_family",
+        "unit_definition",
+        "currency",
+        "lot_size",
+        "quantity_increment",
+        "legs",
+        "unit_economics",
+        "p6_package_hash",
+        "p5_belief_bundle_hash",
+        "p5_evidence_signature_hash",
+        "source_score_semantics"
+      ],
+      "title": "NormalizedCandidateIntent",
+      "type": "object"
+    },
+    "NormalizedLeg": {
+      "additionalProperties": false,
+      "properties": {
+        "leg_id": {
+          "minLength": 1,
+          "title": "Leg Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "instrument_type": {
+          "minLength": 1,
+          "title": "Instrument Type",
+          "type": "string"
+        },
+        "side": {
+          "$ref": "#/$defs/PositionSide"
+        },
+        "contract_quantity_per_candidate_unit": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Quantity Per Candidate Unit"
+        },
+        "signed_contract_quantity_per_candidate_unit": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Contract Quantity Per Candidate Unit"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "strike": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Strike"
+        },
+        "expiration": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expiration"
+        },
+        "exercise_style": {
+          "$ref": "#/$defs/ExerciseStyle"
+        },
+        "settlement_type": {
+          "$ref": "#/$defs/SettlementType"
+        },
+        "instrument_master_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Instrument Master Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "leg_id",
+        "instrument_id",
+        "instrument_type",
+        "side",
+        "contract_quantity_per_candidate_unit",
+        "signed_contract_quantity_per_candidate_unit",
+        "contract_multiplier",
+        "exercise_style",
+        "settlement_type",
+        "instrument_master_hash"
+      ],
+      "title": "NormalizedLeg",
+      "type": "object"
+    },
+    "NormalizedUnitEconomics": {
+      "additionalProperties": false,
+      "properties": {
+        "entry_cost_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "payoff_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "maximum_loss_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "liquidity_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "lifecycle_status": {
+          "$ref": "#/$defs/ComponentQualificationStatus"
+        },
+        "unit_entry_cost": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit Entry Cost"
+        },
+        "unit_maximum_loss": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit Maximum Loss"
+        },
+        "margin_per_unit": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Margin Per Unit"
+        },
+        "liquidity_capacity_units": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Liquidity Capacity Units"
+        }
+      },
+      "required": [
+        "entry_cost_status",
+        "payoff_status",
+        "maximum_loss_status",
+        "liquidity_status",
+        "lifecycle_status"
+      ],
+      "title": "NormalizedUnitEconomics",
+      "type": "object"
+    },
+    "PositionSide": {
+      "enum": [
+        "LONG",
+        "SHORT"
+      ],
+      "title": "PositionSide",
+      "type": "string"
+    },
+    "SettlementType": {
+      "enum": [
+        "CASH",
+        "PHYSICAL",
+        "NONE"
+      ],
+      "title": "SettlementType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "P8_NORMALIZED_CANDIDATE_INTENT_PANEL_V1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "candidates": {
+      "items": {
+        "$ref": "#/$defs/NormalizedCandidateIntent"
+      },
+      "title": "Candidates",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "schema_version",
+    "snapshot_id",
+    "candidates",
+    "content_sha256"
+  ],
+  "title": "NormalizedCandidateIntentPanel",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P8_NORMALIZED_CANDIDATE_INTENT_PANEL_V1.schema.json"
+}

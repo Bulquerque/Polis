@@ -1,0 +1,24 @@
+{
+  "schema_id": "validated_initial_social_graph.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "social-graph-001",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "population_hash": "f1a7212ba343f7fd15ab02f53d27347d6674a6c70fb2c544b287ab862fb11e43",
+  "graph_hash": "f4e336f3ee7fab872de9f00353fbf27d2714e343fead0245975478273a285e03",
+  "records": [
+    {
+      "edge_id": "edge-001",
+      "source_person_id": "unknown-person",
+      "target_person_id": "person-002",
+      "relationship_type": "COLLEAGUE"
+    },
+    {
+      "edge_id": "edge-002",
+      "source_person_id": "person-002",
+      "target_person_id": "person-003",
+      "relationship_type": "INFORMATION"
+    }
+  ],
+  "lineage_id": "lineage-graph-001"
+}

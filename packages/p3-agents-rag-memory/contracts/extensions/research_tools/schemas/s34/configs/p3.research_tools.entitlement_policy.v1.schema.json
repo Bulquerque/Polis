@@ -1,0 +1,153 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3.research_tools.entitlement_policy.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_provider_availability": {
+      "default": [
+        "QUALIFIED_LOCAL"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Allowed Provider Availability",
+      "type": "array"
+    },
+    "blocked_view_statuses": {
+      "default": [
+        "BLOCKED_UPSTREAM",
+        "FAILED"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Blocked View Statuses",
+      "type": "array"
+    },
+    "credential_policy": {
+      "const": "HANDLE_ONLY",
+      "default": "HANDLE_ONLY",
+      "title": "Credential Policy",
+      "type": "string"
+    },
+    "default_decision": {
+      "const": "DENY",
+      "default": "DENY",
+      "title": "Default Decision",
+      "type": "string"
+    },
+    "deny_overrides": {
+      "const": true,
+      "default": true,
+      "title": "Deny Overrides",
+      "type": "boolean"
+    },
+    "forbidden_constraints": {
+      "default": [
+        "no_external_data"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Forbidden Constraints",
+      "type": "array"
+    },
+    "internal_provider_id": {
+      "default": "internal_research",
+      "minLength": 1,
+      "title": "Internal Provider Id",
+      "type": "string"
+    },
+    "maximum_calls_per_cycle": {
+      "default": 5,
+      "maximum": 5,
+      "minimum": 0,
+      "title": "Maximum Calls Per Cycle",
+      "type": "integer"
+    },
+    "minimum_score_by_band": {
+      "additionalProperties": {
+        "maximum": 1.0,
+        "minimum": 0.0,
+        "type": "number"
+      },
+      "propertyNames": {
+        "enum": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "title": "Minimum Score By Band",
+      "type": "object"
+    },
+    "policy_version": {
+      "default": "1.0.0",
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "preserve_applicable_legacy_denies": {
+      "const": true,
+      "default": true,
+      "title": "Preserve Applicable Legacy Denies",
+      "type": "boolean"
+    },
+    "required_access_capability_ids": {
+      "default": [
+        "public_data_access"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Required Access Capability Ids",
+      "type": "array"
+    },
+    "required_resource_scores_by_band": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "propertyNames": {
+          "minLength": 1
+        },
+        "type": "object"
+      },
+      "propertyNames": {
+        "enum": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "title": "Required Resource Scores By Band",
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "p3.research_tools.entitlement_policy.v1",
+      "default": "p3.research_tools.entitlement_policy.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "minimum_score_by_band",
+    "required_resource_scores_by_band"
+  ],
+  "title": "ResearchEntitlementPolicyConfig",
+  "type": "object"
+}

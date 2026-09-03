@@ -1,0 +1,56 @@
+{
+  "$defs": {
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "position_id": {
+      "minLength": 1,
+      "title": "Position Id",
+      "type": "string"
+    },
+    "planned_event": {
+      "minLength": 1,
+      "title": "Planned Event",
+      "type": "string"
+    },
+    "actual_event": {
+      "minLength": 1,
+      "title": "Actual Event",
+      "type": "string"
+    },
+    "lifecycle_pnl_effect": {
+      "title": "Lifecycle Pnl Effect",
+      "type": "number"
+    },
+    "matched_plan": {
+      "title": "Matched Plan",
+      "type": "boolean"
+    },
+    "evidence_class": {
+      "$ref": "#/$defs/EvidenceClass"
+    }
+  },
+  "required": [
+    "position_id",
+    "planned_event",
+    "actual_event",
+    "lifecycle_pnl_effect",
+    "matched_plan",
+    "evidence_class"
+  ],
+  "title": "LifecycleAttribution",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:LifecycleAttribution:1.0.0"
+}

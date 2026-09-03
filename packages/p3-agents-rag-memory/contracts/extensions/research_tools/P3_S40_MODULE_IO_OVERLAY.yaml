@@ -1,0 +1,231 @@
+overlay_id: P3_S40_MODULE_IO_OVERLAY
+version: 1.0.0
+status: ADDITIVE_NOT_GLOBAL_AUTHORITY
+global_authority_update_owner: P3.S40_FINAL_MULTI_AGENT_MERGE
+module_io_overlay:
+- module_id: P3.S40.M01
+  module_name: internal_handler_registry_assembler
+  subphase: P3.S40
+  consumes_from:
+    artifacts:
+    - tool_operation_registry
+    - compatibility_alias_registry
+    - corpus_tool_handler_bundle
+    - market_tool_handler_bundle
+    - options_tool_handler_bundle
+    - macro_tool_handler_bundle
+    - company_tool_handler_bundle
+    - quant_tool_handler_bundle
+  emits_to:
+    artifacts:
+    - internal_handler_registry
+    - handler_registry_completeness_report
+  contract_path: contracts/research_tools/modules/P3_S40_M01_internal_handler_registry_assembler.yaml
+  inputs:
+  - canonical_tool_operation_registry
+  - compatibility_alias_registry
+  - research_data_boundary_bundle
+  - corpus_index_snapshot
+  - corpus_retrieval_policy
+  - corpus_internal_work_budget
+  - corpus_tool_handler_bundle
+  - corpus_operation_mode_qualification
+  - corpus_tool_readiness_report
+  - market_tool_handler_bundle
+  - options_tool_handler_bundle
+  - market_derivatives_operation_mode_qualification
+  - market_derivatives_tool_readiness_report
+  - macro_series_release_catalog
+  - macro_asset_context_config_snapshot
+  - macro_tool_handler_bundle
+  - macro_operation_mode_qualification
+  - macro_tool_readiness_report
+  - company_operation_readiness_panel
+  - company_tool_handler_bundle
+  - company_operation_mode_qualification
+  - company_qualification_evidence_package
+  - quant_tool_handler_bundle
+  - quant_operation_mode_qualification
+  - quant_qualification_evidence_package
+- module_id: P3.S40.M02
+  module_name: composite_tool_gateway_runtime_factory
+  subphase: P3.S40
+  consumes_from:
+    artifacts:
+    - internal_handler_registry
+    - research_data_boundary_bundle
+    - provider_transport_overlay
+    - mcp_gateway_policy_overlay
+    - research_tool_extension_snapshot
+  emits_to:
+    artifacts:
+    - composite_tool_gateway_binding_manifest
+    - gateway_runtime_readiness_report
+  contract_path: contracts/research_tools/modules/P3_S40_M02_composite_tool_gateway_runtime_factory.yaml
+  inputs:
+  - internal_handler_registry
+  - handler_registry_completeness_report
+  - research_tool_extension_snapshot
+- module_id: P3.S40.M03
+  module_name: s21_runtime_binding_preflight_builder
+  subphase: P3.S40
+  consumes_from:
+    artifacts:
+    - composite_tool_gateway_binding_manifest
+    - provider_adapter_registry_projection
+    - mcp_gateway_policy_projection
+    - extended_person_tool_entitlement_panel
+    - extended_validated_person_context_bundle
+    - tool_operation_registry
+    - research_tool_extension_snapshot
+  emits_to:
+    artifacts:
+    - s21_research_tool_runtime_binding_manifest
+    - s21_runtime_preflight_report
+  contract_path: contracts/research_tools/modules/P3_S40_M03_s21_runtime_binding_preflight_builder.yaml
+  inputs:
+  - internal_handler_registry
+  - handler_registry_completeness_report
+  - composite_tool_gateway_binding_manifest
+  - gateway_runtime_readiness_report
+  - provider_adapter_registry_config
+  - mcp_gateway_policy
+  - extended_person_tool_entitlement_panel
+  - extended_validated_person_context_bundle
+  - canonical_tool_operation_registry
+  - research_tool_extension_snapshot
+- module_id: P3.S40.M04
+  module_name: tool_execution_evidence_envelope_builder
+  subphase: P3.S40
+  consumes_from:
+    artifacts:
+    - raw_tool_result_panel
+    - tool_call_audit_panel
+    - retrieval_evidence_map
+    - phase3_run_snapshot
+    - research_tool_extension_snapshot
+  emits_to:
+    artifacts:
+    - research_tool_result_envelope_panel
+    - research_tool_evidence_map
+    - extended_retrieval_evidence_map
+    - research_tool_execution_trace_panel
+  contract_path: contracts/research_tools/modules/P3_S40_M04_tool_execution_evidence_envelope_builder.yaml
+  inputs:
+  - raw_tool_result_panel
+  - tool_call_audit_panel
+  - retrieval_evidence_map
+  - phase3_run_snapshot
+- module_id: P3.S40.M05
+  module_name: operation_mode_qualification_leakage_runner
+  subphase: P3.S40
+  consumes_from:
+    artifacts:
+    - all_family_qualification_reports
+    - s21_runtime_preflight_report
+    - handler_registry_completeness_report
+    - integration_test_receipts
+    - leakage_test_receipts
+    - replay_test_receipts
+  emits_to:
+    artifacts:
+    - operation_mode_qualification_matrix
+    - research_tool_leakage_report
+    - qualification_evidence_manifest
+  contract_path: contracts/research_tools/modules/P3_S40_M05_operation_mode_qualification_leakage_runner.yaml
+  inputs:
+  - corpus_operation_mode_qualification
+  - market_derivatives_operation_mode_qualification
+  - macro_operation_mode_qualification
+  - company_operation_mode_qualification
+  - quant_operation_mode_qualification
+  - s21_runtime_preflight_report
+  - handler_registry_completeness_report
+  - integration_test_receipts
+  - leakage_test_receipts
+  - replay_test_receipts
+- module_id: P3.S40.M06
+  module_name: research_process_panel_p4_handoff_builder
+  subphase: P3.S40
+  consumes_from:
+    artifacts:
+    - validated_tool_result_panel
+    - tool_call_audit_panel
+    - research_tool_result_envelope_panel
+    - evidence_bound_belief_update_panel
+    - phase3_run_snapshot
+    - tool_operation_registry
+    - research_mode_registry
+  emits_to:
+    artifacts:
+    - research_process_panel
+    - phase4_research_process_handoff_manifest
+    - p4_research_handoff_compatibility_report
+  contract_path: contracts/research_tools/modules/P3_S40_M06_research_process_panel_p4_handoff_builder.yaml
+  inputs:
+  - validated_tool_result_panel
+  - tool_call_audit_panel
+  - research_tool_result_envelope_panel
+  - evidence_bound_belief_update_panel
+  - phase3_run_snapshot
+  - canonical_tool_operation_registry
+  - research_mode_registry
+- module_id: P3.S40.M07
+  module_name: p9_research_tool_learning_evidence_builder
+  subphase: P3.S40
+  consumes_from:
+    artifacts:
+    - research_process_panel
+    - belief_outcome_commitment_log
+    - research_tool_execution_trace_panel
+    - phase3_run_snapshot
+    - model_knowledge_cutoff_report
+  emits_to:
+    artifacts:
+    - p9_research_tool_learning_evidence
+    - p9_research_tool_learning_handoff_manifest
+    - p9_consumer_compatibility_report
+  contract_path: contracts/research_tools/modules/P3_S40_M07_p9_research_tool_learning_evidence_builder.yaml
+  inputs:
+  - research_process_panel
+  - belief_outcome_commitment_log
+  - research_tool_execution_trace_panel
+  - phase3_run_snapshot
+  - model_knowledge_cutoff_report
+- module_id: P3.S40.M08
+  module_name: research_tool_extension_release_gate
+  subphase: P3.S40
+  consumes_from:
+    artifacts:
+    - handler_registry_completeness_report
+    - s21_runtime_preflight_report
+    - operation_mode_qualification_matrix
+    - research_tool_leakage_report
+    - p4_research_handoff_compatibility_report
+    - p9_consumer_compatibility_report
+    - contract_test_report
+    - schema_test_report
+    - code_quality_report
+    - hash_integrity_report
+    - rollback_report
+  emits_to:
+    artifacts:
+    - research_tool_extension_release_gate
+    - research_tool_extension_evidence_package
+    - research_tool_extension_blocking_issue_panel
+  contract_path: contracts/research_tools/modules/P3_S40_M08_research_tool_extension_release_gate.yaml
+  inputs:
+  - handler_registry_completeness_report
+  - s21_runtime_preflight_report
+  - operation_mode_qualification_matrix
+  - research_tool_leakage_report
+  - qualification_evidence_manifest
+  - phase4_research_process_handoff_manifest
+  - p4_research_handoff_compatibility_report
+  - p9_research_tool_learning_handoff_manifest
+  - p9_consumer_compatibility_report
+  - contract_test_report
+  - schema_test_report
+  - code_quality_report
+  - hash_integrity_report
+  - rollback_report

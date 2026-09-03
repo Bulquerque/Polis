@@ -1,0 +1,118 @@
+{
+  "$defs": {
+    "GateResult": {
+      "additionalProperties": false,
+      "properties": {
+        "errors": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Errors",
+          "type": "array"
+        },
+        "evidence_hashes": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Evidence Hashes",
+          "type": "object"
+        },
+        "gate_id": {
+          "title": "Gate Id",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/GateStatus"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "gate_id",
+        "status"
+      ],
+      "title": "GateResult",
+      "type": "object"
+    },
+    "GateStatus": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_STARTED",
+        "FAIL_NOT_QUALIFIED"
+      ],
+      "title": "GateStatus",
+      "type": "string"
+    }
+  },
+  "$id": "p3://schemas/final_integration/integration_gate_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "gates": {
+      "items": {
+        "$ref": "#/$defs/GateResult"
+      },
+      "title": "Gates",
+      "type": "array"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "overall_status": {
+      "$ref": "#/$defs/GateStatus"
+    },
+    "p0_promotion_validated": {
+      "title": "P0 Promotion Validated",
+      "type": "boolean"
+    },
+    "production_promotion_allowed": {
+      "title": "Production Promotion Allowed",
+      "type": "boolean"
+    },
+    "qualification_chain_hash": {
+      "title": "Qualification Chain Hash",
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    },
+    "report_hash": {
+      "title": "Report Hash",
+      "type": "string"
+    },
+    "report_version": {
+      "default": "p3.integration-gates.v2",
+      "title": "Report Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "gates",
+    "overall_status",
+    "p0_promotion_validated",
+    "production_promotion_allowed",
+    "generated_at",
+    "qualification_chain_hash",
+    "report_hash"
+  ],
+  "title": "IntegrationGateReport",
+  "type": "object"
+}

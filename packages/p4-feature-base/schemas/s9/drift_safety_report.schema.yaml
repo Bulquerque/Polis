@@ -1,0 +1,166 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: drift_safety_report
+type: object
+properties:
+  artifact_id:
+    type: string
+  artifact_name:
+    const: drift_safety_report
+  schema_version:
+    type: string
+  producer_phase:
+    const: phase_04_feature_base
+  producer_module_id:
+    type: string
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  record_count:
+    type: integer
+    minimum: 0
+  grain:
+    type: array
+    items:
+      type: string
+  lineage_id:
+    type: string
+  execution_status:
+    enum:
+    - PRODUCED
+    - DEGRADED
+    - BLOCKED
+    - SKIPPED_NOT_AVAILABLE
+    - SKIPPED_NOT_AUTHORIZED
+    - UNAVAILABLE_UPSTREAM
+    - FAILED_NONBLOCKING
+    - NOT_RUN
+  quality_status:
+    enum:
+    - VALIDATED
+    - DEGRADED
+    - BLOCKED
+    - NOT_EVALUATED
+  records:
+    type: array
+    items:
+      type: object
+      properties:
+        drift_id:
+          type: string
+        scope_type:
+          enum:
+          - FEATURE
+          - REPRESENTATION
+        scope_id:
+          type: string
+        family_id:
+          type:
+          - string
+          - 'null'
+        horizon_group:
+          type:
+          - string
+          - 'null'
+        drift_type:
+          type: string
+        reference_count:
+          type: integer
+          minimum: 0
+        current_count:
+          type: integer
+          minimum: 0
+        severity:
+          enum:
+          - PASS
+          - WARN
+          - BLOCK
+          - INSUFFICIENT_DATA
+        ks_statistic:
+          type:
+          - number
+          - 'null'
+        ks_pvalue:
+          type:
+          - number
+          - 'null'
+        normalized_wasserstein:
+          type:
+          - number
+          - 'null'
+        reference_missingness:
+          type:
+          - number
+          - 'null'
+        current_missingness:
+          type:
+          - number
+          - 'null'
+        missingness_delta:
+          type:
+          - number
+          - 'null'
+        loading_drift:
+          type:
+          - number
+          - 'null'
+        reference_rmse:
+          type:
+          - number
+          - 'null'
+        current_rmse:
+          type:
+          - number
+          - 'null'
+        reconstruction_delta:
+          type:
+          - number
+          - 'null'
+      required:
+      - drift_id
+      - scope_type
+      - scope_id
+      - family_id
+      - horizon_group
+      - drift_type
+      - reference_count
+      - current_count
+      - severity
+      additionalProperties: false
+  metadata:
+    type: object
+    properties: {}
+    additionalProperties: true
+  alias_of:
+    type:
+    - string
+    - 'null'
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- record_count
+- grain
+- lineage_id
+- execution_status
+- quality_status
+- records
+- metadata
+- alias_of
+additionalProperties: false

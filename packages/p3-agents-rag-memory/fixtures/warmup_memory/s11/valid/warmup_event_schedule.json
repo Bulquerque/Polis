@@ -1,0 +1,373 @@
+{
+  "schema_id": "warmup_event_schedule.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "p3-s10-schedule-run-s9-001-ef8748c7c7fb7ccf",
+  "module_id": "P3.S10.M01",
+  "run_id": "run-s9-001",
+  "snapshot_id": "snapshot-s9-001",
+  "as_of": "2026-01-01T00:00:00Z",
+  "evaluation_start": "2026-01-01T00:00:00Z",
+  "mode": "HISTORICAL_REPLAY",
+  "status": "READY",
+  "schedule_start": "2025-01-31T23:59:59Z",
+  "schedule_end": "2025-06-01T13:00:00Z",
+  "items": [
+    {
+      "schedule_item_id": "s10-item-fc3ee2c44ec53f989794",
+      "sequence_number": 1,
+      "logical_time": "2025-01-31T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-001:2025-01",
+      "event_ref": null,
+      "person_id": "person-001",
+      "heartbeat_period": "2025-01",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-b355886851f18e4e7452",
+      "sequence_number": 2,
+      "logical_time": "2025-01-31T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-002:2025-01",
+      "event_ref": null,
+      "person_id": "person-002",
+      "heartbeat_period": "2025-01",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-934417826aae732c3b5b",
+      "sequence_number": 3,
+      "logical_time": "2025-01-31T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-003:2025-01",
+      "event_ref": null,
+      "person_id": "person-003",
+      "heartbeat_period": "2025-01",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-4541b5871922874ba27e",
+      "sequence_number": 4,
+      "logical_time": "2025-02-28T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-001:2025-02",
+      "event_ref": null,
+      "person_id": "person-001",
+      "heartbeat_period": "2025-02",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-1564091755b4ccc3a24d",
+      "sequence_number": 5,
+      "logical_time": "2025-02-28T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-002:2025-02",
+      "event_ref": null,
+      "person_id": "person-002",
+      "heartbeat_period": "2025-02",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-05b23597cc21c8397863",
+      "sequence_number": 6,
+      "logical_time": "2025-02-28T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-003:2025-02",
+      "event_ref": null,
+      "person_id": "person-003",
+      "heartbeat_period": "2025-02",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-2ab3344b6577c5180c63",
+      "sequence_number": 7,
+      "logical_time": "2025-03-31T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-001:2025-03",
+      "event_ref": null,
+      "person_id": "person-001",
+      "heartbeat_period": "2025-03",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-1b87ea4b4c83893a89de",
+      "sequence_number": 8,
+      "logical_time": "2025-03-31T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-002:2025-03",
+      "event_ref": null,
+      "person_id": "person-002",
+      "heartbeat_period": "2025-03",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-b0226f7392a8851a3917",
+      "sequence_number": 9,
+      "logical_time": "2025-03-31T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-003:2025-03",
+      "event_ref": null,
+      "person_id": "person-003",
+      "heartbeat_period": "2025-03",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-027c056a5f8d848012e7",
+      "sequence_number": 10,
+      "logical_time": "2025-04-30T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-001:2025-04",
+      "event_ref": null,
+      "person_id": "person-001",
+      "heartbeat_period": "2025-04",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-523a44e55b829ea2afdd",
+      "sequence_number": 11,
+      "logical_time": "2025-04-30T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-002:2025-04",
+      "event_ref": null,
+      "person_id": "person-002",
+      "heartbeat_period": "2025-04",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-e4b2c5ee91bd9bad96f6",
+      "sequence_number": 12,
+      "logical_time": "2025-04-30T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-003:2025-04",
+      "event_ref": null,
+      "person_id": "person-003",
+      "heartbeat_period": "2025-04",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-f41dcd0b8f91f8cc7160",
+      "sequence_number": 13,
+      "logical_time": "2025-05-01T10:30:00Z",
+      "kind": "EVENT_RELEASE",
+      "priority": 10,
+      "deduplication_key": "event:event-002:2025-05-01T10:30:00+00:00",
+      "event_ref": {
+        "history_record_id": "history-record-002",
+        "event_id": "event-002",
+        "source_id": "source-002",
+        "payload_ref": {
+          "artifact_id": "artifact-002",
+          "artifact_type": "clean_document",
+          "content_hash": "4018d96d0f04b87d4dd71f084559df5263ab9894e99d284916bc93d676a4cdc4",
+          "schema_id": null,
+          "schema_version": null
+        },
+        "underlyings": [
+          "VALE3"
+        ],
+        "propositions": [
+          "iron-ore-demand"
+        ]
+      },
+      "person_id": null,
+      "heartbeat_period": null,
+      "source_lineage_ids": [
+        "lineage-record-002"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-68b9eb7100d8419ebf96",
+      "sequence_number": 14,
+      "logical_time": "2025-05-31T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-001:2025-05",
+      "event_ref": null,
+      "person_id": "person-001",
+      "heartbeat_period": "2025-05",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-28058dff6be680ee08dd",
+      "sequence_number": 15,
+      "logical_time": "2025-05-31T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-002:2025-05",
+      "event_ref": null,
+      "person_id": "person-002",
+      "heartbeat_period": "2025-05",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-8636b428e4eb490819ad",
+      "sequence_number": 16,
+      "logical_time": "2025-05-31T23:59:59Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-003:2025-05",
+      "event_ref": null,
+      "person_id": "person-003",
+      "heartbeat_period": "2025-05",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-decde747c475345ace9c",
+      "sequence_number": 17,
+      "logical_time": "2025-06-01T13:00:00Z",
+      "kind": "EVENT_RELEASE",
+      "priority": 10,
+      "deduplication_key": "event:event-001:2025-06-01T13:00:00+00:00",
+      "event_ref": {
+        "history_record_id": "history-record-001",
+        "event_id": "event-001",
+        "source_id": "source-001",
+        "payload_ref": {
+          "artifact_id": "artifact-001",
+          "artifact_type": "clean_event_reference",
+          "content_hash": "0c4def370440ec924e4e907156290f050967a623a9e0acf45cad65ca9f88818d",
+          "schema_id": "clean_event_reference.v1",
+          "schema_version": "1.0.0"
+        },
+        "underlyings": [
+          "PETR4"
+        ],
+        "propositions": [
+          "oil-price-impact"
+        ]
+      },
+      "person_id": null,
+      "heartbeat_period": null,
+      "source_lineage_ids": [
+        "lineage-record-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-42b295b97a75e30e1c49",
+      "sequence_number": 18,
+      "logical_time": "2025-06-01T13:00:00Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-001:2025-06",
+      "event_ref": null,
+      "person_id": "person-001",
+      "heartbeat_period": "2025-06",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-d282148700b0b7779d10",
+      "sequence_number": 19,
+      "logical_time": "2025-06-01T13:00:00Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-002:2025-06",
+      "event_ref": null,
+      "person_id": "person-002",
+      "heartbeat_period": "2025-06",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    },
+    {
+      "schedule_item_id": "s10-item-aac61bdeec93106c220a",
+      "sequence_number": 20,
+      "logical_time": "2025-06-01T13:00:00Z",
+      "kind": "HEARTBEAT_OBLIGATION",
+      "priority": 20,
+      "deduplication_key": "heartbeat:person-003:2025-06",
+      "event_ref": null,
+      "person_id": "person-003",
+      "heartbeat_period": "2025-06",
+      "source_lineage_ids": [
+        "lineage-population-001",
+        "lineage-graph-001"
+      ]
+    }
+  ],
+  "schedule_hash": "ef8748c7c7fb7ccfc8c7ee7808aef97e91a3a16a0d06e0d473f7263947042c7d",
+  "activation_config_hash": "20f478a61ef5c418142957a84f90fda96f8262ca27ce066f487be96873f61b38",
+  "heartbeat_config_hash": "eb31e55f1b2c953e3da23563e5bd2b3b032b92896d087b2e47573f65b7555ad4",
+  "lineage": {
+    "lineage_id": "s10-schedule-lineage-ef8748c7c7fb7ccf",
+    "history_artifact_id": "p3-s9-run-s9-001-0168aa2eab029e99",
+    "history_hash": "0168aa2eab029e99b4080c43e533736fd24ec18249395b7697723c150595c14a",
+    "population_artifact_id": "population-manifest-001",
+    "population_hash": "f1a7212ba343f7fd15ab02f53d27347d6674a6c70fb2c544b287ab862fb11e43",
+    "social_graph_artifact_id": "social-graph-001",
+    "graph_hash": "f4e336f3ee7fab872de9f00353fbf27d2714e343fead0245975478273a285e03",
+    "source_lineage_ids": [
+      "lineage-graph-001",
+      "lineage-history-001:validated:0168aa2eab02",
+      "lineage-population-001"
+    ]
+  },
+  "summary": {
+    "event_item_count": 2,
+    "heartbeat_item_count": 18,
+    "person_count": 3,
+    "month_count": 6,
+    "total_item_count": 20
+  },
+  "issues": []
+}

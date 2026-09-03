@@ -1,0 +1,22 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "quantile": {
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Quantile",
+      "type": "number"
+    },
+    "value": {
+      "title": "Value",
+      "type": "number"
+    }
+  },
+  "required": [
+    "quantile",
+    "value"
+  ],
+  "title": "QuantilePoint",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:QuantilePoint:1.0.0"
+}

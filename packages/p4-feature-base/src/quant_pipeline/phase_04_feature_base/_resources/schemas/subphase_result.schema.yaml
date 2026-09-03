@@ -1,0 +1,28 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: P4 S1 subphase result
+type: object
+additionalProperties: false
+properties:
+  phase_id:
+    const: P4
+  subphase_id:
+    const: P4.S1
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  module_results:
+    type: object
+  outputs:
+    type: object
+required:
+- phase_id
+- subphase_id
+- run_id
+- cycle_id
+- as_of_time
+- module_results
+- outputs

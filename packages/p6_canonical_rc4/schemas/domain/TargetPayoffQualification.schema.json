@@ -1,0 +1,52 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "bounded": {
+      "title": "Bounded",
+      "type": "boolean"
+    },
+    "confidence_sufficient": {
+      "title": "Confidence Sufficient",
+      "type": "boolean"
+    },
+    "cost_budget_available": {
+      "title": "Cost Budget Available",
+      "type": "boolean"
+    },
+    "finite": {
+      "title": "Finite",
+      "type": "boolean"
+    },
+    "qualified": {
+      "title": "Qualified",
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "risk_budget_available": {
+      "title": "Risk Budget Available",
+      "type": "boolean"
+    },
+    "target_payoff_id": {
+      "title": "Target Payoff Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_payoff_id",
+    "qualified",
+    "reason_codes",
+    "finite",
+    "bounded",
+    "confidence_sufficient",
+    "cost_budget_available",
+    "risk_budget_available"
+  ],
+  "title": "TargetPayoffQualification",
+  "type": "object"
+}

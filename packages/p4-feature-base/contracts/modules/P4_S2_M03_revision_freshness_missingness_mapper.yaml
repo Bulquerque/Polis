@@ -1,0 +1,62 @@
+phase: P4
+subphase: P4.S2
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- no_hidden_global_state
+- no_future_targets
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+observability:
+- module_started
+- input_validated
+- module_succeeded
+- module_failed
+- input_record_count
+- output_record_count
+- warning_count
+- duration_ms
+production_promotion_allowed: false
+module_id: P4.S2.M03
+module_name: revision_freshness_missingness_mapper
+function: Select latest available vintage, map freshness, quality and explicit missingness/capability
+  states.
+inputs:
+- entity_aligned_observation_bundle
+- phase2_capability_matrix
+- phase3_capability_matrix
+outputs:
+- quality_enriched_observation_bundle
+- availability_missingness_panel
+- revision_selection_report
+validations:
+- latest available vintage at cutoff
+- revision ties deterministic or rejected
+- quality blocked distinct from missing
+- stale distinct from unavailable
+- capability absence explicitly recorded
+fail_fast_conditions:
+- P4_S2_M03_INPUT_INVALID
+- P4_S2_M03_TEMPORAL_VIOLATION
+- P4_S2_M03_OUTPUT_INVALID
+- P4_S2_M03_FORBIDDEN_FIELD
+tests_required:
+- happy_path
+- schema_negative
+- temporal_adversarial
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S2_M03_revision_freshness_missingness_mapper.py

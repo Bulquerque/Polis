@@ -1,0 +1,30 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: activation_record
+status: planned_internal_schema
+type: object
+required:
+- person_id
+- stimulus_id
+- activation_score
+- threshold
+- activated
+- activation_reason
+- as_of_time
+properties:
+  person_id:
+    type: string
+  stimulus_id:
+    type: string
+  activation_score: &id001
+    type: number
+    minimum: 0
+    maximum: 1
+  threshold: *id001
+  activated:
+    type: boolean
+  activation_reason:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+additionalProperties: false

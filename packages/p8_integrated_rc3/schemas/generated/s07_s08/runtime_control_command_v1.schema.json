@@ -1,0 +1,137 @@
+{
+  "$defs": {
+    "RuntimeControlMode": {
+      "enum": [
+        "NORMAL",
+        "HOLD_NO_NEW_RISK",
+        "CANCEL_OPEN_ORDERS",
+        "CLOSE_ONLY",
+        "RISK_REDUCTION_ONLY",
+        "HEDGE_ONLY",
+        "CONTROLLED_FLATTEN",
+        "HALT"
+      ],
+      "title": "RuntimeControlMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Canonical S9\u2192S7/S8 safety command.\n\nThe original four fields remain required for backward compatibility. The\nmetadata fields close idempotency, validity, source-state and feasibility\nsemantics without granting S9 direct execution authority.",
+  "properties": {
+    "allowed_actions": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Actions",
+      "type": "array"
+    },
+    "command_id": {
+      "minLength": 1,
+      "title": "Command Id",
+      "type": "string"
+    },
+    "command_sequence": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Command Sequence",
+      "type": "integer"
+    },
+    "cycle_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Cycle Id"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "feasibility_proven": {
+      "default": true,
+      "title": "Feasibility Proven",
+      "type": "boolean"
+    },
+    "idempotency_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Idempotency Key"
+    },
+    "mode": {
+      "$ref": "#/$defs/RuntimeControlMode"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "title": "Reason Code",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "run_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Run Id"
+    },
+    "source_state_hash": {
+      "anyOf": [
+        {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source State Hash"
+    },
+    "valid_until": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valid Until"
+    }
+  },
+  "required": [
+    "command_id",
+    "event_time",
+    "mode",
+    "reason_code"
+  ],
+  "title": "RuntimeControlCommand",
+  "type": "object"
+}

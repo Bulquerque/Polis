@@ -1,0 +1,5 @@
+registry_id: P3_DEPRECATED_TAG_ALIASES_V1
+registry_version: 1.0.0
+runtime_resolution_allowed: false
+aliases: {}
+policy: MIGRATION_ONLY_REJECT_IN_ACTIVE_REGISTRY

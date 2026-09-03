@@ -1,0 +1,85 @@
+{
+  "available_at": "2024-01-06T09:00:00Z",
+  "canonical_payload": {
+    "coverage": {
+      "duplicate_records_removed": 0,
+      "missing_dimensions": [],
+      "records_returned": 1,
+      "records_scanned": 4,
+      "records_visible": 4,
+      "score": 0.7,
+      "source_families": 1,
+      "truncated": false,
+      "unique_documents": 1,
+      "unique_sources": 1
+    },
+    "downgrade_reason": null,
+    "envelope_version": "1.0.0",
+    "evidence_refs": [
+      {
+        "available_at": "2024-01-03T09:00:00Z",
+        "chunk_id": "chk_debt",
+        "content_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "document_id": "doc_risk_note",
+        "evidence_id": "evidence_chk_debt",
+        "lineage_refs": [
+          "p2_lineage_1"
+        ],
+        "source_id": "NEWS",
+        "source_quality": 0.8
+      }
+    ],
+    "executed_mode": "LOOKUP",
+    "execution": {
+      "deterministic": true,
+      "executed_mode": "LOOKUP",
+      "handler_id": "p3.s35.search",
+      "handler_version": "1.0.0",
+      "internal_subqueries": 1,
+      "internal_work_units": 2,
+      "requested_mode": "LOOKUP",
+      "seed": 7,
+      "warnings": []
+    },
+    "operation_id": "search",
+    "outcome_status": "PASS",
+    "pit_proof": {
+      "decision_time": "2024-01-10T12:00:00Z",
+      "earliest_available_at": "2024-01-02T10:00:00Z",
+      "input_hashes": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      ],
+      "latest_available_at": "2024-01-06T09:00:00Z",
+      "proof_hash": "2e3c23f532b4b9f0a81beada6836f9225e095e2bdeeec92cdcb1b447babf7bcc",
+      "records_rejected_filter": 0,
+      "records_rejected_future": 0,
+      "records_scanned": 4,
+      "records_visible": 4,
+      "snapshot_id": "snapshot_20240110"
+    },
+    "provenance": null,
+    "records": [
+      {
+        "available_at": "2024-01-03T09:00:00Z",
+        "chunk_id": "chk_debt",
+        "content_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "document_id": "doc_risk_note",
+        "rank": 1,
+        "source_id": "NEWS"
+      }
+    ],
+    "request_id": "request_1",
+    "requested_mode": "LOOKUP",
+    "result_hash": "fc12ef1b21e5fad847b92d1de86cde277267d1d76607388746ef879a663ca041",
+    "tool_id": "research.corpus.v1"
+  },
+  "cost_units": 2.0,
+  "error": null,
+  "evidence_refs": [],
+  "provider_id": "internal_research",
+  "raw_payload_ref": null,
+  "response_hash": "fc12ef1b21e5fad847b92d1de86cde277267d1d76607388746ef879a663ca041",
+  "status": "SUCCEEDED"
+}

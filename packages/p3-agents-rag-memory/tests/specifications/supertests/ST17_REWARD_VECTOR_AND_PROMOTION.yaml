@@ -1,0 +1,15 @@
+spec_id: ST17_REWARD_VECTOR_AND_PROMOTION
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Promotion requires predictive, incremental, stability, economic and risk evidence
+required_cases:
+- reward_vector_complete
+- not_sharpe_only
+- evidence_completeness_guard
+- Nplus1_only
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

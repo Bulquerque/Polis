@@ -1,0 +1,52 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/options.observation.v1/get_surface_diagnostics/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "diagnostics": {
+      "default": [
+        "skew",
+        "term_structure"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Diagnostics",
+      "type": "array"
+    },
+    "expiry_dates": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Expiry Dates",
+      "type": "array"
+    },
+    "minimum_quote_count": {
+      "default": 10,
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Minimum Quote Count",
+      "type": "integer"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "underlying_id": {
+      "minLength": 1,
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "underlying_id"
+  ],
+  "title": "OptionSurfaceDiagnosticsRequest",
+  "type": "object"
+}

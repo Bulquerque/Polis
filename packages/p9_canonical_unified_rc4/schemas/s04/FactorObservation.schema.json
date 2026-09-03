@@ -1,0 +1,52 @@
+{
+  "$defs": {
+    "FactorValue": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id": {
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "value"
+      ],
+      "title": "FactorValue",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/FactorObservation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "values": {
+      "items": {
+        "$ref": "#/$defs/FactorValue"
+      },
+      "title": "Values",
+      "type": "array"
+    }
+  },
+  "required": [
+    "timestamp",
+    "available_at",
+    "values"
+  ],
+  "title": "FactorObservation",
+  "type": "object"
+}

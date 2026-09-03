@@ -1,0 +1,19 @@
+registry_id: p7_s3_metric_semantics_v1
+runtime_source: ranking_policy_context
+required_metadata:
+  - metric_id
+  - canonical_units
+  - direction
+  - semantic_version
+  - missing_action
+rules:
+  - raw values are immutable
+  - minimization metrics are directed by sign inversion only in derived fields
+  - null is not zero
+  - unit conversion requires an explicit metric-specific affine mapping
+  - semantic version or direction mismatch is fatal
+  - normalization across comparison groups is forbidden
+baseline_metric_ids:
+  - expected_net_payoff
+  - expected_shortfall
+  - liquidity_quality

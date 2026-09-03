@@ -1,0 +1,14 @@
+spec_id: ST08_ENDOGENOUS_EVENT_BUS_NPLUS1
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Tool/social/memory discoveries become eligible only next cycle
+required_cases:
+- no_same_cycle_feedback
+- queue_deduplication
+- causal_lineage
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

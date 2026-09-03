@@ -1,0 +1,33 @@
+module_id: P7.S1.M03
+module_name: temporal_integrity_and_forbidden_field_firewall
+owner: FOUNDATION
+subphase: P7.S1
+purpose: Recursively enforce PIT clocks, finite wire values and the prohibition of
+  future, realized and portfolio fields.
+inputs:
+- validated_strategy_candidate_bundle
+outputs:
+- temporally_safe_candidate_bundle
+- temporal_integrity_report
+- forbidden_field_report
+failure_model: phase_fatal_and_candidate_level_as_documented
+reason_codes:
+- P7_FUTURE_INFORMATION
+- P7_FORBIDDEN_FIELD
+- P7_NAIVE_TIMESTAMP
+- P7_NONFINITE_WIRE_VALUE
+- P7_MODEL_AFTER_DECISION
+- P7_INPUT_MUTATION_DETECTED
+implementation_rules:
+- thin_wrapper
+- typed_boundary
+- immutable_inputs
+- structured_receipt
+- no_economic_defaults
+- no_cross_subphase_private_import
+tests:
+- unit
+- contract
+- adversarial
+- property_or_metamorphic
+- deterministic_replay

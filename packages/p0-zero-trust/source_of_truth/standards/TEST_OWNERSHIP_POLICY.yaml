@@ -1,0 +1,16 @@
+policy_id: test_ownership_policy_v14_1_rc4_1
+global_tests_owned_by_phase_0:
+  - package_structure
+  - no_cache_files
+  - no_tbd_markers
+  - yaml_validity
+  - manifest_coverage
+  - forbidden_connections
+  - monolith_detection
+  - duplicate_detection
+  - cross_phase_io_compatibility
+phase_specific_tests_owned_by_phase:
+  - module_specific_validation
+  - artifact_specific_schema_fixture
+  - phase_specific_anti_leakage
+  - phase_specific_business_invariant

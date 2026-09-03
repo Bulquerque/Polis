@@ -1,0 +1,20 @@
+artifact: retro_memory_update_package
+grain:
+- memory_update_id
+required_fields:
+- memory_update_id
+- retro_package_id
+- created_at
+- memory_items
+- hypothesis_items
+- evidence_items
+- agent_instruction_updates
+- context_tags
+- valid_from
+- source_backtest_id
+- lineage_id
+forbidden_fields:
+- direct_model_change
+- direct_ranking_change
+- direct_portfolio_change
+schema_version: v14.1-rc4.1

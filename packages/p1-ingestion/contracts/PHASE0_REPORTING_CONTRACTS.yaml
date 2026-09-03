@@ -1,0 +1,26 @@
+phase: phase_01_ingestion
+target_phase: phase_00_zero_trust_guardian
+channel_type: zero_trust_control_plane
+reports_to_phase0:
+- phase_manifest
+- module_manifest
+- artifact_manifest
+- schema_validation_report
+- test_run_report
+- code_quality_report
+- hash_manifest
+- lineage_report
+- dashboard_phase_payload
+receives_from_phase0:
+- phase_zero_trust_feedback_panel
+- zero_trust_feedback_manifest
+forbidden_payloads:
+- features
+- predictions
+- candidates
+- rankings
+- orders
+- positions
+- pnl
+- trade_decisions
+rule: phase0 feedback is technical only and must not mutate economic outputs

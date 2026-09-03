@@ -1,0 +1,359 @@
+{
+  "$defs": {
+    "CalculationStatus": {
+      "enum": [
+        "AVAILABLE",
+        "DEGRADED",
+        "UNAVAILABLE",
+        "BLOCKED"
+      ],
+      "title": "CalculationStatus",
+      "type": "string"
+    },
+    "ExerciseStyle": {
+      "enum": [
+        "EUROPEAN",
+        "AMERICAN"
+      ],
+      "title": "ExerciseStyle",
+      "type": "string"
+    },
+    "InstrumentType": {
+      "enum": [
+        "UNDERLYING",
+        "OPTION",
+        "CASH"
+      ],
+      "title": "InstrumentType",
+      "type": "string"
+    },
+    "LegRole": {
+      "enum": [
+        "CORE",
+        "FINANCING",
+        "PROTECTION",
+        "DIRECTIONAL_OVERLAY",
+        "VOLATILITY_OVERLAY",
+        "TAIL_HEDGE"
+      ],
+      "title": "LegRole",
+      "type": "string"
+    },
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    },
+    "QuoteQuality": {
+      "enum": [
+        "TWO_SIDED_EXECUTABLE",
+        "ONE_SIDED_BID",
+        "ONE_SIDED_ASK",
+        "TRADE_ONLY",
+        "STALE",
+        "CROSSED",
+        "UNAVAILABLE"
+      ],
+      "title": "QuoteQuality",
+      "type": "string"
+    },
+    "SettlementType": {
+      "enum": [
+        "CASH",
+        "PHYSICAL"
+      ],
+      "title": "SettlementType",
+      "type": "string"
+    },
+    "Side": {
+      "enum": [
+        "LONG",
+        "SHORT"
+      ],
+      "title": "Side",
+      "type": "string"
+    },
+    "StrategyLeg": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "title": "Currency",
+          "type": "string"
+        },
+        "entry_price_reference": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Entry Price Reference"
+        },
+        "exchange": {
+          "title": "Exchange",
+          "type": "string"
+        },
+        "exercise_style": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ExerciseStyle"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "expiration": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expiration"
+        },
+        "instrument_id": {
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "instrument_type": {
+          "$ref": "#/$defs/InstrumentType"
+        },
+        "leg_id": {
+          "title": "Leg Id",
+          "type": "string"
+        },
+        "leg_role": {
+          "$ref": "#/$defs/LegRole"
+        },
+        "multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Multiplier"
+        },
+        "option_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OptionType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "price_selection_method": {
+          "title": "Price Selection Method",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "quote_quality": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuoteQuality"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "settlement_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SettlementType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "side": {
+          "$ref": "#/$defs/Side"
+        },
+        "source_quote_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Quote Id"
+        },
+        "strike": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Strike"
+        }
+      },
+      "required": [
+        "leg_id",
+        "instrument_id",
+        "instrument_type",
+        "side",
+        "quantity",
+        "multiplier",
+        "currency",
+        "exchange",
+        "entry_price_reference",
+        "price_selection_method",
+        "leg_role"
+      ],
+      "title": "StrategyLeg",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "basis_id": {
+      "title": "Basis Id",
+      "type": "string"
+    },
+    "entry_cost": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Entry Cost"
+    },
+    "instrument_id": {
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "leg": {
+      "$ref": "#/$defs/StrategyLeg"
+    },
+    "liquidity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Liquidity"
+    },
+    "margin_proxy": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Margin Proxy"
+    },
+    "payoff_vector": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Payoff Vector",
+      "type": "array"
+    },
+    "quantity_lower_bound": {
+      "title": "Quantity Lower Bound",
+      "type": "integer"
+    },
+    "quantity_upper_bound": {
+      "title": "Quantity Upper Bound",
+      "type": "integer"
+    },
+    "status": {
+      "$ref": "#/$defs/CalculationStatus"
+    },
+    "target_payoff_id": {
+      "title": "Target Payoff Id",
+      "type": "string"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "basis_id",
+    "target_payoff_id",
+    "underlying_id",
+    "instrument_id",
+    "leg",
+    "payoff_vector",
+    "entry_cost",
+    "liquidity",
+    "margin_proxy",
+    "quantity_lower_bound",
+    "quantity_upper_bound",
+    "status"
+  ],
+  "title": "ReplicationBasisInstrument",
+  "type": "object"
+}

@@ -1,0 +1,19 @@
+module_id: P5.S2.M02
+name: temporal_split_purge_embargo_planner
+subphase_id: P5.S2
+required_inputs:
+- training_dataset_manifest
+- training_target_panel
+- target_definition_registry
+optional_inputs:
+- representation_fold_plan
+outputs:
+- temporal_evaluation_plan
+- sealed_holdout_exclusion_receipt
+allowed_actions:
+- RUN
+allowed_modes:
+- OFFLINE_TRAINING
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

@@ -1,0 +1,15 @@
+schema_id: p3.research_tools.vintage_policy_config.v1
+schema_version: 1.0.0
+policies:
+  - policy_name: KNOWN_AT_DECISION_TIME
+    description: Select only values and revisions available no later than decision_time.
+    allowed_execution_modes: [BACKTEST, REPLAY, LIVE]
+    selection_rule: max(available_at) subject to available_at <= decision_time
+  - policy_name: ORIGINAL_RELEASE
+    description: Select the earliest released value visible by decision_time.
+    allowed_execution_modes: [BACKTEST, REPLAY, LIVE]
+    selection_rule: min(release_sequence) subject to available_at <= decision_time
+  - policy_name: LATEST_KNOWN_AT_DECISION_TIME
+    description: Select the latest revision known at decision_time without using later revisions.
+    allowed_execution_modes: [BACKTEST, REPLAY, LIVE]
+    selection_rule: max(revision_sequence) subject to available_at <= decision_time

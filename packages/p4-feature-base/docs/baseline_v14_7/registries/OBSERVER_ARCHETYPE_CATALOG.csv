@@ -1,0 +1,133 @@
+observer_id,family_id,name,primary_inputs,transformation_summary,sanctioned_horizons,parameter_mode,literature_ids,implementation_tier,known_limitations,status
+F01.O01,F01,cumulative_return,adjusted_close,lagged cumulative log return,5/21/63/126/252D,SMALL_SCALE_BANK,L005;L006,CORE,sensitive to reversal and corporate-action errors,CANDIDATE_DOCUMENTED
+F01.O02,F01,time_series_momentum_sign,adjusted_return,signed past return normalized by volatility,21/63/252D,SMALL_SCALE_BANK,L006,CORE,trend may reverse abruptly,CANDIDATE_DOCUMENTED
+F01.O03,F01,cross_sectional_momentum_rank,adjusted_return;universe,point-in-time cross-sectional rank,21/63/126/252D,SMALL_SCALE_BANK,L005,CORE,universe and microcap sensitivity,CANDIDATE_DOCUMENTED
+F01.O04,F01,residual_momentum,return;market_sector_factors,cumulative residual from past-only factor fit,63/126/252D,SMALL_SCALE_BANK,L003;L005,CORE,factor specification risk,CANDIDATE_DOCUMENTED
+F01.O05,F01,industry_momentum,sector_returns,sector momentum and asset-relative confirmation,21/63/126D,SMALL_SCALE_BANK,L005,EXTENSION,sector taxonomy changes,CANDIDATE_DOCUMENTED
+F01.O06,F01,52_week_high_proximity,adjusted_close,distance to rolling high,126/252D,FIXED_THEORY,L005,CORE,may overlap breakout,CANDIDATE_DOCUMENTED
+F01.O07,F01,robust_trend_slope,log_price,Theil-Sen/robust slope with fit diagnostics,21/63/126D,SMALL_SCALE_BANK,L006,CORE,needs sufficient observations,CANDIDATE_DOCUMENTED
+F01.O08,F01,breakout_state,high_low_close,position beyond lagged rolling extrema,21/63/126D,SMALL_SCALE_BANK,L006,CORE,sensitive to noisy highs/lows,CANDIDATE_DOCUMENTED
+F01.O09,F01,directional_persistence,return_sign,share and run-length of same-sign returns,10/21/63D,SMALL_SCALE_BANK,L006,EXTENSION,serial-dependence estimator noise,CANDIDATE_DOCUMENTED
+F01.O10,F01,momentum_acceleration,multi_horizon_returns,difference between short and long momentum,5v21/21v63/63v126,FIXED_THEORY,L003,CORE,can amplify noise,CANDIDATE_DOCUMENTED
+F01.O11,F01,volume_confirmed_momentum,return;relative_volume,momentum interacted with independent volume confirmation,21/63D,SMALL_SCALE_BANK,L012,CORE,volume quality/venue coverage,CANDIDATE_DOCUMENTED
+F01.O12,F01,option_confirmed_momentum,return;option_skew_iv_change,directional price move with option-state confirmation,5/21D,SMALL_SCALE_BANK,L020;L021,EXTENSION,option coverage and liquidity,CANDIDATE_DOCUMENTED
+F01.O13,F01,narrative_confirmed_momentum,return;narrative_shift,price persistence with evidence/narrative confirmation,5/21D,SMALL_SCALE_BANK,L024;L025,EXTENSION,text timestamp and source bias,CANDIDATE_DOCUMENTED
+F01.O14,F01,multi_horizon_momentum_agreement,momentum_observers,agreement/entropy across sanctioned horizons,multi,NO_SEARCH,L006;L019,CORE,derived redundancy must be monitored,CANDIDATE_DOCUMENTED
+F02.O01,F02,short_term_reversal,adjusted_return,negative lagged short return,1/2/5D,SMALL_SCALE_BANK,L007,CORE,bid-ask bounce and costs,CANDIDATE_DOCUMENTED
+F02.O02,F02,overnight_reversal,open_close,overnight move versus next-session response state,1/5D,SMALL_SCALE_BANK,L007,EXTENSION,session/calendar quality,CANDIDATE_DOCUMENTED
+F02.O03,F02,intraday_reversal,intraday_return,late versus early session reversal,intraday,DATA_FREQUENCY_DERIVED,L007,EXPERIMENTAL,requires reliable intraday bars,CANDIDATE_DOCUMENTED
+F02.O04,F02,distance_from_trend,close;trend_state,robust z-distance from past-only trend,21/63D,SMALL_SCALE_BANK,L007,CORE,trend estimate uncertainty,CANDIDATE_DOCUMENTED
+F02.O05,F02,market_residual_reversal,return;market_factor,short-horizon residual reversal,1/5/21D,SMALL_SCALE_BANK,L007,CORE,factor estimation risk,CANDIDATE_DOCUMENTED
+F02.O06,F02,sector_residual_reversal,return;sector_factor,deviation from sector state,5/21D,SMALL_SCALE_BANK,L007,EXTENSION,sector mapping,CANDIDATE_DOCUMENTED
+F02.O07,F02,pairs_normalized_distance,paired_prices,distance between normalized historical prices,63/126D,SMALL_SCALE_BANK,L008,CORE,pair stability and transaction costs,CANDIDATE_DOCUMENTED
+F02.O08,F02,cointegration_residual_state,paired_prices,past-only cointegration residual and z-state,126/252D,SMALL_SCALE_BANK,L008,EXTENSION,structural breaks,CANDIDATE_DOCUMENTED
+F02.O09,F02,post_gap_reversion,open;prior_close,gap magnitude and partial retracement,1/5D,SMALL_SCALE_BANK,L007,CORE,event confounding,CANDIDATE_DOCUMENTED
+F02.O10,F02,post_event_reversion,event;return,reversal after documented event reaction,1/5/21D,SMALL_SCALE_BANK,L037,EXTENSION,event type heterogeneity,CANDIDATE_DOCUMENTED
+F02.O11,F02,cluster_relative_deviation,cluster_state;features,distance to peer centroid after past-only clustering,21/63D,SMALL_SCALE_BANK,L008;L039,EXTENSION,cluster instability,CANDIDATE_DOCUMENTED
+F02.O12,F02,relative_valuation_reversion,fundamentals;peer_group,valuation spread to comparable group,quarterly/monthly,DATA_FREQUENCY_DERIVED,L009;L010,CORE,fundamental lag and accounting comparability,CANDIDATE_DOCUMENTED
+F03.O01,F03,book_to_market,book_equity;market_cap,reported book equity divided by contemporaneous market cap,quarterly/monthly,DATA_FREQUENCY_DERIVED,L010,CORE,negative book and reporting lag,CANDIDATE_DOCUMENTED
+F03.O02,F03,earnings_yield,earnings;market_cap,point-in-time earnings yield,quarterly/monthly,DATA_FREQUENCY_DERIVED,L010,CORE,cyclicality and special items,CANDIDATE_DOCUMENTED
+F03.O03,F03,cashflow_yield,cashflow;market_cap,operating/free cashflow yield variants,quarterly/monthly,SMALL_SCALE_BANK,L010,EXTENSION,cashflow definition differences,CANDIDATE_DOCUMENTED
+F03.O04,F03,sales_to_price,sales;market_cap,sales yield,quarterly/monthly,DATA_FREQUENCY_DERIVED,L010,EXTENSION,margin heterogeneity,CANDIDATE_DOCUMENTED
+F03.O05,F03,gross_profitability,gross_profit;assets,gross profits scaled by assets,quarterly/annual,DATA_FREQUENCY_DERIVED,L009,CORE,financial-sector comparability,CANDIDATE_DOCUMENTED
+F03.O06,F03,operating_profitability,operating_profit;book_equity,operating profitability,quarterly/annual,DATA_FREQUENCY_DERIVED,L010;L011,CORE,accounting definitions,CANDIDATE_DOCUMENTED
+F03.O07,F03,return_on_assets,net_income;assets,ROA level and change,quarterly/annual,SMALL_SCALE_BANK,L011,CORE,one-offs,CANDIDATE_DOCUMENTED
+F03.O08,F03,return_on_equity,net_income;equity,ROE level and change,quarterly/annual,SMALL_SCALE_BANK,L010,EXTENSION,leverage contamination,CANDIDATE_DOCUMENTED
+F03.O09,F03,margin_quality,gross_operating_margins,"level, trend and stability of margins",quarterly/annual,SMALL_SCALE_BANK,L009,CORE,sector comparability,CANDIDATE_DOCUMENTED
+F03.O10,F03,asset_growth,total_assets,lagged asset growth,annual/quarterly,SMALL_SCALE_BANK,L011,CORE,M&A and FX translation,CANDIDATE_DOCUMENTED
+F03.O11,F03,investment_to_assets,capex;assets,investment intensity and change,annual/quarterly,SMALL_SCALE_BANK,L010;L011,CORE,capitalization policy,CANDIDATE_DOCUMENTED
+F03.O12,F03,accruals_quality,income;cashflow;assets,accrual level and quality proxies,annual/quarterly,SMALL_SCALE_BANK,L001;L002,CORE,accounting restatements,CANDIDATE_DOCUMENTED
+F03.O13,F03,leverage_state,debt;assets;equity,book and market leverage state,quarterly/monthly,SMALL_SCALE_BANK,L014;L015,CORE,financial-sector conventions,CANDIDATE_DOCUMENTED
+F03.O14,F03,fundamental_momentum,fundamental_metrics,point-in-time change/acceleration across reports,quarterly,SMALL_SCALE_BANK,L009;L011,CORE,sparse updates and seasonality,CANDIDATE_DOCUMENTED
+F04.O01,F04,turnover,volume;shares_outstanding,volume divided by shares outstanding,5/21/63D,SMALL_SCALE_BANK,L012,CORE,shares data revisions,CANDIDATE_DOCUMENTED
+F04.O02,F04,amihud_illiquidity,absolute_return;dollar_volume,mean absolute return per dollar volume,21/63D,SMALL_SCALE_BANK,L012,CORE,small-volume instability,CANDIDATE_DOCUMENTED
+F04.O03,F04,quoted_spread,bid;ask,relative quoted spread,intraday/daily,DATA_FREQUENCY_DERIVED,L012,CORE,quote quality,CANDIDATE_DOCUMENTED
+F04.O04,F04,effective_spread_proxy,trade;midquote,signed/effective spread proxy,intraday/daily,DATA_FREQUENCY_DERIVED,L012,EXTENSION,trade classification,CANDIDATE_DOCUMENTED
+F04.O05,F04,staleness_zero_return,return;quotes,zero-return/unchanged-price frequency,21/63D,SMALL_SCALE_BANK,L012,CORE,price discreteness,CANDIDATE_DOCUMENTED
+F04.O06,F04,relative_volume_shock,volume,current volume versus causal baseline,5/21/63D,SMALL_SCALE_BANK,L012,CORE,event-driven spikes,CANDIDATE_DOCUMENTED
+F04.O07,F04,dollar_volume_rank,dollar_volume;universe,cross-sectional liquidity rank,21/63D,SMALL_SCALE_BANK,L012,CORE,universe dependence,CANDIDATE_DOCUMENTED
+F04.O08,F04,price_impact_asymmetry,return;volume,up/down price impact asymmetry,21/63D,SMALL_SCALE_BANK,L012,EXTENSION,sample size,CANDIDATE_DOCUMENTED
+F04.O09,F04,attention_burst,news_count;search_or_context,abnormal attention relative to source baseline,1/5/21D,SMALL_SCALE_BANK,L024;L025,CORE,coverage/source changes,CANDIDATE_DOCUMENTED
+F04.O10,F04,news_coverage_breadth,news_sources,number and diversity of independent sources,1/5/21D,SMALL_SCALE_BANK,L025,EXTENSION,duplicate syndication,CANDIDATE_DOCUMENTED
+F04.O11,F04,open_interest_concentration,option_open_interest,strike/maturity concentration and change,daily,DATA_FREQUENCY_DERIVED,L020;L021,EXTENSION,option coverage,CANDIDATE_DOCUMENTED
+F04.O12,F04,crowding_stress_composite,liquidity;correlation;attention;consensus,registered interaction of crowding ingredients,5/21D,FIXED_THEORY,L012;L016,EXPERIMENTAL,composite specification risk,CANDIDATE_DOCUMENTED
+F05.O01,F05,realized_vol_daily,intraday_or_daily_returns,realized variance/volatility,1D,DATA_FREQUENCY_DERIVED,L018,CORE,microstructure noise,CANDIDATE_DOCUMENTED
+F05.O02,F05,realized_vol_weekly,realized_vol,weekly average/aggregation,5D,FIXED_THEORY,L019,CORE,aggregation convention,CANDIDATE_DOCUMENTED
+F05.O03,F05,realized_vol_monthly,realized_vol,monthly average/aggregation,21D,FIXED_THEORY,L019,CORE,aggregation convention,CANDIDATE_DOCUMENTED
+F05.O04,F05,downside_semivariance,negative_returns,realized downside semivariance,5/21/63D,SMALL_SCALE_BANK,L018,CORE,few downside observations,CANDIDATE_DOCUMENTED
+F05.O05,F05,upside_semivariance,positive_returns,realized upside semivariance,5/21/63D,SMALL_SCALE_BANK,L018,EXTENSION,few upside observations,CANDIDATE_DOCUMENTED
+F05.O06,F05,realized_skewness,returns,realized/rolling skewness,21/63D,SMALL_SCALE_BANK,L018,CORE,unstable high moments,CANDIDATE_DOCUMENTED
+F05.O07,F05,realized_kurtosis,returns,realized/rolling kurtosis,21/63D,SMALL_SCALE_BANK,L018,EXTENSION,extreme estimator variance,CANDIDATE_DOCUMENTED
+F05.O08,F05,drawdown_depth,price,current and rolling maximum drawdown,21/63/252D,SMALL_SCALE_BANK,L013,CORE,path dependence,CANDIDATE_DOCUMENTED
+F05.O09,F05,drawdown_duration,price,time under water,21/63/252D,SMALL_SCALE_BANK,L013,CORE,right-censoring,CANDIDATE_DOCUMENTED
+F05.O10,F05,jump_variation,intraday_returns,jump component via realized/bipower measures,daily/weekly,DATA_FREQUENCY_DERIVED,L018,EXTENSION,requires intraday quality,CANDIDATE_DOCUMENTED
+F05.O11,F05,vol_of_vol,realized_vol,variability of realized volatility,21/63D,SMALL_SCALE_BANK,L019,CORE,estimation noise,CANDIDATE_DOCUMENTED
+F05.O12,F05,historical_var_state,returns,"historical quantile state, not forecast",21/63/252D,SMALL_SCALE_BANK,L013,CORE,sample tail size,CANDIDATE_DOCUMENTED
+F05.O13,F05,expected_shortfall_state,returns,average loss beyond historical quantile,63/252D,SMALL_SCALE_BANK,L013,CORE,tail sample scarcity,CANDIDATE_DOCUMENTED
+F05.O14,F05,common_tail_risk_loading,cross_sectional_crashes,loading/exposure to common tail state,63/252D,SMALL_SCALE_BANK,L013,EXTENSION,cross-sectional coverage,CANDIDATE_DOCUMENTED
+F05.O15,F05,variance_risk_premium_state,implied_variance;realized_variance,implied minus realized variation,21/63D,SMALL_SCALE_BANK,L020,CORE,option interpolation,CANDIDATE_DOCUMENTED
+F05.O16,F05,option_skew_crash_state,option_surface,put skew/smile state and change,daily/weekly,DATA_FREQUENCY_DERIVED,L020;L021,CORE,liquid option requirement,CANDIDATE_DOCUMENTED
+F06.O01,F06,market_beta,return;market_return,past-only rolling beta,63/126/252D,SMALL_SCALE_BANK,L035,CORE,beta instability,CANDIDATE_DOCUMENTED
+F06.O02,F06,downside_beta,return;market_downside,conditional downside beta,126/252D,SMALL_SCALE_BANK,L035,CORE,few stress observations,CANDIDATE_DOCUMENTED
+F06.O03,F06,upside_beta,return;market_upside,conditional upside beta,126/252D,SMALL_SCALE_BANK,L035,EXTENSION,few observations,CANDIDATE_DOCUMENTED
+F06.O04,F06,correlation_state,returns_panel,rolling correlations to market/sector,21/63/126D,SMALL_SCALE_BANK,L016,CORE,correlation estimation,CANDIDATE_DOCUMENTED
+F06.O05,F06,partial_correlation_state,returns_panel;controls,regularized partial correlation,63/126D,SMALL_SCALE_BANK,L016,EXTENSION,regularization choice,CANDIDATE_DOCUMENTED
+F06.O06,F06,dynamic_correlation_change,correlation_state,change/instability of correlation,21/63D,SMALL_SCALE_BANK,L016,CORE,second-order noise,CANDIDATE_DOCUMENTED
+F06.O07,F06,market_mode_share,correlation_matrix,largest eigenvalue share,21/63/126D,SMALL_SCALE_BANK,L016,CORE,universe dependence,CANDIDATE_DOCUMENTED
+F06.O08,F06,effective_rank,correlation_matrix,entropy/effective rank of eigenvalues,21/63/126D,SMALL_SCALE_BANK,L016,CORE,matrix conditioning,CANDIDATE_DOCUMENTED
+F06.O09,F06,connectedness_out,forecast_error_variance_decomposition,directional outgoing connectedness,63/126D,SMALL_SCALE_BANK,L016,EXTENSION,VAR dimensionality,CANDIDATE_DOCUMENTED
+F06.O10,F06,connectedness_in,forecast_error_variance_decomposition,directional incoming connectedness,63/126D,SMALL_SCALE_BANK,L016,EXTENSION,VAR dimensionality,CANDIDATE_DOCUMENTED
+F06.O11,F06,net_connectedness,connectedness,out minus in connectedness,63/126D,SMALL_SCALE_BANK,L016,EXTENSION,inherits FEVD errors,CANDIDATE_DOCUMENTED
+F06.O12,F06,frequency_connectedness,connectedness_spectrum,short/medium/long frequency bands,63/126/252D,SMALL_SCALE_BANK,L017,EXPERIMENTAL,complexity and sample length,CANDIDATE_DOCUMENTED
+F06.O13,F06,network_centrality,asset_network,degree/eigenvector/PageRank-like causal network state,63/126D,SMALL_SCALE_BANK,L016,EXTENSION,network construction risk,CANDIDATE_DOCUMENTED
+F06.O14,F06,conditional_systemic_risk_proxy,returns;system_state;fundamentals,CoVaR/SRISK input state without claiming full regulatory measure,126/252D,SMALL_SCALE_BANK,L014;L015,EXTENSION,requires institution-specific data,CANDIDATE_DOCUMENTED
+F07.O01,F07,term_spread,curve_points,long minus short yield/price-implied rate,daily/weekly,DATA_FREQUENCY_DERIVED,L036,CORE,instrument conventions,CANDIDATE_DOCUMENTED
+F07.O02,F07,curve_slope,term_structure,fitted slope,daily/weekly,DATA_FREQUENCY_DERIVED,L036,CORE,curve fit quality,CANDIDATE_DOCUMENTED
+F07.O03,F07,curve_curvature,term_structure,fitted curvature,daily/weekly,DATA_FREQUENCY_DERIVED,L036,EXTENSION,needs multiple tenors,CANDIDATE_DOCUMENTED
+F07.O04,F07,roll_down,term_structure,expected mechanical move along unchanged curve,daily/weekly,DATA_FREQUENCY_DERIVED,L036,CORE,constant-curve assumption,CANDIDATE_DOCUMENTED
+F07.O05,F07,futures_basis,spot;future,annualized futures-spot basis,daily,DATA_FREQUENCY_DERIVED,L036,CORE,funding/storage conventions,CANDIDATE_DOCUMENTED
+F07.O06,F07,basis_momentum,basis,change/persistence in basis,5/21/63D,SMALL_SCALE_BANK,L036,EXTENSION,contract rolls,CANDIDATE_DOCUMENTED
+F07.O07,F07,dividend_carry,price;dividend;rate,equity carry components,monthly/quarterly,DATA_FREQUENCY_DERIVED,L036,EXTENSION,dividend forecast availability,CANDIDATE_DOCUMENTED
+F07.O08,F07,fx_rate_differential,interest_rates;fx,currency carry differential,daily/weekly,DATA_FREQUENCY_DERIVED,L036,CORE,crash risk and funding currency,CANDIDATE_DOCUMENTED
+F07.O09,F07,option_term_carry,option_term_structure,theta/term-structure state aggregated to underlying,daily,DATA_FREQUENCY_DERIVED,L020;L036,EXTENSION,surface liquidity,CANDIDATE_DOCUMENTED
+F07.O10,F07,commodity_roll_yield,futures_curve,near/far curve roll state,daily/weekly,DATA_FREQUENCY_DERIVED,L036,CORE,contract specification,CANDIDATE_DOCUMENTED
+F07.O11,F07,cross_asset_carry_rank,carry_observers;universe,within-class standardized carry rank,weekly/monthly,DATA_FREQUENCY_DERIVED,L036,CORE,cross-class comparability,CANDIDATE_DOCUMENTED
+F08.O01,F08,growth_level_change_acceleration,activity_indicators,"level, first and second difference with vintages",monthly/quarterly,DATA_FREQUENCY_DERIVED,L022;L023,CORE,revisions and release lags,CANDIDATE_DOCUMENTED
+F08.O02,F08,inflation_level_change_acceleration,inflation_indicators,"level, change and acceleration",monthly,DATA_FREQUENCY_DERIVED,L022,CORE,base effects/revisions,CANDIDATE_DOCUMENTED
+F08.O03,F08,policy_rate_state,policy_rate,"level, change and distance to recent range",daily/meeting,DATA_FREQUENCY_DERIVED,L022,CORE,expectations not included unless sourced,CANDIDATE_DOCUMENTED
+F08.O04,F08,yield_curve_macro_state,yield_curve,slope/curvature/real-rate context,daily/weekly,DATA_FREQUENCY_DERIVED,L022;L023,CORE,term-premium interpretation,CANDIDATE_DOCUMENTED
+F08.O05,F08,real_rate_proxy,nominal_rate;inflation,real-rate proxy with matched horizons,monthly/daily,DATA_FREQUENCY_DERIVED,L022,EXTENSION,inflation expectation proxy,CANDIDATE_DOCUMENTED
+F08.O06,F08,credit_spread_state,credit_indices,level/change/percentile,daily/weekly,SMALL_SCALE_BANK,L014;L015,CORE,index composition,CANDIDATE_DOCUMENTED
+F08.O07,F08,financial_conditions_state,market_macro_components,registered composite and components,daily/weekly,FIXED_THEORY,L022,CORE,composite weighting,CANDIDATE_DOCUMENTED
+F08.O08,F08,liquidity_money_state,money_liquidity_indicators,level/change/growth with vintage,weekly/monthly,DATA_FREQUENCY_DERIVED,L022,EXTENSION,structural breaks,CANDIDATE_DOCUMENTED
+F08.O09,F08,dollar_or_funding_state,fx_funding_indices,level/change/stress percentile,daily/weekly,SMALL_SCALE_BANK,L036,EXTENSION,proxy choice,CANDIDATE_DOCUMENTED
+F08.O10,F08,energy_commodity_shock,energy_commodity_prices,standardized shock and persistence,5/21/63D,SMALL_SCALE_BANK,L022,CORE,asset-specific exposure needed,CANDIDATE_DOCUMENTED
+F08.O11,F08,macro_surprise_state,actual;consensus;release_time,standardized release surprise,event/monthly,DATA_FREQUENCY_DERIVED,L022,CORE,consensus history availability,CANDIDATE_DOCUMENTED
+F08.O12,F08,historical_macro_state_distance,macro_vector,distance to past-only historical states,monthly/weekly,SMALL_SCALE_BANK,L023;L039,EXTENSION,metric sensitivity,CANDIDATE_DOCUMENTED
+F08.O13,F08,regime_state_instability,macro_system_states,"contemporaneous disagreement/transition pressure, not forecast",weekly/monthly,FIXED_THEORY,L022,EXPERIMENTAL,may be mistaken for prediction,CANDIDATE_DOCUMENTED
+F09.O01,F09,time_to_earnings,calendar,time to authorized earnings event,daily,NO_SEARCH,L037,CORE,calendar accuracy,CANDIDATE_DOCUMENTED
+F09.O02,F09,earnings_surprise_state,reported;consensus,standardized point-in-time surprise,event,DATA_FREQUENCY_DERIVED,L037,CORE,consensus availability,CANDIDATE_DOCUMENTED
+F09.O03,F09,post_earnings_drift_state,surprise;past_return,elapsed time and cumulative reaction after event,1/5/21/63D,SMALL_SCALE_BANK,L037,CORE,does not use future drift,CANDIDATE_DOCUMENTED
+F09.O04,F09,time_to_dividend,corporate_actions,time to ex/payment dates,daily,NO_SEARCH,L036,EXTENSION,announcement revisions,CANDIDATE_DOCUMENTED
+F09.O05,F09,ex_dividend_state,corporate_actions;price,event-relative price/dividend state,event,DATA_FREQUENCY_DERIVED,L036,EXTENSION,tax/microstructure effects,CANDIDATE_DOCUMENTED
+F09.O06,F09,split_corporate_action_state,corporate_actions,event type and adjusted continuity checks,event,NO_SEARCH,L002,CORE,data errors can mimic alpha,CANDIDATE_DOCUMENTED
+F09.O07,F09,expiry_proximity,derivative_calendar,days/time to relevant expiry,daily/intraday,NO_SEARCH,L020,CORE,venue conventions,CANDIDATE_DOCUMENTED
+F09.O08,F09,rebalance_proximity,index_calendar,time to known rebalance/reconstitution,daily,NO_SEARCH,L025,EXTENSION,announcement versus effective date,CANDIDATE_DOCUMENTED
+F09.O09,F09,day_month_calendar_state,calendar,day-of-week/month/turn-of-period encoding,daily,FIXED_THEORY,L038,CORE,multiple testing risk,CANDIDATE_DOCUMENTED
+F09.O10,F09,same_month_seasonality,historical_returns,same-calendar-month historical state,monthly,FIXED_THEORY,L038,EXTENSION,small sample and decay,CANDIDATE_DOCUMENTED
+F09.O11,F09,holiday_session_state,calendar,pre/post holiday and shortened-session state,daily,NO_SEARCH,L038,EXTENSION,market-specific,CANDIDATE_DOCUMENTED
+F09.O12,F09,event_density,event_registry,count/diversity of events in causal window,1/5/21D,SMALL_SCALE_BANK,L037,EXTENSION,event classification,CANDIDATE_DOCUMENTED
+F10.O01,F10,sentiment_direction,text_evidence,directional tone with source/time metadata,event/daily,DATA_FREQUENCY_DERIVED,L024,CORE,domain language and negation,CANDIDATE_DOCUMENTED
+F10.O02,F10,evidence_strength,evidence_panel,quantity and quality-weighted support,event/daily,DATA_FREQUENCY_DERIVED,L024;L025,CORE,source independence,CANDIDATE_DOCUMENTED
+F10.O03,F10,source_credibility,source_registry,historical/source-level credibility state without future outcome,event,FIXED_THEORY,L025,CORE,governance and circularity,CANDIDATE_DOCUMENTED
+F10.O04,F10,news_novelty,documents;history,distance from prior same-entity information,event/daily,SMALL_SCALE_BANK,L024,CORE,embedding/version stability,CANDIDATE_DOCUMENTED
+F10.O05,F10,information_repetition,documents;history,duplicate/syndication/repetition intensity,event/daily,SMALL_SCALE_BANK,L025,CORE,near-duplicate threshold,CANDIDATE_DOCUMENTED
+F10.O06,F10,contradiction_score,evidence_graph,conflicting claims and evidence edges,event/daily,DATA_FREQUENCY_DERIVED,L024,EXTENSION,NLP extraction error,CANDIDATE_DOCUMENTED
+F10.O07,F10,agent_disagreement,agent_beliefs,dispersion and sign disagreement,daily/cycle,FIXED_THEORY,L024,CORE,agent dependence,CANDIDATE_DOCUMENTED
+F10.O08,F10,polarization,agent_beliefs,bimodality/concentration at opposing views,daily/cycle,FIXED_THEORY,L024,EXTENSION,small agent population,CANDIDATE_DOCUMENTED
+F10.O09,F10,hypothesis_diversity,hypothesis_registry,entropy/effective number of active hypotheses,cycle,FIXED_THEORY,L001,CORE,quantity does not equal quality,CANDIDATE_DOCUMENTED
+F10.O10,F10,narrative_shift,context_memory;current_evidence,distance/change from prior narrative state,1/5/21D,SMALL_SCALE_BANK,L024;L025,CORE,representation drift,CANDIDATE_DOCUMENTED
+F10.O11,F10,attention_persistence,news_attention,decay/persistence of attention,1/5/21D,SMALL_SCALE_BANK,L025,EXTENSION,source coverage shifts,CANDIDATE_DOCUMENTED
+F10.O12,F10,minority_view_strength,agent_beliefs;evidence,quality-weighted strongest minority view,cycle/daily,FIXED_THEORY,L001,CORE,minority may be noise,CANDIDATE_DOCUMENTED
+F10.O13,F10,confidence_weighted_consensus,beliefs;confidence;quality,consensus with explicit independence weights,cycle/daily,FIXED_THEORY,L024,CORE,confidence calibration,CANDIDATE_DOCUMENTED
+F10.O14,F10,social_contagion_state,social_graph;belief_updates,propagation speed/reach and centrality,cycle/daily,DATA_FREQUENCY_DERIVED,L016;L025,EXTENSION,endogeneity and graph quality,CANDIDATE_DOCUMENTED

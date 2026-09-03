@@ -1,0 +1,108 @@
+{
+  "context": {
+    "run_id": "run-001",
+    "cycle_id": "cycle-001",
+    "trace_id": "trace-001",
+    "decision_time": "2026-08-03T18:00:00Z",
+    "observed_at": "2026-08-03T18:01:00Z",
+    "policy_version": "runtime-v1"
+  },
+  "shift_request": {
+    "context": {
+      "run_id": "run-001",
+      "cycle_id": "cycle-001",
+      "trace_id": "trace-001",
+      "decision_time": "2026-08-03T18:00:00Z",
+      "observed_at": "2026-08-03T18:01:00Z",
+      "policy_version": "runtime-v1"
+    },
+    "observations": [
+      {
+        "metric_name": "portfolio_return",
+        "family": "MARKET",
+        "value": 0.1,
+        "baseline_mean": 0.0,
+        "baseline_std": 1.0,
+        "observed_at": "2026-08-03T18:01:00Z"
+      }
+    ],
+    "prior_states": [
+      {
+        "metric_name": "portfolio_return",
+        "count": 9,
+        "ewma_z": 0.0,
+        "cusum_positive": 0.0,
+        "cusum_negative": 0.0,
+        "last_observed_at": "2026-08-03T18:00:00Z"
+      }
+    ],
+    "policy": {
+      "alpha": 0.2,
+      "drift_allowance": 0.1,
+      "mild_threshold": 2.0,
+      "material_threshold": 4.0,
+      "critical_threshold": 7.0,
+      "minimum_observations": 5,
+      "maximum_observation_age_seconds": 300
+    }
+  },
+  "invariant_request": {
+    "context": {
+      "run_id": "run-001",
+      "cycle_id": "cycle-001",
+      "trace_id": "trace-001",
+      "decision_time": "2026-08-03T18:00:00Z",
+      "observed_at": "2026-08-03T18:01:00Z",
+      "policy_version": "runtime-v1"
+    },
+    "snapshot": {
+      "received_candidate_count": 2,
+      "terminal_candidate_count": 2,
+      "order_total_quantity": "10",
+      "filled_quantity": "6",
+      "cancelled_quantity": "2",
+      "rejected_quantity": "0",
+      "open_quantity": "2",
+      "virtual_exposure_total": "100",
+      "physical_allocated_total": "100",
+      "opening_cash": "1000",
+      "net_cash_flows": "-10",
+      "closing_cash": "990",
+      "margin_used": "100",
+      "margin_limit": "1000",
+      "maximum_loss": "50",
+      "maximum_loss_limit": "200",
+      "quote_age_seconds": 10,
+      "maximum_quote_age_seconds": 60,
+      "lifecycle_consistent": true,
+      "settlement_consistent": true,
+      "expected_state_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actual_state_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "policy": {
+      "quantity_tolerance": "0.0001",
+      "money_tolerance": "0.01",
+      "exposure_tolerance": "0.0001",
+      "minimum_margin_headroom_ratio": "0.10"
+    }
+  },
+  "exposure_state": {
+    "has_unhedged_partial_fill": false,
+    "margin_headroom_ratio": "0.90",
+    "safe_cancel_available": true,
+    "safe_hedge_available": true,
+    "safe_flatten_available": true,
+    "market_access_available": true
+  },
+  "supervisor_policy": {
+    "policy_id": "supervisor-v1",
+    "valid_until": "2026-08-04T18:00:00Z",
+    "material_shift_mode": "HOLD_NO_NEW_RISK",
+    "critical_margin_mode": "CONTROLLED_FLATTEN",
+    "state_inconsistent_mode": "HOLD_NO_NEW_RISK"
+  },
+  "shadow_request": null,
+  "adaptation_requests": [],
+  "adaptation_bounds": [],
+  "source_artifacts": []
+}

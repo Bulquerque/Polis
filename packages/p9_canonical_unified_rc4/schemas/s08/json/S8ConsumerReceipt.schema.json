@@ -1,0 +1,79 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "consumer_module_id": {
+      "pattern": "^P9\\.S8\\.M0[1-8]$",
+      "title": "Consumer Module Id",
+      "type": "string"
+    },
+    "source_contract_name": {
+      "minLength": 1,
+      "title": "Source Contract Name",
+      "type": "string"
+    },
+    "source_contract_version": {
+      "minLength": 1,
+      "title": "Source Contract Version",
+      "type": "string"
+    },
+    "source_bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Bundle Sha256",
+      "type": "string"
+    },
+    "input_ref_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Input Ref Ids",
+      "type": "array"
+    },
+    "accepted_ref_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Accepted Ref Ids",
+      "type": "array"
+    },
+    "rejected_ref_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Rejected Ref Ids",
+      "type": "array"
+    },
+    "reserved_ref_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reserved Ref Ids",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "consumer_module_id",
+    "source_contract_name",
+    "source_contract_version",
+    "source_bundle_sha256",
+    "input_ref_ids",
+    "accepted_ref_ids"
+  ],
+  "title": "S8ConsumerReceipt",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:S8ConsumerReceipt:1.0.0"
+}

@@ -1,0 +1,214 @@
+{
+  "families": [
+    {
+      "objective_family": "RANGE",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "DIRECTIONAL_UP",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "DIRECTIONAL_DOWN",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "LONG_VOLATILITY",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "SHORT_VOLATILITY_DEFINED_RISK",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "TAIL_HEDGE",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "INCOME_DEFINED_RISK",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "SKEW_RELATIVE_VALUE",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "TERM_STRUCTURE",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "EVENT",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "PORTFOLIO_HEDGE",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "HYBRID",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    },
+    {
+      "objective_family": "POSITIVE_CONVEXITY",
+      "optional_metric_ids": [
+        "return_on_max_loss",
+        "payoff_fit_error",
+        "worst_ambiguity_utility"
+      ],
+      "required_metric_ids": [
+        "expected_net_payoff",
+        "expected_shortfall",
+        "maximum_loss",
+        "probability_of_profit",
+        "entry_cost",
+        "liquidity_score"
+      ]
+    }
+  ],
+  "registry_id": "p7_objective_family_registry",
+  "registry_version": "2.3.0"
+}

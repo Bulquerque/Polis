@@ -1,0 +1,19 @@
+module_id: P9.CL4.M02
+module_name: retro_experiment_record_initializer
+authority_phase: P9
+status: planned_cross_phase_blueprint
+inputs:
+- retro_change_proposal
+- research_budget_ledger_snapshot
+outputs:
+- pending_retro_experiment_record
+forbidden_actions:
+- mutate_current_cycle
+- change_person_genome_directly
+- promote_without_statistical_evidence
+tests_required:
+- schema
+- lineage
+- blind_holdout
+- one_change
+- result_finalization

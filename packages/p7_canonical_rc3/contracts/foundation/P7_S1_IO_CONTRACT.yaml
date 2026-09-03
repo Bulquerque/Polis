@@ -1,0 +1,31 @@
+contract_id: p7_s1_io_contract_2_2
+contract_version: 2.0.0
+producer: P6_AND_P9
+consumer: P7.S1
+inputs:
+  mandatory:
+    - phase7_strategy_handoff_manifest
+    - declared_p6_artifacts
+  optional_pair:
+    - ranking_feedback_report
+    - ranking_feedback_manifest
+outputs:
+  - verified_p6_artifact_index
+  - p6_handoff_validation_report
+  - validated_strategy_candidate_bundle
+  - candidate_reconciliation_report
+  - orphan_record_report
+  - temporally_safe_candidate_bundle
+  - temporal_integrity_report
+  - forbidden_field_report
+  - ranking_feedback_context
+  - feedback_validation_report
+invariants:
+  - no_undeclared_p6_artifact
+  - exact_hash_reconciliation
+  - candidate_identity_reconciled
+  - no_orphan_mandatory_record
+  - available_at_not_after_decision_time
+  - forbidden_fields_absent_recursively
+  - feedback_previous_cycle_only
+  - output_order_deterministic

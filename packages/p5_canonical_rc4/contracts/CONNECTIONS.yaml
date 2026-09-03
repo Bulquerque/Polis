@@ -1,0 +1,20 @@
+generated_from: phase architecture
+allowed:
+- source: P4
+  target: P5
+  purpose: point-in-time feature views
+- source: P9
+  target: P5
+  plane: PRIOR_CYCLE_ONLY
+  purpose: promoted feedback
+- source: P5.S1
+  target: P5.S2-P5.S7
+- source: P5.S3-P5.S7
+  target: P5.S8
+- source: P5.S8
+  target: P5.S9
+forbidden:
+- training_targets_in_runtime_inference
+- current_cycle_P9_feedback
+- future_outcome_access
+- strategy_optimization_inside_P5

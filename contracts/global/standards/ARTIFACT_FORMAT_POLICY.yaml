@@ -1,0 +1,15 @@
+policy_id: artifact_format_policy_v14_1_rc4_1
+formats:
+  panel_large: parquet
+  contract: yaml
+  schema: schema.yaml
+  manifest: csv
+  structured_report: json
+  human_report: md
+  execution_log: jsonl
+  diagram_source: mmd
+  diagram_render: png
+forbidden:
+  - pickle_for_cross_phase_artifacts
+  - undocumented_binary_artifact
+  - raw_excel_as_contract

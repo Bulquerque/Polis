@@ -1,0 +1,24 @@
+schema_id: p3.s36.market_derivatives_tool_catalog.v1
+schema_version: 1.0.0
+provider_id: internal_research
+transport: ARTIFACT_QUERY
+read_only: true
+point_in_time_required: true
+tools:
+  market.observation.v1:
+    title: Market Observation
+    forbidden_authorities: [signal_generation, ranking, portfolio_optimization, backtest]
+    operations:
+      get_snapshot: [OBSERVE, DIAGNOSTIC]
+      get_history: [OBSERVE, DIAGNOSTIC, STRUCTURAL]
+      get_liquidity: [DIAGNOSTIC, STRUCTURAL]
+      get_corporate_actions: [OBSERVE, DIAGNOSTIC]
+      compare_instruments: [STRUCTURAL]
+  options.observation.v1:
+    title: Options Observation
+    forbidden_authorities: [strategy_generation, candidate_generation, pricing_authority, trade_decision]
+    operations:
+      get_contracts: [CONTRACT_LOOKUP]
+      get_chain_snapshot: [CONTRACT_LOOKUP, CHAIN_DIAGNOSTIC]
+      get_quote_history: [STRUCTURE_HISTORY]
+      get_surface_diagnostics: [SURFACE_ANALYSIS]

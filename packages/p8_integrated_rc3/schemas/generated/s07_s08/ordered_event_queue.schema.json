@@ -1,0 +1,110 @@
+{
+  "$defs": {
+    "StatefulEventEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "apply_at": {
+          "format": "date-time",
+          "title": "Apply At",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "event_key": {
+          "minLength": 1,
+          "title": "Event Key",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/StatefulEventKind"
+        },
+        "payload": {
+          "title": "Payload"
+        },
+        "priority": {
+          "$ref": "#/$defs/StatefulPriority"
+        },
+        "source_sequence": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Source Sequence",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "event_key",
+        "event_time",
+        "available_at",
+        "apply_at",
+        "priority",
+        "kind",
+        "payload"
+      ],
+      "title": "StatefulEventEnvelope",
+      "type": "object"
+    },
+    "StatefulEventKind": {
+      "enum": [
+        "ORDER_EVENT",
+        "FILL_EVENT",
+        "EXERCISE",
+        "ASSIGNMENT",
+        "EXPIRATION",
+        "CASH_SETTLEMENT",
+        "CORPORATE_ACTION",
+        "MARGIN_CHANGE",
+        "COLLATERAL_TRANSFER",
+        "CASH_ADJUSTMENT",
+        "BORROW_FEE",
+        "FEE",
+        "MARK",
+        "RUNTIME_COMMAND",
+        "MANAGEMENT_SIGNAL"
+      ],
+      "title": "StatefulEventKind",
+      "type": "string"
+    },
+    "StatefulPriority": {
+      "enum": [
+        10,
+        50,
+        55,
+        60,
+        70,
+        80,
+        100
+      ],
+      "title": "StatefulPriority",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/StatefulEventEnvelope"
+      },
+      "title": "Events",
+      "type": "array"
+    }
+  },
+  "required": [
+    "events",
+    "content_sha256"
+  ],
+  "title": "OrderedEventQueue",
+  "type": "object"
+}

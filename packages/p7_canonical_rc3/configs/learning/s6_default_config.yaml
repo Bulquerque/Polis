@@ -1,0 +1,28 @@
+context:
+  run_id: s6-fixture-run
+  cycle_id: cycle-runtime
+  decision_time: '2025-03-01T14:30:00Z'
+  created_at: '2025-03-01T14:30:01Z'
+  pipeline_version: P7-2.3
+  lineage_id: lineage-s6-fixture
+  available_at: '2025-03-01T14:30:00Z'
+runtime_policy:
+  requested_mode: HYBRID_QUALIFIED
+  fallback_mode: INTERPRETABLE_ONLY
+  allowed_implementation_ids:
+  - numpy_pairwise_linear_ranknet_v1
+  - numpy_pointwise_ridge_v1
+  required_target_id: realized_net_utility_v1
+  required_target_policy_version: 1.0.0
+  required_interpretable_scale_id: realized_net_utility_v1
+  min_training_lag_seconds: 1.0
+confidence_policy:
+  policy_version: confidence-min-stages-v1
+  min_calibration_queries: 4
+  max_fold_ndcg_std: 0.2
+  minimum_hybrid_confidence: 0.4
+blend_policy:
+  policy_version: hybrid-confidence-shrink-v1
+  interpretable_weight: 0.6
+  ltr_weight: 0.4
+learning_handoff_contract_version: 1.0.0

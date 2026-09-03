@@ -1,0 +1,12 @@
+phase: phase_01_ingestion
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+default_rule: anything not explicitly allowed by contracts is forbidden

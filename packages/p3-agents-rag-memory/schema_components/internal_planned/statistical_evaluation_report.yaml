@@ -1,0 +1,40 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Statistical Evaluation Report
+type: object
+additionalProperties: false
+properties:
+  experiment_id: &id001
+    type: string
+  paired_design: &id002
+    type: boolean
+  bootstrap_method: *id001
+  bootstrap_replicates:
+    type: integer
+    minimum: 1
+  delta_metrics:
+    type: object
+  confidence_intervals:
+    type: object
+  multiple_testing_adjustment: *id001
+  deflated_sharpe:
+    type:
+    - number
+    - 'null'
+  pbo:
+    type:
+    - number
+    - 'null'
+  holdout_status: *id001
+  promotion_evidence_complete: *id002
+  lineage_id: *id001
+required:
+- experiment_id
+- paired_design
+- bootstrap_method
+- bootstrap_replicates
+- delta_metrics
+- confidence_intervals
+- multiple_testing_adjustment
+- holdout_status
+- promotion_evidence_complete
+- lineage_id

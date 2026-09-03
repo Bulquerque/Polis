@@ -1,0 +1,21 @@
+schema_version: p3.s21.v1
+contract_version: 1.0.0
+required_fields:
+  - audit_id
+  - tool_call_request_id
+  - execution_id
+  - cognition_transaction_id
+  - person_id
+  - provider_id
+  - tool_id
+  - operation_id
+  - status
+  - started_at
+  - finished_at
+  - latency_ms
+  - cost_units
+  - retry_count
+  - request_hash
+  - credential_handle_used
+  - arguments_redacted
+redact_fields: [api_key, authorization, access_token, refresh_token, password, cookie]

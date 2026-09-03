@@ -1,0 +1,25 @@
+version: 2.3.1rc3
+transitions:
+  - id: FOUNDATION_TO_TOURNAMENT
+    producer_subphase: P7.S2
+    consumer_subphase: P7.S3
+    transition_function: prepare_tournament_inputs
+    manifest_artifact: runtime_foundation_handoff_manifest
+    policy: explicit_typed_normalization
+  - id: TOURNAMENT_TO_LEARNING
+    producer_subphase: P7.S4
+    consumer_subphase: P7.S6
+    transition_function: prepare_learning_inputs
+    manifest_artifact: interpretable_tournament_handoff_manifest
+    policy: explicit_typed_normalization
+  - id: LEARNING_TO_FINALIZATION
+    producer_subphase: P7.S6
+    consumer_subphase: P7.S7
+    transition_function: prepare_finalization_inputs
+    manifest_artifact: hybrid_scoring_handoff_manifest
+    policy: explicit_typed_normalization
+  - id: P7_TO_P8
+    producer_subphase: P7.S8
+    consumer_phase: P8
+    manifest_artifact: phase8_strategy_ranking_handoff_manifest
+    policy: content_addressed_fail_closed

@@ -1,0 +1,184 @@
+{
+  "$defs": {
+    "JsonValue": {},
+    "ObjectiveFamily": {
+      "enum": [
+        "DIRECTIONAL_UP",
+        "DIRECTIONAL_DOWN",
+        "RANGE",
+        "LONG_VOLATILITY",
+        "SHORT_VOLATILITY_DEFINED_RISK",
+        "POSITIVE_CONVEXITY",
+        "TAIL_HEDGE",
+        "INCOME_DEFINED_RISK",
+        "SKEW_RELATIVE_VALUE",
+        "TERM_STRUCTURE",
+        "EVENT",
+        "PORTFOLIO_HEDGE",
+        "HYBRID"
+      ],
+      "title": "ObjectiveFamily",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Wave 2 target-payoff contract; capability is unavailable in Wave 1.",
+  "properties": {
+    "ambiguity_set_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ambiguity Set Id"
+    },
+    "belief_state_id": {
+      "title": "Belief State Id",
+      "type": "string"
+    },
+    "complexity_budget": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Complexity Budget"
+    },
+    "cost_budget": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Cost Budget"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "desired_payoff": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Desired Payoff",
+      "type": "array"
+    },
+    "desired_wealth_distribution": {
+      "default": [],
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Desired Wealth Distribution",
+      "type": "array"
+    },
+    "horizon_days": {
+      "exclusiveMinimum": 0,
+      "title": "Horizon Days",
+      "type": "integer"
+    },
+    "objective_family": {
+      "$ref": "#/$defs/ObjectiveFamily"
+    },
+    "path_constraints": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Path Constraints",
+      "type": "object"
+    },
+    "risk_budget": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Risk Budget"
+    },
+    "tail_constraints": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Tail Constraints",
+      "type": "object"
+    },
+    "target_payoff_id": {
+      "title": "Target Payoff Id",
+      "type": "string"
+    },
+    "terminal_state_grid": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Terminal State Grid",
+      "type": "array"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_payoff_id",
+    "underlying_id",
+    "decision_time",
+    "horizon_days",
+    "objective_family",
+    "terminal_state_grid",
+    "desired_payoff",
+    "belief_state_id"
+  ],
+  "title": "TargetPayoff",
+  "type": "object"
+}

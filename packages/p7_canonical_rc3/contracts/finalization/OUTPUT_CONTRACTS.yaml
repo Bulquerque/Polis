@@ -1,0 +1,24 @@
+contract_id: p7_to_p8_strategy_ranking_handoff
+contract_version: 2.0.0
+semantic_version: p7_strategy_ranking_semantics_v1
+producer: P7.S8.M03
+consumer: P8
+manifest: phase8_strategy_ranking_handoff_manifest
+required_artifacts:
+  - ranked_strategy_candidate_panel
+  - ranking_tie_report
+  - ranking_group_summary_panel
+  - strategy_thesis_card_panel
+  - ranking_trace_panel
+  - ranking_audit_report
+  - ranked_strategy_execution_context_snapshot
+  - compatibility_projection_report
+invariants:
+  - ranks_reset_per_comparison_group
+  - deterministic_lexicographic_order
+  - economic_ties_reported_before_candidate_id_tiebreak
+  - ranked_candidates_have_complete_execution_context_references
+  - no_economic_defaults
+  - multi_leg_context_preserved
+  - candidate_conservation
+  - content_addressed_references

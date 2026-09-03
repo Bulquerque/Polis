@@ -1,0 +1,33 @@
+schema_id: p3.research_tools.context_descriptor_policy.v1
+schema_version: 1.0.0
+policy_version: 1.0.0
+tokenizer_mode: DETERMINISTIC_REGEX
+section_header: AUTHORIZED_RESEARCH_TOOLS
+max_descriptor_tokens: 1500
+max_operations_per_tool: 12
+include_examples: true
+max_example_characters: 180
+preserve_section_types: [PERSON_IDENTITY, PRIOR_BELIEFS, RETRIEVED_EVIDENCE]
+mandatory_instructions:
+- Use only the listed tool IDs and operation IDs.
+- Set request as_of exactly to the context decision time.
+- Never include credentials, secrets, file paths, or provider tokens.
+- Do not request trade execution, signals, feature selection, model selection, portfolio optimization, or backtests.
+- Treat EMPTY_VALID, DEGRADED, and BLOCKED_UPSTREAM as material outcomes.
+operation_examples:
+  research.corpus.v1/search:
+    query: operating margin pressure
+    entity_id: entity_example
+    research_mode: STANDARD
+  market.observation.v1/get_history:
+    instrument_id: instrument_example
+    lookback: P1Y
+    research_mode: DIAGNOSTIC
+  macro.observation.v1/get_observations:
+    series_ids: [series_example]
+    vintage_policy: KNOWN_AT_DECISION_TIME
+    research_mode: CONTEXT
+  quant.diagnostics.v1/realized_volatility:
+    instrument_id: instrument_example
+    lookback: P90D
+    research_mode: BASIC

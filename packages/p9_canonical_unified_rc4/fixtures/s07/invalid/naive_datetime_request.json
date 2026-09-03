@@ -1,0 +1,4103 @@
+{
+  "header": {
+    "contract_name": "P9_S7_PROSPECTIVE_MONITORING_BUNDLE_V1",
+    "contract_version": "1.0.0",
+    "run_id": "run-1",
+    "cycle_id": "cycle-1",
+    "created_at": "2026-01-02T12:00:00"
+  },
+  "upstream": {
+    "foundation_bundle": {
+      "artifact_id": "upstream-1",
+      "artifact_type": "P9_FOUNDATION_EXPERIMENT_BUNDLE_V1",
+      "artifact_schema_name": "P9_FOUNDATION_EXPERIMENT_BUNDLE_V1",
+      "artifact_schema_version": "1.0.0",
+      "artifact_schema_sha256": "6f6150d77e1e6d8c6360638e4761edebbd140830e7d4dbce46c32ec3568b9e6e",
+      "content_sha256": "1ef0ae7bbe4ce6c99ab744fe8c27582178d69c660538ef6a4b201cf5a944e17a",
+      "producer_module_id": "P9.S1.M06",
+      "run_id": "run-1",
+      "cycle_id": "cycle-1",
+      "decision_time": "2026-01-02T12:00:00Z",
+      "available_at": "2026-01-02T11:00:00Z",
+      "computed_at": "2026-01-02T11:30:00Z",
+      "maturity_at": null,
+      "uri": "artifact://upstream/1",
+      "availability": "AVAILABLE"
+    },
+    "backtest_metrics_bundle": {
+      "artifact_id": "upstream-2",
+      "artifact_type": "P9_BACKTEST_METRICS_BUNDLE_V1",
+      "artifact_schema_name": "P9_BACKTEST_METRICS_BUNDLE_V1",
+      "artifact_schema_version": "1.0.0",
+      "artifact_schema_sha256": "507c771a8ec9cab560f38c19171cc3737348a8194b1bbc2f02549ae88f547494",
+      "content_sha256": "3460ebae1c45bfd069074b365281354cfdf41b82ffb05c7eedd6775446fcd3a4",
+      "producer_module_id": "P9.S4.M08",
+      "run_id": "run-1",
+      "cycle_id": "cycle-1",
+      "decision_time": "2026-01-02T12:00:00Z",
+      "available_at": "2026-01-02T11:00:00Z",
+      "computed_at": "2026-01-02T11:30:00Z",
+      "maturity_at": null,
+      "uri": "artifact://upstream/2",
+      "availability": "AVAILABLE"
+    },
+    "robustness_stress_bundle": {
+      "artifact_id": "upstream-3",
+      "artifact_type": "P9_ROBUSTNESS_STRESS_BUNDLE_V1",
+      "artifact_schema_name": "P9_ROBUSTNESS_STRESS_BUNDLE_V1",
+      "artifact_schema_version": "1.0.0",
+      "artifact_schema_sha256": "5be44ee3dcbfdc72a04a476ad0faebec25ee7c2c2f581263077c4fc0ef7cf4f7",
+      "content_sha256": "971212bd7810de3b6630bf22a40a0e85d0360ee99f74e58e6b1ed8668b157501",
+      "producer_module_id": "P9.S6.M08",
+      "run_id": "run-1",
+      "cycle_id": "cycle-1",
+      "decision_time": "2026-01-02T12:00:00Z",
+      "available_at": "2026-01-02T11:00:00Z",
+      "computed_at": "2026-01-02T11:30:00Z",
+      "maturity_at": null,
+      "uri": "artifact://upstream/3",
+      "availability": "AVAILABLE"
+    },
+    "consumer_receipts": [
+      {
+        "consumer_module_id": "P9.S7.M01",
+        "source_contract_name": "P9_FOUNDATION_EXPERIMENT_BUNDLE_V1",
+        "source_contract_version": "1.0.0",
+        "source_bundle_sha256": "1ef0ae7bbe4ce6c99ab744fe8c27582178d69c660538ef6a4b201cf5a944e17a",
+        "input_ref_ids": [
+          "upstream-1"
+        ],
+        "accepted_ref_ids": [
+          "upstream-1"
+        ],
+        "rejected_ref_ids": [],
+        "reserved_ref_ids": [],
+        "reason_codes": []
+      },
+      {
+        "consumer_module_id": "P9.S7.M01",
+        "source_contract_name": "P9_BACKTEST_METRICS_BUNDLE_V1",
+        "source_contract_version": "1.0.0",
+        "source_bundle_sha256": "3460ebae1c45bfd069074b365281354cfdf41b82ffb05c7eedd6775446fcd3a4",
+        "input_ref_ids": [
+          "upstream-2"
+        ],
+        "accepted_ref_ids": [
+          "upstream-2"
+        ],
+        "rejected_ref_ids": [],
+        "reserved_ref_ids": [],
+        "reason_codes": []
+      },
+      {
+        "consumer_module_id": "P9.S7.M01",
+        "source_contract_name": "P9_ROBUSTNESS_STRESS_BUNDLE_V1",
+        "source_contract_version": "1.0.0",
+        "source_bundle_sha256": "971212bd7810de3b6630bf22a40a0e85d0360ee99f74e58e6b1ed8668b157501",
+        "input_ref_ids": [
+          "upstream-3"
+        ],
+        "accepted_ref_ids": [
+          "upstream-3"
+        ],
+        "rejected_ref_ids": [],
+        "reserved_ref_ids": [],
+        "reason_codes": []
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "event_id": "p0",
+      "cohort_id": "cohort-p0",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-21T12:00:00Z",
+      "information_set_hash": "9854efbeb68062fa6136bc40f0d27ee7b773e0d0389ac9ddd808810ac7fe8c30",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p0",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p1",
+      "cohort_id": "cohort-p1",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-22T12:00:00Z",
+      "information_set_hash": "a8d662aaaf8b606435e40b8bf9b7134f1a9f9f19d387b6520033f60e32f2df96",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p1",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p2",
+      "cohort_id": "cohort-p2",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-23T12:00:00Z",
+      "information_set_hash": "c991de926e18ecfbca2f865016fd301ebd5dd2c7828a9b52e62c413034a613b7",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p2",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p3",
+      "cohort_id": "cohort-p3",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-24T12:00:00Z",
+      "information_set_hash": "624371eb6c2a1267df6bf9e36cf731523065539a13696f43edfda7a549c883f4",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p3",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p4",
+      "cohort_id": "cohort-p4",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-25T12:00:00Z",
+      "information_set_hash": "f1caa42119d85585824f65dcc3e640255eb59ae5cc23c9c2da70098a14149886",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p4",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p5",
+      "cohort_id": "cohort-p5",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-26T12:00:00Z",
+      "information_set_hash": "31975e1a7a6b737df2d931ceb3cfff628d2b21b4003aaa61aba563409bf54ba6",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p5",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p6",
+      "cohort_id": "cohort-p6",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-27T12:00:00Z",
+      "information_set_hash": "3f08f0b07f042192b7dd222fc2ffd69a6a82fcf8b4de8ed93ac1b25119c676a6",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p6",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p7",
+      "cohort_id": "cohort-p7",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-28T12:00:00Z",
+      "information_set_hash": "6aed6d506960cc1ad4197661d515a43bc7b1abe3b4133bf234a0672ab1eb634f",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p7",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p8",
+      "cohort_id": "cohort-p8",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-29T12:00:00Z",
+      "information_set_hash": "623b6d54acf0553fc40f5bff9532f65d54db8dd80b3b259aa43e48a29316078c",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p8",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p9",
+      "cohort_id": "cohort-p9",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-11-30T12:00:00Z",
+      "information_set_hash": "d47798899ec835292463d4de3d4d8d75b19ca81bfd80dcd2f767aa1eb5436b0d",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p9",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p10",
+      "cohort_id": "cohort-p10",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-01T12:00:00Z",
+      "information_set_hash": "7fb1aecbdc33eb2fbd333db93bbc83d7153108673c0e489cf791415dd1d22b1f",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p10",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p11",
+      "cohort_id": "cohort-p11",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-02T12:00:00Z",
+      "information_set_hash": "1f002307610c153ee59339887f9e1ac7c15507553b18c5c61a3b125c6ab521e6",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p11",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p12",
+      "cohort_id": "cohort-p12",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-03T12:00:00Z",
+      "information_set_hash": "6af0b3a6bec5d8bbc92ba996646ff10c6ffe8fefc9206fae7041dac55beb8369",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p12",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p13",
+      "cohort_id": "cohort-p13",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-04T12:00:00Z",
+      "information_set_hash": "270fcfee2b088edaabb1cd5af2eaa432db27031c7560b182ddda6c35e34472f7",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p13",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p14",
+      "cohort_id": "cohort-p14",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-05T12:00:00Z",
+      "information_set_hash": "8ef519b0075d84f997d739331e150e55fc879b1475e221c9ff2a8290a81d37f0",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p14",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p15",
+      "cohort_id": "cohort-p15",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-06T12:00:00Z",
+      "information_set_hash": "021ad69d1a9c18d81cf3e2d3e4ada87145ed8e6431e86c2b0a714c5d5ad1b16e",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p15",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p16",
+      "cohort_id": "cohort-p16",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-07T12:00:00Z",
+      "information_set_hash": "e64f85ed1bda4e2e1757e1b749fb25e0953c520654977c1b99b05b2c503ec234",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p16",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p17",
+      "cohort_id": "cohort-p17",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-08T12:00:00Z",
+      "information_set_hash": "1b05a94afadf3cd044b6a8a0177f250786e342b1e4fce1c07b85c3dc3e127667",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p17",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p18",
+      "cohort_id": "cohort-p18",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-09T12:00:00Z",
+      "information_set_hash": "f4e704e37d1d5b458825435aee764906bd748f9f65d8330a2d29b817c97a0a50",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p18",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p19",
+      "cohort_id": "cohort-p19",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-10T12:00:00Z",
+      "information_set_hash": "b66a8b69206ffed0684b2e8c28fad193a5e4ba502eb84d02bbf958b3f2bc941e",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p19",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p20",
+      "cohort_id": "cohort-p20",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-11T12:00:00Z",
+      "information_set_hash": "db59e99ea451412c45d5b0307eba2dc73ad7123901a653366468d0689532a74d",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p20",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p21",
+      "cohort_id": "cohort-p21",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-12T12:00:00Z",
+      "information_set_hash": "07f2e52d3bf1e94424313b5ae9c9fb4307b37d4a6a308ab49a314a9ebdcbe66a",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p21",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p22",
+      "cohort_id": "cohort-p22",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-13T12:00:00Z",
+      "information_set_hash": "3dc12b65587b4f186d543b9dae7534a2bb8b3258a3924cc4808e1bb70532e6b2",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p22",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p23",
+      "cohort_id": "cohort-p23",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-14T12:00:00Z",
+      "information_set_hash": "8935b0e9a391914d5a65834958d6a7f772c880959d7b698af2bd83340442b779",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p23",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p24",
+      "cohort_id": "cohort-p24",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-15T12:00:00Z",
+      "information_set_hash": "fa77f8e174b1f623ff4dbb791c59d2545dffd64edceea4c9dc89c6f9e5d4ad49",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p24",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p25",
+      "cohort_id": "cohort-p25",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-16T12:00:00Z",
+      "information_set_hash": "56315bac762fd66823c670720c45f9df0bb9058497a483a1b87168373403c862",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p25",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p26",
+      "cohort_id": "cohort-p26",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-17T12:00:00Z",
+      "information_set_hash": "1e5955aef0352109443fd659a01e54894ec8520bf8536974becbc24a61a2884e",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p26",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p27",
+      "cohort_id": "cohort-p27",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-18T12:00:00Z",
+      "information_set_hash": "584ab8d87fccbafafc0a6a032f31f21ceb245e483ca3344e9cd6a403fe671c18",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p27",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p28",
+      "cohort_id": "cohort-p28",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-19T12:00:00Z",
+      "information_set_hash": "c3a8a930eb9c37d8be73c19d1b66115ec97854caa1e4f22fc601231f3b850798",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p28",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p29",
+      "cohort_id": "cohort-p29",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-20T12:00:00Z",
+      "information_set_hash": "d56197591fb34df1e2fe85af0229a171ef5d507bc01f2b3fa82c362095aa1c2e",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p29",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p30",
+      "cohort_id": "cohort-p30",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-21T12:00:00Z",
+      "information_set_hash": "b498235e7bcfeaf534376dbfd73d67d767a037eff44e5151b6647820e02b3199",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p30",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p31",
+      "cohort_id": "cohort-p31",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-22T12:00:00Z",
+      "information_set_hash": "4ac3ff0b178087a48e6a1199df769bbee9772f39c6d7ad493b7fa0faf0c98f31",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p31",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p32",
+      "cohort_id": "cohort-p32",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-23T12:00:00Z",
+      "information_set_hash": "5901113cda56a0a417c0b4c4011bd0df0554caeababc9b16899b7ff9fb0878c1",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p32",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p33",
+      "cohort_id": "cohort-p33",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-24T12:00:00Z",
+      "information_set_hash": "afc9ef839b1ccca1d4cfb872ebbeb9a21b56e8164ce2ee9b03aa4fb98fe81e22",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p33",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p34",
+      "cohort_id": "cohort-p34",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-25T12:00:00Z",
+      "information_set_hash": "ec3aabf55f3eaa17874beb833ac2230e9e663ea5625cfa2120bd392520cefc64",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p34",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p35",
+      "cohort_id": "cohort-p35",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-26T12:00:00Z",
+      "information_set_hash": "0ecbcedda87aca7f2b66eb196a8cbfdd4ed38dfa7f4b529311a8249ed6713a6a",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p35",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p36",
+      "cohort_id": "cohort-p36",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-27T12:00:00Z",
+      "information_set_hash": "d2e6cc101dbd3fea391eff838383eb322394c12fbadd27cd27ec02a4bfb4046a",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p36",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p37",
+      "cohort_id": "cohort-p37",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-28T12:00:00Z",
+      "information_set_hash": "a210c916bb5abe1a41d2ded0aec208fdf59a2f8c826f6d1d783ae489497e8f29",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p37",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p38",
+      "cohort_id": "cohort-p38",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-29T12:00:00Z",
+      "information_set_hash": "13c909707f2364b65772c8c79475d164d169be6d51c55722e6067c67c2437b9e",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p38",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    },
+    {
+      "event_id": "p39",
+      "cohort_id": "cohort-p39",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "target_id": "return-1d",
+      "horizon_id": "1d",
+      "issued_at": "2025-12-30T12:00:00Z",
+      "information_set_hash": "4109cc9988de2d61f7ee27c6954b9b34c88b7ae3ee292e4ab143e2d3d3ae4c32",
+      "forecast": {
+        "kind": "INTERVAL",
+        "lower": -1.0,
+        "upper": 1.0,
+        "nominal_coverage": 0.9
+      },
+      "decision_kind": "ACTION",
+      "action_id": "action-p39",
+      "regime_id": "normal",
+      "ood_bucket": "in_distribution",
+      "confidence_bucket": "high"
+    }
+  ],
+  "outcomes": [
+    {
+      "outcome_id": "outcome-p0-v1",
+      "prediction_event_id": "p0",
+      "observed_at": "2025-11-22T12:00:00Z",
+      "available_at": "2025-11-22T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 1.5,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p1-v1",
+      "prediction_event_id": "p1",
+      "observed_at": "2025-11-23T12:00:00Z",
+      "available_at": "2025-11-23T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p2-v1",
+      "prediction_event_id": "p2",
+      "observed_at": "2025-11-24T12:00:00Z",
+      "available_at": "2025-11-24T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p3-v1",
+      "prediction_event_id": "p3",
+      "observed_at": "2025-11-25T12:00:00Z",
+      "available_at": "2025-11-25T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p4-v1",
+      "prediction_event_id": "p4",
+      "observed_at": "2025-11-26T12:00:00Z",
+      "available_at": "2025-11-26T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p5-v1",
+      "prediction_event_id": "p5",
+      "observed_at": "2025-11-27T12:00:00Z",
+      "available_at": "2025-11-27T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p6-v1",
+      "prediction_event_id": "p6",
+      "observed_at": "2025-11-28T12:00:00Z",
+      "available_at": "2025-11-28T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p7-v1",
+      "prediction_event_id": "p7",
+      "observed_at": "2025-11-29T12:00:00Z",
+      "available_at": "2025-11-29T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p8-v1",
+      "prediction_event_id": "p8",
+      "observed_at": "2025-11-30T12:00:00Z",
+      "available_at": "2025-11-30T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p9-v1",
+      "prediction_event_id": "p9",
+      "observed_at": "2025-12-01T12:00:00Z",
+      "available_at": "2025-12-01T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p10-v1",
+      "prediction_event_id": "p10",
+      "observed_at": "2025-12-02T12:00:00Z",
+      "available_at": "2025-12-02T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 1.5,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p11-v1",
+      "prediction_event_id": "p11",
+      "observed_at": "2025-12-03T12:00:00Z",
+      "available_at": "2025-12-03T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p12-v1",
+      "prediction_event_id": "p12",
+      "observed_at": "2025-12-04T12:00:00Z",
+      "available_at": "2025-12-04T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p13-v1",
+      "prediction_event_id": "p13",
+      "observed_at": "2025-12-05T12:00:00Z",
+      "available_at": "2025-12-05T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p14-v1",
+      "prediction_event_id": "p14",
+      "observed_at": "2025-12-06T12:00:00Z",
+      "available_at": "2025-12-06T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p15-v1",
+      "prediction_event_id": "p15",
+      "observed_at": "2025-12-07T12:00:00Z",
+      "available_at": "2025-12-07T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p16-v1",
+      "prediction_event_id": "p16",
+      "observed_at": "2025-12-08T12:00:00Z",
+      "available_at": "2025-12-08T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p17-v1",
+      "prediction_event_id": "p17",
+      "observed_at": "2025-12-09T12:00:00Z",
+      "available_at": "2025-12-09T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p18-v1",
+      "prediction_event_id": "p18",
+      "observed_at": "2025-12-10T12:00:00Z",
+      "available_at": "2025-12-10T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p19-v1",
+      "prediction_event_id": "p19",
+      "observed_at": "2025-12-11T12:00:00Z",
+      "available_at": "2025-12-11T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p20-v1",
+      "prediction_event_id": "p20",
+      "observed_at": "2025-12-12T12:00:00Z",
+      "available_at": "2025-12-12T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 1.5,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p21-v1",
+      "prediction_event_id": "p21",
+      "observed_at": "2025-12-13T12:00:00Z",
+      "available_at": "2025-12-13T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p22-v1",
+      "prediction_event_id": "p22",
+      "observed_at": "2025-12-14T12:00:00Z",
+      "available_at": "2025-12-14T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p23-v1",
+      "prediction_event_id": "p23",
+      "observed_at": "2025-12-15T12:00:00Z",
+      "available_at": "2025-12-15T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p24-v1",
+      "prediction_event_id": "p24",
+      "observed_at": "2025-12-16T12:00:00Z",
+      "available_at": "2025-12-16T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p25-v1",
+      "prediction_event_id": "p25",
+      "observed_at": "2025-12-17T12:00:00Z",
+      "available_at": "2025-12-17T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p26-v1",
+      "prediction_event_id": "p26",
+      "observed_at": "2025-12-18T12:00:00Z",
+      "available_at": "2025-12-18T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p27-v1",
+      "prediction_event_id": "p27",
+      "observed_at": "2025-12-19T12:00:00Z",
+      "available_at": "2025-12-19T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p28-v1",
+      "prediction_event_id": "p28",
+      "observed_at": "2025-12-20T12:00:00Z",
+      "available_at": "2025-12-20T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p29-v1",
+      "prediction_event_id": "p29",
+      "observed_at": "2025-12-21T12:00:00Z",
+      "available_at": "2025-12-21T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p30-v1",
+      "prediction_event_id": "p30",
+      "observed_at": "2025-12-22T12:00:00Z",
+      "available_at": "2025-12-22T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 1.5,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p31-v1",
+      "prediction_event_id": "p31",
+      "observed_at": "2025-12-23T12:00:00Z",
+      "available_at": "2025-12-23T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p32-v1",
+      "prediction_event_id": "p32",
+      "observed_at": "2025-12-24T12:00:00Z",
+      "available_at": "2025-12-24T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p33-v1",
+      "prediction_event_id": "p33",
+      "observed_at": "2025-12-25T12:00:00Z",
+      "available_at": "2025-12-25T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p34-v1",
+      "prediction_event_id": "p34",
+      "observed_at": "2025-12-26T12:00:00Z",
+      "available_at": "2025-12-26T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p35-v1",
+      "prediction_event_id": "p35",
+      "observed_at": "2025-12-27T12:00:00Z",
+      "available_at": "2025-12-27T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p36-v1",
+      "prediction_event_id": "p36",
+      "observed_at": "2025-12-28T12:00:00Z",
+      "available_at": "2025-12-28T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p37-v1",
+      "prediction_event_id": "p37",
+      "observed_at": "2025-12-29T12:00:00Z",
+      "available_at": "2025-12-29T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p38-v1",
+      "prediction_event_id": "p38",
+      "observed_at": "2025-12-30T12:00:00Z",
+      "available_at": "2025-12-30T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    },
+    {
+      "outcome_id": "outcome-p39-v1",
+      "prediction_event_id": "p39",
+      "observed_at": "2025-12-31T12:00:00Z",
+      "available_at": "2025-12-31T12:05:00Z",
+      "maturity_state": "MATURED",
+      "evidence_class": "FACTUAL_EXECUTED",
+      "value": 0.2,
+      "vintage_id": "v1",
+      "supersedes_outcome_id": null
+    }
+  ],
+  "existing_records": [],
+  "champion_policy": {
+    "policy_id": "champion",
+    "policy_version": "1.0.0",
+    "role": "CHAMPION",
+    "code_sha256": "7a867eb74d74d08c19f6dc77c1fe09eca5a9ecd6cc2ba35e50d7ada47c059ff6",
+    "resource_budget_units": 10,
+    "seed_entropy": 1,
+    "authorized_stage": "SHADOW_ONLY",
+    "authorization_ref": null
+  },
+  "challenger_policies": [
+    {
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "role": "CHALLENGER",
+      "code_sha256": "723e3d441e125238f8f46927fb1f302152892567bece3f3ef58764dc4034669a",
+      "resource_budget_units": 10,
+      "seed_entropy": 2,
+      "authorized_stage": "SHADOW_ONLY",
+      "authorization_ref": null
+    }
+  ],
+  "policy_execution_outputs": [
+    {
+      "cohort_id": "cohort-p0",
+      "prediction_event_id": "p0",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "9854efbeb68062fa6136bc40f0d27ee7b773e0d0389ac9ddd808810ac7fe8c30",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p0-champion",
+      "output_sha256": "ca5c37eb994bfb7d2c0bdb201dc11ded4e09bd8e0a2d39e62331cb3298903eb5",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p0",
+      "prediction_event_id": "p0",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "9854efbeb68062fa6136bc40f0d27ee7b773e0d0389ac9ddd808810ac7fe8c30",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p0-challenger",
+      "output_sha256": "5f986f65baa61fab6cd47e2291fe5dc8dda5ccae133207f956416d911cd44b6d",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p1",
+      "prediction_event_id": "p1",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "a8d662aaaf8b606435e40b8bf9b7134f1a9f9f19d387b6520033f60e32f2df96",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p1-champion",
+      "output_sha256": "39de81d7d67b73a8bcd1775b31df56a038f9e6fd33c964376f751c1e3ed9bb36",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p1",
+      "prediction_event_id": "p1",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "a8d662aaaf8b606435e40b8bf9b7134f1a9f9f19d387b6520033f60e32f2df96",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p1-challenger",
+      "output_sha256": "d5005bd7fee4809108ff090f84ddb0e6565f8583d34a5408b5bd1614d498969e",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p2",
+      "prediction_event_id": "p2",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "c991de926e18ecfbca2f865016fd301ebd5dd2c7828a9b52e62c413034a613b7",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p2-champion",
+      "output_sha256": "cebe3447e23d12c62dc27d3193b9272c484571d2f3aa3273049d422be4cae34a",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p2",
+      "prediction_event_id": "p2",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "c991de926e18ecfbca2f865016fd301ebd5dd2c7828a9b52e62c413034a613b7",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p2-challenger",
+      "output_sha256": "e7292de69792cb1dafbc3a99347f61a66f68c6004092870a66b9510e2ad4fe87",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p3",
+      "prediction_event_id": "p3",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "624371eb6c2a1267df6bf9e36cf731523065539a13696f43edfda7a549c883f4",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p3-champion",
+      "output_sha256": "52e420d03dbdeb2a779793f9bb4d8a317e9eb548840d7d4b5615148a4c995e51",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p3",
+      "prediction_event_id": "p3",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "624371eb6c2a1267df6bf9e36cf731523065539a13696f43edfda7a549c883f4",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p3-challenger",
+      "output_sha256": "44966a81da7b2ec5422a02967cc7988fce4b27befa9c3ed4442554515fbb5fa8",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p4",
+      "prediction_event_id": "p4",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "f1caa42119d85585824f65dcc3e640255eb59ae5cc23c9c2da70098a14149886",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p4-champion",
+      "output_sha256": "b1a65d04a6b04b0563e169b4a6fbb556d1b17f0144f662ab6adfdca2132006c5",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p4",
+      "prediction_event_id": "p4",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "f1caa42119d85585824f65dcc3e640255eb59ae5cc23c9c2da70098a14149886",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p4-challenger",
+      "output_sha256": "ef87424f03eb06c17573fb3bf39306932468035a46b3a58fa565536845377033",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p5",
+      "prediction_event_id": "p5",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "31975e1a7a6b737df2d931ceb3cfff628d2b21b4003aaa61aba563409bf54ba6",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p5-champion",
+      "output_sha256": "490becb61c8b7964c720af670520d000d0f517b37b6dc80079dc67062b894632",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p5",
+      "prediction_event_id": "p5",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "31975e1a7a6b737df2d931ceb3cfff628d2b21b4003aaa61aba563409bf54ba6",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p5-challenger",
+      "output_sha256": "a7f1d9914e618ea2e0a393f7e89ef274d1126bb203f1566932884ab8add8aab9",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p6",
+      "prediction_event_id": "p6",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "3f08f0b07f042192b7dd222fc2ffd69a6a82fcf8b4de8ed93ac1b25119c676a6",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p6-champion",
+      "output_sha256": "9a4b99c9afeb4a5ed5c96b67fba7e506699bc44ce9894340511b62a0a2da03bb",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p6",
+      "prediction_event_id": "p6",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "3f08f0b07f042192b7dd222fc2ffd69a6a82fcf8b4de8ed93ac1b25119c676a6",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p6-challenger",
+      "output_sha256": "375980ea83ba12f1c1bc534c1d4e9fb1a9abadee778ff0ff0b362b337e41ee57",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p7",
+      "prediction_event_id": "p7",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "6aed6d506960cc1ad4197661d515a43bc7b1abe3b4133bf234a0672ab1eb634f",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p7-champion",
+      "output_sha256": "25b0199598c489c6fe51696e5888c72223c89b288cbf0349c5fd2084dde8928f",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p7",
+      "prediction_event_id": "p7",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "6aed6d506960cc1ad4197661d515a43bc7b1abe3b4133bf234a0672ab1eb634f",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p7-challenger",
+      "output_sha256": "c7e81a91ae0ad5e9cdc6a2ef1a707b942002b529b966ba45e3c66a412dc6e7e3",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p8",
+      "prediction_event_id": "p8",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "623b6d54acf0553fc40f5bff9532f65d54db8dd80b3b259aa43e48a29316078c",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p8-champion",
+      "output_sha256": "9df8e1ebd57c97b791fdee37a9fe0644734051e2df0151f828c1277d02725b42",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p8",
+      "prediction_event_id": "p8",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "623b6d54acf0553fc40f5bff9532f65d54db8dd80b3b259aa43e48a29316078c",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p8-challenger",
+      "output_sha256": "9902fefa9dc0a45d36e609b74adef15be278b3091be51c3fbd4fa90a4ff52ff0",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p9",
+      "prediction_event_id": "p9",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "d47798899ec835292463d4de3d4d8d75b19ca81bfd80dcd2f767aa1eb5436b0d",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p9-champion",
+      "output_sha256": "b7563c5cb50305d4d5cd852ccbc5960973e8cc1e51203fbadf453ed8c0c234f0",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p9",
+      "prediction_event_id": "p9",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "d47798899ec835292463d4de3d4d8d75b19ca81bfd80dcd2f767aa1eb5436b0d",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p9-challenger",
+      "output_sha256": "66898ddb05eeefb2d075d6d01ce7e011e654e886017893b209dd4606a66e18df",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p10",
+      "prediction_event_id": "p10",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "7fb1aecbdc33eb2fbd333db93bbc83d7153108673c0e489cf791415dd1d22b1f",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p10-champion",
+      "output_sha256": "d26dcd74811e3c59dcf305201d2f3e58d59139681c535a8ee6519194d3a3f0a6",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p10",
+      "prediction_event_id": "p10",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "7fb1aecbdc33eb2fbd333db93bbc83d7153108673c0e489cf791415dd1d22b1f",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p10-challenger",
+      "output_sha256": "09fa62e209e5cecd555dfbc7f3e81dc35bf03087926e0987525c55a8914afa9a",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p11",
+      "prediction_event_id": "p11",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "1f002307610c153ee59339887f9e1ac7c15507553b18c5c61a3b125c6ab521e6",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p11-champion",
+      "output_sha256": "de24ae5ab82c5365d6e0dd85ac0404eca5230c4acd88389aed1e71dd417074ec",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p11",
+      "prediction_event_id": "p11",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "1f002307610c153ee59339887f9e1ac7c15507553b18c5c61a3b125c6ab521e6",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p11-challenger",
+      "output_sha256": "a4f10d1403935aa2ebeced51fbaac29ae3b6f576149e3c44651e3ff021ae1eee",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p12",
+      "prediction_event_id": "p12",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "6af0b3a6bec5d8bbc92ba996646ff10c6ffe8fefc9206fae7041dac55beb8369",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p12-champion",
+      "output_sha256": "696f5ab5873062585616be6fec10e25660549a703c2c17cb41bdc5d7c7d9b5c5",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p12",
+      "prediction_event_id": "p12",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "6af0b3a6bec5d8bbc92ba996646ff10c6ffe8fefc9206fae7041dac55beb8369",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p12-challenger",
+      "output_sha256": "4a6280defd08117e8fad7392deb3fe71a376deb97a8548179e48777024bb6248",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p13",
+      "prediction_event_id": "p13",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "270fcfee2b088edaabb1cd5af2eaa432db27031c7560b182ddda6c35e34472f7",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p13-champion",
+      "output_sha256": "980eee26b4a4f3fd6e0aafa555fb0cc594d2814739e4c55364411d8f8fadbc07",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p13",
+      "prediction_event_id": "p13",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "270fcfee2b088edaabb1cd5af2eaa432db27031c7560b182ddda6c35e34472f7",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p13-challenger",
+      "output_sha256": "71d55573c2432d531022014065b18639420b5c70aeaf6eac0c3478bf390abf3a",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p14",
+      "prediction_event_id": "p14",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "8ef519b0075d84f997d739331e150e55fc879b1475e221c9ff2a8290a81d37f0",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p14-champion",
+      "output_sha256": "7244df2d7876a611fe833e9b5ad2b0cca4453adfe84125cb0ec72bf1f5955eb3",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p14",
+      "prediction_event_id": "p14",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "8ef519b0075d84f997d739331e150e55fc879b1475e221c9ff2a8290a81d37f0",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p14-challenger",
+      "output_sha256": "abbf8e9704323b4ac660980777a0e09387f0dcc5ad49458a1f745aea1f5cb749",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p15",
+      "prediction_event_id": "p15",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "021ad69d1a9c18d81cf3e2d3e4ada87145ed8e6431e86c2b0a714c5d5ad1b16e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p15-champion",
+      "output_sha256": "2965eb8431bfcf2c211c28f6e50e11ae1bf39ecf4193de6176bfba62e6a8312e",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p15",
+      "prediction_event_id": "p15",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "021ad69d1a9c18d81cf3e2d3e4ada87145ed8e6431e86c2b0a714c5d5ad1b16e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p15-challenger",
+      "output_sha256": "561a5dbc35e73ffd0d19f394faddd93f0d324980f35fc24a0a5ab0e2065ce406",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p16",
+      "prediction_event_id": "p16",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "e64f85ed1bda4e2e1757e1b749fb25e0953c520654977c1b99b05b2c503ec234",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p16-champion",
+      "output_sha256": "a6b3247691dd3ec0f3ef5e6015a299476d1ddead68d5c42c0667d1d6563b12e3",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p16",
+      "prediction_event_id": "p16",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "e64f85ed1bda4e2e1757e1b749fb25e0953c520654977c1b99b05b2c503ec234",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p16-challenger",
+      "output_sha256": "35498f6807a199c3efa80ec9f0492c9a10d343ca612e4fca2c750a1819341898",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p17",
+      "prediction_event_id": "p17",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "1b05a94afadf3cd044b6a8a0177f250786e342b1e4fce1c07b85c3dc3e127667",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p17-champion",
+      "output_sha256": "07eb23cfb512ce5ae2729d1a0355040549c8229af5724bb9f9a90607e86de1d1",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p17",
+      "prediction_event_id": "p17",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "1b05a94afadf3cd044b6a8a0177f250786e342b1e4fce1c07b85c3dc3e127667",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p17-challenger",
+      "output_sha256": "2f425a4332a9d86c1f2c4db93e27a7129e380e88aee121fdc392bdaa69310be5",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p18",
+      "prediction_event_id": "p18",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "f4e704e37d1d5b458825435aee764906bd748f9f65d8330a2d29b817c97a0a50",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p18-champion",
+      "output_sha256": "232ecc3a56b435156603b6233563de0b56b67c5e3b95fcbd928ceb25fabe9108",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p18",
+      "prediction_event_id": "p18",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "f4e704e37d1d5b458825435aee764906bd748f9f65d8330a2d29b817c97a0a50",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p18-challenger",
+      "output_sha256": "c4f39a2c412e91b1cc42e13ba1997e05c7472aa388a07850fedd208f3dceb4b8",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p19",
+      "prediction_event_id": "p19",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "b66a8b69206ffed0684b2e8c28fad193a5e4ba502eb84d02bbf958b3f2bc941e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p19-champion",
+      "output_sha256": "a11973f578c237446d7307a5be0f88c98c1984f7e2f7737da691e28794c0ad52",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p19",
+      "prediction_event_id": "p19",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "b66a8b69206ffed0684b2e8c28fad193a5e4ba502eb84d02bbf958b3f2bc941e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p19-challenger",
+      "output_sha256": "313ee23d3631bd49e90d755ec293057492dcc76b6327ecad78ecfe570456321d",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p20",
+      "prediction_event_id": "p20",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "db59e99ea451412c45d5b0307eba2dc73ad7123901a653366468d0689532a74d",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p20-champion",
+      "output_sha256": "346cf940435496e00e06f82243b02121be66bca26ec434d0a1980779e5440d42",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p20",
+      "prediction_event_id": "p20",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "db59e99ea451412c45d5b0307eba2dc73ad7123901a653366468d0689532a74d",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p20-challenger",
+      "output_sha256": "6817e22e85f91ef7aaa5fb92d92687dea721a72fb24396d4b8a656d77ad8d7ae",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p21",
+      "prediction_event_id": "p21",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "07f2e52d3bf1e94424313b5ae9c9fb4307b37d4a6a308ab49a314a9ebdcbe66a",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p21-champion",
+      "output_sha256": "b7c865e2a8ac87baf7e3a5bfe4d8550b7d676420c48d1af645d859d981285633",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p21",
+      "prediction_event_id": "p21",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "07f2e52d3bf1e94424313b5ae9c9fb4307b37d4a6a308ab49a314a9ebdcbe66a",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p21-challenger",
+      "output_sha256": "83de2406c000e8dd86df1c6edbffaa40a688372bf1b6091f8b36cdf50ed8270a",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p22",
+      "prediction_event_id": "p22",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "3dc12b65587b4f186d543b9dae7534a2bb8b3258a3924cc4808e1bb70532e6b2",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p22-champion",
+      "output_sha256": "95dd79a7c39ebc1907374dcbd9b4bc471307ee315f5bb2b55c0ae197750642f3",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p22",
+      "prediction_event_id": "p22",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "3dc12b65587b4f186d543b9dae7534a2bb8b3258a3924cc4808e1bb70532e6b2",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p22-challenger",
+      "output_sha256": "d7d0b0e8121e0a55df10e4586b9fa13e487bee1a39a3ea962d2c6806662c596f",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p23",
+      "prediction_event_id": "p23",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "8935b0e9a391914d5a65834958d6a7f772c880959d7b698af2bd83340442b779",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p23-champion",
+      "output_sha256": "7e0f96e370e42b7e085abdf68d8968d940096607614e817104c70770c46f3b20",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p23",
+      "prediction_event_id": "p23",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "8935b0e9a391914d5a65834958d6a7f772c880959d7b698af2bd83340442b779",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p23-challenger",
+      "output_sha256": "750fd9fd6a309afbd07a42a7563aa23d5cee084fc0fa4b2918bd4af538a78fe1",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p24",
+      "prediction_event_id": "p24",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "fa77f8e174b1f623ff4dbb791c59d2545dffd64edceea4c9dc89c6f9e5d4ad49",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p24-champion",
+      "output_sha256": "66b122650dbf72ea8cf8e7b246614a210640a5b903d5e9a6490f3a72ff61e24d",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p24",
+      "prediction_event_id": "p24",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "fa77f8e174b1f623ff4dbb791c59d2545dffd64edceea4c9dc89c6f9e5d4ad49",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p24-challenger",
+      "output_sha256": "cec190549da066ec12aeee3bd4db8fcd0b599536e215b8e09a36e9120bfd7eb1",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p25",
+      "prediction_event_id": "p25",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "56315bac762fd66823c670720c45f9df0bb9058497a483a1b87168373403c862",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p25-champion",
+      "output_sha256": "c613eb2153fa9aafb4bfea4554779ab0a8cc6c6baf0134b6fc3b34aeecf302e3",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p25",
+      "prediction_event_id": "p25",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "56315bac762fd66823c670720c45f9df0bb9058497a483a1b87168373403c862",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p25-challenger",
+      "output_sha256": "e1cae545b7fc878ec809d2c16a915b5b5d896d34a884cf73af38a41678401336",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p26",
+      "prediction_event_id": "p26",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "1e5955aef0352109443fd659a01e54894ec8520bf8536974becbc24a61a2884e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p26-champion",
+      "output_sha256": "46f18360a8f347e9ecbfdcec1a2079ea585d403cfcd402e539298a2cfd927fec",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p26",
+      "prediction_event_id": "p26",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "1e5955aef0352109443fd659a01e54894ec8520bf8536974becbc24a61a2884e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p26-challenger",
+      "output_sha256": "1a77c434d98eb05c5238d69c623c6a96244bf2f9d2e39714fabf308a9c5bb418",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p27",
+      "prediction_event_id": "p27",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "584ab8d87fccbafafc0a6a032f31f21ceb245e483ca3344e9cd6a403fe671c18",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p27-champion",
+      "output_sha256": "89130e3962091c6236f83912b34b7670241c3b793c64ba225a83d319e6fd330f",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p27",
+      "prediction_event_id": "p27",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "584ab8d87fccbafafc0a6a032f31f21ceb245e483ca3344e9cd6a403fe671c18",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p27-challenger",
+      "output_sha256": "c97dc20ebc4be9371519123602709e0fb977d8d24b524829ca2d8a2f165e4181",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p28",
+      "prediction_event_id": "p28",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "c3a8a930eb9c37d8be73c19d1b66115ec97854caa1e4f22fc601231f3b850798",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p28-champion",
+      "output_sha256": "62c8ed610d8683b5027a3a187db932caf4509429d1ccb8a34b072c2e3b7ab614",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p28",
+      "prediction_event_id": "p28",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "c3a8a930eb9c37d8be73c19d1b66115ec97854caa1e4f22fc601231f3b850798",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p28-challenger",
+      "output_sha256": "0ae822256de7639c2c35aaa1e25fa98d67e98fa47e3f03949c8d598660b335a1",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p29",
+      "prediction_event_id": "p29",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "d56197591fb34df1e2fe85af0229a171ef5d507bc01f2b3fa82c362095aa1c2e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p29-champion",
+      "output_sha256": "de350efff290ff08e3fbb7b40c8d7cae5eecaf660c1ce0fb549e2cdd25abe5c0",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p29",
+      "prediction_event_id": "p29",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "d56197591fb34df1e2fe85af0229a171ef5d507bc01f2b3fa82c362095aa1c2e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p29-challenger",
+      "output_sha256": "ad06f559a407819765e5394207b0b641ca6246a89cb3e2486deb263007587122",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p30",
+      "prediction_event_id": "p30",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "b498235e7bcfeaf534376dbfd73d67d767a037eff44e5151b6647820e02b3199",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p30-champion",
+      "output_sha256": "24b08ae5b50606440382059ca4d6d73291253f6004ce06f867a5a645f85f0157",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p30",
+      "prediction_event_id": "p30",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "b498235e7bcfeaf534376dbfd73d67d767a037eff44e5151b6647820e02b3199",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p30-challenger",
+      "output_sha256": "7baae84d1ece1249f15a6537c227bd5f5ca85506bc2a7af91c9ff919c1422ae5",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p31",
+      "prediction_event_id": "p31",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "4ac3ff0b178087a48e6a1199df769bbee9772f39c6d7ad493b7fa0faf0c98f31",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p31-champion",
+      "output_sha256": "f7adcc387bdbe88c4d66ea545fbdba4d474b13a20de858ccbc4bfdac2afe7207",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p31",
+      "prediction_event_id": "p31",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "4ac3ff0b178087a48e6a1199df769bbee9772f39c6d7ad493b7fa0faf0c98f31",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p31-challenger",
+      "output_sha256": "3fa5139d03a374747a58c94570dfe3ea564e2b2b7fd825499f716f4443647c6a",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p32",
+      "prediction_event_id": "p32",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "5901113cda56a0a417c0b4c4011bd0df0554caeababc9b16899b7ff9fb0878c1",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p32-champion",
+      "output_sha256": "b5aeac63323dab49ee3fdd4be5934200c585f30f2f348e658e5cb86efe499859",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p32",
+      "prediction_event_id": "p32",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "5901113cda56a0a417c0b4c4011bd0df0554caeababc9b16899b7ff9fb0878c1",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p32-challenger",
+      "output_sha256": "59ec25809f7ee30d09ab1c8fb0eaa5ea2f2e713362891de69bcbfb5382fe6fd6",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p33",
+      "prediction_event_id": "p33",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "afc9ef839b1ccca1d4cfb872ebbeb9a21b56e8164ce2ee9b03aa4fb98fe81e22",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p33-champion",
+      "output_sha256": "e0b3f9ea1f8c00dc8e5d084657ac699e997e0a91be7dcaad782fec2ed1a7201f",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p33",
+      "prediction_event_id": "p33",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "afc9ef839b1ccca1d4cfb872ebbeb9a21b56e8164ce2ee9b03aa4fb98fe81e22",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p33-challenger",
+      "output_sha256": "c95d935945090c17cda2ca4e19fbca3590b32c94452e29d54e46bace3fb0d725",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p34",
+      "prediction_event_id": "p34",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "ec3aabf55f3eaa17874beb833ac2230e9e663ea5625cfa2120bd392520cefc64",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p34-champion",
+      "output_sha256": "0b1e99afa548e9e4aabae4deb25ec95278860555534c04d6dafc5714b916964e",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p34",
+      "prediction_event_id": "p34",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "ec3aabf55f3eaa17874beb833ac2230e9e663ea5625cfa2120bd392520cefc64",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p34-challenger",
+      "output_sha256": "fe0f9c3bc56c5c51922c88bb1b5e07293fc23a75945dd624baade91be142305c",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p35",
+      "prediction_event_id": "p35",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "0ecbcedda87aca7f2b66eb196a8cbfdd4ed38dfa7f4b529311a8249ed6713a6a",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p35-champion",
+      "output_sha256": "8f69a1897b037be28776cac069bb08da8c76269bc4587dc33e10df08d2dc5203",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p35",
+      "prediction_event_id": "p35",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "0ecbcedda87aca7f2b66eb196a8cbfdd4ed38dfa7f4b529311a8249ed6713a6a",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p35-challenger",
+      "output_sha256": "15477911463bda415d8d14c3b225d68477b00c4b46045b46b56a30a6cdfb9c4f",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p36",
+      "prediction_event_id": "p36",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "d2e6cc101dbd3fea391eff838383eb322394c12fbadd27cd27ec02a4bfb4046a",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p36-champion",
+      "output_sha256": "7d48699488f71c371ec0a19470f465811668240e645c77be0775d65271244143",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p36",
+      "prediction_event_id": "p36",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "d2e6cc101dbd3fea391eff838383eb322394c12fbadd27cd27ec02a4bfb4046a",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p36-challenger",
+      "output_sha256": "277cb38da31c41a63f53d736a223633a51547a793bd4dee7e1f61d2ce2f21105",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p37",
+      "prediction_event_id": "p37",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "a210c916bb5abe1a41d2ded0aec208fdf59a2f8c826f6d1d783ae489497e8f29",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p37-champion",
+      "output_sha256": "67328cfa0819991e6df97a6adbdb9d04dd887ba6fcd0c03b61d94fbc9e04d89c",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p37",
+      "prediction_event_id": "p37",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "a210c916bb5abe1a41d2ded0aec208fdf59a2f8c826f6d1d783ae489497e8f29",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p37-challenger",
+      "output_sha256": "3990f3d8acd6e64f4f39260bf054e129103c24228ba5a958aae924c3bdb1e6f5",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p38",
+      "prediction_event_id": "p38",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "13c909707f2364b65772c8c79475d164d169be6d51c55722e6067c67c2437b9e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p38-champion",
+      "output_sha256": "3f46795cd711a317c31c7c98d538d01753a319b1b16fd861483e47cf417736d9",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p38",
+      "prediction_event_id": "p38",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "13c909707f2364b65772c8c79475d164d169be6d51c55722e6067c67c2437b9e",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p38-challenger",
+      "output_sha256": "bd1c595c3e886f26196d2a6e1c4f1c1d239e1840c6fea61bdcd547cc654ea40b",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p39",
+      "prediction_event_id": "p39",
+      "policy_id": "champion",
+      "policy_version": "1.0.0",
+      "information_set_hash": "4109cc9988de2d61f7ee27c6954b9b34c88b7ae3ee292e4ab143e2d3d3ae4c32",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p39-champion",
+      "output_sha256": "96fdec680d4aa672238aa5dff95613fabed408181313a5e6847d093dc34485d0",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    },
+    {
+      "cohort_id": "cohort-p39",
+      "prediction_event_id": "p39",
+      "policy_id": "challenger",
+      "policy_version": "1.0.0",
+      "information_set_hash": "4109cc9988de2d61f7ee27c6954b9b34c88b7ae3ee292e4ab143e2d3d3ae4c32",
+      "stage": "SHADOW_ONLY",
+      "started_at": "2026-01-02T12:00:00Z",
+      "completed_at": "2026-01-02T12:00:00Z",
+      "output_artifact_id": "output-p39-challenger",
+      "output_sha256": "96ecddf93716cb11952d7ad49e212fdd33e442ece518731454e98b75e3be7fd6",
+      "execution_status": "SUCCESS",
+      "resource_units_used": 5,
+      "reason_codes": []
+    }
+  ],
+  "allowed_policy_ids": null,
+  "scoring_policy": {
+    "probability_floor": 1e-12,
+    "minimum_calibration_count": 10,
+    "binary_bin_edges": [
+      0.0,
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0
+    ]
+  },
+  "conformal_policy": {
+    "availability": "AVAILABLE",
+    "target_coverage": 0.9,
+    "learning_rate": 0.02,
+    "minimum_miscoverage": 0.001,
+    "maximum_miscoverage": 0.5,
+    "calibration_window": 200,
+    "minimum_group_count": 20,
+    "maximum_qualified_width": 5.0
+  },
+  "conformal_observations": [
+    {
+      "event_id": "conf-0",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 1.5
+    },
+    {
+      "event_id": "conf-1",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-2",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-3",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-4",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-5",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-6",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-7",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-8",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-9",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-10",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 1.5
+    },
+    {
+      "event_id": "conf-11",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-12",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-13",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-14",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-15",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-16",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-17",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-18",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-19",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-20",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 1.5
+    },
+    {
+      "event_id": "conf-21",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-22",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-23",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-24",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-25",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-26",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-27",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-28",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-29",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-30",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 1.5
+    },
+    {
+      "event_id": "conf-31",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-32",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-33",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-34",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-35",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-36",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-37",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-38",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    },
+    {
+      "event_id": "conf-39",
+      "group_id": "1d",
+      "lower": -1.0,
+      "upper": 1.0,
+      "outcome": 0.2
+    }
+  ],
+  "drift_observations": [
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:00:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:01:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:02:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:03:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:04:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:05:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:06:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:07:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:08:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:09:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:10:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:11:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:12:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:13:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:14:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:15:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:16:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:17:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:18:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:19:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:20:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:21:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:22:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:23:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:24:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:25:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:26:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:27:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:28:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:29:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:30:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:31:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:32:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:33:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:34:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:35:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:36:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:37:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:38:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "observed_at": "2026-01-02T12:39:00Z",
+      "value": 0.1
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:00:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:01:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:02:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:03:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:04:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:05:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:06:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:07:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:08:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:09:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:10:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:11:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:12:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:13:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:14:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:15:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:16:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:17:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:18:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:19:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:20:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:21:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:22:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:23:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:24:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:25:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:26:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:27:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:28:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:29:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:30:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:31:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:32:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:33:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:34:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:35:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:36:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:37:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:38:00Z",
+      "value": 0.0
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "observed_at": "2026-01-02T12:39:00Z",
+      "value": 0.0
+    }
+  ],
+  "drift_policies": [
+    {
+      "channel_id": "residual",
+      "channel_kind": "FORECAST_RESIDUAL",
+      "reference_window": 30,
+      "test_window": 10,
+      "mean_shift_z_threshold": 4.0,
+      "variance_ratio_threshold": 2.0,
+      "cusum_threshold": 10.0,
+      "cusum_allowance": 0.5,
+      "bocpd_hazard": 0.02,
+      "bocpd_alert_probability": 0.9,
+      "bocpd_max_run_length": 256,
+      "missingness_delta_threshold": 0.2,
+      "hard_breach": false
+    },
+    {
+      "channel_id": "cost",
+      "channel_kind": "COST",
+      "reference_window": 30,
+      "test_window": 10,
+      "mean_shift_z_threshold": 4.0,
+      "variance_ratio_threshold": 2.0,
+      "cusum_threshold": 10.0,
+      "cusum_allowance": 0.5,
+      "bocpd_hazard": 0.02,
+      "bocpd_alert_probability": 0.9,
+      "bocpd_max_run_length": 256,
+      "missingness_delta_threshold": 0.2,
+      "hard_breach": false
+    }
+  ],
+  "minimum_confirming_drift_channels": 2,
+  "paired_loss_observations": [
+    {
+      "cohort_id": "cohort-0",
+      "prediction_event_id": "paired-0",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-1",
+      "prediction_event_id": "paired-1",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-2",
+      "prediction_event_id": "paired-2",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-3",
+      "prediction_event_id": "paired-3",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-4",
+      "prediction_event_id": "paired-4",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-5",
+      "prediction_event_id": "paired-5",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-6",
+      "prediction_event_id": "paired-6",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-7",
+      "prediction_event_id": "paired-7",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-8",
+      "prediction_event_id": "paired-8",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-9",
+      "prediction_event_id": "paired-9",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-10",
+      "prediction_event_id": "paired-10",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-11",
+      "prediction_event_id": "paired-11",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-12",
+      "prediction_event_id": "paired-12",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-13",
+      "prediction_event_id": "paired-13",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-14",
+      "prediction_event_id": "paired-14",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-15",
+      "prediction_event_id": "paired-15",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-16",
+      "prediction_event_id": "paired-16",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-17",
+      "prediction_event_id": "paired-17",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-18",
+      "prediction_event_id": "paired-18",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-19",
+      "prediction_event_id": "paired-19",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-20",
+      "prediction_event_id": "paired-20",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-21",
+      "prediction_event_id": "paired-21",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-22",
+      "prediction_event_id": "paired-22",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-23",
+      "prediction_event_id": "paired-23",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-24",
+      "prediction_event_id": "paired-24",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-25",
+      "prediction_event_id": "paired-25",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-26",
+      "prediction_event_id": "paired-26",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-27",
+      "prediction_event_id": "paired-27",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-28",
+      "prediction_event_id": "paired-28",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-29",
+      "prediction_event_id": "paired-29",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-30",
+      "prediction_event_id": "paired-30",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-31",
+      "prediction_event_id": "paired-31",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-32",
+      "prediction_event_id": "paired-32",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-33",
+      "prediction_event_id": "paired-33",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-34",
+      "prediction_event_id": "paired-34",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-35",
+      "prediction_event_id": "paired-35",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-36",
+      "prediction_event_id": "paired-36",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-37",
+      "prediction_event_id": "paired-37",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-38",
+      "prediction_event_id": "paired-38",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    },
+    {
+      "cohort_id": "cohort-39",
+      "prediction_event_id": "paired-39",
+      "champion_policy_id": "champion",
+      "challenger_policy_id": "challenger",
+      "champion_loss": 0.4,
+      "challenger_loss": 0.4
+    }
+  ],
+  "sequential_comparison_policy": {
+    "alpha": 0.05,
+    "minimum_samples": 20,
+    "minimum_effect": 0.0,
+    "loss_lower_bound": 0.0,
+    "loss_upper_bound": 1.0,
+    "maximum_family_size": 20
+  },
+  "offline_model_set": [
+    "challenger",
+    "champion"
+  ],
+  "live_execution_metrics": {
+    "observation_count": 100,
+    "realized_net_alpha": 0.02,
+    "reference_net_alpha": 0.02,
+    "mean_cost_error_bps": 1.0,
+    "capacity_ratio_to_approved": 1.0,
+    "hard_risk_breach_codes": []
+  },
+  "stress_capacity_qualification": {
+    "qualification_state": "STRESS_RESILIENT",
+    "reverse_stress_distance": 2.0,
+    "capacity_limit_ratio": 1.0,
+    "hard_blocking_reason_codes": []
+  },
+  "rollback_policy": {
+    "minimum_live_observations": 20,
+    "alpha_decay_threshold": 0.0,
+    "cost_error_watch_bps": 5.0,
+    "cost_error_rollback_bps": 20.0,
+    "minimum_capacity_ratio": 0.8,
+    "severe_capacity_ratio": 0.5,
+    "confirmed_drift_action": "REQUALIFICATION_REQUIRED"
+  },
+  "stage_execution_records": [
+    {
+      "decision_id": "d0",
+      "cohort_id": "cohort-d0",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "BACKTEST",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d0",
+      "cohort_id": "cohort-d0",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "SHADOW",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d0",
+      "cohort_id": "cohort-d0",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "LIVE",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "FACTUAL_EXECUTED"
+    },
+    {
+      "decision_id": "d1",
+      "cohort_id": "cohort-d1",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "BACKTEST",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d1",
+      "cohort_id": "cohort-d1",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "SHADOW",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d1",
+      "cohort_id": "cohort-d1",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "LIVE",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "FACTUAL_EXECUTED"
+    },
+    {
+      "decision_id": "d2",
+      "cohort_id": "cohort-d2",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "BACKTEST",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d2",
+      "cohort_id": "cohort-d2",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "SHADOW",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d2",
+      "cohort_id": "cohort-d2",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "LIVE",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "FACTUAL_EXECUTED"
+    },
+    {
+      "decision_id": "d3",
+      "cohort_id": "cohort-d3",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "BACKTEST",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d3",
+      "cohort_id": "cohort-d3",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "SHADOW",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d3",
+      "cohort_id": "cohort-d3",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "LIVE",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "FACTUAL_EXECUTED"
+    },
+    {
+      "decision_id": "d4",
+      "cohort_id": "cohort-d4",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "BACKTEST",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d4",
+      "cohort_id": "cohort-d4",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "SHADOW",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "MODEL_BASED_COUNTERFACTUAL"
+    },
+    {
+      "decision_id": "d4",
+      "cohort_id": "cohort-d4",
+      "policy_id": "champion",
+      "instrument_id": "ABC",
+      "horizon_id": "1d",
+      "stage": "LIVE",
+      "decision_time": "2025-12-31T12:00:00Z",
+      "forecast_value": 0.1,
+      "signal_value": 1.0,
+      "target_quantity": 10.0,
+      "order_quantity": 10.0,
+      "fill_quantity": 10.0,
+      "benchmark_price": 100.0,
+      "average_fill_price": 100.1,
+      "fees": 1.0,
+      "margin_used": 100.0,
+      "pnl": 5.0,
+      "evidence_class": "FACTUAL_EXECUTED"
+    }
+  ],
+  "reality_gap_policy": {
+    "minimum_live_pairs": 5,
+    "maximum_mean_abs_fill_rate_gap": 0.15,
+    "maximum_mean_abs_slippage_gap_bps": 10.0,
+    "maximum_mean_abs_pnl_gap": null
+  }
+}

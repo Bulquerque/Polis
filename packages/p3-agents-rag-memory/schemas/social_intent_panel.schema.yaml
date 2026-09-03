@@ -1,0 +1,144 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  IntentStatus:
+    enum:
+    - PRELIMINARY
+    - FINALIZED
+    title: IntentStatus
+    type: string
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  SocialIntentRecord:
+    additionalProperties: false
+    properties:
+      intent_id:
+        minLength: 1
+        title: Intent Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      sender_person_id:
+        minLength: 1
+        title: Sender Person Id
+        type: string
+      recipient_person_id:
+        anyOf:
+        - minLength: 1
+          type: string
+        - type: 'null'
+        default: null
+        title: Recipient Person Id
+      message_type:
+        minLength: 1
+        title: Message Type
+        type: string
+      summary:
+        minLength: 1
+        title: Summary
+        type: string
+      claim_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Claim Refs
+        type: array
+      evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Evidence Refs
+        type: array
+      requested_action:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        title: Requested Action
+      status:
+        $ref: '#/$defs/IntentStatus'
+    required:
+    - intent_id
+    - cognition_transaction_id
+    - sender_person_id
+    - message_type
+    - summary
+    - status
+    title: SocialIntentRecord
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s21.v1
+    default: p3.s21.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  records:
+    items:
+      $ref: '#/$defs/SocialIntentRecord'
+    title: Records
+    type: array
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+required:
+- records
+- lineage
+title: social_intent_panel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s21:outputs:social_intent_panel:v1
+artifact_name: social_intent_panel
+x-artifact-name: social_intent_panel
+x-contract-version: p3.s21.v1
+x-authority: P3.S21
+artifact_schema_version: 1.0.0
+schema_version: v14.1-rc4.1

@@ -1,0 +1,15 @@
+spec_id: p0-s7-agent-prompt-template
+spec_version: v1
+required_fields:
+  - template_id
+  - skill_id
+  - phase_scope
+  - system_prompt
+optional_fields:
+  - module_scope
+  - requested_permissions
+rules:
+  phase_scope_must_match_skill: true
+  module_scope_must_be_subset_of_skill: true
+  requested_permissions_must_be_subset_of_skill: true
+  normalize_text_before_directive_checks: true

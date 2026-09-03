@@ -1,0 +1,42 @@
+{
+  "$id": "https://inferencia.local/p9/s4/1.0.0/VaRBreachRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "confidence_level": {
+      "title": "Confidence Level",
+      "type": "number"
+    },
+    "gross_net": {
+      "title": "Gross Net",
+      "type": "string"
+    },
+    "loss": {
+      "title": "Loss",
+      "type": "number"
+    },
+    "method": {
+      "title": "Method",
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "value_at_risk": {
+      "title": "Value At Risk",
+      "type": "number"
+    }
+  },
+  "required": [
+    "timestamp",
+    "gross_net",
+    "confidence_level",
+    "method",
+    "loss",
+    "value_at_risk"
+  ],
+  "title": "VaRBreachRecord",
+  "type": "object"
+}

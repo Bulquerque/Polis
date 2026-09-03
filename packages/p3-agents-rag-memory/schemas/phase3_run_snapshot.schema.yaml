@@ -1,0 +1,416 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s2:phase3-run-snapshot:v2
+title: phase3_run_snapshot
+artifact_name: phase3_run_snapshot
+schema_id: phase3_run_snapshot.v2
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required:
+- schema_version
+- contract_version
+- identity
+- temporal
+- inputs
+- configs
+- schemas
+- providers
+- prompts
+- seeds
+- budgets
+- runtime_fingerprints
+- authority
+- validation_status
+- issues
+- snapshot_hash
+- hash_profile
+- created_at
+- lineage_id
+- content_hash
+properties:
+  schema_version:
+    const: v14.1-rc4.1
+  contract_version:
+    const: p3.s2.phase3_run_snapshot.v2
+  identity:
+    type: object
+    additionalProperties: false
+    required:
+    - run_id
+    - snapshot_id
+    - architecture_revision
+    - pipeline_version
+    - execution_profile
+    - execution_mode
+    properties:
+      run_id:
+        type: string
+        minLength: 1
+      snapshot_id:
+        type: string
+        pattern: ^p3-snapshot-[0-9a-f]{24}$
+      architecture_revision:
+        type: string
+        minLength: 1
+      pipeline_version:
+        type: string
+        minLength: 1
+      execution_profile:
+        enum:
+        - DEVELOPMENT
+        - QUALIFICATION
+      execution_mode:
+        type: string
+        minLength: 1
+  temporal:
+    type: object
+    additionalProperties: false
+    required:
+    - as_of
+    - as_of_time
+    - evaluation_start
+    - evaluation_end
+    - warmup_start
+    - warmup_end
+    - timezone
+    - boundary_rule
+    properties:
+      as_of:
+        type: string
+        format: date-time
+      evaluation_start:
+        type:
+        - string
+        - 'null'
+        format: date-time
+      evaluation_end:
+        type:
+        - string
+        - 'null'
+        format: date-time
+      warmup_start:
+        type:
+        - string
+        - 'null'
+        format: date-time
+      warmup_end:
+        type:
+        - string
+        - 'null'
+        format: date-time
+      timezone:
+        const: UTC
+      boundary_rule:
+        const: available_at_equal_as_of_allowed
+      as_of_time:
+        type: string
+        format: date-time
+  inputs:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      type: object
+      additionalProperties: false
+      required:
+      - artifact_name
+      - content_hash
+      - lineage_id
+      properties:
+        artifact_name:
+          enum:
+          - pit_validated_context
+          - phase3_handoff_manifest
+        content_hash:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+        lineage_id:
+          type: string
+  configs:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required:
+      - config_id
+      - path
+      - content_hash
+      - value_type
+      properties:
+        config_id:
+          type: string
+          minLength: 1
+        path:
+          type: string
+          minLength: 1
+        content_hash:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+        value_type:
+          type: string
+          minLength: 1
+  schemas:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required:
+      - schema_id
+      - path
+      - class
+      - authority
+      - content_hash
+      properties:
+        schema_id:
+          type: string
+          minLength: 1
+        path:
+          type: string
+          minLength: 1
+        class:
+          type: string
+          minLength: 1
+        authority:
+          type: string
+          minLength: 1
+        content_hash:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+  providers:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required:
+      - provider_id
+      - adapter_id
+      - adapter_version
+      - capabilities
+      - qualification_status
+      - models
+      properties:
+        provider_id:
+          type: string
+          minLength: 1
+        adapter_id:
+          type: string
+          minLength: 1
+        adapter_version:
+          type: string
+        capabilities:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        qualification_status:
+          type: string
+          minLength: 1
+        models:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required:
+            - model_id
+            - model_version
+            - release_date
+            - declared_knowledge_cutoff
+            - training_data_cutoff
+            - canary_test_status
+            - qualification_status
+            - evidence_refs
+            properties:
+              model_id:
+                type: string
+                minLength: 1
+              model_version:
+                type: string
+                minLength: 1
+              release_date:
+                type:
+                - string
+                - 'null'
+              declared_knowledge_cutoff:
+                type:
+                - string
+                - 'null'
+              training_data_cutoff:
+                type:
+                - string
+                - 'null'
+              canary_test_status:
+                type: string
+                minLength: 1
+              qualification_status:
+                type: string
+                minLength: 1
+              evidence_refs:
+                type: array
+                items:
+                  type: string
+                uniqueItems: true
+  prompts:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required:
+      - prompt_id
+      - prompt_version
+      - content_hash
+      properties:
+        prompt_id:
+          type: string
+        prompt_version:
+          type: string
+        content_hash:
+          type: string
+          pattern: ^$|^[0-9a-f]{64}$
+  seeds:
+    type: object
+    additionalProperties: false
+    required:
+    - status
+    - global_seed
+    - component_seeds
+    - derivation_policy
+    properties:
+      status:
+        enum:
+        - READY
+        - MISSING
+      global_seed:
+        type:
+        - integer
+        - 'null'
+      component_seeds:
+        type: object
+        additionalProperties:
+          type: integer
+      derivation_policy:
+        type:
+        - string
+        - 'null'
+  budgets:
+    type: object
+    additionalProperties: false
+    required:
+    - content_hash
+    - values
+    properties:
+      content_hash:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+      values:
+        type: object
+  authority:
+    type: object
+    additionalProperties: false
+    required:
+    - config_bindings_version
+    - schema_registry_version
+    - schema_count
+    - provider_registry_id
+    properties:
+      config_bindings_version:
+        type: string
+        minLength: 1
+      schema_registry_version:
+        type: string
+        minLength: 1
+      schema_count:
+        type: integer
+        minimum: 1
+      provider_registry_id:
+        type: string
+        minLength: 1
+  validation_status:
+    enum:
+    - READY
+    - DEGRADED
+  issues:
+    type: array
+    items:
+      $ref: '#/$defs/issue'
+  snapshot_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  hash_profile:
+    const: p3_snapshot_canonical_sha256_v1
+  created_at:
+    type: string
+    format: date-time
+  lineage_id:
+    type: string
+    minLength: 1
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  runtime_fingerprints:
+    type: object
+    additionalProperties: false
+    required:
+    - files
+    - aggregates
+    - environment
+    - environment_sha256
+    - authority_sha256
+    properties:
+      files:
+        type: object
+        additionalProperties:
+          type:
+          - string
+          - 'null'
+          pattern: ^[0-9a-f]{64}$
+      aggregates:
+        type: object
+        additionalProperties:
+          type: string
+          pattern: ^[0-9a-f]{64}$
+      environment:
+        type: object
+      environment_sha256:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+      authority_sha256:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+$defs:
+  issue:
+    type: object
+    additionalProperties: false
+    required:
+    - code
+    - severity
+    - message
+    - artifact_name
+    - record_id
+    - field
+    properties:
+      code:
+        type: string
+        minLength: 1
+      severity:
+        enum:
+        - INFO
+        - WARNING
+        - ERROR
+        - BLOCKING
+      message:
+        type: string
+        minLength: 1
+      artifact_name:
+        type:
+        - string
+        - 'null'
+      record_id:
+        type:
+        - string
+        - 'null'
+      field:
+        type:
+        - string
+        - 'null'

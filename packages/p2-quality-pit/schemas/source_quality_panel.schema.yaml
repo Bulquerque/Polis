@@ -1,0 +1,26 @@
+artifact: source_quality_panel
+schema_version: v14.1-rc4.1
+required_fields:
+- artifact_id
+- created_at
+- source_id
+- source_name
+- source_type
+- quality_score
+- readability_status
+- error_flag
+- warning_flag
+- declared_available_at
+- lineage_id
+- pipeline_version
+optional_fields: []
+forbidden_fields:
+- candidate_id
+- prediction
+- target
+quality_checks:
+- required_fields_present
+- lineage_required
+- pipeline_version_required
+- forbidden_fields_absent
+notes: []

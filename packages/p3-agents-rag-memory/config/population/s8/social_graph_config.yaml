@@ -1,0 +1,77 @@
+config_id: P3_S8_SOCIAL_GRAPH_CONFIG_V2
+config_version: 2.0.0
+architecture_revision: P3-FINAL
+graph_direction: DIRECTED_RECIPROCAL_PAIRS
+graph_seed_algorithm: sha256_uint63_v1
+pair_random_algorithm: sha256_pair_uniform_v1
+edge_id_algorithm: sha256_directed_edge_v1
+probability_formula_version: sigmoid_homophily_v2
+probability_weights:
+  intercept: -3.0
+  same_institution: 1.5
+  role_similarity: 0.8
+  tag_cosine: 1.0
+  same_geography: 0.3
+minimum_neighbor_degree: 1
+maximum_neighbor_degree: 12
+maximum_connected_components: 1
+minimum_bridge_pairs_between_role_families: 4
+maximum_hub_share: 0.2
+relationship_types:
+- institutional_peer
+- role_peer
+- cross_role_bridge
+- geographic_peer
+- professional_peer
+trust_domains:
+- macro
+- company_fundamentals
+- quantitative
+- policy
+- sector
+- technology
+trust_domain_formulas:
+  macro:
+    base: 0.1
+    target_research: 0.25
+    target_quantitative: 0.2
+    target_information_access: 0.15
+    pair_tag_cosine: 0.1
+    role_similarity: 0.05
+  company_fundamentals:
+    base: 0.1
+    target_research: 0.3
+    target_quantitative: 0.1
+    target_information_access: 0.2
+    same_institution: 0.1
+    role_similarity: 0.05
+  quantitative:
+    base: 0.1
+    target_quantitative: 0.4
+    target_coding: 0.15
+    target_tool_use: 0.1
+    pair_tag_cosine: 0.1
+  policy:
+    base: 0.1
+    target_research: 0.15
+    target_verbal: 0.25
+    target_information_access: 0.15
+    same_institution: 0.1
+    role_similarity: 0.1
+  sector:
+    base: 0.1
+    target_research: 0.25
+    target_information_access: 0.2
+    pair_tag_cosine: 0.15
+    same_institution: 0.05
+    role_similarity: 0.1
+  technology:
+    base: 0.1
+    target_quantitative: 0.1
+    target_coding: 0.25
+    target_tool_use: 0.25
+    target_information_access: 0.1
+    pair_tag_cosine: 0.05
+global_trust_floor: 0.1
+global_trust_ceiling: 0.9
+numeric_precision: 12

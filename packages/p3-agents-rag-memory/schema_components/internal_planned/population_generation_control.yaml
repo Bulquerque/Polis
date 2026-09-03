@@ -1,0 +1,29 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: population_generation_control
+status: planned_internal_schema
+type: object
+required:
+- status
+- stop_reason
+- generation_round
+- lineage_id
+properties:
+  status:
+    type: string
+    enum:
+    - CONTINUE
+    - FINALIZE
+  stop_reason:
+    type: string
+  generation_round:
+    type: integer
+    minimum: 1
+  mode:
+    type: string
+    enum:
+    - NOVELTY
+    - DENSITY
+    - FINALIZED
+  lineage_id:
+    type: string
+additionalProperties: false

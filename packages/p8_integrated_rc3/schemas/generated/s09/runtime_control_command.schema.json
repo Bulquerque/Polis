@@ -1,0 +1,106 @@
+{
+  "$defs": {
+    "ReasonCode": {
+      "enum": [
+        "MATERIAL_DISTRIBUTION_SHIFT",
+        "TAIL_RISK_SHIFT",
+        "LIQUIDITY_DETERIORATION",
+        "EXECUTION_MODEL_DETERIORATION",
+        "MONITOR_DATA_STALE",
+        "MONITOR_BASELINE_INVALID",
+        "CANDIDATE_CONSERVATION_FAIL",
+        "ORDER_CONSERVATION_FAIL",
+        "DUAL_BOOK_RECONCILIATION_FAIL",
+        "CASH_RECONCILIATION_FAIL",
+        "MARGIN_HEADROOM_BREACH",
+        "MAX_LOSS_BREACH",
+        "QUOTE_STALE",
+        "LIFECYCLE_INCONSISTENT",
+        "SETTLEMENT_INCONSISTENT",
+        "STATE_HASH_MISMATCH",
+        "UNHEDGED_PARTIAL_FILL",
+        "FALLBACK_NOT_FEASIBLE",
+        "CHALLENGER_INPUT_MISMATCH",
+        "CHALLENGER_RISK_BREACH",
+        "MATERIAL_DECISION_DISAGREEMENT",
+        "ADAPTATION_NON_CONSERVATIVE",
+        "ADAPTATION_OUT_OF_BOUNDS",
+        "RUNTIME_POLICY_EXPIRED"
+      ],
+      "title": "ReasonCode",
+      "type": "string"
+    },
+    "RuntimeMode": {
+      "enum": [
+        "NORMAL",
+        "HOLD_NO_NEW_RISK",
+        "CANCEL_OPEN_ORDERS",
+        "CLOSE_ONLY",
+        "RISK_REDUCTION_ONLY",
+        "HEDGE_ONLY",
+        "CONTROLLED_FLATTEN",
+        "HALT"
+      ],
+      "title": "RuntimeMode",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/schemas/p8/s9/runtime_control_command.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_actions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Actions",
+      "type": "array"
+    },
+    "command_id": {
+      "minLength": 1,
+      "title": "Command Id",
+      "type": "string"
+    },
+    "feasibility_proven": {
+      "title": "Feasibility Proven",
+      "type": "boolean"
+    },
+    "idempotency_key": {
+      "minLength": 1,
+      "title": "Idempotency Key",
+      "type": "string"
+    },
+    "issued_at": {
+      "format": "date-time",
+      "title": "Issued At",
+      "type": "string"
+    },
+    "mode": {
+      "$ref": "#/$defs/RuntimeMode"
+    },
+    "reason_codes": {
+      "items": {
+        "$ref": "#/$defs/ReasonCode"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "valid_until": {
+      "format": "date-time",
+      "title": "Valid Until",
+      "type": "string"
+    }
+  },
+  "required": [
+    "command_id",
+    "mode",
+    "reason_codes",
+    "issued_at",
+    "valid_until",
+    "idempotency_key",
+    "allowed_actions",
+    "feasibility_proven"
+  ],
+  "title": "RuntimeControlCommand",
+  "type": "object"
+}

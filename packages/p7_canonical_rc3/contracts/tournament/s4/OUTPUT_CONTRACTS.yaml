@@ -1,0 +1,18 @@
+contract_id: p7_s4_outputs_v1
+canonical_outputs:
+  - scoring_head_input_panel
+  - scoring_policy_receipt
+  - scoring_head_panel
+  - interpretable_score_panel
+  - score_decomposition_panel
+  - interpretable_tournament_audit_report
+  - interpretable_tournament_handoff_manifest
+consumer: P7.LEARNING
+invariants:
+  - scores are not ranks
+  - no LTR score is consumed or published
+  - each head remains independently auditable
+  - base_score equals the sum of normalized head contributions
+  - final score equals base_score minus penalties plus confidence and explicit boundary adjustments within tolerance
+  - dominated candidates remain referenced for audit but are not scored by the baseline policy
+  - manifest references are content-addressed

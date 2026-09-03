@@ -1,0 +1,100 @@
+{
+  "$defs": {
+    "QuantMode": {
+      "enum": [
+        "BASIC",
+        "ROBUST",
+        "STABILITY"
+      ],
+      "title": "QuantMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "deterministic_or_seeded": {
+      "default": true,
+      "title": "Deterministic Or Seeded",
+      "type": "boolean"
+    },
+    "forbidden_authorities": {
+      "default": [
+        "backtest",
+        "feature_selection",
+        "model_selection",
+        "signal_generation",
+        "portfolio_optimization",
+        "direct_p5_consumption"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Forbidden Authorities",
+      "type": "array"
+    },
+    "handler_id": {
+      "minLength": 1,
+      "title": "Handler Id",
+      "type": "string"
+    },
+    "handler_version": {
+      "minLength": 1,
+      "title": "Handler Version",
+      "type": "string"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "read_only": {
+      "const": true,
+      "default": true,
+      "title": "Read Only",
+      "type": "boolean"
+    },
+    "request_schema_ref": {
+      "minLength": 1,
+      "title": "Request Schema Ref",
+      "type": "string"
+    },
+    "required_view_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Required View Ids",
+      "type": "array"
+    },
+    "result_schema_ref": {
+      "minLength": 1,
+      "title": "Result Schema Ref",
+      "type": "string"
+    },
+    "supported_modes": {
+      "items": {
+        "$ref": "#/$defs/QuantMode"
+      },
+      "title": "Supported Modes",
+      "type": "array"
+    },
+    "tool_id": {
+      "const": "quant.diagnostics.v1",
+      "default": "quant.diagnostics.v1",
+      "title": "Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "operation_id",
+    "handler_id",
+    "handler_version",
+    "request_schema_ref",
+    "result_schema_ref",
+    "supported_modes"
+  ],
+  "title": "HandlerBindingSpec",
+  "type": "object"
+}

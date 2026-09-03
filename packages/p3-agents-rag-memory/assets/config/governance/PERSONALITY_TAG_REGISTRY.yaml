@@ -1,0 +1,209 @@
+registry_id: P3_PERSONALITY_TAG_REGISTRY_V1
+policy: fixed_registry_no_free_tag_creation
+assignment_fields:
+- intensity
+- confidence
+categories:
+- category_id: life_context
+  tags:
+  - tag_id: young
+    description: Early-life or early-career orientation; not an exact age claim.
+  - tag_id: mid_career
+    description: Established mid-career orientation.
+  - tag_id: senior_experienced
+    description: Long accumulated professional/life experience.
+  - tag_id: student_or_trainee
+    description: Currently learning in a formal or apprenticeship setting.
+  - tag_id: career_transitioning
+    description: Changing role, sector, or professional identity.
+  - tag_id: career_stable
+    description: Stable professional path and routines.
+  - tag_id: time_constrained
+    description: Limited discretionary time for research.
+  - tag_id: high_research_time
+    description: Relatively high time available for research.
+- category_id: cognition
+  tags:
+  - tag_id: analytical
+    description: Prefers explicit decomposition and structured reasoning.
+  - tag_id: intuitive
+    description: Often relies on pattern recognition or heuristics.
+  - tag_id: quantitative_background
+    description: Comfortable with quantitative representations.
+  - tag_id: verbal_reasoning_strong
+    description: Strong verbal synthesis and interpretation.
+  - tag_id: financially_literate
+    description: Comfortable with finance concepts.
+  - tag_id: statistically_literate
+    description: Comfortable with uncertainty and statistical evidence.
+  - tag_id: research_skilled
+    description: Able to investigate multiple sources effectively.
+  - tag_id: source_skeptical
+    description: Actively questions source quality and incentives.
+  - tag_id: fast_learner
+    description: Updates skills or knowledge relatively quickly.
+  - tag_id: deep_planner
+    description: Tends to reason through longer causal chains.
+  - tag_id: detail_oriented
+    description: Attends strongly to granular evidence.
+  - tag_id: uncertainty_tolerant
+    description: Can act cognitively without premature certainty.
+- category_id: decision_style
+  tags:
+  - tag_id: risk_tolerant
+    description: Accepts larger uncertainty or dispersion.
+  - tag_id: risk_averse
+    description: Prefers lower uncertainty or downside exposure.
+  - tag_id: loss_sensitive
+    description: Strongly reacts to perceived losses or downside.
+  - tag_id: patient
+    description: Comfortable waiting for evidence or long horizons.
+  - tag_id: impulsive
+    description: More likely to react before extended deliberation.
+  - tag_id: curious
+    description: Actively seeks novel information.
+  - tag_id: cognitively_flexible
+    description: Can revise frameworks when evidence changes.
+  - tag_id: certainty_seeking
+    description: Prefers clear conclusions and stable narratives.
+  - tag_id: persistent
+    description: Maintains effort or views through friction.
+  - tag_id: novelty_seeking
+    description: Attracted to new themes, methods, or opportunities.
+  - tag_id: high_baseline_confidence
+    description: Starts with relatively high confidence in own judgments.
+  - tag_id: low_baseline_confidence
+    description: Starts with relatively cautious self-confidence.
+- category_id: attention_affective
+  tags:
+  - tag_id: volatility_anxious
+    description: Attention rises strongly with volatility or instability.
+  - tag_id: drawdown_sensitive
+    description: Attention rises strongly with losses or drawdowns.
+  - tag_id: event_reactive
+    description: Major events quickly increase salience.
+  - tag_id: attention_fragmented
+    description: Attention is distributed across many competing topics.
+  - tag_id: high_focus_capacity
+    description: Can sustain concentrated attention.
+  - tag_id: stress_sensitive
+    description: Stress meaningfully changes attention or confidence.
+  - tag_id: excitement_prone
+    description: Positive salience can amplify attention and confidence.
+  - tag_id: low_reactivity
+    description: Requires stronger stimuli before reallocating attention.
+- category_id: technology_tools
+  tags:
+  - tag_id: technology_enthusiast
+    description: Strong interest in technology.
+  - tag_id: early_adopter
+    description: Adopts new tools relatively early.
+  - tag_id: ai_power_user
+    description: Comfortable using advanced AI-assisted workflows.
+  - tag_id: automation_friendly
+    description: Comfortable delegating repetitive work to automation.
+  - tag_id: tool_skeptical
+    description: Requires strong evidence before trusting tools.
+  - tag_id: coding_capable
+    description: Can directly use programming environments.
+  - tag_id: spreadsheet_power_user
+    description: Highly comfortable with spreadsheet analysis.
+  - tag_id: terminal_data_tools_capable
+    description: Comfortable with technical data/query tooling.
+- category_id: information_access
+  tags:
+  - tag_id: high_information_access
+    description: Has broad or high-quality access to information.
+  - tag_id: low_information_access
+    description: Has limited or delayed information access.
+  - tag_id: professional_network_dense
+    description: Has a dense professional information network.
+  - tag_id: network_isolated
+    description: Receives relatively little information through relationships.
+  - tag_id: deep_research_capable
+    description: Can conduct multi-step deep research.
+  - tag_id: news_driven
+    description: Frequently attends to news flow.
+  - tag_id: primary_source_oriented
+    description: Prefers filings, releases, and original sources.
+  - tag_id: social_media_reliant
+    description: Relies relatively more on social/distributed feeds.
+  - tag_id: institutional_data_access
+    description: Has access to institutional-grade data or research.
+  - tag_id: public_data_reliant
+    description: Primarily uses public or broadly available data.
+- category_id: market_orientation
+  tags:
+  - tag_id: long_horizon
+    description: Naturally reasons over longer horizons.
+  - tag_id: short_horizon
+    description: Naturally reasons over shorter horizons.
+  - tag_id: fundamental_oriented
+    description: Focuses on economic/business fundamentals.
+  - tag_id: quantitative_oriented
+    description: Focuses on quantitative signals and models.
+  - tag_id: macro_oriented
+    description: Focuses on macroeconomic forces.
+  - tag_id: narrative_sensitive
+    description: Narratives materially influence attention or beliefs.
+  - tag_id: contrarian_tendency
+    description: More willing to oppose prevailing views.
+  - tag_id: trend_attentive
+    description: Pays strong attention to trend or momentum.
+  - tag_id: valuation_sensitive
+    description: Pays strong attention to valuation.
+  - tag_id: liquidity_sensitive
+    description: Liquidity constraints strongly matter.
+  - tag_id: benchmark_sensitive
+    description: Performance relative to a benchmark strongly matters.
+  - tag_id: event_driven_orientation
+    description: Focuses on discrete events and catalysts.
+- category_id: social_behavior
+  tags:
+  - tag_id: socially_influenceable
+    description: Other people can materially change beliefs.
+  - tag_id: independent_thinker
+    description: Relatively resistant to social conformity.
+  - tag_id: opinion_leader_potential
+    description: Can become influential when trusted.
+  - tag_id: bridge_networker
+    description: Connects otherwise separated social groups.
+  - tag_id: institution_loyal
+    description: Institutional norms strongly shape behavior.
+  - tag_id: peer_consensus_seeking
+    description: Looks for peer agreement before increasing confidence.
+  - tag_id: source_loyal
+    description: Maintains persistent trust in selected sources.
+  - tag_id: high_social_activity
+    description: Frequently exchanges information with others.
+  - tag_id: low_social_activity
+    description: Rarely communicates or shares views.
+  - tag_id: domain_specific_trust
+    description: Strongly differentiates trust by topic/domain.
+- category_id: economic_constraints
+  tags:
+  - tag_id: liquidity_need_high
+    description: High need for near-term liquidity.
+  - tag_id: capital_preservation_priority
+    description: Strong preference to preserve resources/capital.
+  - tag_id: wealth_growth_priority
+    description: Strong preference for long-run wealth/resource growth.
+  - tag_id: income_generation_priority
+    description: Values recurring income generation.
+  - tag_id: career_risk_sensitive
+    description: Professional consequences materially affect behavior.
+  - tag_id: reputation_sensitive
+    description: Reputation/status materially affects behavior.
+  - tag_id: institutional_mandate_constrained
+    description: Actions/thought process constrained by a mandate.
+  - tag_id: resource_constrained
+    description: Research or financial resources are materially limited.
+registry_version: 1.0.0
+assignment_contract:
+  intensity:
+    minimum: 0.0
+    maximum: 1.0
+  confidence:
+    minimum: 0.0
+    maximum: 1.0
+lineage_id: LIN_CONFIG_P3_PERSONALITY_TAG_REGISTRY_V1

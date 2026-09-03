@@ -1,0 +1,185 @@
+{
+  "$defs": {
+    "CorpusMode": {
+      "enum": [
+        "LOOKUP",
+        "STANDARD",
+        "TRIANGULATED",
+        "FORENSIC"
+      ],
+      "title": "CorpusMode",
+      "type": "string"
+    },
+    "ModePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_reranker": {
+          "default": false,
+          "title": "Allow Reranker",
+          "type": "boolean"
+        },
+        "allow_semantic": {
+          "default": false,
+          "title": "Allow Semantic",
+          "type": "boolean"
+        },
+        "coverage_floor": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Coverage Floor",
+          "type": "number"
+        },
+        "downgrade_targets": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CorpusMode"
+          },
+          "title": "Downgrade Targets",
+          "type": "array"
+        },
+        "max_internal_subqueries": {
+          "exclusiveMinimum": 0,
+          "maximum": 8,
+          "title": "Max Internal Subqueries",
+          "type": "integer"
+        },
+        "max_internal_work_units": {
+          "exclusiveMinimum": 0,
+          "maximum": 100,
+          "title": "Max Internal Work Units",
+          "type": "integer"
+        },
+        "max_results": {
+          "exclusiveMinimum": 0,
+          "maximum": 100,
+          "title": "Max Results",
+          "type": "integer"
+        },
+        "minimum_source_families": {
+          "default": 1,
+          "maximum": 10,
+          "minimum": 1,
+          "title": "Minimum Source Families",
+          "type": "integer"
+        },
+        "mode_id": {
+          "$ref": "#/$defs/CorpusMode"
+        },
+        "require_counterevidence": {
+          "default": false,
+          "title": "Require Counterevidence",
+          "type": "boolean"
+        },
+        "require_semantic": {
+          "default": false,
+          "title": "Require Semantic",
+          "type": "boolean"
+        },
+        "require_version_graph": {
+          "default": false,
+          "title": "Require Version Graph",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "mode_id",
+        "max_results",
+        "max_internal_subqueries",
+        "max_internal_work_units"
+      ],
+      "title": "ModePolicy",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bm25_b": {
+      "default": 0.75,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Bm25 B",
+      "type": "number"
+    },
+    "bm25_k1": {
+      "default": 1.5,
+      "exclusiveMinimum": 0.0,
+      "maximum": 5.0,
+      "title": "Bm25 K1",
+      "type": "number"
+    },
+    "content_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "deduplicate_by_content_hash": {
+      "const": true,
+      "default": true,
+      "title": "Deduplicate By Content Hash",
+      "type": "boolean"
+    },
+    "filter_point_in_time_before_scoring": {
+      "const": true,
+      "default": true,
+      "title": "Filter Point In Time Before Scoring",
+      "type": "boolean"
+    },
+    "fusion_algorithm": {
+      "const": "RRF_V1",
+      "default": "RRF_V1",
+      "title": "Fusion Algorithm",
+      "type": "string"
+    },
+    "lexical_algorithm": {
+      "const": "BM25_V1",
+      "default": "BM25_V1",
+      "title": "Lexical Algorithm",
+      "type": "string"
+    },
+    "modes": {
+      "items": {
+        "$ref": "#/$defs/ModePolicy"
+      },
+      "title": "Modes",
+      "type": "array"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "title": "Policy Id",
+      "type": "string"
+    },
+    "rrf_constant": {
+      "default": 60,
+      "maximum": 1000,
+      "minimum": 1,
+      "title": "Rrf Constant",
+      "type": "integer"
+    },
+    "schema_id": {
+      "const": "corpus_retrieval_policy.s35.v1",
+      "default": "corpus_retrieval_policy.s35.v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "snapshot_id",
+    "modes",
+    "content_hash"
+  ],
+  "title": "CorpusRetrievalPolicy",
+  "type": "object"
+}

@@ -1,0 +1,50 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "producer_module_id": {
+      "pattern": "^P3\\.S(?:3[2-9]|40)\\.M\\d{2}$",
+      "title": "Producer Module Id",
+      "type": "string"
+    },
+    "source_artifact_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Source Artifact Ids",
+      "type": "array"
+    },
+    "source_hashes": {
+      "additionalProperties": {
+        "pattern": "^[a-f0-9]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1
+      },
+      "title": "Source Hashes",
+      "type": "object"
+    },
+    "transformation_ids": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Transformation Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "lineage_id",
+    "producer_module_id"
+  ],
+  "title": "ExtensionLineage",
+  "type": "object"
+}

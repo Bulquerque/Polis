@@ -1,0 +1,420 @@
+$defs:
+  ArtifactStatus:
+    enum:
+    - READY
+    - DEGRADED
+    - BLOCKED
+    - FAILED
+    - EMPTY_VALID
+    title: ArtifactStatus
+    type: string
+  BeliefDelta:
+    additionalProperties: false
+    properties:
+      value_type:
+        $ref: '#/$defs/BeliefValueType'
+      prior_payload:
+        anyOf:
+        - discriminator:
+            mapping:
+              DIRECTIONAL_SCORE: '#/$defs/DirectionalBeliefPayload'
+              REGIME_PROBABILITIES: '#/$defs/RegimeBeliefPayload'
+              VOLATILITY_LEVEL: '#/$defs/VolatilityBeliefPayload'
+            propertyName: value_type
+          oneOf:
+          - $ref: '#/$defs/DirectionalBeliefPayload'
+          - $ref: '#/$defs/VolatilityBeliefPayload'
+          - $ref: '#/$defs/RegimeBeliefPayload'
+        - type: 'null'
+        default: null
+        title: Prior Payload
+      accepted_payload:
+        discriminator:
+          mapping:
+            DIRECTIONAL_SCORE: '#/$defs/DirectionalBeliefPayload'
+            REGIME_PROBABILITIES: '#/$defs/RegimeBeliefPayload'
+            VOLATILITY_LEVEL: '#/$defs/VolatilityBeliefPayload'
+          propertyName: value_type
+        oneOf:
+        - $ref: '#/$defs/DirectionalBeliefPayload'
+        - $ref: '#/$defs/VolatilityBeliefPayload'
+        - $ref: '#/$defs/RegimeBeliefPayload'
+        title: Accepted Payload
+      scalar_delta:
+        anyOf:
+        - type: number
+        - type: 'null'
+        default: null
+        title: Scalar Delta
+      component_deltas:
+        additionalProperties:
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Component Deltas
+        type: object
+      distance_l1:
+        default: 0.0
+        minimum: 0.0
+        title: Distance L1
+        type: number
+    required:
+    - value_type
+    - accepted_payload
+    title: BeliefDelta
+    type: object
+  BeliefValidationStatus:
+    enum:
+    - ACCEPTED
+    - REJECTED_PROPOSITION
+    - REJECTED_HORIZON
+    - REJECTED_PAYLOAD
+    - REJECTED_TEMPORAL
+    - REJECTED_DELTA_LIMIT
+    - REJECTED_DUPLICATE
+    title: BeliefValidationStatus
+    type: string
+  BeliefValueType:
+    enum:
+    - DIRECTIONAL_SCORE
+    - VOLATILITY_LEVEL
+    - REGIME_PROBABILITIES
+    title: BeliefValueType
+    type: string
+  CurrentBeliefStateRecord:
+    additionalProperties: false
+    properties:
+      belief_state_id:
+        minLength: 1
+        title: Belief State Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      underlying_id:
+        minLength: 1
+        title: Underlying Id
+        type: string
+      proposition_id:
+        minLength: 1
+        title: Proposition Id
+        type: string
+      horizon:
+        minLength: 1
+        title: Horizon
+        type: string
+      payload:
+        discriminator:
+          mapping:
+            DIRECTIONAL_SCORE: '#/$defs/DirectionalBeliefPayload'
+            REGIME_PROBABILITIES: '#/$defs/RegimeBeliefPayload'
+            VOLATILITY_LEVEL: '#/$defs/VolatilityBeliefPayload'
+          propertyName: value_type
+        oneOf:
+        - $ref: '#/$defs/DirectionalBeliefPayload'
+        - $ref: '#/$defs/VolatilityBeliefPayload'
+        - $ref: '#/$defs/RegimeBeliefPayload'
+        title: Payload
+      confidence:
+        maximum: 1.0
+        minimum: 0.0
+        title: Confidence
+        type: number
+      uncertainty:
+        maximum: 1.0
+        minimum: 0.0
+        title: Uncertainty
+        type: number
+      evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Evidence Refs
+        type: array
+      updated_at:
+        format: date-time
+        title: Updated At
+        type: string
+      state_version:
+        default: 1
+        minimum: 1
+        title: State Version
+        type: integer
+    required:
+    - belief_state_id
+    - person_id
+    - underlying_id
+    - proposition_id
+    - horizon
+    - payload
+    - confidence
+    - uncertainty
+    - updated_at
+    title: CurrentBeliefStateRecord
+    type: object
+  DirectionalBeliefPayload:
+    additionalProperties: false
+    properties:
+      value_type:
+        const: DIRECTIONAL_SCORE
+        title: Value Type
+        type: string
+      direction:
+        minLength: 1
+        title: Direction
+        type: string
+      score:
+        maximum: 1.0
+        minimum: -1.0
+        title: Score
+        type: number
+    required:
+    - value_type
+    - direction
+    - score
+    title: DirectionalBeliefPayload
+    type: object
+  LineageRecord:
+    additionalProperties: false
+    properties:
+      lineage_id:
+        minLength: 1
+        title: Lineage Id
+        type: string
+      source_artifact_ids:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Source Artifact Ids
+        type: array
+      source_hashes:
+        additionalProperties:
+          minLength: 1
+          type: string
+        propertyNames:
+          minLength: 1
+        title: Source Hashes
+        type: object
+      producer_module_id:
+        minLength: 1
+        title: Producer Module Id
+        type: string
+    required:
+    - lineage_id
+    - producer_module_id
+    title: LineageRecord
+    type: object
+  RegimeBeliefPayload:
+    additionalProperties: false
+    properties:
+      value_type:
+        const: REGIME_PROBABILITIES
+        title: Value Type
+        type: string
+      probabilities:
+        additionalProperties:
+          maximum: 1.0
+          minimum: 0.0
+          type: number
+        propertyNames:
+          minLength: 1
+        title: Probabilities
+        type: object
+    required:
+    - value_type
+    - probabilities
+    title: RegimeBeliefPayload
+    type: object
+  StructuredBeliefProposalRecord:
+    additionalProperties: false
+    properties:
+      belief_proposal_id:
+        minLength: 1
+        title: Belief Proposal Id
+        type: string
+      cognition_transaction_id:
+        minLength: 1
+        title: Cognition Transaction Id
+        type: string
+      person_id:
+        minLength: 1
+        title: Person Id
+        type: string
+      underlying_id:
+        minLength: 1
+        title: Underlying Id
+        type: string
+      proposition_id:
+        minLength: 1
+        title: Proposition Id
+        type: string
+      horizon:
+        minLength: 1
+        title: Horizon
+        type: string
+      payload:
+        discriminator:
+          mapping:
+            DIRECTIONAL_SCORE: '#/$defs/DirectionalBeliefPayload'
+            REGIME_PROBABILITIES: '#/$defs/RegimeBeliefPayload'
+            VOLATILITY_LEVEL: '#/$defs/VolatilityBeliefPayload'
+          propertyName: value_type
+        oneOf:
+        - $ref: '#/$defs/DirectionalBeliefPayload'
+        - $ref: '#/$defs/VolatilityBeliefPayload'
+        - $ref: '#/$defs/RegimeBeliefPayload'
+        title: Payload
+      strength:
+        maximum: 1.0
+        minimum: 0.0
+        title: Strength
+        type: number
+      confidence:
+        maximum: 1.0
+        minimum: 0.0
+        title: Confidence
+        type: number
+      uncertainty:
+        maximum: 1.0
+        minimum: 0.0
+        title: Uncertainty
+        type: number
+      supporting_evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Supporting Evidence Refs
+        type: array
+      opposing_evidence_refs:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Opposing Evidence Refs
+        type: array
+      generated_at:
+        format: date-time
+        title: Generated At
+        type: string
+      as_of:
+        format: date-time
+        title: As Of
+        type: string
+    required:
+    - belief_proposal_id
+    - cognition_transaction_id
+    - person_id
+    - underlying_id
+    - proposition_id
+    - horizon
+    - payload
+    - strength
+    - confidence
+    - uncertainty
+    - generated_at
+    - as_of
+    title: StructuredBeliefProposalRecord
+    type: object
+  ValidatedBeliefUpdateRecord:
+    additionalProperties: false
+    properties:
+      belief_update_id:
+        minLength: 1
+        title: Belief Update Id
+        type: string
+      proposal:
+        $ref: '#/$defs/StructuredBeliefProposalRecord'
+      prior_state:
+        anyOf:
+        - $ref: '#/$defs/CurrentBeliefStateRecord'
+        - type: 'null'
+        default: null
+      validation_status:
+        $ref: '#/$defs/BeliefValidationStatus'
+      reason_codes:
+        default: []
+        items:
+          minLength: 1
+          type: string
+        title: Reason Codes
+        type: array
+      delta:
+        anyOf:
+        - $ref: '#/$defs/BeliefDelta'
+        - type: 'null'
+        default: null
+      validated_at:
+        format: date-time
+        title: Validated At
+        type: string
+      next_state_version:
+        minimum: 1
+        title: Next State Version
+        type: integer
+      policy_version:
+        minLength: 1
+        title: Policy Version
+        type: string
+    required:
+    - belief_update_id
+    - proposal
+    - validation_status
+    - validated_at
+    - next_state_version
+    - policy_version
+    title: ValidatedBeliefUpdateRecord
+    type: object
+  VolatilityBeliefPayload:
+    additionalProperties: false
+    properties:
+      value_type:
+        const: VOLATILITY_LEVEL
+        title: Value Type
+        type: string
+      level:
+        maximum: 1.0
+        minimum: 0.0
+        title: Level
+        type: number
+    required:
+    - value_type
+    - level
+    title: VolatilityBeliefPayload
+    type: object
+additionalProperties: false
+properties:
+  schema_version:
+    const: p3.s22.v1
+    default: p3.s22.v1
+    title: Schema Version
+    type: string
+  status:
+    $ref: '#/$defs/ArtifactStatus'
+    default: READY
+  lineage:
+    $ref: '#/$defs/LineageRecord'
+  reason_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    title: Reason Code
+  records:
+    items:
+      $ref: '#/$defs/ValidatedBeliefUpdateRecord'
+    title: Records
+    type: array
+required:
+- lineage
+- records
+title: ValidatedBeliefUpdatePanel
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+artifact_name: validated_belief_update_panel
+schema_id: validated_belief_update_panel.p3.s22.v1
+schema_version: v14.1-rc4.1
+artifact_schema_version: p3.s22.v1

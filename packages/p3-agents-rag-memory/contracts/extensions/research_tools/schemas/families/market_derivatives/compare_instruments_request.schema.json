@@ -1,0 +1,79 @@
+{
+  "$defs": {
+    "MarketMode": {
+      "enum": [
+        "OBSERVE",
+        "DIAGNOSTIC",
+        "STRUCTURAL"
+      ],
+      "title": "MarketMode",
+      "type": "string"
+    },
+    "NormalizationPolicy": {
+      "enum": [
+        "NONE",
+        "BASE_100",
+        "CUMULATIVE_RETURN"
+      ],
+      "title": "NormalizationPolicy",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "end_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End Date"
+    },
+    "instrument_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Instrument Ids",
+      "type": "array"
+    },
+    "max_records_per_instrument": {
+      "default": 252,
+      "maximum": 5000,
+      "minimum": 2,
+      "title": "Max Records Per Instrument",
+      "type": "integer"
+    },
+    "normalization": {
+      "$ref": "#/$defs/NormalizationPolicy",
+      "default": "BASE_100"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/MarketMode",
+      "default": "STRUCTURAL"
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Start Date"
+    }
+  },
+  "required": [
+    "instrument_ids"
+  ],
+  "title": "CompareInstrumentsRequest",
+  "type": "object"
+}

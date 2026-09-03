@@ -1,0 +1,70 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/research.corpus.v1/build_timeline/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "end_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End Time"
+    },
+    "event_types": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Event Types",
+      "type": "array"
+    },
+    "max_events": {
+      "default": 100,
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Max Events",
+      "type": "integer"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "start_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Start Time"
+    },
+    "subject_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Subject Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "research_mode",
+    "subject_ids"
+  ],
+  "title": "BuildTimelineRequest",
+  "type": "object"
+}

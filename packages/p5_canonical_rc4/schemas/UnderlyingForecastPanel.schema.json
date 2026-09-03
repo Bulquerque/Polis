@@ -1,0 +1,103 @@
+{
+  "$defs": {
+    "UnderlyingForecastRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "abstained": {
+          "title": "Abstained",
+          "type": "boolean"
+        },
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "point_forecast": {
+          "title": "Point Forecast",
+          "type": "number"
+        },
+        "prediction_timestamp": {
+          "format": "date-time",
+          "title": "Prediction Timestamp",
+          "type": "string"
+        },
+        "q05": {
+          "title": "Q05",
+          "type": "number"
+        },
+        "q50": {
+          "title": "Q50",
+          "type": "number"
+        },
+        "q95": {
+          "title": "Q95",
+          "type": "number"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "underlying": {
+          "minLength": 1,
+          "title": "Underlying",
+          "type": "string"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "as_of_time",
+        "prediction_timestamp",
+        "underlying",
+        "target_id",
+        "horizon",
+        "unit",
+        "point_forecast",
+        "q05",
+        "q50",
+        "q95",
+        "confidence",
+        "abstained",
+        "lineage_id"
+      ],
+      "title": "UnderlyingForecastRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "records": {
+      "items": {
+        "$ref": "#/$defs/UnderlyingForecastRecord"
+      },
+      "minItems": 1,
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "required": [
+    "records"
+  ],
+  "title": "UnderlyingForecastPanel",
+  "type": "object"
+}

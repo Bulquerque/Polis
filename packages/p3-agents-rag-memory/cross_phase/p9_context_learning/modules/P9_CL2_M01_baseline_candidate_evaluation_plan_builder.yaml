@@ -1,0 +1,19 @@
+module_id: P9.CL2.M01
+module_name: baseline_candidate_evaluation_plan_builder
+authority_phase: P9
+status: planned_cross_phase_blueprint
+inputs:
+- paired_experiment_design_spec
+- p9_context_learning_handoff_manifest
+outputs:
+- retro_evaluation_plan
+forbidden_actions:
+- mutate_current_cycle
+- change_person_genome_directly
+- promote_without_statistical_evidence
+tests_required:
+- schema
+- lineage
+- blind_holdout
+- one_change
+- result_finalization

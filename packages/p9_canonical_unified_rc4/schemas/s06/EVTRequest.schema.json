@@ -1,0 +1,221 @@
+{
+  "$defs": {
+    "EVTPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence_level": {
+          "default": 0.99,
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.5,
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "ewma_lambda": {
+          "default": 0.94,
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Ewma Lambda",
+          "type": "number"
+        },
+        "maximum_absolute_residual_autocorrelation": {
+          "default": 0.15,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Maximum Absolute Residual Autocorrelation",
+          "type": "number"
+        },
+        "maximum_tail_index_range": {
+          "default": 0.35,
+          "exclusiveMinimum": 0,
+          "title": "Maximum Tail Index Range",
+          "type": "number"
+        },
+        "minimum_exceedances": {
+          "default": 40,
+          "minimum": 1,
+          "title": "Minimum Exceedances",
+          "type": "integer"
+        },
+        "minimum_scale": {
+          "default": 1e-12,
+          "exclusiveMinimum": 0,
+          "title": "Minimum Scale",
+          "type": "number"
+        },
+        "parameter_bootstrap_replicates": {
+          "default": 200,
+          "minimum": 1,
+          "title": "Parameter Bootstrap Replicates",
+          "type": "integer"
+        },
+        "threshold_quantile": {
+          "default": 0.95,
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.5,
+          "title": "Threshold Quantile",
+          "type": "number"
+        },
+        "threshold_sensitivity_step": {
+          "default": 0.01,
+          "exclusiveMaximum": 0.1,
+          "exclusiveMinimum": 0,
+          "title": "Threshold Sensitivity Step",
+          "type": "number"
+        }
+      },
+      "title": "EVTPolicy",
+      "type": "object"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    },
+    "SeedPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "default": "PCG64",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Algorithm",
+          "type": "string"
+        },
+        "derivation_version": {
+          "default": "seedsequence-v1",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Derivation Version",
+          "type": "string"
+        },
+        "root_entropy": {
+          "minimum": 0,
+          "title": "Root Entropy",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "root_entropy"
+      ],
+      "title": "SeedPolicy",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conditional_scales": {
+      "anyOf": [
+        {
+          "items": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Conditional Scales"
+    },
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "loss_series_id": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Loss Series Id",
+      "type": "string"
+    },
+    "losses": {
+      "items": {
+        "type": "number"
+      },
+      "title": "Losses",
+      "type": "array"
+    },
+    "policy": {
+      "$ref": "#/$defs/EVTPolicy",
+      "default": {
+        "confidence_level": 0.99,
+        "ewma_lambda": 0.94,
+        "maximum_absolute_residual_autocorrelation": 0.15,
+        "maximum_tail_index_range": 0.35,
+        "minimum_exceedances": 40,
+        "minimum_scale": 1e-12,
+        "parameter_bootstrap_replicates": 200,
+        "threshold_quantile": 0.95,
+        "threshold_sensitivity_step": 0.01
+      }
+    },
+    "seed_policy": {
+      "$ref": "#/$defs/SeedPolicy"
+    }
+  },
+  "required": [
+    "context",
+    "loss_series_id",
+    "losses",
+    "seed_policy"
+  ],
+  "title": "EVTRequest",
+  "type": "object"
+}

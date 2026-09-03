@@ -1,0 +1,16 @@
+subphase: P3.S6
+modules:
+- module_id: P3.S6.M01
+  required_cases:
+  - formula_fixture_exact
+  - zero_weight_fails
+  - deterministic_metrics
+- module_id: P3.S6.M02
+  required_cases:
+  - novelty_continue
+  - density_transition
+  - finalize_terminal
+  - max_rounds_stops
+canonical_module_order:
+- P3.S6.M01
+- P3.S6.M02

@@ -1,0 +1,23 @@
+bus_id: P3_STIMULUS_EVENT_BUS_V1
+sources:
+- external_pit_context
+- tool_discovery
+- social_delivery
+- memory_trigger
+- attention_followup
+same_cycle_rule: external stimuli may enter current cycle; endogenous stimuli generated after cognition are queued for next
+  cycle unless explicitly pre-cognition and PIT-safe
+deduplication_keys:
+- source_event_id
+- subject
+- available_at
+- content_hash
+required_fields:
+- stimulus_id
+- origin_type
+- available_at
+- subject
+- underlying
+- evidence_refs
+- lineage_id
+temporal_queue: next_cycle_endogenous_stimulus_queue -> prior_cycle_endogenous_stimulus_queue

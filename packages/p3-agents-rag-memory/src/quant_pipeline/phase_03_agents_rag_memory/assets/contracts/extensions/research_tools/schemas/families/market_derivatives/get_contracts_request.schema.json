@@ -1,0 +1,89 @@
+{
+  "$defs": {
+    "OptionMode": {
+      "enum": [
+        "CONTRACT_LOOKUP",
+        "CHAIN_DIAGNOSTIC",
+        "STRUCTURE_HISTORY",
+        "SURFACE_ANALYSIS"
+      ],
+      "title": "OptionMode",
+      "type": "string"
+    },
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT",
+        "UNKNOWN"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "expiration_from": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expiration From"
+    },
+    "expiration_to": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expiration To"
+    },
+    "include_expired": {
+      "default": false,
+      "title": "Include Expired",
+      "type": "boolean"
+    },
+    "max_records": {
+      "default": 500,
+      "maximum": 5000,
+      "minimum": 1,
+      "title": "Max Records",
+      "type": "integer"
+    },
+    "option_type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/OptionType"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "research_mode": {
+      "$ref": "#/$defs/OptionMode",
+      "default": "CONTRACT_LOOKUP"
+    },
+    "underlying": {
+      "minLength": 1,
+      "title": "Underlying",
+      "type": "string"
+    }
+  },
+  "required": [
+    "underlying"
+  ],
+  "title": "GetContractsRequest",
+  "type": "object"
+}

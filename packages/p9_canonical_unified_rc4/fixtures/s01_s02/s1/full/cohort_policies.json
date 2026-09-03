@@ -1,0 +1,16 @@
+{
+  "policies": [
+    {
+      "policy_id": "cohort-policy-1",
+      "allowed_target_types": [
+        "PRIMARY"
+      ],
+      "allowed_evidence_classes": [
+        "FACTUAL_EXECUTED"
+      ],
+      "minimum_sample": 1,
+      "require_complete_lineage": true,
+      "include_abstentions": true
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+version: V14.6-RC1
+role: OPTIONAL_CHALLENGER
+default_champion: FAMILY_SPARSE_PCA
+authorization_gate:
+- linear_family_baseline_insufficient
+- nonlinear_multi_view_structure_documented
+- missing_view_problem_material
+- training_sample_size_sufficient
+- P0_research_budget_approved
+search_strategy: TWO_PRE_REGISTERED_CONFIGURATIONS_ONLY
+maximum_sampled_configurations: 2
+inner_temporal_folds: 3
+seeds_per_configuration: 3
+fixed_choices:
+  scope: one_shared_architecture_reused_across_eligible_families
+  depth: 1
+  loss: group_balanced_observed_entry_huber
+  optimizer: AdamW
+  activation: GELU
+  corruption_rate: 0.1
+  modality_dropout: 0.1
+  weight_decay: 0.0001
+  learning_rate: 0.001
+  normalization: feature_transform_state_from_S7
+  output_required_for_P5: false
+pre_registered_configurations:
+- configuration_id: ENC_BASE_25
+  bottleneck_ratio: 0.25
+- configuration_id: ENC_ROBUST_125
+  bottleneck_ratio: 0.125
+early_stopping:
+  maximum_epochs: 150
+  patience: 15
+  minimum_delta: 0.0001
+quality_objective_components:
+- validation_reconstruction
+- fold_stability
+- seed_stability
+- missing_view_robustness
+- latent_noncollapse
+- private_view_preservation
+forbidden_objectives:
+- future_return
+- forecast_loss
+- information_coefficient
+- PnL
+- Sharpe
+- candidate_rank
+promotion: Encoder remains a single challenger until locked P5/P9 evaluation establishes
+  stable incremental value over interpretable and Sparse PCA baselines.

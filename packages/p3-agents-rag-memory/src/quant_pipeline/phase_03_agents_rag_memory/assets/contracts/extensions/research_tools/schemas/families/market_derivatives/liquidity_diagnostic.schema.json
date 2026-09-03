@@ -1,0 +1,135 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "average_financial_volume": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Average Financial Volume"
+    },
+    "average_relative_spread": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Average Relative Spread"
+    },
+    "average_volume": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Average Volume"
+    },
+    "instrument_id": {
+      "minLength": 1,
+      "title": "Instrument Id",
+      "type": "string"
+    },
+    "latest_liquidity_score": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latest Liquidity Score"
+    },
+    "median_volume": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Median Volume"
+    },
+    "missing_spread_fraction": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Missing Spread Fraction",
+      "type": "number"
+    },
+    "missing_volume_fraction": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Missing Volume Fraction",
+      "type": "number"
+    },
+    "observations": {
+      "minimum": 0,
+      "title": "Observations",
+      "type": "integer"
+    },
+    "source_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Source Ids",
+      "type": "array"
+    },
+    "tradable_fraction": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tradable Fraction"
+    },
+    "window_end": {
+      "format": "date",
+      "title": "Window End",
+      "type": "string"
+    },
+    "window_start": {
+      "format": "date",
+      "title": "Window Start",
+      "type": "string"
+    }
+  },
+  "required": [
+    "instrument_id",
+    "window_start",
+    "window_end",
+    "observations",
+    "missing_volume_fraction",
+    "missing_spread_fraction",
+    "source_ids"
+  ],
+  "title": "LiquidityDiagnostic",
+  "type": "object"
+}

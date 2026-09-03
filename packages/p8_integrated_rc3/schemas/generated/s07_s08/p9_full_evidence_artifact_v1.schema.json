@@ -1,0 +1,77 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "grain": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Grain",
+      "type": "array"
+    },
+    "payload": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "type": "array"
+        }
+      ],
+      "title": "Payload"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "title": "Producer Module Id",
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "title": "Record Count",
+      "type": "integer"
+    },
+    "role": {
+      "enum": [
+        "nav_panel",
+        "exposure_panel",
+        "drawdown_panel",
+        "optimizer_decision_trace",
+        "portfolio_decision_panel",
+        "marking_policy_snapshot"
+      ],
+      "title": "Role",
+      "type": "string"
+    },
+    "schema_document": {
+      "additionalProperties": true,
+      "title": "Schema Document",
+      "type": "object"
+    },
+    "schema_name": {
+      "minLength": 1,
+      "title": "Schema Name",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "1.0.0",
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "role",
+    "payload",
+    "schema_name",
+    "schema_document",
+    "producer_module_id",
+    "record_count"
+  ],
+  "title": "P9FullEvidenceArtifact",
+  "type": "object"
+}

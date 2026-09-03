@@ -1,0 +1,137 @@
+{
+  "$id": "training_execution_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_name": {
+      "const": "training_execution_receipt"
+    },
+    "available_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_module_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "producer_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "deterministic": {
+            "type": "boolean"
+          },
+          "feature_count": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "fold_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "model_family_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "model_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "oof_record_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "resource_budget_compliant": {
+            "type": "boolean"
+          },
+          "resource_budget_seconds": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "status": {
+            "enum": [
+              "TRAINED",
+              "FAILED",
+              "TIMEOUT"
+            ]
+          }
+        },
+        "required": [
+          "model_family_id",
+          "status",
+          "resource_budget_seconds",
+          "resource_budget_compliant",
+          "fold_count",
+          "oof_record_count",
+          "feature_count",
+          "deterministic",
+          "model_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_name",
+    "schema_version",
+    "producer_phase",
+    "producer_module_id",
+    "pipeline_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "available_at",
+    "created_at",
+    "lineage_id",
+    "content_sha256",
+    "record_count",
+    "records"
+  ],
+  "type": "object"
+}

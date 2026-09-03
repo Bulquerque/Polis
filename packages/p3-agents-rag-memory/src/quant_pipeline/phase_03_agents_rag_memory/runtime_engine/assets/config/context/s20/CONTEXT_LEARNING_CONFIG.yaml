@@ -1,0 +1,9 @@
+schema_version: context_learning_config.s20.v1
+person_experience_only: true
+retro_experiment_memory_forbidden_for_people: true
+top_k_person_trajectories: 5
+include_promoted_and_failed_person_experiences: true
+holdout_excluded: true
+include_matured_success: true
+include_matured_failure: true
+include_immature: false

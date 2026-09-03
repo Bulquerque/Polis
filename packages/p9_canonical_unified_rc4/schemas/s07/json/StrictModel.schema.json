@@ -1,0 +1,8 @@
+{
+  "additionalProperties": false,
+  "description": "Strict, immutable, finite-number model used at all S7 boundaries.",
+  "properties": {},
+  "title": "StrictModel",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:StrictModel:1.0.0"
+}

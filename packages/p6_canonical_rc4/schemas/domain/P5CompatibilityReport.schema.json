@@ -1,0 +1,151 @@
+{
+  "$defs": {
+    "P5ArtifactReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_name": {
+          "minLength": 1,
+          "title": "Artifact Name",
+          "type": "string"
+        },
+        "artifact_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Artifact Sha256",
+          "type": "string"
+        },
+        "availability": {
+          "title": "Availability",
+          "type": "string"
+        },
+        "reason_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason Code"
+        },
+        "row_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Row Count"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_name",
+        "artifact_id",
+        "artifact_sha256",
+        "schema_version",
+        "availability"
+      ],
+      "title": "P5ArtifactReceipt",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_usage": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Artifact Usage",
+      "type": "object"
+    },
+    "full_manifest_consumed": {
+      "title": "Full Manifest Consumed",
+      "type": "boolean"
+    },
+    "manifest_id": {
+      "minLength": 1,
+      "title": "Manifest Id",
+      "type": "string"
+    },
+    "manifest_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Manifest Sha256",
+      "type": "string"
+    },
+    "p5_contract_version": {
+      "minLength": 1,
+      "title": "P5 Contract Version",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "receipts": {
+      "items": {
+        "$ref": "#/$defs/P5ArtifactReceipt"
+      },
+      "title": "Receipts",
+      "type": "array"
+    },
+    "scenario_sources": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Scenario Sources",
+      "type": "object"
+    },
+    "upstream_cycle_id": {
+      "minLength": 1,
+      "title": "Upstream Cycle Id",
+      "type": "string"
+    },
+    "upstream_lineage_id": {
+      "minLength": 1,
+      "title": "Upstream Lineage Id",
+      "type": "string"
+    },
+    "upstream_run_id": {
+      "minLength": 1,
+      "title": "Upstream Run Id",
+      "type": "string"
+    },
+    "validation_status": {
+      "minLength": 1,
+      "title": "Validation Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_id",
+    "manifest_sha256",
+    "upstream_run_id",
+    "upstream_cycle_id",
+    "upstream_lineage_id",
+    "p5_contract_version",
+    "validation_status",
+    "full_manifest_consumed",
+    "receipts"
+  ],
+  "title": "P5CompatibilityReport",
+  "type": "object"
+}

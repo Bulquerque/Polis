@@ -1,0 +1,5 @@
+{
+  "expected_failure": "fixed_tag_registry",
+  "person_id": "P_BAD",
+  "tag_id": "invented_runtime_tag"
+}

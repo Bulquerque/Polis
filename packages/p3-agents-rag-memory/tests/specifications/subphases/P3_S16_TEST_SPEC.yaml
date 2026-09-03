@@ -1,0 +1,13 @@
+subphase: P3.S16
+modules:
+- module_id: P3.S16.M01
+  required_cases:
+  - credential_materialization_forbidden
+  - provider_adapter_substitutable
+- module_id: P3.S16.M02
+  required_cases:
+  - audit_contract_complete
+  - fake_success_forbidden
+canonical_module_order:
+- P3.S16.M01
+- P3.S16.M02

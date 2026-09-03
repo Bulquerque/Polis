@@ -1,0 +1,15 @@
+policy_id: p3.s40.provider.transport.v1
+providers:
+  internal_research:
+    status: QUALIFIED_LOCAL
+    transports: [LOCAL_FUNCTION, ARTIFACT_QUERY, COMPOSITE_INTERNAL]
+    network_required: false
+  external_research_mcp:
+    status: OPTIONAL_NOT_CONFIGURED
+    transports: [MCP_OPTIONAL]
+    network_required: true
+  external_research_http:
+    status: OPTIONAL_NOT_CONFIGURED
+    transports: [HTTP_OPTIONAL]
+    network_required: true
+selection_rule: tool_identity_is_independent_of_transport

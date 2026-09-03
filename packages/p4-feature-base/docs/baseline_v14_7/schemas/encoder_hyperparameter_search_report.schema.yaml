@@ -1,0 +1,40 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: encoder_hyperparameter_search_report
+type: object
+required:
+- artifact_id
+- created_at
+- lineage_id
+- sampled_configurations
+- selected_configuration
+- selection_metrics
+- execution_status
+properties:
+  artifact_id:
+    type: string
+  created_at:
+    type: string
+  lineage_id:
+    type: string
+  contract_version:
+    type: string
+  sampled_configurations:
+    type: array
+    maxItems: 2
+    minItems: 0
+  selected_configuration:
+    type:
+    - object
+    - 'null'
+  selection_metrics:
+    type: array
+  used_future_labels:
+    const: false
+  execution_status:
+    type: string
+    enum:
+    - NOT_AUTHORIZED
+    - NOT_RUN
+    - COMPLETED
+    - FAILED_NONBLOCKING
+additionalProperties: true

@@ -1,0 +1,16 @@
+schema_id: p3.s36.provider_bindings.v1
+schema_version: 1.0.0
+providers:
+  internal_research:
+    transport: ARTIFACT_QUERY
+    status: QUALIFIED_LOCAL
+    network_required: false
+    snapshot_required: true
+  quantlib_optional:
+    transport: LOCAL_FUNCTION
+    status: OPTIONAL_NOT_CONFIGURED
+    purpose: Future calendar or pricing adapter; not required by S36 V1.
+  vollib_optional:
+    transport: LOCAL_FUNCTION
+    status: OPTIONAL_NOT_CONFIGURED
+    purpose: Future implied-volatility adapter; never used as a silent fallback.

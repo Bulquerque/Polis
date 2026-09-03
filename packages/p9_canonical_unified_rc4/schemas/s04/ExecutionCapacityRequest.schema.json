@@ -1,0 +1,1056 @@
+{
+  "$defs": {
+    "CandidateTerminalRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "state": {
+          "$ref": "#/$defs/CandidateTerminalState"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "state"
+      ],
+      "title": "CandidateTerminalRecord",
+      "type": "object"
+    },
+    "CandidateTerminalState": {
+      "enum": [
+        "GENERATED",
+        "RANKED",
+        "BLOCKED",
+        "ABSTAINED",
+        "SELECTED",
+        "NOT_SELECTED",
+        "EXECUTED",
+        "NO_ACTION"
+      ],
+      "title": "CandidateTerminalState",
+      "type": "string"
+    },
+    "CapacityPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "aum_multipliers": {
+          "default": [
+            0.5,
+            1.0,
+            2.0,
+            5.0
+          ],
+          "items": {
+            "type": "number"
+          },
+          "title": "Aum Multipliers",
+          "type": "array"
+        },
+        "impact": {
+          "$ref": "#/$defs/ImpactPolicy"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version",
+        "impact"
+      ],
+      "title": "CapacityPolicy",
+      "type": "object"
+    },
+    "CashCategory": {
+      "enum": [
+        "FILL",
+        "DEPOSIT",
+        "WITHDRAWAL",
+        "INTEREST",
+        "FINANCING",
+        "BORROW",
+        "LIFECYCLE",
+        "OTHER_FEE"
+      ],
+      "title": "CashCategory",
+      "type": "string"
+    },
+    "CashLedgerEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Amount"
+        },
+        "category": {
+          "$ref": "#/$defs/CashCategory"
+        },
+        "entry_id": {
+          "title": "Entry Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "related_fill_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Related Fill Id"
+        },
+        "related_lifecycle_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Related Lifecycle Id"
+        }
+      },
+      "required": [
+        "entry_id",
+        "event_time",
+        "amount",
+        "category"
+      ],
+      "title": "CashLedgerEntry",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "OBSERVED_LIVE",
+        "OBSERVED_HISTORICAL",
+        "SIMULATED_ORDERBOOK",
+        "PARAMETRIC_IMPACT",
+        "STRESS_EXTRAPOLATED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "ExposureSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "gross_exposure": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Gross Exposure"
+        },
+        "margin_used": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Margin Used"
+        },
+        "nav": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Nav"
+        },
+        "net_exposure": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Net Exposure"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "timestamp",
+        "gross_exposure",
+        "net_exposure",
+        "margin_used",
+        "nav"
+      ],
+      "title": "ExposureSnapshot",
+      "type": "object"
+    },
+    "FillRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "fee": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Fee"
+        },
+        "fill_id": {
+          "title": "Fill Id",
+          "type": "string"
+        },
+        "fill_time": {
+          "format": "date-time",
+          "title": "Fill Time",
+          "type": "string"
+        },
+        "instrument_id": {
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Price"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "side": {
+          "$ref": "#/$defs/Side"
+        }
+      },
+      "required": [
+        "fill_id",
+        "order_id",
+        "instrument_id",
+        "side",
+        "quantity",
+        "price",
+        "fee",
+        "fill_time",
+        "available_at"
+      ],
+      "title": "FillRecord",
+      "type": "object"
+    },
+    "ImpactPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "eta": {
+          "default": 0.1,
+          "minimum": 0,
+          "title": "Eta",
+          "type": "number"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass",
+          "default": "PARAMETRIC_IMPACT"
+        },
+        "maximum_participation": {
+          "default": 0.2,
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Maximum Participation",
+          "type": "number"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_version"
+      ],
+      "title": "ImpactPolicy",
+      "type": "object"
+    },
+    "LifecycleEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "cash_amount": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Cash Amount"
+        },
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_time": {
+          "format": "date-time",
+          "title": "Event Time",
+          "type": "string"
+        },
+        "event_type": {
+          "$ref": "#/$defs/LifecycleType"
+        },
+        "instrument_id": {
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "quantity_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Quantity Delta"
+        }
+      },
+      "required": [
+        "event_id",
+        "instrument_id",
+        "event_type",
+        "event_time"
+      ],
+      "title": "LifecycleEvent",
+      "type": "object"
+    },
+    "LifecycleType": {
+      "enum": [
+        "EXERCISE",
+        "ASSIGNMENT",
+        "EXPIRY",
+        "ROLL",
+        "CASH_SETTLEMENT",
+        "QUANTITY_ADJUSTMENT"
+      ],
+      "title": "LifecycleType",
+      "type": "string"
+    },
+    "LiquidityObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "average_daily_volume": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Average Daily Volume"
+        },
+        "daily_volatility": {
+          "exclusiveMinimum": 0,
+          "title": "Daily Volatility",
+          "type": "number"
+        },
+        "instrument_id": {
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "mid_price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Mid Price"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "timestamp",
+        "available_at",
+        "average_daily_volume",
+        "daily_volatility",
+        "mid_price"
+      ],
+      "title": "LiquidityObservation",
+      "type": "object"
+    },
+    "OrderRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "candidate_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Candidate Id"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "instrument_id": {
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        },
+        "side": {
+          "$ref": "#/$defs/Side"
+        },
+        "status": {
+          "$ref": "#/$defs/OrderStatus"
+        }
+      },
+      "required": [
+        "order_id",
+        "instrument_id",
+        "side",
+        "quantity",
+        "decision_time",
+        "available_at",
+        "status"
+      ],
+      "title": "OrderRecord",
+      "type": "object"
+    },
+    "OrderStatus": {
+      "enum": [
+        "NEW",
+        "PARTIALLY_FILLED",
+        "FILLED",
+        "CANCELLED",
+        "REJECTED"
+      ],
+      "title": "OrderStatus",
+      "type": "string"
+    },
+    "P8EvaluationHandoff": {
+      "additionalProperties": false,
+      "properties": {
+        "capability": {
+          "title": "Capability",
+          "type": "string"
+        },
+        "cash_entries": {
+          "items": {
+            "$ref": "#/$defs/CashLedgerEntry"
+          },
+          "title": "Cash Entries",
+          "type": "array"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "end_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "End Cash"
+        },
+        "fills": {
+          "items": {
+            "$ref": "#/$defs/FillRecord"
+          },
+          "title": "Fills",
+          "type": "array"
+        },
+        "final_positions": {
+          "items": {
+            "$ref": "#/$defs/PositionSnapshot"
+          },
+          "title": "Final Positions",
+          "type": "array"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "handoff_id": {
+          "title": "Handoff Id",
+          "type": "string"
+        },
+        "lifecycle_events": {
+          "items": {
+            "$ref": "#/$defs/LifecycleEvent"
+          },
+          "title": "Lifecycle Events",
+          "type": "array"
+        },
+        "orders": {
+          "items": {
+            "$ref": "#/$defs/OrderRecord"
+          },
+          "title": "Orders",
+          "type": "array"
+        },
+        "p6_candidate_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "P6 Candidate Ids",
+          "type": "array"
+        },
+        "p7_terminal_records": {
+          "items": {
+            "$ref": "#/$defs/CandidateTerminalRecord"
+          },
+          "title": "P7 Terminal Records",
+          "type": "array"
+        },
+        "p8_terminal_records": {
+          "items": {
+            "$ref": "#/$defs/CandidateTerminalRecord"
+          },
+          "title": "P8 Terminal Records",
+          "type": "array"
+        },
+        "replay_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Replay Sha256",
+          "type": "string"
+        },
+        "required_lifecycle_supported": {
+          "title": "Required Lifecycle Supported",
+          "type": "boolean"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "start_cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Start Cash"
+        },
+        "trial_id": {
+          "title": "Trial Id",
+          "type": "string"
+        },
+        "valuations": {
+          "items": {
+            "$ref": "#/$defs/ValuationRecord"
+          },
+          "title": "Valuations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "handoff_id",
+        "schema_version",
+        "run_id",
+        "cycle_id",
+        "trial_id",
+        "fold_id",
+        "capability",
+        "start_cash",
+        "end_cash",
+        "p6_candidate_ids",
+        "p7_terminal_records",
+        "p8_terminal_records",
+        "orders",
+        "fills",
+        "cash_entries",
+        "lifecycle_events",
+        "final_positions",
+        "valuations",
+        "required_lifecycle_supported",
+        "replay_sha256"
+      ],
+      "title": "P8EvaluationHandoff",
+      "type": "object"
+    },
+    "PositionSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "market_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Market Value"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "quantity",
+        "market_value"
+      ],
+      "title": "PositionSnapshot",
+      "type": "object"
+    },
+    "QualifiedBacktestIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "handoff_id": {
+          "title": "Handoff Id",
+          "type": "string"
+        },
+        "handoff_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Handoff Sha256",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trial_id": {
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trial_id",
+        "fold_id",
+        "configuration_id",
+        "handoff_id",
+        "handoff_sha256"
+      ],
+      "title": "QualifiedBacktestIdentity",
+      "type": "object"
+    },
+    "Side": {
+      "enum": [
+        "BUY",
+        "SELL"
+      ],
+      "title": "Side",
+      "type": "string"
+    },
+    "TargetOrderContext": {
+      "additionalProperties": false,
+      "properties": {
+        "arrival_price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Arrival Price"
+        },
+        "ask_price": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                  "type": "string"
+                }
+              ],
+              "gt": "0"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ask Price"
+        },
+        "bid_price": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                  "type": "string"
+                }
+              ],
+              "gt": "0"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bid Price"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "instrument_id": {
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "order_id": {
+          "title": "Order Id",
+          "type": "string"
+        },
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        },
+        "target_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Target Quantity"
+        }
+      },
+      "required": [
+        "target_id",
+        "order_id",
+        "instrument_id",
+        "target_quantity",
+        "arrival_price",
+        "decision_time"
+      ],
+      "title": "TargetOrderContext",
+      "type": "object"
+    },
+    "ValuationRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cash"
+        },
+        "costs": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Costs"
+        },
+        "gross_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Gross Pnl"
+        },
+        "market_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Market Value"
+        },
+        "nav": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Nav"
+        },
+        "net_pnl": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Net Pnl"
+        },
+        "valuation_time": {
+          "format": "date-time",
+          "title": "Valuation Time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "valuation_time",
+        "cash",
+        "market_value",
+        "gross_pnl",
+        "costs",
+        "net_pnl",
+        "nav"
+      ],
+      "title": "ValuationRecord",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/ExecutionCapacityRequest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_net_return": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Baseline Net Return"
+    },
+    "exposures": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ExposureSnapshot"
+      },
+      "title": "Exposures",
+      "type": "array"
+    },
+    "handoff": {
+      "$ref": "#/$defs/P8EvaluationHandoff"
+    },
+    "identity": {
+      "$ref": "#/$defs/QualifiedBacktestIdentity"
+    },
+    "liquidity": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/LiquidityObservation"
+      },
+      "title": "Liquidity",
+      "type": "array"
+    },
+    "policy": {
+      "$ref": "#/$defs/CapacityPolicy"
+    },
+    "target_contexts": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/TargetOrderContext"
+      },
+      "title": "Target Contexts",
+      "type": "array"
+    }
+  },
+  "required": [
+    "identity",
+    "handoff",
+    "policy"
+  ],
+  "title": "ExecutionCapacityRequest",
+  "type": "object"
+}

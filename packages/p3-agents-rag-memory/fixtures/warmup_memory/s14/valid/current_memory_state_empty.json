@@ -1,0 +1,15 @@
+{
+  "schema_id": "current_memory_state.v2",
+  "schema_version": "2.0.0",
+  "artifact_id": "current-memory-empty",
+  "module_id": "P3.S11.M03",
+  "run_id": "run-s14-001",
+  "snapshot_id": "snapshot-s14-001",
+  "cycle_id": "live-cycle-0001",
+  "cycle_number": 1,
+  "as_of_time": "2026-01-01T00:00:00Z",
+  "source_state_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "records": [],
+  "content_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "lineage_id": "lineage-current-memory-empty"
+}

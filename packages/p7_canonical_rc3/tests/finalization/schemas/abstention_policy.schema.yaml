@@ -1,0 +1,49 @@
+additionalProperties: false
+properties:
+  policy_id:
+    title: Policy Id
+    type: string
+  minimum_confidence:
+    maximum: 1
+    minimum: 0
+    title: Minimum Confidence
+    type: number
+  maximum_score_interval_width:
+    minimum: 0
+    title: Maximum Score Interval Width
+    type: number
+  maximum_model_disagreement:
+    minimum: 0
+    title: Maximum Model Disagreement
+    type: number
+  accepted_calibration_statuses:
+    items:
+      type: string
+    title: Accepted Calibration Statuses
+    type: array
+  moderate_ood_values:
+    items:
+      type: string
+    title: Moderate Ood Values
+    type: array
+  minimum_group_rankable_count:
+    minimum: 1
+    title: Minimum Group Rankable Count
+    type: integer
+  minimum_group_rankable_fraction:
+    maximum: 1
+    minimum: 0
+    title: Minimum Group Rankable Fraction
+    type: number
+required:
+- policy_id
+- minimum_confidence
+- maximum_score_interval_width
+- maximum_model_disagreement
+- accepted_calibration_statuses
+- moderate_ood_values
+- minimum_group_rankable_count
+- minimum_group_rankable_fraction
+title: AbstentionPolicy
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

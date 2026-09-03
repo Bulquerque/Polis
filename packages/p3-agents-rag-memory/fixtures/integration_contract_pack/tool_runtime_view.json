@@ -1,0 +1,98 @@
+{
+  "artifact_id": "tool-runtime-snapshot-s12-example",
+  "artifact_name": "tool_runtime_view",
+  "audit_contract_ref": {
+    "artifact_id": "audit_contract_96e78d78d97ade6a7390b38e",
+    "artifact_name": "tool_call_audit_contract",
+    "available_at": null,
+    "content_hash": "96e78d78d97ade6a7390b38e86b9ecc4da01ef77dab9773b00ed2510fea46976",
+    "grain": [],
+    "lineage_id": "tool_call_audit_contract:8fe9f9af1fe5beb56d9a587481a29c14168a2e1c4fc033bb7180a010e6cd35c4",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S16.M02",
+    "row_count": null,
+    "schema_id": "tool_call_audit_contract.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://audit_contract_96e78d78d97ade6a7390b38e",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "content_hash": "0581392cf8499afe3ec2f36f2fb56e89fe44eac84a2f194df4a169381245a825",
+  "entitlement_ref": {
+    "artifact_id": "entitlements_b4dc195cad878332611f5c7e",
+    "artifact_name": "person_tool_entitlement_panel",
+    "available_at": null,
+    "content_hash": "b4dc195cad878332611f5c7e52c16a421407419b025584c66315cd64d206f1ba",
+    "grain": [],
+    "lineage_id": "tool_registry:snapshot-s12-example:population_demo_v1",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S15.M02",
+    "row_count": null,
+    "schema_id": "person_tool_entitlement_panel.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://entitlements_b4dc195cad878332611f5c7e",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "gateway_policy_ref": {
+    "artifact_id": "gateway_8fe9f9af1fe5beb56d9a5874",
+    "artifact_name": "mcp_gateway_policy",
+    "available_at": null,
+    "content_hash": "8fe9f9af1fe5beb56d9a587481a29c14168a2e1c4fc033bb7180a010e6cd35c4",
+    "grain": [],
+    "lineage_id": "mcp_gateway_policy:a17614b68adc222e9b5069b55d096cb961ca288efb24be5eb25d558decba59df:b4dc195cad878332611f5c7e52c16a421407419b025584c66315cd64d206f1ba",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S16.M01",
+    "row_count": null,
+    "schema_id": "mcp_gateway_policy.v2",
+    "schema_version": "2.0.0",
+    "status": "DEGRADED",
+    "storage_ref": {
+      "location": "memory://gateway_8fe9f9af1fe5beb56d9a5874",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "gateway_port_id": "tool_gateway_port.v1",
+  "lineage": {
+    "lineage_id": "lineage-tool-runtime-snapshot-s12-example",
+    "parent_lineage_ids": [],
+    "source_artifact_ids": [
+      "tools_a17614b68adc222e9b5069b5",
+      "entitlements_b4dc195cad878332611f5c7e",
+      "gateway_8fe9f9af1fe5beb56d9a5874",
+      "audit_contract_96e78d78d97ade6a7390b38e"
+    ],
+    "transformation_ids": [
+      "tool_runtime_projection.v1"
+    ]
+  },
+  "schema_id": "tool_runtime_view.v1",
+  "schema_version": "1.0.0",
+  "status": "READY",
+  "tool_registry_ref": {
+    "artifact_id": "tools_a17614b68adc222e9b5069b5",
+    "artifact_name": "tool_registry",
+    "available_at": null,
+    "content_hash": "a17614b68adc222e9b5069b55d096cb961ca288efb24be5eb25d558decba59df",
+    "grain": [],
+    "lineage_id": "tool_registry:snapshot-s12-example",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S15.M01",
+    "row_count": null,
+    "schema_id": "tool_registry.v2",
+    "schema_version": "2.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://tools_a17614b68adc222e9b5069b5",
+      "scheme": "memory",
+      "version": null
+    }
+  }
+}

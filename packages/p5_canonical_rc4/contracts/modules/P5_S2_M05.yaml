@@ -1,0 +1,25 @@
+module_id: P5.S2.M05
+name: model_artifact_qualification_gate
+subphase_id: P5.S2
+required_inputs:
+- trained_resolver_registry
+- resolver_validation_result_panel
+- resolver_training_run_report
+- resolver_bias_registry
+- resolver_view_binding_registry
+optional_inputs:
+- p4_to_p5_integration_receipt
+- hypothesis_budget_report
+- optional_resolver_feedback_context
+outputs:
+- qualified_resolver_registry
+- resolver_rejection_report
+- resolver_promotion_candidate_report
+- hypothesis_confirmation_development_report
+allowed_actions:
+- VALIDATE
+allowed_modes:
+- OFFLINE_TRAINING
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

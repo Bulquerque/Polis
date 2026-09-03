@@ -1,0 +1,29 @@
+artifact: social_feature_panel
+grain:
+- date
+- underlying
+- social_feature_id
+required_fields:
+- date
+- as_of_date
+- available_at
+- underlying
+- social_feature_id
+- feature_name
+- feature_value
+- feature_type
+- source_quality_score
+- evidence_count
+- agent_agreement_score
+- agent_disagreement_score
+- reference_date
+- lineage_id
+- pipeline_version
+forbidden_fields:
+- trade_decision
+- buy_sell_signal
+- rank_score
+- candidate_score
+- portfolio_weight
+- future_return
+schema_version: v14.1-rc4.1

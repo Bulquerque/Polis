@@ -1,0 +1,112 @@
+{
+  "$defs": {
+    "LegacyFeedbackHeader": {
+      "additionalProperties": false,
+      "properties": {
+        "backtest_id": {
+          "minLength": 1,
+          "title": "Backtest Id",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "recommended_action": {
+          "minLength": 1,
+          "title": "Recommended Action",
+          "type": "string"
+        },
+        "severity": {
+          "minLength": 1,
+          "title": "Severity",
+          "type": "string"
+        },
+        "target_phase": {
+          "minLength": 1,
+          "title": "Target Phase",
+          "type": "string"
+        },
+        "valid_for_next_cycle_only": {
+          "default": true,
+          "title": "Valid For Next Cycle Only",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "experiment_id",
+        "backtest_id",
+        "created_at",
+        "target_phase",
+        "recommended_action",
+        "severity"
+      ],
+      "title": "LegacyFeedbackHeader",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "calibration_error": {
+      "additionalProperties": true,
+      "title": "Calibration Error",
+      "type": "object"
+    },
+    "drift_failure_summary": {
+      "additionalProperties": true,
+      "title": "Drift Failure Summary",
+      "type": "object"
+    },
+    "forecast_error_summary": {
+      "additionalProperties": true,
+      "title": "Forecast Error Summary",
+      "type": "object"
+    },
+    "header": {
+      "$ref": "#/$defs/LegacyFeedbackHeader"
+    },
+    "model_stability_score": {
+      "title": "Model Stability Score",
+      "type": "number"
+    },
+    "ood_failure_summary": {
+      "additionalProperties": true,
+      "title": "Ood Failure Summary",
+      "type": "object"
+    },
+    "regime_performance_breakdown": {
+      "additionalProperties": true,
+      "title": "Regime Performance Breakdown",
+      "type": "object"
+    },
+    "target_module": {
+      "minLength": 1,
+      "title": "Target Module",
+      "type": "string"
+    }
+  },
+  "required": [
+    "header",
+    "target_module",
+    "forecast_error_summary",
+    "calibration_error",
+    "regime_performance_breakdown",
+    "ood_failure_summary",
+    "drift_failure_summary",
+    "model_stability_score"
+  ],
+  "title": "SignalFeedbackReport",
+  "type": "object"
+}

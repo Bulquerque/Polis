@@ -1,0 +1,57 @@
+policy_id: p3_foundation_dependency_policy.v2
+revision: P3-FINAL
+python:
+  supported:
+  - '3.13'
+  - '3.14'
+  production_target: '3.14'
+core:
+  rule: The 33 canonical module entrypoints must import and run deterministic fixtures
+    without optional provider libraries.
+  dependencies:
+  - pydantic
+  - PyYAML
+  - jsonschema
+optional_extras:
+  api:
+    packages:
+    - httpx
+    used_by:
+    - structured_llm_http
+    - nvidia_nim_embeddings
+    - nvidia_nim_graphrag
+  mcp:
+    packages:
+    - mcp
+    policy: '>=1.28.1,<2'
+    used_by:
+    - live_mcp_session_factory
+  parquet:
+    packages:
+    - pyarrow
+    used_by:
+    - parquet_graph_codec
+    - parquet_artifact_store
+  neo4j:
+    packages:
+    - neo4j
+    used_by:
+    - live_neo4j_driver_factory
+  observability:
+    packages:
+    - opentelemetry-api
+    - opentelemetry-sdk
+    used_by:
+    - otel_exporter
+forbidden_in_core:
+- provider SDK imports outside adapters
+- environment reads outside composition
+- network calls during import
+- optional dependency imports during canonical module import
+- silent fixture fallback
+- hidden global clients
+release_requirements:
+- generate uv.lock in a registry-connected Python 3.14 environment
+- run uv sync --locked --all-extras
+- run Ruff and mypy strict
+- run live-provider qualification separately from deterministic tests

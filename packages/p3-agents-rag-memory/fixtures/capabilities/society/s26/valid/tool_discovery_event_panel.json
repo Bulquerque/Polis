@@ -1,0 +1,26 @@
+{
+  "schema_version": "p3.s26.tool_discovery_event_panel.v2",
+  "run_id": "run_s26",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "lineage_id": "lin_tools",
+  "records": [
+    {
+      "event_id": "tool_evt_1",
+      "person_id": "p1",
+      "tool_id": "tool_news",
+      "source_request_id": "req_1",
+      "subject": "new tool discovery",
+      "underlying_id": "PETR4",
+      "proposition_id": "prop_oil_up",
+      "discovered_at": "2026-01-15T10:10:00Z",
+      "available_at": "2026-01-15T10:10:00Z",
+      "source_priority": 0.8,
+      "content_hash": "tool_content_hash",
+      "evidence_refs": [
+        "ev_tool"
+      ],
+      "lineage_id": "lin_tool_evt"
+    }
+  ]
+}

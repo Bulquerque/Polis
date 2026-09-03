@@ -1,0 +1,23 @@
+schema_id: p3.research_tools.entitlement_policy.v1
+schema_version: 1.0.0
+policy_version: 1.0.0
+default_decision: DENY
+deny_overrides: true
+preserve_applicable_legacy_denies: true
+maximum_calls_per_cycle: 5
+minimum_score_by_band:
+  '1': 0.15
+  '2': 0.35
+  '3': 0.55
+  '4': 0.75
+required_resource_scores_by_band:
+  '1': {research_time: 0.05}
+  '2': {research_time: 0.20}
+  '3': {research_time: 0.45, computational_access: 0.20}
+  '4': {research_time: 0.65, computational_access: 0.35}
+required_access_capability_ids: [public_data_access]
+allowed_provider_availability: [QUALIFIED_LOCAL]
+blocked_view_statuses: [BLOCKED_UPSTREAM, FAILED]
+internal_provider_id: internal_research
+credential_policy: HANDLE_ONLY
+forbidden_constraints: [no_external_data]

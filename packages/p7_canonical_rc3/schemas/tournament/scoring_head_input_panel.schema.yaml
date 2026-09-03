@@ -1,0 +1,230 @@
+$defs:
+  MetricSourcePreference:
+    enum:
+    - COMPARABLE_ONLY
+    - FACTOR_ADJUSTED_PREFERRED
+    - FACTOR_ADJUSTED_REQUIRED
+    title: MetricSourcePreference
+    type: string
+  MissingHeadAction:
+    enum:
+    - BLOCK
+    - PENALIZE
+    - RENORMALIZE_ALLOWED
+    title: MissingHeadAction
+    type: string
+  MissingMetricAction:
+    enum:
+    - BLOCK_HEAD
+    - PENALIZE_HEAD
+    - RENORMALIZE_METRICS
+    - UNAVAILABLE
+    title: MissingMetricAction
+    type: string
+  NormalizationMethod:
+    enum:
+    - IDENTITY_BOUNDED
+    - ABSOLUTE_RANGE
+    - ROBUST_Z_SIGMOID
+    - PERCENTILE
+    title: NormalizationMethod
+    type: string
+  ScoringHeadInputRecord:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        title: Candidate Id
+        type: string
+      comparison_group_id:
+        title: Comparison Group Id
+        type: string
+      policy_id:
+        title: Policy Id
+        type: string
+      policy_version:
+        title: Policy Version
+        type: string
+      rule_id:
+        title: Rule Id
+        type: string
+      head_id:
+        title: Head Id
+        type: string
+      head_weight:
+        exclusiveMinimum: 0
+        minimum: 0
+        title: Head Weight
+        type: number
+      missing_head_action:
+        $ref: '#/$defs/MissingHeadAction'
+      missing_head_penalty:
+        maximum: 1
+        minimum: 0
+        title: Missing Head Penalty
+        type: number
+      metric_id:
+        title: Metric Id
+        type: string
+      source_preference:
+        $ref: '#/$defs/MetricSourcePreference'
+      transformation:
+        $ref: '#/$defs/TransformationMethod'
+      normalization:
+        $ref: '#/$defs/NormalizationMethod'
+      metric_weight:
+        exclusiveMinimum: 0
+        minimum: 0
+        title: Metric Weight
+        type: number
+      clip_lower:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Clip Lower
+      clip_upper:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Clip Upper
+      absolute_lower:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Absolute Lower
+      absolute_upper:
+        anyOf:
+        - type: number
+        - type: 'null'
+        title: Absolute Upper
+      robust_scale:
+        exclusiveMinimum: 0
+        minimum: 0
+        title: Robust Scale
+        type: number
+      min_group_size:
+        minimum: 1
+        title: Min Group Size
+        type: integer
+      small_group_action:
+        $ref: '#/$defs/SmallGroupAction'
+      missing_metric_action:
+        $ref: '#/$defs/MissingMetricAction'
+      missing_metric_penalty:
+        maximum: 1
+        minimum: 0
+        title: Missing Metric Penalty
+        type: number
+      lineage_id:
+        title: Lineage Id
+        type: string
+    required:
+    - candidate_id
+    - comparison_group_id
+    - policy_id
+    - policy_version
+    - rule_id
+    - head_id
+    - head_weight
+    - missing_head_action
+    - missing_head_penalty
+    - metric_id
+    - source_preference
+    - transformation
+    - normalization
+    - metric_weight
+    - clip_lower
+    - clip_upper
+    - absolute_lower
+    - absolute_upper
+    - robust_scale
+    - min_group_size
+    - small_group_action
+    - missing_metric_action
+    - missing_metric_penalty
+    - lineage_id
+    title: ScoringHeadInputRecord
+    type: object
+  SmallGroupAction:
+    enum:
+    - ABSOLUTE_FALLBACK
+    - UNAVAILABLE
+    - BLOCK
+    title: SmallGroupAction
+    type: string
+  TransformationMethod:
+    enum:
+    - IDENTITY
+    - SIGNED_LOG1P
+    - CLIP
+    title: TransformationMethod
+    type: string
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/ScoringHeadInputRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: scoring_head_input_panel envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s4/scoring_head_input_panel/1.0.0

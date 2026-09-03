@@ -1,0 +1,142 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "metadata": {
+          "additionalProperties": true,
+          "title": "Metadata",
+          "type": "object"
+        },
+        "row_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Row Count"
+        },
+        "schema_version": {
+          "default": "1.0.0",
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "storage_uri": {
+          "minLength": 1,
+          "title": "Storage Uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "storage_uri",
+        "content_hash"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "ErrorRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "details": {
+          "additionalProperties": true,
+          "title": "Details",
+          "type": "object"
+        },
+        "message": {
+          "minLength": 1,
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "title": "ErrorRecord",
+      "type": "object"
+    },
+    "ModuleStatus": {
+      "enum": [
+        "SUCCESS",
+        "DEGRADED",
+        "REJECTED",
+        "FAILED",
+        "SKIPPED"
+      ],
+      "title": "ModuleStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "diagnostics": {
+      "additionalProperties": true,
+      "title": "Diagnostics",
+      "type": "object"
+    },
+    "errors": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ErrorRecord"
+      },
+      "title": "Errors",
+      "type": "array"
+    },
+    "module_id": {
+      "title": "Module Id",
+      "type": "string"
+    },
+    "outputs": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "Outputs",
+      "type": "object"
+    },
+    "status": {
+      "$ref": "#/$defs/ModuleStatus"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "module_id",
+    "status"
+  ],
+  "title": "ModuleResult",
+  "type": "object"
+}

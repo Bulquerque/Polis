@@ -1,0 +1,43 @@
+additionalProperties: false
+properties:
+  observation_count:
+    minimum: 0
+    title: Observation Count
+    type: integer
+  realized_net_alpha:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Realized Net Alpha
+  reference_net_alpha:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Reference Net Alpha
+  mean_cost_error_bps:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Mean Cost Error Bps
+  capacity_ratio_to_approved:
+    anyOf:
+    - minimum: 0.0
+      type: number
+    - type: 'null'
+    default: null
+    title: Capacity Ratio To Approved
+  hard_risk_breach_codes:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Hard Risk Breach Codes
+    type: array
+required:
+- observation_count
+- realized_net_alpha
+- reference_net_alpha
+- mean_cost_error_bps
+title: LiveExecutionMetrics
+type: object
+$id: urn:inferencia:p9:s7:LiveExecutionMetrics:1.0.0

@@ -1,0 +1,36 @@
+{
+  "$id": "https://inferencia.local/p9/s3/ResourceBudget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "hard_timeout_supported": {
+      "default": false,
+      "title": "Hard Timeout Supported",
+      "type": "boolean"
+    },
+    "maximum_output_artifacts": {
+      "default": 128,
+      "minimum": 1,
+      "title": "Maximum Output Artifacts",
+      "type": "integer"
+    },
+    "maximum_seconds": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Maximum Seconds"
+    }
+  },
+  "required": [
+    "maximum_seconds"
+  ],
+  "title": "ResourceBudget",
+  "type": "object"
+}

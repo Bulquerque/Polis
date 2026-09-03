@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "phase_id": "P9",
+  "subphase_id": "P9.S5",
+  "module_count": 8,
+  "modules": [
+    {
+      "module_id": "P9.S5.M01",
+      "name": "dependence_and_sampling_diagnostics",
+      "source_file": "src/quant_pipeline/phase_09/subphases/s05_bootstrap_inference/m01_dependence_and_sampling_diagnostics.py",
+      "tier": "CORE",
+      "responsibility": "Diagnosticar dependência temporal, cross-sectional e sobreposição de trades; escolher unidades de reamostragem admissíveis.",
+      "source_sha256": "1181b695732914f237583fc79e8383983a6b3fa3956f423c0d7a75a3efdd06ff"
+    },
+    {
+      "module_id": "P9.S5.M02",
+      "name": "automatic_block_length_selector",
+      "source_file": "src/quant_pipeline/phase_09/subphases/s05_bootstrap_inference/m02_automatic_block_length_selector.py",
+      "tier": "CORE",
+      "responsibility": "Selecionar comprimentos de bloco por série e conjunto usando Politis–White com correção Patton–Politis–White e fallback explícito.",
+      "source_sha256": "22d5a145f2edaeb56c8ab7724d3952be8f2ded1c97f23bc573c9a6326a444ca9"
+    },
+    {
+      "module_id": "P9.S5.M03",
+      "name": "time_series_block_bootstrap_engine",
+      "source_file": "src/quant_pipeline/phase_09/subphases/s05_bootstrap_inference/m03_time_series_block_bootstrap_engine.py",
+      "tier": "CORE",
+      "responsibility": "Gerar índices moving, circular e stationary bootstrap com seed lineage determinístico.",
+      "source_sha256": "9ab04a62e248c5f78ed1315db7c39498743250648262ef36b2ddc1d56dfdbf5a"
+    },
+    {
+      "module_id": "P9.S5.M04",
+      "name": "hierarchical_portfolio_bootstrap_engine",
+      "source_file": "src/quant_pipeline/phase_09/subphases/s05_bootstrap_inference/m04_hierarchical_portfolio_bootstrap_engine.py",
+      "tier": "CORE",
+      "responsibility": "Verificar reamostragem conjunta e diagnosticar preservação de covariância e regimes.",
+      "source_sha256": "ad2fe040d0bbc39ed94c5a01d8a00d4433c0cc160c34eb00ca42f7e6c6d51898"
+    },
+    {
+      "module_id": "P9.S5.M05",
+      "name": "trade_and_execution_resampling_engine",
+      "source_file": "src/quant_pipeline/phase_09/subphases/s05_bootstrap_inference/m05_trade_and_execution_resampling_engine.py",
+      "tier": "CORE",
+      "responsibility": "Reamostrar clusters de episódios de trade sobrepostos e medir concentração de PnL/custos.",
+      "source_sha256": "0551419cbda202ba30fe765de4f886872dec9b846a95e5e6ec6276b8b95561c9"
+    },
+    {
+      "module_id": "P9.S5.M06",
+      "name": "bootstrap_metric_distribution_builder",
+      "source_file": "src/quant_pipeline/phase_09/subphases/s05_bootstrap_inference/m06_bootstrap_metric_distribution_builder.py",
+      "tier": "CORE",
+      "responsibility": "Recalcular métricas congeladas em cada replicate e produzir distribuições, intervalos e probabilidades.",
+      "source_sha256": "04a30d3774dcad572baa00b399c6bb7bf1c4ae771af673c49cff57a721785abf"
+    },
+    {
+      "module_id": "P9.S5.M07",
+      "name": "sharpe_inference_and_deflation_engine",
+      "source_file": "src/quant_pipeline/phase_09/subphases/s05_bootstrap_inference/m07_sharpe_inference_and_deflation_engine.py",
+      "tier": "CORE",
+      "responsibility": "Calcular Sharpe observado/ajustado, PSR, DSR, effective trials e minimum track record.",
+      "source_sha256": "66a62cc12a9906ac7db713b1247e8184a3f7e1cc0b9567ea2695e9d439372d35"
+    },
+    {
+      "module_id": "P9.S5.M08",
+      "name": "backtest_overfitting_multiple_testing_qualification_gate",
+      "source_file": "src/quant_pipeline/phase_09/subphases/s05_bootstrap_inference/m08_backtest_overfitting_multiple_testing_qualification_gate.py",
+      "tier": "CORE",
+      "responsibility": "Combinar PBO/CSCV, multiple-testing, DSR, lower bounds, folds e rank stability em gate não compensável.",
+      "source_sha256": "b7574864c8f3d886fefe45b850ee0a5a9183e7f89bea96e5e7ef351b3e6b3e50"
+    }
+  ]
+}

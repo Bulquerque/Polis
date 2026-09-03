@@ -1,0 +1,5 @@
+max_provider_retries: 3
+max_generation_rounds: 100
+failure_policy: fail_closed_no_fake_candidates
+seed_required: true
+prompt_version_required: true

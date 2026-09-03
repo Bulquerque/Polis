@@ -1,0 +1,15 @@
+policy_id: p3.s39.dependence.v1
+status: FROZEN_LOCAL
+alignment: INNER_ON_OBSERVATION_TIME
+methods:
+  BASIC: [PEARSON, SPEARMAN]
+  ROBUST: [PEARSON, SPEARMAN]
+  STABILITY:
+    methods: [PEARSON, SPEARMAN]
+    bootstrap: PAIRED_MOVING_BLOCK
+rules:
+  constant_series_status: DEGRADED
+  minimum_observations: 3
+  automatic_lag_search: false
+  automatic_pair_selection: false
+  missing_alignment_fill: NONE

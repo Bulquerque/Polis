@@ -1,0 +1,40 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: personality_generation_state
+status: planned_internal_schema
+type: object
+required:
+- creator_run_id
+- generation_round
+- mode
+- coverage_gain
+- coverage_patience_counter
+- accepted_person_ids
+- continue_generation
+properties:
+  creator_run_id:
+    type: string
+  generation_round:
+    type: integer
+    minimum: 1
+  mode:
+    type: string
+    enum:
+    - coverage
+    - density
+  coverage_gain:
+    type: number
+    minimum: 0
+  coverage_patience_counter:
+    type: integer
+    minimum: 0
+  accepted_person_ids:
+    type: array
+    items:
+      type: string
+  continue_generation:
+    type: boolean
+  stop_reason:
+    type:
+    - string
+    - 'null'
+additionalProperties: false

@@ -1,0 +1,248 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "contract_version": {
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "relationship_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relationship Type"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "schema_version",
+        "contract_version",
+        "content_sha256",
+        "available_at"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "NoActionReason": {
+      "enum": [
+        "NO_RANKED_CANDIDATES",
+        "ALL_RANKED_UNAVAILABLE"
+      ],
+      "title": "NoActionReason",
+      "type": "string"
+    },
+    "NoActionState": {
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "$ref": "#/$defs/NoActionReason"
+        },
+        "preserved_portfolio_state_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Preserved Portfolio State Hash",
+          "type": "string"
+        },
+        "candidate_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Candidate Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "reason",
+        "preserved_portfolio_state_hash"
+      ],
+      "title": "NoActionState",
+      "type": "object"
+    },
+    "RuntimeMode": {
+      "enum": [
+        "BACKTEST",
+        "SHADOW",
+        "LIVE"
+      ],
+      "title": "RuntimeMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "P8_DECISION_SNAPSHOT_V1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "cycle_id": {
+      "minLength": 1,
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "decision_time": {
+      "format": "date-time",
+      "title": "Decision Time",
+      "type": "string"
+    },
+    "market_cutoff_at": {
+      "format": "date-time",
+      "title": "Market Cutoff At",
+      "type": "string"
+    },
+    "runtime_mode": {
+      "$ref": "#/$defs/RuntimeMode"
+    },
+    "phase7_handoff_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Phase7 Handoff Hash",
+      "type": "string"
+    },
+    "candidate_ledger_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Candidate Ledger Hash",
+      "type": "string"
+    },
+    "resolved_evidence_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Resolved Evidence Hash",
+      "type": "string"
+    },
+    "feedback_context_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Feedback Context Hash",
+      "type": "string"
+    },
+    "portfolio_state_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Portfolio State Hash",
+      "type": "string"
+    },
+    "market_snapshot_ref": {
+      "$ref": "#/$defs/ArtifactReference"
+    },
+    "received_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Received Candidate Ids",
+      "type": "array"
+    },
+    "ranked_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Ranked Candidate Ids",
+      "type": "array"
+    },
+    "terminal_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Terminal Candidate Ids",
+      "type": "array"
+    },
+    "actionable_ranked_candidate_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Actionable Ranked Candidate Ids",
+      "type": "array"
+    },
+    "no_action": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/NoActionState"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "contract_version",
+    "schema_version",
+    "run_id",
+    "cycle_id",
+    "decision_time",
+    "market_cutoff_at",
+    "runtime_mode",
+    "phase7_handoff_hash",
+    "candidate_ledger_hash",
+    "resolved_evidence_hash",
+    "feedback_context_hash",
+    "portfolio_state_hash",
+    "market_snapshot_ref",
+    "received_candidate_ids",
+    "ranked_candidate_ids",
+    "terminal_candidate_ids",
+    "actionable_ranked_candidate_ids",
+    "content_sha256"
+  ],
+  "title": "P8DecisionSnapshot",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P8_DECISION_SNAPSHOT_V1.schema.json"
+}

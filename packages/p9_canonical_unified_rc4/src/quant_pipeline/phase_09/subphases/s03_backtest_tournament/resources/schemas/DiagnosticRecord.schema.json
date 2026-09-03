@@ -1,0 +1,51 @@
+{
+  "$id": "https://inferencia.local/p9/s3/DiagnosticRecord.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "title": "Code",
+      "type": "string"
+    },
+    "expected": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expected"
+    },
+    "message": {
+      "title": "Message",
+      "type": "string"
+    },
+    "observed": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observed"
+    },
+    "severity": {
+      "pattern": "^(INFO|WARNING|ERROR|BLOCKER)$",
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "required": [
+    "code",
+    "message",
+    "severity"
+  ],
+  "title": "DiagnosticRecord",
+  "type": "object"
+}

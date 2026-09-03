@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "historical_weight": {
+      "default": 0.0,
+      "exclusiveMaximum": 1.0,
+      "minimum": 0.0,
+      "title": "Historical Weight",
+      "type": "number"
+    },
+    "probability_tolerance": {
+      "default": 1e-10,
+      "exclusiveMinimum": 0.0,
+      "title": "Probability Tolerance",
+      "type": "number"
+    },
+    "quantile_epsilon": {
+      "default": 1e-08,
+      "exclusiveMaximum": 0.1,
+      "exclusiveMinimum": 0.0,
+      "title": "Quantile Epsilon",
+      "type": "number"
+    },
+    "sampling_method": {
+      "default": "PSEUDO_RANDOM",
+      "enum": [
+        "PSEUDO_RANDOM",
+        "SOBOL"
+      ],
+      "title": "Sampling Method",
+      "type": "string"
+    },
+    "scenario_count": {
+      "default": 256,
+      "maximum": 100000,
+      "minimum": 16,
+      "title": "Scenario Count",
+      "type": "integer"
+    },
+    "seed_entropy": {
+      "default": 20260803,
+      "minimum": 0,
+      "title": "Seed Entropy",
+      "type": "integer"
+    }
+  },
+  "title": "ScenarioPolicy",
+  "type": "object"
+}

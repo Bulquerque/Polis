@@ -1,0 +1,436 @@
+{
+  "$defs": {
+    "BinaryProbabilityForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "BINARY_PROBABILITY",
+          "default": "BINARY_PROBABILITY",
+          "title": "Kind",
+          "type": "string"
+        },
+        "probability": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Probability",
+          "type": "number"
+        }
+      },
+      "required": [
+        "probability"
+      ],
+      "title": "BinaryProbabilityForecast",
+      "type": "object"
+    },
+    "DecisionKind": {
+      "enum": [
+        "ACTION",
+        "NO_ACTION",
+        "ABSTAIN"
+      ],
+      "title": "DecisionKind",
+      "type": "string"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "FACTUAL_EXECUTED",
+        "FACTUAL_OBSERVED_NOT_EXECUTED",
+        "OBSERVABLE_COUNTERFACTUAL",
+        "MODEL_BASED_COUNTERFACTUAL",
+        "CENSORED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "IntervalForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "INTERVAL",
+          "default": "INTERVAL",
+          "title": "Kind",
+          "type": "string"
+        },
+        "lower": {
+          "title": "Lower",
+          "type": "number"
+        },
+        "upper": {
+          "title": "Upper",
+          "type": "number"
+        },
+        "nominal_coverage": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Nominal Coverage",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lower",
+        "upper",
+        "nominal_coverage"
+      ],
+      "title": "IntervalForecast",
+      "type": "object"
+    },
+    "MaturityState": {
+      "enum": [
+        "NOT_MATURED",
+        "PARTIALLY_MATURED",
+        "MATURED",
+        "SETTLED",
+        "CENSORED",
+        "UNOBSERVABLE"
+      ],
+      "title": "MaturityState",
+      "type": "string"
+    },
+    "NormalForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "NORMAL",
+          "default": "NORMAL",
+          "title": "Kind",
+          "type": "string"
+        },
+        "mean": {
+          "title": "Mean",
+          "type": "number"
+        },
+        "standard_deviation": {
+          "exclusiveMinimum": 0.0,
+          "title": "Standard Deviation",
+          "type": "number"
+        }
+      },
+      "required": [
+        "mean",
+        "standard_deviation"
+      ],
+      "title": "NormalForecast",
+      "type": "object"
+    },
+    "OutcomeEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "outcome_id": {
+          "minLength": 1,
+          "title": "Outcome Id",
+          "type": "string"
+        },
+        "prediction_event_id": {
+          "minLength": 1,
+          "title": "Prediction Event Id",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "maturity_state": {
+          "$ref": "#/$defs/MaturityState"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        },
+        "vintage_id": {
+          "minLength": 1,
+          "title": "Vintage Id",
+          "type": "string"
+        },
+        "supersedes_outcome_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Supersedes Outcome Id"
+        }
+      },
+      "required": [
+        "outcome_id",
+        "prediction_event_id",
+        "observed_at",
+        "available_at",
+        "maturity_state",
+        "evidence_class",
+        "value",
+        "vintage_id"
+      ],
+      "title": "OutcomeEvent",
+      "type": "object"
+    },
+    "PointForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "POINT",
+          "default": "POINT",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "PointForecast",
+      "type": "object"
+    },
+    "PredictionEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "cohort_id": {
+          "minLength": 1,
+          "title": "Cohort Id",
+          "type": "string"
+        },
+        "policy_id": {
+          "minLength": 1,
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy_version": {
+          "minLength": 1,
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "horizon_id": {
+          "minLength": 1,
+          "title": "Horizon Id",
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "title": "Issued At",
+          "type": "string"
+        },
+        "information_set_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Information Set Hash",
+          "type": "string"
+        },
+        "forecast": {
+          "discriminator": {
+            "mapping": {
+              "BINARY_PROBABILITY": "#/$defs/BinaryProbabilityForecast",
+              "INTERVAL": "#/$defs/IntervalForecast",
+              "NORMAL": "#/$defs/NormalForecast",
+              "POINT": "#/$defs/PointForecast",
+              "QUANTILES": "#/$defs/QuantileForecast"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/PointForecast"
+            },
+            {
+              "$ref": "#/$defs/BinaryProbabilityForecast"
+            },
+            {
+              "$ref": "#/$defs/NormalForecast"
+            },
+            {
+              "$ref": "#/$defs/QuantileForecast"
+            },
+            {
+              "$ref": "#/$defs/IntervalForecast"
+            }
+          ],
+          "title": "Forecast"
+        },
+        "decision_kind": {
+          "$ref": "#/$defs/DecisionKind"
+        },
+        "action_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Action Id"
+        },
+        "regime_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Regime Id"
+        },
+        "ood_bucket": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ood Bucket"
+        },
+        "confidence_bucket": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence Bucket"
+        }
+      },
+      "required": [
+        "event_id",
+        "cohort_id",
+        "policy_id",
+        "policy_version",
+        "target_id",
+        "horizon_id",
+        "issued_at",
+        "information_set_hash",
+        "forecast",
+        "decision_kind"
+      ],
+      "title": "PredictionEvent",
+      "type": "object"
+    },
+    "QuantileForecast": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "QUANTILES",
+          "default": "QUANTILES",
+          "title": "Kind",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/QuantilePoint"
+          },
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "title": "QuantileForecast",
+      "type": "object"
+    },
+    "QuantilePoint": {
+      "additionalProperties": false,
+      "properties": {
+        "quantile": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Quantile",
+          "type": "number"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "quantile",
+        "value"
+      ],
+      "title": "QuantilePoint",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "prediction": {
+      "$ref": "#/$defs/PredictionEvent"
+    },
+    "outcomes": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/OutcomeEvent"
+      },
+      "title": "Outcomes",
+      "type": "array"
+    },
+    "active_outcome_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Active Outcome Id"
+    },
+    "record_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Record Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "prediction",
+    "record_sha256"
+  ],
+  "title": "PrequentialRecord",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s7:PrequentialRecord:1.0.0"
+}

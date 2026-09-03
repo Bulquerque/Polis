@@ -1,0 +1,85 @@
+$defs:
+  DeploymentStage:
+    enum:
+    - SHADOW_ONLY
+    - PAPER_EXECUTION
+    - LIMITED_CAPITAL
+    - FULL_PRODUCTION
+    - QUARANTINED
+    title: DeploymentStage
+    type: string
+additionalProperties: false
+properties:
+  cohort_id:
+    minLength: 1
+    title: Cohort Id
+    type: string
+  prediction_event_id:
+    minLength: 1
+    title: Prediction Event Id
+    type: string
+  policy_id:
+    minLength: 1
+    title: Policy Id
+    type: string
+  policy_version:
+    minLength: 1
+    title: Policy Version
+    type: string
+  information_set_hash:
+    pattern: ^[0-9a-f]{64}$
+    title: Information Set Hash
+    type: string
+  stage:
+    $ref: '#/$defs/DeploymentStage'
+  started_at:
+    format: date-time
+    title: Started At
+    type: string
+  completed_at:
+    format: date-time
+    title: Completed At
+    type: string
+  output_artifact_id:
+    anyOf:
+    - minLength: 1
+      type: string
+    - type: 'null'
+    default: null
+    title: Output Artifact Id
+  output_sha256:
+    anyOf:
+    - pattern: ^[0-9a-f]{64}$
+      type: string
+    - type: 'null'
+    default: null
+    title: Output Sha256
+  execution_status:
+    minLength: 1
+    title: Execution Status
+    type: string
+  resource_units_used:
+    minimum: 0
+    title: Resource Units Used
+    type: integer
+  reason_codes:
+    default: []
+    items:
+      minLength: 1
+      type: string
+    title: Reason Codes
+    type: array
+required:
+- cohort_id
+- prediction_event_id
+- policy_id
+- policy_version
+- information_set_hash
+- stage
+- started_at
+- completed_at
+- execution_status
+- resource_units_used
+title: PolicyExecutionOutput
+type: object
+$id: urn:inferencia:p9:s7:PolicyExecutionOutput:1.0.0

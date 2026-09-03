@@ -1,0 +1,76 @@
+{
+  "$defs": {
+    "OptionMode": {
+      "enum": [
+        "CONTRACT_LOOKUP",
+        "CHAIN_DIAGNOSTIC",
+        "STRUCTURE_HISTORY",
+        "SURFACE_ANALYSIS"
+      ],
+      "title": "OptionMode",
+      "type": "string"
+    },
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT",
+        "UNKNOWN"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "executable_only": {
+      "default": false,
+      "title": "Executable Only",
+      "type": "boolean"
+    },
+    "expiration_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expiration Date"
+    },
+    "max_records": {
+      "default": 1000,
+      "maximum": 10000,
+      "minimum": 1,
+      "title": "Max Records",
+      "type": "integer"
+    },
+    "option_type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/OptionType"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "research_mode": {
+      "$ref": "#/$defs/OptionMode",
+      "default": "CHAIN_DIAGNOSTIC"
+    },
+    "underlying": {
+      "minLength": 1,
+      "title": "Underlying",
+      "type": "string"
+    }
+  },
+  "required": [
+    "underlying"
+  ],
+  "title": "GetChainSnapshotRequest",
+  "type": "object"
+}

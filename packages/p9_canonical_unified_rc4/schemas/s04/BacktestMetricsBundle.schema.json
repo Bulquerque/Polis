@@ -1,0 +1,651 @@
+{
+  "$defs": {
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_schema_name": {
+          "title": "Artifact Schema Name",
+          "type": "string"
+        },
+        "artifact_schema_version": {
+          "title": "Artifact Schema Version",
+          "type": "string"
+        },
+        "artifact_type": {
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "availability": {
+          "$ref": "#/$defs/Availability",
+          "default": "AVAILABLE"
+        },
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "record_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Record Count"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "artifact_schema_name",
+        "artifact_schema_version",
+        "content_sha256",
+        "producer_module_id",
+        "run_id",
+        "cycle_id",
+        "available_at",
+        "location"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "Availability": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "UNAVAILABLE",
+        "LEGACY_RESEARCH_ONLY"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "DiagnosticRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "observed": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed"
+        },
+        "severity": {
+          "pattern": "^(INFO|WARNING|ERROR|BLOCKER)$",
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "severity"
+      ],
+      "title": "DiagnosticRecord",
+      "type": "object"
+    },
+    "EvidenceRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_refs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactReference"
+          },
+          "title": "Artifact Refs",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "evidence_id": {
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_type": {
+          "title": "Evidence Type",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "evidence_type",
+        "producer_module_id",
+        "content_sha256"
+      ],
+      "title": "EvidenceRecord",
+      "type": "object"
+    },
+    "GrossNet": {
+      "enum": [
+        "GROSS",
+        "NET",
+        "ACTIVE",
+        "EXCESS",
+        "NOT_APPLICABLE"
+      ],
+      "title": "GrossNet",
+      "type": "string"
+    },
+    "InstitutionalMetricPanel": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "diagnostics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DiagnosticRecord"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metric_count": {
+          "minimum": 0,
+          "title": "Metric Count",
+          "type": "integer"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MetricRecord"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "panel_id": {
+          "title": "Panel Id",
+          "type": "string"
+        },
+        "panel_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Panel Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "panel_id",
+        "panel_version",
+        "identity",
+        "content_sha256",
+        "metric_count"
+      ],
+      "title": "InstitutionalMetricPanel",
+      "type": "object"
+    },
+    "MetricLimitation": {
+      "additionalProperties": false,
+      "properties": {
+        "limitation": {
+          "title": "Limitation",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "severity": {
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_id",
+        "limitation",
+        "severity"
+      ],
+      "title": "MetricLimitation",
+      "type": "object"
+    },
+    "MetricQualityReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "check_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Check Ids",
+          "type": "array"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "identity": {
+          "$ref": "#/$defs/QualifiedBacktestIdentity"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/MetricLimitation"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "state": {
+          "$ref": "#/$defs/QualityState"
+        }
+      },
+      "required": [
+        "identity",
+        "state",
+        "check_ids",
+        "reason_codes",
+        "limitations",
+        "content_sha256"
+      ],
+      "title": "MetricQualityReceipt",
+      "type": "object"
+    },
+    "MetricRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "annualization_periods": {
+          "anyOf": [
+            {
+              "gt": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Annualization Periods"
+        },
+        "gross_net": {
+          "$ref": "#/$defs/GrossNet",
+          "default": "NOT_APPLICABLE"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "metric_id": {
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Metric Version",
+          "type": "string"
+        },
+        "producer_module_id": {
+          "title": "Producer Module Id",
+          "type": "string"
+        },
+        "sample_count": {
+          "minimum": 0,
+          "title": "Sample Count",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "unit": {
+          "$ref": "#/$defs/Unit"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_version",
+        "producer_module_id",
+        "value",
+        "unit",
+        "status",
+        "sample_count",
+        "method"
+      ],
+      "title": "MetricRecord",
+      "type": "object"
+    },
+    "MetricStatus": {
+      "enum": [
+        "QUALIFIED",
+        "LIMITED",
+        "UNAVAILABLE",
+        "INSUFFICIENT_SAMPLE",
+        "UNDEFINED",
+        "INVALID"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "ModuleReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "completed_at": {
+          "format": "date-time",
+          "title": "Completed At",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EvidenceRecord"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "input_refs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactReference"
+          },
+          "title": "Input Refs",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "module_id": {
+          "title": "Module Id",
+          "type": "string"
+        },
+        "output_refs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactReference"
+          },
+          "title": "Output Refs",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "started_at": {
+          "format": "date-time",
+          "title": "Started At",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/TerminalStatus"
+        }
+      },
+      "required": [
+        "module_id",
+        "status",
+        "started_at",
+        "completed_at",
+        "content_sha256"
+      ],
+      "title": "ModuleReceipt",
+      "type": "object"
+    },
+    "QualifiedBacktestIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_id": {
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "handoff_id": {
+          "title": "Handoff Id",
+          "type": "string"
+        },
+        "handoff_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Handoff Sha256",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trial_id": {
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "trial_id",
+        "fold_id",
+        "configuration_id",
+        "handoff_id",
+        "handoff_sha256"
+      ],
+      "title": "QualifiedBacktestIdentity",
+      "type": "object"
+    },
+    "QualityState": {
+      "enum": [
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EVIDENCE",
+        "INVALID"
+      ],
+      "title": "QualityState",
+      "type": "string"
+    },
+    "TerminalStatus": {
+      "enum": [
+        "SUCCESS",
+        "NO_ACTION_VALID",
+        "LIMITED",
+        "INSUFFICIENT_EVIDENCE",
+        "INVALID",
+        "FAILED",
+        "RESOURCE_EXHAUSTED",
+        "CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "TerminalStatus",
+      "type": "string"
+    },
+    "Unit": {
+      "enum": [
+        "DECIMAL_RETURN",
+        "ANNUALIZED_DECIMAL",
+        "RATIO",
+        "PROBABILITY",
+        "MONEY",
+        "BPS",
+        "COUNT",
+        "SECONDS",
+        "FRACTION",
+        "COEFFICIENT"
+      ],
+      "title": "Unit",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/BacktestMetricsBundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_id": {
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "bundle_version": {
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Bundle Version",
+      "type": "string"
+    },
+    "identity": {
+      "$ref": "#/$defs/QualifiedBacktestIdentity"
+    },
+    "metric_panel": {
+      "$ref": "#/$defs/InstitutionalMetricPanel"
+    },
+    "module_receipts": {
+      "items": {
+        "$ref": "#/$defs/ModuleReceipt"
+      },
+      "title": "Module Receipts",
+      "type": "array"
+    },
+    "quality_receipt": {
+      "$ref": "#/$defs/MetricQualityReceipt"
+    },
+    "s3_artifact_refs": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "S3 Artifact Refs",
+      "type": "array"
+    },
+    "s4_artifact_refs": {
+      "items": {
+        "$ref": "#/$defs/ArtifactReference"
+      },
+      "title": "S4 Artifact Refs",
+      "type": "array"
+    },
+    "upstream_bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Upstream Bundle Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "bundle_version",
+    "identity",
+    "s3_artifact_refs",
+    "s4_artifact_refs",
+    "metric_panel",
+    "quality_receipt",
+    "module_receipts",
+    "upstream_bundle_sha256",
+    "bundle_sha256"
+  ],
+  "title": "BacktestMetricsBundle",
+  "type": "object"
+}

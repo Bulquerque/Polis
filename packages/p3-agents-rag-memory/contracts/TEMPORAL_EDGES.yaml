@@ -1,0 +1,24 @@
+phase: P3
+rc: RC4.1
+contract: TEMPORAL_EDGES
+format: temporal_contract_v1
+temporal_edges:
+- from_artifact: cycle_state_snapshot_out
+  to_artifact: prior_cycle_state_snapshot
+  semantics: N+1 only; immutable prior-cycle state
+- from_artifact: next_cycle_endogenous_stimulus_queue
+  to_artifact: prior_cycle_endogenous_stimulus_queue
+  semantics: N+1 only; never same-cycle
+- from_artifact: next_population_generation_state
+  to_artifact: prior_population_generation_state
+  semantics: N+1 initialization generation only; bounded by epsilon, patience and
+    max_generation_rounds
+- from_artifact: next_cycle_retro_update_package
+  to_artifact: retro_memory_update_package
+  semantics: N+1 only after P9 promotion
+- from_artifact: next_cycle_retro_handoff_manifest
+  to_artifact: phase3_retro_handoff_manifest
+  semantics: N+1 only after P9 promotion
+- from_artifact: matured_belief_outcome_feedback_package
+  to_artifact: p9_belief_outcome_feedback_package
+  semantics: later cycles only after commitment maturity and P9 evaluation

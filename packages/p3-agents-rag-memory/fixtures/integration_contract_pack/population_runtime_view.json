@@ -1,0 +1,1360 @@
+{
+  "artifact_id": "population-runtime-population_cfbd70a5262fb3d64f92e384",
+  "artifact_name": "population_runtime_view",
+  "content_hash": "2af1fbc53b791e9e958521ab5c354f768c04053f12a34e51d67638916fc26554",
+  "coverage_ref": {
+    "artifact_id": "population-coverage-population_cfbd70a5262fb3d64f92e384",
+    "artifact_name": "population_coverage_runtime_view",
+    "available_at": null,
+    "content_hash": "12626023fe02872868b47bcaad14f057e9742cdc69665a7d81061ebd2b5f5657",
+    "grain": [],
+    "lineage_id": "lin_42778c7e3267a9c4079f2387",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S6.M01",
+    "row_count": null,
+    "schema_id": "population_coverage_runtime_view.v1",
+    "schema_version": "1.0.0",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://population-coverage-population_cfbd70a5262fb3d64f92e384",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "lineage": {
+    "lineage_id": "lineage-population-runtime-population_cfbd70a5262fb3d64f92e384",
+    "parent_lineage_ids": [],
+    "source_artifact_ids": [
+      "person_seed_panel",
+      "validated_population_manifest"
+    ],
+    "transformation_ids": [
+      "population_runtime_projection.v1"
+    ]
+  },
+  "population_id": "population_cfbd70a5262fb3d64f92e384",
+  "records": [
+    {
+      "availability_constraints": [
+        "flag_market_participants",
+        "level_1"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.30000000000000004
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.22999999999999998
+        },
+        {
+          "capability_id": "research",
+          "score": 0.25
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.44
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.45
+        }
+      ],
+      "deterministic_seed": 4634986418452605182,
+      "economic_role": "quant_researcher",
+      "person_id": "person_09346d05119342f10a6ebaf0",
+      "representation_weight": 0.04375,
+      "role_family": "market_participants",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_09346d05119342f10a6ebaf0",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "32d893aa566ae1935f25b292e190922a3c0280cc87a1ccc2333dfc701d84dd8c",
+        "grain": [],
+        "lineage_id": "lin_435fa2c799bc6c3d51b0b2b6",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_09346d05119342f10a6ebaf0",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_market_participants",
+        "level_1"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.6
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.35
+        },
+        {
+          "capability_id": "research",
+          "score": 0.325
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.2
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.75
+        }
+      ],
+      "deterministic_seed": 3487239949267279337,
+      "economic_role": "active_trader",
+      "person_id": "person_1761d60008f54d20d52e2a9d",
+      "representation_weight": 0.04375,
+      "role_family": "market_participants",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_1761d60008f54d20d52e2a9d",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "0fb9de4fcd8c08bfe5c3d81cb7f52c52963d20ce0e749472d1a2c87e9500ff5f",
+        "grain": [],
+        "lineage_id": "lin_7fe1cfef57c40857878b9485",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_1761d60008f54d20d52e2a9d",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_corporate_actors",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.25
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.51
+        },
+        {
+          "capability_id": "research",
+          "score": 0.42500000000000004
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.6799999999999999
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.55
+        }
+      ],
+      "deterministic_seed": 612767488545430144,
+      "economic_role": "finance_executive",
+      "person_id": "person_1c12bd8c2f2a6ceb86b50c8d",
+      "representation_weight": 0.04,
+      "role_family": "corporate_actors",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_1c12bd8c2f2a6ceb86b50c8d",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "19658eb57c275cad952990a74c5e948bd6a9da703e58cd7784fa4d1de930f68c",
+        "grain": [],
+        "lineage_id": "lin_e7f0d2a720a12ca6db871b5b",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_1c12bd8c2f2a6ceb86b50c8d",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_real_economy",
+        "level_1"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.35
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.44999999999999996
+        },
+        {
+          "capability_id": "research",
+          "score": 0.825
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.2
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.35
+        }
+      ],
+      "deterministic_seed": 7414539129470973916,
+      "economic_role": "professional_worker",
+      "person_id": "person_2349d6e4baa1a4236e9720cf",
+      "representation_weight": 0.04,
+      "role_family": "real_economy",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_2349d6e4baa1a4236e9720cf",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "23f9fd19075b56a461c51af8a509429d1258577e33156593782de1efbdd1c831",
+        "grain": [],
+        "lineage_id": "lin_8e1cf0eae3ab44265f22482c",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_2349d6e4baa1a4236e9720cf",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_market_participants",
+        "level_2"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.4
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.27
+        },
+        {
+          "capability_id": "research",
+          "score": 0.275
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.56
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.55
+        }
+      ],
+      "deterministic_seed": 6218191077865077048,
+      "economic_role": "risk_professional",
+      "person_id": "person_29a078cff59584f7e4bdaf7f",
+      "representation_weight": 0.04375,
+      "role_family": "market_participants",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_29a078cff59584f7e4bdaf7f",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "e669b5dbde7f7b080297f3e88a6903afad15e5d133a581fb6788008188e4a171",
+        "grain": [],
+        "lineage_id": "lin_864ea69679b8432169e68ed2",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_29a078cff59584f7e4bdaf7f",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_market_participants",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.8
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.43000000000000005
+        },
+        {
+          "capability_id": "research",
+          "score": 0.375
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.44
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.35
+        }
+      ],
+      "deterministic_seed": 5101737723374340317,
+      "economic_role": "buy_side_analyst",
+      "person_id": "person_2ea01fa44f7bf6f3b4a55d27",
+      "representation_weight": 0.04375,
+      "role_family": "market_participants",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_2ea01fa44f7bf6f3b4a55d27",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "706a527b809d7204f32c12384efe142679eb6198d67ab01629b293fed464887e",
+        "grain": [],
+        "lineage_id": "lin_5ff6a48a6ced946aeee51cc2",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_2ea01fa44f7bf6f3b4a55d27",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_corporate_actors",
+        "level_1"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.35
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.55
+        },
+        {
+          "capability_id": "research",
+          "score": 0.45
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.2
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.65
+        }
+      ],
+      "deterministic_seed": 5118468912140084938,
+      "economic_role": "corporate_strategy_professional",
+      "person_id": "person_3c8677dee4d7572e1970c37b",
+      "representation_weight": 0.04,
+      "role_family": "corporate_actors",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_3c8677dee4d7572e1970c37b",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "404e2e463343f39116543d6bff0ad109a79bfea4afe06859b5afa0371d82ea88",
+        "grain": [],
+        "lineage_id": "lin_cd5ce0e213d56bd62b515bae",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_3c8677dee4d7572e1970c37b",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_information_actors",
+        "level_1"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.1
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.75
+        },
+        {
+          "capability_id": "research",
+          "score": 0.575
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.2
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.55
+        }
+      ],
+      "deterministic_seed": 1803170376624446948,
+      "economic_role": "academic_researcher",
+      "person_id": "person_42a800fcd82a27521dc53820",
+      "representation_weight": 0.0375,
+      "role_family": "information_actors",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_42a800fcd82a27521dc53820",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "10bc1c1ad54eee78d8294f0d349ad423f6dccc6abf22e642758af06b1df962e3",
+        "grain": [],
+        "lineage_id": "lin_af54caa5746166d6952f8067",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_42a800fcd82a27521dc53820",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_information_actors",
+        "level_2"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.2
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.79
+        },
+        {
+          "capability_id": "research",
+          "score": 0.6000000000000001
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.32
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.65
+        }
+      ],
+      "deterministic_seed": 7035728062407159587,
+      "economic_role": "industry_expert",
+      "person_id": "person_5166323465ad7b7cd7e7f768",
+      "representation_weight": 0.0375,
+      "role_family": "information_actors",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_5166323465ad7b7cd7e7f768",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "b359a6beb2e9052f14928399259f8f0b796c0fcbcf6df8fa94da4067c1da061c",
+        "grain": [],
+        "lineage_id": "lin_425882a1fdc0fb80f0076c67",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_5166323465ad7b7cd7e7f768",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_real_economy",
+        "level_1"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.8
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.32999999999999996
+        },
+        {
+          "capability_id": "research",
+          "score": 0.75
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.44
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.65
+        }
+      ],
+      "deterministic_seed": 7002762299803691288,
+      "economic_role": "entrepreneur",
+      "person_id": "person_546264c6e0448a87bf943b1d",
+      "representation_weight": 0.04,
+      "role_family": "real_economy",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_546264c6e0448a87bf943b1d",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "c3ccab45dc4d954d7caff22b9efecb89bdfac060942b6ff65065f6b398c4659d",
+        "grain": [],
+        "lineage_id": "lin_ecb1260c7aab7636e19f0ba7",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_546264c6e0448a87bf943b1d",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_real_economy",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.7000000000000001
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.29000000000000004
+        },
+        {
+          "capability_id": "research",
+          "score": 0.7250000000000001
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.32
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.55
+        }
+      ],
+      "deterministic_seed": 8210431116304664000,
+      "economic_role": "business_owner",
+      "person_id": "person_5a1fb72e084d473d9c607b90",
+      "representation_weight": 0.04,
+      "role_family": "real_economy",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_5a1fb72e084d473d9c607b90",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "ad6663f813b3539c38507832ee496b8ce5d362a7ab446740bdf806c470a8c53a",
+        "grain": [],
+        "lineage_id": "lin_1ccbcb6b3a6a041bdc84eabd",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_5a1fb72e084d473d9c607b90",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_information_actors",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.30000000000000004
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.8300000000000001
+        },
+        {
+          "capability_id": "research",
+          "score": 0.625
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.44
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.75
+        }
+      ],
+      "deterministic_seed": 8138908727194926824,
+      "economic_role": "independent_researcher",
+      "person_id": "person_5bafe298ab785e2976b4c064",
+      "representation_weight": 0.0375,
+      "role_family": "information_actors",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_5bafe298ab785e2976b4c064",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "b9edadad8523dc5cd286a840d711d2d04db78c4056f2c0ba92930123051e3953",
+        "grain": [],
+        "lineage_id": "lin_3895c596c5fcf4b0195ae359",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_5bafe298ab785e2976b4c064",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_market_participants",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.5
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.31
+        },
+        {
+          "capability_id": "research",
+          "score": 0.30000000000000004
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.6799999999999999
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.65
+        }
+      ],
+      "deterministic_seed": 5275008834773109064,
+      "economic_role": "sell_side_analyst",
+      "person_id": "person_5dd05ac60062557052ebfef6",
+      "representation_weight": 0.04375,
+      "role_family": "market_participants",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_5dd05ac60062557052ebfef6",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "ed9c6b492a6bbc0b095e1e471042fd90d886c22d717ecda0f81e0f6262e52015",
+        "grain": [],
+        "lineage_id": "lin_4efdba2bb84dcbc600ac7b8d",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_5dd05ac60062557052ebfef6",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_policy_institutions",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.4
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.16999999999999998
+        },
+        {
+          "capability_id": "research",
+          "score": 0.65
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.56
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.25
+        }
+      ],
+      "deterministic_seed": 319576490708460079,
+      "economic_role": "central_bank_economist",
+      "person_id": "person_5def1e4def9e1c520f42996c",
+      "representation_weight": 0.03333333333333333,
+      "role_family": "policy_institutions",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_5def1e4def9e1c520f42996c",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "cd71a091e5d18cbf075576c7837c5a026c119c4a58bed7a0336c1281e0736709",
+        "grain": [],
+        "lineage_id": "lin_4da3602d2d1dfde7d9a1e604",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_5def1e4def9e1c520f42996c",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_corporate_actors",
+        "level_2"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.45000000000000007
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.59
+        },
+        {
+          "capability_id": "research",
+          "score": 0.47500000000000003
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.32
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.75
+        }
+      ],
+      "deterministic_seed": 4173300573028196634,
+      "economic_role": "operating_executive",
+      "person_id": "person_6f7a8bef4534a0ddc8fc687d",
+      "representation_weight": 0.04,
+      "role_family": "corporate_actors",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_6f7a8bef4534a0ddc8fc687d",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "5dc8575a74fd85b4d79ecd6bec317d2355d243a9b698b2d1d9362c0ea7f49248",
+        "grain": [],
+        "lineage_id": "lin_2f02579da9e16d823961533b",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_6f7a8bef4534a0ddc8fc687d",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_corporate_actors",
+        "level_1"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.65
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.67
+        },
+        {
+          "capability_id": "research",
+          "score": 0.525
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.56
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.35
+        }
+      ],
+      "deterministic_seed": 6127827199682002663,
+      "economic_role": "commercial_employee",
+      "person_id": "person_6fdac2667a58d2608e7e3015",
+      "representation_weight": 0.04,
+      "role_family": "corporate_actors",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_6fdac2667a58d2608e7e3015",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "bbfa3bc41d85b0f09c04f99468f0d4333159b3af09436940e858741ea48e8e42",
+        "grain": [],
+        "lineage_id": "lin_e9df71ce72dd8a9821c6c26a",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_6fdac2667a58d2608e7e3015",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_market_participants",
+        "level_1"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.15000000000000002
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.47
+        },
+        {
+          "capability_id": "research",
+          "score": 0.4
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.56
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.45
+        }
+      ],
+      "deterministic_seed": 9132964380364093237,
+      "economic_role": "options_specialist",
+      "person_id": "person_789defaf8347b2c0de7d3bb7",
+      "representation_weight": 0.04375,
+      "role_family": "market_participants",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_789defaf8347b2c0de7d3bb7",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "b5d120b0390b30f4565c980ef0ea70c8e1c40d9827ab4d82e91b42a5b87f1967",
+        "grain": [],
+        "lineage_id": "lin_a5cfda75a0dfb6a732e9a213",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_789defaf8347b2c0de7d3bb7",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_real_economy",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.25
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.41000000000000003
+        },
+        {
+          "capability_id": "research",
+          "score": 0.8
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.6799999999999999
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.25
+        }
+      ],
+      "deterministic_seed": 6865751855979499992,
+      "economic_role": "procurement_or_supply_chain_professional",
+      "person_id": "person_89c759e8d6a2976eb710b39c",
+      "representation_weight": 0.04,
+      "role_family": "real_economy",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_89c759e8d6a2976eb710b39c",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "464951c1164248b7667d6d32d5b3baabe79a1da386c5b3d66b44844c33c79ac6",
+        "grain": [],
+        "lineage_id": "lin_eab8894b82e1b8e7e7be0292",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_89c759e8d6a2976eb710b39c",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_real_economy",
+        "level_2"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.15000000000000002
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.37
+        },
+        {
+          "capability_id": "research",
+          "score": 0.7750000000000001
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.56
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.75
+        }
+      ],
+      "deterministic_seed": 2756175640282571334,
+      "economic_role": "sector_specialist",
+      "person_id": "person_958508fc4c55caea1b8065ce",
+      "representation_weight": 0.04000000000000001,
+      "role_family": "real_economy",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_958508fc4c55caea1b8065ce",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "3c0e4d366b027b19b35f49ac7de4ab4649adac872086ab777db076676d37e60a",
+        "grain": [],
+        "lineage_id": "lin_2b8748f07ef7f4c444673745",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_958508fc4c55caea1b8065ce",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_policy_institutions",
+        "level_1"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.5
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.21
+        },
+        {
+          "capability_id": "research",
+          "score": 0.675
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.6799999999999999
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.35
+        }
+      ],
+      "deterministic_seed": 519146511083456297,
+      "economic_role": "regulator",
+      "person_id": "person_a089d9bd20c64bc4c8486687",
+      "representation_weight": 0.03333333333333333,
+      "role_family": "policy_institutions",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_a089d9bd20c64bc4c8486687",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "dbf2225005710b88e88454576263bd3d7dedfe6701cb3ea164b4e2ee6885447b",
+        "grain": [],
+        "lineage_id": "lin_a08420c3eed460104ee872de",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_a089d9bd20c64bc4c8486687",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_corporate_actors",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.55
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.63
+        },
+        {
+          "capability_id": "research",
+          "score": 0.5
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.44
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.25
+        }
+      ],
+      "deterministic_seed": 327603811150418292,
+      "economic_role": "investor_relations_professional",
+      "person_id": "person_a4be046ff227385b43130821",
+      "representation_weight": 0.04000000000000001,
+      "role_family": "corporate_actors",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_a4be046ff227385b43130821",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "7fa659e2852f2f3f8c5ea85badd2ff4e520a64cb6b3f4cdd03c71587b24ecc1c",
+        "grain": [],
+        "lineage_id": "lin_b16c43719ce6612023e67a91",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_a4be046ff227385b43130821",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_market_participants",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.2
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.19
+        },
+        {
+          "capability_id": "research",
+          "score": 0.225
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.32
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.35
+        }
+      ],
+      "deterministic_seed": 8354152107837877700,
+      "economic_role": "portfolio_manager",
+      "person_id": "person_a8292f4b418a406b97beab9c",
+      "representation_weight": 0.04375,
+      "role_family": "market_participants",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_a8292f4b418a406b97beab9c",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "bbc9d381526bf3ec28ea65eedf878668738bff14c7f46585c35c4ce5e84f30fd",
+        "grain": [],
+        "lineage_id": "lin_4a437bc4faa7bbfb908db18f",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_a8292f4b418a406b97beab9c",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_market_participants",
+        "level_2"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.7000000000000001
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.39
+        },
+        {
+          "capability_id": "research",
+          "score": 0.35000000000000003
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.32
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.25
+        }
+      ],
+      "deterministic_seed": 1855844094041156907,
+      "economic_role": "wealth_manager",
+      "person_id": "person_cad593fc458e2faef8131bd0",
+      "representation_weight": 0.04375000000000001,
+      "role_family": "market_participants",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_cad593fc458e2faef8131bd0",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "78524b0903da9157464199cf27a62efd75cfa3ecd78300ecff68b4d091e2f111",
+        "grain": [],
+        "lineage_id": "lin_c29630338f06a81d2ea0d788",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_cad593fc458e2faef8131bd0",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_information_actors",
+        "level_0"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.75
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.7100000000000001
+        },
+        {
+          "capability_id": "research",
+          "score": 0.55
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.6799999999999999
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.45
+        }
+      ],
+      "deterministic_seed": 9025145393576978048,
+      "economic_role": "financial_journalist",
+      "person_id": "person_cf5816934f24fed7769b709f",
+      "representation_weight": 0.037500000000000006,
+      "role_family": "information_actors",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_cf5816934f24fed7769b709f",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "817b103d253925c6e59e7474d1145e44db0710b05d468aaf24c3c17bcb9e6b27",
+        "grain": [],
+        "lineage_id": "lin_77e188a245bb191c1b1abc42",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_cf5816934f24fed7769b709f",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    },
+    {
+      "availability_constraints": [
+        "flag_policy_institutions",
+        "level_2"
+      ],
+      "capabilities": [
+        {
+          "capability_id": "coding",
+          "score": 0.6
+        },
+        {
+          "capability_id": "quantitative",
+          "score": 0.25
+        },
+        {
+          "capability_id": "research",
+          "score": 0.7
+        },
+        {
+          "capability_id": "tool_use",
+          "score": 0.2
+        },
+        {
+          "capability_id": "verbal",
+          "score": 0.45
+        }
+      ],
+      "deterministic_seed": 6377636872436590092,
+      "economic_role": "policy_advisor",
+      "person_id": "person_f38b3e011a8058eedc20c548",
+      "representation_weight": 0.03333333333333334,
+      "role_family": "policy_institutions",
+      "structural_profile_ref": {
+        "artifact_id": "structural-profile-person_f38b3e011a8058eedc20c548",
+        "artifact_name": "person_structural_profile",
+        "available_at": null,
+        "content_hash": "6b6d22f3b051415f5b179af65a3a4603ec5cde2e2cb776c37b48eb9258ef6545",
+        "grain": [],
+        "lineage_id": "lin_58c10aa4dfa8171f8311fead",
+        "media_type": "application/json",
+        "producer_module_id": "P3.S7.M01",
+        "row_count": null,
+        "schema_id": "person_structural_profile.v1",
+        "schema_version": "1.0.0",
+        "status": "READY",
+        "storage_ref": {
+          "location": "memory://population/population_cfbd70a5262fb3d64f92e384/profiles/person_f38b3e011a8058eedc20c548",
+          "scheme": "memory",
+          "version": null
+        }
+      }
+    }
+  ],
+  "schema_id": "population_runtime_view.v1",
+  "schema_version": "1.0.0",
+  "source_manifest_ref": {
+    "artifact_id": "validated_population_manifest-b1d442bc771d222a2f4c015d",
+    "artifact_name": "validated_population_manifest",
+    "available_at": null,
+    "content_hash": "b1d442bc771d222a2f4c015d18ad2e93eda13ef37df91a5410ff42754b3307b8",
+    "grain": [],
+    "lineage_id": "lin_42778c7e3267a9c4079f2387",
+    "media_type": "application/json",
+    "producer_module_id": "P3.S7.M02",
+    "row_count": null,
+    "schema_id": "validated_population_manifest.v2",
+    "schema_version": "v14.1-rc4.1-p3r2",
+    "status": "READY",
+    "storage_ref": {
+      "location": "memory://validated_population_manifest-b1d442bc771d222a2f4c015d",
+      "scheme": "memory",
+      "version": null
+    }
+  },
+  "status": "READY"
+}

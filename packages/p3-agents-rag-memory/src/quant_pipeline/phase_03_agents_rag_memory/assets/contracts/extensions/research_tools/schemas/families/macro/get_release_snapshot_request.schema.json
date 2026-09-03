@@ -1,0 +1,75 @@
+{
+  "$defs": {
+    "MacroMode": {
+      "enum": [
+        "LOOKUP",
+        "CONTEXT",
+        "VINTAGE_ANALYSIS"
+      ],
+      "title": "MacroMode",
+      "type": "string"
+    },
+    "VintagePolicy": {
+      "enum": [
+        "KNOWN_AT_DECISION_TIME",
+        "ORIGINAL_RELEASE",
+        "LATEST_KNOWN_AT_DECISION_TIME"
+      ],
+      "title": "VintagePolicy",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "max_records": {
+      "default": 500,
+      "maximum": 10000,
+      "minimum": 1,
+      "title": "Max Records",
+      "type": "integer"
+    },
+    "release_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Release Id"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/MacroMode",
+      "default": "VINTAGE_ANALYSIS"
+    },
+    "series_id": {
+      "minLength": 1,
+      "title": "Series Id",
+      "type": "string"
+    },
+    "vintage_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Vintage Date"
+    },
+    "vintage_policy": {
+      "$ref": "#/$defs/VintagePolicy",
+      "default": "LATEST_KNOWN_AT_DECISION_TIME"
+    }
+  },
+  "required": [
+    "series_id"
+  ],
+  "title": "GetReleaseSnapshotRequest",
+  "type": "object"
+}

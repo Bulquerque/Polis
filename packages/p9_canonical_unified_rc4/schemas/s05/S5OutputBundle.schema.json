@@ -1,0 +1,1775 @@
+{
+  "$defs": {
+    "BacktestRobustnessQualificationReport": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_lower_bound": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bootstrap Lower Bound"
+        },
+        "contrary_evidence": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Contrary Evidence",
+          "type": "array"
+        },
+        "dsr": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Dsr"
+        },
+        "favorable_evidence": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Favorable Evidence",
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "multiple_testing": {
+          "$ref": "#/$defs/MultipleTestingResult"
+        },
+        "pbo": {
+          "$ref": "#/$defs/PBOResult"
+        },
+        "probability_above_threshold": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Probability Above Threshold"
+        },
+        "rank_stability": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Rank Stability"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        },
+        "target_configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Target Configuration Id",
+          "type": "string"
+        },
+        "target_metric_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Target Metric Id",
+          "type": "string"
+        },
+        "worst_fold_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Worst Fold Score"
+        }
+      },
+      "required": [
+        "status",
+        "target_configuration_id",
+        "target_metric_id",
+        "pbo",
+        "multiple_testing",
+        "dsr",
+        "bootstrap_lower_bound",
+        "probability_above_threshold",
+        "worst_fold_score",
+        "rank_stability",
+        "favorable_evidence",
+        "contrary_evidence",
+        "reason_codes",
+        "limitations"
+      ],
+      "title": "BacktestRobustnessQualificationReport",
+      "type": "object"
+    },
+    "BlockBootstrapResult": {
+      "additionalProperties": false,
+      "properties": {
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "manifest": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BootstrapIndexManifest"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        }
+      },
+      "required": [
+        "status",
+        "manifest"
+      ],
+      "title": "BlockBootstrapResult",
+      "type": "object"
+    },
+    "BlockLengthEstimate": {
+      "additionalProperties": false,
+      "properties": {
+        "circular_raw": {
+          "minimum": 0,
+          "title": "Circular Raw",
+          "type": "number"
+        },
+        "circular_selected": {
+          "minimum": 1,
+          "title": "Circular Selected",
+          "type": "integer"
+        },
+        "dependence_horizon": {
+          "minimum": 1,
+          "title": "Dependence Horizon",
+          "type": "integer"
+        },
+        "moving_selected": {
+          "minimum": 1,
+          "title": "Moving Selected",
+          "type": "integer"
+        },
+        "series_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Series Id",
+          "type": "string"
+        },
+        "stationary_raw": {
+          "minimum": 0,
+          "title": "Stationary Raw",
+          "type": "number"
+        },
+        "stationary_selected": {
+          "minimum": 1,
+          "title": "Stationary Selected",
+          "type": "integer"
+        },
+        "used_fallback": {
+          "title": "Used Fallback",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "series_id",
+        "stationary_raw",
+        "circular_raw",
+        "moving_selected",
+        "stationary_selected",
+        "circular_selected",
+        "dependence_horizon",
+        "used_fallback"
+      ],
+      "title": "BlockLengthEstimate",
+      "type": "object"
+    },
+    "BlockLengthSelectionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "estimates": {
+          "items": {
+            "$ref": "#/$defs/BlockLengthEstimate"
+          },
+          "title": "Estimates",
+          "type": "array"
+        },
+        "joint_circular_block_length": {
+          "minimum": 1,
+          "title": "Joint Circular Block Length",
+          "type": "integer"
+        },
+        "joint_moving_block_length": {
+          "minimum": 1,
+          "title": "Joint Moving Block Length",
+          "type": "integer"
+        },
+        "joint_stationary_block_length": {
+          "minimum": 1,
+          "title": "Joint Stationary Block Length",
+          "type": "integer"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        }
+      },
+      "required": [
+        "status",
+        "estimates",
+        "joint_moving_block_length",
+        "joint_stationary_block_length",
+        "joint_circular_block_length"
+      ],
+      "title": "BlockLengthSelectionResult",
+      "type": "object"
+    },
+    "BootstrapIndexManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "block_length": {
+          "minimum": 1,
+          "title": "Block Length",
+          "type": "integer"
+        },
+        "indices": {
+          "items": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "title": "Indices",
+          "type": "array"
+        },
+        "manifest_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Manifest Id",
+          "type": "string"
+        },
+        "manifest_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Manifest Sha256",
+          "type": "string"
+        },
+        "method": {
+          "$ref": "#/$defs/BootstrapMethod"
+        },
+        "observation_count": {
+          "minimum": 1,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "replicate_count": {
+          "minimum": 1,
+          "title": "Replicate Count",
+          "type": "integer"
+        },
+        "replicate_sha256": {
+          "items": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "title": "Replicate Sha256",
+          "type": "array"
+        },
+        "seed_lineage": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Seed Lineage",
+          "type": "string"
+        }
+      },
+      "required": [
+        "manifest_id",
+        "method",
+        "observation_count",
+        "replicate_count",
+        "block_length",
+        "seed_lineage",
+        "indices",
+        "replicate_sha256",
+        "manifest_sha256"
+      ],
+      "title": "BootstrapIndexManifest",
+      "type": "object"
+    },
+    "BootstrapMethod": {
+      "enum": [
+        "MOVING",
+        "CIRCULAR",
+        "STATIONARY"
+      ],
+      "title": "BootstrapMethod",
+      "type": "string"
+    },
+    "DependenceDiagnosticsResult": {
+      "additionalProperties": false,
+      "properties": {
+        "average_absolute_cross_correlation": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Average Absolute Cross Correlation",
+          "type": "number"
+        },
+        "cross_sectional_correlation": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Cross Sectional Correlation",
+          "type": "array"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "recommended_sampling_units": {
+          "items": {
+            "$ref": "#/$defs/SamplingUnit"
+          },
+          "title": "Recommended Sampling Units",
+          "type": "array"
+        },
+        "regular_interval_seconds": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Regular Interval Seconds"
+        },
+        "series_diagnostics": {
+          "items": {
+            "$ref": "#/$defs/SeriesDependenceDiagnostic"
+          },
+          "title": "Series Diagnostics",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        },
+        "trade_overlap": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TradeOverlapDiagnostic"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "series_diagnostics",
+        "cross_sectional_correlation",
+        "average_absolute_cross_correlation",
+        "trade_overlap",
+        "recommended_sampling_units",
+        "regular_interval_seconds"
+      ],
+      "title": "DependenceDiagnosticsResult",
+      "type": "object"
+    },
+    "EvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_type": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Evidence Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "evidence_type",
+        "content_sha256"
+      ],
+      "title": "EvidenceReference",
+      "type": "object"
+    },
+    "HierarchicalBootstrapResult": {
+      "additionalProperties": false,
+      "properties": {
+        "average_covariance_distance": {
+          "minimum": 0,
+          "title": "Average Covariance Distance",
+          "type": "number"
+        },
+        "diagnostics": {
+          "items": {
+            "$ref": "#/$defs/ReplicateCovarianceDiagnostic"
+          },
+          "title": "Diagnostics",
+          "type": "array"
+        },
+        "joint_resampling_verified": {
+          "title": "Joint Resampling Verified",
+          "type": "boolean"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "minimum_regime_coverage": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Regime Coverage"
+        },
+        "original_covariance": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Original Covariance",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        }
+      },
+      "required": [
+        "status",
+        "original_covariance",
+        "diagnostics",
+        "average_covariance_distance",
+        "joint_resampling_verified"
+      ],
+      "title": "HierarchicalBootstrapResult",
+      "type": "object"
+    },
+    "LjungBoxDiagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "lag": {
+          "minimum": 1,
+          "title": "Lag",
+          "type": "integer"
+        },
+        "pvalue": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Pvalue",
+          "type": "number"
+        },
+        "statistic": {
+          "minimum": 0,
+          "title": "Statistic",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lag",
+        "statistic",
+        "pvalue"
+      ],
+      "title": "LjungBoxDiagnostic",
+      "type": "object"
+    },
+    "MetricDistributionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "estimates": {
+          "items": {
+            "$ref": "#/$defs/MetricEstimate"
+          },
+          "title": "Estimates",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "metric_registry_version": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Metric Registry Version",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        }
+      },
+      "required": [
+        "status",
+        "metric_registry_version",
+        "estimates"
+      ],
+      "title": "MetricDistributionResult",
+      "type": "object"
+    },
+    "MetricEstimate": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_mean": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bootstrap Mean"
+        },
+        "bootstrap_median": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Bootstrap Median"
+        },
+        "confidence_interval_high": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Confidence Interval High"
+        },
+        "confidence_interval_low": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Confidence Interval Low"
+        },
+        "invalid_replicates": {
+          "minimum": 0,
+          "title": "Invalid Replicates",
+          "type": "integer"
+        },
+        "lower_confidence_bound": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Lower Confidence Bound"
+        },
+        "metric_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Metric Id",
+          "type": "string"
+        },
+        "metric_name": {
+          "$ref": "#/$defs/MetricName"
+        },
+        "observed_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observed Value"
+        },
+        "probability_above_threshold": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Probability Above Threshold"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "standard_error": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Standard Error"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        },
+        "valid_replicates": {
+          "minimum": 0,
+          "title": "Valid Replicates",
+          "type": "integer"
+        },
+        "worst_quantile": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Worst Quantile"
+        }
+      },
+      "required": [
+        "metric_id",
+        "metric_name",
+        "observed_value",
+        "bootstrap_mean",
+        "bootstrap_median",
+        "confidence_interval_low",
+        "confidence_interval_high",
+        "lower_confidence_bound",
+        "worst_quantile",
+        "probability_above_threshold",
+        "valid_replicates",
+        "invalid_replicates",
+        "status"
+      ],
+      "title": "MetricEstimate",
+      "type": "object"
+    },
+    "MetricName": {
+      "enum": [
+        "ANNUALIZED_RETURN",
+        "VOLATILITY",
+        "SHARPE",
+        "CUMULATIVE_RETURN",
+        "CAGR",
+        "MAX_DRAWDOWN",
+        "SORTINO",
+        "CALMAR",
+        "EXPECTED_SHORTFALL",
+        "ALPHA",
+        "BETA",
+        "INFORMATION_RATIO",
+        "COMPETITION_SCORE"
+      ],
+      "title": "MetricName",
+      "type": "string"
+    },
+    "ModuleReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "completed_at": {
+          "format": "date-time",
+          "title": "Completed At",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "module_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Module Id",
+          "type": "string"
+        },
+        "output_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Output Sha256",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "started_at": {
+          "format": "date-time",
+          "title": "Started At",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        }
+      },
+      "required": [
+        "module_id",
+        "status",
+        "output_sha256",
+        "started_at",
+        "completed_at"
+      ],
+      "title": "ModuleReceipt",
+      "type": "object"
+    },
+    "MultipleTestingResult": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "reality_check_pvalue": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reality Check Pvalue"
+        },
+        "reality_check_statistic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reality Check Statistic"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "tested_trial_count": {
+          "minimum": 0,
+          "title": "Tested Trial Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "applicable",
+        "reality_check_statistic",
+        "reality_check_pvalue",
+        "tested_trial_count"
+      ],
+      "title": "MultipleTestingResult",
+      "type": "object"
+    },
+    "PBOResult": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "combination_count": {
+          "minimum": 0,
+          "title": "Combination Count",
+          "type": "integer"
+        },
+        "logits": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Logits",
+          "type": "array"
+        },
+        "pbo": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Pbo"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "applicable",
+        "pbo",
+        "combination_count",
+        "logits"
+      ],
+      "title": "PBOResult",
+      "type": "object"
+    },
+    "ReplicateCovarianceDiagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "covariance_distance": {
+          "minimum": 0,
+          "title": "Covariance Distance",
+          "type": "number"
+        },
+        "regime_coverage": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Regime Coverage"
+        },
+        "replicate_id": {
+          "minimum": 1,
+          "title": "Replicate Id",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "replicate_id",
+        "covariance_distance"
+      ],
+      "title": "ReplicateCovarianceDiagnostic",
+      "type": "object"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    },
+    "S5State": {
+      "enum": [
+        "SUCCESS",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "PARTIAL_METRIC_COVERAGE",
+        "INSUFFICIENT_EVIDENCE",
+        "INSUFFICIENT_HISTORY",
+        "INSUFFICIENT_TRADES",
+        "INSUFFICIENT_VALID_REPLICATES",
+        "IRREGULAR_TIME_UNSUPPORTED",
+        "TRIAL_FAMILY_INCOMPLETE",
+        "EFFECTIVE_TRIAL_COUNT_UNRESOLVED",
+        "METRIC_VERSION_MISMATCH",
+        "ROBUST",
+        "PROVISIONALLY_ROBUST",
+        "FRAGILE",
+        "BACKTEST_OVERFIT_RISK",
+        "REGIME_DEPENDENT",
+        "SELECTION_BIAS_UNRESOLVED",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S5State",
+      "type": "string"
+    },
+    "SamplingUnit": {
+      "enum": [
+        "TIME_BLOCK",
+        "HIERARCHICAL_TIME_CROSS_SECTION",
+        "TRADE_EPISODE_CLUSTER"
+      ],
+      "title": "SamplingUnit",
+      "type": "string"
+    },
+    "SeriesDependenceDiagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "autocorrelations": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Autocorrelations",
+          "type": "array"
+        },
+        "dependence_horizon": {
+          "minimum": 1,
+          "title": "Dependence Horizon",
+          "type": "integer"
+        },
+        "effective_sample_size": {
+          "exclusiveMinimum": 0,
+          "title": "Effective Sample Size",
+          "type": "number"
+        },
+        "ljung_box": {
+          "items": {
+            "$ref": "#/$defs/LjungBoxDiagnostic"
+          },
+          "title": "Ljung Box",
+          "type": "array"
+        },
+        "observation_count": {
+          "minimum": 1,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "series_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Series Id",
+          "type": "string"
+        },
+        "variance": {
+          "minimum": 0,
+          "title": "Variance",
+          "type": "number"
+        }
+      },
+      "required": [
+        "series_id",
+        "observation_count",
+        "effective_sample_size",
+        "dependence_horizon",
+        "autocorrelations",
+        "ljung_box",
+        "variance"
+      ],
+      "title": "SeriesDependenceDiagnostic",
+      "type": "object"
+    },
+    "SharpeInferenceResult": {
+      "additionalProperties": false,
+      "properties": {
+        "autocorrelation_adjusted_annualized_sharpe": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Autocorrelation Adjusted Annualized Sharpe"
+        },
+        "benchmark_annualized_sharpe": {
+          "title": "Benchmark Annualized Sharpe",
+          "type": "number"
+        },
+        "deflated_sharpe_ratio": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Deflated Sharpe Ratio"
+        },
+        "effective_trial_count": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective Trial Count"
+        },
+        "expected_max_annualized_sharpe": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Max Annualized Sharpe"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "minimum_track_record_observations": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Track Record Observations"
+        },
+        "observation_count": {
+          "minimum": 1,
+          "title": "Observation Count",
+          "type": "integer"
+        },
+        "observed_annualized_sharpe": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observed Annualized Sharpe"
+        },
+        "pearson_kurtosis": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pearson Kurtosis"
+        },
+        "probabilistic_sharpe_ratio": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Probabilistic Sharpe Ratio"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "skewness": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Skewness"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        },
+        "target_series_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Target Series Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "target_series_id",
+        "observation_count",
+        "observed_annualized_sharpe",
+        "autocorrelation_adjusted_annualized_sharpe",
+        "probabilistic_sharpe_ratio",
+        "deflated_sharpe_ratio",
+        "benchmark_annualized_sharpe",
+        "expected_max_annualized_sharpe",
+        "skewness"
+      ],
+      "title": "SharpeInferenceResult",
+      "type": "object"
+    },
+    "TradeCluster": {
+      "additionalProperties": false,
+      "properties": {
+        "closed_at": {
+          "format": "date-time",
+          "title": "Closed At",
+          "type": "string"
+        },
+        "cluster_id": {
+          "minimum": 1,
+          "title": "Cluster Id",
+          "type": "integer"
+        },
+        "gross_pnl": {
+          "title": "Gross Pnl",
+          "type": "number"
+        },
+        "net_pnl": {
+          "title": "Net Pnl",
+          "type": "number"
+        },
+        "opened_at": {
+          "format": "date-time",
+          "title": "Opened At",
+          "type": "string"
+        },
+        "total_cost": {
+          "minimum": 0,
+          "title": "Total Cost",
+          "type": "number"
+        },
+        "trade_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Trade Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "cluster_id",
+        "trade_ids",
+        "opened_at",
+        "closed_at",
+        "gross_pnl",
+        "net_pnl",
+        "total_cost"
+      ],
+      "title": "TradeCluster",
+      "type": "object"
+    },
+    "TradeOverlapDiagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "cluster_count": {
+          "minimum": 0,
+          "title": "Cluster Count",
+          "type": "integer"
+        },
+        "cluster_ids_by_trade": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "minLength": 1,
+                "pattern": ".*\\S.*",
+                "type": "string"
+              },
+              {
+                "minimum": 1,
+                "type": "integer"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Cluster Ids By Trade",
+          "type": "array"
+        },
+        "maximum_concurrency": {
+          "minimum": 0,
+          "title": "Maximum Concurrency",
+          "type": "integer"
+        },
+        "overlap_fraction": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Overlap Fraction",
+          "type": "number"
+        },
+        "trade_count": {
+          "minimum": 0,
+          "title": "Trade Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "trade_count",
+        "cluster_count",
+        "maximum_concurrency",
+        "overlap_fraction",
+        "cluster_ids_by_trade"
+      ],
+      "title": "TradeOverlapDiagnostic",
+      "type": "object"
+    },
+    "TradeReplicateSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "gross_pnl": {
+          "title": "Gross Pnl",
+          "type": "number"
+        },
+        "net_pnl": {
+          "title": "Net Pnl",
+          "type": "number"
+        },
+        "replicate_id": {
+          "minimum": 1,
+          "title": "Replicate Id",
+          "type": "integer"
+        },
+        "sampled_cluster_ids": {
+          "items": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "title": "Sampled Cluster Ids",
+          "type": "array"
+        },
+        "total_cost": {
+          "minimum": 0,
+          "title": "Total Cost",
+          "type": "number"
+        },
+        "trade_count": {
+          "minimum": 0,
+          "title": "Trade Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "replicate_id",
+        "sampled_cluster_ids",
+        "trade_count",
+        "gross_pnl",
+        "net_pnl",
+        "total_cost"
+      ],
+      "title": "TradeReplicateSummary",
+      "type": "object"
+    },
+    "TradeResamplingResult": {
+      "additionalProperties": false,
+      "properties": {
+        "clusters": {
+          "items": {
+            "$ref": "#/$defs/TradeCluster"
+          },
+          "title": "Clusters",
+          "type": "array"
+        },
+        "cost_hhi": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Cost Hhi",
+          "type": "number"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "pnl_hhi": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Pnl Hhi",
+          "type": "number"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "replicates": {
+          "items": {
+            "$ref": "#/$defs/TradeReplicateSummary"
+          },
+          "title": "Replicates",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S5State"
+        }
+      },
+      "required": [
+        "status",
+        "clusters",
+        "replicates",
+        "pnl_hhi",
+        "cost_hhi"
+      ],
+      "title": "TradeResamplingResult",
+      "type": "object"
+    },
+    "UpstreamBacktestMetricsReference": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Boundary Sha256",
+          "type": "string"
+        },
+        "bundle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Bundle Id",
+          "type": "string"
+        },
+        "bundle_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Bundle Sha256",
+          "type": "string"
+        },
+        "canonicalization_version": {
+          "default": "P9-C14N-JSON-1",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Canonicalization Version",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "consumer_receipt_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Consumer Receipt Sha256",
+          "type": "string"
+        },
+        "contract_name": {
+          "default": "P9_S4_TO_S5_EVIDENCE_V2",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Contract Name",
+          "type": "string"
+        },
+        "contract_version": {
+          "default": "2.0.0",
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "fold_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Fold Id",
+          "type": "string"
+        },
+        "metric_panel_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Metric Panel Id",
+          "type": "string"
+        },
+        "metric_panel_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Metric Panel Sha256",
+          "type": "string"
+        },
+        "quality_receipt_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Quality Receipt Sha256",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "statistical_input_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Statistical Input Sha256",
+          "type": "string"
+        },
+        "trial_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Trial Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "bundle_id",
+        "bundle_sha256",
+        "run_id",
+        "cycle_id",
+        "trial_id",
+        "fold_id",
+        "configuration_id",
+        "metric_panel_id",
+        "metric_panel_sha256",
+        "quality_receipt_sha256",
+        "statistical_input_sha256",
+        "consumer_receipt_sha256",
+        "boundary_sha256"
+      ],
+      "title": "UpstreamBacktestMetricsReference",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "block_lengths": {
+      "$ref": "#/$defs/BlockLengthSelectionResult"
+    },
+    "bootstrap": {
+      "$ref": "#/$defs/BlockBootstrapResult"
+    },
+    "bundle_id": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "bundle_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Bundle Sha256",
+      "type": "string"
+    },
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "dependence": {
+      "$ref": "#/$defs/DependenceDiagnosticsResult"
+    },
+    "hierarchical": {
+      "$ref": "#/$defs/HierarchicalBootstrapResult"
+    },
+    "metric_distributions": {
+      "$ref": "#/$defs/MetricDistributionResult"
+    },
+    "module_receipts": {
+      "items": {
+        "$ref": "#/$defs/ModuleReceipt"
+      },
+      "title": "Module Receipts",
+      "type": "array"
+    },
+    "qualification": {
+      "$ref": "#/$defs/BacktestRobustnessQualificationReport"
+    },
+    "sharpe_inference": {
+      "$ref": "#/$defs/SharpeInferenceResult"
+    },
+    "trade_resampling": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TradeResamplingResult"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "upstream_metrics": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/UpstreamBacktestMetricsReference"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "bundle_id",
+    "context",
+    "dependence",
+    "block_lengths",
+    "bootstrap",
+    "hierarchical",
+    "trade_resampling",
+    "metric_distributions",
+    "sharpe_inference",
+    "qualification",
+    "module_receipts",
+    "bundle_sha256"
+  ],
+  "title": "S5OutputBundle",
+  "type": "object"
+}

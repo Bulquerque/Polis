@@ -1,0 +1,371 @@
+{
+  "synthetic_society_state_panel": {
+    "schema_version": "p3.s28.v1",
+    "run_id": "run-s28-001",
+    "cycle_id": 7,
+    "as_of_time": "2026-06-10T00:00:00Z",
+    "lineage_id": "lin_d5abe10552e40fb692bd1e7a",
+    "vector_id": "P3_UNDERLYING_SOCIETY_VECTOR_V2",
+    "vector_version": "p3.s28.vector.v1",
+    "records": [
+      {
+        "underlying_id": "PETR4",
+        "proposition_id": "directional_outlook",
+        "horizon": "5d",
+        "as_of_time": "2026-06-10T00:00:00Z",
+        "vector_version": "p3.s28.vector.v1",
+        "formula_versions": {
+          "belief": "p3.s27.formulas.v1",
+          "attention": "p3.s27.formulas.v1",
+          "cascade": "p3.s27.formulas.v1",
+          "tag_projection": "p3.s28.formulas.v1"
+        },
+        "status": "READY",
+        "features": {
+          "belief": {
+            "belief_mean": 0.1,
+            "belief_variance": 0.27666666666666667,
+            "belief_entropy": 1.0,
+            "belief_polarization": 0.5,
+            "bullish_share": 0.5,
+            "bearish_share": 0.5
+          },
+          "dynamics": {
+            "belief_update_velocity_per_day": 0.09999999999999998,
+            "belief_reversal_rate": 0.0
+          },
+          "attention": {
+            "attention_intensity": 0.6,
+            "attention_concentration": 0.03160748595877749
+          },
+          "social": {
+            "mean_cascade_size": 1.0,
+            "mean_cascade_depth": 0.0,
+            "social_contagion": 0.0,
+            "influence_concentration": 0.0
+          },
+          "information": {
+            "information_asymmetry": 0.21360009363293828,
+            "expert_nonexpert_divergence": 1.0,
+            "institutional_disagreement": 0.5
+          },
+          "tag_projection": {
+            "top_tag_divergence": 1.0,
+            "top_tag_conditioned_shift": 0.5000000000000001,
+            "active_tag_projection_count": 3,
+            "suppressed_tag_projection_count": 1
+          }
+        },
+        "coverage": {
+          "active_person_count": 6,
+          "population_coverage_ratio": 1.0,
+          "belief_coverage_ratio": 1.0,
+          "attention_population_coverage_ratio": 1.0,
+          "effective_n": 6.0,
+          "causal_coverage_ratio": 1.0,
+          "tag_projection_count": 3
+        },
+        "family_statuses": [
+          {
+            "family": "belief",
+            "status": "READY",
+            "reason_codes": []
+          },
+          {
+            "family": "attention",
+            "status": "READY",
+            "reason_codes": []
+          },
+          {
+            "family": "social",
+            "status": "READY",
+            "reason_codes": []
+          },
+          {
+            "family": "tag_projection",
+            "status": "READY",
+            "reason_codes": []
+          }
+        ],
+        "metric_lineage": [
+          {
+            "metric_path": "belief",
+            "source_artifact": "belief_distribution_panel",
+            "input_lineage_ids": [
+              "lin-bel-p1",
+              "lin-bel-p2",
+              "lin-bel-p3",
+              "lin-bel-p4",
+              "lin-bel-p5",
+              "lin-bel-p6",
+              "lin-beliefs",
+              "lin-population",
+              "lin-stimuli"
+            ]
+          },
+          {
+            "metric_path": "dynamics",
+            "source_artifact": "belief_distribution_panel",
+            "input_lineage_ids": [
+              "lin-bel-p1",
+              "lin-bel-p2",
+              "lin-bel-p3",
+              "lin-bel-p4",
+              "lin-bel-p5",
+              "lin-bel-p6",
+              "lin-beliefs",
+              "lin-population",
+              "lin-stimuli"
+            ]
+          },
+          {
+            "metric_path": "attention",
+            "source_artifact": "attention_information_metrics",
+            "input_lineage_ids": [
+              "lin-entitlements",
+              "lin-person-states",
+              "lin-population",
+              "lin-state-p1",
+              "lin-state-p2",
+              "lin-state-p3",
+              "lin-state-p4",
+              "lin-state-p5",
+              "lin-state-p6",
+              "lin-tool1",
+              "lin-tools"
+            ]
+          },
+          {
+            "metric_path": "social",
+            "source_artifact": "cascade_metrics_panel",
+            "input_lineage_ids": [
+              "lin-act",
+              "lin-delivery",
+              "lin-s1",
+              "lin-social-tool",
+              "lin-stimuli"
+            ]
+          },
+          {
+            "metric_path": "information.information_asymmetry",
+            "source_artifact": "attention_information_metrics",
+            "input_lineage_ids": [
+              "lin-entitlements",
+              "lin-person-states",
+              "lin-population",
+              "lin-state-p1",
+              "lin-state-p2",
+              "lin-state-p3",
+              "lin-state-p4",
+              "lin-state-p5",
+              "lin-state-p6",
+              "lin-tool1",
+              "lin-tools"
+            ]
+          },
+          {
+            "metric_path": "information.tag_conditioned",
+            "source_artifact": "tag_projection_panel",
+            "input_lineage_ids": [
+              "lin-bel-p1",
+              "lin-bel-p2",
+              "lin-bel-p3",
+              "lin-bel-p4",
+              "lin-bel-p5",
+              "lin-bel-p6",
+              "lin-beliefs",
+              "lin-person-states",
+              "lin-population",
+              "lin-seeds",
+              "lin-tags"
+            ]
+          },
+          {
+            "metric_path": "tag_projection",
+            "source_artifact": "tag_projection_panel",
+            "input_lineage_ids": [
+              "lin-bel-p1",
+              "lin-bel-p2",
+              "lin-bel-p3",
+              "lin-bel-p4",
+              "lin-bel-p5",
+              "lin-bel-p6",
+              "lin-beliefs",
+              "lin-person-states",
+              "lin-population",
+              "lin-seeds",
+              "lin-tags"
+            ]
+          }
+        ],
+        "input_lineage_ids": [
+          "lin-act",
+          "lin-bel-p1",
+          "lin-bel-p2",
+          "lin-bel-p3",
+          "lin-bel-p4",
+          "lin-bel-p5",
+          "lin-bel-p6",
+          "lin-beliefs",
+          "lin-delivery",
+          "lin-entitlements",
+          "lin-person-states",
+          "lin-population",
+          "lin-s1",
+          "lin-seeds",
+          "lin-social-tool",
+          "lin-state-p1",
+          "lin-state-p2",
+          "lin-state-p3",
+          "lin-state-p4",
+          "lin-state-p5",
+          "lin-state-p6",
+          "lin-stimuli",
+          "lin-tags",
+          "lin-tool1",
+          "lin-tools"
+        ]
+      }
+    ]
+  },
+  "source_quality_panel": {
+    "schema_version": "fixture.v1",
+    "run_id": "run-s28-001",
+    "cycle_id": 7,
+    "as_of_time": "2026-06-10T00:00:00Z",
+    "lineage_id": "lin-source-quality",
+    "records": [
+      {
+        "artifact_id": "belief_distribution_panel",
+        "quality_score": 0.95,
+        "completeness": 0.95,
+        "validity": 0.98,
+        "timeliness": 0.95,
+        "lineage_completeness": 0.95,
+        "status": "READY",
+        "assessed_at": "2026-06-09T23:00:00Z",
+        "lineage_id": "lin-q-belief_distribution_panel"
+      },
+      {
+        "artifact_id": "attention_information_metrics",
+        "quality_score": 0.9,
+        "completeness": 0.9,
+        "validity": 0.98,
+        "timeliness": 0.95,
+        "lineage_completeness": 0.95,
+        "status": "READY",
+        "assessed_at": "2026-06-09T23:00:00Z",
+        "lineage_id": "lin-q-attention_information_metrics"
+      },
+      {
+        "artifact_id": "cascade_metrics_panel",
+        "quality_score": 0.9,
+        "completeness": 0.9,
+        "validity": 0.98,
+        "timeliness": 0.95,
+        "lineage_completeness": 0.95,
+        "status": "READY",
+        "assessed_at": "2026-06-09T23:00:00Z",
+        "lineage_id": "lin-q-cascade_metrics_panel"
+      },
+      {
+        "artifact_id": "tag_projection_panel",
+        "quality_score": 0.92,
+        "completeness": 0.92,
+        "validity": 0.98,
+        "timeliness": 0.95,
+        "lineage_completeness": 0.95,
+        "status": "READY",
+        "assessed_at": "2026-06-09T23:00:00Z",
+        "lineage_id": "lin-q-tag_projection_panel"
+      }
+    ]
+  },
+  "phase3_run_snapshot": {
+    "schema_version": "fixture.v1",
+    "run_id": "run-s28-001",
+    "cycle_id": 7,
+    "as_of_time": "2026-06-10T00:00:00Z",
+    "lineage_id": "lin-snapshot",
+    "snapshot_id": "snap-s28-001",
+    "config_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "status": "READY"
+  },
+  "emergence_vector_config": {
+    "vector_id": "P3_UNDERLYING_SOCIETY_VECTOR_V2",
+    "vector_version": "p3.s28.vector.v1",
+    "formula_version": "p3.s28.formulas.v1",
+    "grain": [
+      "underlying_id",
+      "proposition_id",
+      "horizon",
+      "as_of_time"
+    ],
+    "missing_grain_policy": "MATERIAL_MISSING",
+    "required_metric_paths": [
+      "belief.belief_mean",
+      "belief.belief_variance",
+      "belief.belief_entropy",
+      "belief.belief_polarization",
+      "belief.bullish_share",
+      "belief.bearish_share",
+      "dynamics.belief_update_velocity_per_day",
+      "dynamics.belief_reversal_rate",
+      "attention.attention_intensity",
+      "attention.attention_concentration",
+      "social.mean_cascade_size",
+      "social.mean_cascade_depth",
+      "social.social_contagion",
+      "social.influence_concentration",
+      "information.information_asymmetry",
+      "information.expert_nonexpert_divergence",
+      "information.institutional_disagreement",
+      "tag_projection.top_tag_divergence",
+      "tag_projection.top_tag_conditioned_shift",
+      "tag_projection.active_tag_projection_count",
+      "tag_projection.suppressed_tag_projection_count"
+    ],
+    "required_source_artifacts": [
+      "belief_distribution_panel",
+      "attention_information_metrics",
+      "cascade_metrics_panel",
+      "tag_projection_panel"
+    ],
+    "max_feature_count": 32,
+    "source_quality_aggregation": "MINIMUM",
+    "uncertainty_formula": "MAX_BELIEF_STD_INFORMATION_ASYMMETRY_COVERAGE_GAPS",
+    "quality_score_formula": "WEIGHTED_DIMENSION_SCORE",
+    "quality_weights": {
+      "completeness": 0.25,
+      "source_quality": 0.25,
+      "coverage": 0.25,
+      "uncertainty_complement": 0.25
+    },
+    "thresholds": {
+      "min_active_person_count_pass": 4,
+      "min_active_person_count_degraded": 2,
+      "min_effective_n_pass": 3.0,
+      "min_effective_n_degraded": 1.5,
+      "min_population_coverage_pass": 0.6,
+      "min_population_coverage_degraded": 0.25,
+      "min_belief_coverage_pass": 0.6,
+      "min_belief_coverage_degraded": 0.25,
+      "min_causal_coverage_pass": 0.7,
+      "min_causal_coverage_degraded": 0.3,
+      "min_source_quality_pass": 0.8,
+      "min_source_quality_degraded": 0.5,
+      "min_metric_completeness_pass": 0.9,
+      "min_metric_completeness_degraded": 0.7,
+      "max_uncertainty_pass": 0.4,
+      "max_uncertainty_degraded": 0.75
+    },
+    "forbidden_direct_targets": [
+      "future_return",
+      "candidate_score",
+      "rank_score",
+      "portfolio_weight",
+      "trade_decision",
+      "buy_sell_signal"
+    ]
+  }
+}

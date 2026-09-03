@@ -1,0 +1,31 @@
+version: relationship_update.v2
+formula_version: trust_delta.v1
+max_trust_delta_per_cycle: 0.05
+learning_rate: 0.05
+domain_specific: true
+direct_experience_weight: 0.7
+indirect_reputation_weight: 0.3
+matured_feedback_weight: 1.0
+matured_feedback_required_for_accuracy_update: true
+new_domain_initial_trust: 0.5
+allowed_delivery_statuses:
+  - SEEN
+  - INTERPRETED
+  - USED
+trust_domains:
+  - market_knowledge
+  - technical_skill
+  - source_reliability
+  - social_reliability
+  - domain_expertise
+domain_weights:
+  market_knowledge: 0.2
+  technical_skill: 0.2
+  source_reliability: 0.2
+  social_reliability: 0.2
+  domain_expertise: 0.2
+allowed_relationship_types:
+  - peer
+  - advisor
+  - information_source
+  - institutional_contact

@@ -1,0 +1,41 @@
+schema_id: provider_adapter_registry.s15.v2
+schema_version: 2.0.0
+registry_id: P3_PROVIDER_INTERFACE_REGISTRY_S15_V2
+adapters:
+  - provider_id: research_mcp
+    interface_id: MCPGatewayAdapter
+    adapter_id: mcp_streamable_http
+    adapter_version: 1.28.1-v1
+    protocol: MCP
+    protocol_version: "2025-11-25"
+    connectivity_status: CONNECTED
+    qualification_status: QUALIFIED
+    capabilities: [tools_list, tools_call, structured_output, available_at]
+    list_changed_supported: true
+    fingerprint: 45ea4aa2f9c80f02d57fb9ac457f8771df28a66d5bc217ab90dd98448caa41e4
+    metadata:
+      sdk_policy: mcp>=1.28.1,<2
+  - provider_id: quant_local
+    interface_id: MCPGatewayAdapter
+    adapter_id: local_function_adapter
+    adapter_version: 1.0.0
+    protocol: LOCAL
+    protocol_version: local-v1
+    connectivity_status: CONNECTED
+    qualification_status: QUALIFIED
+    capabilities: [tools_list, tools_call, deterministic_execution]
+    list_changed_supported: false
+    fingerprint: 564965e5531f147587cc8dda72809266aa466a1bca705a57a09d6b80e6f9ef1f
+    metadata: {}
+  - provider_id: disconnected_vendor
+    interface_id: MCPGatewayAdapter
+    adapter_id: mcp_streamable_http
+    adapter_version: 1.28.1-v1
+    protocol: MCP
+    protocol_version: "2025-11-25"
+    connectivity_status: DISCONNECTED
+    qualification_status: UNQUALIFIED
+    capabilities: [tools_list]
+    list_changed_supported: true
+    fingerprint: 8fb1a758c14f8109f3a24fae8b44b9cfbfb6ca0ec809e1e07cc82568acade154
+    metadata: {}

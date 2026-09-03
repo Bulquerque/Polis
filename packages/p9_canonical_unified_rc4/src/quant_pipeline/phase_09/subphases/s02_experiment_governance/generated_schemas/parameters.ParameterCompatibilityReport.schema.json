@@ -1,0 +1,83 @@
+{
+  "$defs": {
+    "ParameterCompatibilityIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "blocking": {
+          "title": "Blocking",
+          "type": "boolean"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "parameter_id": {
+          "minLength": 1,
+          "title": "Parameter Id",
+          "type": "string"
+        },
+        "reason_code": {
+          "pattern": "^P9_[A-Z0-9_]+$",
+          "title": "Reason Code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameter_id",
+        "reason_code",
+        "description",
+        "blocking"
+      ],
+      "title": "ParameterCompatibilityIssue",
+      "type": "object"
+    },
+    "RegistryState": {
+      "enum": [
+        "REGISTRY_SNAPSHOT_READY",
+        "REGISTRY_LIMITED",
+        "PARAMETER_SCHEMA_INCOMPATIBLE",
+        "PARAMETER_DEPRECATED_BLOCKING"
+      ],
+      "title": "RegistryState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "issues": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ParameterCompatibilityIssue"
+      },
+      "title": "Issues",
+      "type": "array"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "state": {
+      "$ref": "#/$defs/RegistryState"
+    }
+  },
+  "required": [
+    "state"
+  ],
+  "title": "ParameterCompatibilityReport",
+  "type": "object"
+}

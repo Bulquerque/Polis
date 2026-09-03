@@ -1,0 +1,56 @@
+module_id: P4.S7.M02
+module_name: normalization_neutralization_engine
+function: Create cross-sectional normalized and neutralized views without overwriting
+  raw values.
+inputs:
+- causally_transformed_feature_panel
+- exposure_panel
+- normalization_neutralization_policy
+outputs:
+- underlying_feature_matrix_interpretable
+- underlying_feature_matrix_raw
+- normalization_neutralization_fit_state_manifest
+validations:
+- point_in_time_exposures
+- raw_preserved
+- universe_snapshot_fixed
+- alias_without_payload_copy
+phase: P4
+subphase: P4.S7
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- execution_fill
+invariants:
+- point_in_time_integrity
+- lineage_traceability
+- deterministic_replay
+- single_responsibility
+- no_hidden_global_state
+fail_fast_conditions:
+- P4_S7_M02_INPUT_INVALID
+- P4_S7_M02_TEMPORAL_VIOLATION
+- P4_S7_M02_FORBIDDEN_FIELD
+- P4_S7_M02_OUTPUT_INVALID
+tests_required:
+- happy_path
+- schema_negative
+- temporal_negative
+- forbidden_field_negative
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+implementation_target: src/quant_pipeline/phase_04_feature_base/modules/P4_S7_M02_normalization_neutralization_engine.py
+production_promotion_allowed: false

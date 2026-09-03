@@ -1,0 +1,40 @@
+module_id: P0.S4.M03
+module_name: schema_test_orchestrator
+function: Executar um oracle independente de schemas usando fixtures positivas e negativas,
+  cobertura de mutações e validação canônica dos schemas registrados.
+inputs: &id001
+- schema_registry
+- fixtures_all_phases
+outputs: &id002
+- schema_test_report
+validations:
+- valid_fixture_passes
+- invalid_fixture_fails
+- schema_fixture_coverage_complete
+fail_fast_conditions:
+- schema_test_orchestrator_critical_failure
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S2.M02
+    artifacts: *id001
+    phase_inputs:
+    - fixtures_all_phases
+  emits_to:
+    modules:
+    - P0.S4.M04
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S4
+rc: RC4.1
+notes: Uses canonical schema validation semantics and repository-root resolution without
+  fixed parents[n] assumptions.

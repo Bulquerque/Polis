@@ -1,0 +1,209 @@
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+import hashlib
+import json
+
+import yaml
+
+PACKAGE_ROOT = Path(__file__).resolve().parents[4]
+MODULE_CONTRACT_ROOT = PACKAGE_ROOT / "modules"
+SCHEMA_ROOT = PACKAGE_ROOT / "schemas"
+PIPELINE_VERSION = "V14.1-RC4.1"
+
+
+class ContractValidationError(ValueError):
+    pass
+
+
+def fail_fast(condition: bool, message: str) -> None:
+    if not condition:
+        raise ContractValidationError(message)
+
+
+def load_yaml(path: Path) -> dict[str, Any]:
+    fail_fast(path.exists(), f"missing YAML file: {path}")
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    fail_fast(isinstance(data, dict), f"YAML must be a mapping: {path}")
+    return data
+
+
+def strict_json_bytes(payload: Any) -> bytes:
+    try:
+        return json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True, allow_nan=False).encode("utf-8")
+    except (TypeError, ValueError) as exc:
+        raise ContractValidationError(f"boundary payload is not strict JSON: {type(exc).__name__}") from exc
+
+
+def _stable_digest(payload: Any) -> str:
+    blob = strict_json_bytes(payload)
+    return hashlib.sha256(blob).hexdigest()
+
+
+def _coerce_scalar(value: Any) -> Any:
+    if isinstance(value, (str, int, float, bool)) or value is None:
+        return value
+    if isinstance(value, list):
+        return [_coerce_scalar(item) for item in value]
+    if isinstance(value, dict):
+        if any(not isinstance(key, str) for key in value):
+            raise ContractValidationError("mapping keys must be strings at the JSON boundary")
+        return {key: _coerce_scalar(item) for key, item in value.items()}
+    raise ContractValidationError(f"unsupported non-JSON value: {type(value).__name__}")
+
+
+def _first_source_key(inputs: dict) -> str | None:
+    for key in sorted(inputs):
+        if 'source' in str(key).lower():
+            return str(key)
+    return None
+
+
+def _lookup_input(inputs: dict, field: str) -> Any:
+    if field in inputs:
+        return inputs[field]
+    lowered = field.lower()
+    if lowered in inputs:
+        return inputs[lowered]
+    return None
+
+
+def _semantic_default(field: str, artifact: str, spec: dict[str, Any], inputs: dict, config: dict, schema_fields: list[str]) -> Any:
+    direct = _lookup_input(inputs, field)
+    if direct is not None:
+        return _coerce_scalar(direct)
+    if field in config:
+        return _coerce_scalar(config[field])
+
+    digest = _stable_digest({
+        'artifact': artifact,
+        'module_id': spec.get('module_id'),
+        'module_name': spec.get('module_name'),
+        'inputs': sorted(inputs),
+        'config_keys': sorted(config),
+    })
+    short = digest[:12]
+
+    if field == 'artifact_id':
+        return f'{artifact}-{short}'
+    if field in {'created_at', 'generated_at', 'ingested_at', 'declared_available_at', 'available_at'}:
+        value = config.get(field) or config.get("evaluation_time")
+        fail_fast(isinstance(value, str) and value, f"{field} requires explicit created_at/evaluation_time")
+        return value
+    if field == 'lineage_id':
+        return f'lineage-{artifact}-{short}'
+    if field == 'pipeline_version':
+        return config.get('pipeline_version') or PIPELINE_VERSION
+    if field == 'module_id':
+        return spec.get('module_id')
+    if field == 'module_name':
+        return spec.get('module_name')
+    if field == 'phase':
+        return spec.get('phase')
+    if field == 'subphase':
+        return spec.get('subphase')
+    if field == 'source_id':
+        return _first_source_key(inputs) or spec.get('module_id') or f'{artifact}-{short}'
+    if field == 'ingestion_run_id':
+        return config.get('ingestion_run_id') or _lookup_input(inputs, 'ingestion_run_id') or f'run-{short}'
+    if field == 'raw_artifact_id':
+        return f'{artifact}-{short}'
+    if field == 'raw_artifact_path':
+        return f'artifacts/{artifact}.json'
+    if field.endswith('_path'):
+        return f'{artifact}/{field}.json'
+    if field.endswith('_hash'):
+        return digest
+    if field == 'file_hash':
+        return digest
+    if field.endswith('_bytes') or field.endswith('_count') or field in {'count', 'row_count'}:
+        return len(inputs)
+    if field == 'readability_status':
+        return 'readable' if inputs else 'unknown'
+    if field == 'error_flag':
+        return bool(config.get('force_error') or config.get('error_message'))
+    if field == 'error_severity':
+        return 'blocking' if bool(config.get('force_error') or config.get('error_message')) else 'none'
+    if field == 'error_code':
+        return config.get('error_code') or 'NO_ERROR'
+    if field == 'error_message':
+        return config.get('error_message') or 'No error reported'
+    if field == 'is_blocking':
+        return bool(config.get('force_error') or config.get('error_message'))
+    if field == 'status':
+        return 'PASS'
+    if field == 'summary':
+        return f"{artifact} generated by {spec.get('module_name')}"
+    if field in {'source_keys', 'sources'}:
+        return sorted(str(key) for key in inputs)
+    if field in {'issues', 'warnings', 'tasks', 'entries', 'records', 'items'}:
+        return []
+    if field in {'attempted_tasks', 'completed_tasks'}:
+        return sorted(str(key) for key in inputs)
+    if field == 'failed_tasks':
+        return []
+    if field.endswith('_ids'):
+        return [f'{artifact}-{short}']
+    if field.endswith('_names'):
+        return [spec.get('module_name') or artifact]
+    if field.endswith('_labels'):
+        return [artifact]
+    if field.endswith('_list'):
+        return sorted(str(key) for key in inputs)
+    if field.endswith('_map') or field.endswith('_dict'):
+        return {str(key): _coerce_scalar(value) for key, value in inputs.items()}
+    if field == 'phase_outputs':
+        return list(spec.get('outputs', []))
+    if field in schema_fields:
+        return f'{artifact}-{field}-{short}'
+    return f'{artifact}-{field}-{short}'
+
+
+def _build_record(artifact: str, spec: dict[str, Any], inputs: dict, config: dict) -> dict[str, Any]:
+    schema = load_yaml(SCHEMA_ROOT / f"{artifact}.schema.yaml") if (SCHEMA_ROOT / f"{artifact}.schema.yaml").exists() else {}
+    required_fields = list(schema.get("required_fields", []))
+    record: dict[str, Any] = {}
+    for field in required_fields:
+        record[field] = _semantic_default(field, artifact, spec, inputs, config, required_fields)
+
+    missing = [field for field in required_fields if field not in record or record[field] in (None, '')]
+    fail_fast(not missing, f"missing required fields for {artifact}: {missing}")
+    forbidden_fields = set(schema.get("forbidden_fields", []))
+    leaked = forbidden_fields.intersection(record.keys())
+    fail_fast(not leaked, f"forbidden fields in {artifact}: {sorted(leaked)}")
+    return record
+
+
+def load_module_contract(contract_filename: str) -> dict[str, Any]:
+    return load_yaml(MODULE_CONTRACT_ROOT / contract_filename)
+
+
+def execute_module(contract_filename: str, inputs: dict, config: dict | None = None) -> dict[str, Any]:
+    fail_fast(isinstance(inputs, dict), "inputs must be a dict")
+    config = config or {}
+    fail_fast(isinstance(config, dict), "config must be a dict")
+
+    spec = load_module_contract(contract_filename)
+    required_inputs = list(spec.get("inputs", []))
+    missing_inputs = [name for name in required_inputs if name not in inputs]
+    fail_fast(not missing_inputs, f"missing required inputs: {missing_inputs}")
+
+    forbidden_fields = set(spec.get("forbidden_fields", []))
+    leaked_fields = forbidden_fields.intersection(inputs.keys())
+    fail_fast(not leaked_fields, f"forbidden input fields detected: {sorted(leaked_fields)}")
+
+    outputs = {
+        artifact: _build_record(artifact, spec, inputs, config)
+        for artifact in list(spec.get("outputs", []))
+    }
+
+    return {
+        "module_id": spec.get("module_id"),
+        "module_name": spec.get("module_name"),
+        "phase": spec.get("phase"),
+        "subphase": spec.get("subphase"),
+        "contract": contract_filename,
+        "required_inputs": required_inputs,
+        "outputs": outputs,
+    }

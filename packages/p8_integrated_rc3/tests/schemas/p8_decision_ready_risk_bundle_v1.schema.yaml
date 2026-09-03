@@ -1,0 +1,846 @@
+$defs:
+  ActionabilityState:
+    enum:
+    - NOMINAL_ACTIONABLE
+    - ROBUST_ONLY
+    - DEGRADED_ACTIONABLE
+    - CLOSE_ONLY
+    - NO_NEW_RISK
+    - NO_ACTION_VALID
+    title: ActionabilityState
+    type: string
+  AmbiguityInput:
+    additionalProperties: false
+    properties:
+      calibrated:
+        title: Calibrated
+        type: boolean
+      robust_scenario_probabilities:
+        anyOf:
+        - items:
+            type: number
+          type: array
+        - type: 'null'
+        default: null
+        title: Robust Scenario Probabilities
+      lower_expected_pnl_by_candidate_horizon:
+        default: []
+        items:
+          $ref: '#/$defs/ScenarioCandidatePnL'
+        title: Lower Expected Pnl By Candidate Horizon
+        type: array
+    required:
+    - calibrated
+    title: AmbiguityInput
+    type: object
+  ApprovedPolicyContext:
+    additionalProperties: false
+    properties:
+      policy_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Policy Id
+        type: string
+      policy_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Policy Version
+        type: string
+      authorized_by:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Authorized By
+        type: string
+      effective_from_cycle:
+        minimum: 0
+        title: Effective From Cycle
+        type: integer
+      expires_after_cycle:
+        anyOf:
+        - minimum: 0
+          type: integer
+        - type: 'null'
+        default: null
+        title: Expires After Cycle
+      content_sha256:
+        pattern: ^[a-f0-9]{64}$
+        title: Content Sha256
+        type: string
+      created_at:
+        format: date-time
+        title: Created At
+        type: string
+      objective:
+        $ref: '#/$defs/ObjectivePolicy'
+      solver:
+        $ref: '#/$defs/SolverPolicy'
+      robust:
+        $ref: '#/$defs/RobustPolicy'
+      rounding:
+        $ref: '#/$defs/RoundingPolicy'
+      no_trade:
+        $ref: '#/$defs/NoTradePolicy'
+      mpc:
+        $ref: '#/$defs/MPCPolicy'
+    required:
+    - policy_id
+    - policy_version
+    - authorized_by
+    - effective_from_cycle
+    - content_sha256
+    - created_at
+    - objective
+    - solver
+    - robust
+    - rounding
+    - no_trade
+    - mpc
+    title: ApprovedPolicyContext
+    type: object
+  ArtifactEnvelope:
+    additionalProperties: false
+    properties:
+      artifact_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Artifact Id
+        type: string
+      artifact_type:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Artifact Type
+        type: string
+      schema_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Schema Version
+        type: string
+      contract_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Contract Version
+        type: string
+      producer_phase:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Producer Phase
+        type: string
+      producer_module:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Producer Module
+        type: string
+      producer_release:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Producer Release
+        type: string
+      pipeline_version:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Pipeline Version
+        type: string
+      run_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Run Id
+        type: string
+      cycle_id:
+        minimum: 0
+        title: Cycle Id
+        type: integer
+      decision_time:
+        format: date-time
+        title: Decision Time
+        type: string
+      market_cutoff_at:
+        format: date-time
+        title: Market Cutoff At
+        type: string
+      computed_at:
+        format: date-time
+        title: Computed At
+        type: string
+      recorded_at:
+        format: date-time
+        title: Recorded At
+        type: string
+      available_at:
+        format: date-time
+        title: Available At
+        type: string
+      content_sha256:
+        pattern: ^[a-f0-9]{64}$
+        title: Content Sha256
+        type: string
+      lineage_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Lineage Id
+        type: string
+    required:
+    - artifact_id
+    - artifact_type
+    - schema_version
+    - contract_version
+    - producer_phase
+    - producer_module
+    - producer_release
+    - pipeline_version
+    - run_id
+    - cycle_id
+    - decision_time
+    - market_cutoff_at
+    - computed_at
+    - recorded_at
+    - available_at
+    - content_sha256
+    - lineage_id
+    title: ArtifactEnvelope
+    type: object
+  CandidateRiskInput:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      canonical_candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Canonical Candidate Id
+        type: string
+      comparison_group_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Comparison Group Id
+        type: string
+      actionability:
+        $ref: '#/$defs/ActionabilityState'
+      score_semantics:
+        $ref: '#/$defs/ScoreSemantics'
+        default: ORDINAL
+      current_quantity:
+        title: Current Quantity
+        type: number
+      minimum_quantity:
+        title: Minimum Quantity
+        type: number
+      maximum_quantity:
+        title: Maximum Quantity
+        type: number
+      quantity_increment:
+        exclusiveMinimum: 0
+        title: Quantity Increment
+        type: number
+      lot_size:
+        exclusiveMinimum: 0
+        title: Lot Size
+        type: number
+      capital_per_unit:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Capital Per Unit
+      margin_per_unit:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Margin Per Unit
+      maximum_loss_per_unit:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Maximum Loss Per Unit
+      risk_economics_status:
+        default: QUALIFIED
+        enum:
+        - QUALIFIED
+        - DEGRADED
+        - UNAVAILABLE
+        title: Risk Economics Status
+        type: string
+      transaction_cost_per_unit:
+        minimum: 0
+        title: Transaction Cost Per Unit
+        type: number
+      funding_cost_per_unit_by_horizon:
+        items:
+          type: number
+        title: Funding Cost Per Unit By Horizon
+        type: array
+      liquidity_trade_cap_by_horizon:
+        items:
+          anyOf:
+          - type: number
+          - type: 'null'
+        title: Liquidity Trade Cap By Horizon
+        type: array
+      liquidity_status:
+        default: QUALIFIED
+        enum:
+        - QUALIFIED
+        - DEGRADED
+        - UNAVAILABLE
+        title: Liquidity Status
+        type: string
+      underlying_bucket:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Underlying Bucket
+        type: string
+      expiration_bucket:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Expiration Bucket
+        type: string
+      greeks:
+        default: []
+        items:
+          $ref: '#/$defs/GreekExposure'
+        title: Greeks
+        type: array
+    required:
+    - candidate_id
+    - canonical_candidate_id
+    - comparison_group_id
+    - actionability
+    - current_quantity
+    - minimum_quantity
+    - maximum_quantity
+    - quantity_increment
+    - lot_size
+    - transaction_cost_per_unit
+    - funding_cost_per_unit_by_horizon
+    - liquidity_trade_cap_by_horizon
+    - underlying_bucket
+    - expiration_bucket
+    title: CandidateRiskInput
+    type: object
+  ConcentrationLimit:
+    additionalProperties: false
+    properties:
+      bucket_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Bucket Id
+        type: string
+      maximum_capital_by_horizon:
+        items:
+          type: number
+        title: Maximum Capital By Horizon
+        type: array
+    required:
+    - bucket_id
+    - maximum_capital_by_horizon
+    title: ConcentrationLimit
+    type: object
+  DecisionReadyRiskPayload:
+    additionalProperties: false
+    properties:
+      decision_snapshot_hash:
+        pattern: ^[a-f0-9]{64}$
+        title: Decision Snapshot Hash
+        type: string
+      pnl_semantics:
+        const: INCREMENTAL_STEP
+        default: INCREMENTAL_STEP
+        title: Pnl Semantics
+        type: string
+      horizons:
+        items:
+          $ref: '#/$defs/Horizon'
+        title: Horizons
+        type: array
+      candidates:
+        items:
+          $ref: '#/$defs/CandidateRiskInput'
+        title: Candidates
+        type: array
+      scenarios:
+        items:
+          $ref: '#/$defs/ScenarioPath'
+        title: Scenarios
+        type: array
+      mandatory_stresses:
+        default: []
+        items:
+          $ref: '#/$defs/StressPath'
+        title: Mandatory Stresses
+        type: array
+      risk_limits:
+        $ref: '#/$defs/RiskLimits'
+      ordinal_preferences:
+        default: []
+        items:
+          $ref: '#/$defs/OrdinalPreference'
+        title: Ordinal Preferences
+        type: array
+      ambiguity:
+        anyOf:
+        - $ref: '#/$defs/AmbiguityInput'
+        - type: 'null'
+        default: null
+      policy_context:
+        $ref: '#/$defs/ApprovedPolicyContext'
+    required:
+    - decision_snapshot_hash
+    - horizons
+    - candidates
+    - scenarios
+    - risk_limits
+    - policy_context
+    title: DecisionReadyRiskPayload
+    type: object
+  GreekExposure:
+    additionalProperties: false
+    properties:
+      greek_name:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Greek Name
+        type: string
+      value_per_unit:
+        title: Value Per Unit
+        type: number
+    required:
+    - greek_name
+    - value_per_unit
+    title: GreekExposure
+    type: object
+  GreekLimit:
+    additionalProperties: false
+    properties:
+      greek_name:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Greek Name
+        type: string
+      minimum_by_horizon:
+        items:
+          type: number
+        title: Minimum By Horizon
+        type: array
+      maximum_by_horizon:
+        items:
+          type: number
+        title: Maximum By Horizon
+        type: array
+    required:
+    - greek_name
+    - minimum_by_horizon
+    - maximum_by_horizon
+    title: GreekLimit
+    type: object
+  Horizon:
+    additionalProperties: false
+    properties:
+      horizon_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Horizon Id
+        type: string
+      step:
+        minimum: 0
+        title: Step
+        type: integer
+      duration_seconds:
+        exclusiveMinimum: 0
+        title: Duration Seconds
+        type: integer
+    required:
+    - horizon_id
+    - step
+    - duration_seconds
+    title: Horizon
+    type: object
+  MPCPolicy:
+    additionalProperties: false
+    properties:
+      planning_horizon_steps:
+        maximum: 64
+        minimum: 1
+        title: Planning Horizon Steps
+        type: integer
+      target_validity_seconds:
+        maximum: 86400
+        minimum: 1
+        title: Target Validity Seconds
+        type: integer
+      reoptimization_triggers:
+        items:
+          maxLength: 160
+          minLength: 1
+          pattern: ^[A-Za-z0-9_.:\-/]+$
+          type: string
+        title: Reoptimization Triggers
+        type: array
+    required:
+    - planning_horizon_steps
+    - target_validity_seconds
+    - reoptimization_triggers
+    title: MPCPolicy
+    type: object
+  NoTradePolicy:
+    additionalProperties: false
+    properties:
+      minimum_objective_improvement:
+        minimum: 0
+        title: Minimum Objective Improvement
+        type: number
+      minimum_total_quantity_change:
+        minimum: 0
+        title: Minimum Total Quantity Change
+        type: number
+      hysteresis_multiplier:
+        minimum: 1
+        title: Hysteresis Multiplier
+        type: number
+      risk_reduction_override:
+        default: true
+        title: Risk Reduction Override
+        type: boolean
+    required:
+    - minimum_objective_improvement
+    - minimum_total_quantity_change
+    - hysteresis_multiplier
+    title: NoTradePolicy
+    type: object
+  ObjectivePolicy:
+    additionalProperties: false
+    properties:
+      return_weight:
+        minimum: 0
+        title: Return Weight
+        type: number
+      cvar_weight:
+        minimum: 0
+        title: Cvar Weight
+        type: number
+      transaction_cost_weight:
+        minimum: 0
+        title: Transaction Cost Weight
+        type: number
+      turnover_weight:
+        minimum: 0
+        title: Turnover Weight
+        type: number
+      funding_weight:
+        minimum: 0
+        title: Funding Weight
+        type: number
+      ordinal_penalty_weight:
+        minimum: 0
+        title: Ordinal Penalty Weight
+        type: number
+    required:
+    - return_weight
+    - cvar_weight
+    - transaction_cost_weight
+    - turnover_weight
+    - funding_weight
+    - ordinal_penalty_weight
+    title: ObjectivePolicy
+    type: object
+  OrdinalPreference:
+    additionalProperties: false
+    properties:
+      preferred_candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Preferred Candidate Id
+        type: string
+      lower_candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Lower Candidate Id
+        type: string
+      strength:
+        exclusiveMinimum: 0
+        title: Strength
+        type: number
+    required:
+    - preferred_candidate_id
+    - lower_candidate_id
+    - strength
+    title: OrdinalPreference
+    type: object
+  RiskLimits:
+    additionalProperties: false
+    properties:
+      maximum_capital_by_horizon:
+        items:
+          type: number
+        title: Maximum Capital By Horizon
+        type: array
+      maximum_margin_by_horizon:
+        items:
+          type: number
+        title: Maximum Margin By Horizon
+        type: array
+      maximum_loss_by_horizon:
+        items:
+          type: number
+        title: Maximum Loss By Horizon
+        type: array
+      maximum_turnover:
+        minimum: 0
+        title: Maximum Turnover
+        type: number
+      cvar_alpha:
+        exclusiveMaximum: 1
+        exclusiveMinimum: 0
+        title: Cvar Alpha
+        type: number
+      maximum_cvar:
+        anyOf:
+        - minimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Maximum Cvar
+      greek_limits:
+        default: []
+        items:
+          $ref: '#/$defs/GreekLimit'
+        title: Greek Limits
+        type: array
+      underlying_concentration:
+        default: []
+        items:
+          $ref: '#/$defs/ConcentrationLimit'
+        title: Underlying Concentration
+        type: array
+      expiration_concentration:
+        default: []
+        items:
+          $ref: '#/$defs/ConcentrationLimit'
+        title: Expiration Concentration
+        type: array
+    required:
+    - maximum_capital_by_horizon
+    - maximum_margin_by_horizon
+    - maximum_loss_by_horizon
+    - maximum_turnover
+    - cvar_alpha
+    title: RiskLimits
+    type: object
+  RobustMethod:
+    enum:
+    - DISABLED
+    - PROBABILITY_BAND_CONSERVATIVE
+    title: RobustMethod
+    type: string
+  RobustPolicy:
+    additionalProperties: false
+    properties:
+      method:
+        $ref: '#/$defs/RobustMethod'
+      enabled:
+        title: Enabled
+        type: boolean
+      maximum_probability_shift_l1:
+        maximum: 2
+        minimum: 0
+        title: Maximum Probability Shift L1
+        type: number
+      material_quantity_difference:
+        minimum: 0
+        title: Material Quantity Difference
+        type: number
+    required:
+    - method
+    - enabled
+    - maximum_probability_shift_l1
+    - material_quantity_difference
+    title: RobustPolicy
+    type: object
+  RoundingPolicy:
+    additionalProperties: false
+    properties:
+      use_milp_reoptimization:
+        default: true
+        title: Use Milp Reoptimization
+        type: boolean
+      maximum_objective_degradation:
+        minimum: 0
+        title: Maximum Objective Degradation
+        type: number
+      integer_tolerance:
+        exclusiveMinimum: 0
+        maximum: 0.0001
+        title: Integer Tolerance
+        type: number
+      milp_relative_gap:
+        maximum: 0.1
+        minimum: 0
+        title: Milp Relative Gap
+        type: number
+      time_limit_seconds:
+        exclusiveMinimum: 0
+        maximum: 300
+        title: Time Limit Seconds
+        type: number
+    required:
+    - maximum_objective_degradation
+    - integer_tolerance
+    - milp_relative_gap
+    - time_limit_seconds
+    title: RoundingPolicy
+    type: object
+  ScenarioCandidatePnL:
+    additionalProperties: false
+    properties:
+      candidate_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Candidate Id
+        type: string
+      incremental_pnl_by_horizon:
+        items:
+          type: number
+        title: Incremental Pnl By Horizon
+        type: array
+    required:
+    - candidate_id
+    - incremental_pnl_by_horizon
+    title: ScenarioCandidatePnL
+    type: object
+  ScenarioPath:
+    additionalProperties: false
+    properties:
+      scenario_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Scenario Id
+        type: string
+      probability:
+        exclusiveMinimum: 0
+        maximum: 1
+        title: Probability
+        type: number
+      candidate_pnl:
+        items:
+          $ref: '#/$defs/ScenarioCandidatePnL'
+        title: Candidate Pnl
+        type: array
+    required:
+    - scenario_id
+    - probability
+    - candidate_pnl
+    title: ScenarioPath
+    type: object
+  ScoreSemantics:
+    enum:
+    - ORDINAL
+    - CARDINAL_WITHIN_GROUP
+    - CALIBRATED_UTILITY
+    title: ScoreSemantics
+    type: string
+  SolverPolicy:
+    additionalProperties: false
+    properties:
+      method:
+        const: highs
+        default: highs
+        title: Method
+        type: string
+      time_limit_seconds:
+        exclusiveMinimum: 0
+        maximum: 300
+        title: Time Limit Seconds
+        type: number
+      primal_feasibility_tolerance:
+        exclusiveMinimum: 0
+        maximum: 0.0001
+        title: Primal Feasibility Tolerance
+        type: number
+      dual_feasibility_tolerance:
+        exclusiveMinimum: 0
+        maximum: 0.0001
+        title: Dual Feasibility Tolerance
+        type: number
+      objective_tolerance:
+        exclusiveMinimum: 0
+        maximum: 0.0001
+        title: Objective Tolerance
+        type: number
+      presolve:
+        default: true
+        title: Presolve
+        type: boolean
+    required:
+    - time_limit_seconds
+    - primal_feasibility_tolerance
+    - dual_feasibility_tolerance
+    - objective_tolerance
+    title: SolverPolicy
+    type: object
+  StressPath:
+    additionalProperties: false
+    properties:
+      stress_id:
+        maxLength: 160
+        minLength: 1
+        pattern: ^[A-Za-z0-9_.:\-/]+$
+        title: Stress Id
+        type: string
+      portfolio_loss_limit:
+        minimum: 0
+        title: Portfolio Loss Limit
+        type: number
+      candidate_pnl:
+        items:
+          $ref: '#/$defs/ScenarioCandidatePnL'
+        title: Candidate Pnl
+        type: array
+    required:
+    - stress_id
+    - portfolio_loss_limit
+    - candidate_pnl
+    title: StressPath
+    type: object
+additionalProperties: false
+properties:
+  envelope:
+    $ref: '#/$defs/ArtifactEnvelope'
+  payload:
+    $ref: '#/$defs/DecisionReadyRiskPayload'
+required:
+- envelope
+- payload
+title: DecisionReadyRiskBundle
+type: object

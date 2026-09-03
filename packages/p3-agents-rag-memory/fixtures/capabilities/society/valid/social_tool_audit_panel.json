@@ -1,0 +1,60 @@
+{
+  "run_id": "run_s25",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "schema_version": "p3.s25.social_tool_audit_panel.v2",
+  "lineage_id": "lin_audit",
+  "records": [
+    {
+      "audit_id": "audit_1",
+      "source_person_id": "p1",
+      "target_person_id": "p3",
+      "relationship_type": "advisor",
+      "event_id": "event_1",
+      "occurred_at": "2026-01-11T09:00:00Z",
+      "effective_cycle": 4,
+      "entitlement_status": "ENTITLED",
+      "execution_status": "SUCCEEDED",
+      "validation_status": "VALIDATED",
+      "mutual_relevance": 0.8,
+      "evidence_refs": [
+        "ev_audit_1"
+      ],
+      "lineage_id": "lin_audit_1"
+    },
+    {
+      "audit_id": "audit_2",
+      "source_person_id": "p1",
+      "target_person_id": "p3",
+      "relationship_type": "advisor",
+      "event_id": "event_2",
+      "occurred_at": "2026-01-12T09:00:00Z",
+      "effective_cycle": 4,
+      "entitlement_status": "ENTITLED",
+      "execution_status": "SUCCEEDED",
+      "validation_status": "VALIDATED",
+      "mutual_relevance": 0.8,
+      "evidence_refs": [
+        "ev_audit_2"
+      ],
+      "lineage_id": "lin_audit_2"
+    },
+    {
+      "audit_id": "audit_3",
+      "source_person_id": "p1",
+      "target_person_id": "p3",
+      "relationship_type": "advisor",
+      "event_id": "event_3",
+      "occurred_at": "2026-01-13T09:00:00Z",
+      "effective_cycle": 4,
+      "entitlement_status": "ENTITLED",
+      "execution_status": "SUCCEEDED",
+      "validation_status": "VALIDATED",
+      "mutual_relevance": 0.8,
+      "evidence_refs": [
+        "ev_audit_3"
+      ],
+      "lineage_id": "lin_audit_3"
+    }
+  ]
+}

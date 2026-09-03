@@ -1,0 +1,38 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_profile/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entity_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "title": "Entity Ids",
+      "type": "array"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    },
+    "sections": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Sections",
+      "type": "array"
+    }
+  },
+  "required": [
+    "research_mode",
+    "entity_ids"
+  ],
+  "title": "GetCompanyProfileRequest",
+  "type": "object"
+}

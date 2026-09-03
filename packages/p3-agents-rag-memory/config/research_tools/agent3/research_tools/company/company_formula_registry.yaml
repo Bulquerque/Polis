@@ -1,0 +1,6 @@
+version: 1.0.0
+formulas:
+  operating_margin: operating_income / revenue
+  cash_conversion: operating_cash_flow / net_income
+  net_debt_to_ebitda: (total_debt - cash) / ebitda
+universal_quality_score: false

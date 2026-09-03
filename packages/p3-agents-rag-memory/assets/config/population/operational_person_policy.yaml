@@ -1,0 +1,230 @@
+schema_id: person_schema_policy.v2
+schema_version: v14.1-rc4.1-p3r2
+personality_tag_registry_id: P3_PERSONALITY_TAG_REGISTRY_V1
+allowed_tag_ids:
+- analytical
+- quantitative_background
+- public_data_reliant
+- institutional_data_access
+- independent_thinker
+- high_social_activity
+objective_dimensions:
+- accuracy
+roles:
+- role_id: investor_relations_professional
+  role_family: corporate_actors
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - corporate_actors_occupation_3
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: sell_side_analyst
+  role_family: market_participants
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - market_participants_occupation_3
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: policy_advisor
+  role_family: policy_institutions
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - policy_institutions_occupation_2
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: finance_executive
+  role_family: corporate_actors
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - corporate_actors_occupation_0
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: sector_specialist
+  role_family: real_economy
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - real_economy_occupation_2
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: portfolio_manager
+  role_family: market_participants
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - market_participants_occupation_0
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: commercial_employee
+  role_family: corporate_actors
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - corporate_actors_occupation_4
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: professional_worker
+  role_family: real_economy
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - real_economy_occupation_4
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: industry_expert
+  role_family: information_actors
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - information_actors_occupation_2
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: regulator
+  role_family: policy_institutions
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - policy_institutions_occupation_1
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: academic_researcher
+  role_family: information_actors
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - information_actors_occupation_1
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: corporate_strategy_professional
+  role_family: corporate_actors
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - corporate_actors_occupation_1
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: business_owner
+  role_family: real_economy
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - real_economy_occupation_0
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: risk_professional
+  role_family: market_participants
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - market_participants_occupation_2
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: operating_executive
+  role_family: corporate_actors
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - corporate_actors_occupation_2
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: central_bank_economist
+  role_family: policy_institutions
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - policy_institutions_occupation_0
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: procurement_or_supply_chain_professional
+  role_family: real_economy
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - real_economy_occupation_3
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: quant_researcher
+  role_family: market_participants
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - market_participants_occupation_1
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: buy_side_analyst
+  role_family: market_participants
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - market_participants_occupation_6
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: options_specialist
+  role_family: market_participants
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - market_participants_occupation_7
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: active_trader
+  role_family: market_participants
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - market_participants_occupation_4
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: entrepreneur
+  role_family: real_economy
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - real_economy_occupation_1
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: independent_researcher
+  role_family: information_actors
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - information_actors_occupation_3
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: wealth_manager
+  role_family: market_participants
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - market_participants_occupation_5
+  required_resource_flags: []
+  minimum_capabilities: {}
+- role_id: financial_journalist
+  role_family: information_actors
+  allowed_objectives:
+  - accuracy
+  allowed_occupation_families:
+  - information_actors_occupation_0
+  required_resource_flags: []
+  minimum_capabilities: {}
+experience_bands:
+- life_stage: early_career
+  minimum_years: 0
+  maximum_years: 8
+- life_stage: mid_career
+  minimum_years: 9
+  maximum_years: 25
+- life_stage: senior
+  minimum_years: 26
+  maximum_years: 50
+education_rank:
+  secondary: 0
+  undergraduate: 1
+  graduate: 2
+  doctorate: 3
+capability_minimum_education_rank: {}
+objective_sum_tolerance: 1.0e-09

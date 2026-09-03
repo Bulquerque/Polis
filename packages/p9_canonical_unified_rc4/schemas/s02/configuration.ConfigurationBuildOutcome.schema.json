@@ -1,0 +1,363 @@
+{
+  "$defs": {
+    "CatalogState": {
+      "enum": [
+        "CATALOG_READY",
+        "CATALOG_WITH_EQUIVALENCES",
+        "IDENTITY_COLLISION",
+        "LINEAGE_INVALID"
+      ],
+      "title": "CatalogState",
+      "type": "string"
+    },
+    "ConfigurationCatalog": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog_id": {
+          "minLength": 1,
+          "title": "Catalog Id",
+          "type": "string"
+        },
+        "catalog_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Catalog Sha256",
+          "type": "string"
+        },
+        "configurations": {
+          "items": {
+            "$ref": "#/$defs/ConfigurationRecord"
+          },
+          "title": "Configurations",
+          "type": "array"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "state": {
+          "$ref": "#/$defs/CatalogState"
+        }
+      },
+      "required": [
+        "catalog_id",
+        "experiment_id",
+        "state",
+        "configurations",
+        "catalog_sha256"
+      ],
+      "title": "ConfigurationCatalog",
+      "type": "object"
+    },
+    "ConfigurationIdentityReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary_configuration_count": {
+          "minimum": 0,
+          "title": "Boundary Configuration Count",
+          "type": "integer"
+        },
+        "catalog_id": {
+          "minLength": 1,
+          "title": "Catalog Id",
+          "type": "string"
+        },
+        "duplicate_proposals_discarded": {
+          "minimum": 0,
+          "title": "Duplicate Proposals Discarded",
+          "type": "integer"
+        },
+        "generated_count": {
+          "minimum": 0,
+          "title": "Generated Count",
+          "type": "integer"
+        },
+        "receipt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Receipt Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "catalog_id",
+        "generated_count",
+        "duplicate_proposals_discarded",
+        "boundary_configuration_count",
+        "receipt_sha256"
+      ],
+      "title": "ConfigurationIdentityReceipt",
+      "type": "object"
+    },
+    "ConfigurationLineageEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "child_configuration_id": {
+          "pattern": "^cfg-[0-9a-f]{64}$",
+          "title": "Child Configuration Id",
+          "type": "string"
+        },
+        "parent_configuration_id": {
+          "pattern": "^cfg-[0-9a-f]{64}$",
+          "title": "Parent Configuration Id",
+          "type": "string"
+        },
+        "relation": {
+          "minLength": 1,
+          "title": "Relation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parent_configuration_id",
+        "child_configuration_id",
+        "relation"
+      ],
+      "title": "ConfigurationLineageEdge",
+      "type": "object"
+    },
+    "ConfigurationLineageGraph": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_ids": {
+          "items": {
+            "pattern": "^cfg-[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Configuration Ids",
+          "type": "array"
+        },
+        "edges": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ConfigurationLineageEdge"
+          },
+          "title": "Edges",
+          "type": "array"
+        }
+      },
+      "required": [
+        "configuration_ids"
+      ],
+      "title": "ConfigurationLineageGraph",
+      "type": "object"
+    },
+    "ConfigurationRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "active_parameter_ids": {
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Active Parameter Ids",
+          "type": "array"
+        },
+        "assignments": {
+          "items": {
+            "$ref": "#/$defs/ParameterAssignment"
+          },
+          "title": "Assignments",
+          "type": "array"
+        },
+        "boundary_parameter_ids": {
+          "default": [],
+          "items": {
+            "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+            "type": "string"
+          },
+          "title": "Boundary Parameter Ids",
+          "type": "array"
+        },
+        "configuration_id": {
+          "pattern": "^cfg-[0-9a-f]{64}$",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "identity_preimage_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Identity Preimage Sha256",
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "source_index": {
+          "minimum": 0,
+          "title": "Source Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "configuration_id",
+        "experiment_id",
+        "assignments",
+        "active_parameter_ids",
+        "source",
+        "source_index",
+        "identity_preimage_sha256"
+      ],
+      "title": "ConfigurationRecord",
+      "type": "object"
+    },
+    "EconomicEquivalenceGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_configuration_id": {
+          "pattern": "^cfg-[0-9a-f]{64}$",
+          "title": "Canonical Configuration Id",
+          "type": "string"
+        },
+        "equivalence_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Equivalence Sha256",
+          "type": "string"
+        },
+        "group_id": {
+          "minLength": 1,
+          "title": "Group Id",
+          "type": "string"
+        },
+        "member_configuration_ids": {
+          "items": {
+            "pattern": "^cfg-[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Member Configuration Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "group_id",
+        "canonical_configuration_id",
+        "member_configuration_ids",
+        "equivalence_sha256"
+      ],
+      "title": "EconomicEquivalenceGroup",
+      "type": "object"
+    },
+    "EconomicEquivalenceGroups": {
+      "additionalProperties": false,
+      "properties": {
+        "groups": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EconomicEquivalenceGroup"
+          },
+          "title": "Groups",
+          "type": "array"
+        }
+      },
+      "title": "EconomicEquivalenceGroups",
+      "type": "object"
+    },
+    "ParameterAssignment": {
+      "additionalProperties": false,
+      "properties": {
+        "parameter_id": {
+          "pattern": "^P[5-8]\\.[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)+$",
+          "title": "Parameter Id",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "parameter_id",
+        "value"
+      ],
+      "title": "ParameterAssignment",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "catalog": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ConfigurationCatalog"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "equivalence_groups": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EconomicEquivalenceGroups"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "identity_receipt": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ConfigurationIdentityReceipt"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lineage_graph": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ConfigurationLineageGraph"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "catalog",
+    "lineage_graph",
+    "equivalence_groups",
+    "identity_receipt"
+  ],
+  "title": "ConfigurationBuildOutcome",
+  "type": "object"
+}

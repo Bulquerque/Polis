@@ -1,0 +1,43 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: tool_call_envelope
+status: planned_internal_schema
+type: object
+required:
+- call_id
+- person_id
+- tool_id
+- provider_interface
+- as_of_time
+- input_hash
+- output_hash
+- pit_check
+- entitlement_check
+- lineage_id
+properties:
+  call_id:
+    type: string
+  person_id:
+    type: string
+  tool_id:
+    type: string
+  provider_interface:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  input_hash:
+    type: string
+  output_hash:
+    type: string
+  pit_check:
+    type: boolean
+  entitlement_check:
+    type: boolean
+  cost_units:
+    type:
+    - number
+    - 'null'
+    minimum: 0
+  lineage_id:
+    type: string
+additionalProperties: false

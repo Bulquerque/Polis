@@ -1,0 +1,45 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: P4 contract change request
+type: object
+required:
+- change_id
+- requested_by
+- reason
+- impacted_modules
+- impacted_artifacts
+- compatibility
+- tests_required
+- status
+properties:
+  change_id:
+    type: string
+  requested_by:
+    type: string
+  reason:
+    type: string
+  impacted_modules:
+    type: array
+    items:
+      type: string
+  impacted_artifacts:
+    type: array
+    items:
+      type: string
+  compatibility:
+    type: string
+    enum:
+    - NONE
+    - BACKWARD_COMPATIBLE
+    - BREAKING
+  tests_required:
+    type: array
+    items:
+      type: string
+  status:
+    type: string
+    enum:
+    - OPEN
+    - APPROVED
+    - REJECTED
+    - IMPLEMENTED
+additionalProperties: false

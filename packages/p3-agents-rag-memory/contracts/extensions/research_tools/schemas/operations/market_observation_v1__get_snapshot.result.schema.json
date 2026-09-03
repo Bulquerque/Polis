@@ -1,0 +1,86 @@
+{
+  "$defs": {
+    "EvidenceRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "record_id": {
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "subject_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subject Id"
+        },
+        "values": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Values",
+          "type": "object"
+        }
+      },
+      "required": [
+        "record_id",
+        "source_id",
+        "available_at"
+      ],
+      "title": "EvidenceRecord",
+      "type": "object"
+    },
+    "JsonValue": {}
+  },
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/market.observation.v1/get_snapshot/result/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "instrument_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Instrument Count",
+      "type": "integer"
+    },
+    "records": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/EvidenceRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "truncated": {
+      "default": false,
+      "title": "Truncated",
+      "type": "boolean"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "title": "MarketSnapshotResult",
+  "type": "object"
+}

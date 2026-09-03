@@ -1,0 +1,25 @@
+pipeline_version: V14.1-RC4.1
+execution_profile: DEVELOPMENT
+strict_artifact_hashes: true
+block_on_future_record: true
+qualification_blocks_missing_available_at: true
+development_quarantines_missing_available_at: true
+require_seed_manifest_in_qualification: true
+require_concrete_model_inventory_in_qualification: true
+architecture_revision: P3-FINAL
+execution_mode: DEVELOPMENT
+run_id: example-run-001
+processed_at: '2026-07-27T23:30:00Z'
+seed_manifest:
+  status: READY
+  global_seed: 20260727
+  component_seeds:
+    population: 1101
+    social_graph: 1102
+    activation: 1103
+    cognition: 1104
+  derivation_policy: sha256(global_seed|component_id|cycle_id)
+prompt_inventory: []
+budget_manifest:
+  max_total_tokens: 100000
+  max_tool_calls: 100

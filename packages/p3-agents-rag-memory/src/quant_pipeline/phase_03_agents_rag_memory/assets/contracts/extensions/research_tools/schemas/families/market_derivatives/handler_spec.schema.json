@@ -1,0 +1,69 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "handler_id": {
+      "minLength": 1,
+      "title": "Handler Id",
+      "type": "string"
+    },
+    "handler_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Handler Version",
+      "type": "string"
+    },
+    "operation_id": {
+      "minLength": 1,
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "point_in_time_safe": {
+      "const": true,
+      "default": true,
+      "title": "Point In Time Safe",
+      "type": "boolean"
+    },
+    "read_only": {
+      "const": true,
+      "default": true,
+      "title": "Read Only",
+      "type": "boolean"
+    },
+    "request_model": {
+      "minLength": 1,
+      "title": "Request Model",
+      "type": "string"
+    },
+    "result_model": {
+      "const": "MarketDerivativesToolResultEnvelope",
+      "default": "MarketDerivativesToolResultEnvelope",
+      "title": "Result Model",
+      "type": "string"
+    },
+    "supported_modes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Supported Modes",
+      "type": "array"
+    },
+    "tool_id": {
+      "enum": [
+        "market.observation.v1",
+        "options.observation.v1"
+      ],
+      "title": "Tool Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool_id",
+    "operation_id",
+    "handler_id",
+    "request_model",
+    "supported_modes"
+  ],
+  "title": "HandlerSpec",
+  "type": "object"
+}

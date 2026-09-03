@@ -1,0 +1,90 @@
+{
+  "abstention": {
+    "accepted_calibration_statuses": [
+      "CALIBRATED",
+      "VALID"
+    ],
+    "maximum_model_disagreement": 0.4,
+    "maximum_score_interval_width": 0.6,
+    "minimum_confidence": 0.55,
+    "minimum_group_rankable_count": 1,
+    "minimum_group_rankable_fraction": 0.2,
+    "moderate_ood_values": [
+      "MODERATE"
+    ],
+    "policy_id": "p7_abstention_v1"
+  },
+  "diversity": {
+    "cluster_threshold": 0.9,
+    "density_top_k": 10,
+    "max_penalty_fraction": 0.2,
+    "penalty_lambda": 0.15,
+    "policy_id": "p7_diversity_v1",
+    "score_scale": 1.0
+  },
+  "forbidden_fields": [
+    "future_return",
+    "realized_return",
+    "realized_pnl",
+    "future_pnl",
+    "target_outcome",
+    "realized_outcome"
+  ],
+  "runtime": {
+    "run_id": "run-finalization-fixture",
+    "run_timestamp": "2026-01-05T15:00:00Z",
+    "trace_id": "trace-finalization-fixture"
+  },
+  "safety": {
+    "accepted_defined_risk_statuses": [
+      "VALID",
+      "PROVEN"
+    ],
+    "accepted_model_compatibility_statuses": [
+      "COMPATIBLE"
+    ],
+    "accepted_model_promotion_statuses": [
+      "PROMOTED",
+      "CHAMPION"
+    ],
+    "max_execution_context_age_seconds": 86400,
+    "policy_id": "p7_safety_v1",
+    "severe_ood_values": [
+      "SEVERE",
+      "CRITICAL"
+    ]
+  },
+  "similarity": {
+    "max_group_size": 500,
+    "minimum_edge_similarity": 0.3,
+    "minimum_weight_coverage": 0.6,
+    "policy_id": "p7_similarity_v1",
+    "stages": [
+      {
+        "name": "payoff_shape",
+        "weight": 0.35
+      },
+      {
+        "name": "scenario_payoff",
+        "weight": 0.2
+      },
+      {
+        "name": "greek_vector",
+        "weight": 0.15
+      },
+      {
+        "name": "leg_jaccard",
+        "weight": 0.15
+      },
+      {
+        "name": "origin_template",
+        "weight": 0.05
+      },
+      {
+        "name": "expiration_overlap",
+        "weight": 0.1
+      }
+    ],
+    "top_k_neighbors": 25
+  }
+}

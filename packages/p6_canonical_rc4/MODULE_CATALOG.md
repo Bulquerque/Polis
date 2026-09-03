@@ -1,0 +1,61 @@
+# Module Catalog
+
+Release: `P6-RC6.2-P5-V2-CLOSURE-RC4`
+
+| Module | Subphase | Name | Status |
+|---|---|---|---|
+| P6.S1.M01 | P6.S1 | `p5_belief_handoff_validator` | OPERATIONAL_FOUNDATION |
+| P6.S1.M02 | P6.S1 | `option_market_input_validator` | OPERATIONAL_FOUNDATION |
+| P6.S1.M03 | P6.S1 | `underlying_market_input_validator` | OPERATIONAL_FOUNDATION |
+| P6.S1.M04 | P6.S1 | `static_arbitrage_diagnostic` | OPERATIONAL_FOUNDATION |
+| P6.S1.M05 | P6.S1 | `pit_market_snapshot_builder` | OPERATIONAL_FOUNDATION |
+| P6.S2.M01 | P6.S2 | `contract_existence_gate` | OPERATIONAL_FOUNDATION |
+| P6.S2.M02 | P6.S2 | `strategy_grammar_registry` | OPERATIONAL_FOUNDATION |
+| P6.S2.M03 | P6.S2 | `objective_family_registry` | OPERATIONAL_FOUNDATION |
+| P6.S2.M04 | P6.S2 | `constraint_policy_registry` | OPERATIONAL_FOUNDATION |
+| P6.S2.M05 | P6.S2 | `strategy_identity_builder` | OPERATIONAL_FOUNDATION |
+| P6.S3.M01 | P6.S3 | `single_instrument_generator` | OPERATIONAL_FOUNDATION |
+| P6.S3.M02 | P6.S3 | `vertical_generator` | OPERATIONAL_FOUNDATION |
+| P6.S3.M03 | P6.S3 | `volatility_structure_generator` | OPERATIONAL_FOUNDATION |
+| P6.S3.M04 | P6.S3 | `skew_asymmetric_generator` | OPERATIONAL_FOUNDATION |
+| P6.S3.M05 | P6.S3 | `term_structure_generator` | RESERVED_CAPABILITY |
+| P6.S3.M06 | P6.S3 | `underlying_overlay_generator` | RESERVED_CAPABILITY |
+| P6.S3.M07 | P6.S3 | `template_parameter_planner` | OPERATIONAL_FOUNDATION |
+| P6.S4.M01 | P6.S4 | `mutation_operator_registry` | OPERATIONAL_WAVE2 |
+| P6.S4.M02 | P6.S4 | `local_mutation_engine` | OPERATIONAL_WAVE2 |
+| P6.S4.M03 | P6.S4 | `mutation_trace_validator` | OPERATIONAL_WAVE2 |
+| P6.S4.M04 | P6.S4 | `complexity_budget_gate` | OPERATIONAL_WAVE2 |
+| P6.S5.M01 | P6.S5 | `market_implied_state_estimator` | OPERATIONAL_WAVE2 |
+| P6.S5.M02 | P6.S5 | `belief_to_payoff_transformer` | OPERATIONAL_WAVE2 |
+| P6.S5.M03 | P6.S5 | `target_payoff_regularizer` | OPERATIONAL_WAVE2 |
+| P6.S5.M04 | P6.S5 | `target_payoff_qualification_gate` | OPERATIONAL_WAVE2 |
+| P6.S6.M01 | P6.S6 | `replication_basis_builder` | OPERATIONAL_WAVE2 |
+| P6.S6.M02 | P6.S6 | `continuous_relaxation_solver` | OPERATIONAL_WAVE2 |
+| P6.S6.M03 | P6.S6 | `mixed_integer_solver` | OPERATIONAL_WAVE2 |
+| P6.S6.M04 | P6.S6 | `beam_search_solver` | OPERATIONAL_WAVE2 |
+| P6.S6.M05 | P6.S6 | `local_search_solver` | OPERATIONAL_WAVE2 |
+| P6.S6.M06 | P6.S6 | `evolutionary_challenger` | OPERATIONAL_WAVE2 |
+| P6.S6.M07 | P6.S6 | `solver_portfolio_orchestrator` | OPERATIONAL_WAVE2 |
+| P6.S7.M01 | P6.S7 | `entry_price_engine` | OPERATIONAL_WAVE2 |
+| P6.S7.M02 | P6.S7 | `terminal_payoff_engine` | OPERATIONAL_WAVE2 |
+| P6.S7.M03 | P6.S7 | `pathwise_valuation_engine` | OPERATIONAL_WAVE2 |
+| P6.S7.M04 | P6.S7 | `greek_engine` | OPERATIONAL_WAVE2 |
+| P6.S7.M05 | P6.S7 | `break_even_shape_engine` | OPERATIONAL_WAVE2 |
+| P6.S7.M06 | P6.S7 | `scenario_evaluator` | OPERATIONAL_WAVE2 |
+| P6.S7.M07 | P6.S7 | `ambiguity_evaluator` | OPERATIONAL_WAVE2 |
+| P6.S8.M01 | P6.S8 | `structural_validator` | OPERATIONAL_FOUNDATION |
+| P6.S8.M02 | P6.S8 | `maximum_loss_prover` | OPERATIONAL_FOUNDATION |
+| P6.S8.M03 | P6.S8 | `margin_feasibility_gate` | OPERATIONAL_FOUNDATION |
+| P6.S8.M04 | P6.S8 | `liquidity_gate` | OPERATIONAL_FOUNDATION |
+| P6.S8.M05 | P6.S8 | `cost_gate` | OPERATIONAL_FOUNDATION |
+| P6.S8.M06 | P6.S8 | `data_quality_gate` | OPERATIONAL_FOUNDATION |
+| P6.S8.M07 | P6.S8 | `economic_sanity_gate` | OPERATIONAL_FOUNDATION |
+| P6.S9.M01 | P6.S9 | `leg_canonicalizer` | OPERATIONAL_WAVE2 |
+| P6.S9.M02 | P6.S9 | `relative_scale_normalizer` | OPERATIONAL_WAVE2 |
+| P6.S9.M03 | P6.S9 | `payoff_fingerprint_builder` | OPERATIONAL_WAVE2 |
+| P6.S9.M04 | P6.S9 | `economic_fingerprint_builder` | OPERATIONAL_WAVE2 |
+| P6.S9.M05 | P6.S9 | `equivalence_clustering` | OPERATIONAL_WAVE2 |
+| P6.S9.M06 | P6.S9 | `representative_selector` | OPERATIONAL_WAVE2 |
+| P6.S10.M01 | P6.S10 | `canonical_strategy_publisher` | OPERATIONAL_WAVE2 |
+| P6.S10.M02 | P6.S10 | `p7_v1_projection_builder` | OPERATIONAL_WAVE2 |
+| P6.S10.M03 | P6.S10 | `phase7_handoff_manifest_builder` | OPERATIONAL_WAVE2 |

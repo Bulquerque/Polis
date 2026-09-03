@@ -1,0 +1,136 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    type: string
+  artifact_name:
+    const: carry_curve_basis_perspective_panel
+  schema_version:
+    const: p4.s5.perspective.v1
+  pipeline_version:
+    type: string
+  phase_id:
+    const: P4
+  subphase_id:
+    const: P4.S5
+  producer_module_id:
+    type: string
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+  content_hash:
+    type: string
+    pattern: ^[a-f0-9]{64}$
+  lineage_id:
+    type: string
+  execution_status:
+    type: string
+  quality_status:
+    type: string
+  quality_reasons:
+    type: array
+    items:
+      type: string
+  records:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        decision_time:
+          type: string
+          format: date-time
+        entity_id:
+          type: string
+          minLength: 1
+        feature_id:
+          type: string
+        hypothesis_id:
+          type: string
+        phenomenon_id:
+          type: string
+        perspective_id:
+          type: string
+        observer_id:
+          type: string
+        parameterization_id:
+          type: string
+        horizon_group:
+          type: string
+        value:
+          type:
+          - number
+          - 'null'
+        unit:
+          type: string
+        sign_convention:
+          type: string
+        available_at:
+          type: string
+          format: date-time
+        source_modalities:
+          type: array
+          items:
+            type: string
+        source_feature_ids:
+          type: array
+          items:
+            type: string
+        quality_state:
+          enum:
+          - PASS
+          - DEGRADED
+          - BLOCKED
+        missingness_state:
+          type: string
+        record_lineage_id:
+          type: string
+        attributes:
+          type: object
+      required:
+      - decision_time
+      - entity_id
+      - feature_id
+      - hypothesis_id
+      - phenomenon_id
+      - perspective_id
+      - observer_id
+      - parameterization_id
+      - horizon_group
+      - value
+      - unit
+      - sign_convention
+      - available_at
+      - source_modalities
+      - source_feature_ids
+      - quality_state
+      - missingness_state
+      - record_lineage_id
+      - attributes
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- pipeline_version
+- phase_id
+- subphase_id
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- lineage_id
+- execution_status
+- quality_status
+- quality_reasons
+- records
+title: carry_curve_basis_perspective_panel

@@ -1,0 +1,64 @@
+{
+  "$defs": {
+    "TimeWindow": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "format": "date-time",
+          "title": "End",
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "title": "Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "title": "TimeWindow",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s3/HoldoutFirewallPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "access_policy_id": {
+      "title": "Access Policy Id",
+      "type": "string"
+    },
+    "allowed_consumer_module_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Consumer Module Ids",
+      "type": "array"
+    },
+    "holdout_window": {
+      "$ref": "#/$defs/TimeWindow"
+    },
+    "opened_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Opened At"
+    }
+  },
+  "required": [
+    "holdout_window",
+    "access_policy_id"
+  ],
+  "title": "HoldoutFirewallPolicy",
+  "type": "object"
+}

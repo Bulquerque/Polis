@@ -1,0 +1,64 @@
+{
+  "$defs": {
+    "CompanyMode": {
+      "enum": [
+        "QUICK_CHECK",
+        "STANDARD_REVIEW",
+        "DEEP_QUALITATIVE",
+        "ACCOUNTING_QUALITY",
+        "FORENSIC"
+      ],
+      "title": "CompanyMode",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entity_id": {
+      "minLength": 1,
+      "title": "Entity Id",
+      "type": "string"
+    },
+    "include_restated_versions": {
+      "default": true,
+      "title": "Include Restated Versions",
+      "type": "boolean"
+    },
+    "periods": {
+      "default": 5,
+      "maximum": 20,
+      "minimum": 1,
+      "title": "Periods",
+      "type": "integer"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/CompanyMode",
+      "default": "QUICK_CHECK"
+    },
+    "statement_types": {
+      "default": [
+        "INCOME",
+        "BALANCE",
+        "CASH_FLOW"
+      ],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Statement Types",
+      "type": "array"
+    },
+    "view_id": {
+      "default": "financial_statements",
+      "minLength": 1,
+      "title": "View Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "entity_id"
+  ],
+  "title": "GetFinancialStatementsRequest",
+  "type": "object"
+}

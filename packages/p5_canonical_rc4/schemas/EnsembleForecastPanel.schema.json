@@ -1,0 +1,442 @@
+{
+  "$defs": {
+    "EmpiricalDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "EMPIRICAL",
+          "default": "EMPIRICAL",
+          "title": "Kind",
+          "type": "string"
+        },
+        "samples": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2048,
+          "minItems": 2,
+          "title": "Samples",
+          "type": "array"
+        }
+      },
+      "required": [
+        "samples"
+      ],
+      "title": "EmpiricalDistribution",
+      "type": "object"
+    },
+    "EnsembleForecastRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "abstained": {
+          "default": false,
+          "title": "Abstained",
+          "type": "boolean"
+        },
+        "as_of_time": {
+          "format": "date-time",
+          "title": "As Of Time",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "distribution": {
+          "discriminator": {
+            "mapping": {
+              "EMPIRICAL": "#/$defs/EmpiricalDistribution",
+              "MIXTURE": "#/$defs/MixtureDistribution",
+              "PARAMETRIC": "#/$defs/ParametricDistribution",
+              "POINT": "#/$defs/PointDistribution",
+              "QUANTILES": "#/$defs/QuantileDistribution",
+              "SCENARIOS": "#/$defs/ScenarioDistribution"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/PointDistribution"
+            },
+            {
+              "$ref": "#/$defs/QuantileDistribution"
+            },
+            {
+              "$ref": "#/$defs/ParametricDistribution"
+            },
+            {
+              "$ref": "#/$defs/MixtureDistribution"
+            },
+            {
+              "$ref": "#/$defs/EmpiricalDistribution"
+            },
+            {
+              "$ref": "#/$defs/ScenarioDistribution"
+            }
+          ],
+          "title": "Distribution"
+        },
+        "epistemic_uncertainty": {
+          "minimum": 0.0,
+          "title": "Epistemic Uncertainty",
+          "type": "number"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "member_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Member Ids",
+          "type": "array"
+        },
+        "prediction_timestamp": {
+          "format": "date-time",
+          "title": "Prediction Timestamp",
+          "type": "string"
+        },
+        "record_id": {
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        },
+        "target_id": {
+          "minLength": 1,
+          "title": "Target Id",
+          "type": "string"
+        },
+        "underlying": {
+          "minLength": 1,
+          "title": "Underlying",
+          "type": "string"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "weights": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Weights",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "as_of_time",
+        "prediction_timestamp",
+        "underlying",
+        "target_id",
+        "horizon",
+        "unit",
+        "distribution",
+        "member_ids",
+        "weights",
+        "epistemic_uncertainty",
+        "confidence",
+        "lineage_id"
+      ],
+      "title": "EnsembleForecastRecord",
+      "type": "object"
+    },
+    "MixtureComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "degrees_of_freedom": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Degrees Of Freedom"
+        },
+        "family": {
+          "enum": [
+            "NORMAL",
+            "STUDENT_T",
+            "GED"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "type": "number"
+        },
+        "scale": {
+          "exclusiveMinimum": 0.0,
+          "title": "Scale",
+          "type": "number"
+        },
+        "shape_parameter": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Shape Parameter"
+        },
+        "weight": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "family",
+        "weight",
+        "location",
+        "scale"
+      ],
+      "title": "MixtureComponent",
+      "type": "object"
+    },
+    "MixtureDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "items": {
+            "$ref": "#/$defs/MixtureComponent"
+          },
+          "maxItems": 8,
+          "minItems": 2,
+          "title": "Components",
+          "type": "array"
+        },
+        "kind": {
+          "const": "MIXTURE",
+          "default": "MIXTURE",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "components"
+      ],
+      "title": "MixtureDistribution",
+      "type": "object"
+    },
+    "ParametricDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "degrees_of_freedom": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 2.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Degrees Of Freedom"
+        },
+        "family": {
+          "enum": [
+            "NORMAL",
+            "STUDENT_T",
+            "GED"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "kind": {
+          "const": "PARAMETRIC",
+          "default": "PARAMETRIC",
+          "title": "Kind",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "type": "number"
+        },
+        "scale": {
+          "exclusiveMinimum": 0.0,
+          "title": "Scale",
+          "type": "number"
+        },
+        "shape_parameter": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Shape Parameter"
+        }
+      },
+      "required": [
+        "family",
+        "location",
+        "scale"
+      ],
+      "title": "ParametricDistribution",
+      "type": "object"
+    },
+    "PointDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "POINT",
+          "default": "POINT",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "PointDistribution",
+      "type": "object"
+    },
+    "QuantileDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "QUANTILES",
+          "default": "QUANTILES",
+          "title": "Kind",
+          "type": "string"
+        },
+        "quantiles": {
+          "items": {
+            "$ref": "#/$defs/QuantilePoint"
+          },
+          "minItems": 2,
+          "title": "Quantiles",
+          "type": "array"
+        }
+      },
+      "required": [
+        "quantiles"
+      ],
+      "title": "QuantileDistribution",
+      "type": "object"
+    },
+    "QuantilePoint": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "exclusiveMaximum": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Level",
+          "type": "number"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "level",
+        "value"
+      ],
+      "title": "QuantilePoint",
+      "type": "object"
+    },
+    "ScenarioDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "SCENARIOS",
+          "default": "SCENARIOS",
+          "title": "Kind",
+          "type": "string"
+        },
+        "scenarios": {
+          "items": {
+            "$ref": "#/$defs/ScenarioPoint"
+          },
+          "maxItems": 2048,
+          "minItems": 2,
+          "title": "Scenarios",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scenarios"
+      ],
+      "title": "ScenarioDistribution",
+      "type": "object"
+    },
+    "ScenarioPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "probability": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Probability",
+          "type": "number"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "value",
+        "probability"
+      ],
+      "title": "ScenarioPoint",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "records": {
+      "items": {
+        "$ref": "#/$defs/EnsembleForecastRecord"
+      },
+      "minItems": 1,
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "required": [
+    "records"
+  ],
+  "title": "EnsembleForecastPanel",
+  "type": "object"
+}

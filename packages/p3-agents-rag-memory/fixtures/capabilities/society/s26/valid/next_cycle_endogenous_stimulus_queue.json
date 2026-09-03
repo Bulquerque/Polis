@@ -1,0 +1,153 @@
+{
+  "schema_version": "p3.s26.next_cycle_endogenous_stimulus_queue.v2",
+  "run_id": "run_s26",
+  "cycle_id": 4,
+  "as_of_time": "2026-01-15T12:00:00Z",
+  "lineage_id": "lin_52ed2710b820e92b86e5c8fc",
+  "queue_id": "queue_9345021be8d7aac14998230b",
+  "source_cycle_id": 4,
+  "target_cycle_id": 5,
+  "stimuli": [
+    {
+      "stimulus_id": "stim_3caa361bc06e41c0fd7e4cce",
+      "origin_type": "MEMORY_TRIGGER",
+      "source_event_id": "memtrg_cfe5a8cda84a2a114bca1d6d",
+      "causal_parent_id": "evt_new",
+      "target_person_id": "p1",
+      "subject": "experience:shared_fact",
+      "underlying_id": null,
+      "proposition_id": null,
+      "created_cycle": 4,
+      "target_cycle": 5,
+      "created_at": "2026-01-15T09:00:00Z",
+      "available_at": "2026-01-15T09:00:00Z",
+      "expires_after_cycle": 7,
+      "priority": 0.28350000000000003,
+      "evidence_refs": [
+        "ev_new",
+        "ev_old"
+      ],
+      "source_lineage_ids": [
+        "lin_e2ce1861ae3c868176a29ad1"
+      ],
+      "content_hash": "2c3a5af6ed7c8ca50dbab5d2cad45d2b9aaef46dcddb6c4da4c558c3ca8b3631"
+    },
+    {
+      "stimulus_id": "stim_7d27386d568be3e8107d6e07",
+      "origin_type": "MEMORY_TRIGGER",
+      "source_event_id": "memtrg_717a4b9191d741937abda368",
+      "causal_parent_id": "evt_new",
+      "target_person_id": "p1",
+      "subject": "experience:shared_fact",
+      "underlying_id": null,
+      "proposition_id": null,
+      "created_cycle": 4,
+      "target_cycle": 5,
+      "created_at": "2026-01-15T09:00:00Z",
+      "available_at": "2026-01-15T09:00:00Z",
+      "expires_after_cycle": 7,
+      "priority": 0.28350000000000003,
+      "evidence_refs": [
+        "ev_new",
+        "ev_old"
+      ],
+      "source_lineage_ids": [
+        "lin_e2ce1861ae3c868176a29ad1"
+      ],
+      "content_hash": "bfdd997018a35b89b26229e5b0ec259ab58c4c372b883d03d9dd68792c739982"
+    },
+    {
+      "stimulus_id": "stim_1c17be7a2b52c04b73da4a22",
+      "origin_type": "TOOL_DISCOVERY",
+      "source_event_id": "tool_evt_1",
+      "causal_parent_id": "req_1",
+      "target_person_id": "p1",
+      "subject": "new tool discovery",
+      "underlying_id": "PETR4",
+      "proposition_id": "prop_oil_up",
+      "created_cycle": 4,
+      "target_cycle": 5,
+      "created_at": "2026-01-15T10:10:00Z",
+      "available_at": "2026-01-15T10:10:00Z",
+      "expires_after_cycle": 7,
+      "priority": 0.5599999999999999,
+      "evidence_refs": [
+        "ev_tool"
+      ],
+      "source_lineage_ids": [
+        "lin_tool_evt"
+      ],
+      "content_hash": "eca4e6fcbe7db3b6cdb5ef1f9a070f6af497b281a2f03f8f7f42cd939fcf6065"
+    },
+    {
+      "stimulus_id": "stim_7ae3e978b2827d15be8de27f",
+      "origin_type": "SOCIAL_DELIVERY",
+      "source_event_id": "social_evt_1",
+      "causal_parent_id": "stim_old",
+      "target_person_id": "p1",
+      "subject": "peer message observed",
+      "underlying_id": "PETR4",
+      "proposition_id": "prop_oil_up",
+      "created_cycle": 4,
+      "target_cycle": 5,
+      "created_at": "2026-01-15T10:45:00Z",
+      "available_at": "2026-01-15T10:45:00Z",
+      "expires_after_cycle": 6,
+      "priority": 0.45499999999999996,
+      "evidence_refs": [
+        "ev_msg"
+      ],
+      "source_lineage_ids": [
+        "lin_social_evt"
+      ],
+      "content_hash": "37eee7c58e052e6bb507d63b7e3ab82f7148b7dab36cbad03b2dcec6af3796b9"
+    },
+    {
+      "stimulus_id": "stim_ea20df3cae8a6d142fc8edac",
+      "origin_type": "MEMORY_TRIGGER",
+      "source_event_id": "memtrg_43080df0899cc82d372bcf23",
+      "causal_parent_id": "fb_1",
+      "target_person_id": "p1",
+      "subject": "belief_feedback:fb_1",
+      "underlying_id": null,
+      "proposition_id": null,
+      "created_cycle": 4,
+      "target_cycle": 5,
+      "created_at": "2026-01-15T11:00:00Z",
+      "available_at": "2026-01-15T11:00:00Z",
+      "expires_after_cycle": 7,
+      "priority": 0.3510000000000001,
+      "evidence_refs": [
+        "ev_fb"
+      ],
+      "source_lineage_ids": [
+        "lin_e2ce1861ae3c868176a29ad1"
+      ],
+      "content_hash": "82b973dcf80a48c4b44e45c0ce51cfc88fb5d06b63dce27afbf14b263402eb11"
+    },
+    {
+      "stimulus_id": "stim_ac05aaa949aadae7bd41c4d5",
+      "origin_type": "ATTENTION_FOLLOWUP",
+      "source_event_id": "att_1",
+      "causal_parent_id": "belief_2",
+      "target_person_id": "p2",
+      "subject": "review oil thesis",
+      "underlying_id": "PETR4",
+      "proposition_id": "prop_oil_up",
+      "created_cycle": 4,
+      "target_cycle": 5,
+      "created_at": "2026-01-15T11:20:00Z",
+      "available_at": "2026-01-15T11:20:00Z",
+      "expires_after_cycle": 6,
+      "priority": 0.36,
+      "evidence_refs": [
+        "ev_att"
+      ],
+      "source_lineage_ids": [
+        "lin_att"
+      ],
+      "content_hash": "fa34a22cd20890131ebfd689f3c9821afd9bcbd9303f4db73fa5aae396b0a9f1"
+    }
+  ],
+  "content_hash": "d2a9c37cf469de4bbed38f2ec50993553deeb0b345f27d48e4d79c9c5c5603e2"
+}

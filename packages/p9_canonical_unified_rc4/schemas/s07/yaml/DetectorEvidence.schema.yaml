@@ -1,0 +1,39 @@
+additionalProperties: false
+properties:
+  detector_name:
+    minLength: 1
+    title: Detector Name
+    type: string
+  statistic:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Statistic
+  threshold:
+    anyOf:
+    - type: number
+    - type: 'null'
+    title: Threshold
+  alerted:
+    title: Alerted
+    type: boolean
+  details:
+    default: []
+    items:
+      maxItems: 2
+      minItems: 2
+      prefixItems:
+      - minLength: 1
+        type: string
+      - type: number
+      type: array
+    title: Details
+    type: array
+required:
+- detector_name
+- statistic
+- threshold
+- alerted
+title: DetectorEvidence
+type: object
+$id: urn:inferencia:p9:s7:DetectorEvidence:1.0.0

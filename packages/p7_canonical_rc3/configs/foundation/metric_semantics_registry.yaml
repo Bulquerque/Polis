@@ -1,0 +1,84 @@
+registry_id: p7_metric_semantics_registry
+registry_version: 2.3.0
+metrics:
+- metric_id: expected_net_payoff
+  semantic_version: 2.3.0
+  source_paths:
+  - risk.expected_net_payoff
+  units: currency
+  direction: MAXIMIZE
+  transformation_policy: IDENTITY
+  missingness_policy: BLOCK
+  value_type: NUMBER
+- metric_id: expected_shortfall
+  semantic_version: 2.3.0
+  source_paths:
+  - risk.expected_shortfall
+  units: currency
+  direction: MINIMIZE
+  transformation_policy: IDENTITY
+  missingness_policy: BLOCK
+  value_type: NUMBER
+- metric_id: maximum_loss
+  semantic_version: 2.3.0
+  source_paths:
+  - risk.maximum_loss
+  units: currency
+  direction: MINIMIZE
+  transformation_policy: IDENTITY
+  missingness_policy: BLOCK
+  value_type: NUMBER
+- metric_id: probability_of_profit
+  semantic_version: 2.3.0
+  source_paths:
+  - risk.probability_of_profit
+  units: probability
+  direction: MAXIMIZE
+  transformation_policy: IDENTITY
+  missingness_policy: BLOCK
+  value_type: NUMBER
+- metric_id: return_on_max_loss
+  semantic_version: 2.3.0
+  source_paths:
+  - risk.return_on_max_loss
+  units: ratio
+  direction: MAXIMIZE
+  transformation_policy: IDENTITY
+  missingness_policy: ALLOW_UNAVAILABLE
+  value_type: NUMBER
+- metric_id: entry_cost
+  semantic_version: 2.3.0
+  source_paths:
+  - cost_liquidity.entry_cost
+  units: currency
+  direction: MINIMIZE
+  transformation_policy: IDENTITY
+  missingness_policy: BLOCK
+  value_type: NUMBER
+- metric_id: liquidity_score
+  semantic_version: 2.3.0
+  source_paths:
+  - cost_liquidity.liquidity_score
+  units: normalized_score
+  direction: MAXIMIZE
+  transformation_policy: IDENTITY
+  missingness_policy: BLOCK
+  value_type: NUMBER
+- metric_id: payoff_fit_error
+  semantic_version: 2.3.0
+  source_paths:
+  - risk.payoff_fit_error
+  units: squared_error
+  direction: MINIMIZE
+  transformation_policy: IDENTITY
+  missingness_policy: ALLOW_UNAVAILABLE
+  value_type: NUMBER
+- metric_id: worst_ambiguity_utility
+  semantic_version: 2.3.0
+  source_paths:
+  - risk.worst_ambiguity_utility
+  units: utility
+  direction: MAXIMIZE
+  transformation_policy: IDENTITY
+  missingness_policy: ALLOW_UNAVAILABLE
+  value_type: NUMBER

@@ -1,0 +1,25 @@
+phase: phase_09_audit_learning
+required_inputs:
+- portfolio_backtest_result
+- performance_report
+- backtest_audit_report
+- portfolio_diagnostics_report
+- orders_panel
+- fills_panel
+- position_ledger
+- cash_ledger
+- premium_ledger
+- cost_ledger
+- margin_ledger
+- pnl_panel
+- equity_curve_panel
+- exposure_panel
+- drawdown_panel
+- ranking_context_snapshot
+- score_decomposition_snapshot
+- ranking_audit_snapshot
+optional_feedback_inputs: []
+rules:
+- required_inputs_must_exist_for_first_cycle
+- optional_feedback_only_when_previous_cycle_validated
+- optional_feedback_absence_must_not_block_first_cycle

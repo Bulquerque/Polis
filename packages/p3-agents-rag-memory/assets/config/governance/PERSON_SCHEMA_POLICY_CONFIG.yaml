@@ -1,0 +1,40 @@
+policy_id: P3_PERSON_SCHEMA_POLICY_V2
+policy_version: 2.0.0
+schema: schemas/person_profile.schema.yaml
+immutable_fields:
+- person_id
+- creator_provenance.creator_run_id
+- identity.economic_role
+- identity.economic_role_family
+state_speed_classes:
+  slow:
+  - resources
+  - cognitive_capabilities
+  - decision_profile
+  medium:
+  - knowledge_state
+  - trust_state
+  - tool_proficiency_state
+  fast:
+  - belief_state
+  - attention_state
+  - confidence_state
+  - functional_affect_state
+state_class_locations:
+  immutable: person_profile
+  slow: person_profile
+  medium: runtime_state
+  fast: runtime_state
+objective_weight_policy:
+  normalization: sum_to_one
+  sum_tolerance: 1.0e-09
+  minimum: 0.0
+  maximum: 1.0
+consistency_rule_ids:
+- life_stage_experience
+- occupation_role
+- role_resources
+- institution_tool_access
+- role_objectives
+- education_literacy
+lineage_id: LIN_CONFIG_P3_PERSON_SCHEMA_POLICY_V2

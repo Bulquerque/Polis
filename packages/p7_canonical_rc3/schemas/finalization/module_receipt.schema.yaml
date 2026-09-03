@@ -1,0 +1,61 @@
+additionalProperties: false
+properties:
+  module_id:
+    title: Module Id
+    type: string
+  trace_id:
+    title: Trace Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  status:
+    title: Status
+    type: string
+  input_artifact_ids:
+    items:
+      type: string
+    title: Input Artifact Ids
+    type: array
+  output_artifact_ids:
+    items:
+      type: string
+    title: Output Artifact Ids
+    type: array
+  counts:
+    additionalProperties:
+      type: integer
+    title: Counts
+    type: object
+  reason_code_distribution:
+    additionalProperties:
+      type: integer
+    title: Reason Code Distribution
+    type: object
+  policy_versions:
+    additionalProperties:
+      type: string
+    title: Policy Versions
+    type: object
+  duration_ms:
+    minimum: 0
+    title: Duration Ms
+    type: number
+required:
+- module_id
+- trace_id
+- run_id
+- cycle_id
+- status
+- input_artifact_ids
+- output_artifact_ids
+- counts
+- reason_code_distribution
+- policy_versions
+- duration_ms
+title: ModuleReceipt
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema

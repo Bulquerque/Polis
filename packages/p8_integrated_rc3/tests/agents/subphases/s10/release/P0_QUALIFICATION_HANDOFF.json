@@ -1,0 +1,56 @@
+{
+  "handoff_id": "p0h_089eceae81cd73d48573",
+  "context": {
+    "run_id": "run-1",
+    "cycle_id": "cycle-1",
+    "trace_id": "trace-1",
+    "decision_time": "2026-08-03T15:00:00Z",
+    "audit_time": "2026-08-03T16:00:00Z",
+    "contract_version": "1.0.0",
+    "schema_version": "1.0.0"
+  },
+  "release_id": "rel_90811ef07a550174832d",
+  "qualification": {
+    "qualification_id": "qua_319bcd87c0947db0eff8",
+    "context": {
+      "run_id": "run-1",
+      "cycle_id": "cycle-1",
+      "trace_id": "trace-1",
+      "decision_time": "2026-08-03T15:00:00Z",
+      "audit_time": "2026-08-03T16:00:00Z",
+      "contract_version": "1.0.0",
+      "schema_version": "1.0.0"
+    },
+    "terminal_state": "EXECUTED_VALID",
+    "technical_validity": "PASS",
+    "implementation_robustness": "PASS",
+    "statistical_qualification": "QUALIFIED",
+    "economic_qualification": "DEFERRED_TO_P9",
+    "diagnostics": {
+      "observation_count": 40,
+      "sharpe_ratio": "110.83771921146702",
+      "deflated_sharpe_ratio": "1.0",
+      "probability_backtest_overfitting": "0.0"
+    },
+    "reason_codes": [],
+    "eligible_for_p9_evaluation": true,
+    "production_promotion_allowed": false
+  },
+  "evidence": {
+    "tests_passed": 70,
+    "tests_failed": 0,
+    "combined_coverage_percent": 99.16,
+    "structure_gate_passed": true,
+    "clean_install_passed": true,
+    "clean_extraction_passed": true,
+    "deterministic_replay_passed": true,
+    "p9_consumer_passed": true,
+    "namespace_coexistence_passed": true
+  },
+  "manifest_sha256": "5e3a68b076c9dc83a8ce2515551dace10f1286267ffe5810ea8a3ef9ccebb3ec",
+  "dependency_components": [
+    "pydantic==2.13.4",
+    "python>=3.11"
+  ],
+  "production_promotion_allowed": false
+}

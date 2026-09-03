@@ -1,0 +1,71 @@
+$id: https://quant-pipeline.local/schemas/p7/comparison_group_record/2.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+additionalProperties: false
+properties:
+  candidate_id:
+    title: Candidate Id
+    type: string
+  capital_at_risk:
+    minimum: 0
+    title: Capital At Risk
+    type: number
+  capital_at_risk_bucket:
+    title: Capital At Risk Bucket
+    type: string
+  capital_at_risk_source:
+    title: Capital At Risk Source
+    type: string
+  comparison_group_id:
+    title: Comparison Group Id
+    type: string
+  currency:
+    title: Currency
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  group_size:
+    minimum: 1
+    title: Group Size
+    type: integer
+  horizon:
+    title: Horizon
+    type: string
+  objective_family:
+    title: Objective Family
+    type: string
+  policy_id:
+    title: Policy Id
+    type: string
+  policy_version:
+    pattern: ^\d+\.\d+\.\d+$
+    title: Policy Version
+    type: string
+  query_id:
+    title: Query Id
+    type: string
+  underlying_id:
+    title: Underlying Id
+    type: string
+required:
+- candidate_id
+- comparison_group_id
+- query_id
+- cycle_id
+- decision_time
+- underlying_id
+- horizon
+- objective_family
+- capital_at_risk
+- capital_at_risk_source
+- capital_at_risk_bucket
+- currency
+- group_size
+- policy_id
+- policy_version
+title: ComparisonGroupRecord
+type: object

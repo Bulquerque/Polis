@@ -1,0 +1,81 @@
+{
+  "$defs": {
+    "HandoffValidationStatus": {
+      "enum": [
+        "ACCEPTED_FULL",
+        "ACCEPTED_LIMITED",
+        "REJECTED_CONTRACT",
+        "REJECTED_INTEGRITY",
+        "REJECTED_INCOMPLETE"
+      ],
+      "title": "HandoffValidationStatus",
+      "type": "string"
+    },
+    "ValidationCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "check_id": {
+          "minLength": 1,
+          "title": "Check Id",
+          "type": "string"
+        },
+        "details": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Details",
+          "type": "array"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "pattern": "^P9_[A-Z0-9_]+$",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "check_id",
+        "passed"
+      ],
+      "title": "ValidationCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/ValidationCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/HandoffValidationStatus"
+    }
+  },
+  "required": [
+    "status",
+    "checks"
+  ],
+  "title": "HandoffValidationReport",
+  "type": "object"
+}

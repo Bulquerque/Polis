@@ -1,0 +1,165 @@
+{
+  "bundle_id": "state-1",
+  "context": {
+    "run_id": "run-1",
+    "cycle_id": "cycle-1",
+    "trace_id": "trace-1",
+    "decision_time": "2026-08-03T15:00:00Z",
+    "audit_time": "2026-08-03T16:00:00Z",
+    "contract_version": "1.0.0",
+    "schema_version": "1.0.0"
+  },
+  "expected_candidate_ids": [
+    "c1",
+    "c2"
+  ],
+  "candidate_states": [
+    {
+      "candidate_id": "c1",
+      "terminal_state": "EXECUTED"
+    },
+    {
+      "candidate_id": "c2",
+      "terminal_state": "BLOCKED"
+    }
+  ],
+  "initial_positions": [
+    {
+      "instrument_id": "A",
+      "quantity": "0"
+    }
+  ],
+  "orders": [
+    {
+      "order_id": "o1",
+      "instrument_id": "A",
+      "side": "BUY",
+      "total_quantity": "2",
+      "filled_quantity": "2",
+      "cancelled_quantity": "0",
+      "rejected_quantity": "0",
+      "open_quantity": "0"
+    }
+  ],
+  "fills": [
+    {
+      "fill_id": "f1",
+      "order_id": "o1",
+      "instrument_id": "A",
+      "side": "BUY",
+      "quantity": "2",
+      "price": "10",
+      "fees": "1"
+    }
+  ],
+  "final_positions": [
+    {
+      "instrument_id": "A",
+      "quantity": "2"
+    }
+  ],
+  "virtual_allocations": [
+    {
+      "candidate_id": "c1",
+      "instrument_id": "A",
+      "quantity": "2"
+    }
+  ],
+  "ledger_entries": [
+    {
+      "entry_id": "l1",
+      "category": "PREMIUM",
+      "amount": "-20",
+      "event_time": "2026-08-03T15:00:00Z"
+    },
+    {
+      "entry_id": "l2",
+      "category": "COST",
+      "amount": "-1",
+      "event_time": "2026-08-03T15:00:00Z"
+    },
+    {
+      "entry_id": "l3",
+      "category": "MARGIN",
+      "amount": "5",
+      "event_time": "2026-08-03T15:00:00Z"
+    }
+  ],
+  "account_snapshot": {
+    "initial_cash": "1000",
+    "final_cash": "979",
+    "margin_used": "5",
+    "collateral_value": "0",
+    "liabilities": "0",
+    "initial_nav": "1000",
+    "external_cashflows": "0"
+  },
+  "valuations": [
+    {
+      "instrument_id": "A",
+      "quantity": "2",
+      "mark_price": "12",
+      "market_value": "24",
+      "mark_quality": "MID"
+    }
+  ],
+  "pnl_snapshot": {
+    "realized_pnl": "0",
+    "unrealized_pnl": "4",
+    "costs": "-1",
+    "total_pnl": "3"
+  },
+  "replay_events": [
+    {
+      "sequence": 0,
+      "event_id": "e0",
+      "event_type": "POSITION",
+      "instrument_id": "A",
+      "candidate_id": null,
+      "quantity_delta": "2",
+      "cash_delta": "0"
+    },
+    {
+      "sequence": 1,
+      "event_id": "e1",
+      "event_type": "CASH",
+      "instrument_id": null,
+      "candidate_id": null,
+      "quantity_delta": "0",
+      "cash_delta": "-21"
+    },
+    {
+      "sequence": 2,
+      "event_id": "e2",
+      "event_type": "VIRTUAL_ALLOCATION",
+      "instrument_id": "A",
+      "candidate_id": "c1",
+      "quantity_delta": "2",
+      "cash_delta": "0"
+    }
+  ],
+  "replay_checkpoint": {
+    "expected_state_sha256": "4ba948f5f1174289325034277d25f9b7d37a8dfb9f4d418c0b0593867d373a31"
+  },
+  "source_artifacts": [
+    {
+      "artifact_id": "s1",
+      "content_sha256": "e8bc163c82eee18733288c7d4ac636db3a6deb013ef2d37b68322be20edc45cc",
+      "schema_version": "1.0.0",
+      "contract_version": "1.0.0",
+      "producer_phase": "P8",
+      "producer_module": "P8.S8.M07"
+    },
+    {
+      "artifact_id": "s9",
+      "content_sha256": "e72d310dbb213f4c2e34da28935b38905332ee3628a04df2dd13859fd769c6c5",
+      "schema_version": "1.0.0",
+      "contract_version": "1.0.0",
+      "producer_phase": "P8",
+      "producer_module": "P8.S9.M05"
+    }
+  ],
+  "tolerance": {
+    "absolute": "0.000001"
+  }
+}

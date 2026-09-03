@@ -1,0 +1,21 @@
+phase: P7
+subphase: P7.S3
+stages: TOURNAMENT
+version: 1.0.0
+modules:
+  - module_id: P7.S3.M01
+    name: candidate_metric_semantics_compiler
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S3_M01_candidate_metric_semantics_compiler.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s3/semantics.py
+  - module_id: P7.S3.M02
+    name: option_factor_exposure_adjuster
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S3_M02_option_factor_exposure_adjuster.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s3/factors.py
+  - module_id: P7.S3.M03
+    name: strict_dominance_filter
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S3_M03_strict_dominance_filter.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s3/dominance.py
+  - module_id: P7.S3.M04
+    name: pareto_frontier_builder
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S3_M04_pareto_frontier_builder.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s3/pareto.py

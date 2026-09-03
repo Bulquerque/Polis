@@ -1,0 +1,43 @@
+module_id: P0.S9.M03
+module_name: nonblocking_warning_dispatcher
+function: Classificar e rotear advisories não bloqueantes (WARNING/NOTICE/INFO), preservando
+  owner e evidência sem executar despacho externo ou correção automática.
+inputs: &id001
+- phase_zero_trust_feedback_panel
+outputs: &id002
+- nonblocking_warning_report
+validations:
+- warnings_have_owner
+- warnings_have_action_when_required
+- warnings_not_release_blocking
+- notices_supported
+- routing_is_internal_only
+fail_fast_conditions:
+- advisory_inventory_incomplete
+- blocking_content_in_nonblocking_report
+- advisory_without_owner
+forbidden_fields:
+- future_return
+- target
+- candidate_score
+- rank_score
+- portfolio_weight
+- realized_pnl
+- trade_decision
+allowed_connections:
+  consumes_from:
+    modules:
+    - P0.S9.M01
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P0.S9.M04
+    artifacts: *id002
+    phase_outputs: []
+phase: P0
+subphase: P0.S9
+rc: RC4.1
+notes: Canonical P0 module contract; public IDs and artifact names are preserved.
+  S9 v2 separates severity from readiness/release impact and performs routing only;
+  no external dispatch or auto-remediation.

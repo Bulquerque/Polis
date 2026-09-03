@@ -1,0 +1,121 @@
+{
+  "schema_version": "person_seed_panel.s19.input.v1",
+  "contract_version": "p3.s7.v1",
+  "population_id": "population:demo-v1",
+  "records": [
+    {
+      "person_id": "person:analyst-tech",
+      "person_seed": 101,
+      "role_id": "role:fundamental-analyst",
+      "representation_weight": 0.25,
+      "activation_profile": {
+        "activation_threshold": 0.1,
+        "default_relevance": 0.3,
+        "underlying_relevance": [
+          {
+            "key": "figi:BBG000B9XRY4",
+            "score": 1.0
+          }
+        ],
+        "proposition_relevance": [
+          {
+            "key": "directional_outlook",
+            "score": 1.0
+          }
+        ],
+        "horizon_relevance": [],
+        "default_tag_sensitivity": 0.8,
+        "stimulus_type_sensitivity": [
+          {
+            "stimulus_type": "FILING_EVENT",
+            "score": 1.0
+          }
+        ],
+        "default_exposure": 1.0,
+        "origin_exposure": []
+      },
+      "lineage_id": "lineage:analyst-tech"
+    },
+    {
+      "person_id": "person:macro",
+      "person_seed": 202,
+      "role_id": "role:macro-strategist",
+      "representation_weight": 0.25,
+      "activation_profile": {
+        "activation_threshold": 0.1,
+        "default_relevance": 0.9,
+        "underlying_relevance": [],
+        "proposition_relevance": [
+          {
+            "key": "regime_outlook",
+            "score": 1.0
+          }
+        ],
+        "horizon_relevance": [],
+        "default_tag_sensitivity": 0.8,
+        "stimulus_type_sensitivity": [
+          {
+            "stimulus_type": "MACRO_RELEASE",
+            "score": 1.0
+          },
+          {
+            "stimulus_type": "SOCIAL_MESSAGE_EVENT",
+            "score": 0.5
+          }
+        ],
+        "default_exposure": 1.0,
+        "origin_exposure": []
+      },
+      "lineage_id": "lineage:macro"
+    },
+    {
+      "person_id": "person:quant",
+      "person_seed": 303,
+      "role_id": "role:quant-researcher",
+      "representation_weight": 0.25,
+      "activation_profile": {
+        "activation_threshold": 0.95,
+        "default_relevance": 0.2,
+        "underlying_relevance": [
+          {
+            "key": "figi:BBG000B9XRY4",
+            "score": 0.5
+          }
+        ],
+        "proposition_relevance": [],
+        "horizon_relevance": [],
+        "default_tag_sensitivity": 0.8,
+        "stimulus_type_sensitivity": [
+          {
+            "stimulus_type": "FILING_EVENT",
+            "score": 0.5
+          }
+        ],
+        "default_exposure": 1.0,
+        "origin_exposure": []
+      },
+      "lineage_id": "lineage:quant"
+    },
+    {
+      "person_id": "person:dormant",
+      "person_seed": 404,
+      "role_id": "role:observer",
+      "representation_weight": 0.25,
+      "activation_profile": {
+        "activation_threshold": 0.1,
+        "default_relevance": 0.5,
+        "underlying_relevance": [],
+        "proposition_relevance": [],
+        "horizon_relevance": [],
+        "default_tag_sensitivity": 0.8,
+        "stimulus_type_sensitivity": [],
+        "default_exposure": 1.0,
+        "origin_exposure": []
+      },
+      "lineage_id": "lineage:dormant"
+    }
+  ],
+  "lineage_id": "lineage:person-seed-demo",
+  "status": "READY",
+  "content_hash": "22509cd2ba394c40b2bcb20a0cfa14f3a5984e62ee031c0ab6dcd7e844f073fa"
+}

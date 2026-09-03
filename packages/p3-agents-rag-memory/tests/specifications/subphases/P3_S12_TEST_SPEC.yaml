@@ -1,0 +1,14 @@
+subphase: P3.S12
+modules:
+- module_id: P3.S12.M01
+  required_cases:
+  - chunk_lineage
+  - future_chunk_fails
+  - deterministic_ids
+- module_id: P3.S12.M02
+  required_cases:
+  - disconnected_adapter_material
+  - manifest_hash_stable
+canonical_module_order:
+- P3.S12.M01
+- P3.S12.M02

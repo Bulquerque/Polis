@@ -1,0 +1,1677 @@
+{
+  "$defs": {
+    "AmbiguityFamily": {
+      "enum": [
+        "DISCRETE_SUPPORT_WASSERSTEIN_1"
+      ],
+      "title": "AmbiguityFamily",
+      "type": "string"
+    },
+    "CapabilityState": {
+      "enum": [
+        "AVAILABLE",
+        "LIMITED",
+        "RESEARCH_ONLY",
+        "UNAVAILABLE",
+        "INVALID"
+      ],
+      "title": "CapabilityState",
+      "type": "string"
+    },
+    "CapacityPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "annual_cost_fraction": {
+          "minimum": 0.0,
+          "title": "Annual Cost Fraction",
+          "type": "number"
+        },
+        "aum": {
+          "exclusiveMinimum": 0,
+          "title": "Aum",
+          "type": "number"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "feasible": {
+          "title": "Feasible",
+          "type": "boolean"
+        },
+        "liquidation_horizon_days": {
+          "minimum": 0.0,
+          "title": "Liquidation Horizon Days",
+          "type": "number"
+        },
+        "margin_usage_fraction": {
+          "minimum": 0.0,
+          "title": "Margin Usage Fraction",
+          "type": "number"
+        },
+        "maximum_participation_rate": {
+          "minimum": 0.0,
+          "title": "Maximum Participation Rate",
+          "type": "number"
+        },
+        "net_return": {
+          "title": "Net Return",
+          "type": "number"
+        }
+      },
+      "required": [
+        "aum",
+        "net_return",
+        "annual_cost_fraction",
+        "maximum_participation_rate",
+        "liquidation_horizon_days",
+        "margin_usage_fraction",
+        "evidence_class",
+        "feasible"
+      ],
+      "title": "CapacityPoint",
+      "type": "object"
+    },
+    "CapacityResult": {
+      "additionalProperties": false,
+      "properties": {
+        "break_even_aum": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Break Even Aum"
+        },
+        "capacity_limit_aum": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Capacity Limit Aum"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "maximum_liquidation_horizon_days": {
+          "minimum": 0.0,
+          "title": "Maximum Liquidation Horizon Days",
+          "type": "number"
+        },
+        "minimum_margin_buffer": {
+          "title": "Minimum Margin Buffer",
+          "type": "number"
+        },
+        "network_loss_amplification": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Network Loss Amplification"
+        },
+        "network_spectral_radius": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Network Spectral Radius"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/CapacityPoint"
+          },
+          "title": "Points",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S6State"
+        }
+      },
+      "required": [
+        "status",
+        "points",
+        "break_even_aum",
+        "capacity_limit_aum",
+        "maximum_liquidation_horizon_days",
+        "minimum_margin_buffer",
+        "network_spectral_radius",
+        "network_loss_amplification"
+      ],
+      "title": "CapacityResult",
+      "type": "object"
+    },
+    "CommittedScenario": {
+      "additionalProperties": false,
+      "properties": {
+        "scenario": {
+          "$ref": "#/$defs/ScenarioProposal"
+        },
+        "semantic_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Semantic Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scenario",
+        "semantic_sha256"
+      ],
+      "title": "CommittedScenario",
+      "type": "object"
+    },
+    "ConditionalEVTResult": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_state": {
+          "$ref": "#/$defs/CapabilityState"
+        },
+        "conditional_expected_shortfall": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Conditional Expected Shortfall"
+        },
+        "conditional_var": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Conditional Var"
+        },
+        "exceedance_count": {
+          "minimum": 0,
+          "title": "Exceedance Count",
+          "type": "integer"
+        },
+        "ks_statistic": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ks Statistic"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "loss_series_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Loss Series Id",
+          "type": "string"
+        },
+        "parameter_intervals": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EVTParameterInterval"
+          },
+          "title": "Parameter Intervals",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "residual_lag1_autocorrelation": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Residual Lag1 Autocorrelation"
+        },
+        "scale_parameter": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scale Parameter"
+        },
+        "status": {
+          "$ref": "#/$defs/S6State"
+        },
+        "tail_index": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Tail Index"
+        },
+        "threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Threshold"
+        },
+        "threshold_tail_index_range": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Threshold Tail Index Range"
+        }
+      },
+      "required": [
+        "status",
+        "loss_series_id",
+        "threshold",
+        "exceedance_count",
+        "tail_index",
+        "conditional_var",
+        "conditional_expected_shortfall",
+        "residual_lag1_autocorrelation",
+        "threshold_tail_index_range",
+        "ks_statistic",
+        "capability_state"
+      ],
+      "title": "ConditionalEVTResult",
+      "type": "object"
+    },
+    "ConstraintCliff": {
+      "additionalProperties": false,
+      "properties": {
+        "constraint_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Constraint Ids",
+          "type": "array"
+        },
+        "factor_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "left_shock": {
+          "title": "Left Shock",
+          "type": "number"
+        },
+        "relative_jump": {
+          "minimum": 0.0,
+          "title": "Relative Jump",
+          "type": "number"
+        },
+        "right_shock": {
+          "title": "Right Shock",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "left_shock",
+        "right_shock",
+        "relative_jump",
+        "constraint_ids"
+      ],
+      "title": "ConstraintCliff",
+      "type": "object"
+    },
+    "DROFrontierPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "radius": {
+          "minimum": 0.0,
+          "title": "Radius",
+          "type": "number"
+        },
+        "solver_status": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Solver Status",
+          "type": "string"
+        },
+        "target_probabilities": {
+          "items": {
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "title": "Target Probabilities",
+          "type": "array"
+        },
+        "transport_cost": {
+          "minimum": 0.0,
+          "title": "Transport Cost",
+          "type": "number"
+        },
+        "worst_case_cvar": {
+          "title": "Worst Case Cvar",
+          "type": "number"
+        },
+        "worst_case_mean_loss": {
+          "title": "Worst Case Mean Loss",
+          "type": "number"
+        },
+        "worst_case_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Worst Case Score"
+        }
+      },
+      "required": [
+        "radius",
+        "worst_case_mean_loss",
+        "worst_case_cvar",
+        "worst_case_score",
+        "transport_cost",
+        "solver_status",
+        "target_probabilities"
+      ],
+      "title": "DROFrontierPoint",
+      "type": "object"
+    },
+    "DistributionalRobustnessResult": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_state": {
+          "$ref": "#/$defs/CapabilityState"
+        },
+        "empirical_cvar": {
+          "title": "Empirical Cvar",
+          "type": "number"
+        },
+        "empirical_mean_loss": {
+          "title": "Empirical Mean Loss",
+          "type": "number"
+        },
+        "empirical_mean_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Empirical Mean Score"
+        },
+        "family": {
+          "$ref": "#/$defs/AmbiguityFamily"
+        },
+        "frontier": {
+          "items": {
+            "$ref": "#/$defs/DROFrontierPoint"
+          },
+          "title": "Frontier",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "radius_calibrated": {
+          "title": "Radius Calibrated",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S6State"
+        }
+      },
+      "required": [
+        "status",
+        "family",
+        "empirical_mean_loss",
+        "empirical_cvar",
+        "empirical_mean_score",
+        "frontier",
+        "capability_state",
+        "radius_calibrated"
+      ],
+      "title": "DistributionalRobustnessResult",
+      "type": "object"
+    },
+    "EVTParameterInterval": {
+      "additionalProperties": false,
+      "properties": {
+        "estimate": {
+          "title": "Estimate",
+          "type": "number"
+        },
+        "high": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "High"
+        },
+        "low": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Low"
+        },
+        "parameter": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Parameter",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameter",
+        "estimate",
+        "low",
+        "high"
+      ],
+      "title": "EVTParameterInterval",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "OBSERVED_LIVE",
+        "OBSERVED_HISTORICAL",
+        "TRANSLATED_FACTOR",
+        "MODELLED",
+        "PARAMETRIC",
+        "STRESS_EXTRAPOLATED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "EvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_type": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Evidence Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "evidence_type",
+        "content_sha256",
+        "evidence_class"
+      ],
+      "title": "EvidenceReference",
+      "type": "object"
+    },
+    "ExposureMappingResult": {
+      "additionalProperties": false,
+      "properties": {
+        "current_factor_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Current Factor Id",
+          "type": "string"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "exposure_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Exposure Id",
+          "type": "string"
+        },
+        "historical_factor_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": ".*\\S.*",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Historical Factor Id"
+        },
+        "mapped": {
+          "title": "Mapped",
+          "type": "boolean"
+        },
+        "mapping_scale": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mapping Scale"
+        },
+        "notional": {
+          "title": "Notional",
+          "type": "number"
+        }
+      },
+      "required": [
+        "exposure_id",
+        "current_factor_id",
+        "historical_factor_id",
+        "mapping_scale",
+        "evidence_class",
+        "mapped",
+        "notional"
+      ],
+      "title": "ExposureMappingResult",
+      "type": "object"
+    },
+    "FactorSensitivity": {
+      "additionalProperties": false,
+      "properties": {
+        "curvature": {
+          "title": "Curvature",
+          "type": "number"
+        },
+        "factor_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "local_gradient": {
+          "title": "Local Gradient",
+          "type": "number"
+        },
+        "main_effect_range": {
+          "minimum": 0.0,
+          "title": "Main Effect Range",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "local_gradient",
+        "curvature",
+        "main_effect_range"
+      ],
+      "title": "FactorSensitivity",
+      "type": "object"
+    },
+    "FactorShock": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "unit": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "value",
+        "unit"
+      ],
+      "title": "FactorShock",
+      "type": "object"
+    },
+    "HistoricalCrisisReplayResult": {
+      "additionalProperties": false,
+      "properties": {
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "mapped_exposure_share": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Mapped Exposure Share",
+          "type": "number"
+        },
+        "mappings": {
+          "items": {
+            "$ref": "#/$defs/ExposureMappingResult"
+          },
+          "title": "Mappings",
+          "type": "array"
+        },
+        "modelled_pnl_share": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Modelled Pnl Share",
+          "type": "number"
+        },
+        "path": {
+          "items": {
+            "$ref": "#/$defs/ReplayPoint"
+          },
+          "title": "Path",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "recovery_included": {
+          "title": "Recovery Included",
+          "type": "boolean"
+        },
+        "replay_mode": {
+          "$ref": "#/$defs/ReplayMode"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/S6State"
+        },
+        "unmapped_notional": {
+          "minimum": 0.0,
+          "title": "Unmapped Notional",
+          "type": "number"
+        },
+        "worst_cumulative_pnl": {
+          "title": "Worst Cumulative Pnl",
+          "type": "number"
+        }
+      },
+      "required": [
+        "status",
+        "scenario_id",
+        "replay_mode",
+        "mappings",
+        "path",
+        "mapped_exposure_share",
+        "modelled_pnl_share",
+        "unmapped_notional",
+        "worst_cumulative_pnl",
+        "recovery_included"
+      ],
+      "title": "HistoricalCrisisReplayResult",
+      "type": "object"
+    },
+    "InteractionSensitivity": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id_left": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id Left",
+          "type": "string"
+        },
+        "factor_id_right": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id Right",
+          "type": "string"
+        },
+        "interaction_coefficient": {
+          "title": "Interaction Coefficient",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id_left",
+        "factor_id_right",
+        "interaction_coefficient"
+      ],
+      "title": "InteractionSensitivity",
+      "type": "object"
+    },
+    "MaterialRiskCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "covered": {
+          "title": "Covered",
+          "type": "boolean"
+        },
+        "covering_scenario_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Covering Scenario Ids",
+          "type": "array"
+        },
+        "materiality_weight": {
+          "exclusiveMinimum": 0,
+          "title": "Materiality Weight",
+          "type": "number"
+        },
+        "risk_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Risk Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "risk_id",
+        "covered",
+        "covering_scenario_ids",
+        "materiality_weight"
+      ],
+      "title": "MaterialRiskCoverage",
+      "type": "object"
+    },
+    "ReplayMode": {
+      "enum": [
+        "STATIC_EXPOSURE",
+        "FROZEN_DYNAMIC_POLICY"
+      ],
+      "title": "ReplayMode",
+      "type": "string"
+    },
+    "ReplayPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "cumulative_pnl": {
+          "title": "Cumulative Pnl",
+          "type": "number"
+        },
+        "mapped_pnl": {
+          "title": "Mapped Pnl",
+          "type": "number"
+        },
+        "modelled_pnl": {
+          "title": "Modelled Pnl",
+          "type": "number"
+        },
+        "pnl": {
+          "title": "Pnl",
+          "type": "number"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        },
+        "unmapped_notional": {
+          "minimum": 0.0,
+          "title": "Unmapped Notional",
+          "type": "number"
+        }
+      },
+      "required": [
+        "timestamp",
+        "pnl",
+        "cumulative_pnl",
+        "mapped_pnl",
+        "modelled_pnl",
+        "unmapped_notional"
+      ],
+      "title": "ReplayPoint",
+      "type": "object"
+    },
+    "ReverseStressResult": {
+      "additionalProperties": false,
+      "properties": {
+        "binding_condition": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": ".*\\S.*",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Binding Condition"
+        },
+        "condition_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Condition Id",
+          "type": "string"
+        },
+        "distance_to_failure": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Distance To Failure"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "safe_axis_distances": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "minLength": 1,
+                "pattern": ".*\\S.*",
+                "type": "string"
+              },
+              {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Safe Axis Distances",
+          "type": "array"
+        },
+        "shock_vector": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "minLength": 1,
+                "pattern": ".*\\S.*",
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Shock Vector",
+          "type": "array"
+        },
+        "solution_count": {
+          "minimum": 0,
+          "title": "Solution Count",
+          "type": "integer"
+        },
+        "solver_messages": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Solver Messages",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S6State"
+        },
+        "stressed_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Stressed Value"
+        },
+        "verification_error": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Verification Error"
+        }
+      },
+      "required": [
+        "status",
+        "condition_id",
+        "distance_to_failure",
+        "shock_vector",
+        "stressed_value",
+        "binding_condition",
+        "verification_error",
+        "solution_count",
+        "safe_axis_distances",
+        "solver_messages"
+      ],
+      "title": "ReverseStressResult",
+      "type": "object"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    },
+    "S6State": {
+      "enum": [
+        "SUCCESS",
+        "COMMITTED",
+        "COMMITTED_WITH_COVERAGE_GAPS",
+        "DUPLICATE_REJECTED",
+        "SUCCESS_WITH_MAPPING_LIMITATIONS",
+        "MATERIAL_EXPOSURE_UNMAPPED",
+        "LOCAL_ONLY",
+        "EXTRAPOLATION_LIMITED",
+        "CONSTRAINT_DISCONTINUITY_FOUND",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EXCEEDANCES",
+        "UNSTABLE_TAIL_INDEX",
+        "THRESHOLD_NOT_IDENTIFIED",
+        "DEPENDENCE_NOT_REMOVED",
+        "AMBIGUITY_SET_UNINFORMATIVE",
+        "SOLVER_NOT_QUALIFIED",
+        "UNBOUNDED",
+        "CAPACITY_LIMITED",
+        "BORROW_LIMITED",
+        "MARGIN_FRAGILE",
+        "NETWORK_STRESS_RESEARCH_ONLY",
+        "INSUFFICIENT_LIQUIDITY_DATA",
+        "STRESS_RESILIENT",
+        "RESILIENT_WITH_LIMITATIONS",
+        "REVERSE_STRESS_TOO_CLOSE",
+        "STRUCTURALLY_UNSAFE",
+        "NO_FAILURE_WITHIN_DOMAIN",
+        "SEARCH_NOT_CONVERGED",
+        "VALIDATED",
+        "VALIDATED_WITH_LIMITATIONS",
+        "RESEARCH_ONLY",
+        "SCENARIO_INCOMPLETE",
+        "MODEL_NOT_FIT_FOR_STRESS",
+        "UNVALIDATED",
+        "CAPABILITY_UNAVAILABLE",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S6State",
+      "type": "string"
+    },
+    "ScenarioClass": {
+      "enum": [
+        "HISTORICAL_REPLAY",
+        "HYPOTHETICAL_SCENARIO",
+        "UNIVARIATE_SENSITIVITY",
+        "MULTIVARIATE_STRESS",
+        "REVERSE_STRESS",
+        "LIQUIDITY_STRESS",
+        "MARGIN_STRESS",
+        "EXECUTION_STRESS",
+        "MODEL_STRESS",
+        "SYSTEMIC_STRESS"
+      ],
+      "title": "ScenarioClass",
+      "type": "string"
+    },
+    "ScenarioProposal": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_uses": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Approved Uses",
+          "type": "array"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "horizon_days": {
+          "minimum": 1,
+          "title": "Horizon Days",
+          "type": "integer"
+        },
+        "name": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Name",
+          "type": "string"
+        },
+        "plausibility_label": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Plausibility Label",
+          "type": "string"
+        },
+        "prohibited_uses": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Prohibited Uses",
+          "type": "array"
+        },
+        "purpose": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "scenario_class": {
+          "$ref": "#/$defs/ScenarioClass"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "severity_label": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Severity Label",
+          "type": "string"
+        },
+        "shocks": {
+          "items": {
+            "$ref": "#/$defs/FactorShock"
+          },
+          "title": "Shocks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "name",
+        "scenario_class",
+        "created_at",
+        "purpose",
+        "approved_uses",
+        "shocks",
+        "horizon_days",
+        "severity_label",
+        "plausibility_label"
+      ],
+      "title": "ScenarioProposal",
+      "type": "object"
+    },
+    "SensitivitySurfaceResult": {
+      "additionalProperties": false,
+      "properties": {
+        "cliffs": {
+          "items": {
+            "$ref": "#/$defs/ConstraintCliff"
+          },
+          "title": "Cliffs",
+          "type": "array"
+        },
+        "evaluation_count": {
+          "minimum": 1,
+          "title": "Evaluation Count",
+          "type": "integer"
+        },
+        "extrapolated_point_fraction": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Extrapolated Point Fraction",
+          "type": "number"
+        },
+        "factor_sensitivities": {
+          "items": {
+            "$ref": "#/$defs/FactorSensitivity"
+          },
+          "title": "Factor Sensitivities",
+          "type": "array"
+        },
+        "interactions": {
+          "items": {
+            "$ref": "#/$defs/InteractionSensitivity"
+          },
+          "title": "Interactions",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "model_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Model Id",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/SurfacePoint"
+          },
+          "title": "Points",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S6State"
+        }
+      },
+      "required": [
+        "status",
+        "model_id",
+        "points",
+        "factor_sensitivities",
+        "interactions",
+        "cliffs",
+        "evaluation_count",
+        "extrapolated_point_fraction"
+      ],
+      "title": "SensitivitySurfaceResult",
+      "type": "object"
+    },
+    "StressScenarioRegistrySnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "commitment_time": {
+          "format": "date-time",
+          "title": "Commitment Time",
+          "type": "string"
+        },
+        "duplicate_scenario_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Duplicate Scenario Ids",
+          "type": "array"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EvidenceReference"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "limitations": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "registry_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Registry Id",
+          "type": "string"
+        },
+        "registry_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Registry Sha256",
+          "type": "string"
+        },
+        "risk_coverage": {
+          "items": {
+            "$ref": "#/$defs/MaterialRiskCoverage"
+          },
+          "title": "Risk Coverage",
+          "type": "array"
+        },
+        "scenarios": {
+          "items": {
+            "$ref": "#/$defs/CommittedScenario"
+          },
+          "title": "Scenarios",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/S6State"
+        },
+        "weighted_material_risk_coverage": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Weighted Material Risk Coverage",
+          "type": "number"
+        }
+      },
+      "required": [
+        "status",
+        "registry_id",
+        "scenarios",
+        "duplicate_scenario_ids",
+        "risk_coverage",
+        "weighted_material_risk_coverage",
+        "commitment_time",
+        "registry_sha256"
+      ],
+      "title": "StressScenarioRegistrySnapshot",
+      "type": "object"
+    },
+    "StressValidationPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum_modelled_pnl_share": {
+          "default": 0.35,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Maximum Modelled Pnl Share",
+          "type": "number"
+        },
+        "maximum_reverse_verification_error": {
+          "default": 1e-06,
+          "minimum": 0,
+          "title": "Maximum Reverse Verification Error",
+          "type": "number"
+        },
+        "minimum_mapped_exposure_share": {
+          "default": 0.9,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Minimum Mapped Exposure Share",
+          "type": "number"
+        },
+        "minimum_material_risk_coverage": {
+          "default": 0.9,
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Minimum Material Risk Coverage",
+          "type": "number"
+        },
+        "minimum_reverse_distance": {
+          "default": 0.25,
+          "minimum": 0,
+          "title": "Minimum Reverse Distance",
+          "type": "number"
+        },
+        "monotonicity_tolerance": {
+          "default": 1e-10,
+          "minimum": 0,
+          "title": "Monotonicity Tolerance",
+          "type": "number"
+        },
+        "require_capacity": {
+          "default": true,
+          "title": "Require Capacity",
+          "type": "boolean"
+        },
+        "require_dro": {
+          "default": false,
+          "title": "Require Dro",
+          "type": "boolean"
+        },
+        "require_evt": {
+          "default": false,
+          "title": "Require Evt",
+          "type": "boolean"
+        },
+        "require_reverse_stress": {
+          "default": true,
+          "title": "Require Reverse Stress",
+          "type": "boolean"
+        }
+      },
+      "title": "StressValidationPolicy",
+      "type": "object"
+    },
+    "SurfacePoint": {
+      "additionalProperties": false,
+      "properties": {
+        "breached_constraint_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Breached Constraint Ids",
+          "type": "array"
+        },
+        "extrapolated": {
+          "title": "Extrapolated",
+          "type": "boolean"
+        },
+        "output_value": {
+          "title": "Output Value",
+          "type": "number"
+        },
+        "shocks": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "minLength": 1,
+                "pattern": ".*\\S.*",
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Shocks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "shocks",
+        "output_value",
+        "extrapolated",
+        "breached_constraint_ids"
+      ],
+      "title": "SurfacePoint",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capacity": {
+      "$ref": "#/$defs/CapacityResult"
+    },
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "dro": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DistributionalRobustnessResult"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evt": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ConditionalEVTResult"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "historical_replay": {
+      "$ref": "#/$defs/HistoricalCrisisReplayResult"
+    },
+    "policy": {
+      "$ref": "#/$defs/StressValidationPolicy",
+      "default": {
+        "maximum_modelled_pnl_share": 0.35,
+        "maximum_reverse_verification_error": 1e-06,
+        "minimum_mapped_exposure_share": 0.9,
+        "minimum_material_risk_coverage": 0.9,
+        "minimum_reverse_distance": 0.25,
+        "monotonicity_tolerance": 1e-10,
+        "require_capacity": true,
+        "require_dro": false,
+        "require_evt": false,
+        "require_reverse_stress": true
+      }
+    },
+    "registry": {
+      "$ref": "#/$defs/StressScenarioRegistrySnapshot"
+    },
+    "reverse_stress": {
+      "$ref": "#/$defs/ReverseStressResult"
+    },
+    "sensitivity": {
+      "$ref": "#/$defs/SensitivitySurfaceResult"
+    }
+  },
+  "required": [
+    "context",
+    "registry",
+    "historical_replay",
+    "sensitivity",
+    "evt",
+    "dro",
+    "capacity",
+    "reverse_stress"
+  ],
+  "title": "StressValidationRequest",
+  "type": "object"
+}

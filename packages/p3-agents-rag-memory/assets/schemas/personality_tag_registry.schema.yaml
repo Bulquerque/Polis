@@ -1,0 +1,134 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: personality_tag_registry.v2
+title: personality_tag_registry
+schema_version: v14.1-rc4.1
+type: object
+required:
+- schema_id
+- schema_version
+- contract_version
+- registry_id
+- registry_version
+- policy
+- assignment_contract
+- categories
+- tag_to_category
+- category_count
+- tag_count
+- registry_hash
+- lineage_id
+- status
+- issues
+properties:
+  schema_id:
+    const: personality_tag_registry.v2
+  schema_version:
+    const: 2.0.0
+  contract_version:
+    const: p3.s4.tag-registry.v2
+  registry_id:
+    type: string
+    minLength: 1
+  registry_version:
+    type: string
+    pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+  policy:
+    const: fixed_registry_no_free_tag_creation
+  assignment_contract:
+    type: object
+    required:
+    - intensity
+    - confidence
+    properties:
+      intensity:
+        type: object
+        required:
+        - minimum
+        - maximum
+        properties:
+          minimum:
+            const: 0.0
+          maximum:
+            const: 1.0
+        additionalProperties: false
+      confidence:
+        type: object
+        required:
+        - minimum
+        - maximum
+        properties:
+          minimum:
+            const: 0.0
+          maximum:
+            const: 1.0
+        additionalProperties: false
+    additionalProperties: false
+  categories:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required:
+      - category_id
+      - tags
+      properties:
+        category_id:
+          type: string
+          pattern: ^[a-z][a-z0-9_]*$
+        tags:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required:
+            - tag_id
+            - description
+            - status
+            - aliases
+            properties:
+              tag_id:
+                type: string
+                pattern: ^[a-z][a-z0-9_]*$
+              description:
+                type: string
+                minLength: 1
+              status:
+                enum:
+                - ACTIVE
+                - DEPRECATED
+              aliases:
+                type: array
+                uniqueItems: true
+                items:
+                  type: string
+                  pattern: ^[a-z][a-z0-9_]*$
+            additionalProperties: false
+      additionalProperties: false
+  tag_to_category:
+    type: object
+    propertyNames:
+      pattern: ^[a-z][a-z0-9_]*$
+    additionalProperties:
+      type: string
+      pattern: ^[a-z][a-z0-9_]*$
+  category_count:
+    type: integer
+    minimum: 1
+  tag_count:
+    type: integer
+    minimum: 1
+  registry_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  lineage_id:
+    type: string
+    minLength: 1
+  status:
+    const: READY
+  issues:
+    type: array
+    maxItems: 0
+additionalProperties: false
+artifact_name: personality_tag_registry
+schema_id: personality_tag_registry.v2
+artifact_schema_version: 2.0.0

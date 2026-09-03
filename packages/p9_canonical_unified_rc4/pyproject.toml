@@ -1,0 +1,101 @@
+[build-system]
+requires = ["setuptools>=82,<84", "wheel>=0.46,<1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-pipeline-phase-09"
+version = "0.1.0rc4.post2"
+description = "Canonical unified Phase 09 research, backtest, robustness, attribution and release pipeline."
+readme = "README.md"
+requires-python = ">=3.13,<3.15"
+license = {text = "Proprietary - project internal"}
+authors = [{name = "Inferencia Project"}]
+dependencies = [
+  "pydantic>=2.13,<3",
+  "numpy>=2.3,<3",
+  "scipy>=1.17,<2",
+  "statsmodels>=0.14.6,<0.15",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=9,<10",
+  "pytest-cov>=7,<8",
+  "hypothesis>=6,<7",
+  "jsonschema>=4.26,<5",
+  "PyYAML>=6,<7",
+  "ruff>=0.12,<1",
+  "mypy>=1.18,<2",
+  "coverage>=7,<8",
+  "build>=1.3,<2",
+]
+
+[project.scripts]
+p9-s05 = "quant_pipeline.phase_09.subphases.s05_bootstrap_inference.cli:main"
+p9-s06 = "quant_pipeline.phase_09.subphases.s06_structural_stress.cli:main"
+p9-robustness-stress = "quant_pipeline.phase_09.orchestration.robustness_stress.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["quant_pipeline.phase_09*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"quant_pipeline.phase_09.generated_schemas" = ["*.json"]
+"quant_pipeline.phase_09.compatibility.generated_schemas" = ["*.json"]
+"quant_pipeline.phase_09.compatibility.resources" = ["*.json"]
+"quant_pipeline.phase_09.subphases.s02_experiment_governance.generated_schemas" = ["*.json"]
+"quant_pipeline.phase_09.subphases.s03_backtest_tournament.resources" = ["schemas/*.json", "registries/*.json"]
+"quant_pipeline.phase_09.subphases.s04_performance_risk.resources" = ["schemas/*.json", "registries/*.json"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-config --import-mode=importlib"
+testpaths = ["tests"]
+pythonpath = [
+  "src",
+  "../P5_CANONICAL_RC4/src",
+  "../P6_CANONICAL_RC4/src",
+  "../P7_CANONICAL_RC3/src",
+  "../P8_INTEGRATED_RC3/src",
+]
+markers = [
+  "unit: isolated module tests",
+  "property: property and metamorphic tests",
+  "contract: contract and schema tests",
+  "integration: cross-module or cross-subphase tests",
+  "adversarial: invalid and hostile input tests",
+  "numerical: numerical reference tests",
+  "replay: deterministic replay tests",
+  "slow: computationally heavier tests",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["src", "tests", "tools"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM", "PIE", "RUF", "PERF", "C90"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_unreachable = true
+show_error_codes = true
+plugins = ["pydantic.mypy"]
+files = ["src/quant_pipeline/phase_09"]
+
+[tool.coverage.run]
+branch = true
+source = ["src/quant_pipeline/phase_09"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 85

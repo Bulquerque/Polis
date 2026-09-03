@@ -1,0 +1,37 @@
+module_id: P4.S4.M06
+module_name: macro_event_calendar_observations
+phase: P4
+subphase: P4.S4
+contract_version: p4.v14.9-rc1.module.v1
+status: IMPLEMENTED_LOCAL_QUALIFIED
+function: Build macro_event_calendar_atomic_panel from the point-in-time canonical
+  observation store using only approved observers.
+inputs:
+- canonical_observation_panel
+- approved_observer_execution_registry
+outputs:
+- macro_event_calendar_atomic_panel
+invariants:
+- point_in_time_integrity
+- approved_observers_only
+- no_target_or_prediction
+- lineage_all_dependencies
+- deterministic_replay
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- candidate_id
+- rank_score
+- portfolio_weight
+- realized_pnl
+tests_required:
+- happy_path
+- schema_negative
+- point_in_time
+- lineage
+- deterministic_replay
+- numeric_or_metamorphic_oracle
+production_promotion_allowed: false

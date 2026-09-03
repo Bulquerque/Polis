@@ -1,0 +1,270 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: urn:quant-pipeline:p3:s1:validated-context-inputs:v2
+title: validated_context_inputs
+artifact_name: validated_context_inputs
+schema_id: validated_context_inputs.v2
+schema_version: v14.1-rc4.1
+type: object
+additionalProperties: false
+required:
+- schema_version
+- contract_version
+- validation_status
+- source_handoff_id
+- source_artifacts
+- quality_policy
+- quality_decisions
+- summary
+- issues
+- lineage_id
+- content_hash
+properties:
+  schema_version:
+    const: v14.1-rc4.1
+  contract_version:
+    const: p3.s1.validated_context_inputs.v2
+  validation_status:
+    enum:
+    - READY
+    - DEGRADED
+  source_handoff_id:
+    type: string
+    minLength: 1
+  source_artifacts:
+    type: array
+    minItems: 4
+    maxItems: 4
+    items:
+      $ref: '#/$defs/artifact_reference'
+  quality_policy:
+    type: object
+    additionalProperties: false
+    required:
+    - policy_id
+    - policy_hash
+    - invalid_statuses
+    - low_quality_action
+    - usable_with_warning_action
+    - recompute_quality
+    properties:
+      policy_id:
+        const: p3.s1.source_quality_policy.v1
+      policy_hash:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+      invalid_statuses:
+        type: array
+        items:
+          type: string
+        uniqueItems: true
+      low_quality_action:
+        const: propagate_flag
+      usable_with_warning_action:
+        const: allow_with_quality_metadata
+      recompute_quality:
+        const: false
+  quality_decisions:
+    type: array
+    items:
+      $ref: '#/$defs/quality_decision'
+  summary:
+    type: object
+    additionalProperties: false
+    required:
+    - total
+    - accepted
+    - accepted_with_warning
+    - rejected
+    - rejected_invalid
+    - rejected_untraceable
+    properties:
+      total:
+        type: integer
+        minimum: 0
+      accepted:
+        type: integer
+        minimum: 0
+      accepted_with_warning:
+        type: integer
+        minimum: 0
+      rejected:
+        type: integer
+        minimum: 0
+      rejected_invalid:
+        type: integer
+        minimum: 0
+      rejected_untraceable:
+        type: integer
+        minimum: 0
+  issues:
+    type: array
+    items:
+      $ref: '#/$defs/issue'
+  lineage_id:
+    type: string
+    minLength: 1
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+$defs:
+  artifact_reference:
+    type: object
+    additionalProperties: false
+    required:
+    - artifact_name
+    - artifact_id
+    - schema_id
+    - schema_version
+    - schema_binding
+    - content_hash
+    - lineage_id
+    - pipeline_version
+    - grain
+    - row_count
+    - validation_status
+    - schema_sha256
+    - schema_authority
+    - schema_authority_path
+    properties:
+      artifact_name:
+        enum:
+        - clean_context_source_panel
+        - clean_document_panel
+        - clean_event_reference_panel
+        - source_quality_panel
+      artifact_id:
+        type: string
+        minLength: 1
+      schema_id:
+        type: string
+        minLength: 1
+      schema_version:
+        type: string
+        minLength: 1
+      schema_binding:
+        const: EXTERNAL_AUTHORITY
+      content_hash:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+      lineage_id:
+        type: string
+        minLength: 1
+      pipeline_version:
+        type: string
+        minLength: 1
+      grain:
+        type: array
+        items:
+          type: string
+          minLength: 1
+        uniqueItems: true
+      row_count:
+        type: integer
+        minimum: 0
+      validation_status:
+        const: READY
+      schema_sha256:
+        type: string
+        pattern: ^[0-9a-f]{64}$
+      schema_authority:
+        type: string
+        minLength: 1
+      schema_authority_path:
+        type: string
+        minLength: 1
+  quality_decision:
+    type: object
+    additionalProperties: false
+    required:
+    - artifact_name
+    - record_id
+    - source_id
+    - decision
+    - quality_score
+    - quality_status
+    - readability_status
+    - error_flag
+    - warning_flag
+    - reason_codes
+    properties:
+      artifact_name:
+        enum:
+        - clean_context_source_panel
+        - clean_document_panel
+        - clean_event_reference_panel
+      record_id:
+        type: string
+        minLength: 1
+      source_id:
+        type:
+        - string
+        - 'null'
+      decision:
+        enum:
+        - ACCEPTED
+        - ACCEPTED_WITH_WARNING
+        - REJECTED_INVALID
+        - REJECTED_UNTRACEABLE
+      quality_score:
+        type:
+        - number
+        - 'null'
+        minimum: 0
+        maximum: 1
+      quality_status:
+        type:
+        - string
+        - 'null'
+      readability_status:
+        type:
+        - string
+        - 'null'
+      error_flag:
+        type:
+        - boolean
+        - 'null'
+      warning_flag:
+        type:
+        - boolean
+        - 'null'
+      reason_codes:
+        type: array
+        items:
+          type: string
+          minLength: 1
+        uniqueItems: true
+  issue:
+    type: object
+    additionalProperties: false
+    required:
+    - code
+    - severity
+    - message
+    - artifact_name
+    - record_id
+    - field
+    properties:
+      code:
+        type: string
+        minLength: 1
+      severity:
+        enum:
+        - INFO
+        - WARNING
+        - ERROR
+        - BLOCKING
+      message:
+        type: string
+        minLength: 1
+      artifact_name:
+        type:
+        - string
+        - 'null'
+      record_id:
+        type:
+        - string
+        - 'null'
+      field:
+        type:
+        - string
+        - 'null'

@@ -1,0 +1,43 @@
+registry_id: P3_ROLE_OBJECTIVE_REGISTRY_V2
+registry_version: 2.0.0
+objective_dimensions:
+- wealth_growth
+- capital_preservation
+- income_generation
+- forecast_accuracy
+- information_accuracy
+- audience_reach
+- policy_effectiveness
+- regulatory_compliance
+- operational_continuity
+- career_risk
+- social_status
+- liquidity_priority
+- institutional_mandate_pressure
+family_defaults:
+  market_participants:
+  - wealth_growth
+  - capital_preservation
+  - forecast_accuracy
+  corporate_actors:
+  - operational_continuity
+  - career_risk
+  - information_accuracy
+  information_actors:
+  - information_accuracy
+  - audience_reach
+  - career_risk
+  policy_institutions:
+  - policy_effectiveness
+  - regulatory_compliance
+  - information_accuracy
+  real_economy:
+  - operational_continuity
+  - liquidity_priority
+  - income_generation
+weight_policy:
+  normalization: sum_to_one
+  sum_tolerance: 1.0e-09
+  minimum: 0.0
+  maximum: 1.0
+lineage_id: LIN_CONFIG_P3_ROLE_OBJECTIVE_REGISTRY_V2

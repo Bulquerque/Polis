@@ -1,0 +1,248 @@
+{
+  "$defs": {
+    "PositionState": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "1",
+          "title": "Contract Multiplier"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "mark_price": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Mark Price"
+        },
+        "position_id": {
+          "minLength": 1,
+          "title": "Position Id",
+          "type": "string"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Quantity"
+        }
+      },
+      "required": [
+        "position_id",
+        "candidate_id",
+        "instrument_id",
+        "quantity",
+        "mark_price"
+      ],
+      "title": "PositionState",
+      "type": "object"
+    },
+    "ReplayDifference": {
+      "additionalProperties": false,
+      "properties": {
+        "absolute_difference": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Absolute Difference"
+        },
+        "expected": {
+          "minLength": 1,
+          "title": "Expected",
+          "type": "string"
+        },
+        "field": {
+          "minLength": 1,
+          "title": "Field",
+          "type": "string"
+        },
+        "observed": {
+          "minLength": 1,
+          "title": "Observed",
+          "type": "string"
+        },
+        "reason_code": {
+          "pattern": "^P9_[A-Z0-9_]+$",
+          "title": "Reason Code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "expected",
+        "observed",
+        "reason_code"
+      ],
+      "title": "ReplayDifference",
+      "type": "object"
+    },
+    "ReplayIntegrityStatus": {
+      "enum": [
+        "REPLAY_EXACT",
+        "REPLAY_NUMERICALLY_EQUIVALENT",
+        "REPLAY_DIVERGED",
+        "CHECKPOINT_INVALID",
+        "EVENT_STREAM_INVALID"
+      ],
+      "title": "ReplayIntegrityStatus",
+      "type": "string"
+    },
+    "ReplayState": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "format": "date-time",
+          "title": "As Of",
+          "type": "string"
+        },
+        "cash": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cash"
+        },
+        "fees_paid": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Fees Paid"
+        },
+        "margin_used": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Margin Used"
+        },
+        "positions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/PositionState"
+          },
+          "title": "Positions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "as_of",
+        "cash"
+      ],
+      "title": "ReplayState",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "differences": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ReplayDifference"
+      },
+      "title": "Differences",
+      "type": "array"
+    },
+    "event_count": {
+      "minimum": 0,
+      "title": "Event Count",
+      "type": "integer"
+    },
+    "expected_state": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReplayState"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "pattern": "^P9_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "reconstructed_state": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReplayState"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "$ref": "#/$defs/ReplayIntegrityStatus"
+    }
+  },
+  "required": [
+    "status",
+    "event_count",
+    "reconstructed_state",
+    "expected_state"
+  ],
+  "title": "ReplayIntegrityReport",
+  "type": "object"
+}

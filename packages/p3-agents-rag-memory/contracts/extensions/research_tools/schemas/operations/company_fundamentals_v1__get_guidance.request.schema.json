@@ -1,0 +1,47 @@
+{
+  "$id": "https://quant-pipeline.local/schema/p3/research-tools/company.fundamentals.v1/get_guidance/request/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entity_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "title": "Entity Ids",
+      "type": "array"
+    },
+    "horizons": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Horizons",
+      "type": "array"
+    },
+    "metrics": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Metrics",
+      "type": "array"
+    },
+    "research_mode": {
+      "minLength": 1,
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "title": "Research Mode",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_mode",
+    "entity_ids"
+  ],
+  "title": "GetGuidanceRequest",
+  "type": "object"
+}

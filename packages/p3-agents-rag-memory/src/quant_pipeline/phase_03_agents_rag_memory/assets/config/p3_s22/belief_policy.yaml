@@ -1,0 +1,14 @@
+schema_version: p3.s22.v1
+policy_version: s22-policy-v1
+allow_initial_belief: true
+max_directional_score_delta: 2.0
+max_volatility_level_delta: 1.0
+max_regime_l1_delta: 2.0
+minimum_supporting_evidence: 1
+tool_result_source_quality: 0.8
+horizon_calendar_days:
+  1d: 1
+  5d: 5
+  21d: 21
+  63d: 63
+  252d: 252

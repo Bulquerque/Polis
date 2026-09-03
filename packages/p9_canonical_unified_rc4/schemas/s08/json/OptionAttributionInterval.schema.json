@@ -1,0 +1,122 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "position_id": {
+      "minLength": 1,
+      "title": "Position Id",
+      "type": "string"
+    },
+    "interval_start": {
+      "format": "date-time",
+      "title": "Interval Start",
+      "type": "string"
+    },
+    "interval_end": {
+      "format": "date-time",
+      "title": "Interval End",
+      "type": "string"
+    },
+    "greek_snapshot_time": {
+      "format": "date-time",
+      "title": "Greek Snapshot Time",
+      "type": "string"
+    },
+    "quantity": {
+      "title": "Quantity",
+      "type": "number"
+    },
+    "price_before": {
+      "minimum": 0.0,
+      "title": "Price Before",
+      "type": "number"
+    },
+    "price_after": {
+      "minimum": 0.0,
+      "title": "Price After",
+      "type": "number"
+    },
+    "delta": {
+      "title": "Delta",
+      "type": "number"
+    },
+    "gamma": {
+      "title": "Gamma",
+      "type": "number"
+    },
+    "vega": {
+      "title": "Vega",
+      "type": "number"
+    },
+    "theta_per_year": {
+      "title": "Theta Per Year",
+      "type": "number"
+    },
+    "rho": {
+      "title": "Rho",
+      "type": "number"
+    },
+    "spot_change": {
+      "title": "Spot Change",
+      "type": "number"
+    },
+    "volatility_change": {
+      "title": "Volatility Change",
+      "type": "number"
+    },
+    "year_fraction": {
+      "minimum": 0.0,
+      "title": "Year Fraction",
+      "type": "number"
+    },
+    "rate_change": {
+      "title": "Rate Change",
+      "type": "number"
+    },
+    "skew_effect": {
+      "default": 0.0,
+      "title": "Skew Effect",
+      "type": "number"
+    },
+    "term_structure_effect": {
+      "default": 0.0,
+      "title": "Term Structure Effect",
+      "type": "number"
+    },
+    "cross_greek_effect": {
+      "default": 0.0,
+      "title": "Cross Greek Effect",
+      "type": "number"
+    },
+    "lifecycle_pnl": {
+      "default": 0.0,
+      "title": "Lifecycle Pnl",
+      "type": "number"
+    },
+    "surface_available": {
+      "default": true,
+      "title": "Surface Available",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "position_id",
+    "interval_start",
+    "interval_end",
+    "greek_snapshot_time",
+    "quantity",
+    "price_before",
+    "price_after",
+    "delta",
+    "gamma",
+    "vega",
+    "theta_per_year",
+    "rho",
+    "spot_change",
+    "volatility_change",
+    "year_fraction",
+    "rate_change"
+  ],
+  "title": "OptionAttributionInterval",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:OptionAttributionInterval:1.0.0"
+}

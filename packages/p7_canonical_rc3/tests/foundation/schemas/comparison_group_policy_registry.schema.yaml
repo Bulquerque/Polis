@@ -1,0 +1,107 @@
+$defs:
+  ComparisonGroupPolicy:
+    additionalProperties: false
+    properties:
+      capital_at_risk_sources:
+        default:
+        - risk.maximum_loss
+        - risk.margin_estimate
+        - cost_liquidity.entry_cost
+        items:
+          type: string
+        title: Capital At Risk Sources
+        type: array
+      currency_sources:
+        default:
+        - candidate.currency
+        - cost_liquidity.currency
+        - market_snapshot.currency
+        items:
+          type: string
+        title: Currency Sources
+        type: array
+      dimensions:
+        default:
+        - cycle_id
+        - decision_time
+        - underlying_id
+        - horizon
+        - objective_family
+        - capital_at_risk_bucket
+        - currency
+        items:
+          type: string
+        title: Dimensions
+        type: array
+      policy_id:
+        title: Policy Id
+        type: string
+      risk_buckets:
+        items:
+          $ref: '#/$defs/RiskBucket'
+        title: Risk Buckets
+        type: array
+      supported_horizons:
+        default: []
+        items:
+          type: string
+        title: Supported Horizons
+        type: array
+      version:
+        pattern: ^\d+\.\d+\.\d+$
+        title: Version
+        type: string
+    required:
+    - policy_id
+    - version
+    - risk_buckets
+    title: ComparisonGroupPolicy
+    type: object
+  RiskBucket:
+    additionalProperties: false
+    properties:
+      bucket_id:
+        title: Bucket Id
+        type: string
+      lower_inclusive:
+        minimum: 0
+        title: Lower Inclusive
+        type: number
+      upper_exclusive:
+        anyOf:
+        - exclusiveMinimum: 0
+          type: number
+        - type: 'null'
+        default: null
+        title: Upper Exclusive
+    required:
+    - bucket_id
+    - lower_inclusive
+    title: RiskBucket
+    type: object
+$id: https://quant-pipeline.local/schemas/p7/comparison_group_policy_registry/2.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+additionalProperties: false
+properties:
+  active_policy_id:
+    title: Active Policy Id
+    type: string
+  policies:
+    items:
+      $ref: '#/$defs/ComparisonGroupPolicy'
+    title: Policies
+    type: array
+  registry_id:
+    title: Registry Id
+    type: string
+  registry_version:
+    pattern: ^\d+\.\d+\.\d+$
+    title: Registry Version
+    type: string
+required:
+- registry_id
+- registry_version
+- active_policy_id
+- policies
+title: ComparisonGroupPolicyRegistry
+type: object

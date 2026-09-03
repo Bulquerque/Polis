@@ -1,0 +1,67 @@
+{
+  "$defs": {
+    "OptionMode": {
+      "enum": [
+        "CONTRACT_LOOKUP",
+        "CHAIN_DIAGNOSTIC",
+        "STRUCTURE_HISTORY",
+        "SURFACE_ANALYSIS"
+      ],
+      "title": "OptionMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_keys": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Contract Keys",
+      "type": "array"
+    },
+    "end_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End Date"
+    },
+    "max_records_per_contract": {
+      "default": 252,
+      "maximum": 5000,
+      "minimum": 1,
+      "title": "Max Records Per Contract",
+      "type": "integer"
+    },
+    "research_mode": {
+      "$ref": "#/$defs/OptionMode",
+      "default": "STRUCTURE_HISTORY"
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Start Date"
+    }
+  },
+  "required": [
+    "contract_keys"
+  ],
+  "title": "GetQuoteHistoryRequest",
+  "type": "object"
+}

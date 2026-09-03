@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "CutoffRiskClass": {
+      "enum": [
+        "STRICT_CLEAN",
+        "LOWER_RISK",
+        "CONTAMINATION_RISK",
+        "UNKNOWN"
+      ],
+      "title": "CutoffRiskClass",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "provider_id": {
+      "minLength": 1,
+      "title": "Provider Id",
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "model_version": {
+      "minLength": 1,
+      "title": "Model Version",
+      "type": "string"
+    },
+    "release_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Release Date"
+    },
+    "known_training_cutoff": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Known Training Cutoff"
+    },
+    "evaluation_start": {
+      "format": "date-time",
+      "title": "Evaluation Start",
+      "type": "string"
+    },
+    "evaluation_end": {
+      "format": "date-time",
+      "title": "Evaluation End",
+      "type": "string"
+    },
+    "risk_class": {
+      "$ref": "#/$defs/CutoffRiskClass"
+    },
+    "rationale": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Rationale",
+      "type": "string"
+    },
+    "lineage_id": {
+      "minLength": 1,
+      "title": "Lineage Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "provider_id",
+    "model_id",
+    "model_version",
+    "evaluation_start",
+    "evaluation_end",
+    "risk_class",
+    "rationale",
+    "lineage_id"
+  ],
+  "title": "ModelKnowledgeCutoffReport",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

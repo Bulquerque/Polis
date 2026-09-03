@@ -1,0 +1,73 @@
+{
+  "$defs": {
+    "ValuationQuality": {
+      "enum": [
+        "FULL_REPRICING",
+        "ANALYTIC_LINEAR",
+        "DEGRADED",
+        "UNAVAILABLE"
+      ],
+      "title": "ValuationQuality",
+      "type": "string"
+    }
+  },
+  "$id": "https://inferencia.local/p8/s4/v1/PnLCubeSummary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_count": {
+      "title": "Candidate Count",
+      "type": "integer"
+    },
+    "content_sha256": {
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "leg_count": {
+      "title": "Leg Count",
+      "type": "integer"
+    },
+    "scenario_count": {
+      "title": "Scenario Count",
+      "type": "integer"
+    },
+    "step_count": {
+      "title": "Step Count",
+      "type": "integer"
+    },
+    "storage_npz": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Storage Npz"
+    },
+    "stress_scenario_count": {
+      "title": "Stress Scenario Count",
+      "type": "integer"
+    },
+    "valuation_quality_by_candidate": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ValuationQuality"
+      },
+      "title": "Valuation Quality By Candidate",
+      "type": "object"
+    }
+  },
+  "required": [
+    "candidate_count",
+    "leg_count",
+    "scenario_count",
+    "stress_scenario_count",
+    "step_count",
+    "valuation_quality_by_candidate",
+    "content_sha256"
+  ],
+  "title": "PnLCubeSummary",
+  "type": "object"
+}

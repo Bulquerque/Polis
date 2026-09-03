@@ -1,0 +1,28 @@
+schema_id: p3_s12_retrieval_config.v1
+schema_version: 1.0.0
+chunking:
+  strategy: paragraph_word_window_v1
+  max_words: 180
+  overlap_words: 30
+  min_words: 3
+  normalization_version: nfkc_lf_v1
+embedding:
+  enabled: true
+  semantic_required: false
+  provider_id: offline_hashing
+  batch_size: 32
+  expected_dimensions: 64
+  input_type: passage
+  truncate: NONE
+reranker:
+  enabled: false
+  provider_id: null
+  required_when_connected: true
+allow_lexical_fallback: true
+keyword_tokenizer_version: unicode_word_casefold_v1
+required_metadata_filters:
+- available_at
+- source_id
+- document_id
+- underlyings
+- entities

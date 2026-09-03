@@ -1,0 +1,262 @@
+{
+  "$defs": {
+    "Authority": {
+      "enum": [
+        "P0",
+        "P2",
+        "P3_RUNTIME",
+        "P4",
+        "P9",
+        "OPERATIONS"
+      ],
+      "title": "Authority",
+      "type": "string"
+    },
+    "ReceiptType": {
+      "enum": [
+        "PLATFORM_QUALIFICATION",
+        "P2_HANDOFF",
+        "P4_CONSUMPTION",
+        "VARIABLE_EVOLUTION_CONSUMPTION",
+        "P9_EVALUATION",
+        "P9_FEEDBACK",
+        "N_PLUS_1_FEEDBACK",
+        "CHECKPOINT_RELOAD",
+        "MODULE_TRACE",
+        "FOLD_CHECKPOINT"
+      ],
+      "title": "ReceiptType",
+      "type": "string"
+    },
+    "SignedReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_hashes": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Artifact Hashes",
+          "type": "object"
+        },
+        "artifact_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Artifact Ids",
+          "type": "array"
+        },
+        "authority": {
+          "$ref": "#/$defs/Authority"
+        },
+        "cardinalities": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Cardinalities",
+          "type": "object"
+        },
+        "consumed_at": {
+          "format": "date-time",
+          "title": "Consumed At",
+          "type": "string"
+        },
+        "consumer": {
+          "minLength": 1,
+          "title": "Consumer",
+          "type": "string"
+        },
+        "downstream_output_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Downstream Output Hash"
+        },
+        "downstream_output_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Downstream Output Id"
+        },
+        "grains": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Grains",
+          "type": "object"
+        },
+        "key_id": {
+          "minLength": 1,
+          "title": "Key Id",
+          "type": "string"
+        },
+        "producer": {
+          "minLength": 1,
+          "title": "Producer",
+          "type": "string"
+        },
+        "receipt_type": {
+          "$ref": "#/$defs/ReceiptType"
+        },
+        "receipt_version": {
+          "default": "p3.integration.receipt.v2",
+          "title": "Receipt Version",
+          "type": "string"
+        },
+        "release_id": {
+          "minLength": 1,
+          "title": "Release Id",
+          "type": "string"
+        },
+        "release_sha256": {
+          "title": "Release Sha256",
+          "type": "string"
+        },
+        "schema_versions": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Schema Versions",
+          "type": "object"
+        },
+        "signature": {
+          "maxLength": 88,
+          "minLength": 88,
+          "title": "Signature",
+          "type": "string"
+        },
+        "source_cycle_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Cycle Id"
+        },
+        "target_cycle_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target Cycle Id"
+        },
+        "validation_status": {
+          "const": "PASS",
+          "title": "Validation Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "release_id",
+        "release_sha256",
+        "receipt_type",
+        "authority",
+        "producer",
+        "consumer",
+        "artifact_ids",
+        "artifact_hashes",
+        "schema_versions",
+        "cardinalities",
+        "grains",
+        "validation_status",
+        "consumed_at",
+        "key_id",
+        "signature"
+      ],
+      "title": "SignedReceipt",
+      "type": "object"
+    }
+  },
+  "$id": "p3://schemas/final_integration/integration_entry_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code_and_migration_status": {
+      "const": "PASS",
+      "title": "Code And Migration Status",
+      "type": "string"
+    },
+    "evidence_hash": {
+      "title": "Evidence Hash",
+      "type": "string"
+    },
+    "evidence_version": {
+      "default": "p3.integration-entry.v2",
+      "title": "Evidence Version",
+      "type": "string"
+    },
+    "frozen_at": {
+      "format": "date-time",
+      "title": "Frozen At",
+      "type": "string"
+    },
+    "holdout_policy_hash": {
+      "title": "Holdout Policy Hash",
+      "type": "string"
+    },
+    "real_trace_module_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 81,
+      "minItems": 81,
+      "title": "Real Trace Module Ids",
+      "type": "array"
+    },
+    "receipts": {
+      "items": {
+        "$ref": "#/$defs/SignedReceipt"
+      },
+      "title": "Receipts",
+      "type": "array"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    },
+    "runtime_qualification_status": {
+      "const": "PASS",
+      "title": "Runtime Qualification Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "code_and_migration_status",
+    "runtime_qualification_status",
+    "real_trace_module_ids",
+    "receipts",
+    "holdout_policy_hash",
+    "frozen_at",
+    "evidence_hash"
+  ],
+  "title": "IntegrationEntryEvidence",
+  "type": "object"
+}

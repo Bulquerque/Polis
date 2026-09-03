@@ -1,0 +1,47 @@
+phase: phase_03_agents_rag_memory.runtime
+authority: runtime S17-S31
+contract_pack: P3_INTEGRATION_CONTRACT_PACK_V2
+required_boundary_inputs:
+- FoundationRuntimeManifest
+- CycleKernelRequest
+resolved_foundation_views:
+- FoundationGovernanceView
+- PopulationRuntimeView
+- StateRuntimeView
+- KnowledgeRuntimeView
+- MemoryRuntimeView
+- ToolRuntimeView
+optional_cycle_inputs:
+- ReplayState
+configuration_inputs:
+- activation_config
+- aggregation_semantics_config
+- canonical_cycle_pipeline_config
+- cognition_config
+- context_budget_config
+- context_learning_config
+- emergence_vector_config
+- entity_underlying_map_config
+- evaluation_protocol_config
+- evaluation_window_config
+- graph_config
+- heartbeat_config
+- memory_consolidation_config
+- proposition_registry_config
+- provider_adapter_registry_config
+- relationship_formation_config
+- relationship_update_config
+- retrieval_config
+- social_delivery_config
+- social_graph_config
+- state_change_config
+- stimulus_bus_config
+rules:
+- foundation_artifacts_resolved_only_through_ports
+- foundation_schemas_are_not_owned_by_runtime
+- future_information_forbidden
+- missing_artifact_is_not_empty_valid
+- no_defaults_in_projections
+- replay_never_calls_live_providers
+contract_compatibility: V14.1-RC4.1
+version: v2-runtime-ready

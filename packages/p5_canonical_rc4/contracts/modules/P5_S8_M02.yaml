@@ -1,0 +1,19 @@
+module_id: P5.S8.M02
+name: probabilistic_scoring_calibration_diagnostics
+subphase_id: P5.S8
+required_inputs:
+- harmonized_forecast_member_panel
+- oof_validation_observation_panel
+optional_inputs:
+- regime_transition_evaluation_plan
+- hypothesis_confirmation_development_report
+outputs:
+- forecast_scoring_panel
+- forecast_calibration_diagnostics
+allowed_actions:
+- VALIDATE
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

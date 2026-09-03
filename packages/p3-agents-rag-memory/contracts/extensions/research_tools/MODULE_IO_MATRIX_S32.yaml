@@ -1,0 +1,47 @@
+schema_id: p3.research_tools.s32.module_io_matrix.v1
+schema_version: 1.0.0
+records:
+- module_id: P3.S32.M01
+  inputs:
+  - research_tool_catalog_config
+  - provider_transport_bindings_config
+  - schema_bundle_manifest
+  - extension_contract_version
+  outputs:
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+- module_id: P3.S32.M02
+  inputs:
+  - canonical_tool_operation_registry
+  - operation_mode_registry_config
+  - research_capability_taxonomy_config
+  outputs:
+  - research_mode_registry
+  - operation_mode_matrix
+- module_id: P3.S32.M03
+  inputs:
+  - tool_registry
+  - mcp_gateway_policy
+  - provider_adapter_registry_config
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+  - compatibility_alias_config
+  outputs:
+  - extended_tool_registry_overlay
+  - provider_transport_overlay
+  - compatibility_alias_registry
+  - legacy_contract_projection_report
+- module_id: P3.S32.M04
+  inputs:
+  - canonical_research_tool_catalog
+  - canonical_tool_operation_registry
+  - research_mode_registry
+  - operation_mode_matrix
+  - provider_transport_overlay
+  - compatibility_alias_registry
+  - schema_bundle_manifest
+  - prompt_descriptor_template_manifest
+  - extension_config_manifest
+  outputs:
+  - research_tool_extension_snapshot
+  - research_tool_contract_pack_manifest

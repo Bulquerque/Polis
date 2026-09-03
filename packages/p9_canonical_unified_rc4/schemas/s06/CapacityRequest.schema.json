@@ -1,0 +1,292 @@
+{
+  "$defs": {
+    "CapacityStressPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_extrapolation": {
+          "default": true,
+          "title": "Allow Extrapolation",
+          "type": "boolean"
+        },
+        "break_even_tolerance": {
+          "default": 1e-10,
+          "exclusiveMinimum": 0,
+          "title": "Break Even Tolerance",
+          "type": "number"
+        },
+        "margin_limit_fraction": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Margin Limit Fraction",
+          "type": "number"
+        },
+        "network_spectral_radius_limit": {
+          "default": 0.98,
+          "exclusiveMinimum": 0,
+          "title": "Network Spectral Radius Limit",
+          "type": "number"
+        },
+        "trading_days_per_year": {
+          "default": 252,
+          "minimum": 1,
+          "title": "Trading Days Per Year",
+          "type": "integer"
+        }
+      },
+      "title": "CapacityStressPolicy",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "OBSERVED_LIVE",
+        "OBSERVED_HISTORICAL",
+        "TRANSLATED_FACTOR",
+        "MODELLED",
+        "PARAMETRIC",
+        "STRESS_EXTRAPOLATED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "ExecutionLeg": {
+      "additionalProperties": false,
+      "properties": {
+        "average_daily_volume": {
+          "exclusiveMinimum": 0,
+          "title": "Average Daily Volume",
+          "type": "number"
+        },
+        "borrow_bps": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Borrow Bps",
+          "type": "number"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "funding_bps": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Funding Bps",
+          "type": "number"
+        },
+        "gross_exposure_multiple": {
+          "minimum": 0,
+          "title": "Gross Exposure Multiple",
+          "type": "number"
+        },
+        "impact_coefficient_bps": {
+          "minimum": 0.0,
+          "title": "Impact Coefficient Bps",
+          "type": "number"
+        },
+        "impact_exponent": {
+          "default": 1.5,
+          "exclusiveMinimum": 1.0,
+          "title": "Impact Exponent",
+          "type": "number"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "margin_rate": {
+          "default": 0.0,
+          "minimum": 0,
+          "title": "Margin Rate",
+          "type": "number"
+        },
+        "max_participation_rate": {
+          "default": 0.1,
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Max Participation Rate",
+          "type": "number"
+        },
+        "spread_bps": {
+          "minimum": 0.0,
+          "title": "Spread Bps",
+          "type": "number"
+        },
+        "trade_weight": {
+          "exclusiveMinimum": 0,
+          "title": "Trade Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "trade_weight",
+        "gross_exposure_multiple",
+        "average_daily_volume",
+        "spread_bps",
+        "impact_coefficient_bps",
+        "evidence_class"
+      ],
+      "title": "ExecutionLeg",
+      "type": "object"
+    },
+    "NetworkStressInput": {
+      "additionalProperties": false,
+      "properties": {
+        "initial_forced_sale": {
+          "items": {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "title": "Initial Forced Sale",
+          "type": "array"
+        },
+        "overlap_matrix": {
+          "items": {
+            "items": {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "title": "Overlap Matrix",
+          "type": "array"
+        }
+      },
+      "required": [
+        "overlap_matrix",
+        "initial_forced_sale"
+      ],
+      "title": "NetworkStressInput",
+      "type": "object"
+    },
+    "RunContext": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at": {
+          "format": "date-time",
+          "title": "Available At",
+          "type": "string"
+        },
+        "code_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Code Sha256",
+          "type": "string"
+        },
+        "configuration_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Configuration Id",
+          "type": "string"
+        },
+        "cycle_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Cycle Id",
+          "type": "string"
+        },
+        "data_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Data Sha256",
+          "type": "string"
+        },
+        "decision_time": {
+          "format": "date-time",
+          "title": "Decision Time",
+          "type": "string"
+        },
+        "experiment_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "cycle_id",
+        "experiment_id",
+        "configuration_id",
+        "decision_time",
+        "available_at",
+        "code_sha256",
+        "data_sha256"
+      ],
+      "title": "RunContext",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "annual_gross_return": {
+      "title": "Annual Gross Return",
+      "type": "number"
+    },
+    "annual_turnover_ratio": {
+      "minimum": 0.0,
+      "title": "Annual Turnover Ratio",
+      "type": "number"
+    },
+    "aum_grid": {
+      "items": {
+        "exclusiveMinimum": 0,
+        "type": "number"
+      },
+      "title": "Aum Grid",
+      "type": "array"
+    },
+    "base_aum": {
+      "exclusiveMinimum": 0,
+      "title": "Base Aum",
+      "type": "number"
+    },
+    "context": {
+      "$ref": "#/$defs/RunContext"
+    },
+    "legs": {
+      "items": {
+        "$ref": "#/$defs/ExecutionLeg"
+      },
+      "title": "Legs",
+      "type": "array"
+    },
+    "network_stress": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/NetworkStressInput"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "policy": {
+      "$ref": "#/$defs/CapacityStressPolicy",
+      "default": {
+        "allow_extrapolation": true,
+        "break_even_tolerance": 1e-10,
+        "margin_limit_fraction": 1.0,
+        "network_spectral_radius_limit": 0.98,
+        "trading_days_per_year": 252
+      }
+    }
+  },
+  "required": [
+    "context",
+    "base_aum",
+    "annual_gross_return",
+    "annual_turnover_ratio",
+    "aum_grid",
+    "legs"
+  ],
+  "title": "CapacityRequest",
+  "type": "object"
+}

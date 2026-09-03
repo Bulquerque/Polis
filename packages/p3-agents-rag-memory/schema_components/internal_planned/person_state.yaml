@@ -1,0 +1,80 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: person_state
+status: planned_internal_schema
+type: object
+required:
+- person_id
+- as_of_time
+- attention_state
+- affective_state
+- belief_refs
+- memory_snapshot_ref
+- relationship_state_ref
+- tool_proficiency_state
+- knowledge_state
+- lineage_id
+properties:
+  person_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  attention_state:
+    type: object
+    required:
+    - attention_budget
+    - current_focus
+    - overload
+    properties:
+      attention_budget: &id001
+        type: number
+        minimum: 0
+        maximum: 1
+      current_focus:
+        type: array
+        items:
+          type: string
+      overload: *id001
+    additionalProperties: false
+  affective_state:
+    type: object
+    required:
+    - stress
+    - fear
+    - excitement
+    - frustration
+    - perceived_control
+    properties:
+      stress: *id001
+      fear: *id001
+      excitement: *id001
+      frustration: *id001
+      perceived_control: *id001
+    additionalProperties: false
+  belief_refs:
+    type: array
+    items:
+      type: string
+  memory_snapshot_ref:
+    type: string
+  relationship_state_ref:
+    type: string
+  tool_proficiency_state:
+    type: object
+    additionalProperties:
+      type: number
+      minimum: 0
+      maximum: 1
+  knowledge_state:
+    type: object
+    additionalProperties:
+      type: number
+      minimum: 0
+      maximum: 1
+  recent_experience_summary:
+    type: array
+    items:
+      type: string
+  lineage_id:
+    type: string
+additionalProperties: false

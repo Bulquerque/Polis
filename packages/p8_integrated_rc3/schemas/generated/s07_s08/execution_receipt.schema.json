@@ -1,0 +1,422 @@
+{
+  "$defs": {
+    "CandidateExecutionAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "signed_quantity_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Quantity Delta"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "instrument_id",
+        "signed_quantity_delta"
+      ],
+      "title": "CandidateExecutionAllocation",
+      "type": "object"
+    },
+    "InstrumentPositionDelta": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "signed_quantity_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Quantity Delta"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "signed_quantity_delta"
+      ],
+      "title": "InstrumentPositionDelta",
+      "type": "object"
+    },
+    "OrderReconciliation": {
+      "additionalProperties": false,
+      "properties": {
+        "cancelled_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Cancelled Quantity"
+        },
+        "expired_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Expired Quantity"
+        },
+        "filled_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Filled Quantity"
+        },
+        "final_status": {
+          "$ref": "#/$defs/OrderStatus"
+        },
+        "open_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Open Quantity"
+        },
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "ordered_quantity": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Ordered Quantity"
+        },
+        "quantity_conserved": {
+          "title": "Quantity Conserved",
+          "type": "boolean"
+        },
+        "rejected_quantity": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Rejected Quantity"
+        }
+      },
+      "required": [
+        "order_id",
+        "ordered_quantity",
+        "filled_quantity",
+        "cancelled_quantity",
+        "rejected_quantity",
+        "expired_quantity",
+        "open_quantity",
+        "final_status",
+        "quantity_conserved"
+      ],
+      "title": "OrderReconciliation",
+      "type": "object"
+    },
+    "OrderStatus": {
+      "enum": [
+        "CREATED",
+        "SUBMITTED",
+        "ACCEPTED",
+        "PARTIALLY_FILLED",
+        "FILLED",
+        "CANCELLED",
+        "REJECTED",
+        "EXPIRED",
+        "REPLACED"
+      ],
+      "title": "OrderStatus",
+      "type": "string"
+    },
+    "RealizedExecutionCost": {
+      "additionalProperties": false,
+      "properties": {
+        "arrival_mid": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Arrival Mid"
+        },
+        "estimation_error": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Estimation Error"
+        },
+        "fees": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Fees"
+        },
+        "implementation_shortfall": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Implementation Shortfall"
+        },
+        "order_id": {
+          "minLength": 1,
+          "title": "Order Id",
+          "type": "string"
+        },
+        "pretrade_estimate": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Pretrade Estimate"
+        },
+        "total_realized_cost": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Total Realized Cost"
+        }
+      },
+      "required": [
+        "order_id",
+        "arrival_mid",
+        "implementation_shortfall",
+        "fees",
+        "total_realized_cost",
+        "pretrade_estimate",
+        "estimation_error"
+      ],
+      "title": "RealizedExecutionCost",
+      "type": "object"
+    },
+    "ReceiptStatus": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "PARTIAL",
+        "NO_ACTION_VALID"
+      ],
+      "title": "ReceiptStatus",
+      "type": "string"
+    },
+    "VirtualReallocation": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "reallocation_id": {
+          "minLength": 1,
+          "title": "Reallocation Id",
+          "type": "string"
+        },
+        "reason_code": {
+          "default": "VIRTUAL_BOOK_REALLOCATION",
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "signed_quantity_delta": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Quantity Delta"
+        }
+      },
+      "required": [
+        "reallocation_id",
+        "instrument_id",
+        "candidate_id",
+        "signed_quantity_delta"
+      ],
+      "title": "VirtualReallocation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidate_allocations": {
+      "items": {
+        "$ref": "#/$defs/CandidateExecutionAllocation"
+      },
+      "title": "Candidate Allocations",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "fill_event_ledger_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Fill Event Ledger Hash",
+      "type": "string"
+    },
+    "instrument_position_deltas": {
+      "items": {
+        "$ref": "#/$defs/InstrumentPositionDelta"
+      },
+      "title": "Instrument Position Deltas",
+      "type": "array"
+    },
+    "order_event_ledger_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Order Event Ledger Hash",
+      "type": "string"
+    },
+    "order_reconciliations": {
+      "items": {
+        "$ref": "#/$defs/OrderReconciliation"
+      },
+      "title": "Order Reconciliations",
+      "type": "array"
+    },
+    "realized_costs": {
+      "items": {
+        "$ref": "#/$defs/RealizedExecutionCost"
+      },
+      "title": "Realized Costs",
+      "type": "array"
+    },
+    "receipt_id": {
+      "minLength": 1,
+      "title": "Receipt Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/ReceiptStatus"
+    },
+    "virtual_reallocations": {
+      "items": {
+        "$ref": "#/$defs/VirtualReallocation"
+      },
+      "title": "Virtual Reallocations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "receipt_id",
+    "status",
+    "order_reconciliations",
+    "instrument_position_deltas",
+    "candidate_allocations",
+    "virtual_reallocations",
+    "realized_costs",
+    "order_event_ledger_hash",
+    "fill_event_ledger_hash",
+    "content_sha256"
+  ],
+  "title": "ExecutionReceipt",
+  "type": "object"
+}

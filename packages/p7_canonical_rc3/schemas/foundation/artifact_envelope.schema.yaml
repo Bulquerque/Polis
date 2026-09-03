@@ -1,0 +1,95 @@
+$defs:
+  JsonValue: {}
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    pattern: ^\d+\.\d+\.\d+$
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  destination_phase:
+    title: Destination Phase
+    type: string
+  pipeline_version:
+    title: Pipeline Version
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  grain:
+    title: Grain
+    type: string
+  lineage_id:
+    title: Lineage Id
+    type: string
+  capability_status:
+    default: AVAILABLE
+    enum:
+    - AVAILABLE
+    - UNAVAILABLE
+    - DEGRADED
+    title: Capability Status
+    type: string
+  records:
+    items:
+      additionalProperties:
+        $ref: '#/$defs/JsonValue'
+      type: object
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- destination_phase
+- pipeline_version
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- grain
+- lineage_id
+- records
+title: ArtifactEnvelope
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/artifact_envelope/2.0.0

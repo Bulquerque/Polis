@@ -1,0 +1,27 @@
+subphase: P4.S7
+contract_version: v14.9-rc1
+required_outputs:
+- causal_transform_fit_state_manifest
+- normalization_neutralization_fit_state_manifest
+- underlying_feature_matrix_interpretable
+- underlying_feature_matrix_raw
+- feature_diversity_redundancy_report
+- underlying_feature_matrix_selected
+- feature_selection_report
+- feature_transform_state_manifest
+aliases:
+  underlying_feature_matrix_raw: underlying_feature_matrix_interpretable
+forbidden_fields:
+- target
+- label
+- future_return
+- future_volatility
+- prediction
+- signal_direction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+- execution_fill

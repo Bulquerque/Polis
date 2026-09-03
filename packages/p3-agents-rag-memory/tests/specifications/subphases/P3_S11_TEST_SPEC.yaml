@@ -1,0 +1,20 @@
+subphase: P3.S11
+modules:
+- module_id: P3.S11.M01
+  required_cases:
+  - canonical_pipeline_trace_complete
+  - direct_synthesis_forbidden
+  - replay_resume
+- module_id: P3.S11.M02
+  required_cases:
+  - future_lineage_fails
+  - noncanonical_module_trace_fails
+- module_id: P3.S11.M03
+  required_cases:
+  - dual_source_fails
+  - missing_state_fails
+  - cycle_gap_fails
+canonical_module_order:
+- P3.S11.M01
+- P3.S11.M02
+- P3.S11.M03

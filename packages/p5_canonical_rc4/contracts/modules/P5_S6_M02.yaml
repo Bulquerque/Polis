@@ -1,0 +1,16 @@
+module_id: P5.S6.M02
+name: estimated_dcc_beta_resolvers
+subphase_id: P5.S6
+required_inputs:
+- qualified_resolver_registry
+- oof_validation_observation_panel
+optional_inputs: []
+outputs:
+- covariance_member_registry_dynamic
+allowed_actions:
+- PREDICT
+allowed_modes:
+- RUNTIME_INFERENCE
+- VALIDATION
+- INTEGRATION_REPLAY
+capability: CORE

@@ -1,0 +1,135 @@
+{
+  "$defs": {
+    "ExerciseStyle": {
+      "enum": [
+        "EUROPEAN",
+        "AMERICAN"
+      ],
+      "title": "ExerciseStyle",
+      "type": "string"
+    },
+    "OptionType": {
+      "enum": [
+        "CALL",
+        "PUT"
+      ],
+      "title": "OptionType",
+      "type": "string"
+    },
+    "SettlementType": {
+      "enum": [
+        "CASH",
+        "PHYSICAL"
+      ],
+      "title": "SettlementType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_id": {
+      "title": "Contract Id",
+      "type": "string"
+    },
+    "contract_status": {
+      "default": "ACTIVE",
+      "title": "Contract Status",
+      "type": "string"
+    },
+    "currency": {
+      "title": "Currency",
+      "type": "string"
+    },
+    "exercise_style": {
+      "$ref": "#/$defs/ExerciseStyle"
+    },
+    "expiration": {
+      "format": "date-time",
+      "title": "Expiration",
+      "type": "string"
+    },
+    "first_trade_date": {
+      "format": "date-time",
+      "title": "First Trade Date",
+      "type": "string"
+    },
+    "last_trade_date": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Last Trade Date"
+    },
+    "listing_exchange": {
+      "title": "Listing Exchange",
+      "type": "string"
+    },
+    "multiplier": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Multiplier"
+    },
+    "option_type": {
+      "$ref": "#/$defs/OptionType"
+    },
+    "settlement_type": {
+      "$ref": "#/$defs/SettlementType"
+    },
+    "source_artifact_id": {
+      "title": "Source Artifact Id",
+      "type": "string"
+    },
+    "source_record_id": {
+      "title": "Source Record Id",
+      "type": "string"
+    },
+    "strike": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Strike"
+    },
+    "underlying_id": {
+      "title": "Underlying Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_id",
+    "underlying_id",
+    "option_type",
+    "strike",
+    "expiration",
+    "exercise_style",
+    "settlement_type",
+    "multiplier",
+    "currency",
+    "listing_exchange",
+    "first_trade_date",
+    "source_artifact_id",
+    "source_record_id"
+  ],
+  "title": "OptionContractReference",
+  "type": "object"
+}

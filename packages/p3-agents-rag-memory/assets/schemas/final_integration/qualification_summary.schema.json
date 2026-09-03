@@ -1,0 +1,134 @@
+{
+  "$defs": {
+    "QualificationCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "check_id": {
+          "enum": [
+            "MODULE_REGRESSION",
+            "REPOSITORY_REGRESSION",
+            "RUFF",
+            "MYPY",
+            "COVERAGE",
+            "LOAD",
+            "CONCURRENCY",
+            "DISASTER_RECOVERY",
+            "PRISTINE_INSTALL",
+            "MIGRATION_IDEMPOTENCE",
+            "ROLLBACK_PRISTINE",
+            "SBOM",
+            "DEPENDENCY_LOCK",
+            "SILENT_FALLBACK_SCAN"
+          ],
+          "title": "Check Id",
+          "type": "string"
+        },
+        "command": {
+          "minLength": 1,
+          "title": "Command",
+          "type": "string"
+        },
+        "evidence_path": {
+          "minLength": 1,
+          "title": "Evidence Path",
+          "type": "string"
+        },
+        "evidence_sha256": {
+          "title": "Evidence Sha256",
+          "type": "string"
+        },
+        "executed_at": {
+          "format": "date-time",
+          "title": "Executed At",
+          "type": "string"
+        },
+        "status": {
+          "const": "PASS",
+          "title": "Status",
+          "type": "string"
+        },
+        "tool_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tool Version"
+        }
+      },
+      "required": [
+        "check_id",
+        "status",
+        "command",
+        "evidence_path",
+        "evidence_sha256",
+        "executed_at"
+      ],
+      "title": "QualificationCheck",
+      "type": "object"
+    }
+  },
+  "$id": "p3://schemas/final_integration/qualification_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/QualificationCheck"
+      },
+      "maxItems": 14,
+      "minItems": 14,
+      "title": "Checks",
+      "type": "array"
+    },
+    "coverage_percent": {
+      "maximum": 100.0,
+      "minimum": 0.0,
+      "title": "Coverage Percent",
+      "type": "number"
+    },
+    "evidence_hash": {
+      "title": "Evidence Hash",
+      "type": "string"
+    },
+    "module_count": {
+      "const": 81,
+      "title": "Module Count",
+      "type": "integer"
+    },
+    "release_id": {
+      "minLength": 1,
+      "title": "Release Id",
+      "type": "string"
+    },
+    "release_sha256": {
+      "title": "Release Sha256",
+      "type": "string"
+    },
+    "silent_fallback_count": {
+      "const": 0,
+      "title": "Silent Fallback Count",
+      "type": "integer"
+    },
+    "summary_version": {
+      "default": "p3.qualification-summary.v2",
+      "title": "Summary Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_sha256",
+    "module_count",
+    "coverage_percent",
+    "silent_fallback_count",
+    "checks",
+    "evidence_hash"
+  ],
+  "title": "QualificationSummary",
+  "type": "object"
+}

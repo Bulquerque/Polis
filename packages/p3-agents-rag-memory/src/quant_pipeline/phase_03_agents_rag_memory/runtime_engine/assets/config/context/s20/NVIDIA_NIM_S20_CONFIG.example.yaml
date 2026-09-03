@@ -1,0 +1,7 @@
+enabled: false
+base_url: https://integrate.api.nvidia.com
+embedding_endpoint: /v1/embeddings
+reranking_endpoint: /v1/ranking
+tokenize_endpoint: /tokenize
+api_key_env: NVIDIA_API_KEY
+truncate_policy: NONE

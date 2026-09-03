@@ -1,0 +1,178 @@
+{
+  "$defs": {
+    "FeedbackEffectType": {
+      "enum": [
+        "CHALLENGER_ELIGIBILITY",
+        "HYPERPARAMETER_BOUNDS",
+        "RESEARCH_BUDGET",
+        "APPROVED_THRESHOLDS",
+        "MODEL_DEPRECATION"
+      ],
+      "title": "FeedbackEffectType",
+      "type": "string"
+    },
+    "PriorCycleFeedbackRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "effect_payload": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Effect Payload",
+          "type": "object"
+        },
+        "effect_type": {
+          "$ref": "#/$defs/FeedbackEffectType"
+        },
+        "feedback_id": {
+          "minLength": 1,
+          "title": "Feedback Id",
+          "type": "string"
+        },
+        "horizon": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Horizon"
+        },
+        "lineage_id": {
+          "minLength": 1,
+          "title": "Lineage Id",
+          "type": "string"
+        },
+        "reason_code": {
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "resolver_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resolver Id"
+        },
+        "target_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target Id"
+        }
+      },
+      "required": [
+        "feedback_id",
+        "effect_type",
+        "effect_payload",
+        "reason_code",
+        "lineage_id"
+      ],
+      "title": "PriorCycleFeedbackRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "feedback_route": {
+      "const": "NEXT_CYCLE_ONLY",
+      "default": "NEXT_CYCLE_ONLY",
+      "title": "Feedback Route",
+      "type": "string"
+    },
+    "promotion_decision_id": {
+      "minLength": 1,
+      "title": "Promotion Decision Id",
+      "type": "string"
+    },
+    "promotion_status": {
+      "const": "PROMOTED",
+      "default": "PROMOTED",
+      "title": "Promotion Status",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/PriorCycleFeedbackRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "P9-P5-FEEDBACK-V1",
+      "default": "P9-P5-FEEDBACK-V1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_cycle_id": {
+      "minLength": 1,
+      "title": "Source Cycle Id",
+      "type": "string"
+    },
+    "source_phase": {
+      "const": "P9",
+      "default": "P9",
+      "title": "Source Phase",
+      "type": "string"
+    },
+    "source_run_id": {
+      "minLength": 1,
+      "title": "Source Run Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_run_id",
+    "source_cycle_id",
+    "promotion_decision_id",
+    "created_at",
+    "available_at",
+    "content_sha256",
+    "records"
+  ],
+  "title": "PriorCycleFeedbackReport",
+  "type": "object"
+}

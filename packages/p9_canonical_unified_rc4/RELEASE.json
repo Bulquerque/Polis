@@ -1,0 +1,44 @@
+{
+  "bundle_python_requires": ">=3.13,<3.15",
+  "bundle_release": "P5_P9_P0_P4_COMPAT_RC3_HARDENED_6",
+  "closure_changes": [
+    "cross_environment_reverse_stress_quantization",
+    "modern_p5_feedback_materializer",
+    "modern_p7_feedback_materializer",
+    "p0_authorization_gate",
+    "native_p8_full_evidence_ingress",
+    "portable_compatibility_tests"
+  ],
+  "generated_at": "2026-08-06T20:50:05.592200+00:00",
+  "modern_feedback_targets": [
+    "P5",
+    "P7"
+  ],
+  "modules": 70,
+  "p8_ingress_profiles": [
+    "P8_NATIVE_0_3_LIMITED",
+    "P8_NATIVE_0_3_FULL_V1"
+  ],
+  "package_id": "quant-pipeline-phase-09",
+  "package_version": "0.1.0rc4.post2",
+  "phase_id": "P9",
+  "production_promotion_allowed": false,
+  "python_requires": ">=3.13,<3.15",
+  "status": "PASS_TECHNICAL_CLOSURE_ECONOMIC_PROMOTION_BLOCKED",
+  "subphases": 10,
+  "technical_closure": true,
+  "tests": {
+    "collected": 594,
+    "execution": "SEGMENTED_WITH_EXPLICIT_TIMEOUTS",
+    "failed": 0,
+    "generated_at": "2026-08-06T20:50:05.592200+00:00",
+    "passed": 594,
+    "skipped": 0,
+    "status": "PASS"
+  },
+  "wheel": {
+    "filename": "quant_pipeline_phase_09-0.1.0rc4.post2-py3-none-any.whl",
+    "sha256": "dd94e798f14595b423c37e72f2c70f752f0e34589d4edfc10d8924a0e0c1856f",
+    "size": 837792
+  }
+}

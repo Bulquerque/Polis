@@ -1,0 +1,55 @@
+{
+  "$id": "https://inferencia.local/p9/s3/GoldenMetricExample.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "example_id": {
+      "title": "Example Id",
+      "type": "string"
+    },
+    "expected_score": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "title": "Expected Score"
+    },
+    "inputs": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Inputs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "example_id",
+    "inputs",
+    "expected_score"
+  ],
+  "title": "GoldenMetricExample",
+  "type": "object"
+}

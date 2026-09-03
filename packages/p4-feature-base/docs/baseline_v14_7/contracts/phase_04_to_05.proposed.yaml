@@ -1,0 +1,28 @@
+contract_version: v14.9-rc1
+source_phase: phase_04_feature_base
+target_phase: phase_05_underlying_forecasts
+required_shared_artifacts:
+- underlying_feature_matrix_raw
+- underlying_feature_matrix_selected
+- underlying_feature_factors_pca
+- underlying_feature_embeddings
+- feature_selection_report
+- feature_lineage_report
+- drift_safety_report
+- phase5_feature_handoff_manifest
+supplemental_manifest_artifacts:
+- feature_observer_registry
+- perspective_conflict_panel
+- feature_transform_state_manifest
+- representation_quality_report
+- horizon_feature_set_manifest
+- p4_to_p5_integration_receipt
+rules:
+- P5_required_surface_preserved
+- consumer_receipt_required_for_qualification
+- no_silent_adaptation
+supplemental_artifacts:
+- model_consumer_view_manifest
+- representation_fold_plan
+- encoder_hyperparameter_search_report
+encoder_policy: OPTIONAL_CHALLENGER_P5_MUST_SUPPORT_NO_ENCODER_PATH

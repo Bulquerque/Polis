@@ -1,0 +1,271 @@
+$defs:
+  Direction:
+    enum:
+    - MAXIMIZE
+    - MINIMIZE
+    title: Direction
+    type: string
+  DominancePolicy:
+    additionalProperties: false
+    properties:
+      active_metric_ids:
+        items:
+          type: string
+        title: Active Metric Ids
+        type: array
+      missing_required_metric_action:
+        enum:
+        - INCOMPARABLE
+        - BLOCK_CANDIDATE
+        title: Missing Required Metric Action
+        type: string
+      exact_max_group_size:
+        maximum: 100000
+        minimum: 1
+        title: Exact Max Group Size
+        type: integer
+      exact_max_pair_comparisons:
+        minimum: 1
+        title: Exact Max Pair Comparisons
+        type: integer
+    required:
+    - active_metric_ids
+    - missing_required_metric_action
+    - exact_max_group_size
+    - exact_max_pair_comparisons
+    title: DominancePolicy
+    type: object
+  FactorAdjustmentPolicy:
+    additionalProperties: false
+    properties:
+      mode:
+        $ref: '#/$defs/FactorMode'
+      target_metric_id:
+        title: Target Metric Id
+        type: string
+      factor_schema_version:
+        title: Factor Schema Version
+        type: string
+      factor_ids:
+        items:
+          type: string
+        title: Factor Ids
+        type: array
+      static_coefficients:
+        additionalProperties:
+          type: number
+        title: Static Coefficients
+        type: object
+      static_intercept:
+        default: 0.0
+        title: Static Intercept
+        type: number
+      missing_exposure_action:
+        default: UNAVAILABLE
+        enum:
+        - BYPASS_TARGET
+        - UNAVAILABLE
+        - BLOCK
+        title: Missing Exposure Action
+        type: string
+    required:
+    - mode
+    - target_metric_id
+    - factor_schema_version
+    - factor_ids
+    title: FactorAdjustmentPolicy
+    type: object
+  FactorMode:
+    enum:
+    - BYPASS
+    - STATIC_PREMIA
+    - QUALIFIED_RESIDUAL
+    title: FactorMode
+    type: string
+  MetricPolicy:
+    additionalProperties: false
+    properties:
+      metric_id:
+        title: Metric Id
+        type: string
+      canonical_units:
+        title: Canonical Units
+        type: string
+      direction:
+        $ref: '#/$defs/Direction'
+      semantic_version:
+        title: Semantic Version
+        type: string
+      missing_action:
+        $ref: '#/$defs/MissingAction'
+      active_for_dominance:
+        title: Active For Dominance
+        type: boolean
+      epsilon_absolute:
+        default: 0.0
+        minimum: 0
+        title: Epsilon Absolute
+        type: number
+      epsilon_relative:
+        default: 0.0
+        minimum: 0
+        title: Epsilon Relative
+        type: number
+      factor_adjustment_target:
+        default: false
+        title: Factor Adjustment Target
+        type: boolean
+    required:
+    - metric_id
+    - canonical_units
+    - direction
+    - semantic_version
+    - missing_action
+    - active_for_dominance
+    title: MetricPolicy
+    type: object
+  MissingAction:
+    enum:
+    - BLOCK
+    - UNAVAILABLE
+    - OPTIONAL
+    title: MissingAction
+    type: string
+  RankingPolicyRecord:
+    additionalProperties: false
+    properties:
+      policy_id:
+        title: Policy Id
+        type: string
+      policy_version:
+        title: Policy Version
+        type: string
+      operational_mode:
+        title: Operational Mode
+        type: string
+      metric_policies:
+        items:
+          $ref: '#/$defs/MetricPolicy'
+        title: Metric Policies
+        type: array
+      unit_conversions:
+        default: []
+        items:
+          $ref: '#/$defs/UnitConversionPolicy'
+        title: Unit Conversions
+        type: array
+      factor_adjustment:
+        $ref: '#/$defs/FactorAdjustmentPolicy'
+      dominance:
+        $ref: '#/$defs/DominancePolicy'
+      forbidden_field_names:
+        items:
+          type: string
+        title: Forbidden Field Names
+        type: array
+    required:
+    - policy_id
+    - policy_version
+    - operational_mode
+    - metric_policies
+    - factor_adjustment
+    - dominance
+    - forbidden_field_names
+    title: RankingPolicyRecord
+    type: object
+  UnitConversionPolicy:
+    additionalProperties: false
+    properties:
+      metric_id:
+        title: Metric Id
+        type: string
+      from_units:
+        title: From Units
+        type: string
+      to_units:
+        title: To Units
+        type: string
+      factor:
+        title: Factor
+        type: number
+      offset:
+        default: 0.0
+        title: Offset
+        type: number
+    required:
+    - metric_id
+    - from_units
+    - to_units
+    - factor
+    title: UnitConversionPolicy
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/RankingPolicyRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: ranking_policy_context envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s3/ranking_policy_context/1.0.0

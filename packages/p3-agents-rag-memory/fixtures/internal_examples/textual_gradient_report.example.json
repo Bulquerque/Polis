@@ -1,0 +1,17 @@
+{
+  "gradient_id": "tg-001",
+  "failure_mode": "REDUNDANCY",
+  "evidence": [
+    "metric:residual_ic_near_zero"
+  ],
+  "metrics": {
+    "ic": 0.05,
+    "residual_ic": 0.001
+  },
+  "uncertainty": 0.2,
+  "recommended_search_direction": "Test orthogonalized or regime-conditioned variant.",
+  "forbidden_shortcuts": [
+    "Do not modify multiple mechanisms at once."
+  ],
+  "lineage_id": "lin-tg-001"
+}

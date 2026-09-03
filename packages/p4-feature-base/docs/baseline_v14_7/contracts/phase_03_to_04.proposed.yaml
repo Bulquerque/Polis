@@ -1,0 +1,16 @@
+contract_version: v14.9-rc1-proposed
+source_phase: phase_03_agents_rag_memory
+target_phase: phase_04_feature_base
+required_shared_artifacts:
+- social_feature_panel
+- evidence_tag_panel
+- agent_disagreement_panel
+- context_memory_feature_panel
+- hypothesis_registry
+- phase4_social_handoff_manifest
+optional_n_plus_1_artifacts:
+- variable_evolution_input_manifest
+rules:
+- no_same_cycle_back_edge
+- no_feature_optimization_in_P3
+- lineage_hash_schema_required

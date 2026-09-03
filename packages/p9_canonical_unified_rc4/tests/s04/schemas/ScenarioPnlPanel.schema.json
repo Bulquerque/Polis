@@ -1,0 +1,62 @@
+{
+  "$defs": {
+    "ScenarioPnlRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_class": {
+          "title": "Evidence Class",
+          "type": "string"
+        },
+        "pnl_fraction": {
+          "title": "Pnl Fraction",
+          "type": "number"
+        },
+        "scenario_id": {
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "scenario_version": {
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Scenario Version",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "scenario_version",
+        "timestamp",
+        "pnl_fraction",
+        "evidence_class"
+      ],
+      "title": "ScenarioPnlRecord",
+      "type": "object"
+    }
+  },
+  "$id": "https://inferencia.local/p9/s4/1.0.0/ScenarioPnlPanel.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "panel_id": {
+      "title": "Panel Id",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/ScenarioPnlRecord"
+      },
+      "title": "Records",
+      "type": "array"
+    }
+  },
+  "required": [
+    "panel_id",
+    "records"
+  ],
+  "title": "ScenarioPnlPanel",
+  "type": "object"
+}

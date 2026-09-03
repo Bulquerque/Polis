@@ -1,0 +1,113 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: phase5_consumption_receipt
+type: object
+properties:
+  artifact_id:
+    type: string
+  artifact_name:
+    const: phase5_consumption_receipt
+  schema_version:
+    type: string
+  producer_phase:
+    const: phase_04_feature_base
+  producer_module_id:
+    type: string
+  run_id:
+    type: string
+  cycle_id:
+    type: string
+  as_of_time:
+    type: string
+    format: date-time
+  created_at:
+    type: string
+    format: date-time
+  content_hash:
+    type: string
+    pattern: ^[0-9a-f]{64}$
+  record_count:
+    type: integer
+    minimum: 0
+  grain:
+    type: array
+    items:
+      type: string
+  lineage_id:
+    type: string
+  execution_status:
+    enum:
+    - PRODUCED
+    - DEGRADED
+    - BLOCKED
+    - SKIPPED_NOT_AVAILABLE
+    - SKIPPED_NOT_AUTHORIZED
+    - UNAVAILABLE_UPSTREAM
+    - FAILED_NONBLOCKING
+    - NOT_RUN
+  quality_status:
+    enum:
+    - VALIDATED
+    - DEGRADED
+    - BLOCKED
+    - NOT_EVALUATED
+  records:
+    type: array
+    items:
+      type: object
+      properties:
+        handoff_manifest_id:
+          type: string
+        handoff_manifest_hash:
+          type: string
+        consumer_phase:
+          const: phase_05_underlying_forecasts
+        accepted_artifact_ids:
+          type: array
+          items:
+            type: string
+        rejected_artifact_ids:
+          type: array
+          items:
+            type: string
+        adaptations_applied:
+          type: array
+        received_at:
+          type: string
+          format: date-time
+      required:
+      - handoff_manifest_id
+      - handoff_manifest_hash
+      - consumer_phase
+      - accepted_artifact_ids
+      - rejected_artifact_ids
+      - adaptations_applied
+      - received_at
+      additionalProperties: false
+  metadata:
+    type: object
+    properties: {}
+    additionalProperties: true
+  alias_of:
+    type:
+    - string
+    - 'null'
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- as_of_time
+- created_at
+- content_hash
+- record_count
+- grain
+- lineage_id
+- execution_status
+- quality_status
+- records
+- metadata
+- alias_of
+additionalProperties: false

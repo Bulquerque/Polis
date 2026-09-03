@@ -1,0 +1,32 @@
+module_id: P7.S1.M01
+module_name: phase6_handoff_contract_validator
+owner: FOUNDATION
+subphase: P7.S1
+purpose: Validate the complete P6 V2 manifest and artifact envelopes before record
+  consumption.
+inputs:
+- phase7_strategy_handoff_manifest
+- declared_p6_artifacts
+outputs:
+- verified_p6_artifact_index
+- p6_handoff_validation_report
+failure_model: phase_fatal_and_candidate_level_as_documented
+reason_codes:
+- P7_P6_MANIFEST_INVALID
+- P7_P6_HASH_MISMATCH
+- P7_P6_SCHEMA_INCOMPATIBLE
+- P7_P6_CLOCK_MISMATCH
+- P7_P6_ARTIFACT_UNDECLARED
+implementation_rules:
+- thin_wrapper
+- typed_boundary
+- immutable_inputs
+- structured_receipt
+- no_economic_defaults
+- no_cross_subphase_private_import
+tests:
+- unit
+- contract
+- adversarial
+- property_or_metamorphic
+- deterministic_replay

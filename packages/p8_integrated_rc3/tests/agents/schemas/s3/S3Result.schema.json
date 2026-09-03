@@ -1,0 +1,549 @@
+{
+  "$defs": {
+    "ActionabilityState": {
+      "enum": [
+        "NOMINAL_ACTIONABLE",
+        "ROBUST_ONLY",
+        "DEGRADED_ACTIONABLE",
+        "CLOSE_ONLY",
+        "NO_NEW_RISK",
+        "NO_ACTION_VALID"
+      ],
+      "title": "ActionabilityState",
+      "type": "string"
+    },
+    "AmbiguityAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "actionability_state": {
+          "$ref": "#/$defs/ActionabilityState"
+        },
+        "ambiguity_radius": {
+          "minimum": 0.0,
+          "title": "Ambiguity Radius",
+          "type": "number"
+        },
+        "liquidity_haircut": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Liquidity Haircut",
+          "type": "number"
+        },
+        "margin_buffer": {
+          "minimum": 0.0,
+          "title": "Margin Buffer",
+          "type": "number"
+        },
+        "probability_lower_bounds": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Probability Lower Bounds",
+          "type": "array"
+        },
+        "probability_upper_bounds": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Probability Upper Bounds",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "risk_budget_cap": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Risk Budget Cap",
+          "type": "number"
+        },
+        "uncertainty_score": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Uncertainty Score",
+          "type": "number"
+        }
+      },
+      "required": [
+        "actionability_state",
+        "uncertainty_score",
+        "ambiguity_radius",
+        "risk_budget_cap",
+        "liquidity_haircut",
+        "margin_buffer",
+        "probability_lower_bounds",
+        "probability_upper_bounds"
+      ],
+      "title": "AmbiguityAssessment",
+      "type": "object"
+    },
+    "DistributionResolution": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "distribution_type": {
+          "$ref": "#/$defs/DistributionType"
+        },
+        "factor_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Factor Ids",
+          "type": "array"
+        },
+        "path_capability": {
+          "enum": [
+            "TERMINAL_ONLY",
+            "FULL_PATH"
+          ],
+          "title": "Path Capability",
+          "type": "string"
+        },
+        "probability_measure": {
+          "$ref": "#/$defs/ProbabilityMeasure"
+        },
+        "step_labels": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Step Labels",
+          "type": "array"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "distribution_type",
+        "probability_measure",
+        "factor_ids",
+        "step_labels",
+        "path_capability",
+        "content_sha256"
+      ],
+      "title": "DistributionResolution",
+      "type": "object"
+    },
+    "DistributionType": {
+      "enum": [
+        "PARAMETRIC",
+        "MIXTURE",
+        "QUANTILE",
+        "EMPIRICAL",
+        "PATH"
+      ],
+      "title": "DistributionType",
+      "type": "string"
+    },
+    "ModuleReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "input_sha256": {
+          "title": "Input Sha256",
+          "type": "string"
+        },
+        "module_id": {
+          "title": "Module Id",
+          "type": "string"
+        },
+        "output_sha256": {
+          "title": "Output Sha256",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "DEGRADED",
+            "CAPABILITY_UNAVAILABLE",
+            "NO_ACTION_VALID"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "module_id",
+        "input_sha256",
+        "output_sha256",
+        "status"
+      ],
+      "title": "ModuleReceipt",
+      "type": "object"
+    },
+    "ProbabilityMeasure": {
+      "enum": [
+        "PHYSICAL",
+        "RISK_NEUTRAL",
+        "STRESS_WEIGHT"
+      ],
+      "title": "ProbabilityMeasure",
+      "type": "string"
+    },
+    "QualityAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "metrics": {
+          "items": {
+            "$ref": "#/$defs/QualityMetric"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "score": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Score",
+          "type": "number"
+        },
+        "status_by_family": {
+          "additionalProperties": {
+            "$ref": "#/$defs/QualityStatus"
+          },
+          "title": "Status By Family",
+          "type": "object"
+        }
+      },
+      "required": [
+        "status_by_family",
+        "score",
+        "metrics"
+      ],
+      "title": "QualityAssessment",
+      "type": "object"
+    },
+    "QualityMetric": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "passed": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Passed"
+        },
+        "reason_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason Code"
+        },
+        "threshold": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Threshold"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "threshold",
+        "passed"
+      ],
+      "title": "QualityMetric",
+      "type": "object"
+    },
+    "QualityStatus": {
+      "enum": [
+        "FULLY_QUALIFIED",
+        "QUALIFIED_WITH_HAIRCUT",
+        "TAIL_INCOMPLETE",
+        "PATH_INCOMPLETE",
+        "REGIME_INCOMPLETE",
+        "DECISION_UNSTABLE",
+        "NOT_ACTIONABLE"
+      ],
+      "title": "QualityStatus",
+      "type": "string"
+    },
+    "ReductionAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "covariance_error": {
+          "title": "Covariance Error",
+          "type": "number"
+        },
+        "decision_aware_status": {
+          "enum": [
+            "EVALUATED",
+            "CAPABILITY_UNAVAILABLE"
+          ],
+          "title": "Decision Aware Status",
+          "type": "string"
+        },
+        "mean_error": {
+          "title": "Mean Error",
+          "type": "number"
+        },
+        "original_count": {
+          "title": "Original Count",
+          "type": "integer"
+        },
+        "output_count": {
+          "title": "Output Count",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/$defs/ReductionStatus"
+        },
+        "tail_error": {
+          "title": "Tail Error",
+          "type": "number"
+        },
+        "transport_cost": {
+          "title": "Transport Cost",
+          "type": "number"
+        }
+      },
+      "required": [
+        "status",
+        "original_count",
+        "output_count",
+        "mean_error",
+        "covariance_error",
+        "tail_error",
+        "transport_cost",
+        "decision_aware_status",
+        "content_sha256"
+      ],
+      "title": "ReductionAssessment",
+      "type": "object"
+    },
+    "ReductionStatus": {
+      "enum": [
+        "SAFE",
+        "SCENARIO_REDUCTION_UNSAFE",
+        "CAPABILITY_UNAVAILABLE"
+      ],
+      "title": "ReductionStatus",
+      "type": "string"
+    },
+    "ScenarioSetSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "content_sha256": {
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "factor_count": {
+          "title": "Factor Count",
+          "type": "integer"
+        },
+        "probability_sum": {
+          "title": "Probability Sum",
+          "type": "number"
+        },
+        "scenario_count": {
+          "title": "Scenario Count",
+          "type": "integer"
+        },
+        "step_count": {
+          "title": "Step Count",
+          "type": "integer"
+        },
+        "storage_npz": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Storage Npz"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "scenario_count",
+        "step_count",
+        "factor_count",
+        "probability_sum",
+        "content_sha256"
+      ],
+      "title": "ScenarioSetSummary",
+      "type": "object"
+    },
+    "StressResult": {
+      "additionalProperties": false,
+      "properties": {
+        "failure_states": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Failure States",
+          "type": "array"
+        },
+        "reverse_stress_multiplier": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reverse Stress Multiplier"
+        },
+        "reverse_stress_status": {
+          "enum": [
+            "COMPUTED",
+            "CAPABILITY_UNAVAILABLE",
+            "NO_FAILURE_WITHIN_BOUND"
+          ],
+          "title": "Reverse Stress Status",
+          "type": "string"
+        },
+        "stress_artifact_id": {
+          "title": "Stress Artifact Id",
+          "type": "string"
+        },
+        "stress_content_sha256": {
+          "title": "Stress Content Sha256",
+          "type": "string"
+        },
+        "stress_scenario_count": {
+          "title": "Stress Scenario Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "stress_scenario_count",
+        "stress_artifact_id",
+        "stress_content_sha256",
+        "reverse_stress_status"
+      ],
+      "title": "StressResult",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguity": {
+      "$ref": "#/$defs/AmbiguityAssessment"
+    },
+    "cycle_id": {
+      "title": "Cycle Id",
+      "type": "string"
+    },
+    "full_scenarios": {
+      "$ref": "#/$defs/ScenarioSetSummary"
+    },
+    "quality": {
+      "$ref": "#/$defs/QualityAssessment"
+    },
+    "receipts": {
+      "items": {
+        "$ref": "#/$defs/ModuleReceipt"
+      },
+      "title": "Receipts",
+      "type": "array"
+    },
+    "reduced_scenarios": {
+      "$ref": "#/$defs/ScenarioSetSummary"
+    },
+    "reduction": {
+      "$ref": "#/$defs/ReductionAssessment"
+    },
+    "resolution": {
+      "$ref": "#/$defs/DistributionResolution"
+    },
+    "result_sha256": {
+      "title": "Result Sha256",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "stress": {
+      "$ref": "#/$defs/StressResult"
+    }
+  },
+  "required": [
+    "run_id",
+    "cycle_id",
+    "resolution",
+    "full_scenarios",
+    "quality",
+    "stress",
+    "reduced_scenarios",
+    "reduction",
+    "ambiguity",
+    "receipts",
+    "result_sha256"
+  ],
+  "title": "S3Result",
+  "type": "object"
+}

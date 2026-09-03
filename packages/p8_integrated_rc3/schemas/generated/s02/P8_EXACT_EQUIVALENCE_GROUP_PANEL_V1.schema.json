@@ -1,0 +1,141 @@
+{
+  "$defs": {
+    "EquivalenceGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "equivalence_group_id": {
+          "minLength": 1,
+          "title": "Equivalence Group Id",
+          "type": "string"
+        },
+        "equivalence_type": {
+          "$ref": "#/$defs/EquivalenceType"
+        },
+        "representative_candidate_id": {
+          "minLength": 1,
+          "title": "Representative Candidate Id",
+          "type": "string"
+        },
+        "comparison_group_id": {
+          "minLength": 1,
+          "title": "Comparison Group Id",
+          "type": "string"
+        },
+        "members": {
+          "items": {
+            "$ref": "#/$defs/EquivalenceMember"
+          },
+          "minItems": 2,
+          "title": "Members",
+          "type": "array"
+        },
+        "physical_signature_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Physical Signature Hash",
+          "type": "string"
+        },
+        "hard_redundant_eligible": {
+          "title": "Hard Redundant Eligible",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "equivalence_group_id",
+        "equivalence_type",
+        "representative_candidate_id",
+        "comparison_group_id",
+        "members",
+        "physical_signature_hash",
+        "hard_redundant_eligible"
+      ],
+      "title": "EquivalenceGroup",
+      "type": "object"
+    },
+    "EquivalenceMember": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "scale_factor_from_representative": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Scale Factor From Representative"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "scale_factor_from_representative"
+      ],
+      "title": "EquivalenceMember",
+      "type": "object"
+    },
+    "EquivalenceType": {
+      "enum": [
+        "EXACT_PHYSICAL",
+        "SCALE_EQUIVALENT"
+      ],
+      "title": "EquivalenceType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "P8_EXACT_EQUIVALENCE_GROUP_PANEL_V1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "groups": {
+      "items": {
+        "$ref": "#/$defs/EquivalenceGroup"
+      },
+      "title": "Groups",
+      "type": "array"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "schema_version",
+    "snapshot_id",
+    "groups",
+    "content_sha256"
+  ],
+  "title": "ExactEquivalenceGroupPanel",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P8_EXACT_EQUIVALENCE_GROUP_PANEL_V1.schema.json"
+}

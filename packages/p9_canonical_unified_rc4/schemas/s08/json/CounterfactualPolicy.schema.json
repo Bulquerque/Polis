@@ -1,0 +1,33 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "minimum_observations": {
+      "default": 10,
+      "minimum": 1,
+      "title": "Minimum Observations",
+      "type": "integer"
+    },
+    "minimum_logging_propensity": {
+      "default": 0.001,
+      "exclusiveMaximum": 1.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Minimum Logging Propensity",
+      "type": "number"
+    },
+    "maximum_importance_weight": {
+      "default": 100.0,
+      "exclusiveMinimum": 1.0,
+      "title": "Maximum Importance Weight",
+      "type": "number"
+    },
+    "minimum_effective_sample_size": {
+      "default": 5.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Minimum Effective Sample Size",
+      "type": "number"
+    }
+  },
+  "title": "CounterfactualPolicy",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:CounterfactualPolicy:1.0.0"
+}

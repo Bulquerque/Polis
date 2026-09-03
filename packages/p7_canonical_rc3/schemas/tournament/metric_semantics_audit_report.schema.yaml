@@ -1,0 +1,126 @@
+$defs:
+  MetricSemanticsAuditRecord:
+    additionalProperties: false
+    properties:
+      policy_id:
+        title: Policy Id
+        type: string
+      candidate_count:
+        minimum: 0
+        title: Candidate Count
+        type: integer
+      source_metric_count:
+        minimum: 0
+        title: Source Metric Count
+        type: integer
+      output_metric_count:
+        minimum: 0
+        title: Output Metric Count
+        type: integer
+      converted_metric_count:
+        minimum: 0
+        title: Converted Metric Count
+        type: integer
+      blocked_metric_count:
+        minimum: 0
+        title: Blocked Metric Count
+        type: integer
+      unavailable_metric_count:
+        minimum: 0
+        title: Unavailable Metric Count
+        type: integer
+      forbidden_field_scan_passed:
+        title: Forbidden Field Scan Passed
+        type: boolean
+      duplicate_grain_count:
+        minimum: 0
+        title: Duplicate Grain Count
+        type: integer
+      reason_counts:
+        additionalProperties:
+          type: integer
+        title: Reason Counts
+        type: object
+    required:
+    - policy_id
+    - candidate_count
+    - source_metric_count
+    - output_metric_count
+    - converted_metric_count
+    - blocked_metric_count
+    - unavailable_metric_count
+    - forbidden_field_scan_passed
+    - duplicate_grain_count
+    - reason_counts
+    title: MetricSemanticsAuditRecord
+    type: object
+additionalProperties: false
+properties:
+  artifact_id:
+    title: Artifact Id
+    type: string
+  artifact_name:
+    title: Artifact Name
+    type: string
+  schema_version:
+    title: Schema Version
+    type: string
+  producer_phase:
+    title: Producer Phase
+    type: string
+  producer_module_id:
+    title: Producer Module Id
+    type: string
+  run_id:
+    title: Run Id
+    type: string
+  cycle_id:
+    title: Cycle Id
+    type: string
+  decision_time:
+    format: date-time
+    title: Decision Time
+    type: string
+  available_at:
+    format: date-time
+    title: Available At
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  content_sha256:
+    pattern: ^[0-9a-f]{64}$
+    title: Content Sha256
+    type: string
+  record_count:
+    minimum: 0
+    title: Record Count
+    type: integer
+  lineage_id:
+    title: Lineage Id
+    type: string
+  records:
+    items:
+      $ref: '#/$defs/MetricSemanticsAuditRecord'
+    title: Records
+    type: array
+required:
+- artifact_id
+- artifact_name
+- schema_version
+- producer_phase
+- producer_module_id
+- run_id
+- cycle_id
+- decision_time
+- available_at
+- created_at
+- content_sha256
+- record_count
+- lineage_id
+- records
+title: metric_semantics_audit_report envelope v1.0.0
+type: object
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://quant-pipeline.local/schemas/p7/s3/metric_semantics_audit_report/1.0.0

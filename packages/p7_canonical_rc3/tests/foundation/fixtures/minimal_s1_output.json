@@ -1,0 +1,1001 @@
+{
+  "P7.S1.M01": {
+    "issues": [],
+    "module_id": "P7.S1.M01",
+    "outputs": {
+      "p6_handoff_validation_report": {
+        "artifact_id": "p6_handoff_validation_report:p6-run-1:cycle-2",
+        "artifact_name": "p6_handoff_validation_report",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "52f100b3500514fa9e7f13e43dea2f2c1259625ccbbcc694c8e4238c675d94b3",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_handoff",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M01",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "manifest_id": "p6-to-p7-manifest-1",
+            "optional_present_count": 0,
+            "required_count": 11,
+            "status": "PASS",
+            "verified_artifact_count": 11,
+            "verified_record_count": 10
+          }
+        ],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      },
+      "verified_p6_artifact_index": {
+        "artifact_id": "verified_p6_artifact_index:p6-run-1:cycle-2",
+        "artifact_name": "verified_p6_artifact_index",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "23a5aea077fbd70d5548d5776620c559b8873ceb5db970e8dce2e524b247da6a",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_handoff",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M01",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "artifact_names": [
+              "candidate_generation_audit",
+              "candidate_rejection_report",
+              "strategy_candidate_panel",
+              "strategy_cost_liquidity_panel",
+              "strategy_generation_trace_panel",
+              "strategy_leg_panel",
+              "strategy_lineage_panel",
+              "strategy_market_snapshot",
+              "strategy_payoff_panel",
+              "strategy_risk_panel",
+              "strategy_scenario_evaluation_panel"
+            ],
+            "artifacts": [
+              {
+                "artifact_id": "candidate_generation_audit:p6-run-1",
+                "artifact_name": "candidate_generation_audit",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "aa757f226394b2e11c98ea6e49766b61db63e024c6e6d9a8754989381e1d9678",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "available_at": "2026-01-05T14:30:00Z",
+                    "status": "PASS"
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "candidate_rejection_report:p6-run-1",
+                "artifact_name": "candidate_rejection_report",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "f55813251b99a2689f0162a858505a4adf0af37e9f653b105b2e3a1b17267e6b",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 0,
+                "records": [],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "strategy_candidate_panel:p6-run-1",
+                "artifact_name": "strategy_candidate_panel",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "5e2c855cfbde0150a71a8f9d34a39b0e9d347af01d62fe14a72aa6d0cc4bb93a",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "candidate_id": "cand-1",
+                    "capabilities": {
+                      "ambiguity": "UNAVAILABLE",
+                      "equivalence": "UNAVAILABLE",
+                      "greeks": "UNAVAILABLE",
+                      "quality_diversity": "UNAVAILABLE"
+                    },
+                    "cycle_id": "cycle-2",
+                    "decision_time": "2026-01-05T14:30:00Z",
+                    "horizon": "5_sessions",
+                    "lineage_id": "lin-cand-1",
+                    "market_snapshot_id": "snap-1",
+                    "objective_family": "RANGE",
+                    "strategy_class": "IRON_CONDOR",
+                    "underlying_id": "XYZ"
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "strategy_cost_liquidity_panel:p6-run-1",
+                "artifact_name": "strategy_cost_liquidity_panel",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "a81720aff15221dfa3d99e13f3ee61cf14d2979ddd12406f57a99939dd9809db",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "available_at": "2026-01-05T14:30:00Z",
+                    "candidate_id": "cand-1",
+                    "entry_cost": 10.0
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "strategy_generation_trace_panel:p6-run-1",
+                "artifact_name": "strategy_generation_trace_panel",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "0d975f78d2b64146ce27e46e0b0fc94a07c4c61fb26d0759f7690329d626a6c8",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "available_at": "2026-01-05T14:30:00Z",
+                    "candidate_id": "cand-1",
+                    "trace_id": "trace-1"
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "strategy_leg_panel:p6-run-1",
+                "artifact_name": "strategy_leg_panel",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "8df176256fa4f7030b54748ba47687b081e517e131cb4aae4c33cedd1a18827a",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "available_at": "2026-01-05T14:30:00Z",
+                    "candidate_id": "cand-1",
+                    "leg_id": "leg-1"
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "strategy_lineage_panel:p6-run-1",
+                "artifact_name": "strategy_lineage_panel",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "3544454c1b285665285a5dd270da0fffd1db5aa9c5675b98d7604112fa306588",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "available_at": "2026-01-05T14:30:00Z",
+                    "candidate_id": "cand-1",
+                    "lineage_id": "lin-cand-1"
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "strategy_market_snapshot:p6-run-1",
+                "artifact_name": "strategy_market_snapshot",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "0c7f95dc5b5351d23402856bda347df72129d4875caf98f5c218020a1a119e32",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_market_snapshot",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "market_snapshot_id": "snap-1",
+                    "market_snapshot_time": "2026-01-05T14:30:00Z"
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "strategy_payoff_panel:p6-run-1",
+                "artifact_name": "strategy_payoff_panel",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "8f95a7d9868014668d2e5854686d95387bb54e8d3d695e10064c0ac7df7d1055",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "available_at": "2026-01-05T14:30:00Z",
+                    "candidate_id": "cand-1",
+                    "payoff_id": "pay-1"
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "strategy_risk_panel:p6-run-1",
+                "artifact_name": "strategy_risk_panel",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "9910ae638bbe13bc67a3f63a36f911b6ccefda081338934576524d4cbab90218",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "available_at": "2026-01-05T14:30:00Z",
+                    "candidate_id": "cand-1",
+                    "maximum_loss": 100.0
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              },
+              {
+                "artifact_id": "strategy_scenario_evaluation_panel:p6-run-1",
+                "artifact_name": "strategy_scenario_evaluation_panel",
+                "available_at": "2026-01-05T14:30:00Z",
+                "capability_status": "AVAILABLE",
+                "content_sha256": "f6650c626e9b7d94a6163d4180b50eea2fc507a6f3095a3a41f5b829c1744a47",
+                "created_at": "2026-01-05T14:31:00Z",
+                "cycle_id": "cycle-2",
+                "decision_time": "2026-01-05T14:30:00Z",
+                "destination_phase": "P7",
+                "grain": "one_record_per_candidate",
+                "lineage_id": "lin-p6-1",
+                "pipeline_version": "15.0.0",
+                "producer_module_id": "P6.S10.M01",
+                "producer_phase": "P6",
+                "record_count": 1,
+                "records": [
+                  {
+                    "available_at": "2026-01-05T14:30:00Z",
+                    "candidate_id": "cand-1",
+                    "scenario_id": "scenario-1"
+                  }
+                ],
+                "run_id": "p6-run-1",
+                "schema_version": "2.0.0"
+              }
+            ],
+            "manifest": {
+              "artifacts": [
+                {
+                  "artifact_id": "strategy_candidate_panel:p6-run-1",
+                  "artifact_name": "strategy_candidate_panel",
+                  "content_sha256": "5e2c855cfbde0150a71a8f9d34a39b0e9d347af01d62fe14a72aa6d0cc4bb93a",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "strategy_leg_panel:p6-run-1",
+                  "artifact_name": "strategy_leg_panel",
+                  "content_sha256": "8df176256fa4f7030b54748ba47687b081e517e131cb4aae4c33cedd1a18827a",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "strategy_market_snapshot:p6-run-1",
+                  "artifact_name": "strategy_market_snapshot",
+                  "content_sha256": "0c7f95dc5b5351d23402856bda347df72129d4875caf98f5c218020a1a119e32",
+                  "grain": "one_record_per_market_snapshot",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "strategy_payoff_panel:p6-run-1",
+                  "artifact_name": "strategy_payoff_panel",
+                  "content_sha256": "8f95a7d9868014668d2e5854686d95387bb54e8d3d695e10064c0ac7df7d1055",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "strategy_scenario_evaluation_panel:p6-run-1",
+                  "artifact_name": "strategy_scenario_evaluation_panel",
+                  "content_sha256": "f6650c626e9b7d94a6163d4180b50eea2fc507a6f3095a3a41f5b829c1744a47",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "strategy_risk_panel:p6-run-1",
+                  "artifact_name": "strategy_risk_panel",
+                  "content_sha256": "9910ae638bbe13bc67a3f63a36f911b6ccefda081338934576524d4cbab90218",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "strategy_cost_liquidity_panel:p6-run-1",
+                  "artifact_name": "strategy_cost_liquidity_panel",
+                  "content_sha256": "a81720aff15221dfa3d99e13f3ee61cf14d2979ddd12406f57a99939dd9809db",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "strategy_lineage_panel:p6-run-1",
+                  "artifact_name": "strategy_lineage_panel",
+                  "content_sha256": "3544454c1b285665285a5dd270da0fffd1db5aa9c5675b98d7604112fa306588",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "strategy_generation_trace_panel:p6-run-1",
+                  "artifact_name": "strategy_generation_trace_panel",
+                  "content_sha256": "0d975f78d2b64146ce27e46e0b0fc94a07c4c61fb26d0759f7690329d626a6c8",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "candidate_rejection_report:p6-run-1",
+                  "artifact_name": "candidate_rejection_report",
+                  "content_sha256": "f55813251b99a2689f0162a858505a4adf0af37e9f653b105b2e3a1b17267e6b",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 0,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                },
+                {
+                  "artifact_id": "candidate_generation_audit:p6-run-1",
+                  "artifact_name": "candidate_generation_audit",
+                  "content_sha256": "aa757f226394b2e11c98ea6e49766b61db63e024c6e6d9a8754989381e1d9678",
+                  "grain": "one_record_per_candidate",
+                  "record_count": 1,
+                  "required": true,
+                  "schema_version": "2.0.0"
+                }
+              ],
+              "contract_version": "2.0.0",
+              "created_at": "2026-01-05T14:31:00Z",
+              "cycle_id": "cycle-2",
+              "decision_time": "2026-01-05T14:30:00Z",
+              "destination_phase": "P7",
+              "manifest_id": "p6-to-p7-manifest-1",
+              "pipeline_version": "15.0.0",
+              "producer_phase": "P6",
+              "run_id": "p6-run-1",
+              "schema_version": "2.0.0"
+            }
+          }
+        ],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      }
+    },
+    "receipt": {
+      "input_hash": "3f37b754483db335116a45a2aa526680a7dbe1c4976941082ab19fd1ce8e36c5",
+      "output_artifact_names": [
+        "p6_handoff_validation_report",
+        "verified_p6_artifact_index"
+      ],
+      "output_hash": "80e88c9f70825b6db41271709e4ee603b55a155f43aae07182e92d3f6f7122db"
+    },
+    "status": "PASS"
+  },
+  "P7.S1.M02": {
+    "issues": [],
+    "module_id": "P7.S1.M02",
+    "outputs": {
+      "candidate_reconciliation_report": {
+        "artifact_id": "candidate_reconciliation_report:p6-run-1:cycle-2",
+        "artifact_name": "candidate_reconciliation_report",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "03d96db81eedd659fdb0fd02e73f099b0d09188818f32d83bac936033b331a56",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_reconciliation_run",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M02",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "artifact_count": 11,
+            "candidate_count": 1,
+            "mandatory_relation_count": 8,
+            "orphan_count": 0,
+            "status": "PASS"
+          }
+        ],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      },
+      "orphan_record_report": {
+        "artifact_id": "orphan_record_report:p6-run-1:cycle-2",
+        "artifact_name": "orphan_record_report",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "79c2e82a7c6e969695f6f51e558659e17a93a22706a7db64968208942e33e354",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_orphan_child",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M02",
+        "producer_phase": "P7",
+        "record_count": 0,
+        "records": [],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      },
+      "validated_strategy_candidate_bundle": {
+        "artifact_id": "validated_strategy_candidate_bundle:p6-run-1:cycle-2",
+        "artifact_name": "validated_strategy_candidate_bundle",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "0d16465fb06d3cc9035f6e2fbc02978e135196ba2c91e0db1ccfa81ffe144b33",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_candidate",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M02",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "ambiguity_evaluations": [],
+            "candidate": {
+              "candidate_id": "cand-1",
+              "capabilities": {
+                "ambiguity": "UNAVAILABLE",
+                "equivalence": "UNAVAILABLE",
+                "greeks": "UNAVAILABLE",
+                "quality_diversity": "UNAVAILABLE"
+              },
+              "cycle_id": "cycle-2",
+              "decision_time": "2026-01-05T14:30:00Z",
+              "horizon": "5_sessions",
+              "lineage_id": "lin-cand-1",
+              "market_snapshot_id": "snap-1",
+              "objective_family": "RANGE",
+              "strategy_class": "IRON_CONDOR",
+              "underlying_id": "XYZ"
+            },
+            "candidate_id": "cand-1",
+            "cost_liquidity": {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "entry_cost": 10.0
+            },
+            "cycle_id": "cycle-2",
+            "decision_time": "2026-01-05T14:30:00Z",
+            "equivalence": [],
+            "generation_trace": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-1",
+                "trace_id": "trace-1"
+              }
+            ],
+            "greeks": [],
+            "horizon": "5_sessions",
+            "legs": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-1",
+                "leg_id": "leg-1"
+              }
+            ],
+            "lineage": {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "lineage_id": "lin-cand-1"
+            },
+            "lineage_id": "lin-cand-1",
+            "market_snapshot": {
+              "market_snapshot_id": "snap-1",
+              "market_snapshot_time": "2026-01-05T14:30:00Z"
+            },
+            "market_snapshot_id": "snap-1",
+            "objective_family": "RANGE",
+            "payoffs": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-1",
+                "payoff_id": "pay-1"
+              }
+            ],
+            "quality_diversity": [],
+            "risk": {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "maximum_loss": 100.0
+            },
+            "scenario_evaluations": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-1",
+                "scenario_id": "scenario-1"
+              }
+            ],
+            "underlying_id": "XYZ"
+          }
+        ],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      }
+    },
+    "receipt": {
+      "input_hash": "d9b941b78ee9f74a506da3114e4b5d4a6548ded9f6dc503ea554df26dac04868",
+      "output_artifact_names": [
+        "candidate_reconciliation_report",
+        "orphan_record_report",
+        "validated_strategy_candidate_bundle"
+      ],
+      "output_hash": "7de6312809a8ba20527783588e44141c0bf16be29109b669e49c4efa6d17cf32"
+    },
+    "status": "PASS"
+  },
+  "P7.S1.M03": {
+    "issues": [],
+    "module_id": "P7.S1.M03",
+    "outputs": {
+      "forbidden_field_report": {
+        "artifact_id": "forbidden_field_report:p6-run-1:cycle-2",
+        "artifact_name": "forbidden_field_report",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "8ea16d4b61273c0e7ab879c2eb72c5a121e8e617a841c8ae811ce583f455e9c8",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_forbidden_field_hit",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M03",
+        "producer_phase": "P7",
+        "record_count": 0,
+        "records": [],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      },
+      "temporal_integrity_report": {
+        "artifact_id": "temporal_integrity_report:p6-run-1:cycle-2",
+        "artifact_name": "temporal_integrity_report",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "fdf97288efe2746454c1ded61ec598bd5fd4e76d2eede9e6d42fd150bae3b037",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_firewall_run",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M03",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "candidate_count": 1,
+            "checked_runtime_time_fields": [
+              "decision_time",
+              "available_at",
+              "market_snapshot_time",
+              "quote_time",
+              "forecast_created_at",
+              "model_trained_at"
+            ],
+            "status": "PASS",
+            "violation_count": 0
+          }
+        ],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      },
+      "temporally_safe_candidate_bundle": {
+        "artifact_id": "temporally_safe_candidate_bundle:p6-run-1:cycle-2",
+        "artifact_name": "temporally_safe_candidate_bundle",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "5a626b1eff2ecf2fd524e5002887276d50d9c3aa3a8e5bca27e11462bd922a39",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_candidate",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M03",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "ambiguity_evaluations": [],
+            "candidate": {
+              "candidate_id": "cand-1",
+              "capabilities": {
+                "ambiguity": "UNAVAILABLE",
+                "equivalence": "UNAVAILABLE",
+                "greeks": "UNAVAILABLE",
+                "quality_diversity": "UNAVAILABLE"
+              },
+              "cycle_id": "cycle-2",
+              "decision_time": "2026-01-05T14:30:00Z",
+              "horizon": "5_sessions",
+              "lineage_id": "lin-cand-1",
+              "market_snapshot_id": "snap-1",
+              "objective_family": "RANGE",
+              "strategy_class": "IRON_CONDOR",
+              "underlying_id": "XYZ"
+            },
+            "candidate_id": "cand-1",
+            "cost_liquidity": {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "entry_cost": 10.0
+            },
+            "cycle_id": "cycle-2",
+            "decision_time": "2026-01-05T14:30:00Z",
+            "equivalence": [],
+            "generation_trace": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-1",
+                "trace_id": "trace-1"
+              }
+            ],
+            "greeks": [],
+            "horizon": "5_sessions",
+            "legs": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-1",
+                "leg_id": "leg-1"
+              }
+            ],
+            "lineage": {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "lineage_id": "lin-cand-1"
+            },
+            "lineage_id": "lin-cand-1",
+            "market_snapshot": {
+              "market_snapshot_id": "snap-1",
+              "market_snapshot_time": "2026-01-05T14:30:00Z"
+            },
+            "market_snapshot_id": "snap-1",
+            "objective_family": "RANGE",
+            "payoffs": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-1",
+                "payoff_id": "pay-1"
+              }
+            ],
+            "quality_diversity": [],
+            "risk": {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "maximum_loss": 100.0
+            },
+            "scenario_evaluations": [
+              {
+                "available_at": "2026-01-05T14:30:00Z",
+                "candidate_id": "cand-1",
+                "scenario_id": "scenario-1"
+              }
+            ],
+            "underlying_id": "XYZ"
+          }
+        ],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      }
+    },
+    "receipt": {
+      "input_hash": "151c1f7f9cd99fa3eb6f077dd6d6ba7bf0a83eae06a2e5269a356a78523ee590",
+      "output_artifact_names": [
+        "forbidden_field_report",
+        "temporal_integrity_report",
+        "temporally_safe_candidate_bundle"
+      ],
+      "output_hash": "27798641dd4553b285a2566955df735ac0f34889bf70ed910d19b17436173187"
+    },
+    "status": "PASS"
+  },
+  "P7.S1.M04": {
+    "issues": [],
+    "module_id": "P7.S1.M04",
+    "outputs": {
+      "feedback_validation_report": {
+        "artifact_id": "feedback_validation_report:p6-run-1:cycle-2",
+        "artifact_name": "feedback_validation_report",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "AVAILABLE",
+        "content_sha256": "3659e6e35ef2a91719aa13462d93a6b490d7919c6772ed8fa322271cc520454f",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_feedback_load",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M04",
+        "producer_phase": "P7",
+        "record_count": 1,
+        "records": [
+          {
+            "accepted_count": 0,
+            "feedback_status": "ABSENT_OPTIONAL",
+            "status": "PASS"
+          }
+        ],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      },
+      "ranking_feedback_context": {
+        "artifact_id": "ranking_feedback_context:p6-run-1:cycle-2",
+        "artifact_name": "ranking_feedback_context",
+        "available_at": "2026-01-05T14:30:00Z",
+        "capability_status": "UNAVAILABLE",
+        "content_sha256": "b736f57c1756a0d4c7831f261c33b21b26d6433fe6b413c5242baf34498ca8c7",
+        "created_at": "2026-01-05T14:31:00Z",
+        "cycle_id": "cycle-2",
+        "decision_time": "2026-01-05T14:30:00Z",
+        "destination_phase": "P7",
+        "grain": "one_record_per_promoted_feedback_item",
+        "lineage_id": "lin-p7-s1",
+        "pipeline_version": "15.0.0",
+        "producer_module_id": "P7.S1.M04",
+        "producer_phase": "P7",
+        "record_count": 0,
+        "records": [],
+        "run_id": "p6-run-1",
+        "schema_version": "2.0.0"
+      }
+    },
+    "receipt": {
+      "input_hash": "cbf7bbcb8edb94631d43413277ff19979efd6925030339560acad4337cbd9dec",
+      "output_artifact_names": [
+        "feedback_validation_report",
+        "ranking_feedback_context"
+      ],
+      "output_hash": "02589723e80c9b598a26ec48ecf634076f863572ba539051b71a6d8802ea186b"
+    },
+    "status": "PASS"
+  },
+  "outputs": {
+    "ranking_feedback_context": {
+      "artifact_id": "ranking_feedback_context:p6-run-1:cycle-2",
+      "artifact_name": "ranking_feedback_context",
+      "available_at": "2026-01-05T14:30:00Z",
+      "capability_status": "UNAVAILABLE",
+      "content_sha256": "b736f57c1756a0d4c7831f261c33b21b26d6433fe6b413c5242baf34498ca8c7",
+      "created_at": "2026-01-05T14:31:00Z",
+      "cycle_id": "cycle-2",
+      "decision_time": "2026-01-05T14:30:00Z",
+      "destination_phase": "P7",
+      "grain": "one_record_per_promoted_feedback_item",
+      "lineage_id": "lin-p7-s1",
+      "pipeline_version": "15.0.0",
+      "producer_module_id": "P7.S1.M04",
+      "producer_phase": "P7",
+      "record_count": 0,
+      "records": [],
+      "run_id": "p6-run-1",
+      "schema_version": "2.0.0"
+    },
+    "temporally_safe_candidate_bundle": {
+      "artifact_id": "temporally_safe_candidate_bundle:p6-run-1:cycle-2",
+      "artifact_name": "temporally_safe_candidate_bundle",
+      "available_at": "2026-01-05T14:30:00Z",
+      "capability_status": "AVAILABLE",
+      "content_sha256": "5a626b1eff2ecf2fd524e5002887276d50d9c3aa3a8e5bca27e11462bd922a39",
+      "created_at": "2026-01-05T14:31:00Z",
+      "cycle_id": "cycle-2",
+      "decision_time": "2026-01-05T14:30:00Z",
+      "destination_phase": "P7",
+      "grain": "one_record_per_candidate",
+      "lineage_id": "lin-p7-s1",
+      "pipeline_version": "15.0.0",
+      "producer_module_id": "P7.S1.M03",
+      "producer_phase": "P7",
+      "record_count": 1,
+      "records": [
+        {
+          "ambiguity_evaluations": [],
+          "candidate": {
+            "candidate_id": "cand-1",
+            "capabilities": {
+              "ambiguity": "UNAVAILABLE",
+              "equivalence": "UNAVAILABLE",
+              "greeks": "UNAVAILABLE",
+              "quality_diversity": "UNAVAILABLE"
+            },
+            "cycle_id": "cycle-2",
+            "decision_time": "2026-01-05T14:30:00Z",
+            "horizon": "5_sessions",
+            "lineage_id": "lin-cand-1",
+            "market_snapshot_id": "snap-1",
+            "objective_family": "RANGE",
+            "strategy_class": "IRON_CONDOR",
+            "underlying_id": "XYZ"
+          },
+          "candidate_id": "cand-1",
+          "cost_liquidity": {
+            "available_at": "2026-01-05T14:30:00Z",
+            "candidate_id": "cand-1",
+            "entry_cost": 10.0
+          },
+          "cycle_id": "cycle-2",
+          "decision_time": "2026-01-05T14:30:00Z",
+          "equivalence": [],
+          "generation_trace": [
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "trace_id": "trace-1"
+            }
+          ],
+          "greeks": [],
+          "horizon": "5_sessions",
+          "legs": [
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "leg_id": "leg-1"
+            }
+          ],
+          "lineage": {
+            "available_at": "2026-01-05T14:30:00Z",
+            "candidate_id": "cand-1",
+            "lineage_id": "lin-cand-1"
+          },
+          "lineage_id": "lin-cand-1",
+          "market_snapshot": {
+            "market_snapshot_id": "snap-1",
+            "market_snapshot_time": "2026-01-05T14:30:00Z"
+          },
+          "market_snapshot_id": "snap-1",
+          "objective_family": "RANGE",
+          "payoffs": [
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "payoff_id": "pay-1"
+            }
+          ],
+          "quality_diversity": [],
+          "risk": {
+            "available_at": "2026-01-05T14:30:00Z",
+            "candidate_id": "cand-1",
+            "maximum_loss": 100.0
+          },
+          "scenario_evaluations": [
+            {
+              "available_at": "2026-01-05T14:30:00Z",
+              "candidate_id": "cand-1",
+              "scenario_id": "scenario-1"
+            }
+          ],
+          "underlying_id": "XYZ"
+        }
+      ],
+      "run_id": "p6-run-1",
+      "schema_version": "2.0.0"
+    }
+  }
+}

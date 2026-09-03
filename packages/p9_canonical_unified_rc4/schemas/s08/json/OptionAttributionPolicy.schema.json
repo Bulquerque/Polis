@@ -1,0 +1,19 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "residual_tolerance": {
+      "default": 0.0001,
+      "minimum": 0.0,
+      "title": "Residual Tolerance",
+      "type": "number"
+    },
+    "require_surface": {
+      "default": true,
+      "title": "Require Surface",
+      "type": "boolean"
+    }
+  },
+  "title": "OptionAttributionPolicy",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:OptionAttributionPolicy:1.0.0"
+}

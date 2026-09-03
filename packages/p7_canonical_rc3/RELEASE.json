@@ -1,0 +1,35 @@
+{
+  "bundle_python_requires": ">=3.13,<3.15",
+  "bundle_release": "P5_P9_P0_P4_COMPAT_RC3_HARDENED_6",
+  "closure_changes": [
+    "modern_p9_feedback_consumer_verified",
+    "group_scoped_runtime_supported",
+    "fail_closed_ranking_preserved"
+  ],
+  "generated_at": "2026-08-06T20:50:05.592200+00:00",
+  "internal_schema_version": "2.3.1",
+  "modules": 33,
+  "package_id": "quant-pipeline-p7-strategy-tournament",
+  "package_version": "2.3.1rc3.post2",
+  "phase_id": "P7",
+  "production_promotion_allowed": false,
+  "python_requires": ">=3.11,<3.15",
+  "status": "PASS_TECHNICAL_CLOSURE_ECONOMIC_PROMOTION_BLOCKED",
+  "subphases": 8,
+  "technical_closure": true,
+  "tests": {
+    "collected": 342,
+    "execution": "SEGMENTED_WITH_EXPLICIT_TIMEOUTS",
+    "failed": 0,
+    "generated_at": "2026-08-06T20:50:05.592200+00:00",
+    "passed": 342,
+    "skipped": 0,
+    "status": "PASS"
+  },
+  "wheel": {
+    "filename": "quant_pipeline_p7_strategy_tournament-2.3.1rc3.post2-py3-none-any.whl",
+    "sha256": "9db71c023f076c5bfb93c1ad22083ca991ec066334f63d31b6a7338cc3144633",
+    "size": 244688
+  },
+  "wire_contract_version": "2.3.0"
+}

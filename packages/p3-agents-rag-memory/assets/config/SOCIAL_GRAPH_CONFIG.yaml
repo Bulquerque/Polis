@@ -1,0 +1,17 @@
+version: v1
+seed_required: true
+edge_probability: sigmoid(intercept + same_institution*w1 + role_similarity*w2 + tag_cosine*w3 + same_geography*w4)
+weights:
+  intercept: -3.0
+  same_institution: 1.5
+  role_similarity: 0.8
+  tag_cosine: 1.0
+  same_geography: 0.3
+min_degree: 1
+max_degree: 12
+max_connected_components: 5
+min_bridge_edges_between_role_families: 4
+max_hub_share: 0.2
+domain_trust_range:
+- 0
+- 1

@@ -1,0 +1,15 @@
+spec_id: ST19_REPRODUCIBILITY_REPLAY
+status: DOCUMENTED_NOT_EXECUTABLE_UNTIL_IMPLEMENTATION
+objective: Frozen snapshots and common seeds reproduce the same planned trajectory envelope
+required_cases:
+- snapshot_hash
+- provider_version
+- population_seed
+- downstream_seed
+required_evidence:
+- inputs_manifest
+- execution_log
+- assertion_report
+- artifact_hashes
+- limitations
+failure_policy: fail_closed_and_block_qualification

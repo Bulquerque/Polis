@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "observation_count": {
+      "minimum": 0,
+      "title": "Observation Count",
+      "type": "integer"
+    },
+    "supported_observation_count": {
+      "minimum": 0,
+      "title": "Supported Observation Count",
+      "type": "integer"
+    },
+    "minimum_logging_propensity": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Minimum Logging Propensity"
+    },
+    "maximum_importance_weight": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Maximum Importance Weight"
+    },
+    "effective_sample_size": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Effective Sample Size"
+    },
+    "support_qualified": {
+      "title": "Support Qualified",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "observation_count",
+    "supported_observation_count",
+    "support_qualified"
+  ],
+  "title": "OverlapDiagnostics",
+  "type": "object",
+  "$id": "urn:inferencia:p9:s8:OverlapDiagnostics:1.0.0"
+}

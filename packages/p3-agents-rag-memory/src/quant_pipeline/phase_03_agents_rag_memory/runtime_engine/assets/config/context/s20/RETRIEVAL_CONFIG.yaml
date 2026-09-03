@@ -1,0 +1,18 @@
+schema_version: retrieval_config.s20.v1
+hybrid_weights:
+  semantic: 0.40
+  keyword: 0.20
+  recency: 0.15
+  importance: 0.10
+  source_quality: 0.15
+top_k_raw: 40
+top_k_final: 12
+memory_top_k: 10
+document_top_k: 20
+graph_top_k: 10
+experience_top_k: 5
+minimum_evidence_items: 2
+max_items_per_source: 6
+reranker_required_when_connected: true
+provider_unavailable_policy: material_failure_or_declared_deterministic_fallback
+person_memory_partition_required: true

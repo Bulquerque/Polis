@@ -1,0 +1,69 @@
+module_id: P1.S5.M04
+module_name: phase2_handoff_packager
+phase: phase_01_ingestion
+subphase: P1.S5
+rc: RC4.1
+function: Empacotar handoff oficial para Fase 2 com todos os produtores reais declarados.
+inputs: &id001
+- ingestion_manifest
+- source_registry
+- source_snapshot_registry
+- raw_file_inventory
+- versioned_raw_file_inventory
+- raw_readability_report
+- raw_schema_hint_report
+- ingestion_error_report
+outputs: &id002
+- handoff_manifest_to_phase_2
+- source_registry
+- raw_file_inventory
+- source_snapshot_registry
+- raw_readability_report
+- raw_schema_hint_report
+- ingestion_error_report
+validations:
+- all_phase2_outputs_present
+- hashes_present
+- no_blocking_error_open
+fail_fast_conditions:
+- phase2_handoff_packager_schema_violation
+- phase2_handoff_packager_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- feature
+- prediction
+- score
+- candidate_id
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P1.S5.M01
+    - P1.S1.M01
+    - P1.S5.M02
+    - P1.S3.M01
+    - P1.S3.M02
+    - P1.S4.M01
+    - P1.S4.M02
+    - P1.S5.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules: []
+    artifacts: *id002
+    phase_outputs:
+    - handoff_manifest_to_phase_2
+    - source_registry
+    - raw_file_inventory
+    - source_snapshot_registry
+    - raw_readability_report
+    - raw_schema_hint_report
+    - ingestion_error_report
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

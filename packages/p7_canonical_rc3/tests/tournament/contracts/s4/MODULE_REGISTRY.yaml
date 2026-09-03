@@ -1,0 +1,25 @@
+registry_id: p7_s4_module_registry_v1
+phase: P7
+subphase: P7.S4
+stages: TOURNAMENT
+modules:
+  - module_id: P7.S4.M01
+    name: scoring_policy_head_binding_compiler
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S4_M01_scoring_policy_head_binding_compiler.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s4/binding.py
+    contract: contracts/modules/P7_S4_M01_scoring_policy_head_binding_compiler.yaml
+  - module_id: P7.S4.M02
+    name: multi_head_score_engine
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S4_M02_multi_head_score_engine.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s4/scoring.py
+    contract: contracts/modules/P7_S4_M02_multi_head_score_engine.yaml
+  - module_id: P7.S4.M03
+    name: interpretable_score_assembler
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S4_M03_interpretable_score_assembler.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s4/assembly.py
+    contract: contracts/modules/P7_S4_M03_interpretable_score_assembler.yaml
+  - module_id: P7.S4.M04
+    name: score_decomposition_and_tournament_handoff_publisher
+    source: src/quant_pipeline/phase_07_strategy_tournament/modules/P7_S4_M04_score_decomposition_and_tournament_handoff_publisher.py
+    service: src/quant_pipeline/phase_07_strategy_tournament/subphases/s4/publication.py
+    contract: contracts/modules/P7_S4_M04_score_decomposition_and_tournament_handoff_publisher.yaml

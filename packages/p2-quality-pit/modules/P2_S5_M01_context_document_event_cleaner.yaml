@@ -1,0 +1,51 @@
+module_id: P2.S5.M01
+module_name: context_document_event_cleaner
+phase: phase_02_quality_pit
+subphase: P2.S5
+rc: RC4.1
+function: Limpar documentos, fontes contextuais e eventos para Fase 3.
+inputs: &id001
+- identifier_harmonized_bundle
+- source_quality_panel
+outputs: &id002
+- clean_context_source_panel
+- clean_document_panel
+- clean_event_reference_panel
+validations:
+- document_available_at_present
+- no_trade_signal
+fail_fast_conditions:
+- context_document_event_cleaner_schema_violation
+- context_document_event_cleaner_forbidden_field_detected
+forbidden_fields:
+- target
+- future_return
+- label
+- prediction
+- candidate_id
+- candidate_score
+- rank_score
+- portfolio_weight
+- trade_decision
+- realized_pnl
+allowed_connections:
+  consumes_from:
+    modules:
+    - P2.S2.M02
+    - P2.S1.M03
+    artifacts: *id001
+    phase_inputs: []
+  emits_to:
+    modules:
+    - P2.S6.M01
+    - P2.S6.M02
+    artifacts: *id002
+    phase_outputs:
+    - clean_context_source_panel
+    - clean_document_panel
+    - clean_event_reference_panel
+forbidden_connections:
+- any_connection_not_listed_in_CONNECTIONS_ALLOWED
+- future_phase_output_consumption
+- hidden_global_state
+notes: []

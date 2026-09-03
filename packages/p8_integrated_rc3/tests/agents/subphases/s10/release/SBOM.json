@@ -1,0 +1,39 @@
+{
+  "$schema": "https://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:0e288cc2-a230-505d-bce4-e1684ba7cd55",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-01-01T00:00:00Z",
+    "component": {
+      "type": "library",
+      "bom-ref": "pkg:pypi/quant-pipeline-p8-s10-audit-release@0.1.0",
+      "name": "quant-pipeline-p8-s10-audit-release",
+      "version": "0.1.0",
+      "purl": "pkg:pypi/quant-pipeline-p8-s10-audit-release@0.1.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/pydantic@2.13.4",
+      "name": "pydantic",
+      "version": "2.13.4",
+      "scope": "required",
+      "purl": "pkg:pypi/pydantic@2.13.4"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:pypi/quant-pipeline-p8-s10-audit-release@0.1.0",
+      "dependsOn": [
+        "pkg:pypi/pydantic@2.13.4"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/pydantic@2.13.4",
+      "dependsOn": []
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+policy_id: code_quality_policy_v14_1_rc4_1
+max_python_file_lines: 350
+max_function_lines: 60
+max_class_lines: 180
+max_module_public_functions: 12
+max_cyclomatic_complexity: 10
+max_yaml_contract_lines: 300
+max_markdown_doc_lines: 600
+forbidden_file_names:
+  - utils.py
+  - helpers.py
+  - misc.py
+allowed_with_justification:
+  - __init__.py
+  - runner.py
+  - validators.py
+fail_fast_on:
+  - hidden_global_state
+  - forbidden_import
+  - monolith_without_exception
+  - duplicated_common_utility
+

@@ -1,0 +1,23 @@
+contract_id: p7_s4_inputs_v1
+producer_boundaries:
+  P7.S3:
+    - comparable_candidate_metric_panel
+    - factor_adjusted_metric_panel
+    - factor_exposure_panel
+    - dominance_relation_panel
+    - dominated_candidate_panel
+    - dominance_survivor_panel
+    - pareto_frontier_panel
+    - metric_semantics_audit_report
+    - factor_adjustment_audit_report
+    - pareto_frontier_audit_report
+  P7.S2:
+    - candidate_comparison_group_panel
+    - scoring_policy_context
+invariants:
+  - all artifacts share run_id, cycle_id, and decision_time
+  - metric source timestamps do not exceed decision_time
+  - scoring policy is available no later than decision_time
+  - candidate groups are immutable and explicit
+  - missing values are never inferred as zero
+  - outcome, rank, portfolio, and execution fields are forbidden recursively

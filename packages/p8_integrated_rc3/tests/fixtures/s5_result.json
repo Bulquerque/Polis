@@ -1,0 +1,494 @@
+{
+  "envelope": {
+    "artifact_id": "RUN1:P8.S5:RESULT",
+    "artifact_type": "P8_TARGET_AND_CONTROL_PLAN_V1",
+    "available_at": "2026-08-03T18:00:01Z",
+    "computed_at": "2026-08-03T18:00:01Z",
+    "content_sha256": "2f642d97448d73c53a93fb9c842597f0e222945c06a626b969319d09569adbf3",
+    "contract_version": "1.0.0",
+    "cycle_id": 1,
+    "decision_time": "2026-08-03T18:00:00Z",
+    "lineage_id": "L1",
+    "market_cutoff_at": "2026-08-03T18:00:00Z",
+    "pipeline_version": "v14.1-rc4.1",
+    "producer_module": "P8.S5",
+    "producer_phase": "P8",
+    "producer_release": "0.1.0",
+    "recorded_at": "2026-08-03T18:00:01Z",
+    "run_id": "RUN1",
+    "schema_version": "1.0.0"
+  },
+  "payload": {
+    "compiled_constraints": {
+      "candidate_bounds": [
+        [
+          -5.0,
+          5.0
+        ]
+      ],
+      "candidate_ids": [
+        "C1"
+      ],
+      "capital_limits": [
+        10.0,
+        10.0
+      ],
+      "conflicts": [],
+      "constraint_count": 17,
+      "constraint_hash": "9e694017bd1cd9703604dd5d669423cb3e7106b70fb8515ee180d4bda09ca634",
+      "horizon_ids": [
+        "H0",
+        "H1"
+      ],
+      "liquidity_caps": [
+        [
+          5.0
+        ],
+        [
+          5.0
+        ]
+      ],
+      "margin_limits": [
+        10.0,
+        10.0
+      ],
+      "maximum_cvar": 100.0,
+      "maximum_loss_limits": [
+        10.0,
+        10.0
+      ],
+      "maximum_turnover": 100.0,
+      "quantity_increments": [
+        1.0
+      ]
+    },
+    "compiled_objective": {
+      "candidate_ids": [
+        "C1"
+      ],
+      "components": [
+        {
+          "component_id": "EXPECTED_SCENARIO_PNL",
+          "component_type": "RETURN",
+          "direction": "MAXIMIZE",
+          "unit": "CURRENCY",
+          "weight": 1.0
+        },
+        {
+          "component_id": "CVAR",
+          "component_type": "TAIL_RISK",
+          "direction": "MINIMIZE",
+          "unit": "CURRENCY",
+          "weight": 0.1
+        },
+        {
+          "component_id": "TRANSACTION_COST",
+          "component_type": "COST",
+          "direction": "MINIMIZE",
+          "unit": "CURRENCY",
+          "weight": 1.0
+        },
+        {
+          "component_id": "TURNOVER",
+          "component_type": "TURNOVER",
+          "direction": "MINIMIZE",
+          "unit": "QUANTITY",
+          "weight": 0.0
+        },
+        {
+          "component_id": "FUNDING",
+          "component_type": "COST",
+          "direction": "MINIMIZE",
+          "unit": "CURRENCY",
+          "weight": 0.0
+        },
+        {
+          "component_id": "ORDINAL_INVERSION",
+          "component_type": "ORDINAL",
+          "direction": "MINIMIZE",
+          "unit": "DIMENSIONLESS",
+          "weight": 0.0
+        }
+      ],
+      "expected_pnl_by_horizon_candidate": [
+        [
+          0.5
+        ],
+        [
+          0.25
+        ]
+      ],
+      "funding_cost_by_horizon_candidate": [
+        [
+          0.0
+        ],
+        [
+          0.0
+        ]
+      ],
+      "horizon_ids": [
+        "H0",
+        "H1"
+      ],
+      "objective_hash": "c375cb33147cf06443d92460b1419b36f79f5c0e92de1902a3d0a6b199d6f8a8",
+      "ordinal_penalty_count": 0,
+      "transaction_cost_by_candidate": [
+        0.0
+      ]
+    },
+    "discrete_target": {
+      "changes": [],
+      "discrete_hash": "5a885b68c7eb1cde82ca4ddcd819cf5782e30f5506b416830cca24e6d798c812",
+      "objective_value": -3.0,
+      "quantities": [
+        {
+          "candidate_id": "C1",
+          "quantities_by_horizon": [
+            5.0,
+            5.0
+          ]
+        }
+      ],
+      "reason_codes": [],
+      "status": "FEASIBLE_ROUNDED",
+      "validation": {
+        "feasible": true,
+        "maximum_equality_violation": 0.0,
+        "maximum_inequality_violation": 0.0,
+        "objective_value": -3.0,
+        "reason_codes": [],
+        "slacks": [
+          {
+            "constraint_name": "TRADE_ABS_POS:0:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "TRADE_ABS_NEG:0:0",
+            "slack": -0.0
+          },
+          {
+            "constraint_name": "TRADE_ABS_POS:1:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "TRADE_ABS_NEG:1:0",
+            "slack": -0.0
+          },
+          {
+            "constraint_name": "POSITION_ABS_POS:0:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "POSITION_ABS_NEG:0:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "POSITION_ABS_POS:1:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "POSITION_ABS_NEG:1:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "CAPITAL:0",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "MARGIN:0",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "MAXIMUM_LOSS:0",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "CAPITAL:1",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "MARGIN:1",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "MAXIMUM_LOSS:1",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "TURNOVER",
+            "slack": 95.0
+          },
+          {
+            "constraint_name": "CVAR_EXCESS:0",
+            "slack": 22.5
+          },
+          {
+            "constraint_name": "CVAR_EXCESS:1",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "CVAR_LIMIT",
+            "slack": 92.5
+          }
+        ]
+      }
+    },
+    "module_receipts": [
+      "P8.S5.M01:SEMANTICALLY_CONSUMED",
+      "P8.S5.M02:SEMANTICALLY_CONSUMED",
+      "P8.S5.M03:SEMANTICALLY_CONSUMED",
+      "P8.S5.M04:SHADOW_ONLY",
+      "P8.S5.M05:SEMANTICALLY_CONSUMED",
+      "P8.S5.M06:SEMANTICALLY_CONSUMED",
+      "P8.S5.M07:PUBLISHED"
+    ],
+    "mpc_plan": {
+      "action": "REBALANCE",
+      "decision_snapshot_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "first_action_only": true,
+      "first_actions": [
+        {
+          "candidate_id": "C1",
+          "current_quantity": 0.0,
+          "delta_quantity": 5.0,
+          "target_quantity": 5.0
+        }
+      ],
+      "future_plan": [
+        {
+          "candidate_id": "C1",
+          "quantities_by_horizon": [
+            5.0,
+            5.0
+          ]
+        }
+      ],
+      "plan_hash": "59e1dc43345c7617f0c2be77af7f4d434f32626d0e643a0db7dbe44b18b52bbc",
+      "reoptimization_triggers": [
+        "PARTIAL_FILL",
+        "MARGIN_CHANGE"
+      ],
+      "valid_from": "2026-08-03T18:00:00Z",
+      "valid_until": "2026-08-03T19:00:00Z"
+    },
+    "nominal_solution": {
+      "iterations": 2,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective_value": -3.0,
+      "quantities": [
+        {
+          "candidate_id": "C1",
+          "quantities_by_horizon": [
+            5.0,
+            5.0
+          ]
+        }
+      ],
+      "solution_hash": "fab317998ecf259a22523aac01a07961040a2cd8307bcc8ce2fd7bd6e66e156b",
+      "solver_name": "SCIPY_HIGHS_LP",
+      "solver_version": "1.17.0",
+      "status": "OPTIMAL",
+      "validation": {
+        "feasible": true,
+        "maximum_equality_violation": 0.0,
+        "maximum_inequality_violation": 0.0,
+        "objective_value": -3.0,
+        "reason_codes": [],
+        "slacks": [
+          {
+            "constraint_name": "TRADE_ABS_POS:0:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "TRADE_ABS_NEG:0:0",
+            "slack": -0.0
+          },
+          {
+            "constraint_name": "TRADE_ABS_POS:1:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "TRADE_ABS_NEG:1:0",
+            "slack": -0.0
+          },
+          {
+            "constraint_name": "POSITION_ABS_POS:0:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "POSITION_ABS_NEG:0:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "POSITION_ABS_POS:1:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "POSITION_ABS_NEG:1:0",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "CAPITAL:0",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "MARGIN:0",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "MAXIMUM_LOSS:0",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "CAPITAL:1",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "MARGIN:1",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "MAXIMUM_LOSS:1",
+            "slack": 5.0
+          },
+          {
+            "constraint_name": "TURNOVER",
+            "slack": 95.0
+          },
+          {
+            "constraint_name": "CVAR_EXCESS:0",
+            "slack": 22.5
+          },
+          {
+            "constraint_name": "CVAR_EXCESS:1",
+            "slack": 0.0
+          },
+          {
+            "constraint_name": "CVAR_LIMIT",
+            "slack": 92.5
+          }
+        ]
+      }
+    },
+    "rebalance_decision": {
+      "action": "REBALANCE",
+      "benefit": {
+        "hold_objective": 0.0,
+        "objective_improvement": 3.0,
+        "target_objective": -3.0,
+        "total_first_action_quantity_change": 5.0
+      },
+      "reason_codes": []
+    },
+    "robust_shadow": {
+      "comparison": {
+        "execution_capability": false,
+        "input_hashes_equal": true,
+        "maximum_quantity_difference": 5.0,
+        "nominal_objective": -3.0,
+        "reason_codes": [],
+        "robust_objective": 0.0,
+        "state": "MATERIAL"
+      },
+      "solution": {
+        "iterations": 1,
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "objective_value": 0.0,
+        "quantities": [
+          {
+            "candidate_id": "C1",
+            "quantities_by_horizon": [
+              -0.0,
+              -0.0
+            ]
+          }
+        ],
+        "solution_hash": "a5035c69044ed6818eb506f435102c0ee92a9a6600018517a0d8a56da5f93968",
+        "solver_name": "SCIPY_HIGHS_LP",
+        "solver_version": "1.17.0",
+        "status": "OPTIMAL",
+        "validation": {
+          "feasible": true,
+          "maximum_equality_violation": 0.0,
+          "maximum_inequality_violation": 0.0,
+          "objective_value": 0.0,
+          "reason_codes": [],
+          "slacks": [
+            {
+              "constraint_name": "TRADE_ABS_POS:0:0",
+              "slack": 0.0
+            },
+            {
+              "constraint_name": "TRADE_ABS_NEG:0:0",
+              "slack": -0.0
+            },
+            {
+              "constraint_name": "TRADE_ABS_POS:1:0",
+              "slack": 0.0
+            },
+            {
+              "constraint_name": "TRADE_ABS_NEG:1:0",
+              "slack": -0.0
+            },
+            {
+              "constraint_name": "POSITION_ABS_POS:0:0",
+              "slack": 0.0
+            },
+            {
+              "constraint_name": "POSITION_ABS_NEG:0:0",
+              "slack": 0.0
+            },
+            {
+              "constraint_name": "POSITION_ABS_POS:1:0",
+              "slack": 0.0
+            },
+            {
+              "constraint_name": "POSITION_ABS_NEG:1:0",
+              "slack": 0.0
+            },
+            {
+              "constraint_name": "CAPITAL:0",
+              "slack": 10.0
+            },
+            {
+              "constraint_name": "MARGIN:0",
+              "slack": 10.0
+            },
+            {
+              "constraint_name": "MAXIMUM_LOSS:0",
+              "slack": 10.0
+            },
+            {
+              "constraint_name": "CAPITAL:1",
+              "slack": 10.0
+            },
+            {
+              "constraint_name": "MARGIN:1",
+              "slack": 10.0
+            },
+            {
+              "constraint_name": "MAXIMUM_LOSS:1",
+              "slack": 10.0
+            },
+            {
+              "constraint_name": "TURNOVER",
+              "slack": 100.0
+            },
+            {
+              "constraint_name": "CVAR_EXCESS:0",
+              "slack": 0.0
+            },
+            {
+              "constraint_name": "CVAR_EXCESS:1",
+              "slack": 0.0
+            },
+            {
+              "constraint_name": "CVAR_LIMIT",
+              "slack": 100.0
+            }
+          ]
+        }
+      }
+    }
+  }
+}

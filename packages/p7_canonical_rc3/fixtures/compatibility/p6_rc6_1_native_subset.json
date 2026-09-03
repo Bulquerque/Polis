@@ -1,0 +1,1047 @@
+{
+  "candidate_equivalence_panel": {
+    "artifact_id": "fixture-candidate_equivalence_panel-68d22786bd5253ee",
+    "artifact_type": "candidate_equivalence_panel_final",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "68d22786bd5253ee7ac3c04566ee0ad41706a0fcdbbd1855302c5f5d4fbfef45",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [],
+    "lineage_id": "lineage-a207350840b4a0e85160e654",
+    "metadata": {},
+    "producer_module_id": "P6.S9.M06",
+    "producer_phase": "P6",
+    "record_count": 2,
+    "records": [
+      {
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "economic_fingerprint": "6bde49fc2223523192839ab038b59d226dc8facb669bb146bae6418a648a4e47",
+        "equivalence_cluster_id": "equivalence-02232a136ba6948735fa22ea",
+        "leg_shape_fingerprint": "shape-ccf8b9b654dc08861a1fdf77",
+        "payoff_fingerprint": "59703a5b60f8b7ca14d3ec4b8f149a36fcd4e3feb6185d440893eee1c60ababe",
+        "relative_scale": "1",
+        "representative": true
+      },
+      {
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "economic_fingerprint": "45aec7f651ce7114f09441e067212378e64ff19d053a25bf25e52f20d2ce9f06",
+        "equivalence_cluster_id": "equivalence-275923da7e7cebb0870e4b98",
+        "leg_shape_fingerprint": "shape-c43e4ef0a90c4455be7638dc",
+        "payoff_fingerprint": "8d296ef4be5b5a2dc93a2b8744d6f37f2bbfca2a100676f95fa782bb6c410c42",
+        "relative_scale": "1",
+        "representative": true
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "candidate_generation_audit": {
+    "artifact_id": "fixture-candidate_generation_audit-05c329a38e1007af",
+    "artifact_type": "candidate_generation_audit",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "05c329a38e1007affb6f87da0b6aa620a2602e4a27b617806cf66d098bddfa71",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [],
+    "lineage_id": "lineage-ce3fc659fa3371c516dcc417",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 1,
+    "records": [
+      {
+        "attempted_count": 94,
+        "duplicate_count": 0,
+        "generated_count": 80,
+        "generation_run_id": "wave1-run",
+        "policy_version": "wave2-strategy-v1",
+        "published_count": 2,
+        "qualified_count": 70,
+        "rejected_count": 14,
+        "seed": 7
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "candidate_rejection_report": {
+    "artifact_id": "fixture-candidate_rejection_report-4f53cda18c2baa0c",
+    "artifact_type": "candidate_rejection_report",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [],
+    "lineage_id": "lineage-dce336db3c23ba03cf583464",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 0,
+    "records": [],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "EMPTY_VALID"
+  },
+  "phase7_strategy_handoff_manifest": {
+    "artifact_id": "fixture-phase7-manifest-a792540534b37c38",
+    "artifact_type": "phase7_strategy_handoff_manifest",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "a792540534b37c384506859d7029bb4f9ce1fa88429e4961c9916e056dffbcc7",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [],
+    "lineage_id": "lineage-5e4c5ad04c16adc39d315d50",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M03",
+    "producer_phase": "P6",
+    "record_count": 1,
+    "records": [
+      {
+        "artifact_references": [
+          {
+            "artifact_id": "fixture-strategy_candidate_panel-98d25f1e55698af0",
+            "artifact_type": "strategy_candidate_panel",
+            "content_sha256": "98d25f1e55698af02abbbb094f68d1d1b37e4dd02460014ba47972bf85842fff",
+            "record_count": 2,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_leg_panel-df638e7050e64ec0",
+            "artifact_type": "strategy_leg_panel",
+            "content_sha256": "df638e7050e64ec09f990fa7b77cd7b128c87f0d60379b1510fb9feee3e323f2",
+            "record_count": 5,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_market_snapshot-e4a407ae6ecdea55",
+            "artifact_type": "strategy_market_snapshot",
+            "content_sha256": "e4a407ae6ecdea55b9dabf4405adee959822d4d676993c28eb34a571f8be323c",
+            "record_count": 1,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_payoff_panel-289496fbc032abc2",
+            "artifact_type": "strategy_payoff_panel",
+            "content_sha256": "289496fbc032abc28b60b1ee20920ce22adfbb573fe8c68cd23c721e1b6e686a",
+            "record_count": 2,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_scenario_evaluation_panel-1a381c2b344c6e80",
+            "artifact_type": "strategy_scenario_evaluation_panel",
+            "content_sha256": "1a381c2b344c6e80955d0024b6070e75fdb55ff452454435b7bf28b2c571c7c5",
+            "record_count": 6,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_ambiguity_evaluation_panel-1dc47ce1f2dc1d3b",
+            "artifact_type": "strategy_ambiguity_evaluation_panel",
+            "content_sha256": "1dc47ce1f2dc1d3b8470b8b31ec06bcf4bc30ce4c3e14e7c76624cb096625655",
+            "record_count": 2,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_greek_panel-e2610009acbf732b",
+            "artifact_type": "strategy_greek_panel",
+            "content_sha256": "e2610009acbf732bf1291eba3317f67a2338fc8bd92f690e9ea6a43ca9275a1a",
+            "record_count": 2,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_risk_panel-da2764a501ffa7f6",
+            "artifact_type": "strategy_risk_panel",
+            "content_sha256": "da2764a501ffa7f6f9519e553a1c9135dba22d25649894b68254b8175c71d3d2",
+            "record_count": 2,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_cost_liquidity_panel-cf71357f1c442b00",
+            "artifact_type": "strategy_cost_liquidity_panel",
+            "content_sha256": "cf71357f1c442b00bb32e8a9808724097d43dc512ccae64a66873c209e0bffc1",
+            "record_count": 2,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_lineage_panel-5ac50b53e3fe0f51",
+            "artifact_type": "strategy_lineage_panel",
+            "content_sha256": "5ac50b53e3fe0f511c6b45d914345f42a0244dde56813b7436fe14e099f20b29",
+            "record_count": 2,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-strategy_generation_trace_panel-3bdd8140b5294582",
+            "artifact_type": "strategy_generation_trace_panel",
+            "content_sha256": "3bdd8140b529458260414cfa83c99fe94964196a8ec9a093a2cd87435c922549",
+            "record_count": 2,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-candidate_equivalence_panel-68d22786bd5253ee",
+            "artifact_type": "candidate_equivalence_panel",
+            "content_sha256": "68d22786bd5253ee7ac3c04566ee0ad41706a0fcdbbd1855302c5f5d4fbfef45",
+            "record_count": 2,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-candidate_rejection_report-4f53cda18c2baa0c",
+            "artifact_type": "candidate_rejection_report",
+            "content_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "record_count": 0,
+            "schema_version": "6.1.0-rc1"
+          },
+          {
+            "artifact_id": "fixture-candidate_generation_audit-05c329a38e1007af",
+            "artifact_type": "candidate_generation_audit",
+            "content_sha256": "05c329a38e1007affb6f87da0b6aa620a2602e4a27b617806cf66d098bddfa71",
+            "record_count": 1,
+            "schema_version": "6.1.0-rc1"
+          }
+        ],
+        "candidate_count": 2,
+        "candidate_ids_sha256": "0476a5747e74c13f290c81033a82599df3d2005e1285f6781751f8b17a7c9d50",
+        "cycle_id": "wave1-cycle",
+        "decision_time": "2026-01-02T20:00:00Z",
+        "generation_policy_version": "wave2-strategy-v1|wave2-mutation-v1|wave2-target-v1|wave2-solver-v1",
+        "handoff_id": "p7-native-fixture-handoff",
+        "production_promotion_allowed": false,
+        "snapshot_hash": "60d3f72303ae916f84f077fc8a4fae08ae0224760acd7916653efef21c9f2ee0",
+        "target_phase": "P7"
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_ambiguity_evaluation_panel": {
+    "artifact_id": "fixture-strategy_ambiguity_evaluation_panel-1dc47ce1f2dc1d3b",
+    "artifact_type": "strategy_ambiguity_evaluation_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "1dc47ce1f2dc1d3b8470b8b31ec06bcf4bc30ce4c3e14e7c76624cb096625655",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [
+      "artifact-aff932b9ac4a6318ab7f1164"
+    ],
+    "lineage_id": "lineage-9cb5b3432e97f0c84ec4af51",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 2,
+    "records": [
+      {
+        "ambiguity_regret": null,
+        "ambiguity_set_id": null,
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "distribution_sensitivity": null,
+        "nominal_expected_payoff": "-310.0000",
+        "reason_code": "P6_AMBIGUITY_SET_UNAVAILABLE",
+        "status": "UNAVAILABLE",
+        "worst_case_cvar": null,
+        "worst_case_expected_payoff": null,
+        "worst_case_expected_utility": null
+      },
+      {
+        "ambiguity_regret": null,
+        "ambiguity_set_id": null,
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "distribution_sensitivity": null,
+        "nominal_expected_payoff": "1.900",
+        "reason_code": "P6_AMBIGUITY_SET_UNAVAILABLE",
+        "status": "UNAVAILABLE",
+        "worst_case_cvar": null,
+        "worst_case_expected_payoff": null,
+        "worst_case_expected_utility": null
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_candidate_panel": {
+    "artifact_id": "fixture-strategy_candidate_panel-98d25f1e55698af0",
+    "artifact_type": "strategy_candidate_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "98d25f1e55698af02abbbb094f68d1d1b37e4dd02460014ba47972bf85842fff",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [],
+    "lineage_id": "lineage-b20188aeaba0884bb10e15a2",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 2,
+    "records": [
+      {
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "candidate_version": "1",
+        "decision_time": "2026-01-02T20:00:00Z",
+        "generation_run_id": "wave1-run",
+        "horizon_days": 30,
+        "legs": [
+          {
+            "currency": "USD",
+            "entry_price_reference": "2.4",
+            "exchange": "TEST",
+            "exercise_style": "EUROPEAN",
+            "expiration": "2026-02-01T20:00:00Z",
+            "instrument_id": "XYZ-CALL-110",
+            "instrument_type": "OPTION",
+            "leg_id": "leg-c3be6c47767cec1e0f53463a",
+            "leg_role": "FINANCING",
+            "multiplier": "100",
+            "option_type": "CALL",
+            "price_selection_method": "BID",
+            "quantity": "1",
+            "quote_quality": "TWO_SIDED_EXECUTABLE",
+            "settlement_type": "CASH",
+            "side": "SHORT",
+            "source_quote_id": "quote-XYZ-CALL-110",
+            "strike": "110"
+          },
+          {
+            "currency": "USD",
+            "entry_price_reference": "1.1",
+            "exchange": "TEST",
+            "exercise_style": "EUROPEAN",
+            "expiration": "2026-02-01T20:00:00Z",
+            "instrument_id": "XYZ-CALL-120",
+            "instrument_type": "OPTION",
+            "leg_id": "leg-81860ce9ee22cab0917146b0",
+            "leg_role": "PROTECTION",
+            "multiplier": "100",
+            "option_type": "CALL",
+            "price_selection_method": "ASK",
+            "quantity": "1",
+            "quote_quality": "TWO_SIDED_EXECUTABLE",
+            "settlement_type": "CASH",
+            "side": "LONG",
+            "source_quote_id": "quote-XYZ-CALL-120",
+            "strike": "120"
+          },
+          {
+            "currency": "USD",
+            "entry_price_reference": "21.1",
+            "exchange": "TEST",
+            "exercise_style": "EUROPEAN",
+            "expiration": "2026-02-01T20:00:00Z",
+            "instrument_id": "XYZ-CALL-80",
+            "instrument_type": "OPTION",
+            "leg_id": "leg-3c3feb19ba4d45e5d2a48c71",
+            "leg_role": "CORE",
+            "multiplier": "100",
+            "option_type": "CALL",
+            "price_selection_method": "ASK",
+            "quantity": "1",
+            "quote_quality": "TWO_SIDED_EXECUTABLE",
+            "settlement_type": "CASH",
+            "side": "LONG",
+            "source_quote_id": "quote-XYZ-CALL-80",
+            "strike": "80"
+          },
+          {
+            "currency": "USD",
+            "entry_price_reference": "11.9",
+            "exchange": "TEST",
+            "exercise_style": "EUROPEAN",
+            "expiration": "2026-02-01T20:00:00Z",
+            "instrument_id": "XYZ-CALL-90",
+            "instrument_type": "OPTION",
+            "leg_id": "leg-73bba95d6614a66a14ebf838",
+            "leg_role": "FINANCING",
+            "multiplier": "100",
+            "option_type": "CALL",
+            "price_selection_method": "BID",
+            "quantity": "1",
+            "quote_quality": "TWO_SIDED_EXECUTABLE",
+            "settlement_type": "CASH",
+            "side": "SHORT",
+            "source_quote_id": "quote-XYZ-CALL-90",
+            "strike": "90"
+          }
+        ],
+        "lineage_id": "canonical-lineage-4f31ac193f0b7c32caebe174",
+        "mutation_trace": [],
+        "objective_family": "RANGE",
+        "origin_mode": "TEMPLATE",
+        "origin_template_id": "LONG_CALL_CONDOR",
+        "parent_candidate_ids": [],
+        "status": "GENERATED",
+        "strategy_scale": "1",
+        "underlying_id": "XYZ"
+      },
+      {
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "candidate_version": "1",
+        "decision_time": "2026-01-02T20:00:00Z",
+        "generation_run_id": "wave1-run",
+        "horizon_days": 30,
+        "legs": [
+          {
+            "currency": "USD",
+            "entry_price_reference": "100.1",
+            "exchange": "TEST",
+            "exercise_style": null,
+            "expiration": null,
+            "instrument_id": "XYZ",
+            "instrument_type": "UNDERLYING",
+            "leg_id": "leg-a703998a51931f485e40a2b2",
+            "leg_role": "CORE",
+            "multiplier": "1",
+            "option_type": null,
+            "price_selection_method": "ASK",
+            "quantity": "1",
+            "quote_quality": null,
+            "settlement_type": null,
+            "side": "LONG",
+            "source_quote_id": null,
+            "strike": null
+          }
+        ],
+        "lineage_id": "canonical-lineage-24a330fbf171d63afbe4c646",
+        "mutation_trace": [],
+        "objective_family": "DIRECTIONAL_UP",
+        "origin_mode": "TEMPLATE",
+        "origin_template_id": "LONG_UNDERLYING",
+        "parent_candidate_ids": [],
+        "status": "GENERATED",
+        "strategy_scale": "1",
+        "underlying_id": "XYZ"
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_cost_liquidity_panel": {
+    "artifact_id": "fixture-strategy_cost_liquidity_panel-cf71357f1c442b00",
+    "artifact_type": "strategy_cost_liquidity_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "cf71357f1c442b00bb32e8a9808724097d43dc512ccae64a66873c209e0bffc1",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [
+      "artifact-00b103a65dd52b192b66bec9"
+    ],
+    "lineage_id": "lineage-5d4db8d00d86f87a3e553690",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 2,
+    "records": [
+      {
+        "atomic_combo_available": false,
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "conservative_entry_cost": "810.000",
+        "fee_estimate": "0",
+        "legging_required": true,
+        "legging_risk_proxy": "80.0",
+        "maximum_relative_spread": "0.2",
+        "quoted_cost": "790.0",
+        "slippage_estimate": "20.000",
+        "status": "AVAILABLE",
+        "stress_entry_cost": "870.0",
+        "weakest_leg_liquidity": "100"
+      },
+      {
+        "atomic_combo_available": false,
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "conservative_entry_cost": "100.10",
+        "fee_estimate": "0",
+        "legging_required": false,
+        "legging_risk_proxy": "0",
+        "maximum_relative_spread": null,
+        "quoted_cost": "100.1",
+        "slippage_estimate": "0.00",
+        "status": "AVAILABLE",
+        "stress_entry_cost": "100.1",
+        "weakest_leg_liquidity": null
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_generation_trace_panel": {
+    "artifact_id": "fixture-strategy_generation_trace_panel-3bdd8140b5294582",
+    "artifact_type": "strategy_generation_trace_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "3bdd8140b529458260414cfa83c99fe94964196a8ec9a093a2cd87435c922549",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [
+      "artifact-fd1682933d6a63eafd19ebde"
+    ],
+    "lineage_id": "lineage-3f03ef4d2740e145634cc013",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 2,
+    "records": [
+      {
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "dedup_cluster": null,
+        "generation_stage": "P6.S3",
+        "operators": [],
+        "origin": "TEMPLATE",
+        "origin_template_id": "LONG_CALL_CONDOR",
+        "parameters": {
+          "policy_version": "wave2-strategy-v1"
+        },
+        "parent_candidate_ids": [],
+        "rejection_history": [],
+        "solver_id": null,
+        "solver_status": null
+      },
+      {
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "dedup_cluster": null,
+        "generation_stage": "P6.S3",
+        "operators": [],
+        "origin": "TEMPLATE",
+        "origin_template_id": "LONG_UNDERLYING",
+        "parameters": {
+          "policy_version": "wave2-strategy-v1"
+        },
+        "parent_candidate_ids": [],
+        "rejection_history": [],
+        "solver_id": null,
+        "solver_status": null
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_greek_panel": {
+    "artifact_id": "fixture-strategy_greek_panel-e2610009acbf732b",
+    "artifact_type": "strategy_greek_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "e2610009acbf732bf1291eba3317f67a2338fc8bd92f690e9ea6a43ca9275a1a",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [
+      "artifact-d3ccc708e0509736463d6a52"
+    ],
+    "lineage_id": "lineage-26f333b3d07e295a1363fc3e",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 2,
+    "records": [
+      {
+        "calculation_method": "BLACK_SCHOLES_MERTON",
+        "calculation_time": "2026-01-02T20:00:01Z",
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "charm": null,
+        "delta": "-3.18314719532754079",
+        "gamma": "-3.055624368121737097",
+        "input_surface_id": null,
+        "rho": null,
+        "status": "AVAILABLE",
+        "theta": "1.85161150402742849",
+        "vanna": null,
+        "vega": "-5.022944166775457646",
+        "volga": null
+      },
+      {
+        "calculation_method": "BLACK_SCHOLES_MERTON",
+        "calculation_time": "2026-01-02T20:00:01Z",
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "charm": null,
+        "delta": "1",
+        "gamma": "0",
+        "input_surface_id": null,
+        "rho": null,
+        "status": "AVAILABLE",
+        "theta": "0",
+        "vanna": null,
+        "vega": "0",
+        "volga": null
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_leg_panel": {
+    "artifact_id": "fixture-strategy_leg_panel-df638e7050e64ec0",
+    "artifact_type": "strategy_leg_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "df638e7050e64ec09f990fa7b77cd7b128c87f0d60379b1510fb9feee3e323f2",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [],
+    "lineage_id": "lineage-e02022c9e80d459b1e937d26",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 5,
+    "records": [
+      {
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "leg": {
+          "currency": "USD",
+          "entry_price_reference": "2.4",
+          "exchange": "TEST",
+          "exercise_style": "EUROPEAN",
+          "expiration": "2026-02-01T20:00:00Z",
+          "instrument_id": "XYZ-CALL-110",
+          "instrument_type": "OPTION",
+          "leg_id": "leg-c3be6c47767cec1e0f53463a",
+          "leg_role": "FINANCING",
+          "multiplier": "100",
+          "option_type": "CALL",
+          "price_selection_method": "BID",
+          "quantity": "1",
+          "quote_quality": "TWO_SIDED_EXECUTABLE",
+          "settlement_type": "CASH",
+          "side": "SHORT",
+          "source_quote_id": "quote-XYZ-CALL-110",
+          "strike": "110"
+        }
+      },
+      {
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "leg": {
+          "currency": "USD",
+          "entry_price_reference": "1.1",
+          "exchange": "TEST",
+          "exercise_style": "EUROPEAN",
+          "expiration": "2026-02-01T20:00:00Z",
+          "instrument_id": "XYZ-CALL-120",
+          "instrument_type": "OPTION",
+          "leg_id": "leg-81860ce9ee22cab0917146b0",
+          "leg_role": "PROTECTION",
+          "multiplier": "100",
+          "option_type": "CALL",
+          "price_selection_method": "ASK",
+          "quantity": "1",
+          "quote_quality": "TWO_SIDED_EXECUTABLE",
+          "settlement_type": "CASH",
+          "side": "LONG",
+          "source_quote_id": "quote-XYZ-CALL-120",
+          "strike": "120"
+        }
+      },
+      {
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "leg": {
+          "currency": "USD",
+          "entry_price_reference": "21.1",
+          "exchange": "TEST",
+          "exercise_style": "EUROPEAN",
+          "expiration": "2026-02-01T20:00:00Z",
+          "instrument_id": "XYZ-CALL-80",
+          "instrument_type": "OPTION",
+          "leg_id": "leg-3c3feb19ba4d45e5d2a48c71",
+          "leg_role": "CORE",
+          "multiplier": "100",
+          "option_type": "CALL",
+          "price_selection_method": "ASK",
+          "quantity": "1",
+          "quote_quality": "TWO_SIDED_EXECUTABLE",
+          "settlement_type": "CASH",
+          "side": "LONG",
+          "source_quote_id": "quote-XYZ-CALL-80",
+          "strike": "80"
+        }
+      },
+      {
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "leg": {
+          "currency": "USD",
+          "entry_price_reference": "11.9",
+          "exchange": "TEST",
+          "exercise_style": "EUROPEAN",
+          "expiration": "2026-02-01T20:00:00Z",
+          "instrument_id": "XYZ-CALL-90",
+          "instrument_type": "OPTION",
+          "leg_id": "leg-73bba95d6614a66a14ebf838",
+          "leg_role": "FINANCING",
+          "multiplier": "100",
+          "option_type": "CALL",
+          "price_selection_method": "BID",
+          "quantity": "1",
+          "quote_quality": "TWO_SIDED_EXECUTABLE",
+          "settlement_type": "CASH",
+          "side": "SHORT",
+          "source_quote_id": "quote-XYZ-CALL-90",
+          "strike": "90"
+        }
+      },
+      {
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "leg": {
+          "currency": "USD",
+          "entry_price_reference": "100.1",
+          "exchange": "TEST",
+          "exercise_style": null,
+          "expiration": null,
+          "instrument_id": "XYZ",
+          "instrument_type": "UNDERLYING",
+          "leg_id": "leg-a703998a51931f485e40a2b2",
+          "leg_role": "CORE",
+          "multiplier": "1",
+          "option_type": null,
+          "price_selection_method": "ASK",
+          "quantity": "1",
+          "quote_quality": null,
+          "settlement_type": null,
+          "side": "LONG",
+          "source_quote_id": null,
+          "strike": null
+        }
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_lineage_panel": {
+    "artifact_id": "fixture-strategy_lineage_panel-5ac50b53e3fe0f51",
+    "artifact_type": "strategy_lineage_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "5ac50b53e3fe0f511c6b45d914345f42a0244dde56813b7436fe14e099f20b29",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [],
+    "lineage_id": "lineage-debb7b861a57c9e4ebb714a6",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 2,
+    "records": [
+      {
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "generation_run_id": "wave1-run",
+        "lineage_id": "canonical-lineage-4f31ac193f0b7c32caebe174",
+        "origin_template_id": "LONG_CALL_CONDOR",
+        "source_artifact_ids": [
+          "artifact-294e5302088c058c90ac2f1a",
+          "artifact-3718a41c38a76699372ceb22",
+          "artifact-72568d679d49cf1454168b89",
+          "artifact-8fac5cdfe28864df49661d22"
+        ]
+      },
+      {
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "generation_run_id": "wave1-run",
+        "lineage_id": "canonical-lineage-24a330fbf171d63afbe4c646",
+        "origin_template_id": "LONG_UNDERLYING",
+        "source_artifact_ids": [
+          "artifact-294e5302088c058c90ac2f1a",
+          "artifact-3718a41c38a76699372ceb22",
+          "artifact-72568d679d49cf1454168b89",
+          "artifact-8fac5cdfe28864df49661d22"
+        ]
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_market_snapshot": {
+    "artifact_id": "fixture-strategy_market_snapshot-e4a407ae6ecdea55",
+    "artifact_type": "strategy_market_snapshot",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "e4a407ae6ecdea55b9dabf4405adee959822d4d676993c28eb34a571f8be323c",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [
+      "artifact-258baded8c2063e8c1b0e273",
+      "artifact-27905e8641b3017d292bcdbf",
+      "artifact-36adc5259f3f542b0ef93c41",
+      "artifact-452b0b0ccecf7ca38afc6559",
+      "artifact-a570a25b02c18d084e3ee633",
+      "artifact-b1a75964328909d1e2419d2c"
+    ],
+    "lineage_id": "lineage-31da49bd25ae7bb81969f817",
+    "metadata": {},
+    "producer_module_id": "P6.S1.M05",
+    "producer_phase": "P6",
+    "record_count": 1,
+    "records": [
+      {
+        "belief_artifact_id": "artifact-a570a25b02c18d084e3ee633",
+        "contract_artifact_id": "artifact-452b0b0ccecf7ca38afc6559",
+        "contract_count": 10,
+        "decision_time": "2026-01-02T20:00:00Z",
+        "p5_compatibility_report_artifact_id": "artifact-b1a75964328909d1e2419d2c",
+        "p5_manifest_id": "legacy-b62bed80698593fa998a78bd",
+        "p5_manifest_sha256": "b62bed80698593fa998a78bdc85ccc885c97b7b58c2645910fb96810ac5b85a8",
+        "p5_source_artifact_ids": [],
+        "p5_source_hashes": [],
+        "quote_artifact_id": "artifact-36adc5259f3f542b0ef93c41",
+        "quote_count": 10,
+        "rejection_report_artifact_id": "artifact-258baded8c2063e8c1b0e273",
+        "snapshot_id": "market-snapshot-f89dc44f4961403d40505f15",
+        "snapshot_sha256": "60d3f72303ae916f84f077fc8a4fae08ae0224760acd7916653efef21c9f2ee0",
+        "underlying_artifact_id": "artifact-27905e8641b3017d292bcdbf",
+        "underlying_count": 1
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_payoff_panel": {
+    "artifact_id": "fixture-strategy_payoff_panel-289496fbc032abc2",
+    "artifact_type": "strategy_payoff_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "289496fbc032abc28b60b1ee20920ce22adfbb573fe8c68cd23c721e1b6e686a",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [
+      "artifact-be5c32627607ae6cc78e770d"
+    ],
+    "lineage_id": "lineage-8b528300f2ee4954115fabc4",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 2,
+    "records": [
+      {
+        "break_even_points": [
+          "88.10",
+          "111.90"
+        ],
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "entry_cash_flow": "790.0",
+        "maximum_gain": "190.000",
+        "maximum_gain_unbounded": false,
+        "maximum_loss": "810.000",
+        "payoff_status": "AVAILABLE",
+        "right_tail_slope": "0",
+        "spot_grid": [
+          "0",
+          "80",
+          "90",
+          "100",
+          "110",
+          "120",
+          "200",
+          "360"
+        ],
+        "terminal_pnl": [
+          "-810.000",
+          "-810.000",
+          "190.000",
+          "190.000",
+          "190.000",
+          "-810.000",
+          "-810.000",
+          "-810.000"
+        ]
+      },
+      {
+        "break_even_points": [
+          "100.100"
+        ],
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "entry_cash_flow": "100.1",
+        "maximum_gain": null,
+        "maximum_gain_unbounded": true,
+        "maximum_loss": "100.10",
+        "payoff_status": "AVAILABLE",
+        "right_tail_slope": "1",
+        "spot_grid": [
+          "0",
+          "100",
+          "200"
+        ],
+        "terminal_pnl": [
+          "-100.10",
+          "-0.10",
+          "99.90"
+        ]
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_risk_panel": {
+    "artifact_id": "fixture-strategy_risk_panel-da2764a501ffa7f6",
+    "artifact_type": "strategy_risk_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "da2764a501ffa7f6f9519e553a1c9135dba22d25649894b68254b8175c71d3d2",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [
+      "artifact-312b5159b718cac5d85d46c4"
+    ],
+    "lineage_id": "lineage-a0e8980a6e8e602d5946b7d6",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 2,
+    "records": [
+      {
+        "break_even_points": [
+          "88.10",
+          "111.90"
+        ],
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "expected_net_payoff": "-310.0000",
+        "expected_shortfall": "810.000",
+        "lower_quantile": "-810.000",
+        "maximum_gain": "190.000",
+        "maximum_loss": "810.000",
+        "median_net_payoff": "-810.000",
+        "nominal_utility": null,
+        "probability_of_profit": "0.5",
+        "regret": null,
+        "return_on_margin": "-0.3827160493827160493827160494",
+        "return_on_max_loss": "-0.3827160493827160493827160494",
+        "upper_quantile": "190.000",
+        "value_at_risk": "810.000",
+        "worst_ambiguity_utility": null
+      },
+      {
+        "break_even_points": [
+          "100.100"
+        ],
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "expected_net_payoff": "1.900",
+        "expected_shortfall": "20.10",
+        "lower_quantile": "-20.10",
+        "maximum_gain": null,
+        "maximum_loss": "100.10",
+        "median_net_payoff": "-0.10",
+        "nominal_utility": null,
+        "probability_of_profit": "0.3",
+        "regret": null,
+        "return_on_margin": "0.01898101898101898101898101898",
+        "return_on_max_loss": "0.01898101898101898101898101898",
+        "upper_quantile": "19.90",
+        "value_at_risk": "20.10",
+        "worst_ambiguity_utility": null
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  },
+  "strategy_scenario_evaluation_panel": {
+    "artifact_id": "fixture-strategy_scenario_evaluation_panel-1a381c2b344c6e80",
+    "artifact_type": "strategy_scenario_evaluation_panel",
+    "available_at": "2026-01-02T20:00:01Z",
+    "content_sha256": "1a381c2b344c6e80955d0024b6070e75fdb55ff452454435b7bf28b2c571c7c5",
+    "created_at": "2026-01-02T20:00:01Z",
+    "cycle_id": "wave1-cycle",
+    "decision_time": "2026-01-02T20:00:00Z",
+    "input_artifact_ids": [
+      "artifact-655ae6d7a4ee51bcfb1db580"
+    ],
+    "lineage_id": "lineage-39c4166477c617c233591a86",
+    "metadata": {},
+    "producer_module_id": "P6.S10.M01",
+    "producer_phase": "P6",
+    "record_count": 6,
+    "records": [
+      {
+        "assignment_state": "NOT_MODELLED",
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "exercise_state": "NOT_MODELLED",
+        "liquidity_stress": null,
+        "margin_stress": null,
+        "maximum_path_loss": null,
+        "pathwise_mark_to_market": [],
+        "scenario_cost": "20.000",
+        "scenario_id": "down",
+        "scenario_pnl": "-810.000",
+        "scenario_probability": "0.2",
+        "terminal_payoff": "-790.0"
+      },
+      {
+        "assignment_state": "NOT_MODELLED",
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "exercise_state": "NOT_MODELLED",
+        "liquidity_stress": null,
+        "margin_stress": null,
+        "maximum_path_loss": null,
+        "pathwise_mark_to_market": [],
+        "scenario_cost": "20.000",
+        "scenario_id": "flat",
+        "scenario_pnl": "190.000",
+        "scenario_probability": "0.5",
+        "terminal_payoff": "210.0"
+      },
+      {
+        "assignment_state": "NOT_MODELLED",
+        "candidate_id": "candidate-0b81415872df2ad21fd3e8dc",
+        "exercise_state": "NOT_MODELLED",
+        "liquidity_stress": null,
+        "margin_stress": null,
+        "maximum_path_loss": null,
+        "pathwise_mark_to_market": [],
+        "scenario_cost": "20.000",
+        "scenario_id": "up",
+        "scenario_pnl": "-810.000",
+        "scenario_probability": "0.3",
+        "terminal_payoff": "-790.0"
+      },
+      {
+        "assignment_state": "NOT_MODELLED",
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "exercise_state": "NOT_MODELLED",
+        "liquidity_stress": null,
+        "margin_stress": null,
+        "maximum_path_loss": null,
+        "pathwise_mark_to_market": [],
+        "scenario_cost": "0.00",
+        "scenario_id": "down",
+        "scenario_pnl": "-20.10",
+        "scenario_probability": "0.2",
+        "terminal_payoff": "-20.1"
+      },
+      {
+        "assignment_state": "NOT_MODELLED",
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "exercise_state": "NOT_MODELLED",
+        "liquidity_stress": null,
+        "margin_stress": null,
+        "maximum_path_loss": null,
+        "pathwise_mark_to_market": [],
+        "scenario_cost": "0.00",
+        "scenario_id": "flat",
+        "scenario_pnl": "-0.10",
+        "scenario_probability": "0.5",
+        "terminal_payoff": "-0.1"
+      },
+      {
+        "assignment_state": "NOT_MODELLED",
+        "candidate_id": "candidate-5c2d0b679fa3aa02ee8ae645",
+        "exercise_state": "NOT_MODELLED",
+        "liquidity_stress": null,
+        "margin_stress": null,
+        "maximum_path_loss": null,
+        "pathwise_mark_to_market": [],
+        "scenario_cost": "0.00",
+        "scenario_id": "up",
+        "scenario_pnl": "19.90",
+        "scenario_probability": "0.3",
+        "terminal_payoff": "19.9"
+      }
+    ],
+    "run_id": "wave1-run",
+    "schema_version": "6.1.0-rc1",
+    "status": "COMPLETE"
+  }
+}

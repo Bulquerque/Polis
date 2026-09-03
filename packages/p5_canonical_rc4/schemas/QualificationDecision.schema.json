@@ -1,0 +1,64 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "baseline_resolver_id": {
+      "minLength": 1,
+      "title": "Baseline Resolver Id",
+      "type": "string"
+    },
+    "classification": {
+      "enum": [
+        "CHAMPION",
+        "QUALIFIED_CHALLENGER",
+        "SHADOW",
+        "REJECTED",
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "title": "Classification",
+      "type": "string"
+    },
+    "deterministic": {
+      "title": "Deterministic",
+      "type": "boolean"
+    },
+    "fold_count": {
+      "minimum": 0,
+      "title": "Fold Count",
+      "type": "integer"
+    },
+    "horizon": {
+      "minLength": 1,
+      "title": "Horizon",
+      "type": "string"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "resolver_id": {
+      "minLength": 1,
+      "title": "Resolver Id",
+      "type": "string"
+    },
+    "target_id": {
+      "minLength": 1,
+      "title": "Target Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "resolver_id",
+    "target_id",
+    "horizon",
+    "classification",
+    "baseline_resolver_id",
+    "fold_count",
+    "deterministic"
+  ],
+  "title": "QualificationDecision",
+  "type": "object"
+}

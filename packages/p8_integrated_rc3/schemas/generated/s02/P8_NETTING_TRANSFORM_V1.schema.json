@@ -1,0 +1,259 @@
+{
+  "$defs": {
+    "CandidateInstrumentCoefficient": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "signed_contracts_per_candidate_unit": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Signed Contracts Per Candidate Unit"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "instrument_id",
+        "signed_contracts_per_candidate_unit",
+        "contract_multiplier",
+        "currency"
+      ],
+      "title": "CandidateInstrumentCoefficient",
+      "type": "object"
+    },
+    "CurrentPhysicalPositionBaseline": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_id": {
+          "minLength": 1,
+          "title": "Instrument Id",
+          "type": "string"
+        },
+        "current_contract_quantity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Current Contract Quantity"
+        },
+        "contract_multiplier": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Contract Multiplier"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "virtual_attribution_status": {
+          "enum": [
+            "UNAVAILABLE_IN_S1_STATE",
+            "NOT_REQUIRED_ZERO_POSITION"
+          ],
+          "title": "Virtual Attribution Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "instrument_id",
+        "current_contract_quantity",
+        "contract_multiplier",
+        "currency",
+        "virtual_attribution_status"
+      ],
+      "title": "CurrentPhysicalPositionBaseline",
+      "type": "object"
+    },
+    "NettingTransformProof": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_count": {
+          "minimum": 0,
+          "title": "Candidate Count",
+          "type": "integer"
+        },
+        "instrument_count": {
+          "minimum": 0,
+          "title": "Instrument Count",
+          "type": "integer"
+        },
+        "coefficient_count": {
+          "minimum": 0,
+          "title": "Coefficient Count",
+          "type": "integer"
+        },
+        "all_active_candidates_mapped": {
+          "title": "All Active Candidates Mapped",
+          "type": "boolean"
+        },
+        "contains_final_target_quantities": {
+          "const": false,
+          "default": false,
+          "title": "Contains Final Target Quantities",
+          "type": "boolean"
+        },
+        "equation_semantics": {
+          "const": "target_physical_quantity = current_physical_quantity + sum(coefficient * virtual_candidate_quantity)",
+          "title": "Equation Semantics",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_count",
+        "instrument_count",
+        "coefficient_count",
+        "all_active_candidates_mapped",
+        "equation_semantics"
+      ],
+      "title": "NettingTransformProof",
+      "type": "object"
+    },
+    "VirtualCandidateIntentRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "minLength": 1,
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "canonical_candidate_id": {
+          "minLength": 1,
+          "title": "Canonical Candidate Id",
+          "type": "string"
+        },
+        "unit_definition": {
+          "minLength": 1,
+          "title": "Unit Definition",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/VirtualIntentState"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "canonical_candidate_id",
+        "unit_definition",
+        "state"
+      ],
+      "title": "VirtualCandidateIntentRecord",
+      "type": "object"
+    },
+    "VirtualIntentState": {
+      "enum": [
+        "ACTIVE_FOR_SIZING",
+        "P7_TERMINAL_PRESERVED"
+      ],
+      "title": "VirtualIntentState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "P8_NETTING_TRANSFORM_V1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "virtual_intents": {
+      "items": {
+        "$ref": "#/$defs/VirtualCandidateIntentRecord"
+      },
+      "title": "Virtual Intents",
+      "type": "array"
+    },
+    "coefficients": {
+      "items": {
+        "$ref": "#/$defs/CandidateInstrumentCoefficient"
+      },
+      "title": "Coefficients",
+      "type": "array"
+    },
+    "current_positions": {
+      "items": {
+        "$ref": "#/$defs/CurrentPhysicalPositionBaseline"
+      },
+      "title": "Current Positions",
+      "type": "array"
+    },
+    "proof": {
+      "$ref": "#/$defs/NettingTransformProof"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Content Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "schema_version",
+    "snapshot_id",
+    "virtual_intents",
+    "coefficients",
+    "current_positions",
+    "proof",
+    "content_sha256"
+  ],
+  "title": "NettingTransform",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "P8_NETTING_TRANSFORM_V1.schema.json"
+}

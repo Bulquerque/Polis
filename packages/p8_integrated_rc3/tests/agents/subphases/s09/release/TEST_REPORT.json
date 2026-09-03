@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "tests_passed": 119,
+  "tests_failed": 0,
+  "combined_statement_branch_coverage_percent": 99.53,
+  "coverage_threshold_percent": 92.0,
+  "commands": [
+    "pytest -q --cov --cov-branch",
+    "python scripts/check_structure.py"
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "$defs": {
+    "CommittedScenario": {
+      "additionalProperties": false,
+      "properties": {
+        "scenario": {
+          "$ref": "#/$defs/ScenarioProposal"
+        },
+        "semantic_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Semantic Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scenario",
+        "semantic_sha256"
+      ],
+      "title": "CommittedScenario",
+      "type": "object"
+    },
+    "EvidenceClass": {
+      "enum": [
+        "OBSERVED_LIVE",
+        "OBSERVED_HISTORICAL",
+        "TRANSLATED_FACTOR",
+        "MODELLED",
+        "PARAMETRIC",
+        "STRESS_EXTRAPOLATED",
+        "UNAVAILABLE"
+      ],
+      "title": "EvidenceClass",
+      "type": "string"
+    },
+    "EvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/EvidenceClass"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "evidence_type": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Evidence Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "evidence_type",
+        "content_sha256",
+        "evidence_class"
+      ],
+      "title": "EvidenceReference",
+      "type": "object"
+    },
+    "FactorShock": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "unit": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "value",
+        "unit"
+      ],
+      "title": "FactorShock",
+      "type": "object"
+    },
+    "MaterialRiskCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "covered": {
+          "title": "Covered",
+          "type": "boolean"
+        },
+        "covering_scenario_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Covering Scenario Ids",
+          "type": "array"
+        },
+        "materiality_weight": {
+          "exclusiveMinimum": 0,
+          "title": "Materiality Weight",
+          "type": "number"
+        },
+        "risk_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Risk Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "risk_id",
+        "covered",
+        "covering_scenario_ids",
+        "materiality_weight"
+      ],
+      "title": "MaterialRiskCoverage",
+      "type": "object"
+    },
+    "S6State": {
+      "enum": [
+        "SUCCESS",
+        "COMMITTED",
+        "COMMITTED_WITH_COVERAGE_GAPS",
+        "DUPLICATE_REJECTED",
+        "SUCCESS_WITH_MAPPING_LIMITATIONS",
+        "MATERIAL_EXPOSURE_UNMAPPED",
+        "LOCAL_ONLY",
+        "EXTRAPOLATION_LIMITED",
+        "CONSTRAINT_DISCONTINUITY_FOUND",
+        "QUALIFIED",
+        "QUALIFIED_WITH_LIMITATIONS",
+        "INSUFFICIENT_EXCEEDANCES",
+        "UNSTABLE_TAIL_INDEX",
+        "THRESHOLD_NOT_IDENTIFIED",
+        "DEPENDENCE_NOT_REMOVED",
+        "AMBIGUITY_SET_UNINFORMATIVE",
+        "SOLVER_NOT_QUALIFIED",
+        "UNBOUNDED",
+        "CAPACITY_LIMITED",
+        "BORROW_LIMITED",
+        "MARGIN_FRAGILE",
+        "NETWORK_STRESS_RESEARCH_ONLY",
+        "INSUFFICIENT_LIQUIDITY_DATA",
+        "STRESS_RESILIENT",
+        "RESILIENT_WITH_LIMITATIONS",
+        "REVERSE_STRESS_TOO_CLOSE",
+        "STRUCTURALLY_UNSAFE",
+        "NO_FAILURE_WITHIN_DOMAIN",
+        "SEARCH_NOT_CONVERGED",
+        "VALIDATED",
+        "VALIDATED_WITH_LIMITATIONS",
+        "RESEARCH_ONLY",
+        "SCENARIO_INCOMPLETE",
+        "MODEL_NOT_FIT_FOR_STRESS",
+        "UNVALIDATED",
+        "CAPABILITY_UNAVAILABLE",
+        "INVALID_INPUT",
+        "INVALID"
+      ],
+      "title": "S6State",
+      "type": "string"
+    },
+    "ScenarioClass": {
+      "enum": [
+        "HISTORICAL_REPLAY",
+        "HYPOTHETICAL_SCENARIO",
+        "UNIVARIATE_SENSITIVITY",
+        "MULTIVARIATE_STRESS",
+        "REVERSE_STRESS",
+        "LIQUIDITY_STRESS",
+        "MARGIN_STRESS",
+        "EXECUTION_STRESS",
+        "MODEL_STRESS",
+        "SYSTEMIC_STRESS"
+      ],
+      "title": "ScenarioClass",
+      "type": "string"
+    },
+    "ScenarioProposal": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_uses": {
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Approved Uses",
+          "type": "array"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "horizon_days": {
+          "minimum": 1,
+          "title": "Horizon Days",
+          "type": "integer"
+        },
+        "name": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Name",
+          "type": "string"
+        },
+        "plausibility_label": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Plausibility Label",
+          "type": "string"
+        },
+        "prohibited_uses": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": ".*\\S.*",
+            "type": "string"
+          },
+          "title": "Prohibited Uses",
+          "type": "array"
+        },
+        "purpose": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "scenario_class": {
+          "$ref": "#/$defs/ScenarioClass"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "severity_label": {
+          "minLength": 1,
+          "pattern": ".*\\S.*",
+          "title": "Severity Label",
+          "type": "string"
+        },
+        "shocks": {
+          "items": {
+            "$ref": "#/$defs/FactorShock"
+          },
+          "title": "Shocks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "name",
+        "scenario_class",
+        "created_at",
+        "purpose",
+        "approved_uses",
+        "shocks",
+        "horizon_days",
+        "severity_label",
+        "plausibility_label"
+      ],
+      "title": "ScenarioProposal",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commitment_time": {
+      "format": "date-time",
+      "title": "Commitment Time",
+      "type": "string"
+    },
+    "duplicate_scenario_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Duplicate Scenario Ids",
+      "type": "array"
+    },
+    "evidence": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/EvidenceReference"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "limitations": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "reason_codes": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": ".*\\S.*",
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "registry_id": {
+      "minLength": 1,
+      "pattern": ".*\\S.*",
+      "title": "Registry Id",
+      "type": "string"
+    },
+    "registry_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Registry Sha256",
+      "type": "string"
+    },
+    "risk_coverage": {
+      "items": {
+        "$ref": "#/$defs/MaterialRiskCoverage"
+      },
+      "title": "Risk Coverage",
+      "type": "array"
+    },
+    "scenarios": {
+      "items": {
+        "$ref": "#/$defs/CommittedScenario"
+      },
+      "title": "Scenarios",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/S6State"
+    },
+    "weighted_material_risk_coverage": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Weighted Material Risk Coverage",
+      "type": "number"
+    }
+  },
+  "required": [
+    "status",
+    "registry_id",
+    "scenarios",
+    "duplicate_scenario_ids",
+    "risk_coverage",
+    "weighted_material_risk_coverage",
+    "commitment_time",
+    "registry_sha256"
+  ],
+  "title": "StressScenarioRegistrySnapshot",
+  "type": "object"
+}

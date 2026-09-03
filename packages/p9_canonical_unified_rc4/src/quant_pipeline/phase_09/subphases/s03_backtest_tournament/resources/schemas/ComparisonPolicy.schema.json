@@ -1,0 +1,50 @@
+{
+  "$id": "https://inferencia.local/p9/s3/ComparisonPolicy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dominance_tolerance": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Dominance Tolerance"
+    },
+    "mean_loss_tolerance": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        }
+      ],
+      "default": "0",
+      "title": "Mean Loss Tolerance"
+    },
+    "minimum_common_units": {
+      "default": 2,
+      "minimum": 1,
+      "title": "Minimum Common Units",
+      "type": "integer"
+    },
+    "policy_id": {
+      "title": "Policy Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id"
+  ],
+  "title": "ComparisonPolicy",
+  "type": "object"
+}

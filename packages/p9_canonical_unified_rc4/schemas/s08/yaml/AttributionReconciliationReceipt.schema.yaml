@@ -1,0 +1,43 @@
+additionalProperties: false
+properties:
+  decomposition_version:
+    minLength: 1
+    title: Decomposition Version
+    type: string
+  factual_pnl:
+    title: Factual Pnl
+    type: number
+  attributed_pnl:
+    title: Attributed Pnl
+    type: number
+  residual_pnl:
+    title: Residual Pnl
+    type: number
+  tolerance:
+    minimum: 0.0
+    title: Tolerance
+    type: number
+  reconciled:
+    title: Reconciled
+    type: boolean
+  double_count_checks_passed:
+    title: Double Count Checks Passed
+    type: boolean
+  reason_codes:
+    items:
+      minLength: 1
+      type: string
+    title: Reason Codes
+    type: array
+required:
+- decomposition_version
+- factual_pnl
+- attributed_pnl
+- residual_pnl
+- tolerance
+- reconciled
+- double_count_checks_passed
+- reason_codes
+title: AttributionReconciliationReceipt
+type: object
+$id: urn:inferencia:p9:s8:AttributionReconciliationReceipt:1.0.0
